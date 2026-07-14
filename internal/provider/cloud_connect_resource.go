@@ -102,7 +102,7 @@ var CloudConnectAWSProviderAWSTGWSiteSiteModelAttrTypes = map[string]attr.Type{
 
 // CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsModel represents vpc_attachments block
 type CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsModel struct {
-	VPCList []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel `tfsdk:"vpc_list"`
+	VPCList types.List `tfsdk:"vpc_list"`
 }
 
 // CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsModelAttrTypes defines the attribute types for CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsModel
@@ -130,7 +130,7 @@ var CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModelAttrTypes = map[s
 
 // CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel represents custom_routing block
 type CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel struct {
-	RouteTables []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel `tfsdk:"route_tables"`
+	RouteTables types.List `tfsdk:"route_tables"`
 }
 
 // CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModelAttrTypes defines the attribute types for CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel
@@ -216,7 +216,7 @@ var CloudConnectAWSTGWSiteSiteModelAttrTypes = map[string]attr.Type{
 
 // CloudConnectAWSTGWSiteVPCAttachmentsModel represents vpc_attachments block
 type CloudConnectAWSTGWSiteVPCAttachmentsModel struct {
-	VPCList []CloudConnectAWSTGWSiteVPCAttachmentsVPCListModel `tfsdk:"vpc_list"`
+	VPCList types.List `tfsdk:"vpc_list"`
 }
 
 // CloudConnectAWSTGWSiteVPCAttachmentsModelAttrTypes defines the attribute types for CloudConnectAWSTGWSiteVPCAttachmentsModel
@@ -244,7 +244,7 @@ var CloudConnectAWSTGWSiteVPCAttachmentsVPCListModelAttrTypes = map[string]attr.
 
 // CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel represents custom_routing block
 type CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel struct {
-	RouteTables []CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel `tfsdk:"route_tables"`
+	RouteTables types.List `tfsdk:"route_tables"`
 }
 
 // CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModelAttrTypes defines the attribute types for CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel
@@ -314,7 +314,7 @@ var CloudConnectAzureVNETSiteSiteModelAttrTypes = map[string]attr.Type{
 
 // CloudConnectAzureVNETSiteVNETAttachmentsModel represents vnet_attachments block
 type CloudConnectAzureVNETSiteVNETAttachmentsModel struct {
-	VNETList []CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel `tfsdk:"vnet_list"`
+	VNETList types.List `tfsdk:"vnet_list"`
 }
 
 // CloudConnectAzureVNETSiteVNETAttachmentsModelAttrTypes defines the attribute types for CloudConnectAzureVNETSiteVNETAttachmentsModel
@@ -344,7 +344,7 @@ var CloudConnectAzureVNETSiteVNETAttachmentsVNETListModelAttrTypes = map[string]
 
 // CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingModel represents custom_routing block
 type CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingModel struct {
-	RouteTables []CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModel `tfsdk:"route_tables"`
+	RouteTables types.List `tfsdk:"route_tables"`
 }
 
 // CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingModelAttrTypes defines the attribute types for CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingModel
@@ -1050,62 +1050,72 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 			}
 			if data.AWSProvider.AWSTGWSite.VPCAttachments != nil {
 				VPCAttachmentsMap := make(map[string]interface{})
-				if len(data.AWSProvider.AWSTGWSite.VPCAttachments.VPCList) > 0 {
-					var VPCListList []map[string]interface{}
-					for _, VPCListItem := range data.AWSProvider.AWSTGWSite.VPCAttachments.VPCList {
-						VPCListItemMap := make(map[string]interface{})
-						if VPCListItem.CustomRouting != nil {
-							CustomRoutingMap := make(map[string]interface{})
-							if len(VPCListItem.CustomRouting.RouteTables) > 0 {
-								var RouteTablesList []map[string]interface{}
-								for _, RouteTablesItem := range VPCListItem.CustomRouting.RouteTables {
-									RouteTablesItemMap := make(map[string]interface{})
-									if !RouteTablesItem.RouteTableID.IsNull() && !RouteTablesItem.RouteTableID.IsUnknown() {
-										RouteTablesItemMap["route_table_id"] = RouteTablesItem.RouteTableID.ValueString()
+				if !data.AWSProvider.AWSTGWSite.VPCAttachments.VPCList.IsNull() && !data.AWSProvider.AWSTGWSite.VPCAttachments.VPCList.IsUnknown() {
+					var VPCListElems []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel
+					diags := data.AWSProvider.AWSTGWSite.VPCAttachments.VPCList.ElementsAs(ctx, &VPCListElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(VPCListElems) > 0 {
+						var VPCListList []map[string]interface{}
+						for _, VPCListItem := range VPCListElems {
+							VPCListItemMap := make(map[string]interface{})
+							if VPCListItem.CustomRouting != nil {
+								CustomRoutingMap := make(map[string]interface{})
+								if !VPCListItem.CustomRouting.RouteTables.IsNull() && !VPCListItem.CustomRouting.RouteTables.IsUnknown() {
+									var RouteTablesElems []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel
+									diags := VPCListItem.CustomRouting.RouteTables.ElementsAs(ctx, &RouteTablesElems, false)
+									resp.Diagnostics.Append(diags...)
+									if !resp.Diagnostics.HasError() && len(RouteTablesElems) > 0 {
+										var RouteTablesList []map[string]interface{}
+										for _, RouteTablesItem := range RouteTablesElems {
+											RouteTablesItemMap := make(map[string]interface{})
+											if !RouteTablesItem.RouteTableID.IsNull() && !RouteTablesItem.RouteTableID.IsUnknown() {
+												RouteTablesItemMap["route_table_id"] = RouteTablesItem.RouteTableID.ValueString()
+											}
+											if !RouteTablesItem.StaticRoutes.IsNull() && !RouteTablesItem.StaticRoutes.IsUnknown() {
+												var StaticRoutesItems []string
+												diags := RouteTablesItem.StaticRoutes.ElementsAs(ctx, &StaticRoutesItems, false)
+												if !diags.HasError() {
+													RouteTablesItemMap["static_routes"] = StaticRoutesItems
+												}
+											}
+											RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
+										}
+										CustomRoutingMap["route_tables"] = RouteTablesList
 									}
-									if !RouteTablesItem.StaticRoutes.IsNull() && !RouteTablesItem.StaticRoutes.IsUnknown() {
-										var StaticRoutesItems []string
-										diags := RouteTablesItem.StaticRoutes.ElementsAs(ctx, &StaticRoutesItems, false)
+								}
+								VPCListItemMap["custom_routing"] = CustomRoutingMap
+							}
+							if VPCListItem.DefaultRoute != nil {
+								DefaultRouteMap := make(map[string]interface{})
+								if VPCListItem.DefaultRoute.AllRouteTables != nil {
+									DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+								}
+								if VPCListItem.DefaultRoute.SelectiveRouteTables != nil {
+									SelectiveRouteTablesMap := make(map[string]interface{})
+									if !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
+										var RouteTableIDItems []string
+										diags := VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
 										if !diags.HasError() {
-											RouteTablesItemMap["static_routes"] = StaticRoutesItems
+											SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
 										}
 									}
-									RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
+									DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
 								}
-								CustomRoutingMap["route_tables"] = RouteTablesList
+								VPCListItemMap["default_route"] = DefaultRouteMap
 							}
-							VPCListItemMap["custom_routing"] = CustomRoutingMap
-						}
-						if VPCListItem.DefaultRoute != nil {
-							DefaultRouteMap := make(map[string]interface{})
-							if VPCListItem.DefaultRoute.AllRouteTables != nil {
-								DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+							if VPCListItem.Labels != nil {
+								VPCListItemMap["labels"] = map[string]interface{}{}
 							}
-							if VPCListItem.DefaultRoute.SelectiveRouteTables != nil {
-								SelectiveRouteTablesMap := make(map[string]interface{})
-								if !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
-									var RouteTableIDItems []string
-									diags := VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
-									if !diags.HasError() {
-										SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
-									}
-								}
-								DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
+							if VPCListItem.ManualRouting != nil {
+								VPCListItemMap["manual_routing"] = map[string]interface{}{}
 							}
-							VPCListItemMap["default_route"] = DefaultRouteMap
+							if !VPCListItem.VPCID.IsNull() && !VPCListItem.VPCID.IsUnknown() {
+								VPCListItemMap["vpc_id"] = VPCListItem.VPCID.ValueString()
+							}
+							VPCListList = append(VPCListList, VPCListItemMap)
 						}
-						if VPCListItem.Labels != nil {
-							VPCListItemMap["labels"] = map[string]interface{}{}
-						}
-						if VPCListItem.ManualRouting != nil {
-							VPCListItemMap["manual_routing"] = map[string]interface{}{}
-						}
-						if !VPCListItem.VPCID.IsNull() && !VPCListItem.VPCID.IsUnknown() {
-							VPCListItemMap["vpc_id"] = VPCListItem.VPCID.ValueString()
-						}
-						VPCListList = append(VPCListList, VPCListItemMap)
+						VPCAttachmentsMap["vpc_list"] = VPCListList
 					}
-					VPCAttachmentsMap["vpc_list"] = VPCListList
 				}
 				AWSTGWSiteMap["vpc_attachments"] = VPCAttachmentsMap
 			}
@@ -1143,62 +1153,72 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 		}
 		if data.AWSTGWSite.VPCAttachments != nil {
 			VPCAttachmentsMap := make(map[string]interface{})
-			if len(data.AWSTGWSite.VPCAttachments.VPCList) > 0 {
-				var VPCListList []map[string]interface{}
-				for _, VPCListItem := range data.AWSTGWSite.VPCAttachments.VPCList {
-					VPCListItemMap := make(map[string]interface{})
-					if VPCListItem.CustomRouting != nil {
-						CustomRoutingMap := make(map[string]interface{})
-						if len(VPCListItem.CustomRouting.RouteTables) > 0 {
-							var RouteTablesList []map[string]interface{}
-							for _, RouteTablesItem := range VPCListItem.CustomRouting.RouteTables {
-								RouteTablesItemMap := make(map[string]interface{})
-								if !RouteTablesItem.RouteTableID.IsNull() && !RouteTablesItem.RouteTableID.IsUnknown() {
-									RouteTablesItemMap["route_table_id"] = RouteTablesItem.RouteTableID.ValueString()
+			if !data.AWSTGWSite.VPCAttachments.VPCList.IsNull() && !data.AWSTGWSite.VPCAttachments.VPCList.IsUnknown() {
+				var VPCListElems []CloudConnectAWSTGWSiteVPCAttachmentsVPCListModel
+				diags := data.AWSTGWSite.VPCAttachments.VPCList.ElementsAs(ctx, &VPCListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(VPCListElems) > 0 {
+					var VPCListList []map[string]interface{}
+					for _, VPCListItem := range VPCListElems {
+						VPCListItemMap := make(map[string]interface{})
+						if VPCListItem.CustomRouting != nil {
+							CustomRoutingMap := make(map[string]interface{})
+							if !VPCListItem.CustomRouting.RouteTables.IsNull() && !VPCListItem.CustomRouting.RouteTables.IsUnknown() {
+								var RouteTablesElems []CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel
+								diags := VPCListItem.CustomRouting.RouteTables.ElementsAs(ctx, &RouteTablesElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(RouteTablesElems) > 0 {
+									var RouteTablesList []map[string]interface{}
+									for _, RouteTablesItem := range RouteTablesElems {
+										RouteTablesItemMap := make(map[string]interface{})
+										if !RouteTablesItem.RouteTableID.IsNull() && !RouteTablesItem.RouteTableID.IsUnknown() {
+											RouteTablesItemMap["route_table_id"] = RouteTablesItem.RouteTableID.ValueString()
+										}
+										if !RouteTablesItem.StaticRoutes.IsNull() && !RouteTablesItem.StaticRoutes.IsUnknown() {
+											var StaticRoutesItems []string
+											diags := RouteTablesItem.StaticRoutes.ElementsAs(ctx, &StaticRoutesItems, false)
+											if !diags.HasError() {
+												RouteTablesItemMap["static_routes"] = StaticRoutesItems
+											}
+										}
+										RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
+									}
+									CustomRoutingMap["route_tables"] = RouteTablesList
 								}
-								if !RouteTablesItem.StaticRoutes.IsNull() && !RouteTablesItem.StaticRoutes.IsUnknown() {
-									var StaticRoutesItems []string
-									diags := RouteTablesItem.StaticRoutes.ElementsAs(ctx, &StaticRoutesItems, false)
+							}
+							VPCListItemMap["custom_routing"] = CustomRoutingMap
+						}
+						if VPCListItem.DefaultRoute != nil {
+							DefaultRouteMap := make(map[string]interface{})
+							if VPCListItem.DefaultRoute.AllRouteTables != nil {
+								DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+							}
+							if VPCListItem.DefaultRoute.SelectiveRouteTables != nil {
+								SelectiveRouteTablesMap := make(map[string]interface{})
+								if !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
+									var RouteTableIDItems []string
+									diags := VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
 									if !diags.HasError() {
-										RouteTablesItemMap["static_routes"] = StaticRoutesItems
+										SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
 									}
 								}
-								RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
+								DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
 							}
-							CustomRoutingMap["route_tables"] = RouteTablesList
+							VPCListItemMap["default_route"] = DefaultRouteMap
 						}
-						VPCListItemMap["custom_routing"] = CustomRoutingMap
-					}
-					if VPCListItem.DefaultRoute != nil {
-						DefaultRouteMap := make(map[string]interface{})
-						if VPCListItem.DefaultRoute.AllRouteTables != nil {
-							DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+						if VPCListItem.Labels != nil {
+							VPCListItemMap["labels"] = map[string]interface{}{}
 						}
-						if VPCListItem.DefaultRoute.SelectiveRouteTables != nil {
-							SelectiveRouteTablesMap := make(map[string]interface{})
-							if !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
-								var RouteTableIDItems []string
-								diags := VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
-								if !diags.HasError() {
-									SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
-								}
-							}
-							DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
+						if VPCListItem.ManualRouting != nil {
+							VPCListItemMap["manual_routing"] = map[string]interface{}{}
 						}
-						VPCListItemMap["default_route"] = DefaultRouteMap
+						if !VPCListItem.VPCID.IsNull() && !VPCListItem.VPCID.IsUnknown() {
+							VPCListItemMap["vpc_id"] = VPCListItem.VPCID.ValueString()
+						}
+						VPCListList = append(VPCListList, VPCListItemMap)
 					}
-					if VPCListItem.Labels != nil {
-						VPCListItemMap["labels"] = map[string]interface{}{}
-					}
-					if VPCListItem.ManualRouting != nil {
-						VPCListItemMap["manual_routing"] = map[string]interface{}{}
-					}
-					if !VPCListItem.VPCID.IsNull() && !VPCListItem.VPCID.IsUnknown() {
-						VPCListItemMap["vpc_id"] = VPCListItem.VPCID.ValueString()
-					}
-					VPCListList = append(VPCListList, VPCListItemMap)
+					VPCAttachmentsMap["vpc_list"] = VPCListList
 				}
-				VPCAttachmentsMap["vpc_list"] = VPCListList
 			}
 			AWSTGWSiteMap["vpc_attachments"] = VPCAttachmentsMap
 		}
@@ -1221,65 +1241,75 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 		}
 		if data.AzureVNETSite.VNETAttachments != nil {
 			VNETAttachmentsMap := make(map[string]interface{})
-			if len(data.AzureVNETSite.VNETAttachments.VNETList) > 0 {
-				var VNETListList []map[string]interface{}
-				for _, VNETListItem := range data.AzureVNETSite.VNETAttachments.VNETList {
-					VNETListItemMap := make(map[string]interface{})
-					if VNETListItem.CustomRouting != nil {
-						CustomRoutingMap := make(map[string]interface{})
-						if len(VNETListItem.CustomRouting.RouteTables) > 0 {
-							var RouteTablesList []map[string]interface{}
-							for _, RouteTablesItem := range VNETListItem.CustomRouting.RouteTables {
-								RouteTablesItemMap := make(map[string]interface{})
-								if !RouteTablesItem.RouteTableID.IsNull() && !RouteTablesItem.RouteTableID.IsUnknown() {
-									RouteTablesItemMap["route_table_id"] = RouteTablesItem.RouteTableID.ValueString()
+			if !data.AzureVNETSite.VNETAttachments.VNETList.IsNull() && !data.AzureVNETSite.VNETAttachments.VNETList.IsUnknown() {
+				var VNETListElems []CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel
+				diags := data.AzureVNETSite.VNETAttachments.VNETList.ElementsAs(ctx, &VNETListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(VNETListElems) > 0 {
+					var VNETListList []map[string]interface{}
+					for _, VNETListItem := range VNETListElems {
+						VNETListItemMap := make(map[string]interface{})
+						if VNETListItem.CustomRouting != nil {
+							CustomRoutingMap := make(map[string]interface{})
+							if !VNETListItem.CustomRouting.RouteTables.IsNull() && !VNETListItem.CustomRouting.RouteTables.IsUnknown() {
+								var RouteTablesElems []CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModel
+								diags := VNETListItem.CustomRouting.RouteTables.ElementsAs(ctx, &RouteTablesElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(RouteTablesElems) > 0 {
+									var RouteTablesList []map[string]interface{}
+									for _, RouteTablesItem := range RouteTablesElems {
+										RouteTablesItemMap := make(map[string]interface{})
+										if !RouteTablesItem.RouteTableID.IsNull() && !RouteTablesItem.RouteTableID.IsUnknown() {
+											RouteTablesItemMap["route_table_id"] = RouteTablesItem.RouteTableID.ValueString()
+										}
+										if !RouteTablesItem.StaticRoutes.IsNull() && !RouteTablesItem.StaticRoutes.IsUnknown() {
+											var StaticRoutesItems []string
+											diags := RouteTablesItem.StaticRoutes.ElementsAs(ctx, &StaticRoutesItems, false)
+											if !diags.HasError() {
+												RouteTablesItemMap["static_routes"] = StaticRoutesItems
+											}
+										}
+										RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
+									}
+									CustomRoutingMap["route_tables"] = RouteTablesList
 								}
-								if !RouteTablesItem.StaticRoutes.IsNull() && !RouteTablesItem.StaticRoutes.IsUnknown() {
-									var StaticRoutesItems []string
-									diags := RouteTablesItem.StaticRoutes.ElementsAs(ctx, &StaticRoutesItems, false)
+							}
+							VNETListItemMap["custom_routing"] = CustomRoutingMap
+						}
+						if VNETListItem.DefaultRoute != nil {
+							DefaultRouteMap := make(map[string]interface{})
+							if VNETListItem.DefaultRoute.AllRouteTables != nil {
+								DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+							}
+							if VNETListItem.DefaultRoute.SelectiveRouteTables != nil {
+								SelectiveRouteTablesMap := make(map[string]interface{})
+								if !VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
+									var RouteTableIDItems []string
+									diags := VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
 									if !diags.HasError() {
-										RouteTablesItemMap["static_routes"] = StaticRoutesItems
+										SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
 									}
 								}
-								RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
+								DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
 							}
-							CustomRoutingMap["route_tables"] = RouteTablesList
+							VNETListItemMap["default_route"] = DefaultRouteMap
 						}
-						VNETListItemMap["custom_routing"] = CustomRoutingMap
-					}
-					if VNETListItem.DefaultRoute != nil {
-						DefaultRouteMap := make(map[string]interface{})
-						if VNETListItem.DefaultRoute.AllRouteTables != nil {
-							DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+						if VNETListItem.Labels != nil {
+							VNETListItemMap["labels"] = map[string]interface{}{}
 						}
-						if VNETListItem.DefaultRoute.SelectiveRouteTables != nil {
-							SelectiveRouteTablesMap := make(map[string]interface{})
-							if !VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
-								var RouteTableIDItems []string
-								diags := VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
-								if !diags.HasError() {
-									SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
-								}
-							}
-							DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
+						if VNETListItem.ManualRouting != nil {
+							VNETListItemMap["manual_routing"] = map[string]interface{}{}
 						}
-						VNETListItemMap["default_route"] = DefaultRouteMap
+						if !VNETListItem.SubscriptionID.IsNull() && !VNETListItem.SubscriptionID.IsUnknown() {
+							VNETListItemMap["subscription_id"] = VNETListItem.SubscriptionID.ValueString()
+						}
+						if !VNETListItem.VNETID.IsNull() && !VNETListItem.VNETID.IsUnknown() {
+							VNETListItemMap["vnet_id"] = VNETListItem.VNETID.ValueString()
+						}
+						VNETListList = append(VNETListList, VNETListItemMap)
 					}
-					if VNETListItem.Labels != nil {
-						VNETListItemMap["labels"] = map[string]interface{}{}
-					}
-					if VNETListItem.ManualRouting != nil {
-						VNETListItemMap["manual_routing"] = map[string]interface{}{}
-					}
-					if !VNETListItem.SubscriptionID.IsNull() && !VNETListItem.SubscriptionID.IsUnknown() {
-						VNETListItemMap["subscription_id"] = VNETListItem.SubscriptionID.ValueString()
-					}
-					if !VNETListItem.VNETID.IsNull() && !VNETListItem.VNETID.IsUnknown() {
-						VNETListItemMap["vnet_id"] = VNETListItem.VNETID.ValueString()
-					}
-					VNETListList = append(VNETListList, VNETListItemMap)
+					VNETAttachmentsMap["vnet_list"] = VNETListList
 				}
-				VNETAttachmentsMap["vnet_list"] = VNETListList
 			}
 			AzureVNETSiteMap["vnet_attachments"] = VNETAttachmentsMap
 		}
@@ -1372,7 +1402,7 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 						VPCAttachments: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsModel {
 							if VPCAttachmentsData, ok := AWSTGWSiteData["vpc_attachments"].(map[string]interface{}); ok {
 								return &CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsModel{
-									VPCList: func() []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel {
+									VPCList: func() types.List {
 										if rawList, ok := VPCAttachmentsData["vpc_list"].([]interface{}); ok && len(rawList) > 0 {
 											var VPCListResult []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel
 											for _, VPCListItem := range rawList {
@@ -1381,7 +1411,7 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 														CustomRouting: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel {
 															if CustomRoutingData, ok := VPCListItemMap["custom_routing"].(map[string]interface{}); ok {
 																return &CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel{
-																	RouteTables: func() []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel {
+																	RouteTables: func() types.List {
 																		if rawList, ok := CustomRoutingData["route_tables"].([]interface{}); ok && len(rawList) > 0 {
 																			var RouteTablesResult []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel
 																			for _, RouteTablesItem := range rawList {
@@ -1409,9 +1439,10 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 																					})
 																				}
 																			}
-																			return RouteTablesResult
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModelAttrTypes}, RouteTablesResult)
+																			return listVal
 																		}
-																		return nil
+																		return types.ListNull(types.ObjectType{AttrTypes: CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModelAttrTypes})
 																	}(),
 																}
 															}
@@ -1471,9 +1502,10 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 													})
 												}
 											}
-											return VPCListResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModelAttrTypes}, VPCListResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModelAttrTypes})
 									}(),
 								}
 							}
@@ -1543,7 +1575,7 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 				}
 				if VPCAttachmentsData, ok := blockData["vpc_attachments"].(map[string]interface{}); ok {
 					return &CloudConnectAWSTGWSiteVPCAttachmentsModel{
-						VPCList: func() []CloudConnectAWSTGWSiteVPCAttachmentsVPCListModel {
+						VPCList: func() types.List {
 							if rawList, ok := VPCAttachmentsData["vpc_list"].([]interface{}); ok && len(rawList) > 0 {
 								var VPCListResult []CloudConnectAWSTGWSiteVPCAttachmentsVPCListModel
 								for _, VPCListItem := range rawList {
@@ -1552,7 +1584,7 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 											CustomRouting: func() *CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel {
 												if CustomRoutingData, ok := VPCListItemMap["custom_routing"].(map[string]interface{}); ok {
 													return &CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel{
-														RouteTables: func() []CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel {
+														RouteTables: func() types.List {
 															if rawList, ok := CustomRoutingData["route_tables"].([]interface{}); ok && len(rawList) > 0 {
 																var RouteTablesResult []CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel
 																for _, RouteTablesItem := range rawList {
@@ -1580,9 +1612,10 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 																		})
 																	}
 																}
-																return RouteTablesResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModelAttrTypes}, RouteTablesResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModelAttrTypes})
 														}(),
 													}
 												}
@@ -1642,9 +1675,10 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 										})
 									}
 								}
-								return VPCListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudConnectAWSTGWSiteVPCAttachmentsVPCListModelAttrTypes}, VPCListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CloudConnectAWSTGWSiteVPCAttachmentsVPCListModelAttrTypes})
 						}(),
 					}
 				}
@@ -1685,7 +1719,7 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 				}
 				if VNETAttachmentsData, ok := blockData["vnet_attachments"].(map[string]interface{}); ok {
 					return &CloudConnectAzureVNETSiteVNETAttachmentsModel{
-						VNETList: func() []CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel {
+						VNETList: func() types.List {
 							if rawList, ok := VNETAttachmentsData["vnet_list"].([]interface{}); ok && len(rawList) > 0 {
 								var VNETListResult []CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel
 								for _, VNETListItem := range rawList {
@@ -1694,7 +1728,7 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 											CustomRouting: func() *CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingModel {
 												if CustomRoutingData, ok := VNETListItemMap["custom_routing"].(map[string]interface{}); ok {
 													return &CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingModel{
-														RouteTables: func() []CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModel {
+														RouteTables: func() types.List {
 															if rawList, ok := CustomRoutingData["route_tables"].([]interface{}); ok && len(rawList) > 0 {
 																var RouteTablesResult []CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModel
 																for _, RouteTablesItem := range rawList {
@@ -1722,9 +1756,10 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 																		})
 																	}
 																}
-																return RouteTablesResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModelAttrTypes}, RouteTablesResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModelAttrTypes})
 														}(),
 													}
 												}
@@ -1790,9 +1825,10 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 										})
 									}
 								}
-								return VNETListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudConnectAzureVNETSiteVNETAttachmentsVNETListModelAttrTypes}, VNETListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CloudConnectAzureVNETSiteVNETAttachmentsVNETListModelAttrTypes})
 						}(),
 					}
 				}
@@ -1976,7 +2012,7 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 						VPCAttachments: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsModel {
 							if VPCAttachmentsData, ok := AWSTGWSiteData["vpc_attachments"].(map[string]interface{}); ok {
 								return &CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsModel{
-									VPCList: func() []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel {
+									VPCList: func() types.List {
 										if rawList, ok := VPCAttachmentsData["vpc_list"].([]interface{}); ok && len(rawList) > 0 {
 											var VPCListResult []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel
 											for _, VPCListItem := range rawList {
@@ -1985,7 +2021,7 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 														CustomRouting: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel {
 															if CustomRoutingData, ok := VPCListItemMap["custom_routing"].(map[string]interface{}); ok {
 																return &CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel{
-																	RouteTables: func() []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel {
+																	RouteTables: func() types.List {
 																		if rawList, ok := CustomRoutingData["route_tables"].([]interface{}); ok && len(rawList) > 0 {
 																			var RouteTablesResult []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel
 																			for _, RouteTablesItem := range rawList {
@@ -2013,9 +2049,10 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 																					})
 																				}
 																			}
-																			return RouteTablesResult
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModelAttrTypes}, RouteTablesResult)
+																			return listVal
 																		}
-																		return nil
+																		return types.ListNull(types.ObjectType{AttrTypes: CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModelAttrTypes})
 																	}(),
 																}
 															}
@@ -2075,9 +2112,10 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 													})
 												}
 											}
-											return VPCListResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModelAttrTypes}, VPCListResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModelAttrTypes})
 									}(),
 								}
 							}
@@ -2147,7 +2185,7 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 				}
 				if VPCAttachmentsData, ok := blockData["vpc_attachments"].(map[string]interface{}); ok {
 					return &CloudConnectAWSTGWSiteVPCAttachmentsModel{
-						VPCList: func() []CloudConnectAWSTGWSiteVPCAttachmentsVPCListModel {
+						VPCList: func() types.List {
 							if rawList, ok := VPCAttachmentsData["vpc_list"].([]interface{}); ok && len(rawList) > 0 {
 								var VPCListResult []CloudConnectAWSTGWSiteVPCAttachmentsVPCListModel
 								for _, VPCListItem := range rawList {
@@ -2156,7 +2194,7 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 											CustomRouting: func() *CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel {
 												if CustomRoutingData, ok := VPCListItemMap["custom_routing"].(map[string]interface{}); ok {
 													return &CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel{
-														RouteTables: func() []CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel {
+														RouteTables: func() types.List {
 															if rawList, ok := CustomRoutingData["route_tables"].([]interface{}); ok && len(rawList) > 0 {
 																var RouteTablesResult []CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel
 																for _, RouteTablesItem := range rawList {
@@ -2184,9 +2222,10 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 																		})
 																	}
 																}
-																return RouteTablesResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModelAttrTypes}, RouteTablesResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModelAttrTypes})
 														}(),
 													}
 												}
@@ -2246,9 +2285,10 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 										})
 									}
 								}
-								return VPCListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudConnectAWSTGWSiteVPCAttachmentsVPCListModelAttrTypes}, VPCListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CloudConnectAWSTGWSiteVPCAttachmentsVPCListModelAttrTypes})
 						}(),
 					}
 				}
@@ -2289,7 +2329,7 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 				}
 				if VNETAttachmentsData, ok := blockData["vnet_attachments"].(map[string]interface{}); ok {
 					return &CloudConnectAzureVNETSiteVNETAttachmentsModel{
-						VNETList: func() []CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel {
+						VNETList: func() types.List {
 							if rawList, ok := VNETAttachmentsData["vnet_list"].([]interface{}); ok && len(rawList) > 0 {
 								var VNETListResult []CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel
 								for _, VNETListItem := range rawList {
@@ -2298,7 +2338,7 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 											CustomRouting: func() *CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingModel {
 												if CustomRoutingData, ok := VNETListItemMap["custom_routing"].(map[string]interface{}); ok {
 													return &CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingModel{
-														RouteTables: func() []CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModel {
+														RouteTables: func() types.List {
 															if rawList, ok := CustomRoutingData["route_tables"].([]interface{}); ok && len(rawList) > 0 {
 																var RouteTablesResult []CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModel
 																for _, RouteTablesItem := range rawList {
@@ -2326,9 +2366,10 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 																		})
 																	}
 																}
-																return RouteTablesResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModelAttrTypes}, RouteTablesResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModelAttrTypes})
 														}(),
 													}
 												}
@@ -2394,9 +2435,10 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 										})
 									}
 								}
-								return VNETListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudConnectAzureVNETSiteVNETAttachmentsVNETListModelAttrTypes}, VNETListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CloudConnectAzureVNETSiteVNETAttachmentsVNETListModelAttrTypes})
 						}(),
 					}
 				}
@@ -2517,62 +2559,72 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 			}
 			if data.AWSProvider.AWSTGWSite.VPCAttachments != nil {
 				VPCAttachmentsMap := make(map[string]interface{})
-				if len(data.AWSProvider.AWSTGWSite.VPCAttachments.VPCList) > 0 {
-					var VPCListList []map[string]interface{}
-					for _, VPCListItem := range data.AWSProvider.AWSTGWSite.VPCAttachments.VPCList {
-						VPCListItemMap := make(map[string]interface{})
-						if VPCListItem.CustomRouting != nil {
-							CustomRoutingMap := make(map[string]interface{})
-							if len(VPCListItem.CustomRouting.RouteTables) > 0 {
-								var RouteTablesList []map[string]interface{}
-								for _, RouteTablesItem := range VPCListItem.CustomRouting.RouteTables {
-									RouteTablesItemMap := make(map[string]interface{})
-									if !RouteTablesItem.RouteTableID.IsNull() && !RouteTablesItem.RouteTableID.IsUnknown() {
-										RouteTablesItemMap["route_table_id"] = RouteTablesItem.RouteTableID.ValueString()
+				if !data.AWSProvider.AWSTGWSite.VPCAttachments.VPCList.IsNull() && !data.AWSProvider.AWSTGWSite.VPCAttachments.VPCList.IsUnknown() {
+					var VPCListElems []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel
+					diags := data.AWSProvider.AWSTGWSite.VPCAttachments.VPCList.ElementsAs(ctx, &VPCListElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(VPCListElems) > 0 {
+						var VPCListList []map[string]interface{}
+						for _, VPCListItem := range VPCListElems {
+							VPCListItemMap := make(map[string]interface{})
+							if VPCListItem.CustomRouting != nil {
+								CustomRoutingMap := make(map[string]interface{})
+								if !VPCListItem.CustomRouting.RouteTables.IsNull() && !VPCListItem.CustomRouting.RouteTables.IsUnknown() {
+									var RouteTablesElems []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel
+									diags := VPCListItem.CustomRouting.RouteTables.ElementsAs(ctx, &RouteTablesElems, false)
+									resp.Diagnostics.Append(diags...)
+									if !resp.Diagnostics.HasError() && len(RouteTablesElems) > 0 {
+										var RouteTablesList []map[string]interface{}
+										for _, RouteTablesItem := range RouteTablesElems {
+											RouteTablesItemMap := make(map[string]interface{})
+											if !RouteTablesItem.RouteTableID.IsNull() && !RouteTablesItem.RouteTableID.IsUnknown() {
+												RouteTablesItemMap["route_table_id"] = RouteTablesItem.RouteTableID.ValueString()
+											}
+											if !RouteTablesItem.StaticRoutes.IsNull() && !RouteTablesItem.StaticRoutes.IsUnknown() {
+												var StaticRoutesItems []string
+												diags := RouteTablesItem.StaticRoutes.ElementsAs(ctx, &StaticRoutesItems, false)
+												if !diags.HasError() {
+													RouteTablesItemMap["static_routes"] = StaticRoutesItems
+												}
+											}
+											RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
+										}
+										CustomRoutingMap["route_tables"] = RouteTablesList
 									}
-									if !RouteTablesItem.StaticRoutes.IsNull() && !RouteTablesItem.StaticRoutes.IsUnknown() {
-										var StaticRoutesItems []string
-										diags := RouteTablesItem.StaticRoutes.ElementsAs(ctx, &StaticRoutesItems, false)
+								}
+								VPCListItemMap["custom_routing"] = CustomRoutingMap
+							}
+							if VPCListItem.DefaultRoute != nil {
+								DefaultRouteMap := make(map[string]interface{})
+								if VPCListItem.DefaultRoute.AllRouteTables != nil {
+									DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+								}
+								if VPCListItem.DefaultRoute.SelectiveRouteTables != nil {
+									SelectiveRouteTablesMap := make(map[string]interface{})
+									if !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
+										var RouteTableIDItems []string
+										diags := VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
 										if !diags.HasError() {
-											RouteTablesItemMap["static_routes"] = StaticRoutesItems
+											SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
 										}
 									}
-									RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
+									DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
 								}
-								CustomRoutingMap["route_tables"] = RouteTablesList
+								VPCListItemMap["default_route"] = DefaultRouteMap
 							}
-							VPCListItemMap["custom_routing"] = CustomRoutingMap
-						}
-						if VPCListItem.DefaultRoute != nil {
-							DefaultRouteMap := make(map[string]interface{})
-							if VPCListItem.DefaultRoute.AllRouteTables != nil {
-								DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+							if VPCListItem.Labels != nil {
+								VPCListItemMap["labels"] = map[string]interface{}{}
 							}
-							if VPCListItem.DefaultRoute.SelectiveRouteTables != nil {
-								SelectiveRouteTablesMap := make(map[string]interface{})
-								if !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
-									var RouteTableIDItems []string
-									diags := VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
-									if !diags.HasError() {
-										SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
-									}
-								}
-								DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
+							if VPCListItem.ManualRouting != nil {
+								VPCListItemMap["manual_routing"] = map[string]interface{}{}
 							}
-							VPCListItemMap["default_route"] = DefaultRouteMap
+							if !VPCListItem.VPCID.IsNull() && !VPCListItem.VPCID.IsUnknown() {
+								VPCListItemMap["vpc_id"] = VPCListItem.VPCID.ValueString()
+							}
+							VPCListList = append(VPCListList, VPCListItemMap)
 						}
-						if VPCListItem.Labels != nil {
-							VPCListItemMap["labels"] = map[string]interface{}{}
-						}
-						if VPCListItem.ManualRouting != nil {
-							VPCListItemMap["manual_routing"] = map[string]interface{}{}
-						}
-						if !VPCListItem.VPCID.IsNull() && !VPCListItem.VPCID.IsUnknown() {
-							VPCListItemMap["vpc_id"] = VPCListItem.VPCID.ValueString()
-						}
-						VPCListList = append(VPCListList, VPCListItemMap)
+						VPCAttachmentsMap["vpc_list"] = VPCListList
 					}
-					VPCAttachmentsMap["vpc_list"] = VPCListList
 				}
 				AWSTGWSiteMap["vpc_attachments"] = VPCAttachmentsMap
 			}
@@ -2610,62 +2662,72 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 		}
 		if data.AWSTGWSite.VPCAttachments != nil {
 			VPCAttachmentsMap := make(map[string]interface{})
-			if len(data.AWSTGWSite.VPCAttachments.VPCList) > 0 {
-				var VPCListList []map[string]interface{}
-				for _, VPCListItem := range data.AWSTGWSite.VPCAttachments.VPCList {
-					VPCListItemMap := make(map[string]interface{})
-					if VPCListItem.CustomRouting != nil {
-						CustomRoutingMap := make(map[string]interface{})
-						if len(VPCListItem.CustomRouting.RouteTables) > 0 {
-							var RouteTablesList []map[string]interface{}
-							for _, RouteTablesItem := range VPCListItem.CustomRouting.RouteTables {
-								RouteTablesItemMap := make(map[string]interface{})
-								if !RouteTablesItem.RouteTableID.IsNull() && !RouteTablesItem.RouteTableID.IsUnknown() {
-									RouteTablesItemMap["route_table_id"] = RouteTablesItem.RouteTableID.ValueString()
+			if !data.AWSTGWSite.VPCAttachments.VPCList.IsNull() && !data.AWSTGWSite.VPCAttachments.VPCList.IsUnknown() {
+				var VPCListElems []CloudConnectAWSTGWSiteVPCAttachmentsVPCListModel
+				diags := data.AWSTGWSite.VPCAttachments.VPCList.ElementsAs(ctx, &VPCListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(VPCListElems) > 0 {
+					var VPCListList []map[string]interface{}
+					for _, VPCListItem := range VPCListElems {
+						VPCListItemMap := make(map[string]interface{})
+						if VPCListItem.CustomRouting != nil {
+							CustomRoutingMap := make(map[string]interface{})
+							if !VPCListItem.CustomRouting.RouteTables.IsNull() && !VPCListItem.CustomRouting.RouteTables.IsUnknown() {
+								var RouteTablesElems []CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel
+								diags := VPCListItem.CustomRouting.RouteTables.ElementsAs(ctx, &RouteTablesElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(RouteTablesElems) > 0 {
+									var RouteTablesList []map[string]interface{}
+									for _, RouteTablesItem := range RouteTablesElems {
+										RouteTablesItemMap := make(map[string]interface{})
+										if !RouteTablesItem.RouteTableID.IsNull() && !RouteTablesItem.RouteTableID.IsUnknown() {
+											RouteTablesItemMap["route_table_id"] = RouteTablesItem.RouteTableID.ValueString()
+										}
+										if !RouteTablesItem.StaticRoutes.IsNull() && !RouteTablesItem.StaticRoutes.IsUnknown() {
+											var StaticRoutesItems []string
+											diags := RouteTablesItem.StaticRoutes.ElementsAs(ctx, &StaticRoutesItems, false)
+											if !diags.HasError() {
+												RouteTablesItemMap["static_routes"] = StaticRoutesItems
+											}
+										}
+										RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
+									}
+									CustomRoutingMap["route_tables"] = RouteTablesList
 								}
-								if !RouteTablesItem.StaticRoutes.IsNull() && !RouteTablesItem.StaticRoutes.IsUnknown() {
-									var StaticRoutesItems []string
-									diags := RouteTablesItem.StaticRoutes.ElementsAs(ctx, &StaticRoutesItems, false)
+							}
+							VPCListItemMap["custom_routing"] = CustomRoutingMap
+						}
+						if VPCListItem.DefaultRoute != nil {
+							DefaultRouteMap := make(map[string]interface{})
+							if VPCListItem.DefaultRoute.AllRouteTables != nil {
+								DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+							}
+							if VPCListItem.DefaultRoute.SelectiveRouteTables != nil {
+								SelectiveRouteTablesMap := make(map[string]interface{})
+								if !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
+									var RouteTableIDItems []string
+									diags := VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
 									if !diags.HasError() {
-										RouteTablesItemMap["static_routes"] = StaticRoutesItems
+										SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
 									}
 								}
-								RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
+								DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
 							}
-							CustomRoutingMap["route_tables"] = RouteTablesList
+							VPCListItemMap["default_route"] = DefaultRouteMap
 						}
-						VPCListItemMap["custom_routing"] = CustomRoutingMap
-					}
-					if VPCListItem.DefaultRoute != nil {
-						DefaultRouteMap := make(map[string]interface{})
-						if VPCListItem.DefaultRoute.AllRouteTables != nil {
-							DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+						if VPCListItem.Labels != nil {
+							VPCListItemMap["labels"] = map[string]interface{}{}
 						}
-						if VPCListItem.DefaultRoute.SelectiveRouteTables != nil {
-							SelectiveRouteTablesMap := make(map[string]interface{})
-							if !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
-								var RouteTableIDItems []string
-								diags := VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
-								if !diags.HasError() {
-									SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
-								}
-							}
-							DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
+						if VPCListItem.ManualRouting != nil {
+							VPCListItemMap["manual_routing"] = map[string]interface{}{}
 						}
-						VPCListItemMap["default_route"] = DefaultRouteMap
+						if !VPCListItem.VPCID.IsNull() && !VPCListItem.VPCID.IsUnknown() {
+							VPCListItemMap["vpc_id"] = VPCListItem.VPCID.ValueString()
+						}
+						VPCListList = append(VPCListList, VPCListItemMap)
 					}
-					if VPCListItem.Labels != nil {
-						VPCListItemMap["labels"] = map[string]interface{}{}
-					}
-					if VPCListItem.ManualRouting != nil {
-						VPCListItemMap["manual_routing"] = map[string]interface{}{}
-					}
-					if !VPCListItem.VPCID.IsNull() && !VPCListItem.VPCID.IsUnknown() {
-						VPCListItemMap["vpc_id"] = VPCListItem.VPCID.ValueString()
-					}
-					VPCListList = append(VPCListList, VPCListItemMap)
+					VPCAttachmentsMap["vpc_list"] = VPCListList
 				}
-				VPCAttachmentsMap["vpc_list"] = VPCListList
 			}
 			AWSTGWSiteMap["vpc_attachments"] = VPCAttachmentsMap
 		}
@@ -2688,65 +2750,75 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 		}
 		if data.AzureVNETSite.VNETAttachments != nil {
 			VNETAttachmentsMap := make(map[string]interface{})
-			if len(data.AzureVNETSite.VNETAttachments.VNETList) > 0 {
-				var VNETListList []map[string]interface{}
-				for _, VNETListItem := range data.AzureVNETSite.VNETAttachments.VNETList {
-					VNETListItemMap := make(map[string]interface{})
-					if VNETListItem.CustomRouting != nil {
-						CustomRoutingMap := make(map[string]interface{})
-						if len(VNETListItem.CustomRouting.RouteTables) > 0 {
-							var RouteTablesList []map[string]interface{}
-							for _, RouteTablesItem := range VNETListItem.CustomRouting.RouteTables {
-								RouteTablesItemMap := make(map[string]interface{})
-								if !RouteTablesItem.RouteTableID.IsNull() && !RouteTablesItem.RouteTableID.IsUnknown() {
-									RouteTablesItemMap["route_table_id"] = RouteTablesItem.RouteTableID.ValueString()
+			if !data.AzureVNETSite.VNETAttachments.VNETList.IsNull() && !data.AzureVNETSite.VNETAttachments.VNETList.IsUnknown() {
+				var VNETListElems []CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel
+				diags := data.AzureVNETSite.VNETAttachments.VNETList.ElementsAs(ctx, &VNETListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(VNETListElems) > 0 {
+					var VNETListList []map[string]interface{}
+					for _, VNETListItem := range VNETListElems {
+						VNETListItemMap := make(map[string]interface{})
+						if VNETListItem.CustomRouting != nil {
+							CustomRoutingMap := make(map[string]interface{})
+							if !VNETListItem.CustomRouting.RouteTables.IsNull() && !VNETListItem.CustomRouting.RouteTables.IsUnknown() {
+								var RouteTablesElems []CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModel
+								diags := VNETListItem.CustomRouting.RouteTables.ElementsAs(ctx, &RouteTablesElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(RouteTablesElems) > 0 {
+									var RouteTablesList []map[string]interface{}
+									for _, RouteTablesItem := range RouteTablesElems {
+										RouteTablesItemMap := make(map[string]interface{})
+										if !RouteTablesItem.RouteTableID.IsNull() && !RouteTablesItem.RouteTableID.IsUnknown() {
+											RouteTablesItemMap["route_table_id"] = RouteTablesItem.RouteTableID.ValueString()
+										}
+										if !RouteTablesItem.StaticRoutes.IsNull() && !RouteTablesItem.StaticRoutes.IsUnknown() {
+											var StaticRoutesItems []string
+											diags := RouteTablesItem.StaticRoutes.ElementsAs(ctx, &StaticRoutesItems, false)
+											if !diags.HasError() {
+												RouteTablesItemMap["static_routes"] = StaticRoutesItems
+											}
+										}
+										RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
+									}
+									CustomRoutingMap["route_tables"] = RouteTablesList
 								}
-								if !RouteTablesItem.StaticRoutes.IsNull() && !RouteTablesItem.StaticRoutes.IsUnknown() {
-									var StaticRoutesItems []string
-									diags := RouteTablesItem.StaticRoutes.ElementsAs(ctx, &StaticRoutesItems, false)
+							}
+							VNETListItemMap["custom_routing"] = CustomRoutingMap
+						}
+						if VNETListItem.DefaultRoute != nil {
+							DefaultRouteMap := make(map[string]interface{})
+							if VNETListItem.DefaultRoute.AllRouteTables != nil {
+								DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+							}
+							if VNETListItem.DefaultRoute.SelectiveRouteTables != nil {
+								SelectiveRouteTablesMap := make(map[string]interface{})
+								if !VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
+									var RouteTableIDItems []string
+									diags := VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
 									if !diags.HasError() {
-										RouteTablesItemMap["static_routes"] = StaticRoutesItems
+										SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
 									}
 								}
-								RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
+								DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
 							}
-							CustomRoutingMap["route_tables"] = RouteTablesList
+							VNETListItemMap["default_route"] = DefaultRouteMap
 						}
-						VNETListItemMap["custom_routing"] = CustomRoutingMap
-					}
-					if VNETListItem.DefaultRoute != nil {
-						DefaultRouteMap := make(map[string]interface{})
-						if VNETListItem.DefaultRoute.AllRouteTables != nil {
-							DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+						if VNETListItem.Labels != nil {
+							VNETListItemMap["labels"] = map[string]interface{}{}
 						}
-						if VNETListItem.DefaultRoute.SelectiveRouteTables != nil {
-							SelectiveRouteTablesMap := make(map[string]interface{})
-							if !VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
-								var RouteTableIDItems []string
-								diags := VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
-								if !diags.HasError() {
-									SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
-								}
-							}
-							DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
+						if VNETListItem.ManualRouting != nil {
+							VNETListItemMap["manual_routing"] = map[string]interface{}{}
 						}
-						VNETListItemMap["default_route"] = DefaultRouteMap
+						if !VNETListItem.SubscriptionID.IsNull() && !VNETListItem.SubscriptionID.IsUnknown() {
+							VNETListItemMap["subscription_id"] = VNETListItem.SubscriptionID.ValueString()
+						}
+						if !VNETListItem.VNETID.IsNull() && !VNETListItem.VNETID.IsUnknown() {
+							VNETListItemMap["vnet_id"] = VNETListItem.VNETID.ValueString()
+						}
+						VNETListList = append(VNETListList, VNETListItemMap)
 					}
-					if VNETListItem.Labels != nil {
-						VNETListItemMap["labels"] = map[string]interface{}{}
-					}
-					if VNETListItem.ManualRouting != nil {
-						VNETListItemMap["manual_routing"] = map[string]interface{}{}
-					}
-					if !VNETListItem.SubscriptionID.IsNull() && !VNETListItem.SubscriptionID.IsUnknown() {
-						VNETListItemMap["subscription_id"] = VNETListItem.SubscriptionID.ValueString()
-					}
-					if !VNETListItem.VNETID.IsNull() && !VNETListItem.VNETID.IsUnknown() {
-						VNETListItemMap["vnet_id"] = VNETListItem.VNETID.ValueString()
-					}
-					VNETListList = append(VNETListList, VNETListItemMap)
+					VNETAttachmentsMap["vnet_list"] = VNETListList
 				}
-				VNETAttachmentsMap["vnet_list"] = VNETListList
 			}
 			AzureVNETSiteMap["vnet_attachments"] = VNETAttachmentsMap
 		}
@@ -2850,7 +2922,7 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 						VPCAttachments: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsModel {
 							if VPCAttachmentsData, ok := AWSTGWSiteData["vpc_attachments"].(map[string]interface{}); ok {
 								return &CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsModel{
-									VPCList: func() []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel {
+									VPCList: func() types.List {
 										if rawList, ok := VPCAttachmentsData["vpc_list"].([]interface{}); ok && len(rawList) > 0 {
 											var VPCListResult []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel
 											for _, VPCListItem := range rawList {
@@ -2859,7 +2931,7 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 														CustomRouting: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel {
 															if CustomRoutingData, ok := VPCListItemMap["custom_routing"].(map[string]interface{}); ok {
 																return &CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel{
-																	RouteTables: func() []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel {
+																	RouteTables: func() types.List {
 																		if rawList, ok := CustomRoutingData["route_tables"].([]interface{}); ok && len(rawList) > 0 {
 																			var RouteTablesResult []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel
 																			for _, RouteTablesItem := range rawList {
@@ -2887,9 +2959,10 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 																					})
 																				}
 																			}
-																			return RouteTablesResult
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModelAttrTypes}, RouteTablesResult)
+																			return listVal
 																		}
-																		return nil
+																		return types.ListNull(types.ObjectType{AttrTypes: CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModelAttrTypes})
 																	}(),
 																}
 															}
@@ -2949,9 +3022,10 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 													})
 												}
 											}
-											return VPCListResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModelAttrTypes}, VPCListResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModelAttrTypes})
 									}(),
 								}
 							}
@@ -3021,7 +3095,7 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 				}
 				if VPCAttachmentsData, ok := blockData["vpc_attachments"].(map[string]interface{}); ok {
 					return &CloudConnectAWSTGWSiteVPCAttachmentsModel{
-						VPCList: func() []CloudConnectAWSTGWSiteVPCAttachmentsVPCListModel {
+						VPCList: func() types.List {
 							if rawList, ok := VPCAttachmentsData["vpc_list"].([]interface{}); ok && len(rawList) > 0 {
 								var VPCListResult []CloudConnectAWSTGWSiteVPCAttachmentsVPCListModel
 								for _, VPCListItem := range rawList {
@@ -3030,7 +3104,7 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 											CustomRouting: func() *CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel {
 												if CustomRoutingData, ok := VPCListItemMap["custom_routing"].(map[string]interface{}); ok {
 													return &CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel{
-														RouteTables: func() []CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel {
+														RouteTables: func() types.List {
 															if rawList, ok := CustomRoutingData["route_tables"].([]interface{}); ok && len(rawList) > 0 {
 																var RouteTablesResult []CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel
 																for _, RouteTablesItem := range rawList {
@@ -3058,9 +3132,10 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 																		})
 																	}
 																}
-																return RouteTablesResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModelAttrTypes}, RouteTablesResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModelAttrTypes})
 														}(),
 													}
 												}
@@ -3120,9 +3195,10 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 										})
 									}
 								}
-								return VPCListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudConnectAWSTGWSiteVPCAttachmentsVPCListModelAttrTypes}, VPCListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CloudConnectAWSTGWSiteVPCAttachmentsVPCListModelAttrTypes})
 						}(),
 					}
 				}
@@ -3163,7 +3239,7 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 				}
 				if VNETAttachmentsData, ok := blockData["vnet_attachments"].(map[string]interface{}); ok {
 					return &CloudConnectAzureVNETSiteVNETAttachmentsModel{
-						VNETList: func() []CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel {
+						VNETList: func() types.List {
 							if rawList, ok := VNETAttachmentsData["vnet_list"].([]interface{}); ok && len(rawList) > 0 {
 								var VNETListResult []CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel
 								for _, VNETListItem := range rawList {
@@ -3172,7 +3248,7 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 											CustomRouting: func() *CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingModel {
 												if CustomRoutingData, ok := VNETListItemMap["custom_routing"].(map[string]interface{}); ok {
 													return &CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingModel{
-														RouteTables: func() []CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModel {
+														RouteTables: func() types.List {
 															if rawList, ok := CustomRoutingData["route_tables"].([]interface{}); ok && len(rawList) > 0 {
 																var RouteTablesResult []CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModel
 																for _, RouteTablesItem := range rawList {
@@ -3200,9 +3276,10 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 																		})
 																	}
 																}
-																return RouteTablesResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModelAttrTypes}, RouteTablesResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModelAttrTypes})
 														}(),
 													}
 												}
@@ -3268,9 +3345,10 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 										})
 									}
 								}
-								return VNETListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudConnectAzureVNETSiteVNETAttachmentsVNETListModelAttrTypes}, VNETListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CloudConnectAzureVNETSiteVNETAttachmentsVNETListModelAttrTypes})
 						}(),
 					}
 				}

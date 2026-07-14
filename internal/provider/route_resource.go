@@ -60,11 +60,11 @@ type RouteRoutesModel struct {
 	BotDefenseJavascriptInjection          *RouteRoutesBotDefenseJavascriptInjectionModel `tfsdk:"bot_defense_javascript_injection"`
 	InheritedBotDefenseJavascriptInjection *RouteEmptyModel                               `tfsdk:"inherited_bot_defense_javascript_injection"`
 	InheritedWAFExclusion                  *RouteEmptyModel                               `tfsdk:"inherited_waf_exclusion"`
-	Match                                  []RouteRoutesMatchModel                        `tfsdk:"match"`
-	RequestCookiesToAdd                    []RouteRoutesRequestCookiesToAddModel          `tfsdk:"request_cookies_to_add"`
-	RequestHeadersToAdd                    []RouteRoutesRequestHeadersToAddModel          `tfsdk:"request_headers_to_add"`
-	ResponseCookiesToAdd                   []RouteRoutesResponseCookiesToAddModel         `tfsdk:"response_cookies_to_add"`
-	ResponseHeadersToAdd                   []RouteRoutesResponseHeadersToAddModel         `tfsdk:"response_headers_to_add"`
+	Match                                  types.List                                     `tfsdk:"match"`
+	RequestCookiesToAdd                    types.List                                     `tfsdk:"request_cookies_to_add"`
+	RequestHeadersToAdd                    types.List                                     `tfsdk:"request_headers_to_add"`
+	ResponseCookiesToAdd                   types.List                                     `tfsdk:"response_cookies_to_add"`
+	ResponseHeadersToAdd                   types.List                                     `tfsdk:"response_headers_to_add"`
 	RouteDestination                       *RouteRoutesRouteDestinationModel              `tfsdk:"route_destination"`
 	RouteDirectResponse                    *RouteRoutesRouteDirectResponseModel           `tfsdk:"route_direct_response"`
 	RouteRedirect                          *RouteRoutesRouteRedirectModel                 `tfsdk:"route_redirect"`
@@ -98,8 +98,8 @@ var RouteRoutesModelAttrTypes = map[string]attr.Type{
 
 // RouteRoutesBotDefenseJavascriptInjectionModel represents bot_defense_javascript_injection block
 type RouteRoutesBotDefenseJavascriptInjectionModel struct {
-	JavascriptLocation types.String                                                  `tfsdk:"javascript_location"`
-	JavascriptTags     []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel `tfsdk:"javascript_tags"`
+	JavascriptLocation types.String `tfsdk:"javascript_location"`
+	JavascriptTags     types.List   `tfsdk:"javascript_tags"`
 }
 
 // RouteRoutesBotDefenseJavascriptInjectionModelAttrTypes defines the attribute types for RouteRoutesBotDefenseJavascriptInjectionModel
@@ -110,8 +110,8 @@ var RouteRoutesBotDefenseJavascriptInjectionModelAttrTypes = map[string]attr.Typ
 
 // RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel represents javascript_tags block
 type RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel struct {
-	JavascriptURL types.String                                                               `tfsdk:"javascript_url"`
-	TagAttributes []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel `tfsdk:"tag_attributes"`
+	JavascriptURL types.String `tfsdk:"javascript_url"`
+	TagAttributes types.List   `tfsdk:"tag_attributes"`
 }
 
 // RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModelAttrTypes defines the attribute types for RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel
@@ -135,10 +135,10 @@ var RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModelAttr
 // RouteRoutesMatchModel represents match block
 type RouteRoutesMatchModel struct {
 	HTTPMethod   types.String                       `tfsdk:"http_method"`
-	Headers      []RouteRoutesMatchHeadersModel     `tfsdk:"headers"`
+	Headers      types.List                         `tfsdk:"headers"`
 	IncomingPort *RouteRoutesMatchIncomingPortModel `tfsdk:"incoming_port"`
 	Path         *RouteRoutesMatchPathModel         `tfsdk:"path"`
-	QueryParams  []RouteRoutesMatchQueryParamsModel `tfsdk:"query_params"`
+	QueryParams  types.List                         `tfsdk:"query_params"`
 }
 
 // RouteRoutesMatchModelAttrTypes defines the attribute types for RouteRoutesMatchModel
@@ -477,7 +477,7 @@ type RouteRoutesRouteDestinationModel struct {
 	Destinations        types.List                                       `tfsdk:"destinations"`
 	DoNotRetractCluster *RouteEmptyModel                                 `tfsdk:"do_not_retract_cluster"`
 	EndpointSubsets     *RouteEmptyModel                                 `tfsdk:"endpoint_subsets"`
-	HashPolicy          []RouteRoutesRouteDestinationHashPolicyModel     `tfsdk:"hash_policy"`
+	HashPolicy          types.List                                       `tfsdk:"hash_policy"`
 	MirrorPolicy        *RouteRoutesRouteDestinationMirrorPolicyModel    `tfsdk:"mirror_policy"`
 	QueryParams         *RouteRoutesRouteDestinationQueryParamsModel     `tfsdk:"query_params"`
 	RegexRewrite        *RouteRoutesRouteDestinationRegexRewriteModel    `tfsdk:"regex_rewrite"`
@@ -2211,30 +2211,40 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 					if !RoutesItem.BotDefenseJavascriptInjection.JavascriptLocation.IsNull() && !RoutesItem.BotDefenseJavascriptInjection.JavascriptLocation.IsUnknown() {
 						BotDefenseJavascriptInjectionMap["javascript_location"] = RoutesItem.BotDefenseJavascriptInjection.JavascriptLocation.ValueString()
 					}
-					if len(RoutesItem.BotDefenseJavascriptInjection.JavascriptTags) > 0 {
-						var JavascriptTagsList []map[string]interface{}
-						for _, JavascriptTagsItem := range RoutesItem.BotDefenseJavascriptInjection.JavascriptTags {
-							JavascriptTagsItemMap := make(map[string]interface{})
-							if !JavascriptTagsItem.JavascriptURL.IsNull() && !JavascriptTagsItem.JavascriptURL.IsUnknown() {
-								JavascriptTagsItemMap["javascript_url"] = JavascriptTagsItem.JavascriptURL.ValueString()
-							}
-							if len(JavascriptTagsItem.TagAttributes) > 0 {
-								var TagAttributesList []map[string]interface{}
-								for _, TagAttributesItem := range JavascriptTagsItem.TagAttributes {
-									TagAttributesItemMap := make(map[string]interface{})
-									if !TagAttributesItem.JavascriptTag.IsNull() && !TagAttributesItem.JavascriptTag.IsUnknown() {
-										TagAttributesItemMap["javascript_tag"] = TagAttributesItem.JavascriptTag.ValueString()
-									}
-									if !TagAttributesItem.TagValue.IsNull() && !TagAttributesItem.TagValue.IsUnknown() {
-										TagAttributesItemMap["tag_value"] = TagAttributesItem.TagValue.ValueString()
-									}
-									TagAttributesList = append(TagAttributesList, TagAttributesItemMap)
+					if !RoutesItem.BotDefenseJavascriptInjection.JavascriptTags.IsNull() && !RoutesItem.BotDefenseJavascriptInjection.JavascriptTags.IsUnknown() {
+						var JavascriptTagsElems []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel
+						diags := RoutesItem.BotDefenseJavascriptInjection.JavascriptTags.ElementsAs(ctx, &JavascriptTagsElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(JavascriptTagsElems) > 0 {
+							var JavascriptTagsList []map[string]interface{}
+							for _, JavascriptTagsItem := range JavascriptTagsElems {
+								JavascriptTagsItemMap := make(map[string]interface{})
+								if !JavascriptTagsItem.JavascriptURL.IsNull() && !JavascriptTagsItem.JavascriptURL.IsUnknown() {
+									JavascriptTagsItemMap["javascript_url"] = JavascriptTagsItem.JavascriptURL.ValueString()
 								}
-								JavascriptTagsItemMap["tag_attributes"] = TagAttributesList
+								if !JavascriptTagsItem.TagAttributes.IsNull() && !JavascriptTagsItem.TagAttributes.IsUnknown() {
+									var TagAttributesElems []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel
+									diags := JavascriptTagsItem.TagAttributes.ElementsAs(ctx, &TagAttributesElems, false)
+									resp.Diagnostics.Append(diags...)
+									if !resp.Diagnostics.HasError() && len(TagAttributesElems) > 0 {
+										var TagAttributesList []map[string]interface{}
+										for _, TagAttributesItem := range TagAttributesElems {
+											TagAttributesItemMap := make(map[string]interface{})
+											if !TagAttributesItem.JavascriptTag.IsNull() && !TagAttributesItem.JavascriptTag.IsUnknown() {
+												TagAttributesItemMap["javascript_tag"] = TagAttributesItem.JavascriptTag.ValueString()
+											}
+											if !TagAttributesItem.TagValue.IsNull() && !TagAttributesItem.TagValue.IsUnknown() {
+												TagAttributesItemMap["tag_value"] = TagAttributesItem.TagValue.ValueString()
+											}
+											TagAttributesList = append(TagAttributesList, TagAttributesItemMap)
+										}
+										JavascriptTagsItemMap["tag_attributes"] = TagAttributesList
+									}
+								}
+								JavascriptTagsList = append(JavascriptTagsList, JavascriptTagsItemMap)
 							}
-							JavascriptTagsList = append(JavascriptTagsList, JavascriptTagsItemMap)
+							BotDefenseJavascriptInjectionMap["javascript_tags"] = JavascriptTagsList
 						}
-						BotDefenseJavascriptInjectionMap["javascript_tags"] = JavascriptTagsList
 					}
 					RoutesItemMap["bot_defense_javascript_injection"] = BotDefenseJavascriptInjectionMap
 				}
@@ -2247,126 +2257,146 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if RoutesItem.InheritedWAFExclusion != nil {
 					RoutesItemMap["inherited_waf_exclusion"] = map[string]interface{}{}
 				}
-				if len(RoutesItem.Match) > 0 {
-					var MatchList []map[string]interface{}
-					for _, MatchItem := range RoutesItem.Match {
-						MatchItemMap := make(map[string]interface{})
-						if len(MatchItem.Headers) > 0 {
-							var HeadersList []map[string]interface{}
-							for _, HeadersItem := range MatchItem.Headers {
-								HeadersItemMap := make(map[string]interface{})
-								if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
-									HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
+				if !RoutesItem.Match.IsNull() && !RoutesItem.Match.IsUnknown() {
+					var MatchElems []RouteRoutesMatchModel
+					diags := RoutesItem.Match.ElementsAs(ctx, &MatchElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(MatchElems) > 0 {
+						var MatchList []map[string]interface{}
+						for _, MatchItem := range MatchElems {
+							MatchItemMap := make(map[string]interface{})
+							if !MatchItem.Headers.IsNull() && !MatchItem.Headers.IsUnknown() {
+								var HeadersElems []RouteRoutesMatchHeadersModel
+								diags := MatchItem.Headers.ElementsAs(ctx, &HeadersElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+									var HeadersList []map[string]interface{}
+									for _, HeadersItem := range HeadersElems {
+										HeadersItemMap := make(map[string]interface{})
+										if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
+											HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
+										}
+										if !HeadersItem.InvertMatch.IsNull() && !HeadersItem.InvertMatch.IsUnknown() {
+											HeadersItemMap["invert_match"] = HeadersItem.InvertMatch.ValueBool()
+										}
+										if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+											HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+										}
+										if !HeadersItem.Presence.IsNull() && !HeadersItem.Presence.IsUnknown() {
+											HeadersItemMap["presence"] = HeadersItem.Presence.ValueBool()
+										}
+										if !HeadersItem.Regex.IsNull() && !HeadersItem.Regex.IsUnknown() {
+											HeadersItemMap["regex"] = HeadersItem.Regex.ValueString()
+										}
+										HeadersList = append(HeadersList, HeadersItemMap)
+									}
+									MatchItemMap["headers"] = HeadersList
 								}
-								if !HeadersItem.InvertMatch.IsNull() && !HeadersItem.InvertMatch.IsUnknown() {
-									HeadersItemMap["invert_match"] = HeadersItem.InvertMatch.ValueBool()
-								}
-								if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-									HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-								}
-								if !HeadersItem.Presence.IsNull() && !HeadersItem.Presence.IsUnknown() {
-									HeadersItemMap["presence"] = HeadersItem.Presence.ValueBool()
-								}
-								if !HeadersItem.Regex.IsNull() && !HeadersItem.Regex.IsUnknown() {
-									HeadersItemMap["regex"] = HeadersItem.Regex.ValueString()
-								}
-								HeadersList = append(HeadersList, HeadersItemMap)
 							}
-							MatchItemMap["headers"] = HeadersList
+							if !MatchItem.HTTPMethod.IsNull() && !MatchItem.HTTPMethod.IsUnknown() {
+								MatchItemMap["http_method"] = MatchItem.HTTPMethod.ValueString()
+							}
+							if MatchItem.IncomingPort != nil {
+								IncomingPortMap := make(map[string]interface{})
+								if MatchItem.IncomingPort.NoPortMatch != nil {
+									IncomingPortMap["no_port_match"] = map[string]interface{}{}
+								}
+								if !MatchItem.IncomingPort.Port.IsNull() && !MatchItem.IncomingPort.Port.IsUnknown() {
+									IncomingPortMap["port"] = MatchItem.IncomingPort.Port.ValueInt64()
+								}
+								if !MatchItem.IncomingPort.PortRanges.IsNull() && !MatchItem.IncomingPort.PortRanges.IsUnknown() {
+									IncomingPortMap["port_ranges"] = MatchItem.IncomingPort.PortRanges.ValueString()
+								}
+								MatchItemMap["incoming_port"] = IncomingPortMap
+							}
+							if MatchItem.Path != nil {
+								PathMap := make(map[string]interface{})
+								if !MatchItem.Path.Path.IsNull() && !MatchItem.Path.Path.IsUnknown() {
+									PathMap["path"] = MatchItem.Path.Path.ValueString()
+								}
+								if !MatchItem.Path.Prefix.IsNull() && !MatchItem.Path.Prefix.IsUnknown() {
+									PathMap["prefix"] = MatchItem.Path.Prefix.ValueString()
+								}
+								if !MatchItem.Path.Regex.IsNull() && !MatchItem.Path.Regex.IsUnknown() {
+									PathMap["regex"] = MatchItem.Path.Regex.ValueString()
+								}
+								MatchItemMap["path"] = PathMap
+							}
+							if !MatchItem.QueryParams.IsNull() && !MatchItem.QueryParams.IsUnknown() {
+								var QueryParamsElems []RouteRoutesMatchQueryParamsModel
+								diags := MatchItem.QueryParams.ElementsAs(ctx, &QueryParamsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(QueryParamsElems) > 0 {
+									var QueryParamsList []map[string]interface{}
+									for _, QueryParamsItem := range QueryParamsElems {
+										QueryParamsItemMap := make(map[string]interface{})
+										if !QueryParamsItem.Exact.IsNull() && !QueryParamsItem.Exact.IsUnknown() {
+											QueryParamsItemMap["exact"] = QueryParamsItem.Exact.ValueString()
+										}
+										if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
+											QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
+										}
+										if !QueryParamsItem.Regex.IsNull() && !QueryParamsItem.Regex.IsUnknown() {
+											QueryParamsItemMap["regex"] = QueryParamsItem.Regex.ValueString()
+										}
+										QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
+									}
+									MatchItemMap["query_params"] = QueryParamsList
+								}
+							}
+							MatchList = append(MatchList, MatchItemMap)
 						}
-						if !MatchItem.HTTPMethod.IsNull() && !MatchItem.HTTPMethod.IsUnknown() {
-							MatchItemMap["http_method"] = MatchItem.HTTPMethod.ValueString()
-						}
-						if MatchItem.IncomingPort != nil {
-							IncomingPortMap := make(map[string]interface{})
-							if MatchItem.IncomingPort.NoPortMatch != nil {
-								IncomingPortMap["no_port_match"] = map[string]interface{}{}
-							}
-							if !MatchItem.IncomingPort.Port.IsNull() && !MatchItem.IncomingPort.Port.IsUnknown() {
-								IncomingPortMap["port"] = MatchItem.IncomingPort.Port.ValueInt64()
-							}
-							if !MatchItem.IncomingPort.PortRanges.IsNull() && !MatchItem.IncomingPort.PortRanges.IsUnknown() {
-								IncomingPortMap["port_ranges"] = MatchItem.IncomingPort.PortRanges.ValueString()
-							}
-							MatchItemMap["incoming_port"] = IncomingPortMap
-						}
-						if MatchItem.Path != nil {
-							PathMap := make(map[string]interface{})
-							if !MatchItem.Path.Path.IsNull() && !MatchItem.Path.Path.IsUnknown() {
-								PathMap["path"] = MatchItem.Path.Path.ValueString()
-							}
-							if !MatchItem.Path.Prefix.IsNull() && !MatchItem.Path.Prefix.IsUnknown() {
-								PathMap["prefix"] = MatchItem.Path.Prefix.ValueString()
-							}
-							if !MatchItem.Path.Regex.IsNull() && !MatchItem.Path.Regex.IsUnknown() {
-								PathMap["regex"] = MatchItem.Path.Regex.ValueString()
-							}
-							MatchItemMap["path"] = PathMap
-						}
-						if len(MatchItem.QueryParams) > 0 {
-							var QueryParamsList []map[string]interface{}
-							for _, QueryParamsItem := range MatchItem.QueryParams {
-								QueryParamsItemMap := make(map[string]interface{})
-								if !QueryParamsItem.Exact.IsNull() && !QueryParamsItem.Exact.IsUnknown() {
-									QueryParamsItemMap["exact"] = QueryParamsItem.Exact.ValueString()
-								}
-								if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
-									QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
-								}
-								if !QueryParamsItem.Regex.IsNull() && !QueryParamsItem.Regex.IsUnknown() {
-									QueryParamsItemMap["regex"] = QueryParamsItem.Regex.ValueString()
-								}
-								QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
-							}
-							MatchItemMap["query_params"] = QueryParamsList
-						}
-						MatchList = append(MatchList, MatchItemMap)
+						RoutesItemMap["match"] = MatchList
 					}
-					RoutesItemMap["match"] = MatchList
 				}
-				if len(RoutesItem.RequestCookiesToAdd) > 0 {
-					var RequestCookiesToAddList []map[string]interface{}
-					for _, RequestCookiesToAddItem := range RoutesItem.RequestCookiesToAdd {
-						RequestCookiesToAddItemMap := make(map[string]interface{})
-						if !RequestCookiesToAddItem.Name.IsNull() && !RequestCookiesToAddItem.Name.IsUnknown() {
-							RequestCookiesToAddItemMap["name"] = RequestCookiesToAddItem.Name.ValueString()
-						}
-						if !RequestCookiesToAddItem.Overwrite.IsNull() && !RequestCookiesToAddItem.Overwrite.IsUnknown() {
-							RequestCookiesToAddItemMap["overwrite"] = RequestCookiesToAddItem.Overwrite.ValueBool()
-						}
-						if RequestCookiesToAddItem.SecretValue != nil {
-							SecretValueMap := make(map[string]interface{})
-							if RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
-								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-								}
-								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
-								}
-								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
-								}
-								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				if !RoutesItem.RequestCookiesToAdd.IsNull() && !RoutesItem.RequestCookiesToAdd.IsUnknown() {
+					var RequestCookiesToAddElems []RouteRoutesRequestCookiesToAddModel
+					diags := RoutesItem.RequestCookiesToAdd.ElementsAs(ctx, &RequestCookiesToAddElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(RequestCookiesToAddElems) > 0 {
+						var RequestCookiesToAddList []map[string]interface{}
+						for _, RequestCookiesToAddItem := range RequestCookiesToAddElems {
+							RequestCookiesToAddItemMap := make(map[string]interface{})
+							if !RequestCookiesToAddItem.Name.IsNull() && !RequestCookiesToAddItem.Name.IsUnknown() {
+								RequestCookiesToAddItemMap["name"] = RequestCookiesToAddItem.Name.ValueString()
 							}
-							if RequestCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
-								if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
-								}
-								if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
-								}
-								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							if !RequestCookiesToAddItem.Overwrite.IsNull() && !RequestCookiesToAddItem.Overwrite.IsUnknown() {
+								RequestCookiesToAddItemMap["overwrite"] = RequestCookiesToAddItem.Overwrite.ValueBool()
 							}
-							RequestCookiesToAddItemMap["secret_value"] = SecretValueMap
+							if RequestCookiesToAddItem.SecretValue != nil {
+								SecretValueMap := make(map[string]interface{})
+								if RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if RequestCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+									}
+									if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+									}
+									SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								RequestCookiesToAddItemMap["secret_value"] = SecretValueMap
+							}
+							if !RequestCookiesToAddItem.Value.IsNull() && !RequestCookiesToAddItem.Value.IsUnknown() {
+								RequestCookiesToAddItemMap["value"] = RequestCookiesToAddItem.Value.ValueString()
+							}
+							RequestCookiesToAddList = append(RequestCookiesToAddList, RequestCookiesToAddItemMap)
 						}
-						if !RequestCookiesToAddItem.Value.IsNull() && !RequestCookiesToAddItem.Value.IsUnknown() {
-							RequestCookiesToAddItemMap["value"] = RequestCookiesToAddItem.Value.ValueString()
-						}
-						RequestCookiesToAddList = append(RequestCookiesToAddList, RequestCookiesToAddItemMap)
+						RoutesItemMap["request_cookies_to_add"] = RequestCookiesToAddList
 					}
-					RoutesItemMap["request_cookies_to_add"] = RequestCookiesToAddList
 				}
 				if !RoutesItem.RequestCookiesToRemove.IsNull() && !RoutesItem.RequestCookiesToRemove.IsUnknown() {
 					var RequestCookiesToRemoveItems []string
@@ -2375,49 +2405,54 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						RoutesItemMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
 					}
 				}
-				if len(RoutesItem.RequestHeadersToAdd) > 0 {
-					var RequestHeadersToAddList []map[string]interface{}
-					for _, RequestHeadersToAddItem := range RoutesItem.RequestHeadersToAdd {
-						RequestHeadersToAddItemMap := make(map[string]interface{})
-						if !RequestHeadersToAddItem.Append.IsNull() && !RequestHeadersToAddItem.Append.IsUnknown() {
-							RequestHeadersToAddItemMap["append"] = RequestHeadersToAddItem.Append.ValueBool()
-						}
-						if !RequestHeadersToAddItem.Name.IsNull() && !RequestHeadersToAddItem.Name.IsUnknown() {
-							RequestHeadersToAddItemMap["name"] = RequestHeadersToAddItem.Name.ValueString()
-						}
-						if RequestHeadersToAddItem.SecretValue != nil {
-							SecretValueMap := make(map[string]interface{})
-							if RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
-								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-								}
-								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
-								}
-								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
-								}
-								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				if !RoutesItem.RequestHeadersToAdd.IsNull() && !RoutesItem.RequestHeadersToAdd.IsUnknown() {
+					var RequestHeadersToAddElems []RouteRoutesRequestHeadersToAddModel
+					diags := RoutesItem.RequestHeadersToAdd.ElementsAs(ctx, &RequestHeadersToAddElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(RequestHeadersToAddElems) > 0 {
+						var RequestHeadersToAddList []map[string]interface{}
+						for _, RequestHeadersToAddItem := range RequestHeadersToAddElems {
+							RequestHeadersToAddItemMap := make(map[string]interface{})
+							if !RequestHeadersToAddItem.Append.IsNull() && !RequestHeadersToAddItem.Append.IsUnknown() {
+								RequestHeadersToAddItemMap["append"] = RequestHeadersToAddItem.Append.ValueBool()
 							}
-							if RequestHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
-								if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
-								}
-								if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
-								}
-								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							if !RequestHeadersToAddItem.Name.IsNull() && !RequestHeadersToAddItem.Name.IsUnknown() {
+								RequestHeadersToAddItemMap["name"] = RequestHeadersToAddItem.Name.ValueString()
 							}
-							RequestHeadersToAddItemMap["secret_value"] = SecretValueMap
+							if RequestHeadersToAddItem.SecretValue != nil {
+								SecretValueMap := make(map[string]interface{})
+								if RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if RequestHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+									}
+									if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+									}
+									SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								RequestHeadersToAddItemMap["secret_value"] = SecretValueMap
+							}
+							if !RequestHeadersToAddItem.Value.IsNull() && !RequestHeadersToAddItem.Value.IsUnknown() {
+								RequestHeadersToAddItemMap["value"] = RequestHeadersToAddItem.Value.ValueString()
+							}
+							RequestHeadersToAddList = append(RequestHeadersToAddList, RequestHeadersToAddItemMap)
 						}
-						if !RequestHeadersToAddItem.Value.IsNull() && !RequestHeadersToAddItem.Value.IsUnknown() {
-							RequestHeadersToAddItemMap["value"] = RequestHeadersToAddItem.Value.ValueString()
-						}
-						RequestHeadersToAddList = append(RequestHeadersToAddList, RequestHeadersToAddItemMap)
+						RoutesItemMap["request_headers_to_add"] = RequestHeadersToAddList
 					}
-					RoutesItemMap["request_headers_to_add"] = RequestHeadersToAddList
 				}
 				if !RoutesItem.RequestHeadersToRemove.IsNull() && !RoutesItem.RequestHeadersToRemove.IsUnknown() {
 					var RequestHeadersToRemoveItems []string
@@ -2426,106 +2461,111 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						RoutesItemMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 					}
 				}
-				if len(RoutesItem.ResponseCookiesToAdd) > 0 {
-					var ResponseCookiesToAddList []map[string]interface{}
-					for _, ResponseCookiesToAddItem := range RoutesItem.ResponseCookiesToAdd {
-						ResponseCookiesToAddItemMap := make(map[string]interface{})
-						if !ResponseCookiesToAddItem.AddDomain.IsNull() && !ResponseCookiesToAddItem.AddDomain.IsUnknown() {
-							ResponseCookiesToAddItemMap["add_domain"] = ResponseCookiesToAddItem.AddDomain.ValueString()
-						}
-						if !ResponseCookiesToAddItem.AddExpiry.IsNull() && !ResponseCookiesToAddItem.AddExpiry.IsUnknown() {
-							ResponseCookiesToAddItemMap["add_expiry"] = ResponseCookiesToAddItem.AddExpiry.ValueString()
-						}
-						if ResponseCookiesToAddItem.AddHttponly != nil {
-							ResponseCookiesToAddItemMap["add_httponly"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.AddPartitioned != nil {
-							ResponseCookiesToAddItemMap["add_partitioned"] = map[string]interface{}{}
-						}
-						if !ResponseCookiesToAddItem.AddPath.IsNull() && !ResponseCookiesToAddItem.AddPath.IsUnknown() {
-							ResponseCookiesToAddItemMap["add_path"] = ResponseCookiesToAddItem.AddPath.ValueString()
-						}
-						if ResponseCookiesToAddItem.AddSecure != nil {
-							ResponseCookiesToAddItemMap["add_secure"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.IgnoreDomain != nil {
-							ResponseCookiesToAddItemMap["ignore_domain"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.IgnoreExpiry != nil {
-							ResponseCookiesToAddItemMap["ignore_expiry"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.IgnoreHttponly != nil {
-							ResponseCookiesToAddItemMap["ignore_httponly"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.IgnoreMaxAge != nil {
-							ResponseCookiesToAddItemMap["ignore_max_age"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.IgnorePartitioned != nil {
-							ResponseCookiesToAddItemMap["ignore_partitioned"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.IgnorePath != nil {
-							ResponseCookiesToAddItemMap["ignore_path"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.IgnoreSamesite != nil {
-							ResponseCookiesToAddItemMap["ignore_samesite"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.IgnoreSecure != nil {
-							ResponseCookiesToAddItemMap["ignore_secure"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.IgnoreValue != nil {
-							ResponseCookiesToAddItemMap["ignore_value"] = map[string]interface{}{}
-						}
-						if !ResponseCookiesToAddItem.MaxAgeValue.IsNull() && !ResponseCookiesToAddItem.MaxAgeValue.IsUnknown() {
-							ResponseCookiesToAddItemMap["max_age_value"] = ResponseCookiesToAddItem.MaxAgeValue.ValueInt64()
-						}
-						if !ResponseCookiesToAddItem.Name.IsNull() && !ResponseCookiesToAddItem.Name.IsUnknown() {
-							ResponseCookiesToAddItemMap["name"] = ResponseCookiesToAddItem.Name.ValueString()
-						}
-						if !ResponseCookiesToAddItem.Overwrite.IsNull() && !ResponseCookiesToAddItem.Overwrite.IsUnknown() {
-							ResponseCookiesToAddItemMap["overwrite"] = ResponseCookiesToAddItem.Overwrite.ValueBool()
-						}
-						if ResponseCookiesToAddItem.SamesiteLax != nil {
-							ResponseCookiesToAddItemMap["samesite_lax"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.SamesiteNone != nil {
-							ResponseCookiesToAddItemMap["samesite_none"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.SamesiteStrict != nil {
-							ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.SecretValue != nil {
-							SecretValueMap := make(map[string]interface{})
-							if ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
-								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-								}
-								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
-								}
-								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
-								}
-								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				if !RoutesItem.ResponseCookiesToAdd.IsNull() && !RoutesItem.ResponseCookiesToAdd.IsUnknown() {
+					var ResponseCookiesToAddElems []RouteRoutesResponseCookiesToAddModel
+					diags := RoutesItem.ResponseCookiesToAdd.ElementsAs(ctx, &ResponseCookiesToAddElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(ResponseCookiesToAddElems) > 0 {
+						var ResponseCookiesToAddList []map[string]interface{}
+						for _, ResponseCookiesToAddItem := range ResponseCookiesToAddElems {
+							ResponseCookiesToAddItemMap := make(map[string]interface{})
+							if !ResponseCookiesToAddItem.AddDomain.IsNull() && !ResponseCookiesToAddItem.AddDomain.IsUnknown() {
+								ResponseCookiesToAddItemMap["add_domain"] = ResponseCookiesToAddItem.AddDomain.ValueString()
 							}
-							if ResponseCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
-								if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
-								}
-								if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
-								}
-								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							if !ResponseCookiesToAddItem.AddExpiry.IsNull() && !ResponseCookiesToAddItem.AddExpiry.IsUnknown() {
+								ResponseCookiesToAddItemMap["add_expiry"] = ResponseCookiesToAddItem.AddExpiry.ValueString()
 							}
-							ResponseCookiesToAddItemMap["secret_value"] = SecretValueMap
+							if ResponseCookiesToAddItem.AddHttponly != nil {
+								ResponseCookiesToAddItemMap["add_httponly"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.AddPartitioned != nil {
+								ResponseCookiesToAddItemMap["add_partitioned"] = map[string]interface{}{}
+							}
+							if !ResponseCookiesToAddItem.AddPath.IsNull() && !ResponseCookiesToAddItem.AddPath.IsUnknown() {
+								ResponseCookiesToAddItemMap["add_path"] = ResponseCookiesToAddItem.AddPath.ValueString()
+							}
+							if ResponseCookiesToAddItem.AddSecure != nil {
+								ResponseCookiesToAddItemMap["add_secure"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.IgnoreDomain != nil {
+								ResponseCookiesToAddItemMap["ignore_domain"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.IgnoreExpiry != nil {
+								ResponseCookiesToAddItemMap["ignore_expiry"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.IgnoreHttponly != nil {
+								ResponseCookiesToAddItemMap["ignore_httponly"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.IgnoreMaxAge != nil {
+								ResponseCookiesToAddItemMap["ignore_max_age"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.IgnorePartitioned != nil {
+								ResponseCookiesToAddItemMap["ignore_partitioned"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.IgnorePath != nil {
+								ResponseCookiesToAddItemMap["ignore_path"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.IgnoreSamesite != nil {
+								ResponseCookiesToAddItemMap["ignore_samesite"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.IgnoreSecure != nil {
+								ResponseCookiesToAddItemMap["ignore_secure"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.IgnoreValue != nil {
+								ResponseCookiesToAddItemMap["ignore_value"] = map[string]interface{}{}
+							}
+							if !ResponseCookiesToAddItem.MaxAgeValue.IsNull() && !ResponseCookiesToAddItem.MaxAgeValue.IsUnknown() {
+								ResponseCookiesToAddItemMap["max_age_value"] = ResponseCookiesToAddItem.MaxAgeValue.ValueInt64()
+							}
+							if !ResponseCookiesToAddItem.Name.IsNull() && !ResponseCookiesToAddItem.Name.IsUnknown() {
+								ResponseCookiesToAddItemMap["name"] = ResponseCookiesToAddItem.Name.ValueString()
+							}
+							if !ResponseCookiesToAddItem.Overwrite.IsNull() && !ResponseCookiesToAddItem.Overwrite.IsUnknown() {
+								ResponseCookiesToAddItemMap["overwrite"] = ResponseCookiesToAddItem.Overwrite.ValueBool()
+							}
+							if ResponseCookiesToAddItem.SamesiteLax != nil {
+								ResponseCookiesToAddItemMap["samesite_lax"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.SamesiteNone != nil {
+								ResponseCookiesToAddItemMap["samesite_none"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.SamesiteStrict != nil {
+								ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.SecretValue != nil {
+								SecretValueMap := make(map[string]interface{})
+								if ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if ResponseCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+									}
+									if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+									}
+									SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								ResponseCookiesToAddItemMap["secret_value"] = SecretValueMap
+							}
+							if !ResponseCookiesToAddItem.Value.IsNull() && !ResponseCookiesToAddItem.Value.IsUnknown() {
+								ResponseCookiesToAddItemMap["value"] = ResponseCookiesToAddItem.Value.ValueString()
+							}
+							ResponseCookiesToAddList = append(ResponseCookiesToAddList, ResponseCookiesToAddItemMap)
 						}
-						if !ResponseCookiesToAddItem.Value.IsNull() && !ResponseCookiesToAddItem.Value.IsUnknown() {
-							ResponseCookiesToAddItemMap["value"] = ResponseCookiesToAddItem.Value.ValueString()
-						}
-						ResponseCookiesToAddList = append(ResponseCookiesToAddList, ResponseCookiesToAddItemMap)
+						RoutesItemMap["response_cookies_to_add"] = ResponseCookiesToAddList
 					}
-					RoutesItemMap["response_cookies_to_add"] = ResponseCookiesToAddList
 				}
 				if !RoutesItem.ResponseCookiesToRemove.IsNull() && !RoutesItem.ResponseCookiesToRemove.IsUnknown() {
 					var ResponseCookiesToRemoveItems []string
@@ -2534,49 +2574,54 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						RoutesItemMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
 					}
 				}
-				if len(RoutesItem.ResponseHeadersToAdd) > 0 {
-					var ResponseHeadersToAddList []map[string]interface{}
-					for _, ResponseHeadersToAddItem := range RoutesItem.ResponseHeadersToAdd {
-						ResponseHeadersToAddItemMap := make(map[string]interface{})
-						if !ResponseHeadersToAddItem.Append.IsNull() && !ResponseHeadersToAddItem.Append.IsUnknown() {
-							ResponseHeadersToAddItemMap["append"] = ResponseHeadersToAddItem.Append.ValueBool()
-						}
-						if !ResponseHeadersToAddItem.Name.IsNull() && !ResponseHeadersToAddItem.Name.IsUnknown() {
-							ResponseHeadersToAddItemMap["name"] = ResponseHeadersToAddItem.Name.ValueString()
-						}
-						if ResponseHeadersToAddItem.SecretValue != nil {
-							SecretValueMap := make(map[string]interface{})
-							if ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
-								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-								}
-								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
-								}
-								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
-								}
-								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				if !RoutesItem.ResponseHeadersToAdd.IsNull() && !RoutesItem.ResponseHeadersToAdd.IsUnknown() {
+					var ResponseHeadersToAddElems []RouteRoutesResponseHeadersToAddModel
+					diags := RoutesItem.ResponseHeadersToAdd.ElementsAs(ctx, &ResponseHeadersToAddElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(ResponseHeadersToAddElems) > 0 {
+						var ResponseHeadersToAddList []map[string]interface{}
+						for _, ResponseHeadersToAddItem := range ResponseHeadersToAddElems {
+							ResponseHeadersToAddItemMap := make(map[string]interface{})
+							if !ResponseHeadersToAddItem.Append.IsNull() && !ResponseHeadersToAddItem.Append.IsUnknown() {
+								ResponseHeadersToAddItemMap["append"] = ResponseHeadersToAddItem.Append.ValueBool()
 							}
-							if ResponseHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
-								if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
-								}
-								if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
-								}
-								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							if !ResponseHeadersToAddItem.Name.IsNull() && !ResponseHeadersToAddItem.Name.IsUnknown() {
+								ResponseHeadersToAddItemMap["name"] = ResponseHeadersToAddItem.Name.ValueString()
 							}
-							ResponseHeadersToAddItemMap["secret_value"] = SecretValueMap
+							if ResponseHeadersToAddItem.SecretValue != nil {
+								SecretValueMap := make(map[string]interface{})
+								if ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if ResponseHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+									}
+									if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+									}
+									SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								ResponseHeadersToAddItemMap["secret_value"] = SecretValueMap
+							}
+							if !ResponseHeadersToAddItem.Value.IsNull() && !ResponseHeadersToAddItem.Value.IsUnknown() {
+								ResponseHeadersToAddItemMap["value"] = ResponseHeadersToAddItem.Value.ValueString()
+							}
+							ResponseHeadersToAddList = append(ResponseHeadersToAddList, ResponseHeadersToAddItemMap)
 						}
-						if !ResponseHeadersToAddItem.Value.IsNull() && !ResponseHeadersToAddItem.Value.IsUnknown() {
-							ResponseHeadersToAddItemMap["value"] = ResponseHeadersToAddItem.Value.ValueString()
-						}
-						ResponseHeadersToAddList = append(ResponseHeadersToAddList, ResponseHeadersToAddItemMap)
+						RoutesItemMap["response_headers_to_add"] = ResponseHeadersToAddList
 					}
-					RoutesItemMap["response_headers_to_add"] = ResponseHeadersToAddList
 				}
 				if !RoutesItem.ResponseHeadersToRemove.IsNull() && !RoutesItem.ResponseHeadersToRemove.IsUnknown() {
 					var ResponseHeadersToRemoveItems []string
@@ -2713,59 +2758,64 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 					if RoutesItem.RouteDestination.EndpointSubsets != nil {
 						RouteDestinationMap["endpoint_subsets"] = map[string]interface{}{}
 					}
-					if len(RoutesItem.RouteDestination.HashPolicy) > 0 {
-						var HashPolicyList []map[string]interface{}
-						for _, HashPolicyItem := range RoutesItem.RouteDestination.HashPolicy {
-							HashPolicyItemMap := make(map[string]interface{})
-							if HashPolicyItem.Cookie != nil {
-								CookieMap := make(map[string]interface{})
-								if HashPolicyItem.Cookie.AddHttponly != nil {
-									CookieMap["add_httponly"] = map[string]interface{}{}
+					if !RoutesItem.RouteDestination.HashPolicy.IsNull() && !RoutesItem.RouteDestination.HashPolicy.IsUnknown() {
+						var HashPolicyElems []RouteRoutesRouteDestinationHashPolicyModel
+						diags := RoutesItem.RouteDestination.HashPolicy.ElementsAs(ctx, &HashPolicyElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(HashPolicyElems) > 0 {
+							var HashPolicyList []map[string]interface{}
+							for _, HashPolicyItem := range HashPolicyElems {
+								HashPolicyItemMap := make(map[string]interface{})
+								if HashPolicyItem.Cookie != nil {
+									CookieMap := make(map[string]interface{})
+									if HashPolicyItem.Cookie.AddHttponly != nil {
+										CookieMap["add_httponly"] = map[string]interface{}{}
+									}
+									if HashPolicyItem.Cookie.AddSecure != nil {
+										CookieMap["add_secure"] = map[string]interface{}{}
+									}
+									if HashPolicyItem.Cookie.IgnoreHttponly != nil {
+										CookieMap["ignore_httponly"] = map[string]interface{}{}
+									}
+									if HashPolicyItem.Cookie.IgnoreSamesite != nil {
+										CookieMap["ignore_samesite"] = map[string]interface{}{}
+									}
+									if HashPolicyItem.Cookie.IgnoreSecure != nil {
+										CookieMap["ignore_secure"] = map[string]interface{}{}
+									}
+									if !HashPolicyItem.Cookie.Name.IsNull() && !HashPolicyItem.Cookie.Name.IsUnknown() {
+										CookieMap["name"] = HashPolicyItem.Cookie.Name.ValueString()
+									}
+									if !HashPolicyItem.Cookie.Path.IsNull() && !HashPolicyItem.Cookie.Path.IsUnknown() {
+										CookieMap["path"] = HashPolicyItem.Cookie.Path.ValueString()
+									}
+									if HashPolicyItem.Cookie.SamesiteLax != nil {
+										CookieMap["samesite_lax"] = map[string]interface{}{}
+									}
+									if HashPolicyItem.Cookie.SamesiteNone != nil {
+										CookieMap["samesite_none"] = map[string]interface{}{}
+									}
+									if HashPolicyItem.Cookie.SamesiteStrict != nil {
+										CookieMap["samesite_strict"] = map[string]interface{}{}
+									}
+									if !HashPolicyItem.Cookie.TTL.IsNull() && !HashPolicyItem.Cookie.TTL.IsUnknown() {
+										CookieMap["ttl"] = HashPolicyItem.Cookie.TTL.ValueInt64()
+									}
+									HashPolicyItemMap["cookie"] = CookieMap
 								}
-								if HashPolicyItem.Cookie.AddSecure != nil {
-									CookieMap["add_secure"] = map[string]interface{}{}
+								if !HashPolicyItem.HeaderName.IsNull() && !HashPolicyItem.HeaderName.IsUnknown() {
+									HashPolicyItemMap["header_name"] = HashPolicyItem.HeaderName.ValueString()
 								}
-								if HashPolicyItem.Cookie.IgnoreHttponly != nil {
-									CookieMap["ignore_httponly"] = map[string]interface{}{}
+								if !HashPolicyItem.SourceIP.IsNull() && !HashPolicyItem.SourceIP.IsUnknown() {
+									HashPolicyItemMap["source_ip"] = HashPolicyItem.SourceIP.ValueBool()
 								}
-								if HashPolicyItem.Cookie.IgnoreSamesite != nil {
-									CookieMap["ignore_samesite"] = map[string]interface{}{}
+								if !HashPolicyItem.Terminal.IsNull() && !HashPolicyItem.Terminal.IsUnknown() {
+									HashPolicyItemMap["terminal"] = HashPolicyItem.Terminal.ValueBool()
 								}
-								if HashPolicyItem.Cookie.IgnoreSecure != nil {
-									CookieMap["ignore_secure"] = map[string]interface{}{}
-								}
-								if !HashPolicyItem.Cookie.Name.IsNull() && !HashPolicyItem.Cookie.Name.IsUnknown() {
-									CookieMap["name"] = HashPolicyItem.Cookie.Name.ValueString()
-								}
-								if !HashPolicyItem.Cookie.Path.IsNull() && !HashPolicyItem.Cookie.Path.IsUnknown() {
-									CookieMap["path"] = HashPolicyItem.Cookie.Path.ValueString()
-								}
-								if HashPolicyItem.Cookie.SamesiteLax != nil {
-									CookieMap["samesite_lax"] = map[string]interface{}{}
-								}
-								if HashPolicyItem.Cookie.SamesiteNone != nil {
-									CookieMap["samesite_none"] = map[string]interface{}{}
-								}
-								if HashPolicyItem.Cookie.SamesiteStrict != nil {
-									CookieMap["samesite_strict"] = map[string]interface{}{}
-								}
-								if !HashPolicyItem.Cookie.TTL.IsNull() && !HashPolicyItem.Cookie.TTL.IsUnknown() {
-									CookieMap["ttl"] = HashPolicyItem.Cookie.TTL.ValueInt64()
-								}
-								HashPolicyItemMap["cookie"] = CookieMap
+								HashPolicyList = append(HashPolicyList, HashPolicyItemMap)
 							}
-							if !HashPolicyItem.HeaderName.IsNull() && !HashPolicyItem.HeaderName.IsUnknown() {
-								HashPolicyItemMap["header_name"] = HashPolicyItem.HeaderName.ValueString()
-							}
-							if !HashPolicyItem.SourceIP.IsNull() && !HashPolicyItem.SourceIP.IsUnknown() {
-								HashPolicyItemMap["source_ip"] = HashPolicyItem.SourceIP.ValueBool()
-							}
-							if !HashPolicyItem.Terminal.IsNull() && !HashPolicyItem.Terminal.IsUnknown() {
-								HashPolicyItemMap["terminal"] = HashPolicyItem.Terminal.ValueBool()
-							}
-							HashPolicyList = append(HashPolicyList, HashPolicyItemMap)
+							RouteDestinationMap["hash_policy"] = HashPolicyList
 						}
-						RouteDestinationMap["hash_policy"] = HashPolicyList
 					}
 					if !RoutesItem.RouteDestination.HostRewrite.IsNull() && !RoutesItem.RouteDestination.HostRewrite.IsUnknown() {
 						RouteDestinationMap["host_rewrite"] = RoutesItem.RouteDestination.HostRewrite.ValueString()
@@ -3036,7 +3086,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									}
 									return types.StringNull()
 								}(),
-								JavascriptTags: func() []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel {
+								JavascriptTags: func() types.List {
 									if rawList, ok := BotDefenseJavascriptInjectionData["javascript_tags"].([]interface{}); ok && len(rawList) > 0 {
 										var JavascriptTagsResult []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel
 										for _, JavascriptTagsItem := range rawList {
@@ -3048,7 +3098,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 														}
 														return types.StringNull()
 													}(),
-													TagAttributes: func() []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel {
+													TagAttributes: func() types.List {
 														if rawList, ok := JavascriptTagsItemMap["tag_attributes"].([]interface{}); ok && len(rawList) > 0 {
 															var TagAttributesResult []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel
 															for _, TagAttributesItem := range rawList {
@@ -3069,16 +3119,18 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 																	})
 																}
 															}
-															return TagAttributesResult
+															listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModelAttrTypes}, TagAttributesResult)
+															return listVal
 														}
-														return nil
+														return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModelAttrTypes})
 													}(),
 												})
 											}
 										}
-										return JavascriptTagsResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModelAttrTypes}, JavascriptTagsResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModelAttrTypes})
 								}(),
 							}
 						}
@@ -3108,13 +3160,13 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						}
 						return nil
 					}(),
-					Match: func() []RouteRoutesMatchModel {
+					Match: func() types.List {
 						if rawList, ok := itemMap["match"].([]interface{}); ok && len(rawList) > 0 {
 							var MatchResult []RouteRoutesMatchModel
 							for _, MatchItem := range rawList {
 								if MatchItemMap, ok := MatchItem.(map[string]interface{}); ok {
 									MatchResult = append(MatchResult, RouteRoutesMatchModel{
-										Headers: func() []RouteRoutesMatchHeadersModel {
+										Headers: func() types.List {
 											if rawList, ok := MatchItemMap["headers"].([]interface{}); ok && len(rawList) > 0 {
 												var HeadersResult []RouteRoutesMatchHeadersModel
 												for _, HeadersItem := range rawList {
@@ -3153,9 +3205,10 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 														})
 													}
 												}
-												return HeadersResult
+												listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesMatchHeadersModelAttrTypes}, HeadersResult)
+												return listVal
 											}
-											return nil
+											return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesMatchHeadersModelAttrTypes})
 										}(),
 										HTTPMethod: func() types.String {
 											if v, ok := MatchItemMap["http_method"].(string); ok && v != "" {
@@ -3213,7 +3266,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 											}
 											return nil
 										}(),
-										QueryParams: func() []RouteRoutesMatchQueryParamsModel {
+										QueryParams: func() types.List {
 											if rawList, ok := MatchItemMap["query_params"].([]interface{}); ok && len(rawList) > 0 {
 												var QueryParamsResult []RouteRoutesMatchQueryParamsModel
 												for _, QueryParamsItem := range rawList {
@@ -3240,18 +3293,20 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 														})
 													}
 												}
-												return QueryParamsResult
+												listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesMatchQueryParamsModelAttrTypes}, QueryParamsResult)
+												return listVal
 											}
-											return nil
+											return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesMatchQueryParamsModelAttrTypes})
 										}(),
 									})
 								}
 							}
-							return MatchResult
+							listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesMatchModelAttrTypes}, MatchResult)
+							return listVal
 						}
-						return nil
+						return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesMatchModelAttrTypes})
 					}(),
-					RequestCookiesToAdd: func() []RouteRoutesRequestCookiesToAddModel {
+					RequestCookiesToAdd: func() types.List {
 						if rawList, ok := itemMap["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var RequestCookiesToAddResult []RouteRoutesRequestCookiesToAddModel
 							for _, RequestCookiesToAddItem := range rawList {
@@ -3329,9 +3384,10 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									})
 								}
 							}
-							return RequestCookiesToAddResult
+							listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesRequestCookiesToAddModelAttrTypes}, RequestCookiesToAddResult)
+							return listVal
 						}
-						return nil
+						return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRequestCookiesToAddModelAttrTypes})
 					}(),
 					RequestCookiesToRemove: func() types.List {
 						if v, ok := itemMap["request_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
@@ -3346,7 +3402,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						}
 						return types.ListNull(types.StringType)
 					}(),
-					RequestHeadersToAdd: func() []RouteRoutesRequestHeadersToAddModel {
+					RequestHeadersToAdd: func() types.List {
 						if rawList, ok := itemMap["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var RequestHeadersToAddResult []RouteRoutesRequestHeadersToAddModel
 							for _, RequestHeadersToAddItem := range rawList {
@@ -3424,9 +3480,10 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									})
 								}
 							}
-							return RequestHeadersToAddResult
+							listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesRequestHeadersToAddModelAttrTypes}, RequestHeadersToAddResult)
+							return listVal
 						}
-						return nil
+						return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRequestHeadersToAddModelAttrTypes})
 					}(),
 					RequestHeadersToRemove: func() types.List {
 						if v, ok := itemMap["request_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
@@ -3441,7 +3498,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						}
 						return types.ListNull(types.StringType)
 					}(),
-					ResponseCookiesToAdd: func() []RouteRoutesResponseCookiesToAddModel {
+					ResponseCookiesToAdd: func() types.List {
 						if rawList, ok := itemMap["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var ResponseCookiesToAddResult []RouteRoutesResponseCookiesToAddModel
 							for _, ResponseCookiesToAddItem := range rawList {
@@ -3633,9 +3690,10 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									})
 								}
 							}
-							return ResponseCookiesToAddResult
+							listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesResponseCookiesToAddModelAttrTypes}, ResponseCookiesToAddResult)
+							return listVal
 						}
-						return nil
+						return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesResponseCookiesToAddModelAttrTypes})
 					}(),
 					ResponseCookiesToRemove: func() types.List {
 						if v, ok := itemMap["response_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
@@ -3650,7 +3708,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						}
 						return types.ListNull(types.StringType)
 					}(),
-					ResponseHeadersToAdd: func() []RouteRoutesResponseHeadersToAddModel {
+					ResponseHeadersToAdd: func() types.List {
 						if rawList, ok := itemMap["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var ResponseHeadersToAddResult []RouteRoutesResponseHeadersToAddModel
 							for _, ResponseHeadersToAddItem := range rawList {
@@ -3728,9 +3786,10 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									})
 								}
 							}
-							return ResponseHeadersToAddResult
+							listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesResponseHeadersToAddModelAttrTypes}, ResponseHeadersToAddResult)
+							return listVal
 						}
-						return nil
+						return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesResponseHeadersToAddModelAttrTypes})
 					}(),
 					ResponseHeadersToRemove: func() types.List {
 						if v, ok := itemMap["response_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
@@ -3969,7 +4028,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									}
 									return nil
 								}(),
-								HashPolicy: func() []RouteRoutesRouteDestinationHashPolicyModel {
+								HashPolicy: func() types.List {
 									if rawList, ok := RouteDestinationData["hash_policy"].([]interface{}); ok && len(rawList) > 0 {
 										var HashPolicyResult []RouteRoutesRouteDestinationHashPolicyModel
 										for _, HashPolicyItem := range rawList {
@@ -4069,9 +4128,10 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 												})
 											}
 										}
-										return HashPolicyResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesRouteDestinationHashPolicyModelAttrTypes}, HashPolicyResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationHashPolicyModelAttrTypes})
 								}(),
 								HostRewrite: func() types.String {
 									if v, ok := RouteDestinationData["host_rewrite"].(string); ok && v != "" {
@@ -4618,7 +4678,7 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									}
 									return types.StringNull()
 								}(),
-								JavascriptTags: func() []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel {
+								JavascriptTags: func() types.List {
 									if rawList, ok := BotDefenseJavascriptInjectionData["javascript_tags"].([]interface{}); ok && len(rawList) > 0 {
 										var JavascriptTagsResult []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel
 										for _, JavascriptTagsItem := range rawList {
@@ -4630,7 +4690,7 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 														}
 														return types.StringNull()
 													}(),
-													TagAttributes: func() []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel {
+													TagAttributes: func() types.List {
 														if rawList, ok := JavascriptTagsItemMap["tag_attributes"].([]interface{}); ok && len(rawList) > 0 {
 															var TagAttributesResult []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel
 															for _, TagAttributesItem := range rawList {
@@ -4651,16 +4711,18 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																	})
 																}
 															}
-															return TagAttributesResult
+															listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModelAttrTypes}, TagAttributesResult)
+															return listVal
 														}
-														return nil
+														return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModelAttrTypes})
 													}(),
 												})
 											}
 										}
-										return JavascriptTagsResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModelAttrTypes}, JavascriptTagsResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModelAttrTypes})
 								}(),
 							}
 						}
@@ -4690,13 +4752,13 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						}
 						return nil
 					}(),
-					Match: func() []RouteRoutesMatchModel {
+					Match: func() types.List {
 						if rawList, ok := itemMap["match"].([]interface{}); ok && len(rawList) > 0 {
 							var MatchResult []RouteRoutesMatchModel
 							for _, MatchItem := range rawList {
 								if MatchItemMap, ok := MatchItem.(map[string]interface{}); ok {
 									MatchResult = append(MatchResult, RouteRoutesMatchModel{
-										Headers: func() []RouteRoutesMatchHeadersModel {
+										Headers: func() types.List {
 											if rawList, ok := MatchItemMap["headers"].([]interface{}); ok && len(rawList) > 0 {
 												var HeadersResult []RouteRoutesMatchHeadersModel
 												for _, HeadersItem := range rawList {
@@ -4735,9 +4797,10 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 														})
 													}
 												}
-												return HeadersResult
+												listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesMatchHeadersModelAttrTypes}, HeadersResult)
+												return listVal
 											}
-											return nil
+											return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesMatchHeadersModelAttrTypes})
 										}(),
 										HTTPMethod: func() types.String {
 											if v, ok := MatchItemMap["http_method"].(string); ok && v != "" {
@@ -4795,7 +4858,7 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 											}
 											return nil
 										}(),
-										QueryParams: func() []RouteRoutesMatchQueryParamsModel {
+										QueryParams: func() types.List {
 											if rawList, ok := MatchItemMap["query_params"].([]interface{}); ok && len(rawList) > 0 {
 												var QueryParamsResult []RouteRoutesMatchQueryParamsModel
 												for _, QueryParamsItem := range rawList {
@@ -4822,18 +4885,20 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 														})
 													}
 												}
-												return QueryParamsResult
+												listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesMatchQueryParamsModelAttrTypes}, QueryParamsResult)
+												return listVal
 											}
-											return nil
+											return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesMatchQueryParamsModelAttrTypes})
 										}(),
 									})
 								}
 							}
-							return MatchResult
+							listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesMatchModelAttrTypes}, MatchResult)
+							return listVal
 						}
-						return nil
+						return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesMatchModelAttrTypes})
 					}(),
-					RequestCookiesToAdd: func() []RouteRoutesRequestCookiesToAddModel {
+					RequestCookiesToAdd: func() types.List {
 						if rawList, ok := itemMap["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var RequestCookiesToAddResult []RouteRoutesRequestCookiesToAddModel
 							for _, RequestCookiesToAddItem := range rawList {
@@ -4911,9 +4976,10 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									})
 								}
 							}
-							return RequestCookiesToAddResult
+							listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesRequestCookiesToAddModelAttrTypes}, RequestCookiesToAddResult)
+							return listVal
 						}
-						return nil
+						return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRequestCookiesToAddModelAttrTypes})
 					}(),
 					RequestCookiesToRemove: func() types.List {
 						if v, ok := itemMap["request_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
@@ -4928,7 +4994,7 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						}
 						return types.ListNull(types.StringType)
 					}(),
-					RequestHeadersToAdd: func() []RouteRoutesRequestHeadersToAddModel {
+					RequestHeadersToAdd: func() types.List {
 						if rawList, ok := itemMap["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var RequestHeadersToAddResult []RouteRoutesRequestHeadersToAddModel
 							for _, RequestHeadersToAddItem := range rawList {
@@ -5006,9 +5072,10 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									})
 								}
 							}
-							return RequestHeadersToAddResult
+							listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesRequestHeadersToAddModelAttrTypes}, RequestHeadersToAddResult)
+							return listVal
 						}
-						return nil
+						return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRequestHeadersToAddModelAttrTypes})
 					}(),
 					RequestHeadersToRemove: func() types.List {
 						if v, ok := itemMap["request_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
@@ -5023,7 +5090,7 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						}
 						return types.ListNull(types.StringType)
 					}(),
-					ResponseCookiesToAdd: func() []RouteRoutesResponseCookiesToAddModel {
+					ResponseCookiesToAdd: func() types.List {
 						if rawList, ok := itemMap["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var ResponseCookiesToAddResult []RouteRoutesResponseCookiesToAddModel
 							for _, ResponseCookiesToAddItem := range rawList {
@@ -5215,9 +5282,10 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									})
 								}
 							}
-							return ResponseCookiesToAddResult
+							listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesResponseCookiesToAddModelAttrTypes}, ResponseCookiesToAddResult)
+							return listVal
 						}
-						return nil
+						return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesResponseCookiesToAddModelAttrTypes})
 					}(),
 					ResponseCookiesToRemove: func() types.List {
 						if v, ok := itemMap["response_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
@@ -5232,7 +5300,7 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						}
 						return types.ListNull(types.StringType)
 					}(),
-					ResponseHeadersToAdd: func() []RouteRoutesResponseHeadersToAddModel {
+					ResponseHeadersToAdd: func() types.List {
 						if rawList, ok := itemMap["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var ResponseHeadersToAddResult []RouteRoutesResponseHeadersToAddModel
 							for _, ResponseHeadersToAddItem := range rawList {
@@ -5310,9 +5378,10 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									})
 								}
 							}
-							return ResponseHeadersToAddResult
+							listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesResponseHeadersToAddModelAttrTypes}, ResponseHeadersToAddResult)
+							return listVal
 						}
-						return nil
+						return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesResponseHeadersToAddModelAttrTypes})
 					}(),
 					ResponseHeadersToRemove: func() types.List {
 						if v, ok := itemMap["response_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
@@ -5551,7 +5620,7 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									}
 									return nil
 								}(),
-								HashPolicy: func() []RouteRoutesRouteDestinationHashPolicyModel {
+								HashPolicy: func() types.List {
 									if rawList, ok := RouteDestinationData["hash_policy"].([]interface{}); ok && len(rawList) > 0 {
 										var HashPolicyResult []RouteRoutesRouteDestinationHashPolicyModel
 										for _, HashPolicyItem := range rawList {
@@ -5651,9 +5720,10 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												})
 											}
 										}
-										return HashPolicyResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesRouteDestinationHashPolicyModelAttrTypes}, HashPolicyResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationHashPolicyModelAttrTypes})
 								}(),
 								HostRewrite: func() types.String {
 									if v, ok := RouteDestinationData["host_rewrite"].(string); ok && v != "" {
@@ -6158,30 +6228,40 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 					if !RoutesItem.BotDefenseJavascriptInjection.JavascriptLocation.IsNull() && !RoutesItem.BotDefenseJavascriptInjection.JavascriptLocation.IsUnknown() {
 						BotDefenseJavascriptInjectionMap["javascript_location"] = RoutesItem.BotDefenseJavascriptInjection.JavascriptLocation.ValueString()
 					}
-					if len(RoutesItem.BotDefenseJavascriptInjection.JavascriptTags) > 0 {
-						var JavascriptTagsList []map[string]interface{}
-						for _, JavascriptTagsItem := range RoutesItem.BotDefenseJavascriptInjection.JavascriptTags {
-							JavascriptTagsItemMap := make(map[string]interface{})
-							if !JavascriptTagsItem.JavascriptURL.IsNull() && !JavascriptTagsItem.JavascriptURL.IsUnknown() {
-								JavascriptTagsItemMap["javascript_url"] = JavascriptTagsItem.JavascriptURL.ValueString()
-							}
-							if len(JavascriptTagsItem.TagAttributes) > 0 {
-								var TagAttributesList []map[string]interface{}
-								for _, TagAttributesItem := range JavascriptTagsItem.TagAttributes {
-									TagAttributesItemMap := make(map[string]interface{})
-									if !TagAttributesItem.JavascriptTag.IsNull() && !TagAttributesItem.JavascriptTag.IsUnknown() {
-										TagAttributesItemMap["javascript_tag"] = TagAttributesItem.JavascriptTag.ValueString()
-									}
-									if !TagAttributesItem.TagValue.IsNull() && !TagAttributesItem.TagValue.IsUnknown() {
-										TagAttributesItemMap["tag_value"] = TagAttributesItem.TagValue.ValueString()
-									}
-									TagAttributesList = append(TagAttributesList, TagAttributesItemMap)
+					if !RoutesItem.BotDefenseJavascriptInjection.JavascriptTags.IsNull() && !RoutesItem.BotDefenseJavascriptInjection.JavascriptTags.IsUnknown() {
+						var JavascriptTagsElems []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel
+						diags := RoutesItem.BotDefenseJavascriptInjection.JavascriptTags.ElementsAs(ctx, &JavascriptTagsElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(JavascriptTagsElems) > 0 {
+							var JavascriptTagsList []map[string]interface{}
+							for _, JavascriptTagsItem := range JavascriptTagsElems {
+								JavascriptTagsItemMap := make(map[string]interface{})
+								if !JavascriptTagsItem.JavascriptURL.IsNull() && !JavascriptTagsItem.JavascriptURL.IsUnknown() {
+									JavascriptTagsItemMap["javascript_url"] = JavascriptTagsItem.JavascriptURL.ValueString()
 								}
-								JavascriptTagsItemMap["tag_attributes"] = TagAttributesList
+								if !JavascriptTagsItem.TagAttributes.IsNull() && !JavascriptTagsItem.TagAttributes.IsUnknown() {
+									var TagAttributesElems []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel
+									diags := JavascriptTagsItem.TagAttributes.ElementsAs(ctx, &TagAttributesElems, false)
+									resp.Diagnostics.Append(diags...)
+									if !resp.Diagnostics.HasError() && len(TagAttributesElems) > 0 {
+										var TagAttributesList []map[string]interface{}
+										for _, TagAttributesItem := range TagAttributesElems {
+											TagAttributesItemMap := make(map[string]interface{})
+											if !TagAttributesItem.JavascriptTag.IsNull() && !TagAttributesItem.JavascriptTag.IsUnknown() {
+												TagAttributesItemMap["javascript_tag"] = TagAttributesItem.JavascriptTag.ValueString()
+											}
+											if !TagAttributesItem.TagValue.IsNull() && !TagAttributesItem.TagValue.IsUnknown() {
+												TagAttributesItemMap["tag_value"] = TagAttributesItem.TagValue.ValueString()
+											}
+											TagAttributesList = append(TagAttributesList, TagAttributesItemMap)
+										}
+										JavascriptTagsItemMap["tag_attributes"] = TagAttributesList
+									}
+								}
+								JavascriptTagsList = append(JavascriptTagsList, JavascriptTagsItemMap)
 							}
-							JavascriptTagsList = append(JavascriptTagsList, JavascriptTagsItemMap)
+							BotDefenseJavascriptInjectionMap["javascript_tags"] = JavascriptTagsList
 						}
-						BotDefenseJavascriptInjectionMap["javascript_tags"] = JavascriptTagsList
 					}
 					RoutesItemMap["bot_defense_javascript_injection"] = BotDefenseJavascriptInjectionMap
 				}
@@ -6194,126 +6274,146 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if RoutesItem.InheritedWAFExclusion != nil {
 					RoutesItemMap["inherited_waf_exclusion"] = map[string]interface{}{}
 				}
-				if len(RoutesItem.Match) > 0 {
-					var MatchList []map[string]interface{}
-					for _, MatchItem := range RoutesItem.Match {
-						MatchItemMap := make(map[string]interface{})
-						if len(MatchItem.Headers) > 0 {
-							var HeadersList []map[string]interface{}
-							for _, HeadersItem := range MatchItem.Headers {
-								HeadersItemMap := make(map[string]interface{})
-								if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
-									HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
+				if !RoutesItem.Match.IsNull() && !RoutesItem.Match.IsUnknown() {
+					var MatchElems []RouteRoutesMatchModel
+					diags := RoutesItem.Match.ElementsAs(ctx, &MatchElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(MatchElems) > 0 {
+						var MatchList []map[string]interface{}
+						for _, MatchItem := range MatchElems {
+							MatchItemMap := make(map[string]interface{})
+							if !MatchItem.Headers.IsNull() && !MatchItem.Headers.IsUnknown() {
+								var HeadersElems []RouteRoutesMatchHeadersModel
+								diags := MatchItem.Headers.ElementsAs(ctx, &HeadersElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+									var HeadersList []map[string]interface{}
+									for _, HeadersItem := range HeadersElems {
+										HeadersItemMap := make(map[string]interface{})
+										if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
+											HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
+										}
+										if !HeadersItem.InvertMatch.IsNull() && !HeadersItem.InvertMatch.IsUnknown() {
+											HeadersItemMap["invert_match"] = HeadersItem.InvertMatch.ValueBool()
+										}
+										if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+											HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+										}
+										if !HeadersItem.Presence.IsNull() && !HeadersItem.Presence.IsUnknown() {
+											HeadersItemMap["presence"] = HeadersItem.Presence.ValueBool()
+										}
+										if !HeadersItem.Regex.IsNull() && !HeadersItem.Regex.IsUnknown() {
+											HeadersItemMap["regex"] = HeadersItem.Regex.ValueString()
+										}
+										HeadersList = append(HeadersList, HeadersItemMap)
+									}
+									MatchItemMap["headers"] = HeadersList
 								}
-								if !HeadersItem.InvertMatch.IsNull() && !HeadersItem.InvertMatch.IsUnknown() {
-									HeadersItemMap["invert_match"] = HeadersItem.InvertMatch.ValueBool()
-								}
-								if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-									HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-								}
-								if !HeadersItem.Presence.IsNull() && !HeadersItem.Presence.IsUnknown() {
-									HeadersItemMap["presence"] = HeadersItem.Presence.ValueBool()
-								}
-								if !HeadersItem.Regex.IsNull() && !HeadersItem.Regex.IsUnknown() {
-									HeadersItemMap["regex"] = HeadersItem.Regex.ValueString()
-								}
-								HeadersList = append(HeadersList, HeadersItemMap)
 							}
-							MatchItemMap["headers"] = HeadersList
+							if !MatchItem.HTTPMethod.IsNull() && !MatchItem.HTTPMethod.IsUnknown() {
+								MatchItemMap["http_method"] = MatchItem.HTTPMethod.ValueString()
+							}
+							if MatchItem.IncomingPort != nil {
+								IncomingPortMap := make(map[string]interface{})
+								if MatchItem.IncomingPort.NoPortMatch != nil {
+									IncomingPortMap["no_port_match"] = map[string]interface{}{}
+								}
+								if !MatchItem.IncomingPort.Port.IsNull() && !MatchItem.IncomingPort.Port.IsUnknown() {
+									IncomingPortMap["port"] = MatchItem.IncomingPort.Port.ValueInt64()
+								}
+								if !MatchItem.IncomingPort.PortRanges.IsNull() && !MatchItem.IncomingPort.PortRanges.IsUnknown() {
+									IncomingPortMap["port_ranges"] = MatchItem.IncomingPort.PortRanges.ValueString()
+								}
+								MatchItemMap["incoming_port"] = IncomingPortMap
+							}
+							if MatchItem.Path != nil {
+								PathMap := make(map[string]interface{})
+								if !MatchItem.Path.Path.IsNull() && !MatchItem.Path.Path.IsUnknown() {
+									PathMap["path"] = MatchItem.Path.Path.ValueString()
+								}
+								if !MatchItem.Path.Prefix.IsNull() && !MatchItem.Path.Prefix.IsUnknown() {
+									PathMap["prefix"] = MatchItem.Path.Prefix.ValueString()
+								}
+								if !MatchItem.Path.Regex.IsNull() && !MatchItem.Path.Regex.IsUnknown() {
+									PathMap["regex"] = MatchItem.Path.Regex.ValueString()
+								}
+								MatchItemMap["path"] = PathMap
+							}
+							if !MatchItem.QueryParams.IsNull() && !MatchItem.QueryParams.IsUnknown() {
+								var QueryParamsElems []RouteRoutesMatchQueryParamsModel
+								diags := MatchItem.QueryParams.ElementsAs(ctx, &QueryParamsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(QueryParamsElems) > 0 {
+									var QueryParamsList []map[string]interface{}
+									for _, QueryParamsItem := range QueryParamsElems {
+										QueryParamsItemMap := make(map[string]interface{})
+										if !QueryParamsItem.Exact.IsNull() && !QueryParamsItem.Exact.IsUnknown() {
+											QueryParamsItemMap["exact"] = QueryParamsItem.Exact.ValueString()
+										}
+										if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
+											QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
+										}
+										if !QueryParamsItem.Regex.IsNull() && !QueryParamsItem.Regex.IsUnknown() {
+											QueryParamsItemMap["regex"] = QueryParamsItem.Regex.ValueString()
+										}
+										QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
+									}
+									MatchItemMap["query_params"] = QueryParamsList
+								}
+							}
+							MatchList = append(MatchList, MatchItemMap)
 						}
-						if !MatchItem.HTTPMethod.IsNull() && !MatchItem.HTTPMethod.IsUnknown() {
-							MatchItemMap["http_method"] = MatchItem.HTTPMethod.ValueString()
-						}
-						if MatchItem.IncomingPort != nil {
-							IncomingPortMap := make(map[string]interface{})
-							if MatchItem.IncomingPort.NoPortMatch != nil {
-								IncomingPortMap["no_port_match"] = map[string]interface{}{}
-							}
-							if !MatchItem.IncomingPort.Port.IsNull() && !MatchItem.IncomingPort.Port.IsUnknown() {
-								IncomingPortMap["port"] = MatchItem.IncomingPort.Port.ValueInt64()
-							}
-							if !MatchItem.IncomingPort.PortRanges.IsNull() && !MatchItem.IncomingPort.PortRanges.IsUnknown() {
-								IncomingPortMap["port_ranges"] = MatchItem.IncomingPort.PortRanges.ValueString()
-							}
-							MatchItemMap["incoming_port"] = IncomingPortMap
-						}
-						if MatchItem.Path != nil {
-							PathMap := make(map[string]interface{})
-							if !MatchItem.Path.Path.IsNull() && !MatchItem.Path.Path.IsUnknown() {
-								PathMap["path"] = MatchItem.Path.Path.ValueString()
-							}
-							if !MatchItem.Path.Prefix.IsNull() && !MatchItem.Path.Prefix.IsUnknown() {
-								PathMap["prefix"] = MatchItem.Path.Prefix.ValueString()
-							}
-							if !MatchItem.Path.Regex.IsNull() && !MatchItem.Path.Regex.IsUnknown() {
-								PathMap["regex"] = MatchItem.Path.Regex.ValueString()
-							}
-							MatchItemMap["path"] = PathMap
-						}
-						if len(MatchItem.QueryParams) > 0 {
-							var QueryParamsList []map[string]interface{}
-							for _, QueryParamsItem := range MatchItem.QueryParams {
-								QueryParamsItemMap := make(map[string]interface{})
-								if !QueryParamsItem.Exact.IsNull() && !QueryParamsItem.Exact.IsUnknown() {
-									QueryParamsItemMap["exact"] = QueryParamsItem.Exact.ValueString()
-								}
-								if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
-									QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
-								}
-								if !QueryParamsItem.Regex.IsNull() && !QueryParamsItem.Regex.IsUnknown() {
-									QueryParamsItemMap["regex"] = QueryParamsItem.Regex.ValueString()
-								}
-								QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
-							}
-							MatchItemMap["query_params"] = QueryParamsList
-						}
-						MatchList = append(MatchList, MatchItemMap)
+						RoutesItemMap["match"] = MatchList
 					}
-					RoutesItemMap["match"] = MatchList
 				}
-				if len(RoutesItem.RequestCookiesToAdd) > 0 {
-					var RequestCookiesToAddList []map[string]interface{}
-					for _, RequestCookiesToAddItem := range RoutesItem.RequestCookiesToAdd {
-						RequestCookiesToAddItemMap := make(map[string]interface{})
-						if !RequestCookiesToAddItem.Name.IsNull() && !RequestCookiesToAddItem.Name.IsUnknown() {
-							RequestCookiesToAddItemMap["name"] = RequestCookiesToAddItem.Name.ValueString()
-						}
-						if !RequestCookiesToAddItem.Overwrite.IsNull() && !RequestCookiesToAddItem.Overwrite.IsUnknown() {
-							RequestCookiesToAddItemMap["overwrite"] = RequestCookiesToAddItem.Overwrite.ValueBool()
-						}
-						if RequestCookiesToAddItem.SecretValue != nil {
-							SecretValueMap := make(map[string]interface{})
-							if RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
-								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-								}
-								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
-								}
-								if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
-								}
-								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				if !RoutesItem.RequestCookiesToAdd.IsNull() && !RoutesItem.RequestCookiesToAdd.IsUnknown() {
+					var RequestCookiesToAddElems []RouteRoutesRequestCookiesToAddModel
+					diags := RoutesItem.RequestCookiesToAdd.ElementsAs(ctx, &RequestCookiesToAddElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(RequestCookiesToAddElems) > 0 {
+						var RequestCookiesToAddList []map[string]interface{}
+						for _, RequestCookiesToAddItem := range RequestCookiesToAddElems {
+							RequestCookiesToAddItemMap := make(map[string]interface{})
+							if !RequestCookiesToAddItem.Name.IsNull() && !RequestCookiesToAddItem.Name.IsUnknown() {
+								RequestCookiesToAddItemMap["name"] = RequestCookiesToAddItem.Name.ValueString()
 							}
-							if RequestCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
-								if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
-								}
-								if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
-								}
-								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							if !RequestCookiesToAddItem.Overwrite.IsNull() && !RequestCookiesToAddItem.Overwrite.IsUnknown() {
+								RequestCookiesToAddItemMap["overwrite"] = RequestCookiesToAddItem.Overwrite.ValueBool()
 							}
-							RequestCookiesToAddItemMap["secret_value"] = SecretValueMap
+							if RequestCookiesToAddItem.SecretValue != nil {
+								SecretValueMap := make(map[string]interface{})
+								if RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if RequestCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+									}
+									if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+									}
+									SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								RequestCookiesToAddItemMap["secret_value"] = SecretValueMap
+							}
+							if !RequestCookiesToAddItem.Value.IsNull() && !RequestCookiesToAddItem.Value.IsUnknown() {
+								RequestCookiesToAddItemMap["value"] = RequestCookiesToAddItem.Value.ValueString()
+							}
+							RequestCookiesToAddList = append(RequestCookiesToAddList, RequestCookiesToAddItemMap)
 						}
-						if !RequestCookiesToAddItem.Value.IsNull() && !RequestCookiesToAddItem.Value.IsUnknown() {
-							RequestCookiesToAddItemMap["value"] = RequestCookiesToAddItem.Value.ValueString()
-						}
-						RequestCookiesToAddList = append(RequestCookiesToAddList, RequestCookiesToAddItemMap)
+						RoutesItemMap["request_cookies_to_add"] = RequestCookiesToAddList
 					}
-					RoutesItemMap["request_cookies_to_add"] = RequestCookiesToAddList
 				}
 				if !RoutesItem.RequestCookiesToRemove.IsNull() && !RoutesItem.RequestCookiesToRemove.IsUnknown() {
 					var RequestCookiesToRemoveItems []string
@@ -6322,49 +6422,54 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						RoutesItemMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
 					}
 				}
-				if len(RoutesItem.RequestHeadersToAdd) > 0 {
-					var RequestHeadersToAddList []map[string]interface{}
-					for _, RequestHeadersToAddItem := range RoutesItem.RequestHeadersToAdd {
-						RequestHeadersToAddItemMap := make(map[string]interface{})
-						if !RequestHeadersToAddItem.Append.IsNull() && !RequestHeadersToAddItem.Append.IsUnknown() {
-							RequestHeadersToAddItemMap["append"] = RequestHeadersToAddItem.Append.ValueBool()
-						}
-						if !RequestHeadersToAddItem.Name.IsNull() && !RequestHeadersToAddItem.Name.IsUnknown() {
-							RequestHeadersToAddItemMap["name"] = RequestHeadersToAddItem.Name.ValueString()
-						}
-						if RequestHeadersToAddItem.SecretValue != nil {
-							SecretValueMap := make(map[string]interface{})
-							if RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
-								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-								}
-								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
-								}
-								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
-								}
-								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				if !RoutesItem.RequestHeadersToAdd.IsNull() && !RoutesItem.RequestHeadersToAdd.IsUnknown() {
+					var RequestHeadersToAddElems []RouteRoutesRequestHeadersToAddModel
+					diags := RoutesItem.RequestHeadersToAdd.ElementsAs(ctx, &RequestHeadersToAddElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(RequestHeadersToAddElems) > 0 {
+						var RequestHeadersToAddList []map[string]interface{}
+						for _, RequestHeadersToAddItem := range RequestHeadersToAddElems {
+							RequestHeadersToAddItemMap := make(map[string]interface{})
+							if !RequestHeadersToAddItem.Append.IsNull() && !RequestHeadersToAddItem.Append.IsUnknown() {
+								RequestHeadersToAddItemMap["append"] = RequestHeadersToAddItem.Append.ValueBool()
 							}
-							if RequestHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
-								if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
-								}
-								if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
-								}
-								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							if !RequestHeadersToAddItem.Name.IsNull() && !RequestHeadersToAddItem.Name.IsUnknown() {
+								RequestHeadersToAddItemMap["name"] = RequestHeadersToAddItem.Name.ValueString()
 							}
-							RequestHeadersToAddItemMap["secret_value"] = SecretValueMap
+							if RequestHeadersToAddItem.SecretValue != nil {
+								SecretValueMap := make(map[string]interface{})
+								if RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if RequestHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+									}
+									if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+									}
+									SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								RequestHeadersToAddItemMap["secret_value"] = SecretValueMap
+							}
+							if !RequestHeadersToAddItem.Value.IsNull() && !RequestHeadersToAddItem.Value.IsUnknown() {
+								RequestHeadersToAddItemMap["value"] = RequestHeadersToAddItem.Value.ValueString()
+							}
+							RequestHeadersToAddList = append(RequestHeadersToAddList, RequestHeadersToAddItemMap)
 						}
-						if !RequestHeadersToAddItem.Value.IsNull() && !RequestHeadersToAddItem.Value.IsUnknown() {
-							RequestHeadersToAddItemMap["value"] = RequestHeadersToAddItem.Value.ValueString()
-						}
-						RequestHeadersToAddList = append(RequestHeadersToAddList, RequestHeadersToAddItemMap)
+						RoutesItemMap["request_headers_to_add"] = RequestHeadersToAddList
 					}
-					RoutesItemMap["request_headers_to_add"] = RequestHeadersToAddList
 				}
 				if !RoutesItem.RequestHeadersToRemove.IsNull() && !RoutesItem.RequestHeadersToRemove.IsUnknown() {
 					var RequestHeadersToRemoveItems []string
@@ -6373,106 +6478,111 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						RoutesItemMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 					}
 				}
-				if len(RoutesItem.ResponseCookiesToAdd) > 0 {
-					var ResponseCookiesToAddList []map[string]interface{}
-					for _, ResponseCookiesToAddItem := range RoutesItem.ResponseCookiesToAdd {
-						ResponseCookiesToAddItemMap := make(map[string]interface{})
-						if !ResponseCookiesToAddItem.AddDomain.IsNull() && !ResponseCookiesToAddItem.AddDomain.IsUnknown() {
-							ResponseCookiesToAddItemMap["add_domain"] = ResponseCookiesToAddItem.AddDomain.ValueString()
-						}
-						if !ResponseCookiesToAddItem.AddExpiry.IsNull() && !ResponseCookiesToAddItem.AddExpiry.IsUnknown() {
-							ResponseCookiesToAddItemMap["add_expiry"] = ResponseCookiesToAddItem.AddExpiry.ValueString()
-						}
-						if ResponseCookiesToAddItem.AddHttponly != nil {
-							ResponseCookiesToAddItemMap["add_httponly"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.AddPartitioned != nil {
-							ResponseCookiesToAddItemMap["add_partitioned"] = map[string]interface{}{}
-						}
-						if !ResponseCookiesToAddItem.AddPath.IsNull() && !ResponseCookiesToAddItem.AddPath.IsUnknown() {
-							ResponseCookiesToAddItemMap["add_path"] = ResponseCookiesToAddItem.AddPath.ValueString()
-						}
-						if ResponseCookiesToAddItem.AddSecure != nil {
-							ResponseCookiesToAddItemMap["add_secure"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.IgnoreDomain != nil {
-							ResponseCookiesToAddItemMap["ignore_domain"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.IgnoreExpiry != nil {
-							ResponseCookiesToAddItemMap["ignore_expiry"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.IgnoreHttponly != nil {
-							ResponseCookiesToAddItemMap["ignore_httponly"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.IgnoreMaxAge != nil {
-							ResponseCookiesToAddItemMap["ignore_max_age"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.IgnorePartitioned != nil {
-							ResponseCookiesToAddItemMap["ignore_partitioned"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.IgnorePath != nil {
-							ResponseCookiesToAddItemMap["ignore_path"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.IgnoreSamesite != nil {
-							ResponseCookiesToAddItemMap["ignore_samesite"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.IgnoreSecure != nil {
-							ResponseCookiesToAddItemMap["ignore_secure"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.IgnoreValue != nil {
-							ResponseCookiesToAddItemMap["ignore_value"] = map[string]interface{}{}
-						}
-						if !ResponseCookiesToAddItem.MaxAgeValue.IsNull() && !ResponseCookiesToAddItem.MaxAgeValue.IsUnknown() {
-							ResponseCookiesToAddItemMap["max_age_value"] = ResponseCookiesToAddItem.MaxAgeValue.ValueInt64()
-						}
-						if !ResponseCookiesToAddItem.Name.IsNull() && !ResponseCookiesToAddItem.Name.IsUnknown() {
-							ResponseCookiesToAddItemMap["name"] = ResponseCookiesToAddItem.Name.ValueString()
-						}
-						if !ResponseCookiesToAddItem.Overwrite.IsNull() && !ResponseCookiesToAddItem.Overwrite.IsUnknown() {
-							ResponseCookiesToAddItemMap["overwrite"] = ResponseCookiesToAddItem.Overwrite.ValueBool()
-						}
-						if ResponseCookiesToAddItem.SamesiteLax != nil {
-							ResponseCookiesToAddItemMap["samesite_lax"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.SamesiteNone != nil {
-							ResponseCookiesToAddItemMap["samesite_none"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.SamesiteStrict != nil {
-							ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
-						}
-						if ResponseCookiesToAddItem.SecretValue != nil {
-							SecretValueMap := make(map[string]interface{})
-							if ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
-								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-								}
-								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
-								}
-								if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
-								}
-								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				if !RoutesItem.ResponseCookiesToAdd.IsNull() && !RoutesItem.ResponseCookiesToAdd.IsUnknown() {
+					var ResponseCookiesToAddElems []RouteRoutesResponseCookiesToAddModel
+					diags := RoutesItem.ResponseCookiesToAdd.ElementsAs(ctx, &ResponseCookiesToAddElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(ResponseCookiesToAddElems) > 0 {
+						var ResponseCookiesToAddList []map[string]interface{}
+						for _, ResponseCookiesToAddItem := range ResponseCookiesToAddElems {
+							ResponseCookiesToAddItemMap := make(map[string]interface{})
+							if !ResponseCookiesToAddItem.AddDomain.IsNull() && !ResponseCookiesToAddItem.AddDomain.IsUnknown() {
+								ResponseCookiesToAddItemMap["add_domain"] = ResponseCookiesToAddItem.AddDomain.ValueString()
 							}
-							if ResponseCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
-								if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
-								}
-								if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
-								}
-								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							if !ResponseCookiesToAddItem.AddExpiry.IsNull() && !ResponseCookiesToAddItem.AddExpiry.IsUnknown() {
+								ResponseCookiesToAddItemMap["add_expiry"] = ResponseCookiesToAddItem.AddExpiry.ValueString()
 							}
-							ResponseCookiesToAddItemMap["secret_value"] = SecretValueMap
+							if ResponseCookiesToAddItem.AddHttponly != nil {
+								ResponseCookiesToAddItemMap["add_httponly"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.AddPartitioned != nil {
+								ResponseCookiesToAddItemMap["add_partitioned"] = map[string]interface{}{}
+							}
+							if !ResponseCookiesToAddItem.AddPath.IsNull() && !ResponseCookiesToAddItem.AddPath.IsUnknown() {
+								ResponseCookiesToAddItemMap["add_path"] = ResponseCookiesToAddItem.AddPath.ValueString()
+							}
+							if ResponseCookiesToAddItem.AddSecure != nil {
+								ResponseCookiesToAddItemMap["add_secure"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.IgnoreDomain != nil {
+								ResponseCookiesToAddItemMap["ignore_domain"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.IgnoreExpiry != nil {
+								ResponseCookiesToAddItemMap["ignore_expiry"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.IgnoreHttponly != nil {
+								ResponseCookiesToAddItemMap["ignore_httponly"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.IgnoreMaxAge != nil {
+								ResponseCookiesToAddItemMap["ignore_max_age"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.IgnorePartitioned != nil {
+								ResponseCookiesToAddItemMap["ignore_partitioned"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.IgnorePath != nil {
+								ResponseCookiesToAddItemMap["ignore_path"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.IgnoreSamesite != nil {
+								ResponseCookiesToAddItemMap["ignore_samesite"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.IgnoreSecure != nil {
+								ResponseCookiesToAddItemMap["ignore_secure"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.IgnoreValue != nil {
+								ResponseCookiesToAddItemMap["ignore_value"] = map[string]interface{}{}
+							}
+							if !ResponseCookiesToAddItem.MaxAgeValue.IsNull() && !ResponseCookiesToAddItem.MaxAgeValue.IsUnknown() {
+								ResponseCookiesToAddItemMap["max_age_value"] = ResponseCookiesToAddItem.MaxAgeValue.ValueInt64()
+							}
+							if !ResponseCookiesToAddItem.Name.IsNull() && !ResponseCookiesToAddItem.Name.IsUnknown() {
+								ResponseCookiesToAddItemMap["name"] = ResponseCookiesToAddItem.Name.ValueString()
+							}
+							if !ResponseCookiesToAddItem.Overwrite.IsNull() && !ResponseCookiesToAddItem.Overwrite.IsUnknown() {
+								ResponseCookiesToAddItemMap["overwrite"] = ResponseCookiesToAddItem.Overwrite.ValueBool()
+							}
+							if ResponseCookiesToAddItem.SamesiteLax != nil {
+								ResponseCookiesToAddItemMap["samesite_lax"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.SamesiteNone != nil {
+								ResponseCookiesToAddItemMap["samesite_none"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.SamesiteStrict != nil {
+								ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
+							}
+							if ResponseCookiesToAddItem.SecretValue != nil {
+								SecretValueMap := make(map[string]interface{})
+								if ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if ResponseCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+									}
+									if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+									}
+									SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								ResponseCookiesToAddItemMap["secret_value"] = SecretValueMap
+							}
+							if !ResponseCookiesToAddItem.Value.IsNull() && !ResponseCookiesToAddItem.Value.IsUnknown() {
+								ResponseCookiesToAddItemMap["value"] = ResponseCookiesToAddItem.Value.ValueString()
+							}
+							ResponseCookiesToAddList = append(ResponseCookiesToAddList, ResponseCookiesToAddItemMap)
 						}
-						if !ResponseCookiesToAddItem.Value.IsNull() && !ResponseCookiesToAddItem.Value.IsUnknown() {
-							ResponseCookiesToAddItemMap["value"] = ResponseCookiesToAddItem.Value.ValueString()
-						}
-						ResponseCookiesToAddList = append(ResponseCookiesToAddList, ResponseCookiesToAddItemMap)
+						RoutesItemMap["response_cookies_to_add"] = ResponseCookiesToAddList
 					}
-					RoutesItemMap["response_cookies_to_add"] = ResponseCookiesToAddList
 				}
 				if !RoutesItem.ResponseCookiesToRemove.IsNull() && !RoutesItem.ResponseCookiesToRemove.IsUnknown() {
 					var ResponseCookiesToRemoveItems []string
@@ -6481,49 +6591,54 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						RoutesItemMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
 					}
 				}
-				if len(RoutesItem.ResponseHeadersToAdd) > 0 {
-					var ResponseHeadersToAddList []map[string]interface{}
-					for _, ResponseHeadersToAddItem := range RoutesItem.ResponseHeadersToAdd {
-						ResponseHeadersToAddItemMap := make(map[string]interface{})
-						if !ResponseHeadersToAddItem.Append.IsNull() && !ResponseHeadersToAddItem.Append.IsUnknown() {
-							ResponseHeadersToAddItemMap["append"] = ResponseHeadersToAddItem.Append.ValueBool()
-						}
-						if !ResponseHeadersToAddItem.Name.IsNull() && !ResponseHeadersToAddItem.Name.IsUnknown() {
-							ResponseHeadersToAddItemMap["name"] = ResponseHeadersToAddItem.Name.ValueString()
-						}
-						if ResponseHeadersToAddItem.SecretValue != nil {
-							SecretValueMap := make(map[string]interface{})
-							if ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
-								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-								}
-								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
-								}
-								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
-								}
-								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				if !RoutesItem.ResponseHeadersToAdd.IsNull() && !RoutesItem.ResponseHeadersToAdd.IsUnknown() {
+					var ResponseHeadersToAddElems []RouteRoutesResponseHeadersToAddModel
+					diags := RoutesItem.ResponseHeadersToAdd.ElementsAs(ctx, &ResponseHeadersToAddElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(ResponseHeadersToAddElems) > 0 {
+						var ResponseHeadersToAddList []map[string]interface{}
+						for _, ResponseHeadersToAddItem := range ResponseHeadersToAddElems {
+							ResponseHeadersToAddItemMap := make(map[string]interface{})
+							if !ResponseHeadersToAddItem.Append.IsNull() && !ResponseHeadersToAddItem.Append.IsUnknown() {
+								ResponseHeadersToAddItemMap["append"] = ResponseHeadersToAddItem.Append.ValueBool()
 							}
-							if ResponseHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
-								if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
-								}
-								if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
-								}
-								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							if !ResponseHeadersToAddItem.Name.IsNull() && !ResponseHeadersToAddItem.Name.IsUnknown() {
+								ResponseHeadersToAddItemMap["name"] = ResponseHeadersToAddItem.Name.ValueString()
 							}
-							ResponseHeadersToAddItemMap["secret_value"] = SecretValueMap
+							if ResponseHeadersToAddItem.SecretValue != nil {
+								SecretValueMap := make(map[string]interface{})
+								if ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if ResponseHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+									}
+									if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+									}
+									SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								ResponseHeadersToAddItemMap["secret_value"] = SecretValueMap
+							}
+							if !ResponseHeadersToAddItem.Value.IsNull() && !ResponseHeadersToAddItem.Value.IsUnknown() {
+								ResponseHeadersToAddItemMap["value"] = ResponseHeadersToAddItem.Value.ValueString()
+							}
+							ResponseHeadersToAddList = append(ResponseHeadersToAddList, ResponseHeadersToAddItemMap)
 						}
-						if !ResponseHeadersToAddItem.Value.IsNull() && !ResponseHeadersToAddItem.Value.IsUnknown() {
-							ResponseHeadersToAddItemMap["value"] = ResponseHeadersToAddItem.Value.ValueString()
-						}
-						ResponseHeadersToAddList = append(ResponseHeadersToAddList, ResponseHeadersToAddItemMap)
+						RoutesItemMap["response_headers_to_add"] = ResponseHeadersToAddList
 					}
-					RoutesItemMap["response_headers_to_add"] = ResponseHeadersToAddList
 				}
 				if !RoutesItem.ResponseHeadersToRemove.IsNull() && !RoutesItem.ResponseHeadersToRemove.IsUnknown() {
 					var ResponseHeadersToRemoveItems []string
@@ -6660,59 +6775,64 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 					if RoutesItem.RouteDestination.EndpointSubsets != nil {
 						RouteDestinationMap["endpoint_subsets"] = map[string]interface{}{}
 					}
-					if len(RoutesItem.RouteDestination.HashPolicy) > 0 {
-						var HashPolicyList []map[string]interface{}
-						for _, HashPolicyItem := range RoutesItem.RouteDestination.HashPolicy {
-							HashPolicyItemMap := make(map[string]interface{})
-							if HashPolicyItem.Cookie != nil {
-								CookieMap := make(map[string]interface{})
-								if HashPolicyItem.Cookie.AddHttponly != nil {
-									CookieMap["add_httponly"] = map[string]interface{}{}
+					if !RoutesItem.RouteDestination.HashPolicy.IsNull() && !RoutesItem.RouteDestination.HashPolicy.IsUnknown() {
+						var HashPolicyElems []RouteRoutesRouteDestinationHashPolicyModel
+						diags := RoutesItem.RouteDestination.HashPolicy.ElementsAs(ctx, &HashPolicyElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(HashPolicyElems) > 0 {
+							var HashPolicyList []map[string]interface{}
+							for _, HashPolicyItem := range HashPolicyElems {
+								HashPolicyItemMap := make(map[string]interface{})
+								if HashPolicyItem.Cookie != nil {
+									CookieMap := make(map[string]interface{})
+									if HashPolicyItem.Cookie.AddHttponly != nil {
+										CookieMap["add_httponly"] = map[string]interface{}{}
+									}
+									if HashPolicyItem.Cookie.AddSecure != nil {
+										CookieMap["add_secure"] = map[string]interface{}{}
+									}
+									if HashPolicyItem.Cookie.IgnoreHttponly != nil {
+										CookieMap["ignore_httponly"] = map[string]interface{}{}
+									}
+									if HashPolicyItem.Cookie.IgnoreSamesite != nil {
+										CookieMap["ignore_samesite"] = map[string]interface{}{}
+									}
+									if HashPolicyItem.Cookie.IgnoreSecure != nil {
+										CookieMap["ignore_secure"] = map[string]interface{}{}
+									}
+									if !HashPolicyItem.Cookie.Name.IsNull() && !HashPolicyItem.Cookie.Name.IsUnknown() {
+										CookieMap["name"] = HashPolicyItem.Cookie.Name.ValueString()
+									}
+									if !HashPolicyItem.Cookie.Path.IsNull() && !HashPolicyItem.Cookie.Path.IsUnknown() {
+										CookieMap["path"] = HashPolicyItem.Cookie.Path.ValueString()
+									}
+									if HashPolicyItem.Cookie.SamesiteLax != nil {
+										CookieMap["samesite_lax"] = map[string]interface{}{}
+									}
+									if HashPolicyItem.Cookie.SamesiteNone != nil {
+										CookieMap["samesite_none"] = map[string]interface{}{}
+									}
+									if HashPolicyItem.Cookie.SamesiteStrict != nil {
+										CookieMap["samesite_strict"] = map[string]interface{}{}
+									}
+									if !HashPolicyItem.Cookie.TTL.IsNull() && !HashPolicyItem.Cookie.TTL.IsUnknown() {
+										CookieMap["ttl"] = HashPolicyItem.Cookie.TTL.ValueInt64()
+									}
+									HashPolicyItemMap["cookie"] = CookieMap
 								}
-								if HashPolicyItem.Cookie.AddSecure != nil {
-									CookieMap["add_secure"] = map[string]interface{}{}
+								if !HashPolicyItem.HeaderName.IsNull() && !HashPolicyItem.HeaderName.IsUnknown() {
+									HashPolicyItemMap["header_name"] = HashPolicyItem.HeaderName.ValueString()
 								}
-								if HashPolicyItem.Cookie.IgnoreHttponly != nil {
-									CookieMap["ignore_httponly"] = map[string]interface{}{}
+								if !HashPolicyItem.SourceIP.IsNull() && !HashPolicyItem.SourceIP.IsUnknown() {
+									HashPolicyItemMap["source_ip"] = HashPolicyItem.SourceIP.ValueBool()
 								}
-								if HashPolicyItem.Cookie.IgnoreSamesite != nil {
-									CookieMap["ignore_samesite"] = map[string]interface{}{}
+								if !HashPolicyItem.Terminal.IsNull() && !HashPolicyItem.Terminal.IsUnknown() {
+									HashPolicyItemMap["terminal"] = HashPolicyItem.Terminal.ValueBool()
 								}
-								if HashPolicyItem.Cookie.IgnoreSecure != nil {
-									CookieMap["ignore_secure"] = map[string]interface{}{}
-								}
-								if !HashPolicyItem.Cookie.Name.IsNull() && !HashPolicyItem.Cookie.Name.IsUnknown() {
-									CookieMap["name"] = HashPolicyItem.Cookie.Name.ValueString()
-								}
-								if !HashPolicyItem.Cookie.Path.IsNull() && !HashPolicyItem.Cookie.Path.IsUnknown() {
-									CookieMap["path"] = HashPolicyItem.Cookie.Path.ValueString()
-								}
-								if HashPolicyItem.Cookie.SamesiteLax != nil {
-									CookieMap["samesite_lax"] = map[string]interface{}{}
-								}
-								if HashPolicyItem.Cookie.SamesiteNone != nil {
-									CookieMap["samesite_none"] = map[string]interface{}{}
-								}
-								if HashPolicyItem.Cookie.SamesiteStrict != nil {
-									CookieMap["samesite_strict"] = map[string]interface{}{}
-								}
-								if !HashPolicyItem.Cookie.TTL.IsNull() && !HashPolicyItem.Cookie.TTL.IsUnknown() {
-									CookieMap["ttl"] = HashPolicyItem.Cookie.TTL.ValueInt64()
-								}
-								HashPolicyItemMap["cookie"] = CookieMap
+								HashPolicyList = append(HashPolicyList, HashPolicyItemMap)
 							}
-							if !HashPolicyItem.HeaderName.IsNull() && !HashPolicyItem.HeaderName.IsUnknown() {
-								HashPolicyItemMap["header_name"] = HashPolicyItem.HeaderName.ValueString()
-							}
-							if !HashPolicyItem.SourceIP.IsNull() && !HashPolicyItem.SourceIP.IsUnknown() {
-								HashPolicyItemMap["source_ip"] = HashPolicyItem.SourceIP.ValueBool()
-							}
-							if !HashPolicyItem.Terminal.IsNull() && !HashPolicyItem.Terminal.IsUnknown() {
-								HashPolicyItemMap["terminal"] = HashPolicyItem.Terminal.ValueBool()
-							}
-							HashPolicyList = append(HashPolicyList, HashPolicyItemMap)
+							RouteDestinationMap["hash_policy"] = HashPolicyList
 						}
-						RouteDestinationMap["hash_policy"] = HashPolicyList
 					}
 					if !RoutesItem.RouteDestination.HostRewrite.IsNull() && !RoutesItem.RouteDestination.HostRewrite.IsUnknown() {
 						RouteDestinationMap["host_rewrite"] = RoutesItem.RouteDestination.HostRewrite.ValueString()
@@ -6994,7 +7114,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									}
 									return types.StringNull()
 								}(),
-								JavascriptTags: func() []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel {
+								JavascriptTags: func() types.List {
 									if rawList, ok := BotDefenseJavascriptInjectionData["javascript_tags"].([]interface{}); ok && len(rawList) > 0 {
 										var JavascriptTagsResult []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel
 										for _, JavascriptTagsItem := range rawList {
@@ -7006,7 +7126,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 														}
 														return types.StringNull()
 													}(),
-													TagAttributes: func() []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel {
+													TagAttributes: func() types.List {
 														if rawList, ok := JavascriptTagsItemMap["tag_attributes"].([]interface{}); ok && len(rawList) > 0 {
 															var TagAttributesResult []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel
 															for _, TagAttributesItem := range rawList {
@@ -7027,16 +7147,18 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																	})
 																}
 															}
-															return TagAttributesResult
+															listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModelAttrTypes}, TagAttributesResult)
+															return listVal
 														}
-														return nil
+														return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModelAttrTypes})
 													}(),
 												})
 											}
 										}
-										return JavascriptTagsResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModelAttrTypes}, JavascriptTagsResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModelAttrTypes})
 								}(),
 							}
 						}
@@ -7066,13 +7188,13 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						}
 						return nil
 					}(),
-					Match: func() []RouteRoutesMatchModel {
+					Match: func() types.List {
 						if rawList, ok := itemMap["match"].([]interface{}); ok && len(rawList) > 0 {
 							var MatchResult []RouteRoutesMatchModel
 							for _, MatchItem := range rawList {
 								if MatchItemMap, ok := MatchItem.(map[string]interface{}); ok {
 									MatchResult = append(MatchResult, RouteRoutesMatchModel{
-										Headers: func() []RouteRoutesMatchHeadersModel {
+										Headers: func() types.List {
 											if rawList, ok := MatchItemMap["headers"].([]interface{}); ok && len(rawList) > 0 {
 												var HeadersResult []RouteRoutesMatchHeadersModel
 												for _, HeadersItem := range rawList {
@@ -7111,9 +7233,10 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 														})
 													}
 												}
-												return HeadersResult
+												listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesMatchHeadersModelAttrTypes}, HeadersResult)
+												return listVal
 											}
-											return nil
+											return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesMatchHeadersModelAttrTypes})
 										}(),
 										HTTPMethod: func() types.String {
 											if v, ok := MatchItemMap["http_method"].(string); ok && v != "" {
@@ -7171,7 +7294,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 											}
 											return nil
 										}(),
-										QueryParams: func() []RouteRoutesMatchQueryParamsModel {
+										QueryParams: func() types.List {
 											if rawList, ok := MatchItemMap["query_params"].([]interface{}); ok && len(rawList) > 0 {
 												var QueryParamsResult []RouteRoutesMatchQueryParamsModel
 												for _, QueryParamsItem := range rawList {
@@ -7198,18 +7321,20 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 														})
 													}
 												}
-												return QueryParamsResult
+												listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesMatchQueryParamsModelAttrTypes}, QueryParamsResult)
+												return listVal
 											}
-											return nil
+											return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesMatchQueryParamsModelAttrTypes})
 										}(),
 									})
 								}
 							}
-							return MatchResult
+							listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesMatchModelAttrTypes}, MatchResult)
+							return listVal
 						}
-						return nil
+						return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesMatchModelAttrTypes})
 					}(),
-					RequestCookiesToAdd: func() []RouteRoutesRequestCookiesToAddModel {
+					RequestCookiesToAdd: func() types.List {
 						if rawList, ok := itemMap["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var RequestCookiesToAddResult []RouteRoutesRequestCookiesToAddModel
 							for _, RequestCookiesToAddItem := range rawList {
@@ -7287,9 +7412,10 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									})
 								}
 							}
-							return RequestCookiesToAddResult
+							listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesRequestCookiesToAddModelAttrTypes}, RequestCookiesToAddResult)
+							return listVal
 						}
-						return nil
+						return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRequestCookiesToAddModelAttrTypes})
 					}(),
 					RequestCookiesToRemove: func() types.List {
 						if v, ok := itemMap["request_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
@@ -7304,7 +7430,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						}
 						return types.ListNull(types.StringType)
 					}(),
-					RequestHeadersToAdd: func() []RouteRoutesRequestHeadersToAddModel {
+					RequestHeadersToAdd: func() types.List {
 						if rawList, ok := itemMap["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var RequestHeadersToAddResult []RouteRoutesRequestHeadersToAddModel
 							for _, RequestHeadersToAddItem := range rawList {
@@ -7382,9 +7508,10 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									})
 								}
 							}
-							return RequestHeadersToAddResult
+							listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesRequestHeadersToAddModelAttrTypes}, RequestHeadersToAddResult)
+							return listVal
 						}
-						return nil
+						return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRequestHeadersToAddModelAttrTypes})
 					}(),
 					RequestHeadersToRemove: func() types.List {
 						if v, ok := itemMap["request_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
@@ -7399,7 +7526,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						}
 						return types.ListNull(types.StringType)
 					}(),
-					ResponseCookiesToAdd: func() []RouteRoutesResponseCookiesToAddModel {
+					ResponseCookiesToAdd: func() types.List {
 						if rawList, ok := itemMap["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var ResponseCookiesToAddResult []RouteRoutesResponseCookiesToAddModel
 							for _, ResponseCookiesToAddItem := range rawList {
@@ -7591,9 +7718,10 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									})
 								}
 							}
-							return ResponseCookiesToAddResult
+							listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesResponseCookiesToAddModelAttrTypes}, ResponseCookiesToAddResult)
+							return listVal
 						}
-						return nil
+						return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesResponseCookiesToAddModelAttrTypes})
 					}(),
 					ResponseCookiesToRemove: func() types.List {
 						if v, ok := itemMap["response_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
@@ -7608,7 +7736,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						}
 						return types.ListNull(types.StringType)
 					}(),
-					ResponseHeadersToAdd: func() []RouteRoutesResponseHeadersToAddModel {
+					ResponseHeadersToAdd: func() types.List {
 						if rawList, ok := itemMap["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var ResponseHeadersToAddResult []RouteRoutesResponseHeadersToAddModel
 							for _, ResponseHeadersToAddItem := range rawList {
@@ -7686,9 +7814,10 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									})
 								}
 							}
-							return ResponseHeadersToAddResult
+							listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesResponseHeadersToAddModelAttrTypes}, ResponseHeadersToAddResult)
+							return listVal
 						}
-						return nil
+						return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesResponseHeadersToAddModelAttrTypes})
 					}(),
 					ResponseHeadersToRemove: func() types.List {
 						if v, ok := itemMap["response_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
@@ -7927,7 +8056,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									}
 									return nil
 								}(),
-								HashPolicy: func() []RouteRoutesRouteDestinationHashPolicyModel {
+								HashPolicy: func() types.List {
 									if rawList, ok := RouteDestinationData["hash_policy"].([]interface{}); ok && len(rawList) > 0 {
 										var HashPolicyResult []RouteRoutesRouteDestinationHashPolicyModel
 										for _, HashPolicyItem := range rawList {
@@ -8027,9 +8156,10 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												})
 											}
 										}
-										return HashPolicyResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RouteRoutesRouteDestinationHashPolicyModelAttrTypes}, HashPolicyResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationHashPolicyModelAttrTypes})
 								}(),
 								HostRewrite: func() types.String {
 									if v, ok := RouteDestinationData["host_rewrite"].(string); ok && v != "" {

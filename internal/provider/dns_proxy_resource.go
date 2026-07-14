@@ -111,11 +111,11 @@ var DNSProxyOriginServersModelAttrTypes = map[string]attr.Type{
 
 // DNSProxyOriginServersHealthChecksModel represents health_checks block
 type DNSProxyOriginServersHealthChecksModel struct {
-	HealthyThreshold   types.Int64                                         `tfsdk:"healthy_threshold"`
-	Interval           types.Int64                                         `tfsdk:"interval"`
-	Timeout            types.Int64                                         `tfsdk:"timeout"`
-	UnhealthyThreshold types.Int64                                         `tfsdk:"unhealthy_threshold"`
-	HealthCheck        []DNSProxyOriginServersHealthChecksHealthCheckModel `tfsdk:"health_check"`
+	HealthyThreshold   types.Int64 `tfsdk:"healthy_threshold"`
+	Interval           types.Int64 `tfsdk:"interval"`
+	Timeout            types.Int64 `tfsdk:"timeout"`
+	UnhealthyThreshold types.Int64 `tfsdk:"unhealthy_threshold"`
+	HealthCheck        types.List  `tfsdk:"health_check"`
 }
 
 // DNSProxyOriginServersHealthChecksModelAttrTypes defines the attribute types for DNSProxyOriginServersHealthChecksModel
@@ -1612,48 +1612,53 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 		OriginServersMap := make(map[string]interface{})
 		if data.OriginServers.HealthChecks != nil {
 			HealthChecksMap := make(map[string]interface{})
-			if len(data.OriginServers.HealthChecks.HealthCheck) > 0 {
-				var HealthCheckList []map[string]interface{}
-				for _, HealthCheckItem := range data.OriginServers.HealthChecks.HealthCheck {
-					HealthCheckItemMap := make(map[string]interface{})
-					if HealthCheckItem.DNSHealthCheck != nil {
-						DNSHealthCheckMap := make(map[string]interface{})
-						if !HealthCheckItem.DNSHealthCheck.ExpectedRcode.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedRcode.IsUnknown() {
-							DNSHealthCheckMap["expected_rcode"] = HealthCheckItem.DNSHealthCheck.ExpectedRcode.ValueString()
+			if !data.OriginServers.HealthChecks.HealthCheck.IsNull() && !data.OriginServers.HealthChecks.HealthCheck.IsUnknown() {
+				var HealthCheckElems []DNSProxyOriginServersHealthChecksHealthCheckModel
+				diags := data.OriginServers.HealthChecks.HealthCheck.ElementsAs(ctx, &HealthCheckElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(HealthCheckElems) > 0 {
+					var HealthCheckList []map[string]interface{}
+					for _, HealthCheckItem := range HealthCheckElems {
+						HealthCheckItemMap := make(map[string]interface{})
+						if HealthCheckItem.DNSHealthCheck != nil {
+							DNSHealthCheckMap := make(map[string]interface{})
+							if !HealthCheckItem.DNSHealthCheck.ExpectedRcode.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedRcode.IsUnknown() {
+								DNSHealthCheckMap["expected_rcode"] = HealthCheckItem.DNSHealthCheck.ExpectedRcode.ValueString()
+							}
+							if !HealthCheckItem.DNSHealthCheck.ExpectedRecordType.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedRecordType.IsUnknown() {
+								DNSHealthCheckMap["expected_record_type"] = HealthCheckItem.DNSHealthCheck.ExpectedRecordType.ValueString()
+							}
+							if !HealthCheckItem.DNSHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedResponse.IsUnknown() {
+								DNSHealthCheckMap["expected_response"] = HealthCheckItem.DNSHealthCheck.ExpectedResponse.ValueString()
+							}
+							if !HealthCheckItem.DNSHealthCheck.QueryName.IsNull() && !HealthCheckItem.DNSHealthCheck.QueryName.IsUnknown() {
+								DNSHealthCheckMap["query_name"] = HealthCheckItem.DNSHealthCheck.QueryName.ValueString()
+							}
+							if !HealthCheckItem.DNSHealthCheck.QueryType.IsNull() && !HealthCheckItem.DNSHealthCheck.QueryType.IsUnknown() {
+								DNSHealthCheckMap["query_type"] = HealthCheckItem.DNSHealthCheck.QueryType.ValueString()
+							}
+							if !HealthCheckItem.DNSHealthCheck.Reverse.IsNull() && !HealthCheckItem.DNSHealthCheck.Reverse.IsUnknown() {
+								DNSHealthCheckMap["reverse"] = HealthCheckItem.DNSHealthCheck.Reverse.ValueBool()
+							}
+							HealthCheckItemMap["dns_health_check"] = DNSHealthCheckMap
 						}
-						if !HealthCheckItem.DNSHealthCheck.ExpectedRecordType.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedRecordType.IsUnknown() {
-							DNSHealthCheckMap["expected_record_type"] = HealthCheckItem.DNSHealthCheck.ExpectedRecordType.ValueString()
+						if HealthCheckItem.ICMPHealthCheck != nil {
+							HealthCheckItemMap["icmp_health_check"] = map[string]interface{}{}
 						}
-						if !HealthCheckItem.DNSHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedResponse.IsUnknown() {
-							DNSHealthCheckMap["expected_response"] = HealthCheckItem.DNSHealthCheck.ExpectedResponse.ValueString()
+						if HealthCheckItem.TCPHealthCheck != nil {
+							TCPHealthCheckMap := make(map[string]interface{})
+							if !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsUnknown() {
+								TCPHealthCheckMap["expected_response"] = HealthCheckItem.TCPHealthCheck.ExpectedResponse.ValueString()
+							}
+							if !HealthCheckItem.TCPHealthCheck.SendPayload.IsNull() && !HealthCheckItem.TCPHealthCheck.SendPayload.IsUnknown() {
+								TCPHealthCheckMap["send_payload"] = HealthCheckItem.TCPHealthCheck.SendPayload.ValueString()
+							}
+							HealthCheckItemMap["tcp_health_check"] = TCPHealthCheckMap
 						}
-						if !HealthCheckItem.DNSHealthCheck.QueryName.IsNull() && !HealthCheckItem.DNSHealthCheck.QueryName.IsUnknown() {
-							DNSHealthCheckMap["query_name"] = HealthCheckItem.DNSHealthCheck.QueryName.ValueString()
-						}
-						if !HealthCheckItem.DNSHealthCheck.QueryType.IsNull() && !HealthCheckItem.DNSHealthCheck.QueryType.IsUnknown() {
-							DNSHealthCheckMap["query_type"] = HealthCheckItem.DNSHealthCheck.QueryType.ValueString()
-						}
-						if !HealthCheckItem.DNSHealthCheck.Reverse.IsNull() && !HealthCheckItem.DNSHealthCheck.Reverse.IsUnknown() {
-							DNSHealthCheckMap["reverse"] = HealthCheckItem.DNSHealthCheck.Reverse.ValueBool()
-						}
-						HealthCheckItemMap["dns_health_check"] = DNSHealthCheckMap
+						HealthCheckList = append(HealthCheckList, HealthCheckItemMap)
 					}
-					if HealthCheckItem.ICMPHealthCheck != nil {
-						HealthCheckItemMap["icmp_health_check"] = map[string]interface{}{}
-					}
-					if HealthCheckItem.TCPHealthCheck != nil {
-						TCPHealthCheckMap := make(map[string]interface{})
-						if !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsUnknown() {
-							TCPHealthCheckMap["expected_response"] = HealthCheckItem.TCPHealthCheck.ExpectedResponse.ValueString()
-						}
-						if !HealthCheckItem.TCPHealthCheck.SendPayload.IsNull() && !HealthCheckItem.TCPHealthCheck.SendPayload.IsUnknown() {
-							TCPHealthCheckMap["send_payload"] = HealthCheckItem.TCPHealthCheck.SendPayload.ValueString()
-						}
-						HealthCheckItemMap["tcp_health_check"] = TCPHealthCheckMap
-					}
-					HealthCheckList = append(HealthCheckList, HealthCheckItemMap)
+					HealthChecksMap["health_check"] = HealthCheckList
 				}
-				HealthChecksMap["health_check"] = HealthCheckList
 			}
 			if !data.OriginServers.HealthChecks.HealthyThreshold.IsNull() && !data.OriginServers.HealthChecks.HealthyThreshold.IsUnknown() {
 				HealthChecksMap["healthy_threshold"] = data.OriginServers.HealthChecks.HealthyThreshold.ValueInt64()
@@ -2127,7 +2132,7 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 				}
 				if HealthChecksData, ok := blockData["health_checks"].(map[string]interface{}); ok {
 					return &DNSProxyOriginServersHealthChecksModel{
-						HealthCheck: func() []DNSProxyOriginServersHealthChecksHealthCheckModel {
+						HealthCheck: func() types.List {
 							if rawList, ok := HealthChecksData["health_check"].([]interface{}); ok && len(rawList) > 0 {
 								var HealthCheckResult []DNSProxyOriginServersHealthChecksHealthCheckModel
 								for _, HealthCheckItem := range rawList {
@@ -2204,9 +2209,10 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 										})
 									}
 								}
-								return HealthCheckResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSProxyOriginServersHealthChecksHealthCheckModelAttrTypes}, HealthCheckResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersHealthChecksHealthCheckModelAttrTypes})
 						}(),
 						HealthyThreshold: func() types.Int64 {
 							if v, ok := HealthChecksData["healthy_threshold"].(float64); ok && v != 0 {
@@ -3055,7 +3061,7 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 				}
 				if HealthChecksData, ok := blockData["health_checks"].(map[string]interface{}); ok {
 					return &DNSProxyOriginServersHealthChecksModel{
-						HealthCheck: func() []DNSProxyOriginServersHealthChecksHealthCheckModel {
+						HealthCheck: func() types.List {
 							if rawList, ok := HealthChecksData["health_check"].([]interface{}); ok && len(rawList) > 0 {
 								var HealthCheckResult []DNSProxyOriginServersHealthChecksHealthCheckModel
 								for _, HealthCheckItem := range rawList {
@@ -3132,9 +3138,10 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 										})
 									}
 								}
-								return HealthCheckResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSProxyOriginServersHealthChecksHealthCheckModelAttrTypes}, HealthCheckResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersHealthChecksHealthCheckModelAttrTypes})
 						}(),
 						HealthyThreshold: func() types.Int64 {
 							if v, ok := HealthChecksData["healthy_threshold"].(float64); ok && v != 0 {
@@ -3896,48 +3903,53 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 		OriginServersMap := make(map[string]interface{})
 		if data.OriginServers.HealthChecks != nil {
 			HealthChecksMap := make(map[string]interface{})
-			if len(data.OriginServers.HealthChecks.HealthCheck) > 0 {
-				var HealthCheckList []map[string]interface{}
-				for _, HealthCheckItem := range data.OriginServers.HealthChecks.HealthCheck {
-					HealthCheckItemMap := make(map[string]interface{})
-					if HealthCheckItem.DNSHealthCheck != nil {
-						DNSHealthCheckMap := make(map[string]interface{})
-						if !HealthCheckItem.DNSHealthCheck.ExpectedRcode.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedRcode.IsUnknown() {
-							DNSHealthCheckMap["expected_rcode"] = HealthCheckItem.DNSHealthCheck.ExpectedRcode.ValueString()
+			if !data.OriginServers.HealthChecks.HealthCheck.IsNull() && !data.OriginServers.HealthChecks.HealthCheck.IsUnknown() {
+				var HealthCheckElems []DNSProxyOriginServersHealthChecksHealthCheckModel
+				diags := data.OriginServers.HealthChecks.HealthCheck.ElementsAs(ctx, &HealthCheckElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(HealthCheckElems) > 0 {
+					var HealthCheckList []map[string]interface{}
+					for _, HealthCheckItem := range HealthCheckElems {
+						HealthCheckItemMap := make(map[string]interface{})
+						if HealthCheckItem.DNSHealthCheck != nil {
+							DNSHealthCheckMap := make(map[string]interface{})
+							if !HealthCheckItem.DNSHealthCheck.ExpectedRcode.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedRcode.IsUnknown() {
+								DNSHealthCheckMap["expected_rcode"] = HealthCheckItem.DNSHealthCheck.ExpectedRcode.ValueString()
+							}
+							if !HealthCheckItem.DNSHealthCheck.ExpectedRecordType.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedRecordType.IsUnknown() {
+								DNSHealthCheckMap["expected_record_type"] = HealthCheckItem.DNSHealthCheck.ExpectedRecordType.ValueString()
+							}
+							if !HealthCheckItem.DNSHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedResponse.IsUnknown() {
+								DNSHealthCheckMap["expected_response"] = HealthCheckItem.DNSHealthCheck.ExpectedResponse.ValueString()
+							}
+							if !HealthCheckItem.DNSHealthCheck.QueryName.IsNull() && !HealthCheckItem.DNSHealthCheck.QueryName.IsUnknown() {
+								DNSHealthCheckMap["query_name"] = HealthCheckItem.DNSHealthCheck.QueryName.ValueString()
+							}
+							if !HealthCheckItem.DNSHealthCheck.QueryType.IsNull() && !HealthCheckItem.DNSHealthCheck.QueryType.IsUnknown() {
+								DNSHealthCheckMap["query_type"] = HealthCheckItem.DNSHealthCheck.QueryType.ValueString()
+							}
+							if !HealthCheckItem.DNSHealthCheck.Reverse.IsNull() && !HealthCheckItem.DNSHealthCheck.Reverse.IsUnknown() {
+								DNSHealthCheckMap["reverse"] = HealthCheckItem.DNSHealthCheck.Reverse.ValueBool()
+							}
+							HealthCheckItemMap["dns_health_check"] = DNSHealthCheckMap
 						}
-						if !HealthCheckItem.DNSHealthCheck.ExpectedRecordType.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedRecordType.IsUnknown() {
-							DNSHealthCheckMap["expected_record_type"] = HealthCheckItem.DNSHealthCheck.ExpectedRecordType.ValueString()
+						if HealthCheckItem.ICMPHealthCheck != nil {
+							HealthCheckItemMap["icmp_health_check"] = map[string]interface{}{}
 						}
-						if !HealthCheckItem.DNSHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedResponse.IsUnknown() {
-							DNSHealthCheckMap["expected_response"] = HealthCheckItem.DNSHealthCheck.ExpectedResponse.ValueString()
+						if HealthCheckItem.TCPHealthCheck != nil {
+							TCPHealthCheckMap := make(map[string]interface{})
+							if !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsUnknown() {
+								TCPHealthCheckMap["expected_response"] = HealthCheckItem.TCPHealthCheck.ExpectedResponse.ValueString()
+							}
+							if !HealthCheckItem.TCPHealthCheck.SendPayload.IsNull() && !HealthCheckItem.TCPHealthCheck.SendPayload.IsUnknown() {
+								TCPHealthCheckMap["send_payload"] = HealthCheckItem.TCPHealthCheck.SendPayload.ValueString()
+							}
+							HealthCheckItemMap["tcp_health_check"] = TCPHealthCheckMap
 						}
-						if !HealthCheckItem.DNSHealthCheck.QueryName.IsNull() && !HealthCheckItem.DNSHealthCheck.QueryName.IsUnknown() {
-							DNSHealthCheckMap["query_name"] = HealthCheckItem.DNSHealthCheck.QueryName.ValueString()
-						}
-						if !HealthCheckItem.DNSHealthCheck.QueryType.IsNull() && !HealthCheckItem.DNSHealthCheck.QueryType.IsUnknown() {
-							DNSHealthCheckMap["query_type"] = HealthCheckItem.DNSHealthCheck.QueryType.ValueString()
-						}
-						if !HealthCheckItem.DNSHealthCheck.Reverse.IsNull() && !HealthCheckItem.DNSHealthCheck.Reverse.IsUnknown() {
-							DNSHealthCheckMap["reverse"] = HealthCheckItem.DNSHealthCheck.Reverse.ValueBool()
-						}
-						HealthCheckItemMap["dns_health_check"] = DNSHealthCheckMap
+						HealthCheckList = append(HealthCheckList, HealthCheckItemMap)
 					}
-					if HealthCheckItem.ICMPHealthCheck != nil {
-						HealthCheckItemMap["icmp_health_check"] = map[string]interface{}{}
-					}
-					if HealthCheckItem.TCPHealthCheck != nil {
-						TCPHealthCheckMap := make(map[string]interface{})
-						if !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsUnknown() {
-							TCPHealthCheckMap["expected_response"] = HealthCheckItem.TCPHealthCheck.ExpectedResponse.ValueString()
-						}
-						if !HealthCheckItem.TCPHealthCheck.SendPayload.IsNull() && !HealthCheckItem.TCPHealthCheck.SendPayload.IsUnknown() {
-							TCPHealthCheckMap["send_payload"] = HealthCheckItem.TCPHealthCheck.SendPayload.ValueString()
-						}
-						HealthCheckItemMap["tcp_health_check"] = TCPHealthCheckMap
-					}
-					HealthCheckList = append(HealthCheckList, HealthCheckItemMap)
+					HealthChecksMap["health_check"] = HealthCheckList
 				}
-				HealthChecksMap["health_check"] = HealthCheckList
 			}
 			if !data.OriginServers.HealthChecks.HealthyThreshold.IsNull() && !data.OriginServers.HealthChecks.HealthyThreshold.IsUnknown() {
 				HealthChecksMap["healthy_threshold"] = data.OriginServers.HealthChecks.HealthyThreshold.ValueInt64()
@@ -4422,7 +4434,7 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 				}
 				if HealthChecksData, ok := blockData["health_checks"].(map[string]interface{}); ok {
 					return &DNSProxyOriginServersHealthChecksModel{
-						HealthCheck: func() []DNSProxyOriginServersHealthChecksHealthCheckModel {
+						HealthCheck: func() types.List {
 							if rawList, ok := HealthChecksData["health_check"].([]interface{}); ok && len(rawList) > 0 {
 								var HealthCheckResult []DNSProxyOriginServersHealthChecksHealthCheckModel
 								for _, HealthCheckItem := range rawList {
@@ -4499,9 +4511,10 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 										})
 									}
 								}
-								return HealthCheckResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSProxyOriginServersHealthChecksHealthCheckModelAttrTypes}, HealthCheckResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersHealthChecksHealthCheckModelAttrTypes})
 						}(),
 						HealthyThreshold: func() types.Int64 {
 							if v, ok := HealthChecksData["healthy_threshold"].(float64); ok && v != 0 {

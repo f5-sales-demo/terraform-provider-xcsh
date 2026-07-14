@@ -61,7 +61,7 @@ var K8SClusterRoleK8SClusterRoleSelectorModelAttrTypes = map[string]attr.Type{
 
 // K8SClusterRolePolicyRuleListModel represents policy_rule_list block
 type K8SClusterRolePolicyRuleListModel struct {
-	PolicyRule []K8SClusterRolePolicyRuleListPolicyRuleModel `tfsdk:"policy_rule"`
+	PolicyRule types.List `tfsdk:"policy_rule"`
 }
 
 // K8SClusterRolePolicyRuleListModelAttrTypes defines the attribute types for K8SClusterRolePolicyRuleListModel
@@ -402,63 +402,68 @@ func (r *K8SClusterRoleResource) Create(ctx context.Context, req resource.Create
 	}
 	if data.PolicyRuleList != nil {
 		PolicyRuleListMap := make(map[string]interface{})
-		if len(data.PolicyRuleList.PolicyRule) > 0 {
-			var PolicyRuleList []map[string]interface{}
-			for _, PolicyRuleItem := range data.PolicyRuleList.PolicyRule {
-				PolicyRuleItemMap := make(map[string]interface{})
-				if PolicyRuleItem.NonResourceURLList != nil {
-					NonResourceURLListMap := make(map[string]interface{})
-					if !PolicyRuleItem.NonResourceURLList.Urls.IsNull() && !PolicyRuleItem.NonResourceURLList.Urls.IsUnknown() {
-						var UrlsItems []string
-						diags := PolicyRuleItem.NonResourceURLList.Urls.ElementsAs(ctx, &UrlsItems, false)
-						if !diags.HasError() {
-							NonResourceURLListMap["urls"] = UrlsItems
+		if !data.PolicyRuleList.PolicyRule.IsNull() && !data.PolicyRuleList.PolicyRule.IsUnknown() {
+			var PolicyRuleElems []K8SClusterRolePolicyRuleListPolicyRuleModel
+			diags := data.PolicyRuleList.PolicyRule.ElementsAs(ctx, &PolicyRuleElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(PolicyRuleElems) > 0 {
+				var PolicyRuleList []map[string]interface{}
+				for _, PolicyRuleItem := range PolicyRuleElems {
+					PolicyRuleItemMap := make(map[string]interface{})
+					if PolicyRuleItem.NonResourceURLList != nil {
+						NonResourceURLListMap := make(map[string]interface{})
+						if !PolicyRuleItem.NonResourceURLList.Urls.IsNull() && !PolicyRuleItem.NonResourceURLList.Urls.IsUnknown() {
+							var UrlsItems []string
+							diags := PolicyRuleItem.NonResourceURLList.Urls.ElementsAs(ctx, &UrlsItems, false)
+							if !diags.HasError() {
+								NonResourceURLListMap["urls"] = UrlsItems
+							}
 						}
-					}
-					if !PolicyRuleItem.NonResourceURLList.Verbs.IsNull() && !PolicyRuleItem.NonResourceURLList.Verbs.IsUnknown() {
-						var VerbsItems []string
-						diags := PolicyRuleItem.NonResourceURLList.Verbs.ElementsAs(ctx, &VerbsItems, false)
-						if !diags.HasError() {
-							NonResourceURLListMap["verbs"] = VerbsItems
+						if !PolicyRuleItem.NonResourceURLList.Verbs.IsNull() && !PolicyRuleItem.NonResourceURLList.Verbs.IsUnknown() {
+							var VerbsItems []string
+							diags := PolicyRuleItem.NonResourceURLList.Verbs.ElementsAs(ctx, &VerbsItems, false)
+							if !diags.HasError() {
+								NonResourceURLListMap["verbs"] = VerbsItems
+							}
 						}
+						PolicyRuleItemMap["non_resource_url_list"] = NonResourceURLListMap
 					}
-					PolicyRuleItemMap["non_resource_url_list"] = NonResourceURLListMap
+					if PolicyRuleItem.ResourceList != nil {
+						ResourceListMap := make(map[string]interface{})
+						if !PolicyRuleItem.ResourceList.APIGroups.IsNull() && !PolicyRuleItem.ResourceList.APIGroups.IsUnknown() {
+							var APIGroupsItems []string
+							diags := PolicyRuleItem.ResourceList.APIGroups.ElementsAs(ctx, &APIGroupsItems, false)
+							if !diags.HasError() {
+								ResourceListMap["api_groups"] = APIGroupsItems
+							}
+						}
+						if !PolicyRuleItem.ResourceList.ResourceInstances.IsNull() && !PolicyRuleItem.ResourceList.ResourceInstances.IsUnknown() {
+							var ResourceInstancesItems []string
+							diags := PolicyRuleItem.ResourceList.ResourceInstances.ElementsAs(ctx, &ResourceInstancesItems, false)
+							if !diags.HasError() {
+								ResourceListMap["resource_instances"] = ResourceInstancesItems
+							}
+						}
+						if !PolicyRuleItem.ResourceList.ResourceTypes.IsNull() && !PolicyRuleItem.ResourceList.ResourceTypes.IsUnknown() {
+							var ResourceTypesItems []string
+							diags := PolicyRuleItem.ResourceList.ResourceTypes.ElementsAs(ctx, &ResourceTypesItems, false)
+							if !diags.HasError() {
+								ResourceListMap["resource_types"] = ResourceTypesItems
+							}
+						}
+						if !PolicyRuleItem.ResourceList.Verbs.IsNull() && !PolicyRuleItem.ResourceList.Verbs.IsUnknown() {
+							var VerbsItems []string
+							diags := PolicyRuleItem.ResourceList.Verbs.ElementsAs(ctx, &VerbsItems, false)
+							if !diags.HasError() {
+								ResourceListMap["verbs"] = VerbsItems
+							}
+						}
+						PolicyRuleItemMap["resource_list"] = ResourceListMap
+					}
+					PolicyRuleList = append(PolicyRuleList, PolicyRuleItemMap)
 				}
-				if PolicyRuleItem.ResourceList != nil {
-					ResourceListMap := make(map[string]interface{})
-					if !PolicyRuleItem.ResourceList.APIGroups.IsNull() && !PolicyRuleItem.ResourceList.APIGroups.IsUnknown() {
-						var APIGroupsItems []string
-						diags := PolicyRuleItem.ResourceList.APIGroups.ElementsAs(ctx, &APIGroupsItems, false)
-						if !diags.HasError() {
-							ResourceListMap["api_groups"] = APIGroupsItems
-						}
-					}
-					if !PolicyRuleItem.ResourceList.ResourceInstances.IsNull() && !PolicyRuleItem.ResourceList.ResourceInstances.IsUnknown() {
-						var ResourceInstancesItems []string
-						diags := PolicyRuleItem.ResourceList.ResourceInstances.ElementsAs(ctx, &ResourceInstancesItems, false)
-						if !diags.HasError() {
-							ResourceListMap["resource_instances"] = ResourceInstancesItems
-						}
-					}
-					if !PolicyRuleItem.ResourceList.ResourceTypes.IsNull() && !PolicyRuleItem.ResourceList.ResourceTypes.IsUnknown() {
-						var ResourceTypesItems []string
-						diags := PolicyRuleItem.ResourceList.ResourceTypes.ElementsAs(ctx, &ResourceTypesItems, false)
-						if !diags.HasError() {
-							ResourceListMap["resource_types"] = ResourceTypesItems
-						}
-					}
-					if !PolicyRuleItem.ResourceList.Verbs.IsNull() && !PolicyRuleItem.ResourceList.Verbs.IsUnknown() {
-						var VerbsItems []string
-						diags := PolicyRuleItem.ResourceList.Verbs.ElementsAs(ctx, &VerbsItems, false)
-						if !diags.HasError() {
-							ResourceListMap["verbs"] = VerbsItems
-						}
-					}
-					PolicyRuleItemMap["resource_list"] = ResourceListMap
-				}
-				PolicyRuleList = append(PolicyRuleList, PolicyRuleItemMap)
+				PolicyRuleListMap["policy_rule"] = PolicyRuleList
 			}
-			PolicyRuleListMap["policy_rule"] = PolicyRuleList
 		}
 		createReq.Spec["policy_rule_list"] = PolicyRuleListMap
 	}
@@ -497,9 +502,9 @@ func (r *K8SClusterRoleResource) Create(ctx context.Context, req resource.Create
 	}
 	if blockData, ok := apiResource.Spec["policy_rule_list"].(map[string]interface{}); ok && (isImport || data.PolicyRuleList != nil) {
 		data.PolicyRuleList = &K8SClusterRolePolicyRuleListModel{
-			PolicyRule: func() []K8SClusterRolePolicyRuleListPolicyRuleModel {
-				if !isImport && data.PolicyRuleList != nil && len(data.PolicyRuleList.PolicyRule) == 0 {
-					return nil
+			PolicyRule: func() types.List {
+				if !isImport && data.PolicyRuleList != nil && (data.PolicyRuleList.PolicyRule.IsNull() || len(data.PolicyRuleList.PolicyRule.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: K8SClusterRolePolicyRuleListPolicyRuleModelAttrTypes})
 				}
 				if rawList, ok := blockData["policy_rule"].([]interface{}); ok && len(rawList) > 0 {
 					var PolicyRuleResult []K8SClusterRolePolicyRuleListPolicyRuleModel
@@ -601,9 +606,10 @@ func (r *K8SClusterRoleResource) Create(ctx context.Context, req resource.Create
 							})
 						}
 					}
-					return PolicyRuleResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: K8SClusterRolePolicyRuleListPolicyRuleModelAttrTypes}, PolicyRuleResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: K8SClusterRolePolicyRuleListPolicyRuleModelAttrTypes})
 			}(),
 		}
 	}
@@ -724,9 +730,9 @@ func (r *K8SClusterRoleResource) Read(ctx context.Context, req resource.ReadRequ
 	}
 	if blockData, ok := apiResource.Spec["policy_rule_list"].(map[string]interface{}); ok && (isImport || data.PolicyRuleList != nil) {
 		data.PolicyRuleList = &K8SClusterRolePolicyRuleListModel{
-			PolicyRule: func() []K8SClusterRolePolicyRuleListPolicyRuleModel {
-				if !isImport && data.PolicyRuleList != nil && len(data.PolicyRuleList.PolicyRule) == 0 {
-					return nil
+			PolicyRule: func() types.List {
+				if !isImport && data.PolicyRuleList != nil && (data.PolicyRuleList.PolicyRule.IsNull() || len(data.PolicyRuleList.PolicyRule.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: K8SClusterRolePolicyRuleListPolicyRuleModelAttrTypes})
 				}
 				if rawList, ok := blockData["policy_rule"].([]interface{}); ok && len(rawList) > 0 {
 					var PolicyRuleResult []K8SClusterRolePolicyRuleListPolicyRuleModel
@@ -828,9 +834,10 @@ func (r *K8SClusterRoleResource) Read(ctx context.Context, req resource.ReadRequ
 							})
 						}
 					}
-					return PolicyRuleResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: K8SClusterRolePolicyRuleListPolicyRuleModelAttrTypes}, PolicyRuleResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: K8SClusterRolePolicyRuleListPolicyRuleModelAttrTypes})
 			}(),
 		}
 	}
@@ -911,63 +918,68 @@ func (r *K8SClusterRoleResource) Update(ctx context.Context, req resource.Update
 	}
 	if data.PolicyRuleList != nil {
 		PolicyRuleListMap := make(map[string]interface{})
-		if len(data.PolicyRuleList.PolicyRule) > 0 {
-			var PolicyRuleList []map[string]interface{}
-			for _, PolicyRuleItem := range data.PolicyRuleList.PolicyRule {
-				PolicyRuleItemMap := make(map[string]interface{})
-				if PolicyRuleItem.NonResourceURLList != nil {
-					NonResourceURLListMap := make(map[string]interface{})
-					if !PolicyRuleItem.NonResourceURLList.Urls.IsNull() && !PolicyRuleItem.NonResourceURLList.Urls.IsUnknown() {
-						var UrlsItems []string
-						diags := PolicyRuleItem.NonResourceURLList.Urls.ElementsAs(ctx, &UrlsItems, false)
-						if !diags.HasError() {
-							NonResourceURLListMap["urls"] = UrlsItems
+		if !data.PolicyRuleList.PolicyRule.IsNull() && !data.PolicyRuleList.PolicyRule.IsUnknown() {
+			var PolicyRuleElems []K8SClusterRolePolicyRuleListPolicyRuleModel
+			diags := data.PolicyRuleList.PolicyRule.ElementsAs(ctx, &PolicyRuleElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(PolicyRuleElems) > 0 {
+				var PolicyRuleList []map[string]interface{}
+				for _, PolicyRuleItem := range PolicyRuleElems {
+					PolicyRuleItemMap := make(map[string]interface{})
+					if PolicyRuleItem.NonResourceURLList != nil {
+						NonResourceURLListMap := make(map[string]interface{})
+						if !PolicyRuleItem.NonResourceURLList.Urls.IsNull() && !PolicyRuleItem.NonResourceURLList.Urls.IsUnknown() {
+							var UrlsItems []string
+							diags := PolicyRuleItem.NonResourceURLList.Urls.ElementsAs(ctx, &UrlsItems, false)
+							if !diags.HasError() {
+								NonResourceURLListMap["urls"] = UrlsItems
+							}
 						}
-					}
-					if !PolicyRuleItem.NonResourceURLList.Verbs.IsNull() && !PolicyRuleItem.NonResourceURLList.Verbs.IsUnknown() {
-						var VerbsItems []string
-						diags := PolicyRuleItem.NonResourceURLList.Verbs.ElementsAs(ctx, &VerbsItems, false)
-						if !diags.HasError() {
-							NonResourceURLListMap["verbs"] = VerbsItems
+						if !PolicyRuleItem.NonResourceURLList.Verbs.IsNull() && !PolicyRuleItem.NonResourceURLList.Verbs.IsUnknown() {
+							var VerbsItems []string
+							diags := PolicyRuleItem.NonResourceURLList.Verbs.ElementsAs(ctx, &VerbsItems, false)
+							if !diags.HasError() {
+								NonResourceURLListMap["verbs"] = VerbsItems
+							}
 						}
+						PolicyRuleItemMap["non_resource_url_list"] = NonResourceURLListMap
 					}
-					PolicyRuleItemMap["non_resource_url_list"] = NonResourceURLListMap
+					if PolicyRuleItem.ResourceList != nil {
+						ResourceListMap := make(map[string]interface{})
+						if !PolicyRuleItem.ResourceList.APIGroups.IsNull() && !PolicyRuleItem.ResourceList.APIGroups.IsUnknown() {
+							var APIGroupsItems []string
+							diags := PolicyRuleItem.ResourceList.APIGroups.ElementsAs(ctx, &APIGroupsItems, false)
+							if !diags.HasError() {
+								ResourceListMap["api_groups"] = APIGroupsItems
+							}
+						}
+						if !PolicyRuleItem.ResourceList.ResourceInstances.IsNull() && !PolicyRuleItem.ResourceList.ResourceInstances.IsUnknown() {
+							var ResourceInstancesItems []string
+							diags := PolicyRuleItem.ResourceList.ResourceInstances.ElementsAs(ctx, &ResourceInstancesItems, false)
+							if !diags.HasError() {
+								ResourceListMap["resource_instances"] = ResourceInstancesItems
+							}
+						}
+						if !PolicyRuleItem.ResourceList.ResourceTypes.IsNull() && !PolicyRuleItem.ResourceList.ResourceTypes.IsUnknown() {
+							var ResourceTypesItems []string
+							diags := PolicyRuleItem.ResourceList.ResourceTypes.ElementsAs(ctx, &ResourceTypesItems, false)
+							if !diags.HasError() {
+								ResourceListMap["resource_types"] = ResourceTypesItems
+							}
+						}
+						if !PolicyRuleItem.ResourceList.Verbs.IsNull() && !PolicyRuleItem.ResourceList.Verbs.IsUnknown() {
+							var VerbsItems []string
+							diags := PolicyRuleItem.ResourceList.Verbs.ElementsAs(ctx, &VerbsItems, false)
+							if !diags.HasError() {
+								ResourceListMap["verbs"] = VerbsItems
+							}
+						}
+						PolicyRuleItemMap["resource_list"] = ResourceListMap
+					}
+					PolicyRuleList = append(PolicyRuleList, PolicyRuleItemMap)
 				}
-				if PolicyRuleItem.ResourceList != nil {
-					ResourceListMap := make(map[string]interface{})
-					if !PolicyRuleItem.ResourceList.APIGroups.IsNull() && !PolicyRuleItem.ResourceList.APIGroups.IsUnknown() {
-						var APIGroupsItems []string
-						diags := PolicyRuleItem.ResourceList.APIGroups.ElementsAs(ctx, &APIGroupsItems, false)
-						if !diags.HasError() {
-							ResourceListMap["api_groups"] = APIGroupsItems
-						}
-					}
-					if !PolicyRuleItem.ResourceList.ResourceInstances.IsNull() && !PolicyRuleItem.ResourceList.ResourceInstances.IsUnknown() {
-						var ResourceInstancesItems []string
-						diags := PolicyRuleItem.ResourceList.ResourceInstances.ElementsAs(ctx, &ResourceInstancesItems, false)
-						if !diags.HasError() {
-							ResourceListMap["resource_instances"] = ResourceInstancesItems
-						}
-					}
-					if !PolicyRuleItem.ResourceList.ResourceTypes.IsNull() && !PolicyRuleItem.ResourceList.ResourceTypes.IsUnknown() {
-						var ResourceTypesItems []string
-						diags := PolicyRuleItem.ResourceList.ResourceTypes.ElementsAs(ctx, &ResourceTypesItems, false)
-						if !diags.HasError() {
-							ResourceListMap["resource_types"] = ResourceTypesItems
-						}
-					}
-					if !PolicyRuleItem.ResourceList.Verbs.IsNull() && !PolicyRuleItem.ResourceList.Verbs.IsUnknown() {
-						var VerbsItems []string
-						diags := PolicyRuleItem.ResourceList.Verbs.ElementsAs(ctx, &VerbsItems, false)
-						if !diags.HasError() {
-							ResourceListMap["verbs"] = VerbsItems
-						}
-					}
-					PolicyRuleItemMap["resource_list"] = ResourceListMap
-				}
-				PolicyRuleList = append(PolicyRuleList, PolicyRuleItemMap)
+				PolicyRuleListMap["policy_rule"] = PolicyRuleList
 			}
-			PolicyRuleListMap["policy_rule"] = PolicyRuleList
 		}
 		apiResource.Spec["policy_rule_list"] = PolicyRuleListMap
 	}
@@ -1024,9 +1036,9 @@ func (r *K8SClusterRoleResource) Update(ctx context.Context, req resource.Update
 	}
 	if blockData, ok := apiResource.Spec["policy_rule_list"].(map[string]interface{}); ok && (isImport || data.PolicyRuleList != nil) {
 		data.PolicyRuleList = &K8SClusterRolePolicyRuleListModel{
-			PolicyRule: func() []K8SClusterRolePolicyRuleListPolicyRuleModel {
-				if !isImport && data.PolicyRuleList != nil && len(data.PolicyRuleList.PolicyRule) == 0 {
-					return nil
+			PolicyRule: func() types.List {
+				if !isImport && data.PolicyRuleList != nil && (data.PolicyRuleList.PolicyRule.IsNull() || len(data.PolicyRuleList.PolicyRule.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: K8SClusterRolePolicyRuleListPolicyRuleModelAttrTypes})
 				}
 				if rawList, ok := blockData["policy_rule"].([]interface{}); ok && len(rawList) > 0 {
 					var PolicyRuleResult []K8SClusterRolePolicyRuleListPolicyRuleModel
@@ -1128,9 +1140,10 @@ func (r *K8SClusterRoleResource) Update(ctx context.Context, req resource.Update
 							})
 						}
 					}
-					return PolicyRuleResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: K8SClusterRolePolicyRuleListPolicyRuleModelAttrTypes}, PolicyRuleResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: K8SClusterRolePolicyRuleListPolicyRuleModelAttrTypes})
 			}(),
 		}
 	}

@@ -235,7 +235,7 @@ var SecuremeshSiteV2AWSModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteV2AWSNotManagedModel represents not_managed block
 type SecuremeshSiteV2AWSNotManagedModel struct {
-	NodeList []SecuremeshSiteV2AWSNotManagedNodeListModel `tfsdk:"node_list"`
+	NodeList types.List `tfsdk:"node_list"`
 }
 
 // SecuremeshSiteV2AWSNotManagedModelAttrTypes defines the attribute types for SecuremeshSiteV2AWSNotManagedModel
@@ -245,10 +245,10 @@ var SecuremeshSiteV2AWSNotManagedModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteV2AWSNotManagedNodeListModel represents node_list block
 type SecuremeshSiteV2AWSNotManagedNodeListModel struct {
-	Hostname      types.String                                              `tfsdk:"hostname"`
-	PublicIP      types.String                                              `tfsdk:"public_ip"`
-	Type          types.String                                              `tfsdk:"type"`
-	InterfaceList []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModel `tfsdk:"interface_list"`
+	Hostname      types.String `tfsdk:"hostname"`
+	PublicIP      types.String `tfsdk:"public_ip"`
+	Type          types.String `tfsdk:"type"`
+	InterfaceList types.List   `tfsdk:"interface_list"`
 }
 
 // SecuremeshSiteV2AWSNotManagedNodeListModelAttrTypes defines the attribute types for SecuremeshSiteV2AWSNotManagedNodeListModel
@@ -413,7 +413,7 @@ var SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterDNSCon
 type SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulModel struct {
 	AutomaticFromEnd   *SecuremeshSiteV2EmptyModel                                                                        `tfsdk:"automatic_from_end"`
 	AutomaticFromStart *SecuremeshSiteV2EmptyModel                                                                        `tfsdk:"automatic_from_start"`
-	DHCPNetworks       []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel  `tfsdk:"dhcp_networks"`
+	DHCPNetworks       types.List                                                                                         `tfsdk:"dhcp_networks"`
 	FixedIPMap         *SecuremeshSiteV2EmptyModel                                                                        `tfsdk:"fixed_ip_map"`
 	InterfaceIPMap     *SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel `tfsdk:"interface_ip_map"`
 }
@@ -429,9 +429,9 @@ var SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatef
 
 // SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel represents dhcp_networks block
 type SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel struct {
-	NetworkPrefix types.String                                                                                           `tfsdk:"network_prefix"`
-	PoolSettings  types.String                                                                                           `tfsdk:"pool_settings"`
-	Pools         []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel `tfsdk:"pools"`
+	NetworkPrefix types.String `tfsdk:"network_prefix"`
+	PoolSettings  types.String `tfsdk:"pool_settings"`
+	Pools         types.List   `tfsdk:"pools"`
 }
 
 // SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
@@ -545,7 +545,7 @@ var SecuremeshSiteV2AzureModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteV2AzureNotManagedModel represents not_managed block
 type SecuremeshSiteV2AzureNotManagedModel struct {
-	NodeList []SecuremeshSiteV2AzureNotManagedNodeListModel `tfsdk:"node_list"`
+	NodeList types.List `tfsdk:"node_list"`
 }
 
 // SecuremeshSiteV2AzureNotManagedModelAttrTypes defines the attribute types for SecuremeshSiteV2AzureNotManagedModel
@@ -555,10 +555,10 @@ var SecuremeshSiteV2AzureNotManagedModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteV2AzureNotManagedNodeListModel represents node_list block
 type SecuremeshSiteV2AzureNotManagedNodeListModel struct {
-	Hostname      types.String                                                `tfsdk:"hostname"`
-	PublicIP      types.String                                                `tfsdk:"public_ip"`
-	Type          types.String                                                `tfsdk:"type"`
-	InterfaceList []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModel `tfsdk:"interface_list"`
+	Hostname      types.String `tfsdk:"hostname"`
+	PublicIP      types.String `tfsdk:"public_ip"`
+	Type          types.String `tfsdk:"type"`
+	InterfaceList types.List   `tfsdk:"interface_list"`
 }
 
 // SecuremeshSiteV2AzureNotManagedNodeListModelAttrTypes defines the attribute types for SecuremeshSiteV2AzureNotManagedNodeListModel
@@ -723,7 +723,7 @@ var SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterDNSC
 type SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulModel struct {
 	AutomaticFromEnd   *SecuremeshSiteV2EmptyModel                                                                          `tfsdk:"automatic_from_end"`
 	AutomaticFromStart *SecuremeshSiteV2EmptyModel                                                                          `tfsdk:"automatic_from_start"`
-	DHCPNetworks       []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel  `tfsdk:"dhcp_networks"`
+	DHCPNetworks       types.List                                                                                           `tfsdk:"dhcp_networks"`
 	FixedIPMap         *SecuremeshSiteV2EmptyModel                                                                          `tfsdk:"fixed_ip_map"`
 	InterfaceIPMap     *SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel `tfsdk:"interface_ip_map"`
 }
@@ -739,9 +739,9 @@ var SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStat
 
 // SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel represents dhcp_networks block
 type SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel struct {
-	NetworkPrefix types.String                                                                                             `tfsdk:"network_prefix"`
-	PoolSettings  types.String                                                                                             `tfsdk:"pool_settings"`
-	Pools         []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel `tfsdk:"pools"`
+	NetworkPrefix types.String `tfsdk:"network_prefix"`
+	PoolSettings  types.String `tfsdk:"pool_settings"`
+	Pools         types.List   `tfsdk:"pools"`
 }
 
 // SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
@@ -855,7 +855,7 @@ var SecuremeshSiteV2BaremetalModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteV2BaremetalNotManagedModel represents not_managed block
 type SecuremeshSiteV2BaremetalNotManagedModel struct {
-	NodeList []SecuremeshSiteV2BaremetalNotManagedNodeListModel `tfsdk:"node_list"`
+	NodeList types.List `tfsdk:"node_list"`
 }
 
 // SecuremeshSiteV2BaremetalNotManagedModelAttrTypes defines the attribute types for SecuremeshSiteV2BaremetalNotManagedModel
@@ -865,10 +865,10 @@ var SecuremeshSiteV2BaremetalNotManagedModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteV2BaremetalNotManagedNodeListModel represents node_list block
 type SecuremeshSiteV2BaremetalNotManagedNodeListModel struct {
-	Hostname      types.String                                                    `tfsdk:"hostname"`
-	PublicIP      types.String                                                    `tfsdk:"public_ip"`
-	Type          types.String                                                    `tfsdk:"type"`
-	InterfaceList []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModel `tfsdk:"interface_list"`
+	Hostname      types.String `tfsdk:"hostname"`
+	PublicIP      types.String `tfsdk:"public_ip"`
+	Type          types.String `tfsdk:"type"`
+	InterfaceList types.List   `tfsdk:"interface_list"`
 }
 
 // SecuremeshSiteV2BaremetalNotManagedNodeListModelAttrTypes defines the attribute types for SecuremeshSiteV2BaremetalNotManagedNodeListModel
@@ -1033,7 +1033,7 @@ var SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouter
 type SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulModel struct {
 	AutomaticFromEnd   *SecuremeshSiteV2EmptyModel                                                                              `tfsdk:"automatic_from_end"`
 	AutomaticFromStart *SecuremeshSiteV2EmptyModel                                                                              `tfsdk:"automatic_from_start"`
-	DHCPNetworks       []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel  `tfsdk:"dhcp_networks"`
+	DHCPNetworks       types.List                                                                                               `tfsdk:"dhcp_networks"`
 	FixedIPMap         *SecuremeshSiteV2EmptyModel                                                                              `tfsdk:"fixed_ip_map"`
 	InterfaceIPMap     *SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel `tfsdk:"interface_ip_map"`
 }
@@ -1049,9 +1049,9 @@ var SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouter
 
 // SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel represents dhcp_networks block
 type SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel struct {
-	NetworkPrefix types.String                                                                                                 `tfsdk:"network_prefix"`
-	PoolSettings  types.String                                                                                                 `tfsdk:"pool_settings"`
-	Pools         []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel `tfsdk:"pools"`
+	NetworkPrefix types.String `tfsdk:"network_prefix"`
+	PoolSettings  types.String `tfsdk:"pool_settings"`
+	Pools         types.List   `tfsdk:"pools"`
 }
 
 // SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
@@ -1155,7 +1155,7 @@ var SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListVLANInterfaceModelAt
 
 // SecuremeshSiteV2BlockedServicesModel represents blocked_services block
 type SecuremeshSiteV2BlockedServicesModel struct {
-	BlockedService []SecuremeshSiteV2BlockedServicesBlockedServiceModel `tfsdk:"blocked_service"`
+	BlockedService types.List `tfsdk:"blocked_service"`
 }
 
 // SecuremeshSiteV2BlockedServicesModelAttrTypes defines the attribute types for SecuremeshSiteV2BlockedServicesModel
@@ -1373,7 +1373,7 @@ var SecuremeshSiteV2EquinixModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteV2EquinixNotManagedModel represents not_managed block
 type SecuremeshSiteV2EquinixNotManagedModel struct {
-	NodeList []SecuremeshSiteV2EquinixNotManagedNodeListModel `tfsdk:"node_list"`
+	NodeList types.List `tfsdk:"node_list"`
 }
 
 // SecuremeshSiteV2EquinixNotManagedModelAttrTypes defines the attribute types for SecuremeshSiteV2EquinixNotManagedModel
@@ -1383,10 +1383,10 @@ var SecuremeshSiteV2EquinixNotManagedModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteV2EquinixNotManagedNodeListModel represents node_list block
 type SecuremeshSiteV2EquinixNotManagedNodeListModel struct {
-	Hostname      types.String                                                  `tfsdk:"hostname"`
-	PublicIP      types.String                                                  `tfsdk:"public_ip"`
-	Type          types.String                                                  `tfsdk:"type"`
-	InterfaceList []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModel `tfsdk:"interface_list"`
+	Hostname      types.String `tfsdk:"hostname"`
+	PublicIP      types.String `tfsdk:"public_ip"`
+	Type          types.String `tfsdk:"type"`
+	InterfaceList types.List   `tfsdk:"interface_list"`
 }
 
 // SecuremeshSiteV2EquinixNotManagedNodeListModelAttrTypes defines the attribute types for SecuremeshSiteV2EquinixNotManagedNodeListModel
@@ -1551,7 +1551,7 @@ var SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterDN
 type SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulModel struct {
 	AutomaticFromEnd   *SecuremeshSiteV2EmptyModel                                                                            `tfsdk:"automatic_from_end"`
 	AutomaticFromStart *SecuremeshSiteV2EmptyModel                                                                            `tfsdk:"automatic_from_start"`
-	DHCPNetworks       []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel  `tfsdk:"dhcp_networks"`
+	DHCPNetworks       types.List                                                                                             `tfsdk:"dhcp_networks"`
 	FixedIPMap         *SecuremeshSiteV2EmptyModel                                                                            `tfsdk:"fixed_ip_map"`
 	InterfaceIPMap     *SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel `tfsdk:"interface_ip_map"`
 }
@@ -1567,9 +1567,9 @@ var SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterSt
 
 // SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel represents dhcp_networks block
 type SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel struct {
-	NetworkPrefix types.String                                                                                               `tfsdk:"network_prefix"`
-	PoolSettings  types.String                                                                                               `tfsdk:"pool_settings"`
-	Pools         []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel `tfsdk:"pools"`
+	NetworkPrefix types.String `tfsdk:"network_prefix"`
+	PoolSettings  types.String `tfsdk:"pool_settings"`
+	Pools         types.List   `tfsdk:"pools"`
 }
 
 // SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
@@ -1683,7 +1683,7 @@ var SecuremeshSiteV2GCPModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteV2GCPNotManagedModel represents not_managed block
 type SecuremeshSiteV2GCPNotManagedModel struct {
-	NodeList []SecuremeshSiteV2GCPNotManagedNodeListModel `tfsdk:"node_list"`
+	NodeList types.List `tfsdk:"node_list"`
 }
 
 // SecuremeshSiteV2GCPNotManagedModelAttrTypes defines the attribute types for SecuremeshSiteV2GCPNotManagedModel
@@ -1693,10 +1693,10 @@ var SecuremeshSiteV2GCPNotManagedModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteV2GCPNotManagedNodeListModel represents node_list block
 type SecuremeshSiteV2GCPNotManagedNodeListModel struct {
-	Hostname      types.String                                              `tfsdk:"hostname"`
-	PublicIP      types.String                                              `tfsdk:"public_ip"`
-	Type          types.String                                              `tfsdk:"type"`
-	InterfaceList []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModel `tfsdk:"interface_list"`
+	Hostname      types.String `tfsdk:"hostname"`
+	PublicIP      types.String `tfsdk:"public_ip"`
+	Type          types.String `tfsdk:"type"`
+	InterfaceList types.List   `tfsdk:"interface_list"`
 }
 
 // SecuremeshSiteV2GCPNotManagedNodeListModelAttrTypes defines the attribute types for SecuremeshSiteV2GCPNotManagedNodeListModel
@@ -1861,7 +1861,7 @@ var SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterDNSCon
 type SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulModel struct {
 	AutomaticFromEnd   *SecuremeshSiteV2EmptyModel                                                                        `tfsdk:"automatic_from_end"`
 	AutomaticFromStart *SecuremeshSiteV2EmptyModel                                                                        `tfsdk:"automatic_from_start"`
-	DHCPNetworks       []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel  `tfsdk:"dhcp_networks"`
+	DHCPNetworks       types.List                                                                                         `tfsdk:"dhcp_networks"`
 	FixedIPMap         *SecuremeshSiteV2EmptyModel                                                                        `tfsdk:"fixed_ip_map"`
 	InterfaceIPMap     *SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel `tfsdk:"interface_ip_map"`
 }
@@ -1877,9 +1877,9 @@ var SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatef
 
 // SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel represents dhcp_networks block
 type SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel struct {
-	NetworkPrefix types.String                                                                                           `tfsdk:"network_prefix"`
-	PoolSettings  types.String                                                                                           `tfsdk:"pool_settings"`
-	Pools         []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel `tfsdk:"pools"`
+	NetworkPrefix types.String `tfsdk:"network_prefix"`
+	PoolSettings  types.String `tfsdk:"pool_settings"`
+	Pools         types.List   `tfsdk:"pools"`
 }
 
 // SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
@@ -1993,7 +1993,7 @@ var SecuremeshSiteV2KvmModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteV2KvmNotManagedModel represents not_managed block
 type SecuremeshSiteV2KvmNotManagedModel struct {
-	NodeList []SecuremeshSiteV2KvmNotManagedNodeListModel `tfsdk:"node_list"`
+	NodeList types.List `tfsdk:"node_list"`
 }
 
 // SecuremeshSiteV2KvmNotManagedModelAttrTypes defines the attribute types for SecuremeshSiteV2KvmNotManagedModel
@@ -2003,10 +2003,10 @@ var SecuremeshSiteV2KvmNotManagedModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteV2KvmNotManagedNodeListModel represents node_list block
 type SecuremeshSiteV2KvmNotManagedNodeListModel struct {
-	Hostname      types.String                                              `tfsdk:"hostname"`
-	PublicIP      types.String                                              `tfsdk:"public_ip"`
-	Type          types.String                                              `tfsdk:"type"`
-	InterfaceList []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModel `tfsdk:"interface_list"`
+	Hostname      types.String `tfsdk:"hostname"`
+	PublicIP      types.String `tfsdk:"public_ip"`
+	Type          types.String `tfsdk:"type"`
+	InterfaceList types.List   `tfsdk:"interface_list"`
 }
 
 // SecuremeshSiteV2KvmNotManagedNodeListModelAttrTypes defines the attribute types for SecuremeshSiteV2KvmNotManagedNodeListModel
@@ -2171,7 +2171,7 @@ var SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterDNSCon
 type SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulModel struct {
 	AutomaticFromEnd   *SecuremeshSiteV2EmptyModel                                                                        `tfsdk:"automatic_from_end"`
 	AutomaticFromStart *SecuremeshSiteV2EmptyModel                                                                        `tfsdk:"automatic_from_start"`
-	DHCPNetworks       []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel  `tfsdk:"dhcp_networks"`
+	DHCPNetworks       types.List                                                                                         `tfsdk:"dhcp_networks"`
 	FixedIPMap         *SecuremeshSiteV2EmptyModel                                                                        `tfsdk:"fixed_ip_map"`
 	InterfaceIPMap     *SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel `tfsdk:"interface_ip_map"`
 }
@@ -2187,9 +2187,9 @@ var SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatef
 
 // SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel represents dhcp_networks block
 type SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel struct {
-	NetworkPrefix types.String                                                                                           `tfsdk:"network_prefix"`
-	PoolSettings  types.String                                                                                           `tfsdk:"pool_settings"`
-	Pools         []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel `tfsdk:"pools"`
+	NetworkPrefix types.String `tfsdk:"network_prefix"`
+	PoolSettings  types.String `tfsdk:"pool_settings"`
+	Pools         types.List   `tfsdk:"pools"`
 }
 
 // SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
@@ -2691,7 +2691,7 @@ var SecuremeshSiteV2NutanixModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteV2NutanixNotManagedModel represents not_managed block
 type SecuremeshSiteV2NutanixNotManagedModel struct {
-	NodeList []SecuremeshSiteV2NutanixNotManagedNodeListModel `tfsdk:"node_list"`
+	NodeList types.List `tfsdk:"node_list"`
 }
 
 // SecuremeshSiteV2NutanixNotManagedModelAttrTypes defines the attribute types for SecuremeshSiteV2NutanixNotManagedModel
@@ -2701,10 +2701,10 @@ var SecuremeshSiteV2NutanixNotManagedModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteV2NutanixNotManagedNodeListModel represents node_list block
 type SecuremeshSiteV2NutanixNotManagedNodeListModel struct {
-	Hostname      types.String                                                  `tfsdk:"hostname"`
-	PublicIP      types.String                                                  `tfsdk:"public_ip"`
-	Type          types.String                                                  `tfsdk:"type"`
-	InterfaceList []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModel `tfsdk:"interface_list"`
+	Hostname      types.String `tfsdk:"hostname"`
+	PublicIP      types.String `tfsdk:"public_ip"`
+	Type          types.String `tfsdk:"type"`
+	InterfaceList types.List   `tfsdk:"interface_list"`
 }
 
 // SecuremeshSiteV2NutanixNotManagedNodeListModelAttrTypes defines the attribute types for SecuremeshSiteV2NutanixNotManagedNodeListModel
@@ -2869,7 +2869,7 @@ var SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterDN
 type SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulModel struct {
 	AutomaticFromEnd   *SecuremeshSiteV2EmptyModel                                                                            `tfsdk:"automatic_from_end"`
 	AutomaticFromStart *SecuremeshSiteV2EmptyModel                                                                            `tfsdk:"automatic_from_start"`
-	DHCPNetworks       []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel  `tfsdk:"dhcp_networks"`
+	DHCPNetworks       types.List                                                                                             `tfsdk:"dhcp_networks"`
 	FixedIPMap         *SecuremeshSiteV2EmptyModel                                                                            `tfsdk:"fixed_ip_map"`
 	InterfaceIPMap     *SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel `tfsdk:"interface_ip_map"`
 }
@@ -2885,9 +2885,9 @@ var SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterSt
 
 // SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel represents dhcp_networks block
 type SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel struct {
-	NetworkPrefix types.String                                                                                               `tfsdk:"network_prefix"`
-	PoolSettings  types.String                                                                                               `tfsdk:"pool_settings"`
-	Pools         []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel `tfsdk:"pools"`
+	NetworkPrefix types.String `tfsdk:"network_prefix"`
+	PoolSettings  types.String `tfsdk:"pool_settings"`
+	Pools         types.List   `tfsdk:"pools"`
 }
 
 // SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
@@ -3001,7 +3001,7 @@ var SecuremeshSiteV2OciModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteV2OciNotManagedModel represents not_managed block
 type SecuremeshSiteV2OciNotManagedModel struct {
-	NodeList []SecuremeshSiteV2OciNotManagedNodeListModel `tfsdk:"node_list"`
+	NodeList types.List `tfsdk:"node_list"`
 }
 
 // SecuremeshSiteV2OciNotManagedModelAttrTypes defines the attribute types for SecuremeshSiteV2OciNotManagedModel
@@ -3011,10 +3011,10 @@ var SecuremeshSiteV2OciNotManagedModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteV2OciNotManagedNodeListModel represents node_list block
 type SecuremeshSiteV2OciNotManagedNodeListModel struct {
-	Hostname      types.String                                              `tfsdk:"hostname"`
-	PublicIP      types.String                                              `tfsdk:"public_ip"`
-	Type          types.String                                              `tfsdk:"type"`
-	InterfaceList []SecuremeshSiteV2OciNotManagedNodeListInterfaceListModel `tfsdk:"interface_list"`
+	Hostname      types.String `tfsdk:"hostname"`
+	PublicIP      types.String `tfsdk:"public_ip"`
+	Type          types.String `tfsdk:"type"`
+	InterfaceList types.List   `tfsdk:"interface_list"`
 }
 
 // SecuremeshSiteV2OciNotManagedNodeListModelAttrTypes defines the attribute types for SecuremeshSiteV2OciNotManagedNodeListModel
@@ -3179,7 +3179,7 @@ var SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterDNSCon
 type SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulModel struct {
 	AutomaticFromEnd   *SecuremeshSiteV2EmptyModel                                                                        `tfsdk:"automatic_from_end"`
 	AutomaticFromStart *SecuremeshSiteV2EmptyModel                                                                        `tfsdk:"automatic_from_start"`
-	DHCPNetworks       []SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel  `tfsdk:"dhcp_networks"`
+	DHCPNetworks       types.List                                                                                         `tfsdk:"dhcp_networks"`
 	FixedIPMap         *SecuremeshSiteV2EmptyModel                                                                        `tfsdk:"fixed_ip_map"`
 	InterfaceIPMap     *SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel `tfsdk:"interface_ip_map"`
 }
@@ -3195,9 +3195,9 @@ var SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatef
 
 // SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel represents dhcp_networks block
 type SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel struct {
-	NetworkPrefix types.String                                                                                           `tfsdk:"network_prefix"`
-	PoolSettings  types.String                                                                                           `tfsdk:"pool_settings"`
-	Pools         []SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel `tfsdk:"pools"`
+	NetworkPrefix types.String `tfsdk:"network_prefix"`
+	PoolSettings  types.String `tfsdk:"pool_settings"`
+	Pools         types.List   `tfsdk:"pools"`
 }
 
 // SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
@@ -3323,7 +3323,7 @@ var SecuremeshSiteV2OpenshiftVirtualizationModelAttrTypes = map[string]attr.Type
 
 // SecuremeshSiteV2OpenshiftVirtualizationNotManagedModel represents not_managed block
 type SecuremeshSiteV2OpenshiftVirtualizationNotManagedModel struct {
-	NodeList []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListModel `tfsdk:"node_list"`
+	NodeList types.List `tfsdk:"node_list"`
 }
 
 // SecuremeshSiteV2OpenshiftVirtualizationNotManagedModelAttrTypes defines the attribute types for SecuremeshSiteV2OpenshiftVirtualizationNotManagedModel
@@ -3333,10 +3333,10 @@ var SecuremeshSiteV2OpenshiftVirtualizationNotManagedModelAttrTypes = map[string
 
 // SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListModel represents node_list block
 type SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListModel struct {
-	Hostname      types.String                                                                  `tfsdk:"hostname"`
-	PublicIP      types.String                                                                  `tfsdk:"public_ip"`
-	Type          types.String                                                                  `tfsdk:"type"`
-	InterfaceList []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModel `tfsdk:"interface_list"`
+	Hostname      types.String `tfsdk:"hostname"`
+	PublicIP      types.String `tfsdk:"public_ip"`
+	Type          types.String `tfsdk:"type"`
+	InterfaceList types.List   `tfsdk:"interface_list"`
 }
 
 // SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListModelAttrTypes defines the attribute types for SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListModel
@@ -3501,7 +3501,7 @@ var SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6Au
 type SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulModel struct {
 	AutomaticFromEnd   *SecuremeshSiteV2EmptyModel                                                                                            `tfsdk:"automatic_from_end"`
 	AutomaticFromStart *SecuremeshSiteV2EmptyModel                                                                                            `tfsdk:"automatic_from_start"`
-	DHCPNetworks       []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel  `tfsdk:"dhcp_networks"`
+	DHCPNetworks       types.List                                                                                                             `tfsdk:"dhcp_networks"`
 	FixedIPMap         *SecuremeshSiteV2EmptyModel                                                                                            `tfsdk:"fixed_ip_map"`
 	InterfaceIPMap     *SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel `tfsdk:"interface_ip_map"`
 }
@@ -3517,9 +3517,9 @@ var SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6Au
 
 // SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel represents dhcp_networks block
 type SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel struct {
-	NetworkPrefix types.String                                                                                                               `tfsdk:"network_prefix"`
-	PoolSettings  types.String                                                                                                               `tfsdk:"pool_settings"`
-	Pools         []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel `tfsdk:"pools"`
+	NetworkPrefix types.String `tfsdk:"network_prefix"`
+	PoolSettings  types.String `tfsdk:"pool_settings"`
+	Pools         types.List   `tfsdk:"pools"`
 }
 
 // SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
@@ -3633,7 +3633,7 @@ var SecuremeshSiteV2OpenstackModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteV2OpenstackNotManagedModel represents not_managed block
 type SecuremeshSiteV2OpenstackNotManagedModel struct {
-	NodeList []SecuremeshSiteV2OpenstackNotManagedNodeListModel `tfsdk:"node_list"`
+	NodeList types.List `tfsdk:"node_list"`
 }
 
 // SecuremeshSiteV2OpenstackNotManagedModelAttrTypes defines the attribute types for SecuremeshSiteV2OpenstackNotManagedModel
@@ -3643,10 +3643,10 @@ var SecuremeshSiteV2OpenstackNotManagedModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteV2OpenstackNotManagedNodeListModel represents node_list block
 type SecuremeshSiteV2OpenstackNotManagedNodeListModel struct {
-	Hostname      types.String                                                    `tfsdk:"hostname"`
-	PublicIP      types.String                                                    `tfsdk:"public_ip"`
-	Type          types.String                                                    `tfsdk:"type"`
-	InterfaceList []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModel `tfsdk:"interface_list"`
+	Hostname      types.String `tfsdk:"hostname"`
+	PublicIP      types.String `tfsdk:"public_ip"`
+	Type          types.String `tfsdk:"type"`
+	InterfaceList types.List   `tfsdk:"interface_list"`
 }
 
 // SecuremeshSiteV2OpenstackNotManagedNodeListModelAttrTypes defines the attribute types for SecuremeshSiteV2OpenstackNotManagedNodeListModel
@@ -3811,7 +3811,7 @@ var SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouter
 type SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulModel struct {
 	AutomaticFromEnd   *SecuremeshSiteV2EmptyModel                                                                              `tfsdk:"automatic_from_end"`
 	AutomaticFromStart *SecuremeshSiteV2EmptyModel                                                                              `tfsdk:"automatic_from_start"`
-	DHCPNetworks       []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel  `tfsdk:"dhcp_networks"`
+	DHCPNetworks       types.List                                                                                               `tfsdk:"dhcp_networks"`
 	FixedIPMap         *SecuremeshSiteV2EmptyModel                                                                              `tfsdk:"fixed_ip_map"`
 	InterfaceIPMap     *SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel `tfsdk:"interface_ip_map"`
 }
@@ -3827,9 +3827,9 @@ var SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouter
 
 // SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel represents dhcp_networks block
 type SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel struct {
-	NetworkPrefix types.String                                                                                                 `tfsdk:"network_prefix"`
-	PoolSettings  types.String                                                                                                 `tfsdk:"pool_settings"`
-	Pools         []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel `tfsdk:"pools"`
+	NetworkPrefix types.String `tfsdk:"network_prefix"`
+	PoolSettings  types.String `tfsdk:"pool_settings"`
+	Pools         types.List   `tfsdk:"pools"`
 }
 
 // SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
@@ -4239,7 +4239,7 @@ var SecuremeshSiteV2VmwareModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteV2VmwareNotManagedModel represents not_managed block
 type SecuremeshSiteV2VmwareNotManagedModel struct {
-	NodeList []SecuremeshSiteV2VmwareNotManagedNodeListModel `tfsdk:"node_list"`
+	NodeList types.List `tfsdk:"node_list"`
 }
 
 // SecuremeshSiteV2VmwareNotManagedModelAttrTypes defines the attribute types for SecuremeshSiteV2VmwareNotManagedModel
@@ -4249,10 +4249,10 @@ var SecuremeshSiteV2VmwareNotManagedModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteV2VmwareNotManagedNodeListModel represents node_list block
 type SecuremeshSiteV2VmwareNotManagedNodeListModel struct {
-	Hostname      types.String                                                 `tfsdk:"hostname"`
-	PublicIP      types.String                                                 `tfsdk:"public_ip"`
-	Type          types.String                                                 `tfsdk:"type"`
-	InterfaceList []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModel `tfsdk:"interface_list"`
+	Hostname      types.String `tfsdk:"hostname"`
+	PublicIP      types.String `tfsdk:"public_ip"`
+	Type          types.String `tfsdk:"type"`
+	InterfaceList types.List   `tfsdk:"interface_list"`
 }
 
 // SecuremeshSiteV2VmwareNotManagedNodeListModelAttrTypes defines the attribute types for SecuremeshSiteV2VmwareNotManagedNodeListModel
@@ -4417,7 +4417,7 @@ var SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterDNS
 type SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulModel struct {
 	AutomaticFromEnd   *SecuremeshSiteV2EmptyModel                                                                           `tfsdk:"automatic_from_end"`
 	AutomaticFromStart *SecuremeshSiteV2EmptyModel                                                                           `tfsdk:"automatic_from_start"`
-	DHCPNetworks       []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel  `tfsdk:"dhcp_networks"`
+	DHCPNetworks       types.List                                                                                            `tfsdk:"dhcp_networks"`
 	FixedIPMap         *SecuremeshSiteV2EmptyModel                                                                           `tfsdk:"fixed_ip_map"`
 	InterfaceIPMap     *SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel `tfsdk:"interface_ip_map"`
 }
@@ -4433,9 +4433,9 @@ var SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterSta
 
 // SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel represents dhcp_networks block
 type SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel struct {
-	NetworkPrefix types.String                                                                                              `tfsdk:"network_prefix"`
-	PoolSettings  types.String                                                                                              `tfsdk:"pool_settings"`
-	Pools         []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel `tfsdk:"pools"`
+	NetworkPrefix types.String `tfsdk:"network_prefix"`
+	PoolSettings  types.String `tfsdk:"pool_settings"`
+	Pools         types.List   `tfsdk:"pools"`
 }
 
 // SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
@@ -10429,247 +10429,267 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 		AWSMap := make(map[string]interface{})
 		if data.AWS.NotManaged != nil {
 			NotManagedMap := make(map[string]interface{})
-			if len(data.AWS.NotManaged.NodeList) > 0 {
-				var NodeListList []map[string]interface{}
-				for _, NodeListItem := range data.AWS.NotManaged.NodeList {
-					NodeListItemMap := make(map[string]interface{})
-					if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
-						NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
-					}
-					if len(NodeListItem.InterfaceList) > 0 {
-						var InterfaceListList []map[string]interface{}
-						for _, InterfaceListItem := range NodeListItem.InterfaceList {
-							InterfaceListItemMap := make(map[string]interface{})
-							if InterfaceListItem.BondInterface != nil {
-								BondInterfaceMap := make(map[string]interface{})
-								if InterfaceListItem.BondInterface.ActiveBackup != nil {
-									BondInterfaceMap["active_backup"] = map[string]interface{}{}
-								}
-								if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
-									var DevicesItems []string
-									diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
-									if !diags.HasError() {
-										BondInterfaceMap["devices"] = DevicesItems
-									}
-								}
-								if InterfaceListItem.BondInterface.Lacp != nil {
-									LacpMap := make(map[string]interface{})
-									if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
-										LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
-									}
-									BondInterfaceMap["lacp"] = LacpMap
-								}
-								if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
-									BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
-									BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
-									BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
-								}
-								InterfaceListItemMap["bond_interface"] = BondInterfaceMap
-							}
-							if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
-								InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
-							}
-							if InterfaceListItem.DHCPClient != nil {
-								InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.EthernetInterface != nil {
-								EthernetInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
-									EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
-									EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
-								}
-								InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
-							}
-							if InterfaceListItem.Ipv6AutoConfig != nil {
-								Ipv6AutoConfigMap := make(map[string]interface{})
-								if InterfaceListItem.Ipv6AutoConfig.Host != nil {
-									Ipv6AutoConfigMap["host"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.Ipv6AutoConfig.Router != nil {
-									RouterMap := make(map[string]interface{})
-									if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
-										DNSConfigMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-											ConfiguredListMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
-												var DNSListItems []string
-												diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
-												if !diags.HasError() {
-													ConfiguredListMap["dns_list"] = DNSListItems
-												}
-											}
-											DNSConfigMap["configured_list"] = ConfiguredListMap
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-											LocalDNSMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-												LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-												LocalDNSMap["first_address"] = map[string]interface{}{}
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-												LocalDNSMap["last_address"] = map[string]interface{}{}
-											}
-											DNSConfigMap["local_dns"] = LocalDNSMap
-										}
-										RouterMap["dns_config"] = DNSConfigMap
-									}
-									if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-										RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
-									}
-									if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
-										StatefulMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-											StatefulMap["automatic_from_end"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-											StatefulMap["automatic_from_start"] = map[string]interface{}{}
-										}
-										if len(InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
-													}
-													DHCPNetworksItemMap["pools"] = PoolsList
-												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
-											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-											InterfaceIPMapMap := make(map[string]interface{})
-											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
-											}
-											StatefulMap["interface_ip_map"] = InterfaceIPMapMap
-										}
-										RouterMap["stateful"] = StatefulMap
-									}
-									Ipv6AutoConfigMap["router"] = RouterMap
-								}
-								InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
-							}
-							if InterfaceListItem.Labels != nil {
-								InterfaceListItemMap["labels"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.Monitor != nil {
-								InterfaceListItemMap["monitor"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.MonitorDisabled != nil {
-								InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
-								InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
-							}
-							if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
-								InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
-							}
-							if InterfaceListItem.NetworkOption != nil {
-								NetworkOptionMap := make(map[string]interface{})
-								if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
-									NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
-									NetworkOptionMap["site_local_network"] = map[string]interface{}{}
-								}
-								InterfaceListItemMap["network_option"] = NetworkOptionMap
-							}
-							if InterfaceListItem.NoIpv4Address != nil {
-								InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.NoIpv6Address != nil {
-								InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
-								InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.StaticIP != nil {
-								StaticIPMap := make(map[string]interface{})
-								if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
-									StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
-								}
-								if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
-									StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
-								}
-								InterfaceListItemMap["static_ip"] = StaticIPMap
-							}
-							if InterfaceListItem.StaticIpv6Address != nil {
-								StaticIpv6AddressMap := make(map[string]interface{})
-								if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
-									ClusterStaticIPMap := make(map[string]interface{})
-									if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
-									}
-									StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
-								}
-								if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
-									NodeStaticIPMap := make(map[string]interface{})
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-										NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
-									}
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-										NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
-									}
-									StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
-								}
-								InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
-							}
-							if InterfaceListItem.VLANInterface != nil {
-								VLANInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
-									VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
-									VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
-								}
-								InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
-							}
-							InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+			if !data.AWS.NotManaged.NodeList.IsNull() && !data.AWS.NotManaged.NodeList.IsUnknown() {
+				var NodeListElems []SecuremeshSiteV2AWSNotManagedNodeListModel
+				diags := data.AWS.NotManaged.NodeList.ElementsAs(ctx, &NodeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodeListElems) > 0 {
+					var NodeListList []map[string]interface{}
+					for _, NodeListItem := range NodeListElems {
+						NodeListItemMap := make(map[string]interface{})
+						if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
+							NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
 						}
-						NodeListItemMap["interface_list"] = InterfaceListList
+						if !NodeListItem.InterfaceList.IsNull() && !NodeListItem.InterfaceList.IsUnknown() {
+							var InterfaceListElems []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModel
+							diags := NodeListItem.InterfaceList.ElementsAs(ctx, &InterfaceListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceListElems) > 0 {
+								var InterfaceListList []map[string]interface{}
+								for _, InterfaceListItem := range InterfaceListElems {
+									InterfaceListItemMap := make(map[string]interface{})
+									if InterfaceListItem.BondInterface != nil {
+										BondInterfaceMap := make(map[string]interface{})
+										if InterfaceListItem.BondInterface.ActiveBackup != nil {
+											BondInterfaceMap["active_backup"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
+											var DevicesItems []string
+											diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
+											if !diags.HasError() {
+												BondInterfaceMap["devices"] = DevicesItems
+											}
+										}
+										if InterfaceListItem.BondInterface.Lacp != nil {
+											LacpMap := make(map[string]interface{})
+											if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
+												LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
+											}
+											BondInterfaceMap["lacp"] = LacpMap
+										}
+										if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
+											BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
+											BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
+											BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
+										}
+										InterfaceListItemMap["bond_interface"] = BondInterfaceMap
+									}
+									if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
+										InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
+									}
+									if InterfaceListItem.DHCPClient != nil {
+										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.EthernetInterface != nil {
+										EthernetInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
+											EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
+											EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
+										}
+										InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
+									}
+									if InterfaceListItem.Ipv6AutoConfig != nil {
+										Ipv6AutoConfigMap := make(map[string]interface{})
+										if InterfaceListItem.Ipv6AutoConfig.Host != nil {
+											Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.Ipv6AutoConfig.Router != nil {
+											RouterMap := make(map[string]interface{})
+											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
+												DNSConfigMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+													ConfiguredListMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+														var DNSListItems []string
+														diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+														if !diags.HasError() {
+															ConfiguredListMap["dns_list"] = DNSListItems
+														}
+													}
+													DNSConfigMap["configured_list"] = ConfiguredListMap
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+													LocalDNSMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+														LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+														LocalDNSMap["first_address"] = map[string]interface{}{}
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+														LocalDNSMap["last_address"] = map[string]interface{}{}
+													}
+													DNSConfigMap["local_dns"] = LocalDNSMap
+												}
+												RouterMap["dns_config"] = DNSConfigMap
+											}
+											if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+												RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+											}
+											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
+												StatefulMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+													StatefulMap["automatic_from_end"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+													StatefulMap["automatic_from_start"] = map[string]interface{}{}
+												}
+												if !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+													var DHCPNetworksElems []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													diags := InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+														var DHCPNetworksList []map[string]interface{}
+														for _, DHCPNetworksItem := range DHCPNetworksElems {
+															DHCPNetworksItemMap := make(map[string]interface{})
+															if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+																DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+															}
+															if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+																DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+															}
+															if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+																var PoolsElems []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+																resp.Diagnostics.Append(diags...)
+																if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+																	var PoolsList []map[string]interface{}
+																	for _, PoolsItem := range PoolsElems {
+																		PoolsItemMap := make(map[string]interface{})
+																		if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																			PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																		}
+																		if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																			PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																		}
+																		PoolsList = append(PoolsList, PoolsItemMap)
+																	}
+																	DHCPNetworksItemMap["pools"] = PoolsList
+																}
+															}
+															DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+														}
+														StatefulMap["dhcp_networks"] = DHCPNetworksList
+													}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+													StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+													InterfaceIPMapMap := make(map[string]interface{})
+													if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+														InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+													}
+													StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+												RouterMap["stateful"] = StatefulMap
+											}
+											Ipv6AutoConfigMap["router"] = RouterMap
+										}
+										InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+									}
+									if InterfaceListItem.Labels != nil {
+										InterfaceListItemMap["labels"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.Monitor != nil {
+										InterfaceListItemMap["monitor"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.MonitorDisabled != nil {
+										InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
+										InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
+									}
+									if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
+										InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
+									}
+									if InterfaceListItem.NetworkOption != nil {
+										NetworkOptionMap := make(map[string]interface{})
+										if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
+											NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
+											NetworkOptionMap["site_local_network"] = map[string]interface{}{}
+										}
+										InterfaceListItemMap["network_option"] = NetworkOptionMap
+									}
+									if InterfaceListItem.NoIpv4Address != nil {
+										InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.NoIpv6Address != nil {
+										InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
+										InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.StaticIP != nil {
+										StaticIPMap := make(map[string]interface{})
+										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
+											StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
+										}
+										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
+											StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
+										}
+										InterfaceListItemMap["static_ip"] = StaticIPMap
+									}
+									if InterfaceListItem.StaticIpv6Address != nil {
+										StaticIpv6AddressMap := make(map[string]interface{})
+										if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
+											ClusterStaticIPMap := make(map[string]interface{})
+											if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+												ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+											}
+											StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+										}
+										if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
+											NodeStaticIPMap := make(map[string]interface{})
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+												NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+												NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+											}
+											StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+										}
+										InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
+									}
+									if InterfaceListItem.VLANInterface != nil {
+										VLANInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
+											VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
+											VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
+										}
+										InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
+									}
+									InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+								}
+								NodeListItemMap["interface_list"] = InterfaceListList
+							}
+						}
+						if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
+							NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
+						}
+						if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
+							NodeListItemMap["type"] = NodeListItem.Type.ValueString()
+						}
+						NodeListList = append(NodeListList, NodeListItemMap)
 					}
-					if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
-						NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
-					}
-					if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
-						NodeListItemMap["type"] = NodeListItem.Type.ValueString()
-					}
-					NodeListList = append(NodeListList, NodeListItemMap)
+					NotManagedMap["node_list"] = NodeListList
 				}
-				NotManagedMap["node_list"] = NodeListList
 			}
 			AWSMap["not_managed"] = NotManagedMap
 		}
@@ -10679,247 +10699,267 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 		AzureMap := make(map[string]interface{})
 		if data.Azure.NotManaged != nil {
 			NotManagedMap := make(map[string]interface{})
-			if len(data.Azure.NotManaged.NodeList) > 0 {
-				var NodeListList []map[string]interface{}
-				for _, NodeListItem := range data.Azure.NotManaged.NodeList {
-					NodeListItemMap := make(map[string]interface{})
-					if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
-						NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
-					}
-					if len(NodeListItem.InterfaceList) > 0 {
-						var InterfaceListList []map[string]interface{}
-						for _, InterfaceListItem := range NodeListItem.InterfaceList {
-							InterfaceListItemMap := make(map[string]interface{})
-							if InterfaceListItem.BondInterface != nil {
-								BondInterfaceMap := make(map[string]interface{})
-								if InterfaceListItem.BondInterface.ActiveBackup != nil {
-									BondInterfaceMap["active_backup"] = map[string]interface{}{}
-								}
-								if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
-									var DevicesItems []string
-									diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
-									if !diags.HasError() {
-										BondInterfaceMap["devices"] = DevicesItems
-									}
-								}
-								if InterfaceListItem.BondInterface.Lacp != nil {
-									LacpMap := make(map[string]interface{})
-									if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
-										LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
-									}
-									BondInterfaceMap["lacp"] = LacpMap
-								}
-								if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
-									BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
-									BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
-									BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
-								}
-								InterfaceListItemMap["bond_interface"] = BondInterfaceMap
-							}
-							if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
-								InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
-							}
-							if InterfaceListItem.DHCPClient != nil {
-								InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.EthernetInterface != nil {
-								EthernetInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
-									EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
-									EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
-								}
-								InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
-							}
-							if InterfaceListItem.Ipv6AutoConfig != nil {
-								Ipv6AutoConfigMap := make(map[string]interface{})
-								if InterfaceListItem.Ipv6AutoConfig.Host != nil {
-									Ipv6AutoConfigMap["host"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.Ipv6AutoConfig.Router != nil {
-									RouterMap := make(map[string]interface{})
-									if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
-										DNSConfigMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-											ConfiguredListMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
-												var DNSListItems []string
-												diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
-												if !diags.HasError() {
-													ConfiguredListMap["dns_list"] = DNSListItems
-												}
-											}
-											DNSConfigMap["configured_list"] = ConfiguredListMap
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-											LocalDNSMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-												LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-												LocalDNSMap["first_address"] = map[string]interface{}{}
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-												LocalDNSMap["last_address"] = map[string]interface{}{}
-											}
-											DNSConfigMap["local_dns"] = LocalDNSMap
-										}
-										RouterMap["dns_config"] = DNSConfigMap
-									}
-									if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-										RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
-									}
-									if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
-										StatefulMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-											StatefulMap["automatic_from_end"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-											StatefulMap["automatic_from_start"] = map[string]interface{}{}
-										}
-										if len(InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
-													}
-													DHCPNetworksItemMap["pools"] = PoolsList
-												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
-											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-											InterfaceIPMapMap := make(map[string]interface{})
-											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
-											}
-											StatefulMap["interface_ip_map"] = InterfaceIPMapMap
-										}
-										RouterMap["stateful"] = StatefulMap
-									}
-									Ipv6AutoConfigMap["router"] = RouterMap
-								}
-								InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
-							}
-							if InterfaceListItem.Labels != nil {
-								InterfaceListItemMap["labels"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.Monitor != nil {
-								InterfaceListItemMap["monitor"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.MonitorDisabled != nil {
-								InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
-								InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
-							}
-							if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
-								InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
-							}
-							if InterfaceListItem.NetworkOption != nil {
-								NetworkOptionMap := make(map[string]interface{})
-								if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
-									NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
-									NetworkOptionMap["site_local_network"] = map[string]interface{}{}
-								}
-								InterfaceListItemMap["network_option"] = NetworkOptionMap
-							}
-							if InterfaceListItem.NoIpv4Address != nil {
-								InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.NoIpv6Address != nil {
-								InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
-								InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.StaticIP != nil {
-								StaticIPMap := make(map[string]interface{})
-								if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
-									StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
-								}
-								if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
-									StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
-								}
-								InterfaceListItemMap["static_ip"] = StaticIPMap
-							}
-							if InterfaceListItem.StaticIpv6Address != nil {
-								StaticIpv6AddressMap := make(map[string]interface{})
-								if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
-									ClusterStaticIPMap := make(map[string]interface{})
-									if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
-									}
-									StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
-								}
-								if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
-									NodeStaticIPMap := make(map[string]interface{})
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-										NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
-									}
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-										NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
-									}
-									StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
-								}
-								InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
-							}
-							if InterfaceListItem.VLANInterface != nil {
-								VLANInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
-									VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
-									VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
-								}
-								InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
-							}
-							InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+			if !data.Azure.NotManaged.NodeList.IsNull() && !data.Azure.NotManaged.NodeList.IsUnknown() {
+				var NodeListElems []SecuremeshSiteV2AzureNotManagedNodeListModel
+				diags := data.Azure.NotManaged.NodeList.ElementsAs(ctx, &NodeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodeListElems) > 0 {
+					var NodeListList []map[string]interface{}
+					for _, NodeListItem := range NodeListElems {
+						NodeListItemMap := make(map[string]interface{})
+						if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
+							NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
 						}
-						NodeListItemMap["interface_list"] = InterfaceListList
+						if !NodeListItem.InterfaceList.IsNull() && !NodeListItem.InterfaceList.IsUnknown() {
+							var InterfaceListElems []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModel
+							diags := NodeListItem.InterfaceList.ElementsAs(ctx, &InterfaceListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceListElems) > 0 {
+								var InterfaceListList []map[string]interface{}
+								for _, InterfaceListItem := range InterfaceListElems {
+									InterfaceListItemMap := make(map[string]interface{})
+									if InterfaceListItem.BondInterface != nil {
+										BondInterfaceMap := make(map[string]interface{})
+										if InterfaceListItem.BondInterface.ActiveBackup != nil {
+											BondInterfaceMap["active_backup"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
+											var DevicesItems []string
+											diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
+											if !diags.HasError() {
+												BondInterfaceMap["devices"] = DevicesItems
+											}
+										}
+										if InterfaceListItem.BondInterface.Lacp != nil {
+											LacpMap := make(map[string]interface{})
+											if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
+												LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
+											}
+											BondInterfaceMap["lacp"] = LacpMap
+										}
+										if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
+											BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
+											BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
+											BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
+										}
+										InterfaceListItemMap["bond_interface"] = BondInterfaceMap
+									}
+									if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
+										InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
+									}
+									if InterfaceListItem.DHCPClient != nil {
+										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.EthernetInterface != nil {
+										EthernetInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
+											EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
+											EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
+										}
+										InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
+									}
+									if InterfaceListItem.Ipv6AutoConfig != nil {
+										Ipv6AutoConfigMap := make(map[string]interface{})
+										if InterfaceListItem.Ipv6AutoConfig.Host != nil {
+											Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.Ipv6AutoConfig.Router != nil {
+											RouterMap := make(map[string]interface{})
+											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
+												DNSConfigMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+													ConfiguredListMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+														var DNSListItems []string
+														diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+														if !diags.HasError() {
+															ConfiguredListMap["dns_list"] = DNSListItems
+														}
+													}
+													DNSConfigMap["configured_list"] = ConfiguredListMap
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+													LocalDNSMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+														LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+														LocalDNSMap["first_address"] = map[string]interface{}{}
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+														LocalDNSMap["last_address"] = map[string]interface{}{}
+													}
+													DNSConfigMap["local_dns"] = LocalDNSMap
+												}
+												RouterMap["dns_config"] = DNSConfigMap
+											}
+											if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+												RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+											}
+											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
+												StatefulMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+													StatefulMap["automatic_from_end"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+													StatefulMap["automatic_from_start"] = map[string]interface{}{}
+												}
+												if !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+													var DHCPNetworksElems []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													diags := InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+														var DHCPNetworksList []map[string]interface{}
+														for _, DHCPNetworksItem := range DHCPNetworksElems {
+															DHCPNetworksItemMap := make(map[string]interface{})
+															if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+																DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+															}
+															if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+																DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+															}
+															if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+																var PoolsElems []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+																resp.Diagnostics.Append(diags...)
+																if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+																	var PoolsList []map[string]interface{}
+																	for _, PoolsItem := range PoolsElems {
+																		PoolsItemMap := make(map[string]interface{})
+																		if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																			PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																		}
+																		if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																			PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																		}
+																		PoolsList = append(PoolsList, PoolsItemMap)
+																	}
+																	DHCPNetworksItemMap["pools"] = PoolsList
+																}
+															}
+															DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+														}
+														StatefulMap["dhcp_networks"] = DHCPNetworksList
+													}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+													StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+													InterfaceIPMapMap := make(map[string]interface{})
+													if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+														InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+													}
+													StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+												RouterMap["stateful"] = StatefulMap
+											}
+											Ipv6AutoConfigMap["router"] = RouterMap
+										}
+										InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+									}
+									if InterfaceListItem.Labels != nil {
+										InterfaceListItemMap["labels"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.Monitor != nil {
+										InterfaceListItemMap["monitor"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.MonitorDisabled != nil {
+										InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
+										InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
+									}
+									if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
+										InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
+									}
+									if InterfaceListItem.NetworkOption != nil {
+										NetworkOptionMap := make(map[string]interface{})
+										if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
+											NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
+											NetworkOptionMap["site_local_network"] = map[string]interface{}{}
+										}
+										InterfaceListItemMap["network_option"] = NetworkOptionMap
+									}
+									if InterfaceListItem.NoIpv4Address != nil {
+										InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.NoIpv6Address != nil {
+										InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
+										InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.StaticIP != nil {
+										StaticIPMap := make(map[string]interface{})
+										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
+											StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
+										}
+										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
+											StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
+										}
+										InterfaceListItemMap["static_ip"] = StaticIPMap
+									}
+									if InterfaceListItem.StaticIpv6Address != nil {
+										StaticIpv6AddressMap := make(map[string]interface{})
+										if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
+											ClusterStaticIPMap := make(map[string]interface{})
+											if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+												ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+											}
+											StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+										}
+										if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
+											NodeStaticIPMap := make(map[string]interface{})
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+												NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+												NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+											}
+											StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+										}
+										InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
+									}
+									if InterfaceListItem.VLANInterface != nil {
+										VLANInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
+											VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
+											VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
+										}
+										InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
+									}
+									InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+								}
+								NodeListItemMap["interface_list"] = InterfaceListList
+							}
+						}
+						if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
+							NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
+						}
+						if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
+							NodeListItemMap["type"] = NodeListItem.Type.ValueString()
+						}
+						NodeListList = append(NodeListList, NodeListItemMap)
 					}
-					if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
-						NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
-					}
-					if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
-						NodeListItemMap["type"] = NodeListItem.Type.ValueString()
-					}
-					NodeListList = append(NodeListList, NodeListItemMap)
+					NotManagedMap["node_list"] = NodeListList
 				}
-				NotManagedMap["node_list"] = NodeListList
 			}
 			AzureMap["not_managed"] = NotManagedMap
 		}
@@ -10929,247 +10969,267 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 		BaremetalMap := make(map[string]interface{})
 		if data.Baremetal.NotManaged != nil {
 			NotManagedMap := make(map[string]interface{})
-			if len(data.Baremetal.NotManaged.NodeList) > 0 {
-				var NodeListList []map[string]interface{}
-				for _, NodeListItem := range data.Baremetal.NotManaged.NodeList {
-					NodeListItemMap := make(map[string]interface{})
-					if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
-						NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
-					}
-					if len(NodeListItem.InterfaceList) > 0 {
-						var InterfaceListList []map[string]interface{}
-						for _, InterfaceListItem := range NodeListItem.InterfaceList {
-							InterfaceListItemMap := make(map[string]interface{})
-							if InterfaceListItem.BondInterface != nil {
-								BondInterfaceMap := make(map[string]interface{})
-								if InterfaceListItem.BondInterface.ActiveBackup != nil {
-									BondInterfaceMap["active_backup"] = map[string]interface{}{}
-								}
-								if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
-									var DevicesItems []string
-									diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
-									if !diags.HasError() {
-										BondInterfaceMap["devices"] = DevicesItems
-									}
-								}
-								if InterfaceListItem.BondInterface.Lacp != nil {
-									LacpMap := make(map[string]interface{})
-									if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
-										LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
-									}
-									BondInterfaceMap["lacp"] = LacpMap
-								}
-								if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
-									BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
-									BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
-									BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
-								}
-								InterfaceListItemMap["bond_interface"] = BondInterfaceMap
-							}
-							if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
-								InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
-							}
-							if InterfaceListItem.DHCPClient != nil {
-								InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.EthernetInterface != nil {
-								EthernetInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
-									EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
-									EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
-								}
-								InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
-							}
-							if InterfaceListItem.Ipv6AutoConfig != nil {
-								Ipv6AutoConfigMap := make(map[string]interface{})
-								if InterfaceListItem.Ipv6AutoConfig.Host != nil {
-									Ipv6AutoConfigMap["host"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.Ipv6AutoConfig.Router != nil {
-									RouterMap := make(map[string]interface{})
-									if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
-										DNSConfigMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-											ConfiguredListMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
-												var DNSListItems []string
-												diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
-												if !diags.HasError() {
-													ConfiguredListMap["dns_list"] = DNSListItems
-												}
-											}
-											DNSConfigMap["configured_list"] = ConfiguredListMap
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-											LocalDNSMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-												LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-												LocalDNSMap["first_address"] = map[string]interface{}{}
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-												LocalDNSMap["last_address"] = map[string]interface{}{}
-											}
-											DNSConfigMap["local_dns"] = LocalDNSMap
-										}
-										RouterMap["dns_config"] = DNSConfigMap
-									}
-									if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-										RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
-									}
-									if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
-										StatefulMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-											StatefulMap["automatic_from_end"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-											StatefulMap["automatic_from_start"] = map[string]interface{}{}
-										}
-										if len(InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
-													}
-													DHCPNetworksItemMap["pools"] = PoolsList
-												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
-											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-											InterfaceIPMapMap := make(map[string]interface{})
-											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
-											}
-											StatefulMap["interface_ip_map"] = InterfaceIPMapMap
-										}
-										RouterMap["stateful"] = StatefulMap
-									}
-									Ipv6AutoConfigMap["router"] = RouterMap
-								}
-								InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
-							}
-							if InterfaceListItem.Labels != nil {
-								InterfaceListItemMap["labels"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.Monitor != nil {
-								InterfaceListItemMap["monitor"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.MonitorDisabled != nil {
-								InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
-								InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
-							}
-							if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
-								InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
-							}
-							if InterfaceListItem.NetworkOption != nil {
-								NetworkOptionMap := make(map[string]interface{})
-								if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
-									NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
-									NetworkOptionMap["site_local_network"] = map[string]interface{}{}
-								}
-								InterfaceListItemMap["network_option"] = NetworkOptionMap
-							}
-							if InterfaceListItem.NoIpv4Address != nil {
-								InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.NoIpv6Address != nil {
-								InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
-								InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.StaticIP != nil {
-								StaticIPMap := make(map[string]interface{})
-								if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
-									StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
-								}
-								if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
-									StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
-								}
-								InterfaceListItemMap["static_ip"] = StaticIPMap
-							}
-							if InterfaceListItem.StaticIpv6Address != nil {
-								StaticIpv6AddressMap := make(map[string]interface{})
-								if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
-									ClusterStaticIPMap := make(map[string]interface{})
-									if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
-									}
-									StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
-								}
-								if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
-									NodeStaticIPMap := make(map[string]interface{})
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-										NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
-									}
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-										NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
-									}
-									StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
-								}
-								InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
-							}
-							if InterfaceListItem.VLANInterface != nil {
-								VLANInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
-									VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
-									VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
-								}
-								InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
-							}
-							InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+			if !data.Baremetal.NotManaged.NodeList.IsNull() && !data.Baremetal.NotManaged.NodeList.IsUnknown() {
+				var NodeListElems []SecuremeshSiteV2BaremetalNotManagedNodeListModel
+				diags := data.Baremetal.NotManaged.NodeList.ElementsAs(ctx, &NodeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodeListElems) > 0 {
+					var NodeListList []map[string]interface{}
+					for _, NodeListItem := range NodeListElems {
+						NodeListItemMap := make(map[string]interface{})
+						if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
+							NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
 						}
-						NodeListItemMap["interface_list"] = InterfaceListList
+						if !NodeListItem.InterfaceList.IsNull() && !NodeListItem.InterfaceList.IsUnknown() {
+							var InterfaceListElems []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModel
+							diags := NodeListItem.InterfaceList.ElementsAs(ctx, &InterfaceListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceListElems) > 0 {
+								var InterfaceListList []map[string]interface{}
+								for _, InterfaceListItem := range InterfaceListElems {
+									InterfaceListItemMap := make(map[string]interface{})
+									if InterfaceListItem.BondInterface != nil {
+										BondInterfaceMap := make(map[string]interface{})
+										if InterfaceListItem.BondInterface.ActiveBackup != nil {
+											BondInterfaceMap["active_backup"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
+											var DevicesItems []string
+											diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
+											if !diags.HasError() {
+												BondInterfaceMap["devices"] = DevicesItems
+											}
+										}
+										if InterfaceListItem.BondInterface.Lacp != nil {
+											LacpMap := make(map[string]interface{})
+											if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
+												LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
+											}
+											BondInterfaceMap["lacp"] = LacpMap
+										}
+										if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
+											BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
+											BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
+											BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
+										}
+										InterfaceListItemMap["bond_interface"] = BondInterfaceMap
+									}
+									if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
+										InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
+									}
+									if InterfaceListItem.DHCPClient != nil {
+										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.EthernetInterface != nil {
+										EthernetInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
+											EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
+											EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
+										}
+										InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
+									}
+									if InterfaceListItem.Ipv6AutoConfig != nil {
+										Ipv6AutoConfigMap := make(map[string]interface{})
+										if InterfaceListItem.Ipv6AutoConfig.Host != nil {
+											Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.Ipv6AutoConfig.Router != nil {
+											RouterMap := make(map[string]interface{})
+											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
+												DNSConfigMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+													ConfiguredListMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+														var DNSListItems []string
+														diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+														if !diags.HasError() {
+															ConfiguredListMap["dns_list"] = DNSListItems
+														}
+													}
+													DNSConfigMap["configured_list"] = ConfiguredListMap
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+													LocalDNSMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+														LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+														LocalDNSMap["first_address"] = map[string]interface{}{}
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+														LocalDNSMap["last_address"] = map[string]interface{}{}
+													}
+													DNSConfigMap["local_dns"] = LocalDNSMap
+												}
+												RouterMap["dns_config"] = DNSConfigMap
+											}
+											if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+												RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+											}
+											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
+												StatefulMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+													StatefulMap["automatic_from_end"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+													StatefulMap["automatic_from_start"] = map[string]interface{}{}
+												}
+												if !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+													var DHCPNetworksElems []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													diags := InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+														var DHCPNetworksList []map[string]interface{}
+														for _, DHCPNetworksItem := range DHCPNetworksElems {
+															DHCPNetworksItemMap := make(map[string]interface{})
+															if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+																DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+															}
+															if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+																DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+															}
+															if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+																var PoolsElems []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+																resp.Diagnostics.Append(diags...)
+																if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+																	var PoolsList []map[string]interface{}
+																	for _, PoolsItem := range PoolsElems {
+																		PoolsItemMap := make(map[string]interface{})
+																		if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																			PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																		}
+																		if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																			PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																		}
+																		PoolsList = append(PoolsList, PoolsItemMap)
+																	}
+																	DHCPNetworksItemMap["pools"] = PoolsList
+																}
+															}
+															DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+														}
+														StatefulMap["dhcp_networks"] = DHCPNetworksList
+													}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+													StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+													InterfaceIPMapMap := make(map[string]interface{})
+													if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+														InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+													}
+													StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+												RouterMap["stateful"] = StatefulMap
+											}
+											Ipv6AutoConfigMap["router"] = RouterMap
+										}
+										InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+									}
+									if InterfaceListItem.Labels != nil {
+										InterfaceListItemMap["labels"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.Monitor != nil {
+										InterfaceListItemMap["monitor"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.MonitorDisabled != nil {
+										InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
+										InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
+									}
+									if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
+										InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
+									}
+									if InterfaceListItem.NetworkOption != nil {
+										NetworkOptionMap := make(map[string]interface{})
+										if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
+											NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
+											NetworkOptionMap["site_local_network"] = map[string]interface{}{}
+										}
+										InterfaceListItemMap["network_option"] = NetworkOptionMap
+									}
+									if InterfaceListItem.NoIpv4Address != nil {
+										InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.NoIpv6Address != nil {
+										InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
+										InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.StaticIP != nil {
+										StaticIPMap := make(map[string]interface{})
+										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
+											StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
+										}
+										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
+											StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
+										}
+										InterfaceListItemMap["static_ip"] = StaticIPMap
+									}
+									if InterfaceListItem.StaticIpv6Address != nil {
+										StaticIpv6AddressMap := make(map[string]interface{})
+										if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
+											ClusterStaticIPMap := make(map[string]interface{})
+											if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+												ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+											}
+											StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+										}
+										if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
+											NodeStaticIPMap := make(map[string]interface{})
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+												NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+												NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+											}
+											StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+										}
+										InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
+									}
+									if InterfaceListItem.VLANInterface != nil {
+										VLANInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
+											VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
+											VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
+										}
+										InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
+									}
+									InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+								}
+								NodeListItemMap["interface_list"] = InterfaceListList
+							}
+						}
+						if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
+							NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
+						}
+						if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
+							NodeListItemMap["type"] = NodeListItem.Type.ValueString()
+						}
+						NodeListList = append(NodeListList, NodeListItemMap)
 					}
-					if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
-						NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
-					}
-					if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
-						NodeListItemMap["type"] = NodeListItem.Type.ValueString()
-					}
-					NodeListList = append(NodeListList, NodeListItemMap)
+					NotManagedMap["node_list"] = NodeListList
 				}
-				NotManagedMap["node_list"] = NodeListList
 			}
 			BaremetalMap["not_managed"] = NotManagedMap
 		}
@@ -11180,25 +11240,30 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 	}
 	if data.BlockedServices != nil {
 		BlockedServicesMap := make(map[string]interface{})
-		if len(data.BlockedServices.BlockedService) > 0 {
-			var BlockedServiceList []map[string]interface{}
-			for _, BlockedServiceItem := range data.BlockedServices.BlockedService {
-				BlockedServiceItemMap := make(map[string]interface{})
-				if BlockedServiceItem.DNS != nil {
-					BlockedServiceItemMap["dns"] = map[string]interface{}{}
+		if !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
+			var BlockedServiceElems []SecuremeshSiteV2BlockedServicesBlockedServiceModel
+			diags := data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(BlockedServiceElems) > 0 {
+				var BlockedServiceList []map[string]interface{}
+				for _, BlockedServiceItem := range BlockedServiceElems {
+					BlockedServiceItemMap := make(map[string]interface{})
+					if BlockedServiceItem.DNS != nil {
+						BlockedServiceItemMap["dns"] = map[string]interface{}{}
+					}
+					if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
+						BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
+					}
+					if BlockedServiceItem.SSH != nil {
+						BlockedServiceItemMap["ssh"] = map[string]interface{}{}
+					}
+					if BlockedServiceItem.WebUserInterface != nil {
+						BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
+					}
+					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
 				}
-				if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
-					BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
-				}
-				if BlockedServiceItem.SSH != nil {
-					BlockedServiceItemMap["ssh"] = map[string]interface{}{}
-				}
-				if BlockedServiceItem.WebUserInterface != nil {
-					BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
-				}
-				BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
+				BlockedServicesMap["blocked_service"] = BlockedServiceList
 			}
-			BlockedServicesMap["blocked_service"] = BlockedServiceList
 		}
 		createReq.Spec["blocked_services"] = BlockedServicesMap
 	}
@@ -11381,247 +11446,267 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 		EquinixMap := make(map[string]interface{})
 		if data.Equinix.NotManaged != nil {
 			NotManagedMap := make(map[string]interface{})
-			if len(data.Equinix.NotManaged.NodeList) > 0 {
-				var NodeListList []map[string]interface{}
-				for _, NodeListItem := range data.Equinix.NotManaged.NodeList {
-					NodeListItemMap := make(map[string]interface{})
-					if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
-						NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
-					}
-					if len(NodeListItem.InterfaceList) > 0 {
-						var InterfaceListList []map[string]interface{}
-						for _, InterfaceListItem := range NodeListItem.InterfaceList {
-							InterfaceListItemMap := make(map[string]interface{})
-							if InterfaceListItem.BondInterface != nil {
-								BondInterfaceMap := make(map[string]interface{})
-								if InterfaceListItem.BondInterface.ActiveBackup != nil {
-									BondInterfaceMap["active_backup"] = map[string]interface{}{}
-								}
-								if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
-									var DevicesItems []string
-									diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
-									if !diags.HasError() {
-										BondInterfaceMap["devices"] = DevicesItems
-									}
-								}
-								if InterfaceListItem.BondInterface.Lacp != nil {
-									LacpMap := make(map[string]interface{})
-									if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
-										LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
-									}
-									BondInterfaceMap["lacp"] = LacpMap
-								}
-								if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
-									BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
-									BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
-									BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
-								}
-								InterfaceListItemMap["bond_interface"] = BondInterfaceMap
-							}
-							if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
-								InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
-							}
-							if InterfaceListItem.DHCPClient != nil {
-								InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.EthernetInterface != nil {
-								EthernetInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
-									EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
-									EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
-								}
-								InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
-							}
-							if InterfaceListItem.Ipv6AutoConfig != nil {
-								Ipv6AutoConfigMap := make(map[string]interface{})
-								if InterfaceListItem.Ipv6AutoConfig.Host != nil {
-									Ipv6AutoConfigMap["host"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.Ipv6AutoConfig.Router != nil {
-									RouterMap := make(map[string]interface{})
-									if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
-										DNSConfigMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-											ConfiguredListMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
-												var DNSListItems []string
-												diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
-												if !diags.HasError() {
-													ConfiguredListMap["dns_list"] = DNSListItems
-												}
-											}
-											DNSConfigMap["configured_list"] = ConfiguredListMap
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-											LocalDNSMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-												LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-												LocalDNSMap["first_address"] = map[string]interface{}{}
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-												LocalDNSMap["last_address"] = map[string]interface{}{}
-											}
-											DNSConfigMap["local_dns"] = LocalDNSMap
-										}
-										RouterMap["dns_config"] = DNSConfigMap
-									}
-									if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-										RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
-									}
-									if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
-										StatefulMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-											StatefulMap["automatic_from_end"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-											StatefulMap["automatic_from_start"] = map[string]interface{}{}
-										}
-										if len(InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
-													}
-													DHCPNetworksItemMap["pools"] = PoolsList
-												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
-											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-											InterfaceIPMapMap := make(map[string]interface{})
-											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
-											}
-											StatefulMap["interface_ip_map"] = InterfaceIPMapMap
-										}
-										RouterMap["stateful"] = StatefulMap
-									}
-									Ipv6AutoConfigMap["router"] = RouterMap
-								}
-								InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
-							}
-							if InterfaceListItem.Labels != nil {
-								InterfaceListItemMap["labels"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.Monitor != nil {
-								InterfaceListItemMap["monitor"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.MonitorDisabled != nil {
-								InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
-								InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
-							}
-							if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
-								InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
-							}
-							if InterfaceListItem.NetworkOption != nil {
-								NetworkOptionMap := make(map[string]interface{})
-								if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
-									NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
-									NetworkOptionMap["site_local_network"] = map[string]interface{}{}
-								}
-								InterfaceListItemMap["network_option"] = NetworkOptionMap
-							}
-							if InterfaceListItem.NoIpv4Address != nil {
-								InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.NoIpv6Address != nil {
-								InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
-								InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.StaticIP != nil {
-								StaticIPMap := make(map[string]interface{})
-								if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
-									StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
-								}
-								if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
-									StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
-								}
-								InterfaceListItemMap["static_ip"] = StaticIPMap
-							}
-							if InterfaceListItem.StaticIpv6Address != nil {
-								StaticIpv6AddressMap := make(map[string]interface{})
-								if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
-									ClusterStaticIPMap := make(map[string]interface{})
-									if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
-									}
-									StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
-								}
-								if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
-									NodeStaticIPMap := make(map[string]interface{})
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-										NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
-									}
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-										NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
-									}
-									StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
-								}
-								InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
-							}
-							if InterfaceListItem.VLANInterface != nil {
-								VLANInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
-									VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
-									VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
-								}
-								InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
-							}
-							InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+			if !data.Equinix.NotManaged.NodeList.IsNull() && !data.Equinix.NotManaged.NodeList.IsUnknown() {
+				var NodeListElems []SecuremeshSiteV2EquinixNotManagedNodeListModel
+				diags := data.Equinix.NotManaged.NodeList.ElementsAs(ctx, &NodeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodeListElems) > 0 {
+					var NodeListList []map[string]interface{}
+					for _, NodeListItem := range NodeListElems {
+						NodeListItemMap := make(map[string]interface{})
+						if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
+							NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
 						}
-						NodeListItemMap["interface_list"] = InterfaceListList
+						if !NodeListItem.InterfaceList.IsNull() && !NodeListItem.InterfaceList.IsUnknown() {
+							var InterfaceListElems []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModel
+							diags := NodeListItem.InterfaceList.ElementsAs(ctx, &InterfaceListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceListElems) > 0 {
+								var InterfaceListList []map[string]interface{}
+								for _, InterfaceListItem := range InterfaceListElems {
+									InterfaceListItemMap := make(map[string]interface{})
+									if InterfaceListItem.BondInterface != nil {
+										BondInterfaceMap := make(map[string]interface{})
+										if InterfaceListItem.BondInterface.ActiveBackup != nil {
+											BondInterfaceMap["active_backup"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
+											var DevicesItems []string
+											diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
+											if !diags.HasError() {
+												BondInterfaceMap["devices"] = DevicesItems
+											}
+										}
+										if InterfaceListItem.BondInterface.Lacp != nil {
+											LacpMap := make(map[string]interface{})
+											if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
+												LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
+											}
+											BondInterfaceMap["lacp"] = LacpMap
+										}
+										if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
+											BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
+											BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
+											BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
+										}
+										InterfaceListItemMap["bond_interface"] = BondInterfaceMap
+									}
+									if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
+										InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
+									}
+									if InterfaceListItem.DHCPClient != nil {
+										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.EthernetInterface != nil {
+										EthernetInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
+											EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
+											EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
+										}
+										InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
+									}
+									if InterfaceListItem.Ipv6AutoConfig != nil {
+										Ipv6AutoConfigMap := make(map[string]interface{})
+										if InterfaceListItem.Ipv6AutoConfig.Host != nil {
+											Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.Ipv6AutoConfig.Router != nil {
+											RouterMap := make(map[string]interface{})
+											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
+												DNSConfigMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+													ConfiguredListMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+														var DNSListItems []string
+														diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+														if !diags.HasError() {
+															ConfiguredListMap["dns_list"] = DNSListItems
+														}
+													}
+													DNSConfigMap["configured_list"] = ConfiguredListMap
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+													LocalDNSMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+														LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+														LocalDNSMap["first_address"] = map[string]interface{}{}
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+														LocalDNSMap["last_address"] = map[string]interface{}{}
+													}
+													DNSConfigMap["local_dns"] = LocalDNSMap
+												}
+												RouterMap["dns_config"] = DNSConfigMap
+											}
+											if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+												RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+											}
+											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
+												StatefulMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+													StatefulMap["automatic_from_end"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+													StatefulMap["automatic_from_start"] = map[string]interface{}{}
+												}
+												if !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+													var DHCPNetworksElems []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													diags := InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+														var DHCPNetworksList []map[string]interface{}
+														for _, DHCPNetworksItem := range DHCPNetworksElems {
+															DHCPNetworksItemMap := make(map[string]interface{})
+															if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+																DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+															}
+															if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+																DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+															}
+															if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+																var PoolsElems []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+																resp.Diagnostics.Append(diags...)
+																if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+																	var PoolsList []map[string]interface{}
+																	for _, PoolsItem := range PoolsElems {
+																		PoolsItemMap := make(map[string]interface{})
+																		if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																			PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																		}
+																		if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																			PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																		}
+																		PoolsList = append(PoolsList, PoolsItemMap)
+																	}
+																	DHCPNetworksItemMap["pools"] = PoolsList
+																}
+															}
+															DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+														}
+														StatefulMap["dhcp_networks"] = DHCPNetworksList
+													}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+													StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+													InterfaceIPMapMap := make(map[string]interface{})
+													if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+														InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+													}
+													StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+												RouterMap["stateful"] = StatefulMap
+											}
+											Ipv6AutoConfigMap["router"] = RouterMap
+										}
+										InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+									}
+									if InterfaceListItem.Labels != nil {
+										InterfaceListItemMap["labels"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.Monitor != nil {
+										InterfaceListItemMap["monitor"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.MonitorDisabled != nil {
+										InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
+										InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
+									}
+									if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
+										InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
+									}
+									if InterfaceListItem.NetworkOption != nil {
+										NetworkOptionMap := make(map[string]interface{})
+										if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
+											NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
+											NetworkOptionMap["site_local_network"] = map[string]interface{}{}
+										}
+										InterfaceListItemMap["network_option"] = NetworkOptionMap
+									}
+									if InterfaceListItem.NoIpv4Address != nil {
+										InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.NoIpv6Address != nil {
+										InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
+										InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.StaticIP != nil {
+										StaticIPMap := make(map[string]interface{})
+										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
+											StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
+										}
+										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
+											StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
+										}
+										InterfaceListItemMap["static_ip"] = StaticIPMap
+									}
+									if InterfaceListItem.StaticIpv6Address != nil {
+										StaticIpv6AddressMap := make(map[string]interface{})
+										if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
+											ClusterStaticIPMap := make(map[string]interface{})
+											if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+												ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+											}
+											StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+										}
+										if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
+											NodeStaticIPMap := make(map[string]interface{})
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+												NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+												NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+											}
+											StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+										}
+										InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
+									}
+									if InterfaceListItem.VLANInterface != nil {
+										VLANInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
+											VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
+											VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
+										}
+										InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
+									}
+									InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+								}
+								NodeListItemMap["interface_list"] = InterfaceListList
+							}
+						}
+						if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
+							NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
+						}
+						if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
+							NodeListItemMap["type"] = NodeListItem.Type.ValueString()
+						}
+						NodeListList = append(NodeListList, NodeListItemMap)
 					}
-					if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
-						NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
-					}
-					if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
-						NodeListItemMap["type"] = NodeListItem.Type.ValueString()
-					}
-					NodeListList = append(NodeListList, NodeListItemMap)
+					NotManagedMap["node_list"] = NodeListList
 				}
-				NotManagedMap["node_list"] = NodeListList
 			}
 			EquinixMap["not_managed"] = NotManagedMap
 		}
@@ -11634,247 +11719,267 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 		GCPMap := make(map[string]interface{})
 		if data.GCP.NotManaged != nil {
 			NotManagedMap := make(map[string]interface{})
-			if len(data.GCP.NotManaged.NodeList) > 0 {
-				var NodeListList []map[string]interface{}
-				for _, NodeListItem := range data.GCP.NotManaged.NodeList {
-					NodeListItemMap := make(map[string]interface{})
-					if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
-						NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
-					}
-					if len(NodeListItem.InterfaceList) > 0 {
-						var InterfaceListList []map[string]interface{}
-						for _, InterfaceListItem := range NodeListItem.InterfaceList {
-							InterfaceListItemMap := make(map[string]interface{})
-							if InterfaceListItem.BondInterface != nil {
-								BondInterfaceMap := make(map[string]interface{})
-								if InterfaceListItem.BondInterface.ActiveBackup != nil {
-									BondInterfaceMap["active_backup"] = map[string]interface{}{}
-								}
-								if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
-									var DevicesItems []string
-									diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
-									if !diags.HasError() {
-										BondInterfaceMap["devices"] = DevicesItems
-									}
-								}
-								if InterfaceListItem.BondInterface.Lacp != nil {
-									LacpMap := make(map[string]interface{})
-									if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
-										LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
-									}
-									BondInterfaceMap["lacp"] = LacpMap
-								}
-								if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
-									BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
-									BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
-									BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
-								}
-								InterfaceListItemMap["bond_interface"] = BondInterfaceMap
-							}
-							if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
-								InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
-							}
-							if InterfaceListItem.DHCPClient != nil {
-								InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.EthernetInterface != nil {
-								EthernetInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
-									EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
-									EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
-								}
-								InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
-							}
-							if InterfaceListItem.Ipv6AutoConfig != nil {
-								Ipv6AutoConfigMap := make(map[string]interface{})
-								if InterfaceListItem.Ipv6AutoConfig.Host != nil {
-									Ipv6AutoConfigMap["host"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.Ipv6AutoConfig.Router != nil {
-									RouterMap := make(map[string]interface{})
-									if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
-										DNSConfigMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-											ConfiguredListMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
-												var DNSListItems []string
-												diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
-												if !diags.HasError() {
-													ConfiguredListMap["dns_list"] = DNSListItems
-												}
-											}
-											DNSConfigMap["configured_list"] = ConfiguredListMap
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-											LocalDNSMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-												LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-												LocalDNSMap["first_address"] = map[string]interface{}{}
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-												LocalDNSMap["last_address"] = map[string]interface{}{}
-											}
-											DNSConfigMap["local_dns"] = LocalDNSMap
-										}
-										RouterMap["dns_config"] = DNSConfigMap
-									}
-									if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-										RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
-									}
-									if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
-										StatefulMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-											StatefulMap["automatic_from_end"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-											StatefulMap["automatic_from_start"] = map[string]interface{}{}
-										}
-										if len(InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
-													}
-													DHCPNetworksItemMap["pools"] = PoolsList
-												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
-											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-											InterfaceIPMapMap := make(map[string]interface{})
-											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
-											}
-											StatefulMap["interface_ip_map"] = InterfaceIPMapMap
-										}
-										RouterMap["stateful"] = StatefulMap
-									}
-									Ipv6AutoConfigMap["router"] = RouterMap
-								}
-								InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
-							}
-							if InterfaceListItem.Labels != nil {
-								InterfaceListItemMap["labels"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.Monitor != nil {
-								InterfaceListItemMap["monitor"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.MonitorDisabled != nil {
-								InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
-								InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
-							}
-							if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
-								InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
-							}
-							if InterfaceListItem.NetworkOption != nil {
-								NetworkOptionMap := make(map[string]interface{})
-								if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
-									NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
-									NetworkOptionMap["site_local_network"] = map[string]interface{}{}
-								}
-								InterfaceListItemMap["network_option"] = NetworkOptionMap
-							}
-							if InterfaceListItem.NoIpv4Address != nil {
-								InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.NoIpv6Address != nil {
-								InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
-								InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.StaticIP != nil {
-								StaticIPMap := make(map[string]interface{})
-								if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
-									StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
-								}
-								if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
-									StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
-								}
-								InterfaceListItemMap["static_ip"] = StaticIPMap
-							}
-							if InterfaceListItem.StaticIpv6Address != nil {
-								StaticIpv6AddressMap := make(map[string]interface{})
-								if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
-									ClusterStaticIPMap := make(map[string]interface{})
-									if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
-									}
-									StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
-								}
-								if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
-									NodeStaticIPMap := make(map[string]interface{})
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-										NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
-									}
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-										NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
-									}
-									StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
-								}
-								InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
-							}
-							if InterfaceListItem.VLANInterface != nil {
-								VLANInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
-									VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
-									VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
-								}
-								InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
-							}
-							InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+			if !data.GCP.NotManaged.NodeList.IsNull() && !data.GCP.NotManaged.NodeList.IsUnknown() {
+				var NodeListElems []SecuremeshSiteV2GCPNotManagedNodeListModel
+				diags := data.GCP.NotManaged.NodeList.ElementsAs(ctx, &NodeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodeListElems) > 0 {
+					var NodeListList []map[string]interface{}
+					for _, NodeListItem := range NodeListElems {
+						NodeListItemMap := make(map[string]interface{})
+						if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
+							NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
 						}
-						NodeListItemMap["interface_list"] = InterfaceListList
+						if !NodeListItem.InterfaceList.IsNull() && !NodeListItem.InterfaceList.IsUnknown() {
+							var InterfaceListElems []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModel
+							diags := NodeListItem.InterfaceList.ElementsAs(ctx, &InterfaceListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceListElems) > 0 {
+								var InterfaceListList []map[string]interface{}
+								for _, InterfaceListItem := range InterfaceListElems {
+									InterfaceListItemMap := make(map[string]interface{})
+									if InterfaceListItem.BondInterface != nil {
+										BondInterfaceMap := make(map[string]interface{})
+										if InterfaceListItem.BondInterface.ActiveBackup != nil {
+											BondInterfaceMap["active_backup"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
+											var DevicesItems []string
+											diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
+											if !diags.HasError() {
+												BondInterfaceMap["devices"] = DevicesItems
+											}
+										}
+										if InterfaceListItem.BondInterface.Lacp != nil {
+											LacpMap := make(map[string]interface{})
+											if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
+												LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
+											}
+											BondInterfaceMap["lacp"] = LacpMap
+										}
+										if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
+											BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
+											BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
+											BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
+										}
+										InterfaceListItemMap["bond_interface"] = BondInterfaceMap
+									}
+									if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
+										InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
+									}
+									if InterfaceListItem.DHCPClient != nil {
+										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.EthernetInterface != nil {
+										EthernetInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
+											EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
+											EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
+										}
+										InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
+									}
+									if InterfaceListItem.Ipv6AutoConfig != nil {
+										Ipv6AutoConfigMap := make(map[string]interface{})
+										if InterfaceListItem.Ipv6AutoConfig.Host != nil {
+											Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.Ipv6AutoConfig.Router != nil {
+											RouterMap := make(map[string]interface{})
+											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
+												DNSConfigMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+													ConfiguredListMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+														var DNSListItems []string
+														diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+														if !diags.HasError() {
+															ConfiguredListMap["dns_list"] = DNSListItems
+														}
+													}
+													DNSConfigMap["configured_list"] = ConfiguredListMap
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+													LocalDNSMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+														LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+														LocalDNSMap["first_address"] = map[string]interface{}{}
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+														LocalDNSMap["last_address"] = map[string]interface{}{}
+													}
+													DNSConfigMap["local_dns"] = LocalDNSMap
+												}
+												RouterMap["dns_config"] = DNSConfigMap
+											}
+											if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+												RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+											}
+											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
+												StatefulMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+													StatefulMap["automatic_from_end"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+													StatefulMap["automatic_from_start"] = map[string]interface{}{}
+												}
+												if !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+													var DHCPNetworksElems []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													diags := InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+														var DHCPNetworksList []map[string]interface{}
+														for _, DHCPNetworksItem := range DHCPNetworksElems {
+															DHCPNetworksItemMap := make(map[string]interface{})
+															if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+																DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+															}
+															if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+																DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+															}
+															if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+																var PoolsElems []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+																resp.Diagnostics.Append(diags...)
+																if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+																	var PoolsList []map[string]interface{}
+																	for _, PoolsItem := range PoolsElems {
+																		PoolsItemMap := make(map[string]interface{})
+																		if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																			PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																		}
+																		if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																			PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																		}
+																		PoolsList = append(PoolsList, PoolsItemMap)
+																	}
+																	DHCPNetworksItemMap["pools"] = PoolsList
+																}
+															}
+															DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+														}
+														StatefulMap["dhcp_networks"] = DHCPNetworksList
+													}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+													StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+													InterfaceIPMapMap := make(map[string]interface{})
+													if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+														InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+													}
+													StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+												RouterMap["stateful"] = StatefulMap
+											}
+											Ipv6AutoConfigMap["router"] = RouterMap
+										}
+										InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+									}
+									if InterfaceListItem.Labels != nil {
+										InterfaceListItemMap["labels"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.Monitor != nil {
+										InterfaceListItemMap["monitor"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.MonitorDisabled != nil {
+										InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
+										InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
+									}
+									if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
+										InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
+									}
+									if InterfaceListItem.NetworkOption != nil {
+										NetworkOptionMap := make(map[string]interface{})
+										if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
+											NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
+											NetworkOptionMap["site_local_network"] = map[string]interface{}{}
+										}
+										InterfaceListItemMap["network_option"] = NetworkOptionMap
+									}
+									if InterfaceListItem.NoIpv4Address != nil {
+										InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.NoIpv6Address != nil {
+										InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
+										InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.StaticIP != nil {
+										StaticIPMap := make(map[string]interface{})
+										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
+											StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
+										}
+										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
+											StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
+										}
+										InterfaceListItemMap["static_ip"] = StaticIPMap
+									}
+									if InterfaceListItem.StaticIpv6Address != nil {
+										StaticIpv6AddressMap := make(map[string]interface{})
+										if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
+											ClusterStaticIPMap := make(map[string]interface{})
+											if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+												ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+											}
+											StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+										}
+										if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
+											NodeStaticIPMap := make(map[string]interface{})
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+												NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+												NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+											}
+											StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+										}
+										InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
+									}
+									if InterfaceListItem.VLANInterface != nil {
+										VLANInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
+											VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
+											VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
+										}
+										InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
+									}
+									InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+								}
+								NodeListItemMap["interface_list"] = InterfaceListList
+							}
+						}
+						if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
+							NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
+						}
+						if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
+							NodeListItemMap["type"] = NodeListItem.Type.ValueString()
+						}
+						NodeListList = append(NodeListList, NodeListItemMap)
 					}
-					if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
-						NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
-					}
-					if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
-						NodeListItemMap["type"] = NodeListItem.Type.ValueString()
-					}
-					NodeListList = append(NodeListList, NodeListItemMap)
+					NotManagedMap["node_list"] = NodeListList
 				}
-				NotManagedMap["node_list"] = NodeListList
 			}
 			GCPMap["not_managed"] = NotManagedMap
 		}
@@ -11884,247 +11989,267 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 		KvmMap := make(map[string]interface{})
 		if data.Kvm.NotManaged != nil {
 			NotManagedMap := make(map[string]interface{})
-			if len(data.Kvm.NotManaged.NodeList) > 0 {
-				var NodeListList []map[string]interface{}
-				for _, NodeListItem := range data.Kvm.NotManaged.NodeList {
-					NodeListItemMap := make(map[string]interface{})
-					if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
-						NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
-					}
-					if len(NodeListItem.InterfaceList) > 0 {
-						var InterfaceListList []map[string]interface{}
-						for _, InterfaceListItem := range NodeListItem.InterfaceList {
-							InterfaceListItemMap := make(map[string]interface{})
-							if InterfaceListItem.BondInterface != nil {
-								BondInterfaceMap := make(map[string]interface{})
-								if InterfaceListItem.BondInterface.ActiveBackup != nil {
-									BondInterfaceMap["active_backup"] = map[string]interface{}{}
-								}
-								if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
-									var DevicesItems []string
-									diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
-									if !diags.HasError() {
-										BondInterfaceMap["devices"] = DevicesItems
-									}
-								}
-								if InterfaceListItem.BondInterface.Lacp != nil {
-									LacpMap := make(map[string]interface{})
-									if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
-										LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
-									}
-									BondInterfaceMap["lacp"] = LacpMap
-								}
-								if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
-									BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
-									BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
-									BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
-								}
-								InterfaceListItemMap["bond_interface"] = BondInterfaceMap
-							}
-							if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
-								InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
-							}
-							if InterfaceListItem.DHCPClient != nil {
-								InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.EthernetInterface != nil {
-								EthernetInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
-									EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
-									EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
-								}
-								InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
-							}
-							if InterfaceListItem.Ipv6AutoConfig != nil {
-								Ipv6AutoConfigMap := make(map[string]interface{})
-								if InterfaceListItem.Ipv6AutoConfig.Host != nil {
-									Ipv6AutoConfigMap["host"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.Ipv6AutoConfig.Router != nil {
-									RouterMap := make(map[string]interface{})
-									if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
-										DNSConfigMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-											ConfiguredListMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
-												var DNSListItems []string
-												diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
-												if !diags.HasError() {
-													ConfiguredListMap["dns_list"] = DNSListItems
-												}
-											}
-											DNSConfigMap["configured_list"] = ConfiguredListMap
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-											LocalDNSMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-												LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-												LocalDNSMap["first_address"] = map[string]interface{}{}
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-												LocalDNSMap["last_address"] = map[string]interface{}{}
-											}
-											DNSConfigMap["local_dns"] = LocalDNSMap
-										}
-										RouterMap["dns_config"] = DNSConfigMap
-									}
-									if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-										RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
-									}
-									if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
-										StatefulMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-											StatefulMap["automatic_from_end"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-											StatefulMap["automatic_from_start"] = map[string]interface{}{}
-										}
-										if len(InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
-													}
-													DHCPNetworksItemMap["pools"] = PoolsList
-												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
-											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-											InterfaceIPMapMap := make(map[string]interface{})
-											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
-											}
-											StatefulMap["interface_ip_map"] = InterfaceIPMapMap
-										}
-										RouterMap["stateful"] = StatefulMap
-									}
-									Ipv6AutoConfigMap["router"] = RouterMap
-								}
-								InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
-							}
-							if InterfaceListItem.Labels != nil {
-								InterfaceListItemMap["labels"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.Monitor != nil {
-								InterfaceListItemMap["monitor"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.MonitorDisabled != nil {
-								InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
-								InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
-							}
-							if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
-								InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
-							}
-							if InterfaceListItem.NetworkOption != nil {
-								NetworkOptionMap := make(map[string]interface{})
-								if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
-									NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
-									NetworkOptionMap["site_local_network"] = map[string]interface{}{}
-								}
-								InterfaceListItemMap["network_option"] = NetworkOptionMap
-							}
-							if InterfaceListItem.NoIpv4Address != nil {
-								InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.NoIpv6Address != nil {
-								InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
-								InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.StaticIP != nil {
-								StaticIPMap := make(map[string]interface{})
-								if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
-									StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
-								}
-								if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
-									StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
-								}
-								InterfaceListItemMap["static_ip"] = StaticIPMap
-							}
-							if InterfaceListItem.StaticIpv6Address != nil {
-								StaticIpv6AddressMap := make(map[string]interface{})
-								if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
-									ClusterStaticIPMap := make(map[string]interface{})
-									if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
-									}
-									StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
-								}
-								if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
-									NodeStaticIPMap := make(map[string]interface{})
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-										NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
-									}
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-										NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
-									}
-									StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
-								}
-								InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
-							}
-							if InterfaceListItem.VLANInterface != nil {
-								VLANInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
-									VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
-									VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
-								}
-								InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
-							}
-							InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+			if !data.Kvm.NotManaged.NodeList.IsNull() && !data.Kvm.NotManaged.NodeList.IsUnknown() {
+				var NodeListElems []SecuremeshSiteV2KvmNotManagedNodeListModel
+				diags := data.Kvm.NotManaged.NodeList.ElementsAs(ctx, &NodeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodeListElems) > 0 {
+					var NodeListList []map[string]interface{}
+					for _, NodeListItem := range NodeListElems {
+						NodeListItemMap := make(map[string]interface{})
+						if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
+							NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
 						}
-						NodeListItemMap["interface_list"] = InterfaceListList
+						if !NodeListItem.InterfaceList.IsNull() && !NodeListItem.InterfaceList.IsUnknown() {
+							var InterfaceListElems []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModel
+							diags := NodeListItem.InterfaceList.ElementsAs(ctx, &InterfaceListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceListElems) > 0 {
+								var InterfaceListList []map[string]interface{}
+								for _, InterfaceListItem := range InterfaceListElems {
+									InterfaceListItemMap := make(map[string]interface{})
+									if InterfaceListItem.BondInterface != nil {
+										BondInterfaceMap := make(map[string]interface{})
+										if InterfaceListItem.BondInterface.ActiveBackup != nil {
+											BondInterfaceMap["active_backup"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
+											var DevicesItems []string
+											diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
+											if !diags.HasError() {
+												BondInterfaceMap["devices"] = DevicesItems
+											}
+										}
+										if InterfaceListItem.BondInterface.Lacp != nil {
+											LacpMap := make(map[string]interface{})
+											if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
+												LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
+											}
+											BondInterfaceMap["lacp"] = LacpMap
+										}
+										if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
+											BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
+											BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
+											BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
+										}
+										InterfaceListItemMap["bond_interface"] = BondInterfaceMap
+									}
+									if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
+										InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
+									}
+									if InterfaceListItem.DHCPClient != nil {
+										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.EthernetInterface != nil {
+										EthernetInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
+											EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
+											EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
+										}
+										InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
+									}
+									if InterfaceListItem.Ipv6AutoConfig != nil {
+										Ipv6AutoConfigMap := make(map[string]interface{})
+										if InterfaceListItem.Ipv6AutoConfig.Host != nil {
+											Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.Ipv6AutoConfig.Router != nil {
+											RouterMap := make(map[string]interface{})
+											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
+												DNSConfigMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+													ConfiguredListMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+														var DNSListItems []string
+														diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+														if !diags.HasError() {
+															ConfiguredListMap["dns_list"] = DNSListItems
+														}
+													}
+													DNSConfigMap["configured_list"] = ConfiguredListMap
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+													LocalDNSMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+														LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+														LocalDNSMap["first_address"] = map[string]interface{}{}
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+														LocalDNSMap["last_address"] = map[string]interface{}{}
+													}
+													DNSConfigMap["local_dns"] = LocalDNSMap
+												}
+												RouterMap["dns_config"] = DNSConfigMap
+											}
+											if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+												RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+											}
+											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
+												StatefulMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+													StatefulMap["automatic_from_end"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+													StatefulMap["automatic_from_start"] = map[string]interface{}{}
+												}
+												if !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+													var DHCPNetworksElems []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													diags := InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+														var DHCPNetworksList []map[string]interface{}
+														for _, DHCPNetworksItem := range DHCPNetworksElems {
+															DHCPNetworksItemMap := make(map[string]interface{})
+															if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+																DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+															}
+															if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+																DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+															}
+															if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+																var PoolsElems []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+																resp.Diagnostics.Append(diags...)
+																if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+																	var PoolsList []map[string]interface{}
+																	for _, PoolsItem := range PoolsElems {
+																		PoolsItemMap := make(map[string]interface{})
+																		if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																			PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																		}
+																		if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																			PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																		}
+																		PoolsList = append(PoolsList, PoolsItemMap)
+																	}
+																	DHCPNetworksItemMap["pools"] = PoolsList
+																}
+															}
+															DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+														}
+														StatefulMap["dhcp_networks"] = DHCPNetworksList
+													}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+													StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+													InterfaceIPMapMap := make(map[string]interface{})
+													if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+														InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+													}
+													StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+												RouterMap["stateful"] = StatefulMap
+											}
+											Ipv6AutoConfigMap["router"] = RouterMap
+										}
+										InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+									}
+									if InterfaceListItem.Labels != nil {
+										InterfaceListItemMap["labels"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.Monitor != nil {
+										InterfaceListItemMap["monitor"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.MonitorDisabled != nil {
+										InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
+										InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
+									}
+									if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
+										InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
+									}
+									if InterfaceListItem.NetworkOption != nil {
+										NetworkOptionMap := make(map[string]interface{})
+										if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
+											NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
+											NetworkOptionMap["site_local_network"] = map[string]interface{}{}
+										}
+										InterfaceListItemMap["network_option"] = NetworkOptionMap
+									}
+									if InterfaceListItem.NoIpv4Address != nil {
+										InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.NoIpv6Address != nil {
+										InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
+										InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.StaticIP != nil {
+										StaticIPMap := make(map[string]interface{})
+										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
+											StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
+										}
+										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
+											StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
+										}
+										InterfaceListItemMap["static_ip"] = StaticIPMap
+									}
+									if InterfaceListItem.StaticIpv6Address != nil {
+										StaticIpv6AddressMap := make(map[string]interface{})
+										if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
+											ClusterStaticIPMap := make(map[string]interface{})
+											if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+												ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+											}
+											StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+										}
+										if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
+											NodeStaticIPMap := make(map[string]interface{})
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+												NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+												NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+											}
+											StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+										}
+										InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
+									}
+									if InterfaceListItem.VLANInterface != nil {
+										VLANInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
+											VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
+											VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
+										}
+										InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
+									}
+									InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+								}
+								NodeListItemMap["interface_list"] = InterfaceListList
+							}
+						}
+						if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
+							NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
+						}
+						if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
+							NodeListItemMap["type"] = NodeListItem.Type.ValueString()
+						}
+						NodeListList = append(NodeListList, NodeListItemMap)
 					}
-					if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
-						NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
-					}
-					if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
-						NodeListItemMap["type"] = NodeListItem.Type.ValueString()
-					}
-					NodeListList = append(NodeListList, NodeListItemMap)
+					NotManagedMap["node_list"] = NodeListList
 				}
-				NotManagedMap["node_list"] = NodeListList
 			}
 			KvmMap["not_managed"] = NotManagedMap
 		}
@@ -12589,247 +12714,267 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 		NutanixMap := make(map[string]interface{})
 		if data.Nutanix.NotManaged != nil {
 			NotManagedMap := make(map[string]interface{})
-			if len(data.Nutanix.NotManaged.NodeList) > 0 {
-				var NodeListList []map[string]interface{}
-				for _, NodeListItem := range data.Nutanix.NotManaged.NodeList {
-					NodeListItemMap := make(map[string]interface{})
-					if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
-						NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
-					}
-					if len(NodeListItem.InterfaceList) > 0 {
-						var InterfaceListList []map[string]interface{}
-						for _, InterfaceListItem := range NodeListItem.InterfaceList {
-							InterfaceListItemMap := make(map[string]interface{})
-							if InterfaceListItem.BondInterface != nil {
-								BondInterfaceMap := make(map[string]interface{})
-								if InterfaceListItem.BondInterface.ActiveBackup != nil {
-									BondInterfaceMap["active_backup"] = map[string]interface{}{}
-								}
-								if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
-									var DevicesItems []string
-									diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
-									if !diags.HasError() {
-										BondInterfaceMap["devices"] = DevicesItems
-									}
-								}
-								if InterfaceListItem.BondInterface.Lacp != nil {
-									LacpMap := make(map[string]interface{})
-									if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
-										LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
-									}
-									BondInterfaceMap["lacp"] = LacpMap
-								}
-								if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
-									BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
-									BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
-									BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
-								}
-								InterfaceListItemMap["bond_interface"] = BondInterfaceMap
-							}
-							if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
-								InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
-							}
-							if InterfaceListItem.DHCPClient != nil {
-								InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.EthernetInterface != nil {
-								EthernetInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
-									EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
-									EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
-								}
-								InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
-							}
-							if InterfaceListItem.Ipv6AutoConfig != nil {
-								Ipv6AutoConfigMap := make(map[string]interface{})
-								if InterfaceListItem.Ipv6AutoConfig.Host != nil {
-									Ipv6AutoConfigMap["host"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.Ipv6AutoConfig.Router != nil {
-									RouterMap := make(map[string]interface{})
-									if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
-										DNSConfigMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-											ConfiguredListMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
-												var DNSListItems []string
-												diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
-												if !diags.HasError() {
-													ConfiguredListMap["dns_list"] = DNSListItems
-												}
-											}
-											DNSConfigMap["configured_list"] = ConfiguredListMap
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-											LocalDNSMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-												LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-												LocalDNSMap["first_address"] = map[string]interface{}{}
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-												LocalDNSMap["last_address"] = map[string]interface{}{}
-											}
-											DNSConfigMap["local_dns"] = LocalDNSMap
-										}
-										RouterMap["dns_config"] = DNSConfigMap
-									}
-									if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-										RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
-									}
-									if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
-										StatefulMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-											StatefulMap["automatic_from_end"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-											StatefulMap["automatic_from_start"] = map[string]interface{}{}
-										}
-										if len(InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
-													}
-													DHCPNetworksItemMap["pools"] = PoolsList
-												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
-											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-											InterfaceIPMapMap := make(map[string]interface{})
-											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
-											}
-											StatefulMap["interface_ip_map"] = InterfaceIPMapMap
-										}
-										RouterMap["stateful"] = StatefulMap
-									}
-									Ipv6AutoConfigMap["router"] = RouterMap
-								}
-								InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
-							}
-							if InterfaceListItem.Labels != nil {
-								InterfaceListItemMap["labels"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.Monitor != nil {
-								InterfaceListItemMap["monitor"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.MonitorDisabled != nil {
-								InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
-								InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
-							}
-							if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
-								InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
-							}
-							if InterfaceListItem.NetworkOption != nil {
-								NetworkOptionMap := make(map[string]interface{})
-								if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
-									NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
-									NetworkOptionMap["site_local_network"] = map[string]interface{}{}
-								}
-								InterfaceListItemMap["network_option"] = NetworkOptionMap
-							}
-							if InterfaceListItem.NoIpv4Address != nil {
-								InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.NoIpv6Address != nil {
-								InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
-								InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.StaticIP != nil {
-								StaticIPMap := make(map[string]interface{})
-								if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
-									StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
-								}
-								if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
-									StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
-								}
-								InterfaceListItemMap["static_ip"] = StaticIPMap
-							}
-							if InterfaceListItem.StaticIpv6Address != nil {
-								StaticIpv6AddressMap := make(map[string]interface{})
-								if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
-									ClusterStaticIPMap := make(map[string]interface{})
-									if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
-									}
-									StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
-								}
-								if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
-									NodeStaticIPMap := make(map[string]interface{})
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-										NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
-									}
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-										NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
-									}
-									StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
-								}
-								InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
-							}
-							if InterfaceListItem.VLANInterface != nil {
-								VLANInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
-									VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
-									VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
-								}
-								InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
-							}
-							InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+			if !data.Nutanix.NotManaged.NodeList.IsNull() && !data.Nutanix.NotManaged.NodeList.IsUnknown() {
+				var NodeListElems []SecuremeshSiteV2NutanixNotManagedNodeListModel
+				diags := data.Nutanix.NotManaged.NodeList.ElementsAs(ctx, &NodeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodeListElems) > 0 {
+					var NodeListList []map[string]interface{}
+					for _, NodeListItem := range NodeListElems {
+						NodeListItemMap := make(map[string]interface{})
+						if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
+							NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
 						}
-						NodeListItemMap["interface_list"] = InterfaceListList
+						if !NodeListItem.InterfaceList.IsNull() && !NodeListItem.InterfaceList.IsUnknown() {
+							var InterfaceListElems []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModel
+							diags := NodeListItem.InterfaceList.ElementsAs(ctx, &InterfaceListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceListElems) > 0 {
+								var InterfaceListList []map[string]interface{}
+								for _, InterfaceListItem := range InterfaceListElems {
+									InterfaceListItemMap := make(map[string]interface{})
+									if InterfaceListItem.BondInterface != nil {
+										BondInterfaceMap := make(map[string]interface{})
+										if InterfaceListItem.BondInterface.ActiveBackup != nil {
+											BondInterfaceMap["active_backup"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
+											var DevicesItems []string
+											diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
+											if !diags.HasError() {
+												BondInterfaceMap["devices"] = DevicesItems
+											}
+										}
+										if InterfaceListItem.BondInterface.Lacp != nil {
+											LacpMap := make(map[string]interface{})
+											if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
+												LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
+											}
+											BondInterfaceMap["lacp"] = LacpMap
+										}
+										if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
+											BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
+											BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
+											BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
+										}
+										InterfaceListItemMap["bond_interface"] = BondInterfaceMap
+									}
+									if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
+										InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
+									}
+									if InterfaceListItem.DHCPClient != nil {
+										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.EthernetInterface != nil {
+										EthernetInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
+											EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
+											EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
+										}
+										InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
+									}
+									if InterfaceListItem.Ipv6AutoConfig != nil {
+										Ipv6AutoConfigMap := make(map[string]interface{})
+										if InterfaceListItem.Ipv6AutoConfig.Host != nil {
+											Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.Ipv6AutoConfig.Router != nil {
+											RouterMap := make(map[string]interface{})
+											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
+												DNSConfigMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+													ConfiguredListMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+														var DNSListItems []string
+														diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+														if !diags.HasError() {
+															ConfiguredListMap["dns_list"] = DNSListItems
+														}
+													}
+													DNSConfigMap["configured_list"] = ConfiguredListMap
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+													LocalDNSMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+														LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+														LocalDNSMap["first_address"] = map[string]interface{}{}
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+														LocalDNSMap["last_address"] = map[string]interface{}{}
+													}
+													DNSConfigMap["local_dns"] = LocalDNSMap
+												}
+												RouterMap["dns_config"] = DNSConfigMap
+											}
+											if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+												RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+											}
+											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
+												StatefulMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+													StatefulMap["automatic_from_end"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+													StatefulMap["automatic_from_start"] = map[string]interface{}{}
+												}
+												if !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+													var DHCPNetworksElems []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													diags := InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+														var DHCPNetworksList []map[string]interface{}
+														for _, DHCPNetworksItem := range DHCPNetworksElems {
+															DHCPNetworksItemMap := make(map[string]interface{})
+															if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+																DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+															}
+															if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+																DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+															}
+															if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+																var PoolsElems []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+																resp.Diagnostics.Append(diags...)
+																if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+																	var PoolsList []map[string]interface{}
+																	for _, PoolsItem := range PoolsElems {
+																		PoolsItemMap := make(map[string]interface{})
+																		if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																			PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																		}
+																		if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																			PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																		}
+																		PoolsList = append(PoolsList, PoolsItemMap)
+																	}
+																	DHCPNetworksItemMap["pools"] = PoolsList
+																}
+															}
+															DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+														}
+														StatefulMap["dhcp_networks"] = DHCPNetworksList
+													}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+													StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+													InterfaceIPMapMap := make(map[string]interface{})
+													if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+														InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+													}
+													StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+												RouterMap["stateful"] = StatefulMap
+											}
+											Ipv6AutoConfigMap["router"] = RouterMap
+										}
+										InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+									}
+									if InterfaceListItem.Labels != nil {
+										InterfaceListItemMap["labels"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.Monitor != nil {
+										InterfaceListItemMap["monitor"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.MonitorDisabled != nil {
+										InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
+										InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
+									}
+									if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
+										InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
+									}
+									if InterfaceListItem.NetworkOption != nil {
+										NetworkOptionMap := make(map[string]interface{})
+										if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
+											NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
+											NetworkOptionMap["site_local_network"] = map[string]interface{}{}
+										}
+										InterfaceListItemMap["network_option"] = NetworkOptionMap
+									}
+									if InterfaceListItem.NoIpv4Address != nil {
+										InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.NoIpv6Address != nil {
+										InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
+										InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.StaticIP != nil {
+										StaticIPMap := make(map[string]interface{})
+										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
+											StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
+										}
+										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
+											StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
+										}
+										InterfaceListItemMap["static_ip"] = StaticIPMap
+									}
+									if InterfaceListItem.StaticIpv6Address != nil {
+										StaticIpv6AddressMap := make(map[string]interface{})
+										if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
+											ClusterStaticIPMap := make(map[string]interface{})
+											if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+												ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+											}
+											StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+										}
+										if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
+											NodeStaticIPMap := make(map[string]interface{})
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+												NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+												NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+											}
+											StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+										}
+										InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
+									}
+									if InterfaceListItem.VLANInterface != nil {
+										VLANInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
+											VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
+											VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
+										}
+										InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
+									}
+									InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+								}
+								NodeListItemMap["interface_list"] = InterfaceListList
+							}
+						}
+						if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
+							NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
+						}
+						if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
+							NodeListItemMap["type"] = NodeListItem.Type.ValueString()
+						}
+						NodeListList = append(NodeListList, NodeListItemMap)
 					}
-					if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
-						NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
-					}
-					if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
-						NodeListItemMap["type"] = NodeListItem.Type.ValueString()
-					}
-					NodeListList = append(NodeListList, NodeListItemMap)
+					NotManagedMap["node_list"] = NodeListList
 				}
-				NotManagedMap["node_list"] = NodeListList
 			}
 			NutanixMap["not_managed"] = NotManagedMap
 		}
@@ -12839,247 +12984,267 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 		OciMap := make(map[string]interface{})
 		if data.Oci.NotManaged != nil {
 			NotManagedMap := make(map[string]interface{})
-			if len(data.Oci.NotManaged.NodeList) > 0 {
-				var NodeListList []map[string]interface{}
-				for _, NodeListItem := range data.Oci.NotManaged.NodeList {
-					NodeListItemMap := make(map[string]interface{})
-					if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
-						NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
-					}
-					if len(NodeListItem.InterfaceList) > 0 {
-						var InterfaceListList []map[string]interface{}
-						for _, InterfaceListItem := range NodeListItem.InterfaceList {
-							InterfaceListItemMap := make(map[string]interface{})
-							if InterfaceListItem.BondInterface != nil {
-								BondInterfaceMap := make(map[string]interface{})
-								if InterfaceListItem.BondInterface.ActiveBackup != nil {
-									BondInterfaceMap["active_backup"] = map[string]interface{}{}
-								}
-								if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
-									var DevicesItems []string
-									diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
-									if !diags.HasError() {
-										BondInterfaceMap["devices"] = DevicesItems
-									}
-								}
-								if InterfaceListItem.BondInterface.Lacp != nil {
-									LacpMap := make(map[string]interface{})
-									if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
-										LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
-									}
-									BondInterfaceMap["lacp"] = LacpMap
-								}
-								if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
-									BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
-									BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
-									BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
-								}
-								InterfaceListItemMap["bond_interface"] = BondInterfaceMap
-							}
-							if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
-								InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
-							}
-							if InterfaceListItem.DHCPClient != nil {
-								InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.EthernetInterface != nil {
-								EthernetInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
-									EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
-									EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
-								}
-								InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
-							}
-							if InterfaceListItem.Ipv6AutoConfig != nil {
-								Ipv6AutoConfigMap := make(map[string]interface{})
-								if InterfaceListItem.Ipv6AutoConfig.Host != nil {
-									Ipv6AutoConfigMap["host"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.Ipv6AutoConfig.Router != nil {
-									RouterMap := make(map[string]interface{})
-									if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
-										DNSConfigMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-											ConfiguredListMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
-												var DNSListItems []string
-												diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
-												if !diags.HasError() {
-													ConfiguredListMap["dns_list"] = DNSListItems
-												}
-											}
-											DNSConfigMap["configured_list"] = ConfiguredListMap
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-											LocalDNSMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-												LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-												LocalDNSMap["first_address"] = map[string]interface{}{}
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-												LocalDNSMap["last_address"] = map[string]interface{}{}
-											}
-											DNSConfigMap["local_dns"] = LocalDNSMap
-										}
-										RouterMap["dns_config"] = DNSConfigMap
-									}
-									if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-										RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
-									}
-									if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
-										StatefulMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-											StatefulMap["automatic_from_end"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-											StatefulMap["automatic_from_start"] = map[string]interface{}{}
-										}
-										if len(InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
-													}
-													DHCPNetworksItemMap["pools"] = PoolsList
-												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
-											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-											InterfaceIPMapMap := make(map[string]interface{})
-											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
-											}
-											StatefulMap["interface_ip_map"] = InterfaceIPMapMap
-										}
-										RouterMap["stateful"] = StatefulMap
-									}
-									Ipv6AutoConfigMap["router"] = RouterMap
-								}
-								InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
-							}
-							if InterfaceListItem.Labels != nil {
-								InterfaceListItemMap["labels"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.Monitor != nil {
-								InterfaceListItemMap["monitor"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.MonitorDisabled != nil {
-								InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
-								InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
-							}
-							if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
-								InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
-							}
-							if InterfaceListItem.NetworkOption != nil {
-								NetworkOptionMap := make(map[string]interface{})
-								if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
-									NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
-									NetworkOptionMap["site_local_network"] = map[string]interface{}{}
-								}
-								InterfaceListItemMap["network_option"] = NetworkOptionMap
-							}
-							if InterfaceListItem.NoIpv4Address != nil {
-								InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.NoIpv6Address != nil {
-								InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
-								InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.StaticIP != nil {
-								StaticIPMap := make(map[string]interface{})
-								if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
-									StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
-								}
-								if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
-									StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
-								}
-								InterfaceListItemMap["static_ip"] = StaticIPMap
-							}
-							if InterfaceListItem.StaticIpv6Address != nil {
-								StaticIpv6AddressMap := make(map[string]interface{})
-								if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
-									ClusterStaticIPMap := make(map[string]interface{})
-									if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
-									}
-									StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
-								}
-								if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
-									NodeStaticIPMap := make(map[string]interface{})
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-										NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
-									}
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-										NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
-									}
-									StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
-								}
-								InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
-							}
-							if InterfaceListItem.VLANInterface != nil {
-								VLANInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
-									VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
-									VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
-								}
-								InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
-							}
-							InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+			if !data.Oci.NotManaged.NodeList.IsNull() && !data.Oci.NotManaged.NodeList.IsUnknown() {
+				var NodeListElems []SecuremeshSiteV2OciNotManagedNodeListModel
+				diags := data.Oci.NotManaged.NodeList.ElementsAs(ctx, &NodeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodeListElems) > 0 {
+					var NodeListList []map[string]interface{}
+					for _, NodeListItem := range NodeListElems {
+						NodeListItemMap := make(map[string]interface{})
+						if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
+							NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
 						}
-						NodeListItemMap["interface_list"] = InterfaceListList
+						if !NodeListItem.InterfaceList.IsNull() && !NodeListItem.InterfaceList.IsUnknown() {
+							var InterfaceListElems []SecuremeshSiteV2OciNotManagedNodeListInterfaceListModel
+							diags := NodeListItem.InterfaceList.ElementsAs(ctx, &InterfaceListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceListElems) > 0 {
+								var InterfaceListList []map[string]interface{}
+								for _, InterfaceListItem := range InterfaceListElems {
+									InterfaceListItemMap := make(map[string]interface{})
+									if InterfaceListItem.BondInterface != nil {
+										BondInterfaceMap := make(map[string]interface{})
+										if InterfaceListItem.BondInterface.ActiveBackup != nil {
+											BondInterfaceMap["active_backup"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
+											var DevicesItems []string
+											diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
+											if !diags.HasError() {
+												BondInterfaceMap["devices"] = DevicesItems
+											}
+										}
+										if InterfaceListItem.BondInterface.Lacp != nil {
+											LacpMap := make(map[string]interface{})
+											if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
+												LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
+											}
+											BondInterfaceMap["lacp"] = LacpMap
+										}
+										if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
+											BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
+											BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
+											BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
+										}
+										InterfaceListItemMap["bond_interface"] = BondInterfaceMap
+									}
+									if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
+										InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
+									}
+									if InterfaceListItem.DHCPClient != nil {
+										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.EthernetInterface != nil {
+										EthernetInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
+											EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
+											EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
+										}
+										InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
+									}
+									if InterfaceListItem.Ipv6AutoConfig != nil {
+										Ipv6AutoConfigMap := make(map[string]interface{})
+										if InterfaceListItem.Ipv6AutoConfig.Host != nil {
+											Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.Ipv6AutoConfig.Router != nil {
+											RouterMap := make(map[string]interface{})
+											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
+												DNSConfigMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+													ConfiguredListMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+														var DNSListItems []string
+														diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+														if !diags.HasError() {
+															ConfiguredListMap["dns_list"] = DNSListItems
+														}
+													}
+													DNSConfigMap["configured_list"] = ConfiguredListMap
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+													LocalDNSMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+														LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+														LocalDNSMap["first_address"] = map[string]interface{}{}
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+														LocalDNSMap["last_address"] = map[string]interface{}{}
+													}
+													DNSConfigMap["local_dns"] = LocalDNSMap
+												}
+												RouterMap["dns_config"] = DNSConfigMap
+											}
+											if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+												RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+											}
+											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
+												StatefulMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+													StatefulMap["automatic_from_end"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+													StatefulMap["automatic_from_start"] = map[string]interface{}{}
+												}
+												if !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+													var DHCPNetworksElems []SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													diags := InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+														var DHCPNetworksList []map[string]interface{}
+														for _, DHCPNetworksItem := range DHCPNetworksElems {
+															DHCPNetworksItemMap := make(map[string]interface{})
+															if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+																DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+															}
+															if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+																DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+															}
+															if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+																var PoolsElems []SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+																resp.Diagnostics.Append(diags...)
+																if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+																	var PoolsList []map[string]interface{}
+																	for _, PoolsItem := range PoolsElems {
+																		PoolsItemMap := make(map[string]interface{})
+																		if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																			PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																		}
+																		if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																			PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																		}
+																		PoolsList = append(PoolsList, PoolsItemMap)
+																	}
+																	DHCPNetworksItemMap["pools"] = PoolsList
+																}
+															}
+															DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+														}
+														StatefulMap["dhcp_networks"] = DHCPNetworksList
+													}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+													StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+													InterfaceIPMapMap := make(map[string]interface{})
+													if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+														InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+													}
+													StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+												RouterMap["stateful"] = StatefulMap
+											}
+											Ipv6AutoConfigMap["router"] = RouterMap
+										}
+										InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+									}
+									if InterfaceListItem.Labels != nil {
+										InterfaceListItemMap["labels"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.Monitor != nil {
+										InterfaceListItemMap["monitor"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.MonitorDisabled != nil {
+										InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
+										InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
+									}
+									if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
+										InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
+									}
+									if InterfaceListItem.NetworkOption != nil {
+										NetworkOptionMap := make(map[string]interface{})
+										if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
+											NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
+											NetworkOptionMap["site_local_network"] = map[string]interface{}{}
+										}
+										InterfaceListItemMap["network_option"] = NetworkOptionMap
+									}
+									if InterfaceListItem.NoIpv4Address != nil {
+										InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.NoIpv6Address != nil {
+										InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
+										InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.StaticIP != nil {
+										StaticIPMap := make(map[string]interface{})
+										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
+											StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
+										}
+										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
+											StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
+										}
+										InterfaceListItemMap["static_ip"] = StaticIPMap
+									}
+									if InterfaceListItem.StaticIpv6Address != nil {
+										StaticIpv6AddressMap := make(map[string]interface{})
+										if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
+											ClusterStaticIPMap := make(map[string]interface{})
+											if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+												ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+											}
+											StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+										}
+										if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
+											NodeStaticIPMap := make(map[string]interface{})
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+												NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+												NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+											}
+											StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+										}
+										InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
+									}
+									if InterfaceListItem.VLANInterface != nil {
+										VLANInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
+											VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
+											VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
+										}
+										InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
+									}
+									InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+								}
+								NodeListItemMap["interface_list"] = InterfaceListList
+							}
+						}
+						if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
+							NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
+						}
+						if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
+							NodeListItemMap["type"] = NodeListItem.Type.ValueString()
+						}
+						NodeListList = append(NodeListList, NodeListItemMap)
 					}
-					if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
-						NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
-					}
-					if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
-						NodeListItemMap["type"] = NodeListItem.Type.ValueString()
-					}
-					NodeListList = append(NodeListList, NodeListItemMap)
+					NotManagedMap["node_list"] = NodeListList
 				}
-				NotManagedMap["node_list"] = NodeListList
 			}
 			OciMap["not_managed"] = NotManagedMap
 		}
@@ -13099,247 +13264,267 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 		OpenshiftVirtualizationMap := make(map[string]interface{})
 		if data.OpenshiftVirtualization.NotManaged != nil {
 			NotManagedMap := make(map[string]interface{})
-			if len(data.OpenshiftVirtualization.NotManaged.NodeList) > 0 {
-				var NodeListList []map[string]interface{}
-				for _, NodeListItem := range data.OpenshiftVirtualization.NotManaged.NodeList {
-					NodeListItemMap := make(map[string]interface{})
-					if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
-						NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
-					}
-					if len(NodeListItem.InterfaceList) > 0 {
-						var InterfaceListList []map[string]interface{}
-						for _, InterfaceListItem := range NodeListItem.InterfaceList {
-							InterfaceListItemMap := make(map[string]interface{})
-							if InterfaceListItem.BondInterface != nil {
-								BondInterfaceMap := make(map[string]interface{})
-								if InterfaceListItem.BondInterface.ActiveBackup != nil {
-									BondInterfaceMap["active_backup"] = map[string]interface{}{}
-								}
-								if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
-									var DevicesItems []string
-									diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
-									if !diags.HasError() {
-										BondInterfaceMap["devices"] = DevicesItems
-									}
-								}
-								if InterfaceListItem.BondInterface.Lacp != nil {
-									LacpMap := make(map[string]interface{})
-									if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
-										LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
-									}
-									BondInterfaceMap["lacp"] = LacpMap
-								}
-								if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
-									BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
-									BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
-									BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
-								}
-								InterfaceListItemMap["bond_interface"] = BondInterfaceMap
-							}
-							if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
-								InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
-							}
-							if InterfaceListItem.DHCPClient != nil {
-								InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.EthernetInterface != nil {
-								EthernetInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
-									EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
-									EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
-								}
-								InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
-							}
-							if InterfaceListItem.Ipv6AutoConfig != nil {
-								Ipv6AutoConfigMap := make(map[string]interface{})
-								if InterfaceListItem.Ipv6AutoConfig.Host != nil {
-									Ipv6AutoConfigMap["host"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.Ipv6AutoConfig.Router != nil {
-									RouterMap := make(map[string]interface{})
-									if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
-										DNSConfigMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-											ConfiguredListMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
-												var DNSListItems []string
-												diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
-												if !diags.HasError() {
-													ConfiguredListMap["dns_list"] = DNSListItems
-												}
-											}
-											DNSConfigMap["configured_list"] = ConfiguredListMap
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-											LocalDNSMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-												LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-												LocalDNSMap["first_address"] = map[string]interface{}{}
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-												LocalDNSMap["last_address"] = map[string]interface{}{}
-											}
-											DNSConfigMap["local_dns"] = LocalDNSMap
-										}
-										RouterMap["dns_config"] = DNSConfigMap
-									}
-									if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-										RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
-									}
-									if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
-										StatefulMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-											StatefulMap["automatic_from_end"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-											StatefulMap["automatic_from_start"] = map[string]interface{}{}
-										}
-										if len(InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
-													}
-													DHCPNetworksItemMap["pools"] = PoolsList
-												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
-											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-											InterfaceIPMapMap := make(map[string]interface{})
-											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
-											}
-											StatefulMap["interface_ip_map"] = InterfaceIPMapMap
-										}
-										RouterMap["stateful"] = StatefulMap
-									}
-									Ipv6AutoConfigMap["router"] = RouterMap
-								}
-								InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
-							}
-							if InterfaceListItem.Labels != nil {
-								InterfaceListItemMap["labels"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.Monitor != nil {
-								InterfaceListItemMap["monitor"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.MonitorDisabled != nil {
-								InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
-								InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
-							}
-							if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
-								InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
-							}
-							if InterfaceListItem.NetworkOption != nil {
-								NetworkOptionMap := make(map[string]interface{})
-								if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
-									NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
-									NetworkOptionMap["site_local_network"] = map[string]interface{}{}
-								}
-								InterfaceListItemMap["network_option"] = NetworkOptionMap
-							}
-							if InterfaceListItem.NoIpv4Address != nil {
-								InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.NoIpv6Address != nil {
-								InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
-								InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.StaticIP != nil {
-								StaticIPMap := make(map[string]interface{})
-								if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
-									StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
-								}
-								if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
-									StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
-								}
-								InterfaceListItemMap["static_ip"] = StaticIPMap
-							}
-							if InterfaceListItem.StaticIpv6Address != nil {
-								StaticIpv6AddressMap := make(map[string]interface{})
-								if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
-									ClusterStaticIPMap := make(map[string]interface{})
-									if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
-									}
-									StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
-								}
-								if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
-									NodeStaticIPMap := make(map[string]interface{})
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-										NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
-									}
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-										NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
-									}
-									StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
-								}
-								InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
-							}
-							if InterfaceListItem.VLANInterface != nil {
-								VLANInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
-									VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
-									VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
-								}
-								InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
-							}
-							InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+			if !data.OpenshiftVirtualization.NotManaged.NodeList.IsNull() && !data.OpenshiftVirtualization.NotManaged.NodeList.IsUnknown() {
+				var NodeListElems []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListModel
+				diags := data.OpenshiftVirtualization.NotManaged.NodeList.ElementsAs(ctx, &NodeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodeListElems) > 0 {
+					var NodeListList []map[string]interface{}
+					for _, NodeListItem := range NodeListElems {
+						NodeListItemMap := make(map[string]interface{})
+						if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
+							NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
 						}
-						NodeListItemMap["interface_list"] = InterfaceListList
+						if !NodeListItem.InterfaceList.IsNull() && !NodeListItem.InterfaceList.IsUnknown() {
+							var InterfaceListElems []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModel
+							diags := NodeListItem.InterfaceList.ElementsAs(ctx, &InterfaceListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceListElems) > 0 {
+								var InterfaceListList []map[string]interface{}
+								for _, InterfaceListItem := range InterfaceListElems {
+									InterfaceListItemMap := make(map[string]interface{})
+									if InterfaceListItem.BondInterface != nil {
+										BondInterfaceMap := make(map[string]interface{})
+										if InterfaceListItem.BondInterface.ActiveBackup != nil {
+											BondInterfaceMap["active_backup"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
+											var DevicesItems []string
+											diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
+											if !diags.HasError() {
+												BondInterfaceMap["devices"] = DevicesItems
+											}
+										}
+										if InterfaceListItem.BondInterface.Lacp != nil {
+											LacpMap := make(map[string]interface{})
+											if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
+												LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
+											}
+											BondInterfaceMap["lacp"] = LacpMap
+										}
+										if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
+											BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
+											BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
+											BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
+										}
+										InterfaceListItemMap["bond_interface"] = BondInterfaceMap
+									}
+									if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
+										InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
+									}
+									if InterfaceListItem.DHCPClient != nil {
+										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.EthernetInterface != nil {
+										EthernetInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
+											EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
+											EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
+										}
+										InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
+									}
+									if InterfaceListItem.Ipv6AutoConfig != nil {
+										Ipv6AutoConfigMap := make(map[string]interface{})
+										if InterfaceListItem.Ipv6AutoConfig.Host != nil {
+											Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.Ipv6AutoConfig.Router != nil {
+											RouterMap := make(map[string]interface{})
+											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
+												DNSConfigMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+													ConfiguredListMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+														var DNSListItems []string
+														diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+														if !diags.HasError() {
+															ConfiguredListMap["dns_list"] = DNSListItems
+														}
+													}
+													DNSConfigMap["configured_list"] = ConfiguredListMap
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+													LocalDNSMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+														LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+														LocalDNSMap["first_address"] = map[string]interface{}{}
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+														LocalDNSMap["last_address"] = map[string]interface{}{}
+													}
+													DNSConfigMap["local_dns"] = LocalDNSMap
+												}
+												RouterMap["dns_config"] = DNSConfigMap
+											}
+											if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+												RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+											}
+											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
+												StatefulMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+													StatefulMap["automatic_from_end"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+													StatefulMap["automatic_from_start"] = map[string]interface{}{}
+												}
+												if !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+													var DHCPNetworksElems []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													diags := InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+														var DHCPNetworksList []map[string]interface{}
+														for _, DHCPNetworksItem := range DHCPNetworksElems {
+															DHCPNetworksItemMap := make(map[string]interface{})
+															if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+																DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+															}
+															if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+																DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+															}
+															if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+																var PoolsElems []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+																resp.Diagnostics.Append(diags...)
+																if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+																	var PoolsList []map[string]interface{}
+																	for _, PoolsItem := range PoolsElems {
+																		PoolsItemMap := make(map[string]interface{})
+																		if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																			PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																		}
+																		if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																			PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																		}
+																		PoolsList = append(PoolsList, PoolsItemMap)
+																	}
+																	DHCPNetworksItemMap["pools"] = PoolsList
+																}
+															}
+															DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+														}
+														StatefulMap["dhcp_networks"] = DHCPNetworksList
+													}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+													StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+													InterfaceIPMapMap := make(map[string]interface{})
+													if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+														InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+													}
+													StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+												RouterMap["stateful"] = StatefulMap
+											}
+											Ipv6AutoConfigMap["router"] = RouterMap
+										}
+										InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+									}
+									if InterfaceListItem.Labels != nil {
+										InterfaceListItemMap["labels"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.Monitor != nil {
+										InterfaceListItemMap["monitor"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.MonitorDisabled != nil {
+										InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
+										InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
+									}
+									if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
+										InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
+									}
+									if InterfaceListItem.NetworkOption != nil {
+										NetworkOptionMap := make(map[string]interface{})
+										if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
+											NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
+											NetworkOptionMap["site_local_network"] = map[string]interface{}{}
+										}
+										InterfaceListItemMap["network_option"] = NetworkOptionMap
+									}
+									if InterfaceListItem.NoIpv4Address != nil {
+										InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.NoIpv6Address != nil {
+										InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
+										InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.StaticIP != nil {
+										StaticIPMap := make(map[string]interface{})
+										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
+											StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
+										}
+										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
+											StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
+										}
+										InterfaceListItemMap["static_ip"] = StaticIPMap
+									}
+									if InterfaceListItem.StaticIpv6Address != nil {
+										StaticIpv6AddressMap := make(map[string]interface{})
+										if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
+											ClusterStaticIPMap := make(map[string]interface{})
+											if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+												ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+											}
+											StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+										}
+										if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
+											NodeStaticIPMap := make(map[string]interface{})
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+												NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+												NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+											}
+											StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+										}
+										InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
+									}
+									if InterfaceListItem.VLANInterface != nil {
+										VLANInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
+											VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
+											VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
+										}
+										InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
+									}
+									InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+								}
+								NodeListItemMap["interface_list"] = InterfaceListList
+							}
+						}
+						if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
+							NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
+						}
+						if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
+							NodeListItemMap["type"] = NodeListItem.Type.ValueString()
+						}
+						NodeListList = append(NodeListList, NodeListItemMap)
 					}
-					if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
-						NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
-					}
-					if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
-						NodeListItemMap["type"] = NodeListItem.Type.ValueString()
-					}
-					NodeListList = append(NodeListList, NodeListItemMap)
+					NotManagedMap["node_list"] = NodeListList
 				}
-				NotManagedMap["node_list"] = NodeListList
 			}
 			OpenshiftVirtualizationMap["not_managed"] = NotManagedMap
 		}
@@ -13349,247 +13534,267 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 		OpenstackMap := make(map[string]interface{})
 		if data.Openstack.NotManaged != nil {
 			NotManagedMap := make(map[string]interface{})
-			if len(data.Openstack.NotManaged.NodeList) > 0 {
-				var NodeListList []map[string]interface{}
-				for _, NodeListItem := range data.Openstack.NotManaged.NodeList {
-					NodeListItemMap := make(map[string]interface{})
-					if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
-						NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
-					}
-					if len(NodeListItem.InterfaceList) > 0 {
-						var InterfaceListList []map[string]interface{}
-						for _, InterfaceListItem := range NodeListItem.InterfaceList {
-							InterfaceListItemMap := make(map[string]interface{})
-							if InterfaceListItem.BondInterface != nil {
-								BondInterfaceMap := make(map[string]interface{})
-								if InterfaceListItem.BondInterface.ActiveBackup != nil {
-									BondInterfaceMap["active_backup"] = map[string]interface{}{}
-								}
-								if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
-									var DevicesItems []string
-									diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
-									if !diags.HasError() {
-										BondInterfaceMap["devices"] = DevicesItems
-									}
-								}
-								if InterfaceListItem.BondInterface.Lacp != nil {
-									LacpMap := make(map[string]interface{})
-									if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
-										LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
-									}
-									BondInterfaceMap["lacp"] = LacpMap
-								}
-								if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
-									BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
-									BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
-									BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
-								}
-								InterfaceListItemMap["bond_interface"] = BondInterfaceMap
-							}
-							if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
-								InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
-							}
-							if InterfaceListItem.DHCPClient != nil {
-								InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.EthernetInterface != nil {
-								EthernetInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
-									EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
-									EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
-								}
-								InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
-							}
-							if InterfaceListItem.Ipv6AutoConfig != nil {
-								Ipv6AutoConfigMap := make(map[string]interface{})
-								if InterfaceListItem.Ipv6AutoConfig.Host != nil {
-									Ipv6AutoConfigMap["host"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.Ipv6AutoConfig.Router != nil {
-									RouterMap := make(map[string]interface{})
-									if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
-										DNSConfigMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-											ConfiguredListMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
-												var DNSListItems []string
-												diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
-												if !diags.HasError() {
-													ConfiguredListMap["dns_list"] = DNSListItems
-												}
-											}
-											DNSConfigMap["configured_list"] = ConfiguredListMap
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-											LocalDNSMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-												LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-												LocalDNSMap["first_address"] = map[string]interface{}{}
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-												LocalDNSMap["last_address"] = map[string]interface{}{}
-											}
-											DNSConfigMap["local_dns"] = LocalDNSMap
-										}
-										RouterMap["dns_config"] = DNSConfigMap
-									}
-									if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-										RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
-									}
-									if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
-										StatefulMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-											StatefulMap["automatic_from_end"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-											StatefulMap["automatic_from_start"] = map[string]interface{}{}
-										}
-										if len(InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
-													}
-													DHCPNetworksItemMap["pools"] = PoolsList
-												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
-											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-											InterfaceIPMapMap := make(map[string]interface{})
-											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
-											}
-											StatefulMap["interface_ip_map"] = InterfaceIPMapMap
-										}
-										RouterMap["stateful"] = StatefulMap
-									}
-									Ipv6AutoConfigMap["router"] = RouterMap
-								}
-								InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
-							}
-							if InterfaceListItem.Labels != nil {
-								InterfaceListItemMap["labels"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.Monitor != nil {
-								InterfaceListItemMap["monitor"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.MonitorDisabled != nil {
-								InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
-								InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
-							}
-							if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
-								InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
-							}
-							if InterfaceListItem.NetworkOption != nil {
-								NetworkOptionMap := make(map[string]interface{})
-								if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
-									NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
-									NetworkOptionMap["site_local_network"] = map[string]interface{}{}
-								}
-								InterfaceListItemMap["network_option"] = NetworkOptionMap
-							}
-							if InterfaceListItem.NoIpv4Address != nil {
-								InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.NoIpv6Address != nil {
-								InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
-								InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.StaticIP != nil {
-								StaticIPMap := make(map[string]interface{})
-								if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
-									StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
-								}
-								if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
-									StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
-								}
-								InterfaceListItemMap["static_ip"] = StaticIPMap
-							}
-							if InterfaceListItem.StaticIpv6Address != nil {
-								StaticIpv6AddressMap := make(map[string]interface{})
-								if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
-									ClusterStaticIPMap := make(map[string]interface{})
-									if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
-									}
-									StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
-								}
-								if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
-									NodeStaticIPMap := make(map[string]interface{})
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-										NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
-									}
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-										NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
-									}
-									StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
-								}
-								InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
-							}
-							if InterfaceListItem.VLANInterface != nil {
-								VLANInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
-									VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
-									VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
-								}
-								InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
-							}
-							InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+			if !data.Openstack.NotManaged.NodeList.IsNull() && !data.Openstack.NotManaged.NodeList.IsUnknown() {
+				var NodeListElems []SecuremeshSiteV2OpenstackNotManagedNodeListModel
+				diags := data.Openstack.NotManaged.NodeList.ElementsAs(ctx, &NodeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodeListElems) > 0 {
+					var NodeListList []map[string]interface{}
+					for _, NodeListItem := range NodeListElems {
+						NodeListItemMap := make(map[string]interface{})
+						if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
+							NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
 						}
-						NodeListItemMap["interface_list"] = InterfaceListList
+						if !NodeListItem.InterfaceList.IsNull() && !NodeListItem.InterfaceList.IsUnknown() {
+							var InterfaceListElems []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModel
+							diags := NodeListItem.InterfaceList.ElementsAs(ctx, &InterfaceListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceListElems) > 0 {
+								var InterfaceListList []map[string]interface{}
+								for _, InterfaceListItem := range InterfaceListElems {
+									InterfaceListItemMap := make(map[string]interface{})
+									if InterfaceListItem.BondInterface != nil {
+										BondInterfaceMap := make(map[string]interface{})
+										if InterfaceListItem.BondInterface.ActiveBackup != nil {
+											BondInterfaceMap["active_backup"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
+											var DevicesItems []string
+											diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
+											if !diags.HasError() {
+												BondInterfaceMap["devices"] = DevicesItems
+											}
+										}
+										if InterfaceListItem.BondInterface.Lacp != nil {
+											LacpMap := make(map[string]interface{})
+											if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
+												LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
+											}
+											BondInterfaceMap["lacp"] = LacpMap
+										}
+										if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
+											BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
+											BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
+											BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
+										}
+										InterfaceListItemMap["bond_interface"] = BondInterfaceMap
+									}
+									if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
+										InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
+									}
+									if InterfaceListItem.DHCPClient != nil {
+										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.EthernetInterface != nil {
+										EthernetInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
+											EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
+											EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
+										}
+										InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
+									}
+									if InterfaceListItem.Ipv6AutoConfig != nil {
+										Ipv6AutoConfigMap := make(map[string]interface{})
+										if InterfaceListItem.Ipv6AutoConfig.Host != nil {
+											Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.Ipv6AutoConfig.Router != nil {
+											RouterMap := make(map[string]interface{})
+											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
+												DNSConfigMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+													ConfiguredListMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+														var DNSListItems []string
+														diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+														if !diags.HasError() {
+															ConfiguredListMap["dns_list"] = DNSListItems
+														}
+													}
+													DNSConfigMap["configured_list"] = ConfiguredListMap
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+													LocalDNSMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+														LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+														LocalDNSMap["first_address"] = map[string]interface{}{}
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+														LocalDNSMap["last_address"] = map[string]interface{}{}
+													}
+													DNSConfigMap["local_dns"] = LocalDNSMap
+												}
+												RouterMap["dns_config"] = DNSConfigMap
+											}
+											if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+												RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+											}
+											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
+												StatefulMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+													StatefulMap["automatic_from_end"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+													StatefulMap["automatic_from_start"] = map[string]interface{}{}
+												}
+												if !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+													var DHCPNetworksElems []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													diags := InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+														var DHCPNetworksList []map[string]interface{}
+														for _, DHCPNetworksItem := range DHCPNetworksElems {
+															DHCPNetworksItemMap := make(map[string]interface{})
+															if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+																DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+															}
+															if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+																DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+															}
+															if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+																var PoolsElems []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+																resp.Diagnostics.Append(diags...)
+																if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+																	var PoolsList []map[string]interface{}
+																	for _, PoolsItem := range PoolsElems {
+																		PoolsItemMap := make(map[string]interface{})
+																		if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																			PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																		}
+																		if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																			PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																		}
+																		PoolsList = append(PoolsList, PoolsItemMap)
+																	}
+																	DHCPNetworksItemMap["pools"] = PoolsList
+																}
+															}
+															DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+														}
+														StatefulMap["dhcp_networks"] = DHCPNetworksList
+													}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+													StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+													InterfaceIPMapMap := make(map[string]interface{})
+													if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+														InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+													}
+													StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+												RouterMap["stateful"] = StatefulMap
+											}
+											Ipv6AutoConfigMap["router"] = RouterMap
+										}
+										InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+									}
+									if InterfaceListItem.Labels != nil {
+										InterfaceListItemMap["labels"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.Monitor != nil {
+										InterfaceListItemMap["monitor"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.MonitorDisabled != nil {
+										InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
+										InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
+									}
+									if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
+										InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
+									}
+									if InterfaceListItem.NetworkOption != nil {
+										NetworkOptionMap := make(map[string]interface{})
+										if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
+											NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
+											NetworkOptionMap["site_local_network"] = map[string]interface{}{}
+										}
+										InterfaceListItemMap["network_option"] = NetworkOptionMap
+									}
+									if InterfaceListItem.NoIpv4Address != nil {
+										InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.NoIpv6Address != nil {
+										InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
+										InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.StaticIP != nil {
+										StaticIPMap := make(map[string]interface{})
+										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
+											StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
+										}
+										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
+											StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
+										}
+										InterfaceListItemMap["static_ip"] = StaticIPMap
+									}
+									if InterfaceListItem.StaticIpv6Address != nil {
+										StaticIpv6AddressMap := make(map[string]interface{})
+										if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
+											ClusterStaticIPMap := make(map[string]interface{})
+											if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+												ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+											}
+											StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+										}
+										if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
+											NodeStaticIPMap := make(map[string]interface{})
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+												NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+												NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+											}
+											StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+										}
+										InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
+									}
+									if InterfaceListItem.VLANInterface != nil {
+										VLANInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
+											VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
+											VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
+										}
+										InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
+									}
+									InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+								}
+								NodeListItemMap["interface_list"] = InterfaceListList
+							}
+						}
+						if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
+							NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
+						}
+						if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
+							NodeListItemMap["type"] = NodeListItem.Type.ValueString()
+						}
+						NodeListList = append(NodeListList, NodeListItemMap)
 					}
-					if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
-						NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
-					}
-					if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
-						NodeListItemMap["type"] = NodeListItem.Type.ValueString()
-					}
-					NodeListList = append(NodeListList, NodeListItemMap)
+					NotManagedMap["node_list"] = NodeListList
 				}
-				NotManagedMap["node_list"] = NodeListList
 			}
 			OpenstackMap["not_managed"] = NotManagedMap
 		}
@@ -13895,247 +14100,267 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 		VmwareMap := make(map[string]interface{})
 		if data.Vmware.NotManaged != nil {
 			NotManagedMap := make(map[string]interface{})
-			if len(data.Vmware.NotManaged.NodeList) > 0 {
-				var NodeListList []map[string]interface{}
-				for _, NodeListItem := range data.Vmware.NotManaged.NodeList {
-					NodeListItemMap := make(map[string]interface{})
-					if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
-						NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
-					}
-					if len(NodeListItem.InterfaceList) > 0 {
-						var InterfaceListList []map[string]interface{}
-						for _, InterfaceListItem := range NodeListItem.InterfaceList {
-							InterfaceListItemMap := make(map[string]interface{})
-							if InterfaceListItem.BondInterface != nil {
-								BondInterfaceMap := make(map[string]interface{})
-								if InterfaceListItem.BondInterface.ActiveBackup != nil {
-									BondInterfaceMap["active_backup"] = map[string]interface{}{}
-								}
-								if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
-									var DevicesItems []string
-									diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
-									if !diags.HasError() {
-										BondInterfaceMap["devices"] = DevicesItems
-									}
-								}
-								if InterfaceListItem.BondInterface.Lacp != nil {
-									LacpMap := make(map[string]interface{})
-									if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
-										LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
-									}
-									BondInterfaceMap["lacp"] = LacpMap
-								}
-								if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
-									BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
-									BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
-									BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
-								}
-								InterfaceListItemMap["bond_interface"] = BondInterfaceMap
-							}
-							if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
-								InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
-							}
-							if InterfaceListItem.DHCPClient != nil {
-								InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.EthernetInterface != nil {
-								EthernetInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
-									EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
-									EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
-								}
-								InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
-							}
-							if InterfaceListItem.Ipv6AutoConfig != nil {
-								Ipv6AutoConfigMap := make(map[string]interface{})
-								if InterfaceListItem.Ipv6AutoConfig.Host != nil {
-									Ipv6AutoConfigMap["host"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.Ipv6AutoConfig.Router != nil {
-									RouterMap := make(map[string]interface{})
-									if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
-										DNSConfigMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-											ConfiguredListMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
-												var DNSListItems []string
-												diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
-												if !diags.HasError() {
-													ConfiguredListMap["dns_list"] = DNSListItems
-												}
-											}
-											DNSConfigMap["configured_list"] = ConfiguredListMap
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-											LocalDNSMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-												LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-												LocalDNSMap["first_address"] = map[string]interface{}{}
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-												LocalDNSMap["last_address"] = map[string]interface{}{}
-											}
-											DNSConfigMap["local_dns"] = LocalDNSMap
-										}
-										RouterMap["dns_config"] = DNSConfigMap
-									}
-									if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-										RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
-									}
-									if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
-										StatefulMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-											StatefulMap["automatic_from_end"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-											StatefulMap["automatic_from_start"] = map[string]interface{}{}
-										}
-										if len(InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
-													}
-													DHCPNetworksItemMap["pools"] = PoolsList
-												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
-											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-											InterfaceIPMapMap := make(map[string]interface{})
-											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
-											}
-											StatefulMap["interface_ip_map"] = InterfaceIPMapMap
-										}
-										RouterMap["stateful"] = StatefulMap
-									}
-									Ipv6AutoConfigMap["router"] = RouterMap
-								}
-								InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
-							}
-							if InterfaceListItem.Labels != nil {
-								InterfaceListItemMap["labels"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.Monitor != nil {
-								InterfaceListItemMap["monitor"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.MonitorDisabled != nil {
-								InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
-								InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
-							}
-							if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
-								InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
-							}
-							if InterfaceListItem.NetworkOption != nil {
-								NetworkOptionMap := make(map[string]interface{})
-								if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
-									NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
-									NetworkOptionMap["site_local_network"] = map[string]interface{}{}
-								}
-								InterfaceListItemMap["network_option"] = NetworkOptionMap
-							}
-							if InterfaceListItem.NoIpv4Address != nil {
-								InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.NoIpv6Address != nil {
-								InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
-								InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.StaticIP != nil {
-								StaticIPMap := make(map[string]interface{})
-								if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
-									StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
-								}
-								if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
-									StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
-								}
-								InterfaceListItemMap["static_ip"] = StaticIPMap
-							}
-							if InterfaceListItem.StaticIpv6Address != nil {
-								StaticIpv6AddressMap := make(map[string]interface{})
-								if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
-									ClusterStaticIPMap := make(map[string]interface{})
-									if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
-									}
-									StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
-								}
-								if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
-									NodeStaticIPMap := make(map[string]interface{})
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-										NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
-									}
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-										NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
-									}
-									StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
-								}
-								InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
-							}
-							if InterfaceListItem.VLANInterface != nil {
-								VLANInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
-									VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
-									VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
-								}
-								InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
-							}
-							InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+			if !data.Vmware.NotManaged.NodeList.IsNull() && !data.Vmware.NotManaged.NodeList.IsUnknown() {
+				var NodeListElems []SecuremeshSiteV2VmwareNotManagedNodeListModel
+				diags := data.Vmware.NotManaged.NodeList.ElementsAs(ctx, &NodeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodeListElems) > 0 {
+					var NodeListList []map[string]interface{}
+					for _, NodeListItem := range NodeListElems {
+						NodeListItemMap := make(map[string]interface{})
+						if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
+							NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
 						}
-						NodeListItemMap["interface_list"] = InterfaceListList
+						if !NodeListItem.InterfaceList.IsNull() && !NodeListItem.InterfaceList.IsUnknown() {
+							var InterfaceListElems []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModel
+							diags := NodeListItem.InterfaceList.ElementsAs(ctx, &InterfaceListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceListElems) > 0 {
+								var InterfaceListList []map[string]interface{}
+								for _, InterfaceListItem := range InterfaceListElems {
+									InterfaceListItemMap := make(map[string]interface{})
+									if InterfaceListItem.BondInterface != nil {
+										BondInterfaceMap := make(map[string]interface{})
+										if InterfaceListItem.BondInterface.ActiveBackup != nil {
+											BondInterfaceMap["active_backup"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
+											var DevicesItems []string
+											diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
+											if !diags.HasError() {
+												BondInterfaceMap["devices"] = DevicesItems
+											}
+										}
+										if InterfaceListItem.BondInterface.Lacp != nil {
+											LacpMap := make(map[string]interface{})
+											if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
+												LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
+											}
+											BondInterfaceMap["lacp"] = LacpMap
+										}
+										if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
+											BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
+											BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
+											BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
+										}
+										InterfaceListItemMap["bond_interface"] = BondInterfaceMap
+									}
+									if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
+										InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
+									}
+									if InterfaceListItem.DHCPClient != nil {
+										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.EthernetInterface != nil {
+										EthernetInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
+											EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
+											EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
+										}
+										InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
+									}
+									if InterfaceListItem.Ipv6AutoConfig != nil {
+										Ipv6AutoConfigMap := make(map[string]interface{})
+										if InterfaceListItem.Ipv6AutoConfig.Host != nil {
+											Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.Ipv6AutoConfig.Router != nil {
+											RouterMap := make(map[string]interface{})
+											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
+												DNSConfigMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+													ConfiguredListMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+														var DNSListItems []string
+														diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+														if !diags.HasError() {
+															ConfiguredListMap["dns_list"] = DNSListItems
+														}
+													}
+													DNSConfigMap["configured_list"] = ConfiguredListMap
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+													LocalDNSMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+														LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+														LocalDNSMap["first_address"] = map[string]interface{}{}
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+														LocalDNSMap["last_address"] = map[string]interface{}{}
+													}
+													DNSConfigMap["local_dns"] = LocalDNSMap
+												}
+												RouterMap["dns_config"] = DNSConfigMap
+											}
+											if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+												RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+											}
+											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
+												StatefulMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+													StatefulMap["automatic_from_end"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+													StatefulMap["automatic_from_start"] = map[string]interface{}{}
+												}
+												if !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+													var DHCPNetworksElems []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													diags := InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+														var DHCPNetworksList []map[string]interface{}
+														for _, DHCPNetworksItem := range DHCPNetworksElems {
+															DHCPNetworksItemMap := make(map[string]interface{})
+															if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+																DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+															}
+															if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+																DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+															}
+															if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+																var PoolsElems []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+																resp.Diagnostics.Append(diags...)
+																if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+																	var PoolsList []map[string]interface{}
+																	for _, PoolsItem := range PoolsElems {
+																		PoolsItemMap := make(map[string]interface{})
+																		if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																			PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																		}
+																		if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																			PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																		}
+																		PoolsList = append(PoolsList, PoolsItemMap)
+																	}
+																	DHCPNetworksItemMap["pools"] = PoolsList
+																}
+															}
+															DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+														}
+														StatefulMap["dhcp_networks"] = DHCPNetworksList
+													}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+													StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+													InterfaceIPMapMap := make(map[string]interface{})
+													if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+														InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+													}
+													StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+												RouterMap["stateful"] = StatefulMap
+											}
+											Ipv6AutoConfigMap["router"] = RouterMap
+										}
+										InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+									}
+									if InterfaceListItem.Labels != nil {
+										InterfaceListItemMap["labels"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.Monitor != nil {
+										InterfaceListItemMap["monitor"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.MonitorDisabled != nil {
+										InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
+										InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
+									}
+									if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
+										InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
+									}
+									if InterfaceListItem.NetworkOption != nil {
+										NetworkOptionMap := make(map[string]interface{})
+										if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
+											NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
+											NetworkOptionMap["site_local_network"] = map[string]interface{}{}
+										}
+										InterfaceListItemMap["network_option"] = NetworkOptionMap
+									}
+									if InterfaceListItem.NoIpv4Address != nil {
+										InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.NoIpv6Address != nil {
+										InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
+										InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.StaticIP != nil {
+										StaticIPMap := make(map[string]interface{})
+										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
+											StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
+										}
+										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
+											StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
+										}
+										InterfaceListItemMap["static_ip"] = StaticIPMap
+									}
+									if InterfaceListItem.StaticIpv6Address != nil {
+										StaticIpv6AddressMap := make(map[string]interface{})
+										if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
+											ClusterStaticIPMap := make(map[string]interface{})
+											if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+												ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+											}
+											StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+										}
+										if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
+											NodeStaticIPMap := make(map[string]interface{})
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+												NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+												NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+											}
+											StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+										}
+										InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
+									}
+									if InterfaceListItem.VLANInterface != nil {
+										VLANInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
+											VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
+											VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
+										}
+										InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
+									}
+									InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+								}
+								NodeListItemMap["interface_list"] = InterfaceListList
+							}
+						}
+						if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
+							NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
+						}
+						if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
+							NodeListItemMap["type"] = NodeListItem.Type.ValueString()
+						}
+						NodeListList = append(NodeListList, NodeListItemMap)
 					}
-					if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
-						NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
-					}
-					if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
-						NodeListItemMap["type"] = NodeListItem.Type.ValueString()
-					}
-					NodeListList = append(NodeListList, NodeListItemMap)
+					NotManagedMap["node_list"] = NodeListList
 				}
-				NotManagedMap["node_list"] = NodeListList
 			}
 			VmwareMap["not_managed"] = NotManagedMap
 		}
@@ -14426,7 +14651,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2AWSNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2AWSNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2AWSNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -14438,7 +14663,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -14617,7 +14842,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -14635,7 +14860,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -14656,16 +14881,18 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -14857,9 +15084,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -14876,9 +15104,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -14894,7 +15123,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2AzureNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2AzureNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2AzureNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -14906,7 +15135,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -15085,7 +15314,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -15103,7 +15332,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -15124,16 +15353,18 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -15325,9 +15556,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -15344,9 +15576,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -15362,7 +15595,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2BaremetalNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2BaremetalNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2BaremetalNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -15374,7 +15607,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -15553,7 +15786,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -15571,7 +15804,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -15592,16 +15825,18 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -15793,9 +16028,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -15812,9 +16048,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -15827,9 +16064,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &SecuremeshSiteV2BlockedServicesModel{
-			BlockedService: func() []SecuremeshSiteV2BlockedServicesBlockedServiceModel {
-				if !isImport && data.BlockedServices != nil && len(data.BlockedServices.BlockedService) == 0 {
-					return nil
+			BlockedService: func() types.List {
+				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedServiceModelAttrTypes})
 				}
 				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []SecuremeshSiteV2BlockedServicesBlockedServiceModel
@@ -15863,9 +16100,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 							})
 						}
 					}
-					return BlockedServiceResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedServiceModelAttrTypes}, BlockedServiceResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedServiceModelAttrTypes})
 			}(),
 		}
 	}
@@ -16202,7 +16440,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2EquinixNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2EquinixNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2EquinixNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -16214,7 +16452,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -16393,7 +16631,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -16411,7 +16649,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -16432,16 +16670,18 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -16633,9 +16873,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -16652,9 +16893,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -16673,7 +16915,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2GCPNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2GCPNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2GCPNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -16685,7 +16927,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -16864,7 +17106,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -16882,7 +17124,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -16903,16 +17145,18 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -17104,9 +17348,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -17123,9 +17368,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -17141,7 +17387,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2KvmNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2KvmNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2KvmNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -17153,7 +17399,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -17332,7 +17578,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -17350,7 +17596,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -17371,16 +17617,18 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -17572,9 +17820,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -17591,9 +17840,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -18340,7 +18590,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2NutanixNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2NutanixNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2NutanixNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -18352,7 +18602,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -18531,7 +18781,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -18549,7 +18799,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -18570,16 +18820,18 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -18771,9 +19023,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -18790,9 +19043,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -18808,7 +19062,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2OciNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2OciNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2OciNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -18820,7 +19074,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2OciNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2OciNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -18999,7 +19253,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -19017,7 +19271,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -19038,16 +19292,18 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -19239,9 +19495,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -19258,9 +19515,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -19298,7 +19556,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2OpenshiftVirtualizationNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -19310,7 +19568,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -19489,7 +19747,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -19507,7 +19765,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -19528,16 +19786,18 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -19729,9 +19989,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -19748,9 +20009,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -19766,7 +20028,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2OpenstackNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2OpenstackNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2OpenstackNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -19778,7 +20040,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -19957,7 +20219,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -19975,7 +20237,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -19996,16 +20258,18 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -20197,9 +20461,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -20216,9 +20481,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -20744,7 +21010,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2VmwareNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2VmwareNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2VmwareNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -20756,7 +21022,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -20935,7 +21201,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -20953,7 +21219,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -20974,16 +21240,18 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -21175,9 +21443,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -21194,9 +21463,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -21573,7 +21843,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2AWSNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2AWSNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2AWSNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -21585,7 +21855,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -21764,7 +22034,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -21782,7 +22052,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -21803,16 +22073,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -22004,9 +22276,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -22023,9 +22296,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -22041,7 +22315,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2AzureNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2AzureNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2AzureNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -22053,7 +22327,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -22232,7 +22506,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -22250,7 +22524,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -22271,16 +22545,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -22472,9 +22748,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -22491,9 +22768,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -22509,7 +22787,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2BaremetalNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2BaremetalNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2BaremetalNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -22521,7 +22799,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -22700,7 +22978,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -22718,7 +22996,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -22739,16 +23017,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -22940,9 +23220,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -22959,9 +23240,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -22974,9 +23256,9 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &SecuremeshSiteV2BlockedServicesModel{
-			BlockedService: func() []SecuremeshSiteV2BlockedServicesBlockedServiceModel {
-				if !isImport && data.BlockedServices != nil && len(data.BlockedServices.BlockedService) == 0 {
-					return nil
+			BlockedService: func() types.List {
+				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedServiceModelAttrTypes})
 				}
 				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []SecuremeshSiteV2BlockedServicesBlockedServiceModel
@@ -23010,9 +23292,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 							})
 						}
 					}
-					return BlockedServiceResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedServiceModelAttrTypes}, BlockedServiceResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedServiceModelAttrTypes})
 			}(),
 		}
 	}
@@ -23349,7 +23632,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2EquinixNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2EquinixNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2EquinixNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -23361,7 +23644,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -23540,7 +23823,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -23558,7 +23841,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -23579,16 +23862,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -23780,9 +24065,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -23799,9 +24085,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -23820,7 +24107,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2GCPNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2GCPNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2GCPNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -23832,7 +24119,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -24011,7 +24298,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -24029,7 +24316,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -24050,16 +24337,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -24251,9 +24540,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -24270,9 +24560,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -24288,7 +24579,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2KvmNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2KvmNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2KvmNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -24300,7 +24591,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -24479,7 +24770,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -24497,7 +24788,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -24518,16 +24809,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -24719,9 +25012,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -24738,9 +25032,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -25487,7 +25782,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2NutanixNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2NutanixNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2NutanixNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -25499,7 +25794,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -25678,7 +25973,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -25696,7 +25991,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -25717,16 +26012,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -25918,9 +26215,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -25937,9 +26235,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -25955,7 +26254,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2OciNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2OciNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2OciNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -25967,7 +26266,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2OciNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2OciNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -26146,7 +26445,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -26164,7 +26463,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -26185,16 +26484,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -26386,9 +26687,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -26405,9 +26707,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -26445,7 +26748,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2OpenshiftVirtualizationNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -26457,7 +26760,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -26636,7 +26939,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -26654,7 +26957,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -26675,16 +26978,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -26876,9 +27181,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -26895,9 +27201,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -26913,7 +27220,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2OpenstackNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2OpenstackNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2OpenstackNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -26925,7 +27232,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -27104,7 +27411,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -27122,7 +27429,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -27143,16 +27450,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -27344,9 +27653,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -27363,9 +27673,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -27891,7 +28202,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2VmwareNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2VmwareNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2VmwareNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -27903,7 +28214,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -28082,7 +28393,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -28100,7 +28411,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -28121,16 +28432,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -28322,9 +28635,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -28341,9 +28655,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -28569,247 +28884,267 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 		AWSMap := make(map[string]interface{})
 		if data.AWS.NotManaged != nil {
 			NotManagedMap := make(map[string]interface{})
-			if len(data.AWS.NotManaged.NodeList) > 0 {
-				var NodeListList []map[string]interface{}
-				for _, NodeListItem := range data.AWS.NotManaged.NodeList {
-					NodeListItemMap := make(map[string]interface{})
-					if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
-						NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
-					}
-					if len(NodeListItem.InterfaceList) > 0 {
-						var InterfaceListList []map[string]interface{}
-						for _, InterfaceListItem := range NodeListItem.InterfaceList {
-							InterfaceListItemMap := make(map[string]interface{})
-							if InterfaceListItem.BondInterface != nil {
-								BondInterfaceMap := make(map[string]interface{})
-								if InterfaceListItem.BondInterface.ActiveBackup != nil {
-									BondInterfaceMap["active_backup"] = map[string]interface{}{}
-								}
-								if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
-									var DevicesItems []string
-									diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
-									if !diags.HasError() {
-										BondInterfaceMap["devices"] = DevicesItems
-									}
-								}
-								if InterfaceListItem.BondInterface.Lacp != nil {
-									LacpMap := make(map[string]interface{})
-									if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
-										LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
-									}
-									BondInterfaceMap["lacp"] = LacpMap
-								}
-								if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
-									BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
-									BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
-									BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
-								}
-								InterfaceListItemMap["bond_interface"] = BondInterfaceMap
-							}
-							if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
-								InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
-							}
-							if InterfaceListItem.DHCPClient != nil {
-								InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.EthernetInterface != nil {
-								EthernetInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
-									EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
-									EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
-								}
-								InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
-							}
-							if InterfaceListItem.Ipv6AutoConfig != nil {
-								Ipv6AutoConfigMap := make(map[string]interface{})
-								if InterfaceListItem.Ipv6AutoConfig.Host != nil {
-									Ipv6AutoConfigMap["host"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.Ipv6AutoConfig.Router != nil {
-									RouterMap := make(map[string]interface{})
-									if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
-										DNSConfigMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-											ConfiguredListMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
-												var DNSListItems []string
-												diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
-												if !diags.HasError() {
-													ConfiguredListMap["dns_list"] = DNSListItems
-												}
-											}
-											DNSConfigMap["configured_list"] = ConfiguredListMap
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-											LocalDNSMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-												LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-												LocalDNSMap["first_address"] = map[string]interface{}{}
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-												LocalDNSMap["last_address"] = map[string]interface{}{}
-											}
-											DNSConfigMap["local_dns"] = LocalDNSMap
-										}
-										RouterMap["dns_config"] = DNSConfigMap
-									}
-									if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-										RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
-									}
-									if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
-										StatefulMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-											StatefulMap["automatic_from_end"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-											StatefulMap["automatic_from_start"] = map[string]interface{}{}
-										}
-										if len(InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
-													}
-													DHCPNetworksItemMap["pools"] = PoolsList
-												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
-											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-											InterfaceIPMapMap := make(map[string]interface{})
-											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
-											}
-											StatefulMap["interface_ip_map"] = InterfaceIPMapMap
-										}
-										RouterMap["stateful"] = StatefulMap
-									}
-									Ipv6AutoConfigMap["router"] = RouterMap
-								}
-								InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
-							}
-							if InterfaceListItem.Labels != nil {
-								InterfaceListItemMap["labels"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.Monitor != nil {
-								InterfaceListItemMap["monitor"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.MonitorDisabled != nil {
-								InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
-								InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
-							}
-							if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
-								InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
-							}
-							if InterfaceListItem.NetworkOption != nil {
-								NetworkOptionMap := make(map[string]interface{})
-								if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
-									NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
-									NetworkOptionMap["site_local_network"] = map[string]interface{}{}
-								}
-								InterfaceListItemMap["network_option"] = NetworkOptionMap
-							}
-							if InterfaceListItem.NoIpv4Address != nil {
-								InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.NoIpv6Address != nil {
-								InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
-								InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.StaticIP != nil {
-								StaticIPMap := make(map[string]interface{})
-								if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
-									StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
-								}
-								if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
-									StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
-								}
-								InterfaceListItemMap["static_ip"] = StaticIPMap
-							}
-							if InterfaceListItem.StaticIpv6Address != nil {
-								StaticIpv6AddressMap := make(map[string]interface{})
-								if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
-									ClusterStaticIPMap := make(map[string]interface{})
-									if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
-									}
-									StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
-								}
-								if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
-									NodeStaticIPMap := make(map[string]interface{})
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-										NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
-									}
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-										NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
-									}
-									StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
-								}
-								InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
-							}
-							if InterfaceListItem.VLANInterface != nil {
-								VLANInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
-									VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
-									VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
-								}
-								InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
-							}
-							InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+			if !data.AWS.NotManaged.NodeList.IsNull() && !data.AWS.NotManaged.NodeList.IsUnknown() {
+				var NodeListElems []SecuremeshSiteV2AWSNotManagedNodeListModel
+				diags := data.AWS.NotManaged.NodeList.ElementsAs(ctx, &NodeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodeListElems) > 0 {
+					var NodeListList []map[string]interface{}
+					for _, NodeListItem := range NodeListElems {
+						NodeListItemMap := make(map[string]interface{})
+						if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
+							NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
 						}
-						NodeListItemMap["interface_list"] = InterfaceListList
+						if !NodeListItem.InterfaceList.IsNull() && !NodeListItem.InterfaceList.IsUnknown() {
+							var InterfaceListElems []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModel
+							diags := NodeListItem.InterfaceList.ElementsAs(ctx, &InterfaceListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceListElems) > 0 {
+								var InterfaceListList []map[string]interface{}
+								for _, InterfaceListItem := range InterfaceListElems {
+									InterfaceListItemMap := make(map[string]interface{})
+									if InterfaceListItem.BondInterface != nil {
+										BondInterfaceMap := make(map[string]interface{})
+										if InterfaceListItem.BondInterface.ActiveBackup != nil {
+											BondInterfaceMap["active_backup"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
+											var DevicesItems []string
+											diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
+											if !diags.HasError() {
+												BondInterfaceMap["devices"] = DevicesItems
+											}
+										}
+										if InterfaceListItem.BondInterface.Lacp != nil {
+											LacpMap := make(map[string]interface{})
+											if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
+												LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
+											}
+											BondInterfaceMap["lacp"] = LacpMap
+										}
+										if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
+											BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
+											BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
+											BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
+										}
+										InterfaceListItemMap["bond_interface"] = BondInterfaceMap
+									}
+									if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
+										InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
+									}
+									if InterfaceListItem.DHCPClient != nil {
+										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.EthernetInterface != nil {
+										EthernetInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
+											EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
+											EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
+										}
+										InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
+									}
+									if InterfaceListItem.Ipv6AutoConfig != nil {
+										Ipv6AutoConfigMap := make(map[string]interface{})
+										if InterfaceListItem.Ipv6AutoConfig.Host != nil {
+											Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.Ipv6AutoConfig.Router != nil {
+											RouterMap := make(map[string]interface{})
+											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
+												DNSConfigMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+													ConfiguredListMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+														var DNSListItems []string
+														diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+														if !diags.HasError() {
+															ConfiguredListMap["dns_list"] = DNSListItems
+														}
+													}
+													DNSConfigMap["configured_list"] = ConfiguredListMap
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+													LocalDNSMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+														LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+														LocalDNSMap["first_address"] = map[string]interface{}{}
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+														LocalDNSMap["last_address"] = map[string]interface{}{}
+													}
+													DNSConfigMap["local_dns"] = LocalDNSMap
+												}
+												RouterMap["dns_config"] = DNSConfigMap
+											}
+											if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+												RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+											}
+											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
+												StatefulMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+													StatefulMap["automatic_from_end"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+													StatefulMap["automatic_from_start"] = map[string]interface{}{}
+												}
+												if !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+													var DHCPNetworksElems []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													diags := InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+														var DHCPNetworksList []map[string]interface{}
+														for _, DHCPNetworksItem := range DHCPNetworksElems {
+															DHCPNetworksItemMap := make(map[string]interface{})
+															if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+																DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+															}
+															if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+																DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+															}
+															if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+																var PoolsElems []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+																resp.Diagnostics.Append(diags...)
+																if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+																	var PoolsList []map[string]interface{}
+																	for _, PoolsItem := range PoolsElems {
+																		PoolsItemMap := make(map[string]interface{})
+																		if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																			PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																		}
+																		if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																			PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																		}
+																		PoolsList = append(PoolsList, PoolsItemMap)
+																	}
+																	DHCPNetworksItemMap["pools"] = PoolsList
+																}
+															}
+															DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+														}
+														StatefulMap["dhcp_networks"] = DHCPNetworksList
+													}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+													StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+													InterfaceIPMapMap := make(map[string]interface{})
+													if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+														InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+													}
+													StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+												RouterMap["stateful"] = StatefulMap
+											}
+											Ipv6AutoConfigMap["router"] = RouterMap
+										}
+										InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+									}
+									if InterfaceListItem.Labels != nil {
+										InterfaceListItemMap["labels"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.Monitor != nil {
+										InterfaceListItemMap["monitor"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.MonitorDisabled != nil {
+										InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
+										InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
+									}
+									if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
+										InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
+									}
+									if InterfaceListItem.NetworkOption != nil {
+										NetworkOptionMap := make(map[string]interface{})
+										if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
+											NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
+											NetworkOptionMap["site_local_network"] = map[string]interface{}{}
+										}
+										InterfaceListItemMap["network_option"] = NetworkOptionMap
+									}
+									if InterfaceListItem.NoIpv4Address != nil {
+										InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.NoIpv6Address != nil {
+										InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
+										InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.StaticIP != nil {
+										StaticIPMap := make(map[string]interface{})
+										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
+											StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
+										}
+										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
+											StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
+										}
+										InterfaceListItemMap["static_ip"] = StaticIPMap
+									}
+									if InterfaceListItem.StaticIpv6Address != nil {
+										StaticIpv6AddressMap := make(map[string]interface{})
+										if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
+											ClusterStaticIPMap := make(map[string]interface{})
+											if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+												ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+											}
+											StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+										}
+										if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
+											NodeStaticIPMap := make(map[string]interface{})
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+												NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+												NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+											}
+											StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+										}
+										InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
+									}
+									if InterfaceListItem.VLANInterface != nil {
+										VLANInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
+											VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
+											VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
+										}
+										InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
+									}
+									InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+								}
+								NodeListItemMap["interface_list"] = InterfaceListList
+							}
+						}
+						if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
+							NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
+						}
+						if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
+							NodeListItemMap["type"] = NodeListItem.Type.ValueString()
+						}
+						NodeListList = append(NodeListList, NodeListItemMap)
 					}
-					if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
-						NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
-					}
-					if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
-						NodeListItemMap["type"] = NodeListItem.Type.ValueString()
-					}
-					NodeListList = append(NodeListList, NodeListItemMap)
+					NotManagedMap["node_list"] = NodeListList
 				}
-				NotManagedMap["node_list"] = NodeListList
 			}
 			AWSMap["not_managed"] = NotManagedMap
 		}
@@ -28819,247 +29154,267 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 		AzureMap := make(map[string]interface{})
 		if data.Azure.NotManaged != nil {
 			NotManagedMap := make(map[string]interface{})
-			if len(data.Azure.NotManaged.NodeList) > 0 {
-				var NodeListList []map[string]interface{}
-				for _, NodeListItem := range data.Azure.NotManaged.NodeList {
-					NodeListItemMap := make(map[string]interface{})
-					if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
-						NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
-					}
-					if len(NodeListItem.InterfaceList) > 0 {
-						var InterfaceListList []map[string]interface{}
-						for _, InterfaceListItem := range NodeListItem.InterfaceList {
-							InterfaceListItemMap := make(map[string]interface{})
-							if InterfaceListItem.BondInterface != nil {
-								BondInterfaceMap := make(map[string]interface{})
-								if InterfaceListItem.BondInterface.ActiveBackup != nil {
-									BondInterfaceMap["active_backup"] = map[string]interface{}{}
-								}
-								if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
-									var DevicesItems []string
-									diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
-									if !diags.HasError() {
-										BondInterfaceMap["devices"] = DevicesItems
-									}
-								}
-								if InterfaceListItem.BondInterface.Lacp != nil {
-									LacpMap := make(map[string]interface{})
-									if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
-										LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
-									}
-									BondInterfaceMap["lacp"] = LacpMap
-								}
-								if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
-									BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
-									BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
-									BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
-								}
-								InterfaceListItemMap["bond_interface"] = BondInterfaceMap
-							}
-							if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
-								InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
-							}
-							if InterfaceListItem.DHCPClient != nil {
-								InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.EthernetInterface != nil {
-								EthernetInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
-									EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
-									EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
-								}
-								InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
-							}
-							if InterfaceListItem.Ipv6AutoConfig != nil {
-								Ipv6AutoConfigMap := make(map[string]interface{})
-								if InterfaceListItem.Ipv6AutoConfig.Host != nil {
-									Ipv6AutoConfigMap["host"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.Ipv6AutoConfig.Router != nil {
-									RouterMap := make(map[string]interface{})
-									if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
-										DNSConfigMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-											ConfiguredListMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
-												var DNSListItems []string
-												diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
-												if !diags.HasError() {
-													ConfiguredListMap["dns_list"] = DNSListItems
-												}
-											}
-											DNSConfigMap["configured_list"] = ConfiguredListMap
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-											LocalDNSMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-												LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-												LocalDNSMap["first_address"] = map[string]interface{}{}
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-												LocalDNSMap["last_address"] = map[string]interface{}{}
-											}
-											DNSConfigMap["local_dns"] = LocalDNSMap
-										}
-										RouterMap["dns_config"] = DNSConfigMap
-									}
-									if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-										RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
-									}
-									if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
-										StatefulMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-											StatefulMap["automatic_from_end"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-											StatefulMap["automatic_from_start"] = map[string]interface{}{}
-										}
-										if len(InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
-													}
-													DHCPNetworksItemMap["pools"] = PoolsList
-												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
-											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-											InterfaceIPMapMap := make(map[string]interface{})
-											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
-											}
-											StatefulMap["interface_ip_map"] = InterfaceIPMapMap
-										}
-										RouterMap["stateful"] = StatefulMap
-									}
-									Ipv6AutoConfigMap["router"] = RouterMap
-								}
-								InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
-							}
-							if InterfaceListItem.Labels != nil {
-								InterfaceListItemMap["labels"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.Monitor != nil {
-								InterfaceListItemMap["monitor"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.MonitorDisabled != nil {
-								InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
-								InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
-							}
-							if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
-								InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
-							}
-							if InterfaceListItem.NetworkOption != nil {
-								NetworkOptionMap := make(map[string]interface{})
-								if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
-									NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
-									NetworkOptionMap["site_local_network"] = map[string]interface{}{}
-								}
-								InterfaceListItemMap["network_option"] = NetworkOptionMap
-							}
-							if InterfaceListItem.NoIpv4Address != nil {
-								InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.NoIpv6Address != nil {
-								InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
-								InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.StaticIP != nil {
-								StaticIPMap := make(map[string]interface{})
-								if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
-									StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
-								}
-								if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
-									StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
-								}
-								InterfaceListItemMap["static_ip"] = StaticIPMap
-							}
-							if InterfaceListItem.StaticIpv6Address != nil {
-								StaticIpv6AddressMap := make(map[string]interface{})
-								if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
-									ClusterStaticIPMap := make(map[string]interface{})
-									if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
-									}
-									StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
-								}
-								if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
-									NodeStaticIPMap := make(map[string]interface{})
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-										NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
-									}
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-										NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
-									}
-									StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
-								}
-								InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
-							}
-							if InterfaceListItem.VLANInterface != nil {
-								VLANInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
-									VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
-									VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
-								}
-								InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
-							}
-							InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+			if !data.Azure.NotManaged.NodeList.IsNull() && !data.Azure.NotManaged.NodeList.IsUnknown() {
+				var NodeListElems []SecuremeshSiteV2AzureNotManagedNodeListModel
+				diags := data.Azure.NotManaged.NodeList.ElementsAs(ctx, &NodeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodeListElems) > 0 {
+					var NodeListList []map[string]interface{}
+					for _, NodeListItem := range NodeListElems {
+						NodeListItemMap := make(map[string]interface{})
+						if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
+							NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
 						}
-						NodeListItemMap["interface_list"] = InterfaceListList
+						if !NodeListItem.InterfaceList.IsNull() && !NodeListItem.InterfaceList.IsUnknown() {
+							var InterfaceListElems []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModel
+							diags := NodeListItem.InterfaceList.ElementsAs(ctx, &InterfaceListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceListElems) > 0 {
+								var InterfaceListList []map[string]interface{}
+								for _, InterfaceListItem := range InterfaceListElems {
+									InterfaceListItemMap := make(map[string]interface{})
+									if InterfaceListItem.BondInterface != nil {
+										BondInterfaceMap := make(map[string]interface{})
+										if InterfaceListItem.BondInterface.ActiveBackup != nil {
+											BondInterfaceMap["active_backup"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
+											var DevicesItems []string
+											diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
+											if !diags.HasError() {
+												BondInterfaceMap["devices"] = DevicesItems
+											}
+										}
+										if InterfaceListItem.BondInterface.Lacp != nil {
+											LacpMap := make(map[string]interface{})
+											if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
+												LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
+											}
+											BondInterfaceMap["lacp"] = LacpMap
+										}
+										if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
+											BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
+											BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
+											BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
+										}
+										InterfaceListItemMap["bond_interface"] = BondInterfaceMap
+									}
+									if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
+										InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
+									}
+									if InterfaceListItem.DHCPClient != nil {
+										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.EthernetInterface != nil {
+										EthernetInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
+											EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
+											EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
+										}
+										InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
+									}
+									if InterfaceListItem.Ipv6AutoConfig != nil {
+										Ipv6AutoConfigMap := make(map[string]interface{})
+										if InterfaceListItem.Ipv6AutoConfig.Host != nil {
+											Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.Ipv6AutoConfig.Router != nil {
+											RouterMap := make(map[string]interface{})
+											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
+												DNSConfigMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+													ConfiguredListMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+														var DNSListItems []string
+														diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+														if !diags.HasError() {
+															ConfiguredListMap["dns_list"] = DNSListItems
+														}
+													}
+													DNSConfigMap["configured_list"] = ConfiguredListMap
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+													LocalDNSMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+														LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+														LocalDNSMap["first_address"] = map[string]interface{}{}
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+														LocalDNSMap["last_address"] = map[string]interface{}{}
+													}
+													DNSConfigMap["local_dns"] = LocalDNSMap
+												}
+												RouterMap["dns_config"] = DNSConfigMap
+											}
+											if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+												RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+											}
+											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
+												StatefulMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+													StatefulMap["automatic_from_end"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+													StatefulMap["automatic_from_start"] = map[string]interface{}{}
+												}
+												if !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+													var DHCPNetworksElems []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													diags := InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+														var DHCPNetworksList []map[string]interface{}
+														for _, DHCPNetworksItem := range DHCPNetworksElems {
+															DHCPNetworksItemMap := make(map[string]interface{})
+															if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+																DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+															}
+															if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+																DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+															}
+															if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+																var PoolsElems []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+																resp.Diagnostics.Append(diags...)
+																if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+																	var PoolsList []map[string]interface{}
+																	for _, PoolsItem := range PoolsElems {
+																		PoolsItemMap := make(map[string]interface{})
+																		if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																			PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																		}
+																		if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																			PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																		}
+																		PoolsList = append(PoolsList, PoolsItemMap)
+																	}
+																	DHCPNetworksItemMap["pools"] = PoolsList
+																}
+															}
+															DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+														}
+														StatefulMap["dhcp_networks"] = DHCPNetworksList
+													}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+													StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+													InterfaceIPMapMap := make(map[string]interface{})
+													if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+														InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+													}
+													StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+												RouterMap["stateful"] = StatefulMap
+											}
+											Ipv6AutoConfigMap["router"] = RouterMap
+										}
+										InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+									}
+									if InterfaceListItem.Labels != nil {
+										InterfaceListItemMap["labels"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.Monitor != nil {
+										InterfaceListItemMap["monitor"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.MonitorDisabled != nil {
+										InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
+										InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
+									}
+									if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
+										InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
+									}
+									if InterfaceListItem.NetworkOption != nil {
+										NetworkOptionMap := make(map[string]interface{})
+										if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
+											NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
+											NetworkOptionMap["site_local_network"] = map[string]interface{}{}
+										}
+										InterfaceListItemMap["network_option"] = NetworkOptionMap
+									}
+									if InterfaceListItem.NoIpv4Address != nil {
+										InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.NoIpv6Address != nil {
+										InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
+										InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.StaticIP != nil {
+										StaticIPMap := make(map[string]interface{})
+										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
+											StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
+										}
+										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
+											StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
+										}
+										InterfaceListItemMap["static_ip"] = StaticIPMap
+									}
+									if InterfaceListItem.StaticIpv6Address != nil {
+										StaticIpv6AddressMap := make(map[string]interface{})
+										if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
+											ClusterStaticIPMap := make(map[string]interface{})
+											if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+												ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+											}
+											StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+										}
+										if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
+											NodeStaticIPMap := make(map[string]interface{})
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+												NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+												NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+											}
+											StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+										}
+										InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
+									}
+									if InterfaceListItem.VLANInterface != nil {
+										VLANInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
+											VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
+											VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
+										}
+										InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
+									}
+									InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+								}
+								NodeListItemMap["interface_list"] = InterfaceListList
+							}
+						}
+						if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
+							NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
+						}
+						if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
+							NodeListItemMap["type"] = NodeListItem.Type.ValueString()
+						}
+						NodeListList = append(NodeListList, NodeListItemMap)
 					}
-					if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
-						NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
-					}
-					if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
-						NodeListItemMap["type"] = NodeListItem.Type.ValueString()
-					}
-					NodeListList = append(NodeListList, NodeListItemMap)
+					NotManagedMap["node_list"] = NodeListList
 				}
-				NotManagedMap["node_list"] = NodeListList
 			}
 			AzureMap["not_managed"] = NotManagedMap
 		}
@@ -29069,247 +29424,267 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 		BaremetalMap := make(map[string]interface{})
 		if data.Baremetal.NotManaged != nil {
 			NotManagedMap := make(map[string]interface{})
-			if len(data.Baremetal.NotManaged.NodeList) > 0 {
-				var NodeListList []map[string]interface{}
-				for _, NodeListItem := range data.Baremetal.NotManaged.NodeList {
-					NodeListItemMap := make(map[string]interface{})
-					if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
-						NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
-					}
-					if len(NodeListItem.InterfaceList) > 0 {
-						var InterfaceListList []map[string]interface{}
-						for _, InterfaceListItem := range NodeListItem.InterfaceList {
-							InterfaceListItemMap := make(map[string]interface{})
-							if InterfaceListItem.BondInterface != nil {
-								BondInterfaceMap := make(map[string]interface{})
-								if InterfaceListItem.BondInterface.ActiveBackup != nil {
-									BondInterfaceMap["active_backup"] = map[string]interface{}{}
-								}
-								if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
-									var DevicesItems []string
-									diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
-									if !diags.HasError() {
-										BondInterfaceMap["devices"] = DevicesItems
-									}
-								}
-								if InterfaceListItem.BondInterface.Lacp != nil {
-									LacpMap := make(map[string]interface{})
-									if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
-										LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
-									}
-									BondInterfaceMap["lacp"] = LacpMap
-								}
-								if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
-									BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
-									BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
-									BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
-								}
-								InterfaceListItemMap["bond_interface"] = BondInterfaceMap
-							}
-							if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
-								InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
-							}
-							if InterfaceListItem.DHCPClient != nil {
-								InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.EthernetInterface != nil {
-								EthernetInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
-									EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
-									EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
-								}
-								InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
-							}
-							if InterfaceListItem.Ipv6AutoConfig != nil {
-								Ipv6AutoConfigMap := make(map[string]interface{})
-								if InterfaceListItem.Ipv6AutoConfig.Host != nil {
-									Ipv6AutoConfigMap["host"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.Ipv6AutoConfig.Router != nil {
-									RouterMap := make(map[string]interface{})
-									if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
-										DNSConfigMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-											ConfiguredListMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
-												var DNSListItems []string
-												diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
-												if !diags.HasError() {
-													ConfiguredListMap["dns_list"] = DNSListItems
-												}
-											}
-											DNSConfigMap["configured_list"] = ConfiguredListMap
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-											LocalDNSMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-												LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-												LocalDNSMap["first_address"] = map[string]interface{}{}
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-												LocalDNSMap["last_address"] = map[string]interface{}{}
-											}
-											DNSConfigMap["local_dns"] = LocalDNSMap
-										}
-										RouterMap["dns_config"] = DNSConfigMap
-									}
-									if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-										RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
-									}
-									if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
-										StatefulMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-											StatefulMap["automatic_from_end"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-											StatefulMap["automatic_from_start"] = map[string]interface{}{}
-										}
-										if len(InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
-													}
-													DHCPNetworksItemMap["pools"] = PoolsList
-												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
-											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-											InterfaceIPMapMap := make(map[string]interface{})
-											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
-											}
-											StatefulMap["interface_ip_map"] = InterfaceIPMapMap
-										}
-										RouterMap["stateful"] = StatefulMap
-									}
-									Ipv6AutoConfigMap["router"] = RouterMap
-								}
-								InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
-							}
-							if InterfaceListItem.Labels != nil {
-								InterfaceListItemMap["labels"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.Monitor != nil {
-								InterfaceListItemMap["monitor"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.MonitorDisabled != nil {
-								InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
-								InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
-							}
-							if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
-								InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
-							}
-							if InterfaceListItem.NetworkOption != nil {
-								NetworkOptionMap := make(map[string]interface{})
-								if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
-									NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
-									NetworkOptionMap["site_local_network"] = map[string]interface{}{}
-								}
-								InterfaceListItemMap["network_option"] = NetworkOptionMap
-							}
-							if InterfaceListItem.NoIpv4Address != nil {
-								InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.NoIpv6Address != nil {
-								InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
-								InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.StaticIP != nil {
-								StaticIPMap := make(map[string]interface{})
-								if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
-									StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
-								}
-								if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
-									StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
-								}
-								InterfaceListItemMap["static_ip"] = StaticIPMap
-							}
-							if InterfaceListItem.StaticIpv6Address != nil {
-								StaticIpv6AddressMap := make(map[string]interface{})
-								if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
-									ClusterStaticIPMap := make(map[string]interface{})
-									if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
-									}
-									StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
-								}
-								if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
-									NodeStaticIPMap := make(map[string]interface{})
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-										NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
-									}
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-										NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
-									}
-									StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
-								}
-								InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
-							}
-							if InterfaceListItem.VLANInterface != nil {
-								VLANInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
-									VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
-									VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
-								}
-								InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
-							}
-							InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+			if !data.Baremetal.NotManaged.NodeList.IsNull() && !data.Baremetal.NotManaged.NodeList.IsUnknown() {
+				var NodeListElems []SecuremeshSiteV2BaremetalNotManagedNodeListModel
+				diags := data.Baremetal.NotManaged.NodeList.ElementsAs(ctx, &NodeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodeListElems) > 0 {
+					var NodeListList []map[string]interface{}
+					for _, NodeListItem := range NodeListElems {
+						NodeListItemMap := make(map[string]interface{})
+						if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
+							NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
 						}
-						NodeListItemMap["interface_list"] = InterfaceListList
+						if !NodeListItem.InterfaceList.IsNull() && !NodeListItem.InterfaceList.IsUnknown() {
+							var InterfaceListElems []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModel
+							diags := NodeListItem.InterfaceList.ElementsAs(ctx, &InterfaceListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceListElems) > 0 {
+								var InterfaceListList []map[string]interface{}
+								for _, InterfaceListItem := range InterfaceListElems {
+									InterfaceListItemMap := make(map[string]interface{})
+									if InterfaceListItem.BondInterface != nil {
+										BondInterfaceMap := make(map[string]interface{})
+										if InterfaceListItem.BondInterface.ActiveBackup != nil {
+											BondInterfaceMap["active_backup"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
+											var DevicesItems []string
+											diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
+											if !diags.HasError() {
+												BondInterfaceMap["devices"] = DevicesItems
+											}
+										}
+										if InterfaceListItem.BondInterface.Lacp != nil {
+											LacpMap := make(map[string]interface{})
+											if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
+												LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
+											}
+											BondInterfaceMap["lacp"] = LacpMap
+										}
+										if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
+											BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
+											BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
+											BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
+										}
+										InterfaceListItemMap["bond_interface"] = BondInterfaceMap
+									}
+									if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
+										InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
+									}
+									if InterfaceListItem.DHCPClient != nil {
+										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.EthernetInterface != nil {
+										EthernetInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
+											EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
+											EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
+										}
+										InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
+									}
+									if InterfaceListItem.Ipv6AutoConfig != nil {
+										Ipv6AutoConfigMap := make(map[string]interface{})
+										if InterfaceListItem.Ipv6AutoConfig.Host != nil {
+											Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.Ipv6AutoConfig.Router != nil {
+											RouterMap := make(map[string]interface{})
+											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
+												DNSConfigMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+													ConfiguredListMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+														var DNSListItems []string
+														diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+														if !diags.HasError() {
+															ConfiguredListMap["dns_list"] = DNSListItems
+														}
+													}
+													DNSConfigMap["configured_list"] = ConfiguredListMap
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+													LocalDNSMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+														LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+														LocalDNSMap["first_address"] = map[string]interface{}{}
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+														LocalDNSMap["last_address"] = map[string]interface{}{}
+													}
+													DNSConfigMap["local_dns"] = LocalDNSMap
+												}
+												RouterMap["dns_config"] = DNSConfigMap
+											}
+											if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+												RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+											}
+											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
+												StatefulMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+													StatefulMap["automatic_from_end"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+													StatefulMap["automatic_from_start"] = map[string]interface{}{}
+												}
+												if !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+													var DHCPNetworksElems []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													diags := InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+														var DHCPNetworksList []map[string]interface{}
+														for _, DHCPNetworksItem := range DHCPNetworksElems {
+															DHCPNetworksItemMap := make(map[string]interface{})
+															if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+																DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+															}
+															if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+																DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+															}
+															if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+																var PoolsElems []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+																resp.Diagnostics.Append(diags...)
+																if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+																	var PoolsList []map[string]interface{}
+																	for _, PoolsItem := range PoolsElems {
+																		PoolsItemMap := make(map[string]interface{})
+																		if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																			PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																		}
+																		if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																			PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																		}
+																		PoolsList = append(PoolsList, PoolsItemMap)
+																	}
+																	DHCPNetworksItemMap["pools"] = PoolsList
+																}
+															}
+															DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+														}
+														StatefulMap["dhcp_networks"] = DHCPNetworksList
+													}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+													StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+													InterfaceIPMapMap := make(map[string]interface{})
+													if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+														InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+													}
+													StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+												RouterMap["stateful"] = StatefulMap
+											}
+											Ipv6AutoConfigMap["router"] = RouterMap
+										}
+										InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+									}
+									if InterfaceListItem.Labels != nil {
+										InterfaceListItemMap["labels"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.Monitor != nil {
+										InterfaceListItemMap["monitor"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.MonitorDisabled != nil {
+										InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
+										InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
+									}
+									if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
+										InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
+									}
+									if InterfaceListItem.NetworkOption != nil {
+										NetworkOptionMap := make(map[string]interface{})
+										if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
+											NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
+											NetworkOptionMap["site_local_network"] = map[string]interface{}{}
+										}
+										InterfaceListItemMap["network_option"] = NetworkOptionMap
+									}
+									if InterfaceListItem.NoIpv4Address != nil {
+										InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.NoIpv6Address != nil {
+										InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
+										InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.StaticIP != nil {
+										StaticIPMap := make(map[string]interface{})
+										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
+											StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
+										}
+										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
+											StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
+										}
+										InterfaceListItemMap["static_ip"] = StaticIPMap
+									}
+									if InterfaceListItem.StaticIpv6Address != nil {
+										StaticIpv6AddressMap := make(map[string]interface{})
+										if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
+											ClusterStaticIPMap := make(map[string]interface{})
+											if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+												ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+											}
+											StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+										}
+										if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
+											NodeStaticIPMap := make(map[string]interface{})
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+												NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+												NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+											}
+											StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+										}
+										InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
+									}
+									if InterfaceListItem.VLANInterface != nil {
+										VLANInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
+											VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
+											VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
+										}
+										InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
+									}
+									InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+								}
+								NodeListItemMap["interface_list"] = InterfaceListList
+							}
+						}
+						if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
+							NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
+						}
+						if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
+							NodeListItemMap["type"] = NodeListItem.Type.ValueString()
+						}
+						NodeListList = append(NodeListList, NodeListItemMap)
 					}
-					if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
-						NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
-					}
-					if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
-						NodeListItemMap["type"] = NodeListItem.Type.ValueString()
-					}
-					NodeListList = append(NodeListList, NodeListItemMap)
+					NotManagedMap["node_list"] = NodeListList
 				}
-				NotManagedMap["node_list"] = NodeListList
 			}
 			BaremetalMap["not_managed"] = NotManagedMap
 		}
@@ -29320,25 +29695,30 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 	}
 	if data.BlockedServices != nil {
 		BlockedServicesMap := make(map[string]interface{})
-		if len(data.BlockedServices.BlockedService) > 0 {
-			var BlockedServiceList []map[string]interface{}
-			for _, BlockedServiceItem := range data.BlockedServices.BlockedService {
-				BlockedServiceItemMap := make(map[string]interface{})
-				if BlockedServiceItem.DNS != nil {
-					BlockedServiceItemMap["dns"] = map[string]interface{}{}
+		if !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
+			var BlockedServiceElems []SecuremeshSiteV2BlockedServicesBlockedServiceModel
+			diags := data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(BlockedServiceElems) > 0 {
+				var BlockedServiceList []map[string]interface{}
+				for _, BlockedServiceItem := range BlockedServiceElems {
+					BlockedServiceItemMap := make(map[string]interface{})
+					if BlockedServiceItem.DNS != nil {
+						BlockedServiceItemMap["dns"] = map[string]interface{}{}
+					}
+					if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
+						BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
+					}
+					if BlockedServiceItem.SSH != nil {
+						BlockedServiceItemMap["ssh"] = map[string]interface{}{}
+					}
+					if BlockedServiceItem.WebUserInterface != nil {
+						BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
+					}
+					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
 				}
-				if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
-					BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
-				}
-				if BlockedServiceItem.SSH != nil {
-					BlockedServiceItemMap["ssh"] = map[string]interface{}{}
-				}
-				if BlockedServiceItem.WebUserInterface != nil {
-					BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
-				}
-				BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
+				BlockedServicesMap["blocked_service"] = BlockedServiceList
 			}
-			BlockedServicesMap["blocked_service"] = BlockedServiceList
 		}
 		apiResource.Spec["blocked_services"] = BlockedServicesMap
 	}
@@ -29521,247 +29901,267 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 		EquinixMap := make(map[string]interface{})
 		if data.Equinix.NotManaged != nil {
 			NotManagedMap := make(map[string]interface{})
-			if len(data.Equinix.NotManaged.NodeList) > 0 {
-				var NodeListList []map[string]interface{}
-				for _, NodeListItem := range data.Equinix.NotManaged.NodeList {
-					NodeListItemMap := make(map[string]interface{})
-					if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
-						NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
-					}
-					if len(NodeListItem.InterfaceList) > 0 {
-						var InterfaceListList []map[string]interface{}
-						for _, InterfaceListItem := range NodeListItem.InterfaceList {
-							InterfaceListItemMap := make(map[string]interface{})
-							if InterfaceListItem.BondInterface != nil {
-								BondInterfaceMap := make(map[string]interface{})
-								if InterfaceListItem.BondInterface.ActiveBackup != nil {
-									BondInterfaceMap["active_backup"] = map[string]interface{}{}
-								}
-								if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
-									var DevicesItems []string
-									diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
-									if !diags.HasError() {
-										BondInterfaceMap["devices"] = DevicesItems
-									}
-								}
-								if InterfaceListItem.BondInterface.Lacp != nil {
-									LacpMap := make(map[string]interface{})
-									if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
-										LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
-									}
-									BondInterfaceMap["lacp"] = LacpMap
-								}
-								if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
-									BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
-									BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
-									BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
-								}
-								InterfaceListItemMap["bond_interface"] = BondInterfaceMap
-							}
-							if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
-								InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
-							}
-							if InterfaceListItem.DHCPClient != nil {
-								InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.EthernetInterface != nil {
-								EthernetInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
-									EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
-									EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
-								}
-								InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
-							}
-							if InterfaceListItem.Ipv6AutoConfig != nil {
-								Ipv6AutoConfigMap := make(map[string]interface{})
-								if InterfaceListItem.Ipv6AutoConfig.Host != nil {
-									Ipv6AutoConfigMap["host"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.Ipv6AutoConfig.Router != nil {
-									RouterMap := make(map[string]interface{})
-									if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
-										DNSConfigMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-											ConfiguredListMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
-												var DNSListItems []string
-												diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
-												if !diags.HasError() {
-													ConfiguredListMap["dns_list"] = DNSListItems
-												}
-											}
-											DNSConfigMap["configured_list"] = ConfiguredListMap
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-											LocalDNSMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-												LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-												LocalDNSMap["first_address"] = map[string]interface{}{}
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-												LocalDNSMap["last_address"] = map[string]interface{}{}
-											}
-											DNSConfigMap["local_dns"] = LocalDNSMap
-										}
-										RouterMap["dns_config"] = DNSConfigMap
-									}
-									if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-										RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
-									}
-									if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
-										StatefulMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-											StatefulMap["automatic_from_end"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-											StatefulMap["automatic_from_start"] = map[string]interface{}{}
-										}
-										if len(InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
-													}
-													DHCPNetworksItemMap["pools"] = PoolsList
-												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
-											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-											InterfaceIPMapMap := make(map[string]interface{})
-											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
-											}
-											StatefulMap["interface_ip_map"] = InterfaceIPMapMap
-										}
-										RouterMap["stateful"] = StatefulMap
-									}
-									Ipv6AutoConfigMap["router"] = RouterMap
-								}
-								InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
-							}
-							if InterfaceListItem.Labels != nil {
-								InterfaceListItemMap["labels"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.Monitor != nil {
-								InterfaceListItemMap["monitor"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.MonitorDisabled != nil {
-								InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
-								InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
-							}
-							if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
-								InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
-							}
-							if InterfaceListItem.NetworkOption != nil {
-								NetworkOptionMap := make(map[string]interface{})
-								if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
-									NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
-									NetworkOptionMap["site_local_network"] = map[string]interface{}{}
-								}
-								InterfaceListItemMap["network_option"] = NetworkOptionMap
-							}
-							if InterfaceListItem.NoIpv4Address != nil {
-								InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.NoIpv6Address != nil {
-								InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
-								InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.StaticIP != nil {
-								StaticIPMap := make(map[string]interface{})
-								if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
-									StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
-								}
-								if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
-									StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
-								}
-								InterfaceListItemMap["static_ip"] = StaticIPMap
-							}
-							if InterfaceListItem.StaticIpv6Address != nil {
-								StaticIpv6AddressMap := make(map[string]interface{})
-								if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
-									ClusterStaticIPMap := make(map[string]interface{})
-									if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
-									}
-									StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
-								}
-								if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
-									NodeStaticIPMap := make(map[string]interface{})
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-										NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
-									}
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-										NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
-									}
-									StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
-								}
-								InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
-							}
-							if InterfaceListItem.VLANInterface != nil {
-								VLANInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
-									VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
-									VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
-								}
-								InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
-							}
-							InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+			if !data.Equinix.NotManaged.NodeList.IsNull() && !data.Equinix.NotManaged.NodeList.IsUnknown() {
+				var NodeListElems []SecuremeshSiteV2EquinixNotManagedNodeListModel
+				diags := data.Equinix.NotManaged.NodeList.ElementsAs(ctx, &NodeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodeListElems) > 0 {
+					var NodeListList []map[string]interface{}
+					for _, NodeListItem := range NodeListElems {
+						NodeListItemMap := make(map[string]interface{})
+						if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
+							NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
 						}
-						NodeListItemMap["interface_list"] = InterfaceListList
+						if !NodeListItem.InterfaceList.IsNull() && !NodeListItem.InterfaceList.IsUnknown() {
+							var InterfaceListElems []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModel
+							diags := NodeListItem.InterfaceList.ElementsAs(ctx, &InterfaceListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceListElems) > 0 {
+								var InterfaceListList []map[string]interface{}
+								for _, InterfaceListItem := range InterfaceListElems {
+									InterfaceListItemMap := make(map[string]interface{})
+									if InterfaceListItem.BondInterface != nil {
+										BondInterfaceMap := make(map[string]interface{})
+										if InterfaceListItem.BondInterface.ActiveBackup != nil {
+											BondInterfaceMap["active_backup"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
+											var DevicesItems []string
+											diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
+											if !diags.HasError() {
+												BondInterfaceMap["devices"] = DevicesItems
+											}
+										}
+										if InterfaceListItem.BondInterface.Lacp != nil {
+											LacpMap := make(map[string]interface{})
+											if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
+												LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
+											}
+											BondInterfaceMap["lacp"] = LacpMap
+										}
+										if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
+											BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
+											BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
+											BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
+										}
+										InterfaceListItemMap["bond_interface"] = BondInterfaceMap
+									}
+									if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
+										InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
+									}
+									if InterfaceListItem.DHCPClient != nil {
+										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.EthernetInterface != nil {
+										EthernetInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
+											EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
+											EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
+										}
+										InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
+									}
+									if InterfaceListItem.Ipv6AutoConfig != nil {
+										Ipv6AutoConfigMap := make(map[string]interface{})
+										if InterfaceListItem.Ipv6AutoConfig.Host != nil {
+											Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.Ipv6AutoConfig.Router != nil {
+											RouterMap := make(map[string]interface{})
+											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
+												DNSConfigMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+													ConfiguredListMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+														var DNSListItems []string
+														diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+														if !diags.HasError() {
+															ConfiguredListMap["dns_list"] = DNSListItems
+														}
+													}
+													DNSConfigMap["configured_list"] = ConfiguredListMap
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+													LocalDNSMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+														LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+														LocalDNSMap["first_address"] = map[string]interface{}{}
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+														LocalDNSMap["last_address"] = map[string]interface{}{}
+													}
+													DNSConfigMap["local_dns"] = LocalDNSMap
+												}
+												RouterMap["dns_config"] = DNSConfigMap
+											}
+											if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+												RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+											}
+											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
+												StatefulMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+													StatefulMap["automatic_from_end"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+													StatefulMap["automatic_from_start"] = map[string]interface{}{}
+												}
+												if !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+													var DHCPNetworksElems []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													diags := InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+														var DHCPNetworksList []map[string]interface{}
+														for _, DHCPNetworksItem := range DHCPNetworksElems {
+															DHCPNetworksItemMap := make(map[string]interface{})
+															if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+																DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+															}
+															if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+																DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+															}
+															if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+																var PoolsElems []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+																resp.Diagnostics.Append(diags...)
+																if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+																	var PoolsList []map[string]interface{}
+																	for _, PoolsItem := range PoolsElems {
+																		PoolsItemMap := make(map[string]interface{})
+																		if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																			PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																		}
+																		if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																			PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																		}
+																		PoolsList = append(PoolsList, PoolsItemMap)
+																	}
+																	DHCPNetworksItemMap["pools"] = PoolsList
+																}
+															}
+															DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+														}
+														StatefulMap["dhcp_networks"] = DHCPNetworksList
+													}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+													StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+													InterfaceIPMapMap := make(map[string]interface{})
+													if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+														InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+													}
+													StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+												RouterMap["stateful"] = StatefulMap
+											}
+											Ipv6AutoConfigMap["router"] = RouterMap
+										}
+										InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+									}
+									if InterfaceListItem.Labels != nil {
+										InterfaceListItemMap["labels"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.Monitor != nil {
+										InterfaceListItemMap["monitor"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.MonitorDisabled != nil {
+										InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
+										InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
+									}
+									if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
+										InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
+									}
+									if InterfaceListItem.NetworkOption != nil {
+										NetworkOptionMap := make(map[string]interface{})
+										if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
+											NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
+											NetworkOptionMap["site_local_network"] = map[string]interface{}{}
+										}
+										InterfaceListItemMap["network_option"] = NetworkOptionMap
+									}
+									if InterfaceListItem.NoIpv4Address != nil {
+										InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.NoIpv6Address != nil {
+										InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
+										InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.StaticIP != nil {
+										StaticIPMap := make(map[string]interface{})
+										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
+											StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
+										}
+										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
+											StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
+										}
+										InterfaceListItemMap["static_ip"] = StaticIPMap
+									}
+									if InterfaceListItem.StaticIpv6Address != nil {
+										StaticIpv6AddressMap := make(map[string]interface{})
+										if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
+											ClusterStaticIPMap := make(map[string]interface{})
+											if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+												ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+											}
+											StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+										}
+										if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
+											NodeStaticIPMap := make(map[string]interface{})
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+												NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+												NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+											}
+											StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+										}
+										InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
+									}
+									if InterfaceListItem.VLANInterface != nil {
+										VLANInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
+											VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
+											VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
+										}
+										InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
+									}
+									InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+								}
+								NodeListItemMap["interface_list"] = InterfaceListList
+							}
+						}
+						if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
+							NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
+						}
+						if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
+							NodeListItemMap["type"] = NodeListItem.Type.ValueString()
+						}
+						NodeListList = append(NodeListList, NodeListItemMap)
 					}
-					if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
-						NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
-					}
-					if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
-						NodeListItemMap["type"] = NodeListItem.Type.ValueString()
-					}
-					NodeListList = append(NodeListList, NodeListItemMap)
+					NotManagedMap["node_list"] = NodeListList
 				}
-				NotManagedMap["node_list"] = NodeListList
 			}
 			EquinixMap["not_managed"] = NotManagedMap
 		}
@@ -29774,247 +30174,267 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 		GCPMap := make(map[string]interface{})
 		if data.GCP.NotManaged != nil {
 			NotManagedMap := make(map[string]interface{})
-			if len(data.GCP.NotManaged.NodeList) > 0 {
-				var NodeListList []map[string]interface{}
-				for _, NodeListItem := range data.GCP.NotManaged.NodeList {
-					NodeListItemMap := make(map[string]interface{})
-					if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
-						NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
-					}
-					if len(NodeListItem.InterfaceList) > 0 {
-						var InterfaceListList []map[string]interface{}
-						for _, InterfaceListItem := range NodeListItem.InterfaceList {
-							InterfaceListItemMap := make(map[string]interface{})
-							if InterfaceListItem.BondInterface != nil {
-								BondInterfaceMap := make(map[string]interface{})
-								if InterfaceListItem.BondInterface.ActiveBackup != nil {
-									BondInterfaceMap["active_backup"] = map[string]interface{}{}
-								}
-								if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
-									var DevicesItems []string
-									diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
-									if !diags.HasError() {
-										BondInterfaceMap["devices"] = DevicesItems
-									}
-								}
-								if InterfaceListItem.BondInterface.Lacp != nil {
-									LacpMap := make(map[string]interface{})
-									if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
-										LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
-									}
-									BondInterfaceMap["lacp"] = LacpMap
-								}
-								if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
-									BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
-									BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
-									BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
-								}
-								InterfaceListItemMap["bond_interface"] = BondInterfaceMap
-							}
-							if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
-								InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
-							}
-							if InterfaceListItem.DHCPClient != nil {
-								InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.EthernetInterface != nil {
-								EthernetInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
-									EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
-									EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
-								}
-								InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
-							}
-							if InterfaceListItem.Ipv6AutoConfig != nil {
-								Ipv6AutoConfigMap := make(map[string]interface{})
-								if InterfaceListItem.Ipv6AutoConfig.Host != nil {
-									Ipv6AutoConfigMap["host"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.Ipv6AutoConfig.Router != nil {
-									RouterMap := make(map[string]interface{})
-									if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
-										DNSConfigMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-											ConfiguredListMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
-												var DNSListItems []string
-												diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
-												if !diags.HasError() {
-													ConfiguredListMap["dns_list"] = DNSListItems
-												}
-											}
-											DNSConfigMap["configured_list"] = ConfiguredListMap
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-											LocalDNSMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-												LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-												LocalDNSMap["first_address"] = map[string]interface{}{}
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-												LocalDNSMap["last_address"] = map[string]interface{}{}
-											}
-											DNSConfigMap["local_dns"] = LocalDNSMap
-										}
-										RouterMap["dns_config"] = DNSConfigMap
-									}
-									if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-										RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
-									}
-									if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
-										StatefulMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-											StatefulMap["automatic_from_end"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-											StatefulMap["automatic_from_start"] = map[string]interface{}{}
-										}
-										if len(InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
-													}
-													DHCPNetworksItemMap["pools"] = PoolsList
-												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
-											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-											InterfaceIPMapMap := make(map[string]interface{})
-											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
-											}
-											StatefulMap["interface_ip_map"] = InterfaceIPMapMap
-										}
-										RouterMap["stateful"] = StatefulMap
-									}
-									Ipv6AutoConfigMap["router"] = RouterMap
-								}
-								InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
-							}
-							if InterfaceListItem.Labels != nil {
-								InterfaceListItemMap["labels"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.Monitor != nil {
-								InterfaceListItemMap["monitor"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.MonitorDisabled != nil {
-								InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
-								InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
-							}
-							if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
-								InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
-							}
-							if InterfaceListItem.NetworkOption != nil {
-								NetworkOptionMap := make(map[string]interface{})
-								if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
-									NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
-									NetworkOptionMap["site_local_network"] = map[string]interface{}{}
-								}
-								InterfaceListItemMap["network_option"] = NetworkOptionMap
-							}
-							if InterfaceListItem.NoIpv4Address != nil {
-								InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.NoIpv6Address != nil {
-								InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
-								InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.StaticIP != nil {
-								StaticIPMap := make(map[string]interface{})
-								if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
-									StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
-								}
-								if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
-									StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
-								}
-								InterfaceListItemMap["static_ip"] = StaticIPMap
-							}
-							if InterfaceListItem.StaticIpv6Address != nil {
-								StaticIpv6AddressMap := make(map[string]interface{})
-								if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
-									ClusterStaticIPMap := make(map[string]interface{})
-									if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
-									}
-									StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
-								}
-								if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
-									NodeStaticIPMap := make(map[string]interface{})
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-										NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
-									}
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-										NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
-									}
-									StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
-								}
-								InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
-							}
-							if InterfaceListItem.VLANInterface != nil {
-								VLANInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
-									VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
-									VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
-								}
-								InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
-							}
-							InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+			if !data.GCP.NotManaged.NodeList.IsNull() && !data.GCP.NotManaged.NodeList.IsUnknown() {
+				var NodeListElems []SecuremeshSiteV2GCPNotManagedNodeListModel
+				diags := data.GCP.NotManaged.NodeList.ElementsAs(ctx, &NodeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodeListElems) > 0 {
+					var NodeListList []map[string]interface{}
+					for _, NodeListItem := range NodeListElems {
+						NodeListItemMap := make(map[string]interface{})
+						if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
+							NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
 						}
-						NodeListItemMap["interface_list"] = InterfaceListList
+						if !NodeListItem.InterfaceList.IsNull() && !NodeListItem.InterfaceList.IsUnknown() {
+							var InterfaceListElems []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModel
+							diags := NodeListItem.InterfaceList.ElementsAs(ctx, &InterfaceListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceListElems) > 0 {
+								var InterfaceListList []map[string]interface{}
+								for _, InterfaceListItem := range InterfaceListElems {
+									InterfaceListItemMap := make(map[string]interface{})
+									if InterfaceListItem.BondInterface != nil {
+										BondInterfaceMap := make(map[string]interface{})
+										if InterfaceListItem.BondInterface.ActiveBackup != nil {
+											BondInterfaceMap["active_backup"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
+											var DevicesItems []string
+											diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
+											if !diags.HasError() {
+												BondInterfaceMap["devices"] = DevicesItems
+											}
+										}
+										if InterfaceListItem.BondInterface.Lacp != nil {
+											LacpMap := make(map[string]interface{})
+											if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
+												LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
+											}
+											BondInterfaceMap["lacp"] = LacpMap
+										}
+										if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
+											BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
+											BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
+											BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
+										}
+										InterfaceListItemMap["bond_interface"] = BondInterfaceMap
+									}
+									if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
+										InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
+									}
+									if InterfaceListItem.DHCPClient != nil {
+										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.EthernetInterface != nil {
+										EthernetInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
+											EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
+											EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
+										}
+										InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
+									}
+									if InterfaceListItem.Ipv6AutoConfig != nil {
+										Ipv6AutoConfigMap := make(map[string]interface{})
+										if InterfaceListItem.Ipv6AutoConfig.Host != nil {
+											Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.Ipv6AutoConfig.Router != nil {
+											RouterMap := make(map[string]interface{})
+											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
+												DNSConfigMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+													ConfiguredListMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+														var DNSListItems []string
+														diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+														if !diags.HasError() {
+															ConfiguredListMap["dns_list"] = DNSListItems
+														}
+													}
+													DNSConfigMap["configured_list"] = ConfiguredListMap
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+													LocalDNSMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+														LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+														LocalDNSMap["first_address"] = map[string]interface{}{}
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+														LocalDNSMap["last_address"] = map[string]interface{}{}
+													}
+													DNSConfigMap["local_dns"] = LocalDNSMap
+												}
+												RouterMap["dns_config"] = DNSConfigMap
+											}
+											if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+												RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+											}
+											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
+												StatefulMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+													StatefulMap["automatic_from_end"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+													StatefulMap["automatic_from_start"] = map[string]interface{}{}
+												}
+												if !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+													var DHCPNetworksElems []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													diags := InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+														var DHCPNetworksList []map[string]interface{}
+														for _, DHCPNetworksItem := range DHCPNetworksElems {
+															DHCPNetworksItemMap := make(map[string]interface{})
+															if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+																DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+															}
+															if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+																DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+															}
+															if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+																var PoolsElems []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+																resp.Diagnostics.Append(diags...)
+																if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+																	var PoolsList []map[string]interface{}
+																	for _, PoolsItem := range PoolsElems {
+																		PoolsItemMap := make(map[string]interface{})
+																		if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																			PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																		}
+																		if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																			PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																		}
+																		PoolsList = append(PoolsList, PoolsItemMap)
+																	}
+																	DHCPNetworksItemMap["pools"] = PoolsList
+																}
+															}
+															DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+														}
+														StatefulMap["dhcp_networks"] = DHCPNetworksList
+													}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+													StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+													InterfaceIPMapMap := make(map[string]interface{})
+													if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+														InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+													}
+													StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+												RouterMap["stateful"] = StatefulMap
+											}
+											Ipv6AutoConfigMap["router"] = RouterMap
+										}
+										InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+									}
+									if InterfaceListItem.Labels != nil {
+										InterfaceListItemMap["labels"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.Monitor != nil {
+										InterfaceListItemMap["monitor"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.MonitorDisabled != nil {
+										InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
+										InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
+									}
+									if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
+										InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
+									}
+									if InterfaceListItem.NetworkOption != nil {
+										NetworkOptionMap := make(map[string]interface{})
+										if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
+											NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
+											NetworkOptionMap["site_local_network"] = map[string]interface{}{}
+										}
+										InterfaceListItemMap["network_option"] = NetworkOptionMap
+									}
+									if InterfaceListItem.NoIpv4Address != nil {
+										InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.NoIpv6Address != nil {
+										InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
+										InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.StaticIP != nil {
+										StaticIPMap := make(map[string]interface{})
+										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
+											StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
+										}
+										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
+											StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
+										}
+										InterfaceListItemMap["static_ip"] = StaticIPMap
+									}
+									if InterfaceListItem.StaticIpv6Address != nil {
+										StaticIpv6AddressMap := make(map[string]interface{})
+										if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
+											ClusterStaticIPMap := make(map[string]interface{})
+											if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+												ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+											}
+											StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+										}
+										if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
+											NodeStaticIPMap := make(map[string]interface{})
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+												NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+												NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+											}
+											StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+										}
+										InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
+									}
+									if InterfaceListItem.VLANInterface != nil {
+										VLANInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
+											VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
+											VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
+										}
+										InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
+									}
+									InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+								}
+								NodeListItemMap["interface_list"] = InterfaceListList
+							}
+						}
+						if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
+							NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
+						}
+						if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
+							NodeListItemMap["type"] = NodeListItem.Type.ValueString()
+						}
+						NodeListList = append(NodeListList, NodeListItemMap)
 					}
-					if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
-						NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
-					}
-					if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
-						NodeListItemMap["type"] = NodeListItem.Type.ValueString()
-					}
-					NodeListList = append(NodeListList, NodeListItemMap)
+					NotManagedMap["node_list"] = NodeListList
 				}
-				NotManagedMap["node_list"] = NodeListList
 			}
 			GCPMap["not_managed"] = NotManagedMap
 		}
@@ -30024,247 +30444,267 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 		KvmMap := make(map[string]interface{})
 		if data.Kvm.NotManaged != nil {
 			NotManagedMap := make(map[string]interface{})
-			if len(data.Kvm.NotManaged.NodeList) > 0 {
-				var NodeListList []map[string]interface{}
-				for _, NodeListItem := range data.Kvm.NotManaged.NodeList {
-					NodeListItemMap := make(map[string]interface{})
-					if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
-						NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
-					}
-					if len(NodeListItem.InterfaceList) > 0 {
-						var InterfaceListList []map[string]interface{}
-						for _, InterfaceListItem := range NodeListItem.InterfaceList {
-							InterfaceListItemMap := make(map[string]interface{})
-							if InterfaceListItem.BondInterface != nil {
-								BondInterfaceMap := make(map[string]interface{})
-								if InterfaceListItem.BondInterface.ActiveBackup != nil {
-									BondInterfaceMap["active_backup"] = map[string]interface{}{}
-								}
-								if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
-									var DevicesItems []string
-									diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
-									if !diags.HasError() {
-										BondInterfaceMap["devices"] = DevicesItems
-									}
-								}
-								if InterfaceListItem.BondInterface.Lacp != nil {
-									LacpMap := make(map[string]interface{})
-									if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
-										LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
-									}
-									BondInterfaceMap["lacp"] = LacpMap
-								}
-								if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
-									BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
-									BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
-									BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
-								}
-								InterfaceListItemMap["bond_interface"] = BondInterfaceMap
-							}
-							if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
-								InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
-							}
-							if InterfaceListItem.DHCPClient != nil {
-								InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.EthernetInterface != nil {
-								EthernetInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
-									EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
-									EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
-								}
-								InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
-							}
-							if InterfaceListItem.Ipv6AutoConfig != nil {
-								Ipv6AutoConfigMap := make(map[string]interface{})
-								if InterfaceListItem.Ipv6AutoConfig.Host != nil {
-									Ipv6AutoConfigMap["host"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.Ipv6AutoConfig.Router != nil {
-									RouterMap := make(map[string]interface{})
-									if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
-										DNSConfigMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-											ConfiguredListMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
-												var DNSListItems []string
-												diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
-												if !diags.HasError() {
-													ConfiguredListMap["dns_list"] = DNSListItems
-												}
-											}
-											DNSConfigMap["configured_list"] = ConfiguredListMap
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-											LocalDNSMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-												LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-												LocalDNSMap["first_address"] = map[string]interface{}{}
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-												LocalDNSMap["last_address"] = map[string]interface{}{}
-											}
-											DNSConfigMap["local_dns"] = LocalDNSMap
-										}
-										RouterMap["dns_config"] = DNSConfigMap
-									}
-									if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-										RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
-									}
-									if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
-										StatefulMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-											StatefulMap["automatic_from_end"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-											StatefulMap["automatic_from_start"] = map[string]interface{}{}
-										}
-										if len(InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
-													}
-													DHCPNetworksItemMap["pools"] = PoolsList
-												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
-											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-											InterfaceIPMapMap := make(map[string]interface{})
-											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
-											}
-											StatefulMap["interface_ip_map"] = InterfaceIPMapMap
-										}
-										RouterMap["stateful"] = StatefulMap
-									}
-									Ipv6AutoConfigMap["router"] = RouterMap
-								}
-								InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
-							}
-							if InterfaceListItem.Labels != nil {
-								InterfaceListItemMap["labels"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.Monitor != nil {
-								InterfaceListItemMap["monitor"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.MonitorDisabled != nil {
-								InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
-								InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
-							}
-							if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
-								InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
-							}
-							if InterfaceListItem.NetworkOption != nil {
-								NetworkOptionMap := make(map[string]interface{})
-								if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
-									NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
-									NetworkOptionMap["site_local_network"] = map[string]interface{}{}
-								}
-								InterfaceListItemMap["network_option"] = NetworkOptionMap
-							}
-							if InterfaceListItem.NoIpv4Address != nil {
-								InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.NoIpv6Address != nil {
-								InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
-								InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.StaticIP != nil {
-								StaticIPMap := make(map[string]interface{})
-								if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
-									StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
-								}
-								if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
-									StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
-								}
-								InterfaceListItemMap["static_ip"] = StaticIPMap
-							}
-							if InterfaceListItem.StaticIpv6Address != nil {
-								StaticIpv6AddressMap := make(map[string]interface{})
-								if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
-									ClusterStaticIPMap := make(map[string]interface{})
-									if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
-									}
-									StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
-								}
-								if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
-									NodeStaticIPMap := make(map[string]interface{})
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-										NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
-									}
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-										NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
-									}
-									StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
-								}
-								InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
-							}
-							if InterfaceListItem.VLANInterface != nil {
-								VLANInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
-									VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
-									VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
-								}
-								InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
-							}
-							InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+			if !data.Kvm.NotManaged.NodeList.IsNull() && !data.Kvm.NotManaged.NodeList.IsUnknown() {
+				var NodeListElems []SecuremeshSiteV2KvmNotManagedNodeListModel
+				diags := data.Kvm.NotManaged.NodeList.ElementsAs(ctx, &NodeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodeListElems) > 0 {
+					var NodeListList []map[string]interface{}
+					for _, NodeListItem := range NodeListElems {
+						NodeListItemMap := make(map[string]interface{})
+						if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
+							NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
 						}
-						NodeListItemMap["interface_list"] = InterfaceListList
+						if !NodeListItem.InterfaceList.IsNull() && !NodeListItem.InterfaceList.IsUnknown() {
+							var InterfaceListElems []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModel
+							diags := NodeListItem.InterfaceList.ElementsAs(ctx, &InterfaceListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceListElems) > 0 {
+								var InterfaceListList []map[string]interface{}
+								for _, InterfaceListItem := range InterfaceListElems {
+									InterfaceListItemMap := make(map[string]interface{})
+									if InterfaceListItem.BondInterface != nil {
+										BondInterfaceMap := make(map[string]interface{})
+										if InterfaceListItem.BondInterface.ActiveBackup != nil {
+											BondInterfaceMap["active_backup"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
+											var DevicesItems []string
+											diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
+											if !diags.HasError() {
+												BondInterfaceMap["devices"] = DevicesItems
+											}
+										}
+										if InterfaceListItem.BondInterface.Lacp != nil {
+											LacpMap := make(map[string]interface{})
+											if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
+												LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
+											}
+											BondInterfaceMap["lacp"] = LacpMap
+										}
+										if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
+											BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
+											BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
+											BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
+										}
+										InterfaceListItemMap["bond_interface"] = BondInterfaceMap
+									}
+									if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
+										InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
+									}
+									if InterfaceListItem.DHCPClient != nil {
+										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.EthernetInterface != nil {
+										EthernetInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
+											EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
+											EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
+										}
+										InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
+									}
+									if InterfaceListItem.Ipv6AutoConfig != nil {
+										Ipv6AutoConfigMap := make(map[string]interface{})
+										if InterfaceListItem.Ipv6AutoConfig.Host != nil {
+											Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.Ipv6AutoConfig.Router != nil {
+											RouterMap := make(map[string]interface{})
+											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
+												DNSConfigMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+													ConfiguredListMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+														var DNSListItems []string
+														diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+														if !diags.HasError() {
+															ConfiguredListMap["dns_list"] = DNSListItems
+														}
+													}
+													DNSConfigMap["configured_list"] = ConfiguredListMap
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+													LocalDNSMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+														LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+														LocalDNSMap["first_address"] = map[string]interface{}{}
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+														LocalDNSMap["last_address"] = map[string]interface{}{}
+													}
+													DNSConfigMap["local_dns"] = LocalDNSMap
+												}
+												RouterMap["dns_config"] = DNSConfigMap
+											}
+											if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+												RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+											}
+											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
+												StatefulMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+													StatefulMap["automatic_from_end"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+													StatefulMap["automatic_from_start"] = map[string]interface{}{}
+												}
+												if !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+													var DHCPNetworksElems []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													diags := InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+														var DHCPNetworksList []map[string]interface{}
+														for _, DHCPNetworksItem := range DHCPNetworksElems {
+															DHCPNetworksItemMap := make(map[string]interface{})
+															if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+																DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+															}
+															if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+																DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+															}
+															if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+																var PoolsElems []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+																resp.Diagnostics.Append(diags...)
+																if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+																	var PoolsList []map[string]interface{}
+																	for _, PoolsItem := range PoolsElems {
+																		PoolsItemMap := make(map[string]interface{})
+																		if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																			PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																		}
+																		if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																			PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																		}
+																		PoolsList = append(PoolsList, PoolsItemMap)
+																	}
+																	DHCPNetworksItemMap["pools"] = PoolsList
+																}
+															}
+															DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+														}
+														StatefulMap["dhcp_networks"] = DHCPNetworksList
+													}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+													StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+													InterfaceIPMapMap := make(map[string]interface{})
+													if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+														InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+													}
+													StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+												RouterMap["stateful"] = StatefulMap
+											}
+											Ipv6AutoConfigMap["router"] = RouterMap
+										}
+										InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+									}
+									if InterfaceListItem.Labels != nil {
+										InterfaceListItemMap["labels"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.Monitor != nil {
+										InterfaceListItemMap["monitor"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.MonitorDisabled != nil {
+										InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
+										InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
+									}
+									if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
+										InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
+									}
+									if InterfaceListItem.NetworkOption != nil {
+										NetworkOptionMap := make(map[string]interface{})
+										if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
+											NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
+											NetworkOptionMap["site_local_network"] = map[string]interface{}{}
+										}
+										InterfaceListItemMap["network_option"] = NetworkOptionMap
+									}
+									if InterfaceListItem.NoIpv4Address != nil {
+										InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.NoIpv6Address != nil {
+										InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
+										InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.StaticIP != nil {
+										StaticIPMap := make(map[string]interface{})
+										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
+											StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
+										}
+										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
+											StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
+										}
+										InterfaceListItemMap["static_ip"] = StaticIPMap
+									}
+									if InterfaceListItem.StaticIpv6Address != nil {
+										StaticIpv6AddressMap := make(map[string]interface{})
+										if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
+											ClusterStaticIPMap := make(map[string]interface{})
+											if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+												ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+											}
+											StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+										}
+										if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
+											NodeStaticIPMap := make(map[string]interface{})
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+												NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+												NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+											}
+											StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+										}
+										InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
+									}
+									if InterfaceListItem.VLANInterface != nil {
+										VLANInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
+											VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
+											VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
+										}
+										InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
+									}
+									InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+								}
+								NodeListItemMap["interface_list"] = InterfaceListList
+							}
+						}
+						if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
+							NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
+						}
+						if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
+							NodeListItemMap["type"] = NodeListItem.Type.ValueString()
+						}
+						NodeListList = append(NodeListList, NodeListItemMap)
 					}
-					if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
-						NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
-					}
-					if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
-						NodeListItemMap["type"] = NodeListItem.Type.ValueString()
-					}
-					NodeListList = append(NodeListList, NodeListItemMap)
+					NotManagedMap["node_list"] = NodeListList
 				}
-				NotManagedMap["node_list"] = NodeListList
 			}
 			KvmMap["not_managed"] = NotManagedMap
 		}
@@ -30729,247 +31169,267 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 		NutanixMap := make(map[string]interface{})
 		if data.Nutanix.NotManaged != nil {
 			NotManagedMap := make(map[string]interface{})
-			if len(data.Nutanix.NotManaged.NodeList) > 0 {
-				var NodeListList []map[string]interface{}
-				for _, NodeListItem := range data.Nutanix.NotManaged.NodeList {
-					NodeListItemMap := make(map[string]interface{})
-					if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
-						NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
-					}
-					if len(NodeListItem.InterfaceList) > 0 {
-						var InterfaceListList []map[string]interface{}
-						for _, InterfaceListItem := range NodeListItem.InterfaceList {
-							InterfaceListItemMap := make(map[string]interface{})
-							if InterfaceListItem.BondInterface != nil {
-								BondInterfaceMap := make(map[string]interface{})
-								if InterfaceListItem.BondInterface.ActiveBackup != nil {
-									BondInterfaceMap["active_backup"] = map[string]interface{}{}
-								}
-								if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
-									var DevicesItems []string
-									diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
-									if !diags.HasError() {
-										BondInterfaceMap["devices"] = DevicesItems
-									}
-								}
-								if InterfaceListItem.BondInterface.Lacp != nil {
-									LacpMap := make(map[string]interface{})
-									if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
-										LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
-									}
-									BondInterfaceMap["lacp"] = LacpMap
-								}
-								if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
-									BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
-									BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
-									BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
-								}
-								InterfaceListItemMap["bond_interface"] = BondInterfaceMap
-							}
-							if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
-								InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
-							}
-							if InterfaceListItem.DHCPClient != nil {
-								InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.EthernetInterface != nil {
-								EthernetInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
-									EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
-									EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
-								}
-								InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
-							}
-							if InterfaceListItem.Ipv6AutoConfig != nil {
-								Ipv6AutoConfigMap := make(map[string]interface{})
-								if InterfaceListItem.Ipv6AutoConfig.Host != nil {
-									Ipv6AutoConfigMap["host"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.Ipv6AutoConfig.Router != nil {
-									RouterMap := make(map[string]interface{})
-									if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
-										DNSConfigMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-											ConfiguredListMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
-												var DNSListItems []string
-												diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
-												if !diags.HasError() {
-													ConfiguredListMap["dns_list"] = DNSListItems
-												}
-											}
-											DNSConfigMap["configured_list"] = ConfiguredListMap
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-											LocalDNSMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-												LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-												LocalDNSMap["first_address"] = map[string]interface{}{}
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-												LocalDNSMap["last_address"] = map[string]interface{}{}
-											}
-											DNSConfigMap["local_dns"] = LocalDNSMap
-										}
-										RouterMap["dns_config"] = DNSConfigMap
-									}
-									if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-										RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
-									}
-									if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
-										StatefulMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-											StatefulMap["automatic_from_end"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-											StatefulMap["automatic_from_start"] = map[string]interface{}{}
-										}
-										if len(InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
-													}
-													DHCPNetworksItemMap["pools"] = PoolsList
-												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
-											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-											InterfaceIPMapMap := make(map[string]interface{})
-											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
-											}
-											StatefulMap["interface_ip_map"] = InterfaceIPMapMap
-										}
-										RouterMap["stateful"] = StatefulMap
-									}
-									Ipv6AutoConfigMap["router"] = RouterMap
-								}
-								InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
-							}
-							if InterfaceListItem.Labels != nil {
-								InterfaceListItemMap["labels"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.Monitor != nil {
-								InterfaceListItemMap["monitor"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.MonitorDisabled != nil {
-								InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
-								InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
-							}
-							if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
-								InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
-							}
-							if InterfaceListItem.NetworkOption != nil {
-								NetworkOptionMap := make(map[string]interface{})
-								if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
-									NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
-									NetworkOptionMap["site_local_network"] = map[string]interface{}{}
-								}
-								InterfaceListItemMap["network_option"] = NetworkOptionMap
-							}
-							if InterfaceListItem.NoIpv4Address != nil {
-								InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.NoIpv6Address != nil {
-								InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
-								InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.StaticIP != nil {
-								StaticIPMap := make(map[string]interface{})
-								if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
-									StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
-								}
-								if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
-									StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
-								}
-								InterfaceListItemMap["static_ip"] = StaticIPMap
-							}
-							if InterfaceListItem.StaticIpv6Address != nil {
-								StaticIpv6AddressMap := make(map[string]interface{})
-								if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
-									ClusterStaticIPMap := make(map[string]interface{})
-									if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
-									}
-									StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
-								}
-								if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
-									NodeStaticIPMap := make(map[string]interface{})
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-										NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
-									}
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-										NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
-									}
-									StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
-								}
-								InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
-							}
-							if InterfaceListItem.VLANInterface != nil {
-								VLANInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
-									VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
-									VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
-								}
-								InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
-							}
-							InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+			if !data.Nutanix.NotManaged.NodeList.IsNull() && !data.Nutanix.NotManaged.NodeList.IsUnknown() {
+				var NodeListElems []SecuremeshSiteV2NutanixNotManagedNodeListModel
+				diags := data.Nutanix.NotManaged.NodeList.ElementsAs(ctx, &NodeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodeListElems) > 0 {
+					var NodeListList []map[string]interface{}
+					for _, NodeListItem := range NodeListElems {
+						NodeListItemMap := make(map[string]interface{})
+						if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
+							NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
 						}
-						NodeListItemMap["interface_list"] = InterfaceListList
+						if !NodeListItem.InterfaceList.IsNull() && !NodeListItem.InterfaceList.IsUnknown() {
+							var InterfaceListElems []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModel
+							diags := NodeListItem.InterfaceList.ElementsAs(ctx, &InterfaceListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceListElems) > 0 {
+								var InterfaceListList []map[string]interface{}
+								for _, InterfaceListItem := range InterfaceListElems {
+									InterfaceListItemMap := make(map[string]interface{})
+									if InterfaceListItem.BondInterface != nil {
+										BondInterfaceMap := make(map[string]interface{})
+										if InterfaceListItem.BondInterface.ActiveBackup != nil {
+											BondInterfaceMap["active_backup"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
+											var DevicesItems []string
+											diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
+											if !diags.HasError() {
+												BondInterfaceMap["devices"] = DevicesItems
+											}
+										}
+										if InterfaceListItem.BondInterface.Lacp != nil {
+											LacpMap := make(map[string]interface{})
+											if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
+												LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
+											}
+											BondInterfaceMap["lacp"] = LacpMap
+										}
+										if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
+											BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
+											BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
+											BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
+										}
+										InterfaceListItemMap["bond_interface"] = BondInterfaceMap
+									}
+									if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
+										InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
+									}
+									if InterfaceListItem.DHCPClient != nil {
+										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.EthernetInterface != nil {
+										EthernetInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
+											EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
+											EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
+										}
+										InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
+									}
+									if InterfaceListItem.Ipv6AutoConfig != nil {
+										Ipv6AutoConfigMap := make(map[string]interface{})
+										if InterfaceListItem.Ipv6AutoConfig.Host != nil {
+											Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.Ipv6AutoConfig.Router != nil {
+											RouterMap := make(map[string]interface{})
+											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
+												DNSConfigMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+													ConfiguredListMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+														var DNSListItems []string
+														diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+														if !diags.HasError() {
+															ConfiguredListMap["dns_list"] = DNSListItems
+														}
+													}
+													DNSConfigMap["configured_list"] = ConfiguredListMap
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+													LocalDNSMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+														LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+														LocalDNSMap["first_address"] = map[string]interface{}{}
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+														LocalDNSMap["last_address"] = map[string]interface{}{}
+													}
+													DNSConfigMap["local_dns"] = LocalDNSMap
+												}
+												RouterMap["dns_config"] = DNSConfigMap
+											}
+											if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+												RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+											}
+											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
+												StatefulMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+													StatefulMap["automatic_from_end"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+													StatefulMap["automatic_from_start"] = map[string]interface{}{}
+												}
+												if !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+													var DHCPNetworksElems []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													diags := InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+														var DHCPNetworksList []map[string]interface{}
+														for _, DHCPNetworksItem := range DHCPNetworksElems {
+															DHCPNetworksItemMap := make(map[string]interface{})
+															if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+																DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+															}
+															if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+																DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+															}
+															if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+																var PoolsElems []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+																resp.Diagnostics.Append(diags...)
+																if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+																	var PoolsList []map[string]interface{}
+																	for _, PoolsItem := range PoolsElems {
+																		PoolsItemMap := make(map[string]interface{})
+																		if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																			PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																		}
+																		if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																			PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																		}
+																		PoolsList = append(PoolsList, PoolsItemMap)
+																	}
+																	DHCPNetworksItemMap["pools"] = PoolsList
+																}
+															}
+															DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+														}
+														StatefulMap["dhcp_networks"] = DHCPNetworksList
+													}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+													StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+													InterfaceIPMapMap := make(map[string]interface{})
+													if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+														InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+													}
+													StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+												RouterMap["stateful"] = StatefulMap
+											}
+											Ipv6AutoConfigMap["router"] = RouterMap
+										}
+										InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+									}
+									if InterfaceListItem.Labels != nil {
+										InterfaceListItemMap["labels"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.Monitor != nil {
+										InterfaceListItemMap["monitor"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.MonitorDisabled != nil {
+										InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
+										InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
+									}
+									if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
+										InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
+									}
+									if InterfaceListItem.NetworkOption != nil {
+										NetworkOptionMap := make(map[string]interface{})
+										if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
+											NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
+											NetworkOptionMap["site_local_network"] = map[string]interface{}{}
+										}
+										InterfaceListItemMap["network_option"] = NetworkOptionMap
+									}
+									if InterfaceListItem.NoIpv4Address != nil {
+										InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.NoIpv6Address != nil {
+										InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
+										InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.StaticIP != nil {
+										StaticIPMap := make(map[string]interface{})
+										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
+											StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
+										}
+										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
+											StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
+										}
+										InterfaceListItemMap["static_ip"] = StaticIPMap
+									}
+									if InterfaceListItem.StaticIpv6Address != nil {
+										StaticIpv6AddressMap := make(map[string]interface{})
+										if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
+											ClusterStaticIPMap := make(map[string]interface{})
+											if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+												ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+											}
+											StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+										}
+										if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
+											NodeStaticIPMap := make(map[string]interface{})
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+												NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+												NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+											}
+											StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+										}
+										InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
+									}
+									if InterfaceListItem.VLANInterface != nil {
+										VLANInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
+											VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
+											VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
+										}
+										InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
+									}
+									InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+								}
+								NodeListItemMap["interface_list"] = InterfaceListList
+							}
+						}
+						if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
+							NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
+						}
+						if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
+							NodeListItemMap["type"] = NodeListItem.Type.ValueString()
+						}
+						NodeListList = append(NodeListList, NodeListItemMap)
 					}
-					if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
-						NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
-					}
-					if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
-						NodeListItemMap["type"] = NodeListItem.Type.ValueString()
-					}
-					NodeListList = append(NodeListList, NodeListItemMap)
+					NotManagedMap["node_list"] = NodeListList
 				}
-				NotManagedMap["node_list"] = NodeListList
 			}
 			NutanixMap["not_managed"] = NotManagedMap
 		}
@@ -30979,247 +31439,267 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 		OciMap := make(map[string]interface{})
 		if data.Oci.NotManaged != nil {
 			NotManagedMap := make(map[string]interface{})
-			if len(data.Oci.NotManaged.NodeList) > 0 {
-				var NodeListList []map[string]interface{}
-				for _, NodeListItem := range data.Oci.NotManaged.NodeList {
-					NodeListItemMap := make(map[string]interface{})
-					if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
-						NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
-					}
-					if len(NodeListItem.InterfaceList) > 0 {
-						var InterfaceListList []map[string]interface{}
-						for _, InterfaceListItem := range NodeListItem.InterfaceList {
-							InterfaceListItemMap := make(map[string]interface{})
-							if InterfaceListItem.BondInterface != nil {
-								BondInterfaceMap := make(map[string]interface{})
-								if InterfaceListItem.BondInterface.ActiveBackup != nil {
-									BondInterfaceMap["active_backup"] = map[string]interface{}{}
-								}
-								if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
-									var DevicesItems []string
-									diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
-									if !diags.HasError() {
-										BondInterfaceMap["devices"] = DevicesItems
-									}
-								}
-								if InterfaceListItem.BondInterface.Lacp != nil {
-									LacpMap := make(map[string]interface{})
-									if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
-										LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
-									}
-									BondInterfaceMap["lacp"] = LacpMap
-								}
-								if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
-									BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
-									BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
-									BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
-								}
-								InterfaceListItemMap["bond_interface"] = BondInterfaceMap
-							}
-							if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
-								InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
-							}
-							if InterfaceListItem.DHCPClient != nil {
-								InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.EthernetInterface != nil {
-								EthernetInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
-									EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
-									EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
-								}
-								InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
-							}
-							if InterfaceListItem.Ipv6AutoConfig != nil {
-								Ipv6AutoConfigMap := make(map[string]interface{})
-								if InterfaceListItem.Ipv6AutoConfig.Host != nil {
-									Ipv6AutoConfigMap["host"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.Ipv6AutoConfig.Router != nil {
-									RouterMap := make(map[string]interface{})
-									if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
-										DNSConfigMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-											ConfiguredListMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
-												var DNSListItems []string
-												diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
-												if !diags.HasError() {
-													ConfiguredListMap["dns_list"] = DNSListItems
-												}
-											}
-											DNSConfigMap["configured_list"] = ConfiguredListMap
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-											LocalDNSMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-												LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-												LocalDNSMap["first_address"] = map[string]interface{}{}
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-												LocalDNSMap["last_address"] = map[string]interface{}{}
-											}
-											DNSConfigMap["local_dns"] = LocalDNSMap
-										}
-										RouterMap["dns_config"] = DNSConfigMap
-									}
-									if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-										RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
-									}
-									if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
-										StatefulMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-											StatefulMap["automatic_from_end"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-											StatefulMap["automatic_from_start"] = map[string]interface{}{}
-										}
-										if len(InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
-													}
-													DHCPNetworksItemMap["pools"] = PoolsList
-												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
-											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-											InterfaceIPMapMap := make(map[string]interface{})
-											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
-											}
-											StatefulMap["interface_ip_map"] = InterfaceIPMapMap
-										}
-										RouterMap["stateful"] = StatefulMap
-									}
-									Ipv6AutoConfigMap["router"] = RouterMap
-								}
-								InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
-							}
-							if InterfaceListItem.Labels != nil {
-								InterfaceListItemMap["labels"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.Monitor != nil {
-								InterfaceListItemMap["monitor"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.MonitorDisabled != nil {
-								InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
-								InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
-							}
-							if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
-								InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
-							}
-							if InterfaceListItem.NetworkOption != nil {
-								NetworkOptionMap := make(map[string]interface{})
-								if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
-									NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
-									NetworkOptionMap["site_local_network"] = map[string]interface{}{}
-								}
-								InterfaceListItemMap["network_option"] = NetworkOptionMap
-							}
-							if InterfaceListItem.NoIpv4Address != nil {
-								InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.NoIpv6Address != nil {
-								InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
-								InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.StaticIP != nil {
-								StaticIPMap := make(map[string]interface{})
-								if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
-									StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
-								}
-								if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
-									StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
-								}
-								InterfaceListItemMap["static_ip"] = StaticIPMap
-							}
-							if InterfaceListItem.StaticIpv6Address != nil {
-								StaticIpv6AddressMap := make(map[string]interface{})
-								if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
-									ClusterStaticIPMap := make(map[string]interface{})
-									if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
-									}
-									StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
-								}
-								if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
-									NodeStaticIPMap := make(map[string]interface{})
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-										NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
-									}
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-										NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
-									}
-									StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
-								}
-								InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
-							}
-							if InterfaceListItem.VLANInterface != nil {
-								VLANInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
-									VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
-									VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
-								}
-								InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
-							}
-							InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+			if !data.Oci.NotManaged.NodeList.IsNull() && !data.Oci.NotManaged.NodeList.IsUnknown() {
+				var NodeListElems []SecuremeshSiteV2OciNotManagedNodeListModel
+				diags := data.Oci.NotManaged.NodeList.ElementsAs(ctx, &NodeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodeListElems) > 0 {
+					var NodeListList []map[string]interface{}
+					for _, NodeListItem := range NodeListElems {
+						NodeListItemMap := make(map[string]interface{})
+						if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
+							NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
 						}
-						NodeListItemMap["interface_list"] = InterfaceListList
+						if !NodeListItem.InterfaceList.IsNull() && !NodeListItem.InterfaceList.IsUnknown() {
+							var InterfaceListElems []SecuremeshSiteV2OciNotManagedNodeListInterfaceListModel
+							diags := NodeListItem.InterfaceList.ElementsAs(ctx, &InterfaceListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceListElems) > 0 {
+								var InterfaceListList []map[string]interface{}
+								for _, InterfaceListItem := range InterfaceListElems {
+									InterfaceListItemMap := make(map[string]interface{})
+									if InterfaceListItem.BondInterface != nil {
+										BondInterfaceMap := make(map[string]interface{})
+										if InterfaceListItem.BondInterface.ActiveBackup != nil {
+											BondInterfaceMap["active_backup"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
+											var DevicesItems []string
+											diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
+											if !diags.HasError() {
+												BondInterfaceMap["devices"] = DevicesItems
+											}
+										}
+										if InterfaceListItem.BondInterface.Lacp != nil {
+											LacpMap := make(map[string]interface{})
+											if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
+												LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
+											}
+											BondInterfaceMap["lacp"] = LacpMap
+										}
+										if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
+											BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
+											BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
+											BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
+										}
+										InterfaceListItemMap["bond_interface"] = BondInterfaceMap
+									}
+									if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
+										InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
+									}
+									if InterfaceListItem.DHCPClient != nil {
+										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.EthernetInterface != nil {
+										EthernetInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
+											EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
+											EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
+										}
+										InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
+									}
+									if InterfaceListItem.Ipv6AutoConfig != nil {
+										Ipv6AutoConfigMap := make(map[string]interface{})
+										if InterfaceListItem.Ipv6AutoConfig.Host != nil {
+											Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.Ipv6AutoConfig.Router != nil {
+											RouterMap := make(map[string]interface{})
+											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
+												DNSConfigMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+													ConfiguredListMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+														var DNSListItems []string
+														diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+														if !diags.HasError() {
+															ConfiguredListMap["dns_list"] = DNSListItems
+														}
+													}
+													DNSConfigMap["configured_list"] = ConfiguredListMap
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+													LocalDNSMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+														LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+														LocalDNSMap["first_address"] = map[string]interface{}{}
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+														LocalDNSMap["last_address"] = map[string]interface{}{}
+													}
+													DNSConfigMap["local_dns"] = LocalDNSMap
+												}
+												RouterMap["dns_config"] = DNSConfigMap
+											}
+											if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+												RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+											}
+											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
+												StatefulMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+													StatefulMap["automatic_from_end"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+													StatefulMap["automatic_from_start"] = map[string]interface{}{}
+												}
+												if !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+													var DHCPNetworksElems []SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													diags := InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+														var DHCPNetworksList []map[string]interface{}
+														for _, DHCPNetworksItem := range DHCPNetworksElems {
+															DHCPNetworksItemMap := make(map[string]interface{})
+															if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+																DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+															}
+															if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+																DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+															}
+															if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+																var PoolsElems []SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+																resp.Diagnostics.Append(diags...)
+																if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+																	var PoolsList []map[string]interface{}
+																	for _, PoolsItem := range PoolsElems {
+																		PoolsItemMap := make(map[string]interface{})
+																		if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																			PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																		}
+																		if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																			PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																		}
+																		PoolsList = append(PoolsList, PoolsItemMap)
+																	}
+																	DHCPNetworksItemMap["pools"] = PoolsList
+																}
+															}
+															DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+														}
+														StatefulMap["dhcp_networks"] = DHCPNetworksList
+													}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+													StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+													InterfaceIPMapMap := make(map[string]interface{})
+													if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+														InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+													}
+													StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+												RouterMap["stateful"] = StatefulMap
+											}
+											Ipv6AutoConfigMap["router"] = RouterMap
+										}
+										InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+									}
+									if InterfaceListItem.Labels != nil {
+										InterfaceListItemMap["labels"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.Monitor != nil {
+										InterfaceListItemMap["monitor"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.MonitorDisabled != nil {
+										InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
+										InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
+									}
+									if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
+										InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
+									}
+									if InterfaceListItem.NetworkOption != nil {
+										NetworkOptionMap := make(map[string]interface{})
+										if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
+											NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
+											NetworkOptionMap["site_local_network"] = map[string]interface{}{}
+										}
+										InterfaceListItemMap["network_option"] = NetworkOptionMap
+									}
+									if InterfaceListItem.NoIpv4Address != nil {
+										InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.NoIpv6Address != nil {
+										InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
+										InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.StaticIP != nil {
+										StaticIPMap := make(map[string]interface{})
+										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
+											StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
+										}
+										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
+											StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
+										}
+										InterfaceListItemMap["static_ip"] = StaticIPMap
+									}
+									if InterfaceListItem.StaticIpv6Address != nil {
+										StaticIpv6AddressMap := make(map[string]interface{})
+										if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
+											ClusterStaticIPMap := make(map[string]interface{})
+											if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+												ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+											}
+											StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+										}
+										if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
+											NodeStaticIPMap := make(map[string]interface{})
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+												NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+												NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+											}
+											StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+										}
+										InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
+									}
+									if InterfaceListItem.VLANInterface != nil {
+										VLANInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
+											VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
+											VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
+										}
+										InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
+									}
+									InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+								}
+								NodeListItemMap["interface_list"] = InterfaceListList
+							}
+						}
+						if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
+							NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
+						}
+						if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
+							NodeListItemMap["type"] = NodeListItem.Type.ValueString()
+						}
+						NodeListList = append(NodeListList, NodeListItemMap)
 					}
-					if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
-						NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
-					}
-					if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
-						NodeListItemMap["type"] = NodeListItem.Type.ValueString()
-					}
-					NodeListList = append(NodeListList, NodeListItemMap)
+					NotManagedMap["node_list"] = NodeListList
 				}
-				NotManagedMap["node_list"] = NodeListList
 			}
 			OciMap["not_managed"] = NotManagedMap
 		}
@@ -31239,247 +31719,267 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 		OpenshiftVirtualizationMap := make(map[string]interface{})
 		if data.OpenshiftVirtualization.NotManaged != nil {
 			NotManagedMap := make(map[string]interface{})
-			if len(data.OpenshiftVirtualization.NotManaged.NodeList) > 0 {
-				var NodeListList []map[string]interface{}
-				for _, NodeListItem := range data.OpenshiftVirtualization.NotManaged.NodeList {
-					NodeListItemMap := make(map[string]interface{})
-					if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
-						NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
-					}
-					if len(NodeListItem.InterfaceList) > 0 {
-						var InterfaceListList []map[string]interface{}
-						for _, InterfaceListItem := range NodeListItem.InterfaceList {
-							InterfaceListItemMap := make(map[string]interface{})
-							if InterfaceListItem.BondInterface != nil {
-								BondInterfaceMap := make(map[string]interface{})
-								if InterfaceListItem.BondInterface.ActiveBackup != nil {
-									BondInterfaceMap["active_backup"] = map[string]interface{}{}
-								}
-								if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
-									var DevicesItems []string
-									diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
-									if !diags.HasError() {
-										BondInterfaceMap["devices"] = DevicesItems
-									}
-								}
-								if InterfaceListItem.BondInterface.Lacp != nil {
-									LacpMap := make(map[string]interface{})
-									if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
-										LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
-									}
-									BondInterfaceMap["lacp"] = LacpMap
-								}
-								if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
-									BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
-									BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
-									BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
-								}
-								InterfaceListItemMap["bond_interface"] = BondInterfaceMap
-							}
-							if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
-								InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
-							}
-							if InterfaceListItem.DHCPClient != nil {
-								InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.EthernetInterface != nil {
-								EthernetInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
-									EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
-									EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
-								}
-								InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
-							}
-							if InterfaceListItem.Ipv6AutoConfig != nil {
-								Ipv6AutoConfigMap := make(map[string]interface{})
-								if InterfaceListItem.Ipv6AutoConfig.Host != nil {
-									Ipv6AutoConfigMap["host"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.Ipv6AutoConfig.Router != nil {
-									RouterMap := make(map[string]interface{})
-									if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
-										DNSConfigMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-											ConfiguredListMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
-												var DNSListItems []string
-												diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
-												if !diags.HasError() {
-													ConfiguredListMap["dns_list"] = DNSListItems
-												}
-											}
-											DNSConfigMap["configured_list"] = ConfiguredListMap
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-											LocalDNSMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-												LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-												LocalDNSMap["first_address"] = map[string]interface{}{}
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-												LocalDNSMap["last_address"] = map[string]interface{}{}
-											}
-											DNSConfigMap["local_dns"] = LocalDNSMap
-										}
-										RouterMap["dns_config"] = DNSConfigMap
-									}
-									if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-										RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
-									}
-									if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
-										StatefulMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-											StatefulMap["automatic_from_end"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-											StatefulMap["automatic_from_start"] = map[string]interface{}{}
-										}
-										if len(InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
-													}
-													DHCPNetworksItemMap["pools"] = PoolsList
-												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
-											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-											InterfaceIPMapMap := make(map[string]interface{})
-											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
-											}
-											StatefulMap["interface_ip_map"] = InterfaceIPMapMap
-										}
-										RouterMap["stateful"] = StatefulMap
-									}
-									Ipv6AutoConfigMap["router"] = RouterMap
-								}
-								InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
-							}
-							if InterfaceListItem.Labels != nil {
-								InterfaceListItemMap["labels"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.Monitor != nil {
-								InterfaceListItemMap["monitor"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.MonitorDisabled != nil {
-								InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
-								InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
-							}
-							if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
-								InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
-							}
-							if InterfaceListItem.NetworkOption != nil {
-								NetworkOptionMap := make(map[string]interface{})
-								if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
-									NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
-									NetworkOptionMap["site_local_network"] = map[string]interface{}{}
-								}
-								InterfaceListItemMap["network_option"] = NetworkOptionMap
-							}
-							if InterfaceListItem.NoIpv4Address != nil {
-								InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.NoIpv6Address != nil {
-								InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
-								InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.StaticIP != nil {
-								StaticIPMap := make(map[string]interface{})
-								if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
-									StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
-								}
-								if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
-									StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
-								}
-								InterfaceListItemMap["static_ip"] = StaticIPMap
-							}
-							if InterfaceListItem.StaticIpv6Address != nil {
-								StaticIpv6AddressMap := make(map[string]interface{})
-								if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
-									ClusterStaticIPMap := make(map[string]interface{})
-									if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
-									}
-									StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
-								}
-								if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
-									NodeStaticIPMap := make(map[string]interface{})
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-										NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
-									}
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-										NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
-									}
-									StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
-								}
-								InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
-							}
-							if InterfaceListItem.VLANInterface != nil {
-								VLANInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
-									VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
-									VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
-								}
-								InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
-							}
-							InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+			if !data.OpenshiftVirtualization.NotManaged.NodeList.IsNull() && !data.OpenshiftVirtualization.NotManaged.NodeList.IsUnknown() {
+				var NodeListElems []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListModel
+				diags := data.OpenshiftVirtualization.NotManaged.NodeList.ElementsAs(ctx, &NodeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodeListElems) > 0 {
+					var NodeListList []map[string]interface{}
+					for _, NodeListItem := range NodeListElems {
+						NodeListItemMap := make(map[string]interface{})
+						if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
+							NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
 						}
-						NodeListItemMap["interface_list"] = InterfaceListList
+						if !NodeListItem.InterfaceList.IsNull() && !NodeListItem.InterfaceList.IsUnknown() {
+							var InterfaceListElems []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModel
+							diags := NodeListItem.InterfaceList.ElementsAs(ctx, &InterfaceListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceListElems) > 0 {
+								var InterfaceListList []map[string]interface{}
+								for _, InterfaceListItem := range InterfaceListElems {
+									InterfaceListItemMap := make(map[string]interface{})
+									if InterfaceListItem.BondInterface != nil {
+										BondInterfaceMap := make(map[string]interface{})
+										if InterfaceListItem.BondInterface.ActiveBackup != nil {
+											BondInterfaceMap["active_backup"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
+											var DevicesItems []string
+											diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
+											if !diags.HasError() {
+												BondInterfaceMap["devices"] = DevicesItems
+											}
+										}
+										if InterfaceListItem.BondInterface.Lacp != nil {
+											LacpMap := make(map[string]interface{})
+											if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
+												LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
+											}
+											BondInterfaceMap["lacp"] = LacpMap
+										}
+										if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
+											BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
+											BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
+											BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
+										}
+										InterfaceListItemMap["bond_interface"] = BondInterfaceMap
+									}
+									if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
+										InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
+									}
+									if InterfaceListItem.DHCPClient != nil {
+										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.EthernetInterface != nil {
+										EthernetInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
+											EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
+											EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
+										}
+										InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
+									}
+									if InterfaceListItem.Ipv6AutoConfig != nil {
+										Ipv6AutoConfigMap := make(map[string]interface{})
+										if InterfaceListItem.Ipv6AutoConfig.Host != nil {
+											Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.Ipv6AutoConfig.Router != nil {
+											RouterMap := make(map[string]interface{})
+											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
+												DNSConfigMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+													ConfiguredListMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+														var DNSListItems []string
+														diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+														if !diags.HasError() {
+															ConfiguredListMap["dns_list"] = DNSListItems
+														}
+													}
+													DNSConfigMap["configured_list"] = ConfiguredListMap
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+													LocalDNSMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+														LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+														LocalDNSMap["first_address"] = map[string]interface{}{}
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+														LocalDNSMap["last_address"] = map[string]interface{}{}
+													}
+													DNSConfigMap["local_dns"] = LocalDNSMap
+												}
+												RouterMap["dns_config"] = DNSConfigMap
+											}
+											if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+												RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+											}
+											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
+												StatefulMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+													StatefulMap["automatic_from_end"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+													StatefulMap["automatic_from_start"] = map[string]interface{}{}
+												}
+												if !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+													var DHCPNetworksElems []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													diags := InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+														var DHCPNetworksList []map[string]interface{}
+														for _, DHCPNetworksItem := range DHCPNetworksElems {
+															DHCPNetworksItemMap := make(map[string]interface{})
+															if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+																DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+															}
+															if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+																DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+															}
+															if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+																var PoolsElems []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+																resp.Diagnostics.Append(diags...)
+																if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+																	var PoolsList []map[string]interface{}
+																	for _, PoolsItem := range PoolsElems {
+																		PoolsItemMap := make(map[string]interface{})
+																		if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																			PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																		}
+																		if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																			PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																		}
+																		PoolsList = append(PoolsList, PoolsItemMap)
+																	}
+																	DHCPNetworksItemMap["pools"] = PoolsList
+																}
+															}
+															DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+														}
+														StatefulMap["dhcp_networks"] = DHCPNetworksList
+													}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+													StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+													InterfaceIPMapMap := make(map[string]interface{})
+													if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+														InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+													}
+													StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+												RouterMap["stateful"] = StatefulMap
+											}
+											Ipv6AutoConfigMap["router"] = RouterMap
+										}
+										InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+									}
+									if InterfaceListItem.Labels != nil {
+										InterfaceListItemMap["labels"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.Monitor != nil {
+										InterfaceListItemMap["monitor"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.MonitorDisabled != nil {
+										InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
+										InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
+									}
+									if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
+										InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
+									}
+									if InterfaceListItem.NetworkOption != nil {
+										NetworkOptionMap := make(map[string]interface{})
+										if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
+											NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
+											NetworkOptionMap["site_local_network"] = map[string]interface{}{}
+										}
+										InterfaceListItemMap["network_option"] = NetworkOptionMap
+									}
+									if InterfaceListItem.NoIpv4Address != nil {
+										InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.NoIpv6Address != nil {
+										InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
+										InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.StaticIP != nil {
+										StaticIPMap := make(map[string]interface{})
+										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
+											StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
+										}
+										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
+											StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
+										}
+										InterfaceListItemMap["static_ip"] = StaticIPMap
+									}
+									if InterfaceListItem.StaticIpv6Address != nil {
+										StaticIpv6AddressMap := make(map[string]interface{})
+										if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
+											ClusterStaticIPMap := make(map[string]interface{})
+											if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+												ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+											}
+											StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+										}
+										if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
+											NodeStaticIPMap := make(map[string]interface{})
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+												NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+												NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+											}
+											StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+										}
+										InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
+									}
+									if InterfaceListItem.VLANInterface != nil {
+										VLANInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
+											VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
+											VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
+										}
+										InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
+									}
+									InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+								}
+								NodeListItemMap["interface_list"] = InterfaceListList
+							}
+						}
+						if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
+							NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
+						}
+						if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
+							NodeListItemMap["type"] = NodeListItem.Type.ValueString()
+						}
+						NodeListList = append(NodeListList, NodeListItemMap)
 					}
-					if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
-						NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
-					}
-					if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
-						NodeListItemMap["type"] = NodeListItem.Type.ValueString()
-					}
-					NodeListList = append(NodeListList, NodeListItemMap)
+					NotManagedMap["node_list"] = NodeListList
 				}
-				NotManagedMap["node_list"] = NodeListList
 			}
 			OpenshiftVirtualizationMap["not_managed"] = NotManagedMap
 		}
@@ -31489,247 +31989,267 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 		OpenstackMap := make(map[string]interface{})
 		if data.Openstack.NotManaged != nil {
 			NotManagedMap := make(map[string]interface{})
-			if len(data.Openstack.NotManaged.NodeList) > 0 {
-				var NodeListList []map[string]interface{}
-				for _, NodeListItem := range data.Openstack.NotManaged.NodeList {
-					NodeListItemMap := make(map[string]interface{})
-					if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
-						NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
-					}
-					if len(NodeListItem.InterfaceList) > 0 {
-						var InterfaceListList []map[string]interface{}
-						for _, InterfaceListItem := range NodeListItem.InterfaceList {
-							InterfaceListItemMap := make(map[string]interface{})
-							if InterfaceListItem.BondInterface != nil {
-								BondInterfaceMap := make(map[string]interface{})
-								if InterfaceListItem.BondInterface.ActiveBackup != nil {
-									BondInterfaceMap["active_backup"] = map[string]interface{}{}
-								}
-								if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
-									var DevicesItems []string
-									diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
-									if !diags.HasError() {
-										BondInterfaceMap["devices"] = DevicesItems
-									}
-								}
-								if InterfaceListItem.BondInterface.Lacp != nil {
-									LacpMap := make(map[string]interface{})
-									if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
-										LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
-									}
-									BondInterfaceMap["lacp"] = LacpMap
-								}
-								if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
-									BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
-									BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
-									BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
-								}
-								InterfaceListItemMap["bond_interface"] = BondInterfaceMap
-							}
-							if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
-								InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
-							}
-							if InterfaceListItem.DHCPClient != nil {
-								InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.EthernetInterface != nil {
-								EthernetInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
-									EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
-									EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
-								}
-								InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
-							}
-							if InterfaceListItem.Ipv6AutoConfig != nil {
-								Ipv6AutoConfigMap := make(map[string]interface{})
-								if InterfaceListItem.Ipv6AutoConfig.Host != nil {
-									Ipv6AutoConfigMap["host"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.Ipv6AutoConfig.Router != nil {
-									RouterMap := make(map[string]interface{})
-									if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
-										DNSConfigMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-											ConfiguredListMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
-												var DNSListItems []string
-												diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
-												if !diags.HasError() {
-													ConfiguredListMap["dns_list"] = DNSListItems
-												}
-											}
-											DNSConfigMap["configured_list"] = ConfiguredListMap
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-											LocalDNSMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-												LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-												LocalDNSMap["first_address"] = map[string]interface{}{}
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-												LocalDNSMap["last_address"] = map[string]interface{}{}
-											}
-											DNSConfigMap["local_dns"] = LocalDNSMap
-										}
-										RouterMap["dns_config"] = DNSConfigMap
-									}
-									if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-										RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
-									}
-									if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
-										StatefulMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-											StatefulMap["automatic_from_end"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-											StatefulMap["automatic_from_start"] = map[string]interface{}{}
-										}
-										if len(InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
-													}
-													DHCPNetworksItemMap["pools"] = PoolsList
-												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
-											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-											InterfaceIPMapMap := make(map[string]interface{})
-											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
-											}
-											StatefulMap["interface_ip_map"] = InterfaceIPMapMap
-										}
-										RouterMap["stateful"] = StatefulMap
-									}
-									Ipv6AutoConfigMap["router"] = RouterMap
-								}
-								InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
-							}
-							if InterfaceListItem.Labels != nil {
-								InterfaceListItemMap["labels"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.Monitor != nil {
-								InterfaceListItemMap["monitor"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.MonitorDisabled != nil {
-								InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
-								InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
-							}
-							if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
-								InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
-							}
-							if InterfaceListItem.NetworkOption != nil {
-								NetworkOptionMap := make(map[string]interface{})
-								if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
-									NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
-									NetworkOptionMap["site_local_network"] = map[string]interface{}{}
-								}
-								InterfaceListItemMap["network_option"] = NetworkOptionMap
-							}
-							if InterfaceListItem.NoIpv4Address != nil {
-								InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.NoIpv6Address != nil {
-								InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
-								InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.StaticIP != nil {
-								StaticIPMap := make(map[string]interface{})
-								if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
-									StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
-								}
-								if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
-									StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
-								}
-								InterfaceListItemMap["static_ip"] = StaticIPMap
-							}
-							if InterfaceListItem.StaticIpv6Address != nil {
-								StaticIpv6AddressMap := make(map[string]interface{})
-								if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
-									ClusterStaticIPMap := make(map[string]interface{})
-									if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
-									}
-									StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
-								}
-								if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
-									NodeStaticIPMap := make(map[string]interface{})
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-										NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
-									}
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-										NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
-									}
-									StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
-								}
-								InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
-							}
-							if InterfaceListItem.VLANInterface != nil {
-								VLANInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
-									VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
-									VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
-								}
-								InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
-							}
-							InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+			if !data.Openstack.NotManaged.NodeList.IsNull() && !data.Openstack.NotManaged.NodeList.IsUnknown() {
+				var NodeListElems []SecuremeshSiteV2OpenstackNotManagedNodeListModel
+				diags := data.Openstack.NotManaged.NodeList.ElementsAs(ctx, &NodeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodeListElems) > 0 {
+					var NodeListList []map[string]interface{}
+					for _, NodeListItem := range NodeListElems {
+						NodeListItemMap := make(map[string]interface{})
+						if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
+							NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
 						}
-						NodeListItemMap["interface_list"] = InterfaceListList
+						if !NodeListItem.InterfaceList.IsNull() && !NodeListItem.InterfaceList.IsUnknown() {
+							var InterfaceListElems []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModel
+							diags := NodeListItem.InterfaceList.ElementsAs(ctx, &InterfaceListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceListElems) > 0 {
+								var InterfaceListList []map[string]interface{}
+								for _, InterfaceListItem := range InterfaceListElems {
+									InterfaceListItemMap := make(map[string]interface{})
+									if InterfaceListItem.BondInterface != nil {
+										BondInterfaceMap := make(map[string]interface{})
+										if InterfaceListItem.BondInterface.ActiveBackup != nil {
+											BondInterfaceMap["active_backup"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
+											var DevicesItems []string
+											diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
+											if !diags.HasError() {
+												BondInterfaceMap["devices"] = DevicesItems
+											}
+										}
+										if InterfaceListItem.BondInterface.Lacp != nil {
+											LacpMap := make(map[string]interface{})
+											if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
+												LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
+											}
+											BondInterfaceMap["lacp"] = LacpMap
+										}
+										if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
+											BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
+											BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
+											BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
+										}
+										InterfaceListItemMap["bond_interface"] = BondInterfaceMap
+									}
+									if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
+										InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
+									}
+									if InterfaceListItem.DHCPClient != nil {
+										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.EthernetInterface != nil {
+										EthernetInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
+											EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
+											EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
+										}
+										InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
+									}
+									if InterfaceListItem.Ipv6AutoConfig != nil {
+										Ipv6AutoConfigMap := make(map[string]interface{})
+										if InterfaceListItem.Ipv6AutoConfig.Host != nil {
+											Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.Ipv6AutoConfig.Router != nil {
+											RouterMap := make(map[string]interface{})
+											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
+												DNSConfigMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+													ConfiguredListMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+														var DNSListItems []string
+														diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+														if !diags.HasError() {
+															ConfiguredListMap["dns_list"] = DNSListItems
+														}
+													}
+													DNSConfigMap["configured_list"] = ConfiguredListMap
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+													LocalDNSMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+														LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+														LocalDNSMap["first_address"] = map[string]interface{}{}
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+														LocalDNSMap["last_address"] = map[string]interface{}{}
+													}
+													DNSConfigMap["local_dns"] = LocalDNSMap
+												}
+												RouterMap["dns_config"] = DNSConfigMap
+											}
+											if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+												RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+											}
+											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
+												StatefulMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+													StatefulMap["automatic_from_end"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+													StatefulMap["automatic_from_start"] = map[string]interface{}{}
+												}
+												if !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+													var DHCPNetworksElems []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													diags := InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+														var DHCPNetworksList []map[string]interface{}
+														for _, DHCPNetworksItem := range DHCPNetworksElems {
+															DHCPNetworksItemMap := make(map[string]interface{})
+															if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+																DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+															}
+															if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+																DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+															}
+															if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+																var PoolsElems []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+																resp.Diagnostics.Append(diags...)
+																if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+																	var PoolsList []map[string]interface{}
+																	for _, PoolsItem := range PoolsElems {
+																		PoolsItemMap := make(map[string]interface{})
+																		if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																			PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																		}
+																		if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																			PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																		}
+																		PoolsList = append(PoolsList, PoolsItemMap)
+																	}
+																	DHCPNetworksItemMap["pools"] = PoolsList
+																}
+															}
+															DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+														}
+														StatefulMap["dhcp_networks"] = DHCPNetworksList
+													}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+													StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+													InterfaceIPMapMap := make(map[string]interface{})
+													if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+														InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+													}
+													StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+												RouterMap["stateful"] = StatefulMap
+											}
+											Ipv6AutoConfigMap["router"] = RouterMap
+										}
+										InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+									}
+									if InterfaceListItem.Labels != nil {
+										InterfaceListItemMap["labels"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.Monitor != nil {
+										InterfaceListItemMap["monitor"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.MonitorDisabled != nil {
+										InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
+										InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
+									}
+									if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
+										InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
+									}
+									if InterfaceListItem.NetworkOption != nil {
+										NetworkOptionMap := make(map[string]interface{})
+										if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
+											NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
+											NetworkOptionMap["site_local_network"] = map[string]interface{}{}
+										}
+										InterfaceListItemMap["network_option"] = NetworkOptionMap
+									}
+									if InterfaceListItem.NoIpv4Address != nil {
+										InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.NoIpv6Address != nil {
+										InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
+										InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.StaticIP != nil {
+										StaticIPMap := make(map[string]interface{})
+										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
+											StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
+										}
+										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
+											StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
+										}
+										InterfaceListItemMap["static_ip"] = StaticIPMap
+									}
+									if InterfaceListItem.StaticIpv6Address != nil {
+										StaticIpv6AddressMap := make(map[string]interface{})
+										if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
+											ClusterStaticIPMap := make(map[string]interface{})
+											if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+												ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+											}
+											StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+										}
+										if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
+											NodeStaticIPMap := make(map[string]interface{})
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+												NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+												NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+											}
+											StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+										}
+										InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
+									}
+									if InterfaceListItem.VLANInterface != nil {
+										VLANInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
+											VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
+											VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
+										}
+										InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
+									}
+									InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+								}
+								NodeListItemMap["interface_list"] = InterfaceListList
+							}
+						}
+						if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
+							NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
+						}
+						if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
+							NodeListItemMap["type"] = NodeListItem.Type.ValueString()
+						}
+						NodeListList = append(NodeListList, NodeListItemMap)
 					}
-					if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
-						NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
-					}
-					if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
-						NodeListItemMap["type"] = NodeListItem.Type.ValueString()
-					}
-					NodeListList = append(NodeListList, NodeListItemMap)
+					NotManagedMap["node_list"] = NodeListList
 				}
-				NotManagedMap["node_list"] = NodeListList
 			}
 			OpenstackMap["not_managed"] = NotManagedMap
 		}
@@ -32035,247 +32555,267 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 		VmwareMap := make(map[string]interface{})
 		if data.Vmware.NotManaged != nil {
 			NotManagedMap := make(map[string]interface{})
-			if len(data.Vmware.NotManaged.NodeList) > 0 {
-				var NodeListList []map[string]interface{}
-				for _, NodeListItem := range data.Vmware.NotManaged.NodeList {
-					NodeListItemMap := make(map[string]interface{})
-					if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
-						NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
-					}
-					if len(NodeListItem.InterfaceList) > 0 {
-						var InterfaceListList []map[string]interface{}
-						for _, InterfaceListItem := range NodeListItem.InterfaceList {
-							InterfaceListItemMap := make(map[string]interface{})
-							if InterfaceListItem.BondInterface != nil {
-								BondInterfaceMap := make(map[string]interface{})
-								if InterfaceListItem.BondInterface.ActiveBackup != nil {
-									BondInterfaceMap["active_backup"] = map[string]interface{}{}
-								}
-								if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
-									var DevicesItems []string
-									diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
-									if !diags.HasError() {
-										BondInterfaceMap["devices"] = DevicesItems
-									}
-								}
-								if InterfaceListItem.BondInterface.Lacp != nil {
-									LacpMap := make(map[string]interface{})
-									if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
-										LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
-									}
-									BondInterfaceMap["lacp"] = LacpMap
-								}
-								if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
-									BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
-									BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
-								}
-								if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
-									BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
-								}
-								InterfaceListItemMap["bond_interface"] = BondInterfaceMap
-							}
-							if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
-								InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
-							}
-							if InterfaceListItem.DHCPClient != nil {
-								InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.EthernetInterface != nil {
-								EthernetInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
-									EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
-									EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
-								}
-								InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
-							}
-							if InterfaceListItem.Ipv6AutoConfig != nil {
-								Ipv6AutoConfigMap := make(map[string]interface{})
-								if InterfaceListItem.Ipv6AutoConfig.Host != nil {
-									Ipv6AutoConfigMap["host"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.Ipv6AutoConfig.Router != nil {
-									RouterMap := make(map[string]interface{})
-									if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
-										DNSConfigMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-											ConfiguredListMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
-												var DNSListItems []string
-												diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
-												if !diags.HasError() {
-													ConfiguredListMap["dns_list"] = DNSListItems
-												}
-											}
-											DNSConfigMap["configured_list"] = ConfiguredListMap
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-											LocalDNSMap := make(map[string]interface{})
-											if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-												LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-												LocalDNSMap["first_address"] = map[string]interface{}{}
-											}
-											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-												LocalDNSMap["last_address"] = map[string]interface{}{}
-											}
-											DNSConfigMap["local_dns"] = LocalDNSMap
-										}
-										RouterMap["dns_config"] = DNSConfigMap
-									}
-									if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-										RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
-									}
-									if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
-										StatefulMap := make(map[string]interface{})
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-											StatefulMap["automatic_from_end"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-											StatefulMap["automatic_from_start"] = map[string]interface{}{}
-										}
-										if len(InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
-													}
-													DHCPNetworksItemMap["pools"] = PoolsList
-												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
-											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
-										}
-										if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-											InterfaceIPMapMap := make(map[string]interface{})
-											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
-											}
-											StatefulMap["interface_ip_map"] = InterfaceIPMapMap
-										}
-										RouterMap["stateful"] = StatefulMap
-									}
-									Ipv6AutoConfigMap["router"] = RouterMap
-								}
-								InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
-							}
-							if InterfaceListItem.Labels != nil {
-								InterfaceListItemMap["labels"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.Monitor != nil {
-								InterfaceListItemMap["monitor"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.MonitorDisabled != nil {
-								InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
-								InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
-							}
-							if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
-								InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
-							}
-							if InterfaceListItem.NetworkOption != nil {
-								NetworkOptionMap := make(map[string]interface{})
-								if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
-									NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
-								}
-								if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
-									NetworkOptionMap["site_local_network"] = map[string]interface{}{}
-								}
-								InterfaceListItemMap["network_option"] = NetworkOptionMap
-							}
-							if InterfaceListItem.NoIpv4Address != nil {
-								InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.NoIpv6Address != nil {
-								InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
-							}
-							if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
-								InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
-								InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
-							}
-							if InterfaceListItem.StaticIP != nil {
-								StaticIPMap := make(map[string]interface{})
-								if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
-									StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
-								}
-								if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
-									StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
-								}
-								InterfaceListItemMap["static_ip"] = StaticIPMap
-							}
-							if InterfaceListItem.StaticIpv6Address != nil {
-								StaticIpv6AddressMap := make(map[string]interface{})
-								if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
-									ClusterStaticIPMap := make(map[string]interface{})
-									if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
-									}
-									StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
-								}
-								if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
-									NodeStaticIPMap := make(map[string]interface{})
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-										NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
-									}
-									if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-										NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
-									}
-									StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
-								}
-								InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
-							}
-							if InterfaceListItem.VLANInterface != nil {
-								VLANInterfaceMap := make(map[string]interface{})
-								if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
-									VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
-								}
-								if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
-									VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
-								}
-								InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
-							}
-							InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+			if !data.Vmware.NotManaged.NodeList.IsNull() && !data.Vmware.NotManaged.NodeList.IsUnknown() {
+				var NodeListElems []SecuremeshSiteV2VmwareNotManagedNodeListModel
+				diags := data.Vmware.NotManaged.NodeList.ElementsAs(ctx, &NodeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(NodeListElems) > 0 {
+					var NodeListList []map[string]interface{}
+					for _, NodeListItem := range NodeListElems {
+						NodeListItemMap := make(map[string]interface{})
+						if !NodeListItem.Hostname.IsNull() && !NodeListItem.Hostname.IsUnknown() {
+							NodeListItemMap["hostname"] = NodeListItem.Hostname.ValueString()
 						}
-						NodeListItemMap["interface_list"] = InterfaceListList
+						if !NodeListItem.InterfaceList.IsNull() && !NodeListItem.InterfaceList.IsUnknown() {
+							var InterfaceListElems []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModel
+							diags := NodeListItem.InterfaceList.ElementsAs(ctx, &InterfaceListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(InterfaceListElems) > 0 {
+								var InterfaceListList []map[string]interface{}
+								for _, InterfaceListItem := range InterfaceListElems {
+									InterfaceListItemMap := make(map[string]interface{})
+									if InterfaceListItem.BondInterface != nil {
+										BondInterfaceMap := make(map[string]interface{})
+										if InterfaceListItem.BondInterface.ActiveBackup != nil {
+											BondInterfaceMap["active_backup"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.BondInterface.Devices.IsNull() && !InterfaceListItem.BondInterface.Devices.IsUnknown() {
+											var DevicesItems []string
+											diags := InterfaceListItem.BondInterface.Devices.ElementsAs(ctx, &DevicesItems, false)
+											if !diags.HasError() {
+												BondInterfaceMap["devices"] = DevicesItems
+											}
+										}
+										if InterfaceListItem.BondInterface.Lacp != nil {
+											LacpMap := make(map[string]interface{})
+											if !InterfaceListItem.BondInterface.Lacp.Rate.IsNull() && !InterfaceListItem.BondInterface.Lacp.Rate.IsUnknown() {
+												LacpMap["rate"] = InterfaceListItem.BondInterface.Lacp.Rate.ValueInt64()
+											}
+											BondInterfaceMap["lacp"] = LacpMap
+										}
+										if !InterfaceListItem.BondInterface.LinkPollingInterval.IsNull() && !InterfaceListItem.BondInterface.LinkPollingInterval.IsUnknown() {
+											BondInterfaceMap["link_polling_interval"] = InterfaceListItem.BondInterface.LinkPollingInterval.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.LinkUpDelay.IsNull() && !InterfaceListItem.BondInterface.LinkUpDelay.IsUnknown() {
+											BondInterfaceMap["link_up_delay"] = InterfaceListItem.BondInterface.LinkUpDelay.ValueInt64()
+										}
+										if !InterfaceListItem.BondInterface.Name.IsNull() && !InterfaceListItem.BondInterface.Name.IsUnknown() {
+											BondInterfaceMap["name"] = InterfaceListItem.BondInterface.Name.ValueString()
+										}
+										InterfaceListItemMap["bond_interface"] = BondInterfaceMap
+									}
+									if !InterfaceListItem.DescriptionSpec.IsNull() && !InterfaceListItem.DescriptionSpec.IsUnknown() {
+										InterfaceListItemMap["description"] = InterfaceListItem.DescriptionSpec.ValueString()
+									}
+									if InterfaceListItem.DHCPClient != nil {
+										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.EthernetInterface != nil {
+										EthernetInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
+											EthernetInterfaceMap["device"] = InterfaceListItem.EthernetInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.EthernetInterface.Mac.IsNull() && !InterfaceListItem.EthernetInterface.Mac.IsUnknown() {
+											EthernetInterfaceMap["mac"] = InterfaceListItem.EthernetInterface.Mac.ValueString()
+										}
+										InterfaceListItemMap["ethernet_interface"] = EthernetInterfaceMap
+									}
+									if InterfaceListItem.Ipv6AutoConfig != nil {
+										Ipv6AutoConfigMap := make(map[string]interface{})
+										if InterfaceListItem.Ipv6AutoConfig.Host != nil {
+											Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.Ipv6AutoConfig.Router != nil {
+											RouterMap := make(map[string]interface{})
+											if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig != nil {
+												DNSConfigMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+													ConfiguredListMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
+														var DNSListItems []string
+														diags := InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+														if !diags.HasError() {
+															ConfiguredListMap["dns_list"] = DNSListItems
+														}
+													}
+													DNSConfigMap["configured_list"] = ConfiguredListMap
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+													LocalDNSMap := make(map[string]interface{})
+													if !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
+														LocalDNSMap["configured_address"] = InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
+														LocalDNSMap["first_address"] = map[string]interface{}{}
+													}
+													if InterfaceListItem.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
+														LocalDNSMap["last_address"] = map[string]interface{}{}
+													}
+													DNSConfigMap["local_dns"] = LocalDNSMap
+												}
+												RouterMap["dns_config"] = DNSConfigMap
+											}
+											if !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
+												RouterMap["network_prefix"] = InterfaceListItem.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+											}
+											if InterfaceListItem.Ipv6AutoConfig.Router.Stateful != nil {
+												StatefulMap := make(map[string]interface{})
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
+													StatefulMap["automatic_from_end"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
+													StatefulMap["automatic_from_start"] = map[string]interface{}{}
+												}
+												if !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+													var DHCPNetworksElems []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													diags := InterfaceListItem.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+														var DHCPNetworksList []map[string]interface{}
+														for _, DHCPNetworksItem := range DHCPNetworksElems {
+															DHCPNetworksItemMap := make(map[string]interface{})
+															if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+																DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+															}
+															if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+																DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+															}
+															if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+																var PoolsElems []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+																resp.Diagnostics.Append(diags...)
+																if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+																	var PoolsList []map[string]interface{}
+																	for _, PoolsItem := range PoolsElems {
+																		PoolsItemMap := make(map[string]interface{})
+																		if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																			PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																		}
+																		if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																			PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																		}
+																		PoolsList = append(PoolsList, PoolsItemMap)
+																	}
+																	DHCPNetworksItemMap["pools"] = PoolsList
+																}
+															}
+															DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+														}
+														StatefulMap["dhcp_networks"] = DHCPNetworksList
+													}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
+													StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+												}
+												if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+													InterfaceIPMapMap := make(map[string]interface{})
+													if InterfaceListItem.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
+														InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+													}
+													StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+												RouterMap["stateful"] = StatefulMap
+											}
+											Ipv6AutoConfigMap["router"] = RouterMap
+										}
+										InterfaceListItemMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+									}
+									if InterfaceListItem.Labels != nil {
+										InterfaceListItemMap["labels"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.Monitor != nil {
+										InterfaceListItemMap["monitor"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.MonitorDisabled != nil {
+										InterfaceListItemMap["monitor_disabled"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.MTU.IsNull() && !InterfaceListItem.MTU.IsUnknown() {
+										InterfaceListItemMap["mtu"] = InterfaceListItem.MTU.ValueInt64()
+									}
+									if !InterfaceListItem.Name.IsNull() && !InterfaceListItem.Name.IsUnknown() {
+										InterfaceListItemMap["name"] = InterfaceListItem.Name.ValueString()
+									}
+									if InterfaceListItem.NetworkOption != nil {
+										NetworkOptionMap := make(map[string]interface{})
+										if InterfaceListItem.NetworkOption.SiteLocalInsideNetwork != nil {
+											NetworkOptionMap["site_local_inside_network"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.NetworkOption.SiteLocalNetwork != nil {
+											NetworkOptionMap["site_local_network"] = map[string]interface{}{}
+										}
+										InterfaceListItemMap["network_option"] = NetworkOptionMap
+									}
+									if InterfaceListItem.NoIpv4Address != nil {
+										InterfaceListItemMap["no_ipv4_address"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.NoIpv6Address != nil {
+										InterfaceListItemMap["no_ipv6_address"] = map[string]interface{}{}
+									}
+									if !InterfaceListItem.Priority.IsNull() && !InterfaceListItem.Priority.IsUnknown() {
+										InterfaceListItemMap["priority"] = InterfaceListItem.Priority.ValueInt64()
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceDisabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_disabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.SiteToSiteConnectivityInterfaceEnabled != nil {
+										InterfaceListItemMap["site_to_site_connectivity_interface_enabled"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.StaticIP != nil {
+										StaticIPMap := make(map[string]interface{})
+										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
+											StaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
+										}
+										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
+											StaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
+										}
+										InterfaceListItemMap["static_ip"] = StaticIPMap
+									}
+									if InterfaceListItem.StaticIpv6Address != nil {
+										StaticIpv6AddressMap := make(map[string]interface{})
+										if InterfaceListItem.StaticIpv6Address.ClusterStaticIP != nil {
+											ClusterStaticIPMap := make(map[string]interface{})
+											if InterfaceListItem.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+												ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+											}
+											StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+										}
+										if InterfaceListItem.StaticIpv6Address.NodeStaticIP != nil {
+											NodeStaticIPMap := make(map[string]interface{})
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
+												NodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
+												NodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+											}
+											StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+										}
+										InterfaceListItemMap["static_ipv6_address"] = StaticIpv6AddressMap
+									}
+									if InterfaceListItem.VLANInterface != nil {
+										VLANInterfaceMap := make(map[string]interface{})
+										if !InterfaceListItem.VLANInterface.Device.IsNull() && !InterfaceListItem.VLANInterface.Device.IsUnknown() {
+											VLANInterfaceMap["device"] = InterfaceListItem.VLANInterface.Device.ValueString()
+										}
+										if !InterfaceListItem.VLANInterface.VLANID.IsNull() && !InterfaceListItem.VLANInterface.VLANID.IsUnknown() {
+											VLANInterfaceMap["vlan_id"] = InterfaceListItem.VLANInterface.VLANID.ValueInt64()
+										}
+										InterfaceListItemMap["vlan_interface"] = VLANInterfaceMap
+									}
+									InterfaceListList = append(InterfaceListList, InterfaceListItemMap)
+								}
+								NodeListItemMap["interface_list"] = InterfaceListList
+							}
+						}
+						if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
+							NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
+						}
+						if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
+							NodeListItemMap["type"] = NodeListItem.Type.ValueString()
+						}
+						NodeListList = append(NodeListList, NodeListItemMap)
 					}
-					if !NodeListItem.PublicIP.IsNull() && !NodeListItem.PublicIP.IsUnknown() {
-						NodeListItemMap["public_ip"] = NodeListItem.PublicIP.ValueString()
-					}
-					if !NodeListItem.Type.IsNull() && !NodeListItem.Type.IsUnknown() {
-						NodeListItemMap["type"] = NodeListItem.Type.ValueString()
-					}
-					NodeListList = append(NodeListList, NodeListItemMap)
+					NotManagedMap["node_list"] = NodeListList
 				}
-				NotManagedMap["node_list"] = NodeListList
 			}
 			VmwareMap["not_managed"] = NotManagedMap
 		}
@@ -32591,7 +33131,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2AWSNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2AWSNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2AWSNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -32603,7 +33143,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -32782,7 +33322,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -32800,7 +33340,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -32821,16 +33361,18 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -33022,9 +33564,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -33041,9 +33584,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -33059,7 +33603,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2AzureNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2AzureNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2AzureNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -33071,7 +33615,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -33250,7 +33794,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -33268,7 +33812,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -33289,16 +33833,18 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -33490,9 +34036,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -33509,9 +34056,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -33527,7 +34075,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2BaremetalNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2BaremetalNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2BaremetalNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -33539,7 +34087,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -33718,7 +34266,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -33736,7 +34284,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -33757,16 +34305,18 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -33958,9 +34508,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -33977,9 +34528,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -33992,9 +34544,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &SecuremeshSiteV2BlockedServicesModel{
-			BlockedService: func() []SecuremeshSiteV2BlockedServicesBlockedServiceModel {
-				if !isImport && data.BlockedServices != nil && len(data.BlockedServices.BlockedService) == 0 {
-					return nil
+			BlockedService: func() types.List {
+				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedServiceModelAttrTypes})
 				}
 				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []SecuremeshSiteV2BlockedServicesBlockedServiceModel
@@ -34028,9 +34580,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 							})
 						}
 					}
-					return BlockedServiceResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedServiceModelAttrTypes}, BlockedServiceResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedServiceModelAttrTypes})
 			}(),
 		}
 	}
@@ -34367,7 +34920,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2EquinixNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2EquinixNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2EquinixNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -34379,7 +34932,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -34558,7 +35111,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -34576,7 +35129,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -34597,16 +35150,18 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -34798,9 +35353,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -34817,9 +35373,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -34838,7 +35395,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2GCPNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2GCPNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2GCPNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -34850,7 +35407,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -35029,7 +35586,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -35047,7 +35604,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -35068,16 +35625,18 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -35269,9 +35828,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -35288,9 +35848,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -35306,7 +35867,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2KvmNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2KvmNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2KvmNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -35318,7 +35879,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -35497,7 +36058,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -35515,7 +36076,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -35536,16 +36097,18 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -35737,9 +36300,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -35756,9 +36320,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -36505,7 +37070,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2NutanixNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2NutanixNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2NutanixNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -36517,7 +37082,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -36696,7 +37261,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -36714,7 +37279,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -36735,16 +37300,18 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -36936,9 +37503,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -36955,9 +37523,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -36973,7 +37542,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2OciNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2OciNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2OciNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -36985,7 +37554,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2OciNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2OciNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -37164,7 +37733,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -37182,7 +37751,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -37203,16 +37772,18 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -37404,9 +37975,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -37423,9 +37995,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -37463,7 +38036,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2OpenshiftVirtualizationNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -37475,7 +38048,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -37654,7 +38227,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -37672,7 +38245,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -37693,16 +38266,18 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -37894,9 +38469,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -37913,9 +38489,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -37931,7 +38508,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2OpenstackNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2OpenstackNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2OpenstackNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -37943,7 +38520,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -38122,7 +38699,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -38140,7 +38717,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -38161,16 +38738,18 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -38362,9 +38941,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -38381,9 +38961,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}
@@ -38909,7 +39490,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2VmwareNotManagedModel{
-						NodeList: func() []SecuremeshSiteV2VmwareNotManagedNodeListModel {
+						NodeList: func() types.List {
 							if rawList, ok := NotManagedData["node_list"].([]interface{}); ok && len(rawList) > 0 {
 								var NodeListResult []SecuremeshSiteV2VmwareNotManagedNodeListModel
 								for _, NodeListItem := range rawList {
@@ -38921,7 +39502,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 												}
 												return types.StringNull()
 											}(),
-											InterfaceList: func() []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModel {
+											InterfaceList: func() types.List {
 												if rawList, ok := NodeListItemMap["interface_list"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceListResult []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModel
 													for _, InterfaceListItem := range rawList {
@@ -39100,7 +39681,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																										}
 																										return nil
 																									}(),
-																									DHCPNetworks: func() []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																									DHCPNetworks: func() types.List {
 																										if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																											var DHCPNetworksResult []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																											for _, DHCPNetworksItem := range rawList {
@@ -39118,7 +39699,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																															}
 																															return types.StringNull()
 																														}(),
-																														Pools: func() []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																														Pools: func() types.List {
 																															if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																																var PoolsResult []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																																for _, PoolsItem := range rawList {
@@ -39139,16 +39720,18 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																																		})
 																																	}
 																																}
-																																return PoolsResult
+																																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																																return listVal
 																															}
-																															return nil
+																															return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																														}(),
 																													})
 																												}
 																											}
-																											return DHCPNetworksResult
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																											return listVal
 																										}
-																										return nil
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
 																									FixedIPMap: func() *SecuremeshSiteV2EmptyModel {
 																										if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -39340,9 +39923,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 															})
 														}
 													}
-													return InterfaceListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModelAttrTypes}, InterfaceListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
 												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
@@ -39359,9 +39943,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 										})
 									}
 								}
-								return NodeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListModelAttrTypes}, NodeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListModelAttrTypes})
 						}(),
 					}
 				}

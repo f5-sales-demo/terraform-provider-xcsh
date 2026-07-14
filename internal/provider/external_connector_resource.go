@@ -80,7 +80,7 @@ type ExternalConnectorGreGreParametersModel struct {
 	Segment                *ExternalConnectorGreGreParametersSegmentModel       `tfsdk:"segment"`
 	SiteLocalInsideNetwork *ExternalConnectorEmptyModel                         `tfsdk:"site_local_inside_network"`
 	SiteLocalNetwork       *ExternalConnectorEmptyModel                         `tfsdk:"site_local_network"`
-	TunnelEps              []ExternalConnectorGreGreParametersTunnelEpsModel    `tfsdk:"tunnel_eps"`
+	TunnelEps              types.List                                           `tfsdk:"tunnel_eps"`
 }
 
 // ExternalConnectorGreGreParametersModelAttrTypes defines the attribute types for ExternalConnectorGreGreParametersModel
@@ -265,7 +265,7 @@ type ExternalConnectorIpsecIpsecTunnelParametersModel struct {
 	Segment                *ExternalConnectorIpsecIpsecTunnelParametersSegmentModel       `tfsdk:"segment"`
 	SiteLocalInsideNetwork *ExternalConnectorEmptyModel                                   `tfsdk:"site_local_inside_network"`
 	SiteLocalNetwork       *ExternalConnectorEmptyModel                                   `tfsdk:"site_local_network"`
-	TunnelEps              []ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModel    `tfsdk:"tunnel_eps"`
+	TunnelEps              types.List                                                     `tfsdk:"tunnel_eps"`
 }
 
 // ExternalConnectorIpsecIpsecTunnelParametersModelAttrTypes defines the attribute types for ExternalConnectorIpsecIpsecTunnelParametersModel
@@ -941,25 +941,30 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 			if data.Gre.GreParameters.SiteLocalNetwork != nil {
 				GreParametersMap["site_local_network"] = map[string]interface{}{}
 			}
-			if len(data.Gre.GreParameters.TunnelEps) > 0 {
-				var TunnelEpsList []map[string]interface{}
-				for _, TunnelEpsItem := range data.Gre.GreParameters.TunnelEps {
-					TunnelEpsItemMap := make(map[string]interface{})
-					if !TunnelEpsItem.Interface.IsNull() && !TunnelEpsItem.Interface.IsUnknown() {
-						TunnelEpsItemMap["interface"] = TunnelEpsItem.Interface.ValueString()
+			if !data.Gre.GreParameters.TunnelEps.IsNull() && !data.Gre.GreParameters.TunnelEps.IsUnknown() {
+				var TunnelEpsElems []ExternalConnectorGreGreParametersTunnelEpsModel
+				diags := data.Gre.GreParameters.TunnelEps.ElementsAs(ctx, &TunnelEpsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TunnelEpsElems) > 0 {
+					var TunnelEpsList []map[string]interface{}
+					for _, TunnelEpsItem := range TunnelEpsElems {
+						TunnelEpsItemMap := make(map[string]interface{})
+						if !TunnelEpsItem.Interface.IsNull() && !TunnelEpsItem.Interface.IsUnknown() {
+							TunnelEpsItemMap["interface"] = TunnelEpsItem.Interface.ValueString()
+						}
+						if !TunnelEpsItem.LocalTunnelIP.IsNull() && !TunnelEpsItem.LocalTunnelIP.IsUnknown() {
+							TunnelEpsItemMap["local_tunnel_ip"] = TunnelEpsItem.LocalTunnelIP.ValueString()
+						}
+						if !TunnelEpsItem.Node.IsNull() && !TunnelEpsItem.Node.IsUnknown() {
+							TunnelEpsItemMap["node"] = TunnelEpsItem.Node.ValueString()
+						}
+						if !TunnelEpsItem.RemoteTunnelIP.IsNull() && !TunnelEpsItem.RemoteTunnelIP.IsUnknown() {
+							TunnelEpsItemMap["remote_tunnel_ip"] = TunnelEpsItem.RemoteTunnelIP.ValueString()
+						}
+						TunnelEpsList = append(TunnelEpsList, TunnelEpsItemMap)
 					}
-					if !TunnelEpsItem.LocalTunnelIP.IsNull() && !TunnelEpsItem.LocalTunnelIP.IsUnknown() {
-						TunnelEpsItemMap["local_tunnel_ip"] = TunnelEpsItem.LocalTunnelIP.ValueString()
-					}
-					if !TunnelEpsItem.Node.IsNull() && !TunnelEpsItem.Node.IsUnknown() {
-						TunnelEpsItemMap["node"] = TunnelEpsItem.Node.ValueString()
-					}
-					if !TunnelEpsItem.RemoteTunnelIP.IsNull() && !TunnelEpsItem.RemoteTunnelIP.IsUnknown() {
-						TunnelEpsItemMap["remote_tunnel_ip"] = TunnelEpsItem.RemoteTunnelIP.ValueString()
-					}
-					TunnelEpsList = append(TunnelEpsList, TunnelEpsItemMap)
+					GreParametersMap["tunnel_eps"] = TunnelEpsList
 				}
-				GreParametersMap["tunnel_eps"] = TunnelEpsList
 			}
 			if !data.Gre.GreParameters.TunnelMTU.IsNull() && !data.Gre.GreParameters.TunnelMTU.IsUnknown() {
 				GreParametersMap["tunnel_mtu"] = data.Gre.GreParameters.TunnelMTU.ValueInt64()
@@ -1093,25 +1098,30 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 			if data.Ipsec.IpsecTunnelParameters.SiteLocalNetwork != nil {
 				IpsecTunnelParametersMap["site_local_network"] = map[string]interface{}{}
 			}
-			if len(data.Ipsec.IpsecTunnelParameters.TunnelEps) > 0 {
-				var TunnelEpsList []map[string]interface{}
-				for _, TunnelEpsItem := range data.Ipsec.IpsecTunnelParameters.TunnelEps {
-					TunnelEpsItemMap := make(map[string]interface{})
-					if !TunnelEpsItem.Interface.IsNull() && !TunnelEpsItem.Interface.IsUnknown() {
-						TunnelEpsItemMap["interface"] = TunnelEpsItem.Interface.ValueString()
+			if !data.Ipsec.IpsecTunnelParameters.TunnelEps.IsNull() && !data.Ipsec.IpsecTunnelParameters.TunnelEps.IsUnknown() {
+				var TunnelEpsElems []ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModel
+				diags := data.Ipsec.IpsecTunnelParameters.TunnelEps.ElementsAs(ctx, &TunnelEpsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TunnelEpsElems) > 0 {
+					var TunnelEpsList []map[string]interface{}
+					for _, TunnelEpsItem := range TunnelEpsElems {
+						TunnelEpsItemMap := make(map[string]interface{})
+						if !TunnelEpsItem.Interface.IsNull() && !TunnelEpsItem.Interface.IsUnknown() {
+							TunnelEpsItemMap["interface"] = TunnelEpsItem.Interface.ValueString()
+						}
+						if !TunnelEpsItem.LocalTunnelIP.IsNull() && !TunnelEpsItem.LocalTunnelIP.IsUnknown() {
+							TunnelEpsItemMap["local_tunnel_ip"] = TunnelEpsItem.LocalTunnelIP.ValueString()
+						}
+						if !TunnelEpsItem.Node.IsNull() && !TunnelEpsItem.Node.IsUnknown() {
+							TunnelEpsItemMap["node"] = TunnelEpsItem.Node.ValueString()
+						}
+						if !TunnelEpsItem.RemoteTunnelIP.IsNull() && !TunnelEpsItem.RemoteTunnelIP.IsUnknown() {
+							TunnelEpsItemMap["remote_tunnel_ip"] = TunnelEpsItem.RemoteTunnelIP.ValueString()
+						}
+						TunnelEpsList = append(TunnelEpsList, TunnelEpsItemMap)
 					}
-					if !TunnelEpsItem.LocalTunnelIP.IsNull() && !TunnelEpsItem.LocalTunnelIP.IsUnknown() {
-						TunnelEpsItemMap["local_tunnel_ip"] = TunnelEpsItem.LocalTunnelIP.ValueString()
-					}
-					if !TunnelEpsItem.Node.IsNull() && !TunnelEpsItem.Node.IsUnknown() {
-						TunnelEpsItemMap["node"] = TunnelEpsItem.Node.ValueString()
-					}
-					if !TunnelEpsItem.RemoteTunnelIP.IsNull() && !TunnelEpsItem.RemoteTunnelIP.IsUnknown() {
-						TunnelEpsItemMap["remote_tunnel_ip"] = TunnelEpsItem.RemoteTunnelIP.ValueString()
-					}
-					TunnelEpsList = append(TunnelEpsList, TunnelEpsItemMap)
+					IpsecTunnelParametersMap["tunnel_eps"] = TunnelEpsList
 				}
-				IpsecTunnelParametersMap["tunnel_eps"] = TunnelEpsList
 			}
 			if !data.Ipsec.IpsecTunnelParameters.TunnelMTU.IsNull() && !data.Ipsec.IpsecTunnelParameters.TunnelMTU.IsUnknown() {
 				IpsecTunnelParametersMap["tunnel_mtu"] = data.Ipsec.IpsecTunnelParameters.TunnelMTU.ValueInt64()
@@ -1239,7 +1249,7 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 							}
 							return nil
 						}(),
-						TunnelEps: func() []ExternalConnectorGreGreParametersTunnelEpsModel {
+						TunnelEps: func() types.List {
 							if rawList, ok := GreParametersData["tunnel_eps"].([]interface{}); ok && len(rawList) > 0 {
 								var TunnelEpsResult []ExternalConnectorGreGreParametersTunnelEpsModel
 								for _, TunnelEpsItem := range rawList {
@@ -1272,9 +1282,10 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 										})
 									}
 								}
-								return TunnelEpsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ExternalConnectorGreGreParametersTunnelEpsModelAttrTypes}, TunnelEpsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ExternalConnectorGreGreParametersTunnelEpsModelAttrTypes})
 						}(),
 						TunnelMTU: func() types.Int64 {
 							if v, ok := GreParametersData["tunnel_mtu"].(float64); ok && v != 0 {
@@ -1520,7 +1531,7 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 							}
 							return nil
 						}(),
-						TunnelEps: func() []ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModel {
+						TunnelEps: func() types.List {
 							if rawList, ok := IpsecTunnelParametersData["tunnel_eps"].([]interface{}); ok && len(rawList) > 0 {
 								var TunnelEpsResult []ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModel
 								for _, TunnelEpsItem := range rawList {
@@ -1553,9 +1564,10 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 										})
 									}
 								}
-								return TunnelEpsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModelAttrTypes}, TunnelEpsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModelAttrTypes})
 						}(),
 						TunnelMTU: func() types.Int64 {
 							if v, ok := IpsecTunnelParametersData["tunnel_mtu"].(float64); ok && v != 0 {
@@ -1768,7 +1780,7 @@ func (r *ExternalConnectorResource) Read(ctx context.Context, req resource.ReadR
 							}
 							return nil
 						}(),
-						TunnelEps: func() []ExternalConnectorGreGreParametersTunnelEpsModel {
+						TunnelEps: func() types.List {
 							if rawList, ok := GreParametersData["tunnel_eps"].([]interface{}); ok && len(rawList) > 0 {
 								var TunnelEpsResult []ExternalConnectorGreGreParametersTunnelEpsModel
 								for _, TunnelEpsItem := range rawList {
@@ -1801,9 +1813,10 @@ func (r *ExternalConnectorResource) Read(ctx context.Context, req resource.ReadR
 										})
 									}
 								}
-								return TunnelEpsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ExternalConnectorGreGreParametersTunnelEpsModelAttrTypes}, TunnelEpsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ExternalConnectorGreGreParametersTunnelEpsModelAttrTypes})
 						}(),
 						TunnelMTU: func() types.Int64 {
 							if v, ok := GreParametersData["tunnel_mtu"].(float64); ok && v != 0 {
@@ -2049,7 +2062,7 @@ func (r *ExternalConnectorResource) Read(ctx context.Context, req resource.ReadR
 							}
 							return nil
 						}(),
-						TunnelEps: func() []ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModel {
+						TunnelEps: func() types.List {
 							if rawList, ok := IpsecTunnelParametersData["tunnel_eps"].([]interface{}); ok && len(rawList) > 0 {
 								var TunnelEpsResult []ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModel
 								for _, TunnelEpsItem := range rawList {
@@ -2082,9 +2095,10 @@ func (r *ExternalConnectorResource) Read(ctx context.Context, req resource.ReadR
 										})
 									}
 								}
-								return TunnelEpsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModelAttrTypes}, TunnelEpsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModelAttrTypes})
 						}(),
 						TunnelMTU: func() types.Int64 {
 							if v, ok := IpsecTunnelParametersData["tunnel_mtu"].(float64); ok && v != 0 {
@@ -2219,25 +2233,30 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 			if data.Gre.GreParameters.SiteLocalNetwork != nil {
 				GreParametersMap["site_local_network"] = map[string]interface{}{}
 			}
-			if len(data.Gre.GreParameters.TunnelEps) > 0 {
-				var TunnelEpsList []map[string]interface{}
-				for _, TunnelEpsItem := range data.Gre.GreParameters.TunnelEps {
-					TunnelEpsItemMap := make(map[string]interface{})
-					if !TunnelEpsItem.Interface.IsNull() && !TunnelEpsItem.Interface.IsUnknown() {
-						TunnelEpsItemMap["interface"] = TunnelEpsItem.Interface.ValueString()
+			if !data.Gre.GreParameters.TunnelEps.IsNull() && !data.Gre.GreParameters.TunnelEps.IsUnknown() {
+				var TunnelEpsElems []ExternalConnectorGreGreParametersTunnelEpsModel
+				diags := data.Gre.GreParameters.TunnelEps.ElementsAs(ctx, &TunnelEpsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TunnelEpsElems) > 0 {
+					var TunnelEpsList []map[string]interface{}
+					for _, TunnelEpsItem := range TunnelEpsElems {
+						TunnelEpsItemMap := make(map[string]interface{})
+						if !TunnelEpsItem.Interface.IsNull() && !TunnelEpsItem.Interface.IsUnknown() {
+							TunnelEpsItemMap["interface"] = TunnelEpsItem.Interface.ValueString()
+						}
+						if !TunnelEpsItem.LocalTunnelIP.IsNull() && !TunnelEpsItem.LocalTunnelIP.IsUnknown() {
+							TunnelEpsItemMap["local_tunnel_ip"] = TunnelEpsItem.LocalTunnelIP.ValueString()
+						}
+						if !TunnelEpsItem.Node.IsNull() && !TunnelEpsItem.Node.IsUnknown() {
+							TunnelEpsItemMap["node"] = TunnelEpsItem.Node.ValueString()
+						}
+						if !TunnelEpsItem.RemoteTunnelIP.IsNull() && !TunnelEpsItem.RemoteTunnelIP.IsUnknown() {
+							TunnelEpsItemMap["remote_tunnel_ip"] = TunnelEpsItem.RemoteTunnelIP.ValueString()
+						}
+						TunnelEpsList = append(TunnelEpsList, TunnelEpsItemMap)
 					}
-					if !TunnelEpsItem.LocalTunnelIP.IsNull() && !TunnelEpsItem.LocalTunnelIP.IsUnknown() {
-						TunnelEpsItemMap["local_tunnel_ip"] = TunnelEpsItem.LocalTunnelIP.ValueString()
-					}
-					if !TunnelEpsItem.Node.IsNull() && !TunnelEpsItem.Node.IsUnknown() {
-						TunnelEpsItemMap["node"] = TunnelEpsItem.Node.ValueString()
-					}
-					if !TunnelEpsItem.RemoteTunnelIP.IsNull() && !TunnelEpsItem.RemoteTunnelIP.IsUnknown() {
-						TunnelEpsItemMap["remote_tunnel_ip"] = TunnelEpsItem.RemoteTunnelIP.ValueString()
-					}
-					TunnelEpsList = append(TunnelEpsList, TunnelEpsItemMap)
+					GreParametersMap["tunnel_eps"] = TunnelEpsList
 				}
-				GreParametersMap["tunnel_eps"] = TunnelEpsList
 			}
 			if !data.Gre.GreParameters.TunnelMTU.IsNull() && !data.Gre.GreParameters.TunnelMTU.IsUnknown() {
 				GreParametersMap["tunnel_mtu"] = data.Gre.GreParameters.TunnelMTU.ValueInt64()
@@ -2371,25 +2390,30 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 			if data.Ipsec.IpsecTunnelParameters.SiteLocalNetwork != nil {
 				IpsecTunnelParametersMap["site_local_network"] = map[string]interface{}{}
 			}
-			if len(data.Ipsec.IpsecTunnelParameters.TunnelEps) > 0 {
-				var TunnelEpsList []map[string]interface{}
-				for _, TunnelEpsItem := range data.Ipsec.IpsecTunnelParameters.TunnelEps {
-					TunnelEpsItemMap := make(map[string]interface{})
-					if !TunnelEpsItem.Interface.IsNull() && !TunnelEpsItem.Interface.IsUnknown() {
-						TunnelEpsItemMap["interface"] = TunnelEpsItem.Interface.ValueString()
+			if !data.Ipsec.IpsecTunnelParameters.TunnelEps.IsNull() && !data.Ipsec.IpsecTunnelParameters.TunnelEps.IsUnknown() {
+				var TunnelEpsElems []ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModel
+				diags := data.Ipsec.IpsecTunnelParameters.TunnelEps.ElementsAs(ctx, &TunnelEpsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TunnelEpsElems) > 0 {
+					var TunnelEpsList []map[string]interface{}
+					for _, TunnelEpsItem := range TunnelEpsElems {
+						TunnelEpsItemMap := make(map[string]interface{})
+						if !TunnelEpsItem.Interface.IsNull() && !TunnelEpsItem.Interface.IsUnknown() {
+							TunnelEpsItemMap["interface"] = TunnelEpsItem.Interface.ValueString()
+						}
+						if !TunnelEpsItem.LocalTunnelIP.IsNull() && !TunnelEpsItem.LocalTunnelIP.IsUnknown() {
+							TunnelEpsItemMap["local_tunnel_ip"] = TunnelEpsItem.LocalTunnelIP.ValueString()
+						}
+						if !TunnelEpsItem.Node.IsNull() && !TunnelEpsItem.Node.IsUnknown() {
+							TunnelEpsItemMap["node"] = TunnelEpsItem.Node.ValueString()
+						}
+						if !TunnelEpsItem.RemoteTunnelIP.IsNull() && !TunnelEpsItem.RemoteTunnelIP.IsUnknown() {
+							TunnelEpsItemMap["remote_tunnel_ip"] = TunnelEpsItem.RemoteTunnelIP.ValueString()
+						}
+						TunnelEpsList = append(TunnelEpsList, TunnelEpsItemMap)
 					}
-					if !TunnelEpsItem.LocalTunnelIP.IsNull() && !TunnelEpsItem.LocalTunnelIP.IsUnknown() {
-						TunnelEpsItemMap["local_tunnel_ip"] = TunnelEpsItem.LocalTunnelIP.ValueString()
-					}
-					if !TunnelEpsItem.Node.IsNull() && !TunnelEpsItem.Node.IsUnknown() {
-						TunnelEpsItemMap["node"] = TunnelEpsItem.Node.ValueString()
-					}
-					if !TunnelEpsItem.RemoteTunnelIP.IsNull() && !TunnelEpsItem.RemoteTunnelIP.IsUnknown() {
-						TunnelEpsItemMap["remote_tunnel_ip"] = TunnelEpsItem.RemoteTunnelIP.ValueString()
-					}
-					TunnelEpsList = append(TunnelEpsList, TunnelEpsItemMap)
+					IpsecTunnelParametersMap["tunnel_eps"] = TunnelEpsList
 				}
-				IpsecTunnelParametersMap["tunnel_eps"] = TunnelEpsList
 			}
 			if !data.Ipsec.IpsecTunnelParameters.TunnelMTU.IsNull() && !data.Ipsec.IpsecTunnelParameters.TunnelMTU.IsUnknown() {
 				IpsecTunnelParametersMap["tunnel_mtu"] = data.Ipsec.IpsecTunnelParameters.TunnelMTU.ValueInt64()
@@ -2528,7 +2552,7 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 							}
 							return nil
 						}(),
-						TunnelEps: func() []ExternalConnectorGreGreParametersTunnelEpsModel {
+						TunnelEps: func() types.List {
 							if rawList, ok := GreParametersData["tunnel_eps"].([]interface{}); ok && len(rawList) > 0 {
 								var TunnelEpsResult []ExternalConnectorGreGreParametersTunnelEpsModel
 								for _, TunnelEpsItem := range rawList {
@@ -2561,9 +2585,10 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 										})
 									}
 								}
-								return TunnelEpsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ExternalConnectorGreGreParametersTunnelEpsModelAttrTypes}, TunnelEpsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ExternalConnectorGreGreParametersTunnelEpsModelAttrTypes})
 						}(),
 						TunnelMTU: func() types.Int64 {
 							if v, ok := GreParametersData["tunnel_mtu"].(float64); ok && v != 0 {
@@ -2809,7 +2834,7 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 							}
 							return nil
 						}(),
-						TunnelEps: func() []ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModel {
+						TunnelEps: func() types.List {
 							if rawList, ok := IpsecTunnelParametersData["tunnel_eps"].([]interface{}); ok && len(rawList) > 0 {
 								var TunnelEpsResult []ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModel
 								for _, TunnelEpsItem := range rawList {
@@ -2842,9 +2867,10 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 										})
 									}
 								}
-								return TunnelEpsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModelAttrTypes}, TunnelEpsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModelAttrTypes})
 						}(),
 						TunnelMTU: func() types.Int64 {
 							if v, ok := IpsecTunnelParametersData["tunnel_mtu"].(float64); ok && v != 0 {

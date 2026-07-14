@@ -317,10 +317,10 @@ var CDNLoadBalancerAPIRateLimitAPIEndpointRulesRefRateLimiterModelAttrTypes = ma
 
 // CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherModel represents request_matcher block
 type CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherModel struct {
-	CookieMatchers []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModel `tfsdk:"cookie_matchers"`
-	Headers        []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModel        `tfsdk:"headers"`
-	JWTClaims      []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModel      `tfsdk:"jwt_claims"`
-	QueryParams    []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModel    `tfsdk:"query_params"`
+	CookieMatchers types.List `tfsdk:"cookie_matchers"`
+	Headers        types.List `tfsdk:"headers"`
+	JWTClaims      types.List `tfsdk:"jwt_claims"`
+	QueryParams    types.List `tfsdk:"query_params"`
 }
 
 // CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherModelAttrTypes defines the attribute types for CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherModel
@@ -657,10 +657,10 @@ var CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesCli
 
 // CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherModel represents request_matcher block
 type CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherModel struct {
-	CookieMatchers []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModel `tfsdk:"cookie_matchers"`
-	Headers        []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModel        `tfsdk:"headers"`
-	JWTClaims      []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModel      `tfsdk:"jwt_claims"`
-	QueryParams    []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModel    `tfsdk:"query_params"`
+	CookieMatchers types.List `tfsdk:"cookie_matchers"`
+	Headers        types.List `tfsdk:"headers"`
+	JWTClaims      types.List `tfsdk:"jwt_claims"`
+	QueryParams    types.List `tfsdk:"query_params"`
 }
 
 // CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherModelAttrTypes defines the attribute types for CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherModel
@@ -1043,10 +1043,10 @@ var CDNLoadBalancerAPIRateLimitServerURLRulesRefRateLimiterModelAttrTypes = map[
 
 // CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherModel represents request_matcher block
 type CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherModel struct {
-	CookieMatchers []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModel `tfsdk:"cookie_matchers"`
-	Headers        []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModel        `tfsdk:"headers"`
-	JWTClaims      []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModel      `tfsdk:"jwt_claims"`
-	QueryParams    []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModel    `tfsdk:"query_params"`
+	CookieMatchers types.List `tfsdk:"cookie_matchers"`
+	Headers        types.List `tfsdk:"headers"`
+	JWTClaims      types.List `tfsdk:"jwt_claims"`
+	QueryParams    types.List `tfsdk:"query_params"`
 }
 
 // CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherModelAttrTypes defines the attribute types for CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherModel
@@ -1243,7 +1243,7 @@ var CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeMode
 
 // CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModel represents fall_through_mode_custom block
 type CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModel struct {
-	OpenAPIValidationRules []CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel `tfsdk:"open_api_validation_rules"`
+	OpenAPIValidationRules types.List `tfsdk:"open_api_validation_rules"`
 }
 
 // CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModelAttrTypes defines the attribute types for CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModel
@@ -1381,9 +1381,9 @@ var CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsValidationModeValid
 
 // CDNLoadBalancerAPISpecificationValidationCustomListModel represents validation_custom_list block
 type CDNLoadBalancerAPISpecificationValidationCustomListModel struct {
-	FallThroughMode        *CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeModel         `tfsdk:"fall_through_mode"`
-	OpenAPIValidationRules []CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModel `tfsdk:"open_api_validation_rules"`
-	Settings               *CDNLoadBalancerAPISpecificationValidationCustomListSettingsModel                `tfsdk:"settings"`
+	FallThroughMode        *CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeModel `tfsdk:"fall_through_mode"`
+	OpenAPIValidationRules types.List                                                               `tfsdk:"open_api_validation_rules"`
+	Settings               *CDNLoadBalancerAPISpecificationValidationCustomListSettingsModel        `tfsdk:"settings"`
 }
 
 // CDNLoadBalancerAPISpecificationValidationCustomListModelAttrTypes defines the attribute types for CDNLoadBalancerAPISpecificationValidationCustomListModel
@@ -1407,7 +1407,7 @@ var CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeModelAttrT
 
 // CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModel represents fall_through_mode_custom block
 type CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModel struct {
-	OpenAPIValidationRules []CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel `tfsdk:"open_api_validation_rules"`
+	OpenAPIValidationRules types.List `tfsdk:"open_api_validation_rules"`
 }
 
 // CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModelAttrTypes defines the attribute types for CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModel
@@ -1635,7 +1635,7 @@ var CDNLoadBalancerBlockedClientsModelAttrTypes = map[string]attr.Type{
 
 // CDNLoadBalancerBlockedClientsHTTPHeaderModel represents http_header block
 type CDNLoadBalancerBlockedClientsHTTPHeaderModel struct {
-	Headers []CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModel `tfsdk:"headers"`
+	Headers types.List `tfsdk:"headers"`
 }
 
 // CDNLoadBalancerBlockedClientsHTTPHeaderModelAttrTypes defines the attribute types for CDNLoadBalancerBlockedClientsHTTPHeaderModel
@@ -1701,7 +1701,7 @@ type CDNLoadBalancerBotDefensePolicyModel struct {
 	JsInsertAllPagesExcept *CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptModel `tfsdk:"js_insert_all_pages_except"`
 	JsInsertionRules       *CDNLoadBalancerBotDefensePolicyJsInsertionRulesModel       `tfsdk:"js_insertion_rules"`
 	MobileSdkConfig        *CDNLoadBalancerBotDefensePolicyMobileSdkConfigModel        `tfsdk:"mobile_sdk_config"`
-	ProtectedAppEndpoints  []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModel `tfsdk:"protected_app_endpoints"`
+	ProtectedAppEndpoints  types.List                                                  `tfsdk:"protected_app_endpoints"`
 }
 
 // CDNLoadBalancerBotDefensePolicyModelAttrTypes defines the attribute types for CDNLoadBalancerBotDefensePolicyModel
@@ -1729,8 +1729,8 @@ var CDNLoadBalancerBotDefensePolicyJsInsertAllPagesModelAttrTypes = map[string]a
 
 // CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptModel represents js_insert_all_pages_except block
 type CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptModel struct {
-	JavascriptLocation types.String                                                            `tfsdk:"javascript_location"`
-	ExcludeList        []CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModel `tfsdk:"exclude_list"`
+	JavascriptLocation types.String `tfsdk:"javascript_location"`
+	ExcludeList        types.List   `tfsdk:"exclude_list"`
 }
 
 // CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptModelAttrTypes defines the attribute types for CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptModel
@@ -1797,8 +1797,8 @@ var CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListPathModelAtt
 
 // CDNLoadBalancerBotDefensePolicyJsInsertionRulesModel represents js_insertion_rules block
 type CDNLoadBalancerBotDefensePolicyJsInsertionRulesModel struct {
-	ExcludeList []CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModel `tfsdk:"exclude_list"`
-	Rules       []CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModel       `tfsdk:"rules"`
+	ExcludeList types.List `tfsdk:"exclude_list"`
+	Rules       types.List `tfsdk:"rules"`
 }
 
 // CDNLoadBalancerBotDefensePolicyJsInsertionRulesModelAttrTypes defines the attribute types for CDNLoadBalancerBotDefensePolicyJsInsertionRulesModel
@@ -1933,7 +1933,7 @@ var CDNLoadBalancerBotDefensePolicyMobileSdkConfigModelAttrTypes = map[string]at
 
 // CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierModel represents mobile_identifier block
 type CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierModel struct {
-	Headers []CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModel `tfsdk:"headers"`
+	Headers types.List `tfsdk:"headers"`
 }
 
 // CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierModelAttrTypes defines the attribute types for CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierModel
@@ -1973,22 +1973,22 @@ var CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersItemMod
 
 // CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModel represents protected_app_endpoints block
 type CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModel struct {
-	HTTPMethods        types.List                                                             `tfsdk:"http_methods"`
-	Protocol           types.String                                                           `tfsdk:"protocol"`
-	AllowGoodBots      *CDNLoadBalancerEmptyModel                                             `tfsdk:"allow_good_bots"`
-	AnyDomain          *CDNLoadBalancerEmptyModel                                             `tfsdk:"any_domain"`
-	Domain             *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsDomainModel       `tfsdk:"domain"`
-	FlowLabel          *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelModel    `tfsdk:"flow_label"`
-	Headers            []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsHeadersModel     `tfsdk:"headers"`
-	Metadata           *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMetadataModel     `tfsdk:"metadata"`
-	MitigateGoodBots   *CDNLoadBalancerEmptyModel                                             `tfsdk:"mitigate_good_bots"`
-	Mitigation         *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationModel   `tfsdk:"mitigation"`
-	Mobile             *CDNLoadBalancerEmptyModel                                             `tfsdk:"mobile"`
-	Path               *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsPathModel         `tfsdk:"path"`
-	QueryParams        []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsQueryParamsModel `tfsdk:"query_params"`
-	UndefinedFlowLabel *CDNLoadBalancerEmptyModel                                             `tfsdk:"undefined_flow_label"`
-	Web                *CDNLoadBalancerEmptyModel                                             `tfsdk:"web"`
-	WebMobile          *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsWebMobileModel    `tfsdk:"web_mobile"`
+	HTTPMethods        types.List                                                           `tfsdk:"http_methods"`
+	Protocol           types.String                                                         `tfsdk:"protocol"`
+	AllowGoodBots      *CDNLoadBalancerEmptyModel                                           `tfsdk:"allow_good_bots"`
+	AnyDomain          *CDNLoadBalancerEmptyModel                                           `tfsdk:"any_domain"`
+	Domain             *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsDomainModel     `tfsdk:"domain"`
+	FlowLabel          *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelModel  `tfsdk:"flow_label"`
+	Headers            types.List                                                           `tfsdk:"headers"`
+	Metadata           *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMetadataModel   `tfsdk:"metadata"`
+	MitigateGoodBots   *CDNLoadBalancerEmptyModel                                           `tfsdk:"mitigate_good_bots"`
+	Mitigation         *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationModel `tfsdk:"mitigation"`
+	Mobile             *CDNLoadBalancerEmptyModel                                           `tfsdk:"mobile"`
+	Path               *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsPathModel       `tfsdk:"path"`
+	QueryParams        types.List                                                           `tfsdk:"query_params"`
+	UndefinedFlowLabel *CDNLoadBalancerEmptyModel                                           `tfsdk:"undefined_flow_label"`
+	Web                *CDNLoadBalancerEmptyModel                                           `tfsdk:"web"`
+	WebMobile          *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsWebMobileModel  `tfsdk:"web_mobile"`
 }
 
 // CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModelAttrTypes defines the attribute types for CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModel
@@ -2091,8 +2091,8 @@ var CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationL
 
 // CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultModel represents transaction_result block
 type CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultModel struct {
-	FailureConditions []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel `tfsdk:"failure_conditions"`
-	SuccessConditions []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel `tfsdk:"success_conditions"`
+	FailureConditions types.List `tfsdk:"failure_conditions"`
+	SuccessConditions types.List `tfsdk:"success_conditions"`
 }
 
 // CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultModelAttrTypes defines the attribute types for CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultModel
@@ -2413,7 +2413,7 @@ var CDNLoadBalancerClientSideDefensePolicyModelAttrTypes = map[string]attr.Type{
 
 // CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptModel represents js_insert_all_pages_except block
 type CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptModel struct {
-	ExcludeList []CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModel `tfsdk:"exclude_list"`
+	ExcludeList types.List `tfsdk:"exclude_list"`
 }
 
 // CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptModelAttrTypes defines the attribute types for CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptModel
@@ -2479,8 +2479,8 @@ var CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListPathM
 
 // CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesModel represents js_insertion_rules block
 type CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesModel struct {
-	ExcludeList []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModel `tfsdk:"exclude_list"`
-	Rules       []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModel       `tfsdk:"rules"`
+	ExcludeList types.List `tfsdk:"exclude_list"`
+	Rules       types.List `tfsdk:"rules"`
 }
 
 // CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesModelAttrTypes defines the attribute types for CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesModel
@@ -2863,7 +2863,7 @@ var CDNLoadBalancerEnableAPIDiscoveryAPICrawlerModelAttrTypes = map[string]attr.
 
 // CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModel represents api_crawler_config block
 type CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModel struct {
-	Domains []CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel `tfsdk:"domains"`
+	Domains types.List `tfsdk:"domains"`
 }
 
 // CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModelAttrTypes defines the attribute types for CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModel
@@ -3301,10 +3301,10 @@ var CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsUseMtlsXfccOptionsModelAttrTy
 
 // CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsModel represents tls_inline_params block
 type CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsModel struct {
-	NoMtls          *CDNLoadBalancerEmptyModel                                              `tfsdk:"no_mtls"`
-	TLSCertificates []CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModel `tfsdk:"tls_certificates"`
-	TLSConfig       *CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSConfigModel        `tfsdk:"tls_config"`
-	UseMtls         *CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsUseMtlsModel          `tfsdk:"use_mtls"`
+	NoMtls          *CDNLoadBalancerEmptyModel                                       `tfsdk:"no_mtls"`
+	TLSCertificates types.List                                                       `tfsdk:"tls_certificates"`
+	TLSConfig       *CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSConfigModel `tfsdk:"tls_config"`
+	UseMtls         *CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsUseMtlsModel   `tfsdk:"use_mtls"`
 }
 
 // CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsModelAttrTypes defines the attribute types for CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsModel
@@ -3684,7 +3684,7 @@ type CDNLoadBalancerOriginPoolModel struct {
 	OriginRequestTimeout types.String                                     `tfsdk:"origin_request_timeout"`
 	MoreOriginOptions    *CDNLoadBalancerOriginPoolMoreOriginOptionsModel `tfsdk:"more_origin_options"`
 	NoTLS                *CDNLoadBalancerEmptyModel                       `tfsdk:"no_tls"`
-	OriginServers        []CDNLoadBalancerOriginPoolOriginServersModel    `tfsdk:"origin_servers"`
+	OriginServers        types.List                                       `tfsdk:"origin_servers"`
 	PublicName           *CDNLoadBalancerOriginPoolPublicNameModel        `tfsdk:"public_name"`
 	UseTLS               *CDNLoadBalancerOriginPoolUseTLSModel            `tfsdk:"use_tls"`
 }
@@ -3825,7 +3825,7 @@ var CDNLoadBalancerOriginPoolUseTLSTLSConfigCustomSecurityModelAttrTypes = map[s
 
 // CDNLoadBalancerOriginPoolUseTLSUseMtlsModel represents use_mtls block
 type CDNLoadBalancerOriginPoolUseTLSUseMtlsModel struct {
-	TLSCertificates []CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModel `tfsdk:"tls_certificates"`
+	TLSCertificates types.List `tfsdk:"tls_certificates"`
 }
 
 // CDNLoadBalancerOriginPoolUseTLSUseMtlsModelAttrTypes defines the attribute types for CDNLoadBalancerOriginPoolUseTLSUseMtlsModel
@@ -3957,10 +3957,10 @@ var CDNLoadBalancerOtherSettingsModelAttrTypes = map[string]attr.Type{
 
 // CDNLoadBalancerOtherSettingsHeaderOptionsModel represents header_options block
 type CDNLoadBalancerOtherSettingsHeaderOptionsModel struct {
-	RequestHeadersToRemove  types.List                                                           `tfsdk:"request_headers_to_remove"`
-	ResponseHeadersToRemove types.List                                                           `tfsdk:"response_headers_to_remove"`
-	RequestHeadersToAdd     []CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModel  `tfsdk:"request_headers_to_add"`
-	ResponseHeadersToAdd    []CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModel `tfsdk:"response_headers_to_add"`
+	RequestHeadersToRemove  types.List `tfsdk:"request_headers_to_remove"`
+	ResponseHeadersToRemove types.List `tfsdk:"response_headers_to_remove"`
+	RequestHeadersToAdd     types.List `tfsdk:"request_headers_to_add"`
+	ResponseHeadersToAdd    types.List `tfsdk:"response_headers_to_add"`
 }
 
 // CDNLoadBalancerOtherSettingsHeaderOptionsModelAttrTypes defines the attribute types for CDNLoadBalancerOtherSettingsHeaderOptionsModel
@@ -4223,22 +4223,22 @@ type CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecModel struct {
 	AnyAsn                    *CDNLoadBalancerEmptyModel                                                      `tfsdk:"any_asn"`
 	AnyClient                 *CDNLoadBalancerEmptyModel                                                      `tfsdk:"any_client"`
 	AnyIP                     *CDNLoadBalancerEmptyModel                                                      `tfsdk:"any_ip"`
-	ArgMatchers               []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModel          `tfsdk:"arg_matchers"`
+	ArgMatchers               types.List                                                                      `tfsdk:"arg_matchers"`
 	AsnList                   *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnListModel               `tfsdk:"asn_list"`
 	AsnMatcher                *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnMatcherModel            `tfsdk:"asn_matcher"`
 	BodyMatcher               *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecBodyMatcherModel           `tfsdk:"body_matcher"`
 	ClientSelector            *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecClientSelectorModel        `tfsdk:"client_selector"`
-	CookieMatchers            []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModel       `tfsdk:"cookie_matchers"`
+	CookieMatchers            types.List                                                                      `tfsdk:"cookie_matchers"`
 	DisableChallenge          *CDNLoadBalancerEmptyModel                                                      `tfsdk:"disable_challenge"`
 	DomainMatcher             *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecDomainMatcherModel         `tfsdk:"domain_matcher"`
 	EnableCaptchaChallenge    *CDNLoadBalancerEmptyModel                                                      `tfsdk:"enable_captcha_challenge"`
 	EnableJavascriptChallenge *CDNLoadBalancerEmptyModel                                                      `tfsdk:"enable_javascript_challenge"`
-	Headers                   []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModel              `tfsdk:"headers"`
+	Headers                   types.List                                                                      `tfsdk:"headers"`
 	HTTPMethod                *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHTTPMethodModel            `tfsdk:"http_method"`
 	IPMatcher                 *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPMatcherModel             `tfsdk:"ip_matcher"`
 	IPPrefixList              *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPPrefixListModel          `tfsdk:"ip_prefix_list"`
 	Path                      *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecPathModel                  `tfsdk:"path"`
-	QueryParams               []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModel          `tfsdk:"query_params"`
+	QueryParams               types.List                                                                      `tfsdk:"query_params"`
 	TLSFingerprintMatcher     *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecTLSFingerprintMatcherModel `tfsdk:"tls_fingerprint_matcher"`
 }
 
@@ -4817,7 +4817,7 @@ var CDNLoadBalancerTrustedClientsModelAttrTypes = map[string]attr.Type{
 
 // CDNLoadBalancerTrustedClientsHTTPHeaderModel represents http_header block
 type CDNLoadBalancerTrustedClientsHTTPHeaderModel struct {
-	Headers []CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModel `tfsdk:"headers"`
+	Headers types.List `tfsdk:"headers"`
 }
 
 // CDNLoadBalancerTrustedClientsHTTPHeaderModelAttrTypes defines the attribute types for CDNLoadBalancerTrustedClientsHTTPHeaderModel
@@ -4883,7 +4883,7 @@ var CDNLoadBalancerWAFExclusionModelAttrTypes = map[string]attr.Type{
 
 // CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesModel represents waf_exclusion_inline_rules block
 type CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesModel struct {
-	Rules []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModel `tfsdk:"rules"`
+	Rules types.List `tfsdk:"rules"`
 }
 
 // CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesModelAttrTypes defines the attribute types for CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesModel
@@ -4923,10 +4923,10 @@ var CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModelAttrTypes = map[
 
 // CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlModel represents app_firewall_detection_control block
 type CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlModel struct {
-	ExcludeAttackTypeContexts []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel `tfsdk:"exclude_attack_type_contexts"`
-	ExcludeBotNameContexts    []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModel    `tfsdk:"exclude_bot_name_contexts"`
-	ExcludeSignatureContexts  []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModel  `tfsdk:"exclude_signature_contexts"`
-	ExcludeViolationContexts  []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModel  `tfsdk:"exclude_violation_contexts"`
+	ExcludeAttackTypeContexts types.List `tfsdk:"exclude_attack_type_contexts"`
+	ExcludeBotNameContexts    types.List `tfsdk:"exclude_bot_name_contexts"`
+	ExcludeSignatureContexts  types.List `tfsdk:"exclude_signature_contexts"`
+	ExcludeViolationContexts  types.List `tfsdk:"exclude_violation_contexts"`
 }
 
 // CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlModelAttrTypes defines the attribute types for CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlModel
@@ -12222,185 +12222,205 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					}
 					if APIEndpointRulesItem.RequestMatcher != nil {
 						RequestMatcherMap := make(map[string]interface{})
-						if len(APIEndpointRulesItem.RequestMatcher.CookieMatchers) > 0 {
-							var CookieMatchersList []map[string]interface{}
-							for _, CookieMatchersItem := range APIEndpointRulesItem.RequestMatcher.CookieMatchers {
-								CookieMatchersItemMap := make(map[string]interface{})
-								if CookieMatchersItem.CheckNotPresent != nil {
-									CookieMatchersItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if CookieMatchersItem.CheckPresent != nil {
-									CookieMatchersItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !CookieMatchersItem.InvertMatcher.IsNull() && !CookieMatchersItem.InvertMatcher.IsUnknown() {
-									CookieMatchersItemMap["invert_matcher"] = CookieMatchersItem.InvertMatcher.ValueBool()
-								}
-								if CookieMatchersItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !APIEndpointRulesItem.RequestMatcher.CookieMatchers.IsNull() && !APIEndpointRulesItem.RequestMatcher.CookieMatchers.IsUnknown() {
+							var CookieMatchersElems []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModel
+							diags := APIEndpointRulesItem.RequestMatcher.CookieMatchers.ElementsAs(ctx, &CookieMatchersElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(CookieMatchersElems) > 0 {
+								var CookieMatchersList []map[string]interface{}
+								for _, CookieMatchersItem := range CookieMatchersElems {
+									CookieMatchersItemMap := make(map[string]interface{})
+									if CookieMatchersItem.CheckNotPresent != nil {
+										CookieMatchersItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if CookieMatchersItem.CheckPresent != nil {
+										CookieMatchersItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !CookieMatchersItem.InvertMatcher.IsNull() && !CookieMatchersItem.InvertMatcher.IsUnknown() {
+										CookieMatchersItemMap["invert_matcher"] = CookieMatchersItem.InvertMatcher.ValueBool()
 									}
-									CookieMatchersItemMap["item"] = ItemMap
+									if CookieMatchersItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										CookieMatchersItemMap["item"] = ItemMap
+									}
+									if !CookieMatchersItem.Name.IsNull() && !CookieMatchersItem.Name.IsUnknown() {
+										CookieMatchersItemMap["name"] = CookieMatchersItem.Name.ValueString()
+									}
+									CookieMatchersList = append(CookieMatchersList, CookieMatchersItemMap)
 								}
-								if !CookieMatchersItem.Name.IsNull() && !CookieMatchersItem.Name.IsUnknown() {
-									CookieMatchersItemMap["name"] = CookieMatchersItem.Name.ValueString()
-								}
-								CookieMatchersList = append(CookieMatchersList, CookieMatchersItemMap)
+								RequestMatcherMap["cookie_matchers"] = CookieMatchersList
 							}
-							RequestMatcherMap["cookie_matchers"] = CookieMatchersList
 						}
-						if len(APIEndpointRulesItem.RequestMatcher.Headers) > 0 {
-							var HeadersList []map[string]interface{}
-							for _, HeadersItem := range APIEndpointRulesItem.RequestMatcher.Headers {
-								HeadersItemMap := make(map[string]interface{})
-								if HeadersItem.CheckNotPresent != nil {
-									HeadersItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if HeadersItem.CheckPresent != nil {
-									HeadersItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
-									HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
-								}
-								if HeadersItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !APIEndpointRulesItem.RequestMatcher.Headers.IsNull() && !APIEndpointRulesItem.RequestMatcher.Headers.IsUnknown() {
+							var HeadersElems []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModel
+							diags := APIEndpointRulesItem.RequestMatcher.Headers.ElementsAs(ctx, &HeadersElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+								var HeadersList []map[string]interface{}
+								for _, HeadersItem := range HeadersElems {
+									HeadersItemMap := make(map[string]interface{})
+									if HeadersItem.CheckNotPresent != nil {
+										HeadersItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if HeadersItem.CheckPresent != nil {
+										HeadersItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
+										HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
 									}
-									HeadersItemMap["item"] = ItemMap
+									if HeadersItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										HeadersItemMap["item"] = ItemMap
+									}
+									if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+										HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+									}
+									HeadersList = append(HeadersList, HeadersItemMap)
 								}
-								if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-									HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-								}
-								HeadersList = append(HeadersList, HeadersItemMap)
+								RequestMatcherMap["headers"] = HeadersList
 							}
-							RequestMatcherMap["headers"] = HeadersList
 						}
-						if len(APIEndpointRulesItem.RequestMatcher.JWTClaims) > 0 {
-							var JWTClaimsList []map[string]interface{}
-							for _, JWTClaimsItem := range APIEndpointRulesItem.RequestMatcher.JWTClaims {
-								JWTClaimsItemMap := make(map[string]interface{})
-								if JWTClaimsItem.CheckNotPresent != nil {
-									JWTClaimsItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if JWTClaimsItem.CheckPresent != nil {
-									JWTClaimsItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !JWTClaimsItem.InvertMatcher.IsNull() && !JWTClaimsItem.InvertMatcher.IsUnknown() {
-									JWTClaimsItemMap["invert_matcher"] = JWTClaimsItem.InvertMatcher.ValueBool()
-								}
-								if JWTClaimsItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !APIEndpointRulesItem.RequestMatcher.JWTClaims.IsNull() && !APIEndpointRulesItem.RequestMatcher.JWTClaims.IsUnknown() {
+							var JWTClaimsElems []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModel
+							diags := APIEndpointRulesItem.RequestMatcher.JWTClaims.ElementsAs(ctx, &JWTClaimsElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(JWTClaimsElems) > 0 {
+								var JWTClaimsList []map[string]interface{}
+								for _, JWTClaimsItem := range JWTClaimsElems {
+									JWTClaimsItemMap := make(map[string]interface{})
+									if JWTClaimsItem.CheckNotPresent != nil {
+										JWTClaimsItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if JWTClaimsItem.CheckPresent != nil {
+										JWTClaimsItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !JWTClaimsItem.InvertMatcher.IsNull() && !JWTClaimsItem.InvertMatcher.IsUnknown() {
+										JWTClaimsItemMap["invert_matcher"] = JWTClaimsItem.InvertMatcher.ValueBool()
 									}
-									JWTClaimsItemMap["item"] = ItemMap
+									if JWTClaimsItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										JWTClaimsItemMap["item"] = ItemMap
+									}
+									if !JWTClaimsItem.Name.IsNull() && !JWTClaimsItem.Name.IsUnknown() {
+										JWTClaimsItemMap["name"] = JWTClaimsItem.Name.ValueString()
+									}
+									JWTClaimsList = append(JWTClaimsList, JWTClaimsItemMap)
 								}
-								if !JWTClaimsItem.Name.IsNull() && !JWTClaimsItem.Name.IsUnknown() {
-									JWTClaimsItemMap["name"] = JWTClaimsItem.Name.ValueString()
-								}
-								JWTClaimsList = append(JWTClaimsList, JWTClaimsItemMap)
+								RequestMatcherMap["jwt_claims"] = JWTClaimsList
 							}
-							RequestMatcherMap["jwt_claims"] = JWTClaimsList
 						}
-						if len(APIEndpointRulesItem.RequestMatcher.QueryParams) > 0 {
-							var QueryParamsList []map[string]interface{}
-							for _, QueryParamsItem := range APIEndpointRulesItem.RequestMatcher.QueryParams {
-								QueryParamsItemMap := make(map[string]interface{})
-								if QueryParamsItem.CheckNotPresent != nil {
-									QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if QueryParamsItem.CheckPresent != nil {
-									QueryParamsItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
-									QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
-								}
-								if QueryParamsItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !APIEndpointRulesItem.RequestMatcher.QueryParams.IsNull() && !APIEndpointRulesItem.RequestMatcher.QueryParams.IsUnknown() {
+							var QueryParamsElems []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModel
+							diags := APIEndpointRulesItem.RequestMatcher.QueryParams.ElementsAs(ctx, &QueryParamsElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(QueryParamsElems) > 0 {
+								var QueryParamsList []map[string]interface{}
+								for _, QueryParamsItem := range QueryParamsElems {
+									QueryParamsItemMap := make(map[string]interface{})
+									if QueryParamsItem.CheckNotPresent != nil {
+										QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if QueryParamsItem.CheckPresent != nil {
+										QueryParamsItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
+										QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
 									}
-									QueryParamsItemMap["item"] = ItemMap
+									if QueryParamsItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										QueryParamsItemMap["item"] = ItemMap
+									}
+									if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
+										QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
+									}
+									QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
 								}
-								if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
-									QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
-								}
-								QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
+								RequestMatcherMap["query_params"] = QueryParamsList
 							}
-							RequestMatcherMap["query_params"] = QueryParamsList
 						}
 						APIEndpointRulesItemMap["request_matcher"] = RequestMatcherMap
 					}
@@ -12607,185 +12627,205 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						}
 						if BypassRateLimitingRulesItem.RequestMatcher != nil {
 							RequestMatcherMap := make(map[string]interface{})
-							if len(BypassRateLimitingRulesItem.RequestMatcher.CookieMatchers) > 0 {
-								var CookieMatchersList []map[string]interface{}
-								for _, CookieMatchersItem := range BypassRateLimitingRulesItem.RequestMatcher.CookieMatchers {
-									CookieMatchersItemMap := make(map[string]interface{})
-									if CookieMatchersItem.CheckNotPresent != nil {
-										CookieMatchersItemMap["check_not_present"] = map[string]interface{}{}
-									}
-									if CookieMatchersItem.CheckPresent != nil {
-										CookieMatchersItemMap["check_present"] = map[string]interface{}{}
-									}
-									if !CookieMatchersItem.InvertMatcher.IsNull() && !CookieMatchersItem.InvertMatcher.IsUnknown() {
-										CookieMatchersItemMap["invert_matcher"] = CookieMatchersItem.InvertMatcher.ValueBool()
-									}
-									if CookieMatchersItem.Item != nil {
-										ItemMap := make(map[string]interface{})
-										if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
-											var ExactValuesItems []string
-											diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["exact_values"] = ExactValuesItems
-											}
+							if !BypassRateLimitingRulesItem.RequestMatcher.CookieMatchers.IsNull() && !BypassRateLimitingRulesItem.RequestMatcher.CookieMatchers.IsUnknown() {
+								var CookieMatchersElems []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModel
+								diags := BypassRateLimitingRulesItem.RequestMatcher.CookieMatchers.ElementsAs(ctx, &CookieMatchersElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(CookieMatchersElems) > 0 {
+									var CookieMatchersList []map[string]interface{}
+									for _, CookieMatchersItem := range CookieMatchersElems {
+										CookieMatchersItemMap := make(map[string]interface{})
+										if CookieMatchersItem.CheckNotPresent != nil {
+											CookieMatchersItemMap["check_not_present"] = map[string]interface{}{}
 										}
-										if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
-											var RegexValuesItems []string
-											diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["regex_values"] = RegexValuesItems
-											}
+										if CookieMatchersItem.CheckPresent != nil {
+											CookieMatchersItemMap["check_present"] = map[string]interface{}{}
 										}
-										if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
-											var TransformersItems []string
-											diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-											if !diags.HasError() {
-												ItemMap["transformers"] = TransformersItems
-											}
+										if !CookieMatchersItem.InvertMatcher.IsNull() && !CookieMatchersItem.InvertMatcher.IsUnknown() {
+											CookieMatchersItemMap["invert_matcher"] = CookieMatchersItem.InvertMatcher.ValueBool()
 										}
-										CookieMatchersItemMap["item"] = ItemMap
+										if CookieMatchersItem.Item != nil {
+											ItemMap := make(map[string]interface{})
+											if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
+												var ExactValuesItems []string
+												diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["exact_values"] = ExactValuesItems
+												}
+											}
+											if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
+												var RegexValuesItems []string
+												diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["regex_values"] = RegexValuesItems
+												}
+											}
+											if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
+												var TransformersItems []string
+												diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												if !diags.HasError() {
+													ItemMap["transformers"] = TransformersItems
+												}
+											}
+											CookieMatchersItemMap["item"] = ItemMap
+										}
+										if !CookieMatchersItem.Name.IsNull() && !CookieMatchersItem.Name.IsUnknown() {
+											CookieMatchersItemMap["name"] = CookieMatchersItem.Name.ValueString()
+										}
+										CookieMatchersList = append(CookieMatchersList, CookieMatchersItemMap)
 									}
-									if !CookieMatchersItem.Name.IsNull() && !CookieMatchersItem.Name.IsUnknown() {
-										CookieMatchersItemMap["name"] = CookieMatchersItem.Name.ValueString()
-									}
-									CookieMatchersList = append(CookieMatchersList, CookieMatchersItemMap)
+									RequestMatcherMap["cookie_matchers"] = CookieMatchersList
 								}
-								RequestMatcherMap["cookie_matchers"] = CookieMatchersList
 							}
-							if len(BypassRateLimitingRulesItem.RequestMatcher.Headers) > 0 {
-								var HeadersList []map[string]interface{}
-								for _, HeadersItem := range BypassRateLimitingRulesItem.RequestMatcher.Headers {
-									HeadersItemMap := make(map[string]interface{})
-									if HeadersItem.CheckNotPresent != nil {
-										HeadersItemMap["check_not_present"] = map[string]interface{}{}
-									}
-									if HeadersItem.CheckPresent != nil {
-										HeadersItemMap["check_present"] = map[string]interface{}{}
-									}
-									if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
-										HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
-									}
-									if HeadersItem.Item != nil {
-										ItemMap := make(map[string]interface{})
-										if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
-											var ExactValuesItems []string
-											diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["exact_values"] = ExactValuesItems
-											}
+							if !BypassRateLimitingRulesItem.RequestMatcher.Headers.IsNull() && !BypassRateLimitingRulesItem.RequestMatcher.Headers.IsUnknown() {
+								var HeadersElems []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModel
+								diags := BypassRateLimitingRulesItem.RequestMatcher.Headers.ElementsAs(ctx, &HeadersElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+									var HeadersList []map[string]interface{}
+									for _, HeadersItem := range HeadersElems {
+										HeadersItemMap := make(map[string]interface{})
+										if HeadersItem.CheckNotPresent != nil {
+											HeadersItemMap["check_not_present"] = map[string]interface{}{}
 										}
-										if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
-											var RegexValuesItems []string
-											diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["regex_values"] = RegexValuesItems
-											}
+										if HeadersItem.CheckPresent != nil {
+											HeadersItemMap["check_present"] = map[string]interface{}{}
 										}
-										if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
-											var TransformersItems []string
-											diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-											if !diags.HasError() {
-												ItemMap["transformers"] = TransformersItems
-											}
+										if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
+											HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
 										}
-										HeadersItemMap["item"] = ItemMap
+										if HeadersItem.Item != nil {
+											ItemMap := make(map[string]interface{})
+											if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
+												var ExactValuesItems []string
+												diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["exact_values"] = ExactValuesItems
+												}
+											}
+											if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
+												var RegexValuesItems []string
+												diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["regex_values"] = RegexValuesItems
+												}
+											}
+											if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
+												var TransformersItems []string
+												diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												if !diags.HasError() {
+													ItemMap["transformers"] = TransformersItems
+												}
+											}
+											HeadersItemMap["item"] = ItemMap
+										}
+										if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+											HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+										}
+										HeadersList = append(HeadersList, HeadersItemMap)
 									}
-									if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-										HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-									}
-									HeadersList = append(HeadersList, HeadersItemMap)
+									RequestMatcherMap["headers"] = HeadersList
 								}
-								RequestMatcherMap["headers"] = HeadersList
 							}
-							if len(BypassRateLimitingRulesItem.RequestMatcher.JWTClaims) > 0 {
-								var JWTClaimsList []map[string]interface{}
-								for _, JWTClaimsItem := range BypassRateLimitingRulesItem.RequestMatcher.JWTClaims {
-									JWTClaimsItemMap := make(map[string]interface{})
-									if JWTClaimsItem.CheckNotPresent != nil {
-										JWTClaimsItemMap["check_not_present"] = map[string]interface{}{}
-									}
-									if JWTClaimsItem.CheckPresent != nil {
-										JWTClaimsItemMap["check_present"] = map[string]interface{}{}
-									}
-									if !JWTClaimsItem.InvertMatcher.IsNull() && !JWTClaimsItem.InvertMatcher.IsUnknown() {
-										JWTClaimsItemMap["invert_matcher"] = JWTClaimsItem.InvertMatcher.ValueBool()
-									}
-									if JWTClaimsItem.Item != nil {
-										ItemMap := make(map[string]interface{})
-										if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
-											var ExactValuesItems []string
-											diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["exact_values"] = ExactValuesItems
-											}
+							if !BypassRateLimitingRulesItem.RequestMatcher.JWTClaims.IsNull() && !BypassRateLimitingRulesItem.RequestMatcher.JWTClaims.IsUnknown() {
+								var JWTClaimsElems []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModel
+								diags := BypassRateLimitingRulesItem.RequestMatcher.JWTClaims.ElementsAs(ctx, &JWTClaimsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(JWTClaimsElems) > 0 {
+									var JWTClaimsList []map[string]interface{}
+									for _, JWTClaimsItem := range JWTClaimsElems {
+										JWTClaimsItemMap := make(map[string]interface{})
+										if JWTClaimsItem.CheckNotPresent != nil {
+											JWTClaimsItemMap["check_not_present"] = map[string]interface{}{}
 										}
-										if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
-											var RegexValuesItems []string
-											diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["regex_values"] = RegexValuesItems
-											}
+										if JWTClaimsItem.CheckPresent != nil {
+											JWTClaimsItemMap["check_present"] = map[string]interface{}{}
 										}
-										if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
-											var TransformersItems []string
-											diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-											if !diags.HasError() {
-												ItemMap["transformers"] = TransformersItems
-											}
+										if !JWTClaimsItem.InvertMatcher.IsNull() && !JWTClaimsItem.InvertMatcher.IsUnknown() {
+											JWTClaimsItemMap["invert_matcher"] = JWTClaimsItem.InvertMatcher.ValueBool()
 										}
-										JWTClaimsItemMap["item"] = ItemMap
+										if JWTClaimsItem.Item != nil {
+											ItemMap := make(map[string]interface{})
+											if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
+												var ExactValuesItems []string
+												diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["exact_values"] = ExactValuesItems
+												}
+											}
+											if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
+												var RegexValuesItems []string
+												diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["regex_values"] = RegexValuesItems
+												}
+											}
+											if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
+												var TransformersItems []string
+												diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												if !diags.HasError() {
+													ItemMap["transformers"] = TransformersItems
+												}
+											}
+											JWTClaimsItemMap["item"] = ItemMap
+										}
+										if !JWTClaimsItem.Name.IsNull() && !JWTClaimsItem.Name.IsUnknown() {
+											JWTClaimsItemMap["name"] = JWTClaimsItem.Name.ValueString()
+										}
+										JWTClaimsList = append(JWTClaimsList, JWTClaimsItemMap)
 									}
-									if !JWTClaimsItem.Name.IsNull() && !JWTClaimsItem.Name.IsUnknown() {
-										JWTClaimsItemMap["name"] = JWTClaimsItem.Name.ValueString()
-									}
-									JWTClaimsList = append(JWTClaimsList, JWTClaimsItemMap)
+									RequestMatcherMap["jwt_claims"] = JWTClaimsList
 								}
-								RequestMatcherMap["jwt_claims"] = JWTClaimsList
 							}
-							if len(BypassRateLimitingRulesItem.RequestMatcher.QueryParams) > 0 {
-								var QueryParamsList []map[string]interface{}
-								for _, QueryParamsItem := range BypassRateLimitingRulesItem.RequestMatcher.QueryParams {
-									QueryParamsItemMap := make(map[string]interface{})
-									if QueryParamsItem.CheckNotPresent != nil {
-										QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
-									}
-									if QueryParamsItem.CheckPresent != nil {
-										QueryParamsItemMap["check_present"] = map[string]interface{}{}
-									}
-									if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
-										QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
-									}
-									if QueryParamsItem.Item != nil {
-										ItemMap := make(map[string]interface{})
-										if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
-											var ExactValuesItems []string
-											diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["exact_values"] = ExactValuesItems
-											}
+							if !BypassRateLimitingRulesItem.RequestMatcher.QueryParams.IsNull() && !BypassRateLimitingRulesItem.RequestMatcher.QueryParams.IsUnknown() {
+								var QueryParamsElems []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModel
+								diags := BypassRateLimitingRulesItem.RequestMatcher.QueryParams.ElementsAs(ctx, &QueryParamsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(QueryParamsElems) > 0 {
+									var QueryParamsList []map[string]interface{}
+									for _, QueryParamsItem := range QueryParamsElems {
+										QueryParamsItemMap := make(map[string]interface{})
+										if QueryParamsItem.CheckNotPresent != nil {
+											QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
 										}
-										if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
-											var RegexValuesItems []string
-											diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["regex_values"] = RegexValuesItems
-											}
+										if QueryParamsItem.CheckPresent != nil {
+											QueryParamsItemMap["check_present"] = map[string]interface{}{}
 										}
-										if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
-											var TransformersItems []string
-											diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-											if !diags.HasError() {
-												ItemMap["transformers"] = TransformersItems
-											}
+										if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
+											QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
 										}
-										QueryParamsItemMap["item"] = ItemMap
+										if QueryParamsItem.Item != nil {
+											ItemMap := make(map[string]interface{})
+											if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
+												var ExactValuesItems []string
+												diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["exact_values"] = ExactValuesItems
+												}
+											}
+											if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
+												var RegexValuesItems []string
+												diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["regex_values"] = RegexValuesItems
+												}
+											}
+											if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
+												var TransformersItems []string
+												diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												if !diags.HasError() {
+													ItemMap["transformers"] = TransformersItems
+												}
+											}
+											QueryParamsItemMap["item"] = ItemMap
+										}
+										if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
+											QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
+										}
+										QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
 									}
-									if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
-										QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
-									}
-									QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
+									RequestMatcherMap["query_params"] = QueryParamsList
 								}
-								RequestMatcherMap["query_params"] = QueryParamsList
 							}
 							BypassRateLimitingRulesItemMap["request_matcher"] = RequestMatcherMap
 						}
@@ -13046,185 +13086,205 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					}
 					if ServerURLRulesItem.RequestMatcher != nil {
 						RequestMatcherMap := make(map[string]interface{})
-						if len(ServerURLRulesItem.RequestMatcher.CookieMatchers) > 0 {
-							var CookieMatchersList []map[string]interface{}
-							for _, CookieMatchersItem := range ServerURLRulesItem.RequestMatcher.CookieMatchers {
-								CookieMatchersItemMap := make(map[string]interface{})
-								if CookieMatchersItem.CheckNotPresent != nil {
-									CookieMatchersItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if CookieMatchersItem.CheckPresent != nil {
-									CookieMatchersItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !CookieMatchersItem.InvertMatcher.IsNull() && !CookieMatchersItem.InvertMatcher.IsUnknown() {
-									CookieMatchersItemMap["invert_matcher"] = CookieMatchersItem.InvertMatcher.ValueBool()
-								}
-								if CookieMatchersItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !ServerURLRulesItem.RequestMatcher.CookieMatchers.IsNull() && !ServerURLRulesItem.RequestMatcher.CookieMatchers.IsUnknown() {
+							var CookieMatchersElems []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModel
+							diags := ServerURLRulesItem.RequestMatcher.CookieMatchers.ElementsAs(ctx, &CookieMatchersElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(CookieMatchersElems) > 0 {
+								var CookieMatchersList []map[string]interface{}
+								for _, CookieMatchersItem := range CookieMatchersElems {
+									CookieMatchersItemMap := make(map[string]interface{})
+									if CookieMatchersItem.CheckNotPresent != nil {
+										CookieMatchersItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if CookieMatchersItem.CheckPresent != nil {
+										CookieMatchersItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !CookieMatchersItem.InvertMatcher.IsNull() && !CookieMatchersItem.InvertMatcher.IsUnknown() {
+										CookieMatchersItemMap["invert_matcher"] = CookieMatchersItem.InvertMatcher.ValueBool()
 									}
-									CookieMatchersItemMap["item"] = ItemMap
+									if CookieMatchersItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										CookieMatchersItemMap["item"] = ItemMap
+									}
+									if !CookieMatchersItem.Name.IsNull() && !CookieMatchersItem.Name.IsUnknown() {
+										CookieMatchersItemMap["name"] = CookieMatchersItem.Name.ValueString()
+									}
+									CookieMatchersList = append(CookieMatchersList, CookieMatchersItemMap)
 								}
-								if !CookieMatchersItem.Name.IsNull() && !CookieMatchersItem.Name.IsUnknown() {
-									CookieMatchersItemMap["name"] = CookieMatchersItem.Name.ValueString()
-								}
-								CookieMatchersList = append(CookieMatchersList, CookieMatchersItemMap)
+								RequestMatcherMap["cookie_matchers"] = CookieMatchersList
 							}
-							RequestMatcherMap["cookie_matchers"] = CookieMatchersList
 						}
-						if len(ServerURLRulesItem.RequestMatcher.Headers) > 0 {
-							var HeadersList []map[string]interface{}
-							for _, HeadersItem := range ServerURLRulesItem.RequestMatcher.Headers {
-								HeadersItemMap := make(map[string]interface{})
-								if HeadersItem.CheckNotPresent != nil {
-									HeadersItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if HeadersItem.CheckPresent != nil {
-									HeadersItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
-									HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
-								}
-								if HeadersItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !ServerURLRulesItem.RequestMatcher.Headers.IsNull() && !ServerURLRulesItem.RequestMatcher.Headers.IsUnknown() {
+							var HeadersElems []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModel
+							diags := ServerURLRulesItem.RequestMatcher.Headers.ElementsAs(ctx, &HeadersElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+								var HeadersList []map[string]interface{}
+								for _, HeadersItem := range HeadersElems {
+									HeadersItemMap := make(map[string]interface{})
+									if HeadersItem.CheckNotPresent != nil {
+										HeadersItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if HeadersItem.CheckPresent != nil {
+										HeadersItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
+										HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
 									}
-									HeadersItemMap["item"] = ItemMap
+									if HeadersItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										HeadersItemMap["item"] = ItemMap
+									}
+									if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+										HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+									}
+									HeadersList = append(HeadersList, HeadersItemMap)
 								}
-								if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-									HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-								}
-								HeadersList = append(HeadersList, HeadersItemMap)
+								RequestMatcherMap["headers"] = HeadersList
 							}
-							RequestMatcherMap["headers"] = HeadersList
 						}
-						if len(ServerURLRulesItem.RequestMatcher.JWTClaims) > 0 {
-							var JWTClaimsList []map[string]interface{}
-							for _, JWTClaimsItem := range ServerURLRulesItem.RequestMatcher.JWTClaims {
-								JWTClaimsItemMap := make(map[string]interface{})
-								if JWTClaimsItem.CheckNotPresent != nil {
-									JWTClaimsItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if JWTClaimsItem.CheckPresent != nil {
-									JWTClaimsItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !JWTClaimsItem.InvertMatcher.IsNull() && !JWTClaimsItem.InvertMatcher.IsUnknown() {
-									JWTClaimsItemMap["invert_matcher"] = JWTClaimsItem.InvertMatcher.ValueBool()
-								}
-								if JWTClaimsItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !ServerURLRulesItem.RequestMatcher.JWTClaims.IsNull() && !ServerURLRulesItem.RequestMatcher.JWTClaims.IsUnknown() {
+							var JWTClaimsElems []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModel
+							diags := ServerURLRulesItem.RequestMatcher.JWTClaims.ElementsAs(ctx, &JWTClaimsElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(JWTClaimsElems) > 0 {
+								var JWTClaimsList []map[string]interface{}
+								for _, JWTClaimsItem := range JWTClaimsElems {
+									JWTClaimsItemMap := make(map[string]interface{})
+									if JWTClaimsItem.CheckNotPresent != nil {
+										JWTClaimsItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if JWTClaimsItem.CheckPresent != nil {
+										JWTClaimsItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !JWTClaimsItem.InvertMatcher.IsNull() && !JWTClaimsItem.InvertMatcher.IsUnknown() {
+										JWTClaimsItemMap["invert_matcher"] = JWTClaimsItem.InvertMatcher.ValueBool()
 									}
-									JWTClaimsItemMap["item"] = ItemMap
+									if JWTClaimsItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										JWTClaimsItemMap["item"] = ItemMap
+									}
+									if !JWTClaimsItem.Name.IsNull() && !JWTClaimsItem.Name.IsUnknown() {
+										JWTClaimsItemMap["name"] = JWTClaimsItem.Name.ValueString()
+									}
+									JWTClaimsList = append(JWTClaimsList, JWTClaimsItemMap)
 								}
-								if !JWTClaimsItem.Name.IsNull() && !JWTClaimsItem.Name.IsUnknown() {
-									JWTClaimsItemMap["name"] = JWTClaimsItem.Name.ValueString()
-								}
-								JWTClaimsList = append(JWTClaimsList, JWTClaimsItemMap)
+								RequestMatcherMap["jwt_claims"] = JWTClaimsList
 							}
-							RequestMatcherMap["jwt_claims"] = JWTClaimsList
 						}
-						if len(ServerURLRulesItem.RequestMatcher.QueryParams) > 0 {
-							var QueryParamsList []map[string]interface{}
-							for _, QueryParamsItem := range ServerURLRulesItem.RequestMatcher.QueryParams {
-								QueryParamsItemMap := make(map[string]interface{})
-								if QueryParamsItem.CheckNotPresent != nil {
-									QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if QueryParamsItem.CheckPresent != nil {
-									QueryParamsItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
-									QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
-								}
-								if QueryParamsItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !ServerURLRulesItem.RequestMatcher.QueryParams.IsNull() && !ServerURLRulesItem.RequestMatcher.QueryParams.IsUnknown() {
+							var QueryParamsElems []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModel
+							diags := ServerURLRulesItem.RequestMatcher.QueryParams.ElementsAs(ctx, &QueryParamsElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(QueryParamsElems) > 0 {
+								var QueryParamsList []map[string]interface{}
+								for _, QueryParamsItem := range QueryParamsElems {
+									QueryParamsItemMap := make(map[string]interface{})
+									if QueryParamsItem.CheckNotPresent != nil {
+										QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if QueryParamsItem.CheckPresent != nil {
+										QueryParamsItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
+										QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
 									}
-									QueryParamsItemMap["item"] = ItemMap
+									if QueryParamsItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										QueryParamsItemMap["item"] = ItemMap
+									}
+									if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
+										QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
+									}
+									QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
 								}
-								if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
-									QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
-								}
-								QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
+								RequestMatcherMap["query_params"] = QueryParamsList
 							}
-							RequestMatcherMap["query_params"] = QueryParamsList
 						}
 						ServerURLRulesItemMap["request_matcher"] = RequestMatcherMap
 					}
@@ -13262,52 +13322,57 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				}
 				if data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom != nil {
 					FallThroughModeCustomMap := make(map[string]interface{})
-					if len(data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules) > 0 {
-						var OpenAPIValidationRulesList []map[string]interface{}
-						for _, OpenAPIValidationRulesItem := range data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules {
-							OpenAPIValidationRulesItemMap := make(map[string]interface{})
-							if OpenAPIValidationRulesItem.ActionBlock != nil {
-								OpenAPIValidationRulesItemMap["action_block"] = map[string]interface{}{}
-							}
-							if OpenAPIValidationRulesItem.ActionReport != nil {
-								OpenAPIValidationRulesItemMap["action_report"] = map[string]interface{}{}
-							}
-							if OpenAPIValidationRulesItem.ActionSkip != nil {
-								OpenAPIValidationRulesItemMap["action_skip"] = map[string]interface{}{}
-							}
-							if OpenAPIValidationRulesItem.APIEndpoint != nil {
-								APIEndpointMap := make(map[string]interface{})
-								if !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsUnknown() {
-									var MethodsItems []string
-									diags := OpenAPIValidationRulesItem.APIEndpoint.Methods.ElementsAs(ctx, &MethodsItems, false)
-									if !diags.HasError() {
-										APIEndpointMap["methods"] = MethodsItems
+					if !data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsNull() && !data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsUnknown() {
+						var OpenAPIValidationRulesElems []CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
+						diags := data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.ElementsAs(ctx, &OpenAPIValidationRulesElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(OpenAPIValidationRulesElems) > 0 {
+							var OpenAPIValidationRulesList []map[string]interface{}
+							for _, OpenAPIValidationRulesItem := range OpenAPIValidationRulesElems {
+								OpenAPIValidationRulesItemMap := make(map[string]interface{})
+								if OpenAPIValidationRulesItem.ActionBlock != nil {
+									OpenAPIValidationRulesItemMap["action_block"] = map[string]interface{}{}
+								}
+								if OpenAPIValidationRulesItem.ActionReport != nil {
+									OpenAPIValidationRulesItemMap["action_report"] = map[string]interface{}{}
+								}
+								if OpenAPIValidationRulesItem.ActionSkip != nil {
+									OpenAPIValidationRulesItemMap["action_skip"] = map[string]interface{}{}
+								}
+								if OpenAPIValidationRulesItem.APIEndpoint != nil {
+									APIEndpointMap := make(map[string]interface{})
+									if !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsUnknown() {
+										var MethodsItems []string
+										diags := OpenAPIValidationRulesItem.APIEndpoint.Methods.ElementsAs(ctx, &MethodsItems, false)
+										if !diags.HasError() {
+											APIEndpointMap["methods"] = MethodsItems
+										}
 									}
+									if !OpenAPIValidationRulesItem.APIEndpoint.Path.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Path.IsUnknown() {
+										APIEndpointMap["path"] = OpenAPIValidationRulesItem.APIEndpoint.Path.ValueString()
+									}
+									OpenAPIValidationRulesItemMap["api_endpoint"] = APIEndpointMap
 								}
-								if !OpenAPIValidationRulesItem.APIEndpoint.Path.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Path.IsUnknown() {
-									APIEndpointMap["path"] = OpenAPIValidationRulesItem.APIEndpoint.Path.ValueString()
+								if !OpenAPIValidationRulesItem.APIGroup.IsNull() && !OpenAPIValidationRulesItem.APIGroup.IsUnknown() {
+									OpenAPIValidationRulesItemMap["api_group"] = OpenAPIValidationRulesItem.APIGroup.ValueString()
 								}
-								OpenAPIValidationRulesItemMap["api_endpoint"] = APIEndpointMap
-							}
-							if !OpenAPIValidationRulesItem.APIGroup.IsNull() && !OpenAPIValidationRulesItem.APIGroup.IsUnknown() {
-								OpenAPIValidationRulesItemMap["api_group"] = OpenAPIValidationRulesItem.APIGroup.ValueString()
-							}
-							if !OpenAPIValidationRulesItem.BasePath.IsNull() && !OpenAPIValidationRulesItem.BasePath.IsUnknown() {
-								OpenAPIValidationRulesItemMap["base_path"] = OpenAPIValidationRulesItem.BasePath.ValueString()
-							}
-							if OpenAPIValidationRulesItem.Metadata != nil {
-								MetadataMap := make(map[string]interface{})
-								if !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsNull() && !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsUnknown() {
-									MetadataMap["description"] = OpenAPIValidationRulesItem.Metadata.DescriptionSpec.ValueString()
+								if !OpenAPIValidationRulesItem.BasePath.IsNull() && !OpenAPIValidationRulesItem.BasePath.IsUnknown() {
+									OpenAPIValidationRulesItemMap["base_path"] = OpenAPIValidationRulesItem.BasePath.ValueString()
 								}
-								if !OpenAPIValidationRulesItem.Metadata.Name.IsNull() && !OpenAPIValidationRulesItem.Metadata.Name.IsUnknown() {
-									MetadataMap["name"] = OpenAPIValidationRulesItem.Metadata.Name.ValueString()
+								if OpenAPIValidationRulesItem.Metadata != nil {
+									MetadataMap := make(map[string]interface{})
+									if !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsNull() && !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsUnknown() {
+										MetadataMap["description"] = OpenAPIValidationRulesItem.Metadata.DescriptionSpec.ValueString()
+									}
+									if !OpenAPIValidationRulesItem.Metadata.Name.IsNull() && !OpenAPIValidationRulesItem.Metadata.Name.IsUnknown() {
+										MetadataMap["name"] = OpenAPIValidationRulesItem.Metadata.Name.ValueString()
+									}
+									OpenAPIValidationRulesItemMap["metadata"] = MetadataMap
 								}
-								OpenAPIValidationRulesItemMap["metadata"] = MetadataMap
+								OpenAPIValidationRulesList = append(OpenAPIValidationRulesList, OpenAPIValidationRulesItemMap)
 							}
-							OpenAPIValidationRulesList = append(OpenAPIValidationRulesList, OpenAPIValidationRulesItemMap)
+							FallThroughModeCustomMap["open_api_validation_rules"] = OpenAPIValidationRulesList
 						}
-						FallThroughModeCustomMap["open_api_validation_rules"] = OpenAPIValidationRulesList
 					}
 					FallThroughModeMap["fall_through_mode_custom"] = FallThroughModeCustomMap
 				}
@@ -13395,144 +13460,154 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				}
 				if data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom != nil {
 					FallThroughModeCustomMap := make(map[string]interface{})
-					if len(data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules) > 0 {
-						var OpenAPIValidationRulesList []map[string]interface{}
-						for _, OpenAPIValidationRulesItem := range data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules {
-							OpenAPIValidationRulesItemMap := make(map[string]interface{})
-							if OpenAPIValidationRulesItem.ActionBlock != nil {
-								OpenAPIValidationRulesItemMap["action_block"] = map[string]interface{}{}
-							}
-							if OpenAPIValidationRulesItem.ActionReport != nil {
-								OpenAPIValidationRulesItemMap["action_report"] = map[string]interface{}{}
-							}
-							if OpenAPIValidationRulesItem.ActionSkip != nil {
-								OpenAPIValidationRulesItemMap["action_skip"] = map[string]interface{}{}
-							}
-							if OpenAPIValidationRulesItem.APIEndpoint != nil {
-								APIEndpointMap := make(map[string]interface{})
-								if !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsUnknown() {
-									var MethodsItems []string
-									diags := OpenAPIValidationRulesItem.APIEndpoint.Methods.ElementsAs(ctx, &MethodsItems, false)
-									if !diags.HasError() {
-										APIEndpointMap["methods"] = MethodsItems
+					if !data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsNull() && !data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsUnknown() {
+						var OpenAPIValidationRulesElems []CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
+						diags := data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.ElementsAs(ctx, &OpenAPIValidationRulesElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(OpenAPIValidationRulesElems) > 0 {
+							var OpenAPIValidationRulesList []map[string]interface{}
+							for _, OpenAPIValidationRulesItem := range OpenAPIValidationRulesElems {
+								OpenAPIValidationRulesItemMap := make(map[string]interface{})
+								if OpenAPIValidationRulesItem.ActionBlock != nil {
+									OpenAPIValidationRulesItemMap["action_block"] = map[string]interface{}{}
+								}
+								if OpenAPIValidationRulesItem.ActionReport != nil {
+									OpenAPIValidationRulesItemMap["action_report"] = map[string]interface{}{}
+								}
+								if OpenAPIValidationRulesItem.ActionSkip != nil {
+									OpenAPIValidationRulesItemMap["action_skip"] = map[string]interface{}{}
+								}
+								if OpenAPIValidationRulesItem.APIEndpoint != nil {
+									APIEndpointMap := make(map[string]interface{})
+									if !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsUnknown() {
+										var MethodsItems []string
+										diags := OpenAPIValidationRulesItem.APIEndpoint.Methods.ElementsAs(ctx, &MethodsItems, false)
+										if !diags.HasError() {
+											APIEndpointMap["methods"] = MethodsItems
+										}
 									}
+									if !OpenAPIValidationRulesItem.APIEndpoint.Path.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Path.IsUnknown() {
+										APIEndpointMap["path"] = OpenAPIValidationRulesItem.APIEndpoint.Path.ValueString()
+									}
+									OpenAPIValidationRulesItemMap["api_endpoint"] = APIEndpointMap
 								}
-								if !OpenAPIValidationRulesItem.APIEndpoint.Path.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Path.IsUnknown() {
-									APIEndpointMap["path"] = OpenAPIValidationRulesItem.APIEndpoint.Path.ValueString()
+								if !OpenAPIValidationRulesItem.APIGroup.IsNull() && !OpenAPIValidationRulesItem.APIGroup.IsUnknown() {
+									OpenAPIValidationRulesItemMap["api_group"] = OpenAPIValidationRulesItem.APIGroup.ValueString()
 								}
-								OpenAPIValidationRulesItemMap["api_endpoint"] = APIEndpointMap
-							}
-							if !OpenAPIValidationRulesItem.APIGroup.IsNull() && !OpenAPIValidationRulesItem.APIGroup.IsUnknown() {
-								OpenAPIValidationRulesItemMap["api_group"] = OpenAPIValidationRulesItem.APIGroup.ValueString()
-							}
-							if !OpenAPIValidationRulesItem.BasePath.IsNull() && !OpenAPIValidationRulesItem.BasePath.IsUnknown() {
-								OpenAPIValidationRulesItemMap["base_path"] = OpenAPIValidationRulesItem.BasePath.ValueString()
-							}
-							if OpenAPIValidationRulesItem.Metadata != nil {
-								MetadataMap := make(map[string]interface{})
-								if !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsNull() && !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsUnknown() {
-									MetadataMap["description"] = OpenAPIValidationRulesItem.Metadata.DescriptionSpec.ValueString()
+								if !OpenAPIValidationRulesItem.BasePath.IsNull() && !OpenAPIValidationRulesItem.BasePath.IsUnknown() {
+									OpenAPIValidationRulesItemMap["base_path"] = OpenAPIValidationRulesItem.BasePath.ValueString()
 								}
-								if !OpenAPIValidationRulesItem.Metadata.Name.IsNull() && !OpenAPIValidationRulesItem.Metadata.Name.IsUnknown() {
-									MetadataMap["name"] = OpenAPIValidationRulesItem.Metadata.Name.ValueString()
+								if OpenAPIValidationRulesItem.Metadata != nil {
+									MetadataMap := make(map[string]interface{})
+									if !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsNull() && !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsUnknown() {
+										MetadataMap["description"] = OpenAPIValidationRulesItem.Metadata.DescriptionSpec.ValueString()
+									}
+									if !OpenAPIValidationRulesItem.Metadata.Name.IsNull() && !OpenAPIValidationRulesItem.Metadata.Name.IsUnknown() {
+										MetadataMap["name"] = OpenAPIValidationRulesItem.Metadata.Name.ValueString()
+									}
+									OpenAPIValidationRulesItemMap["metadata"] = MetadataMap
 								}
-								OpenAPIValidationRulesItemMap["metadata"] = MetadataMap
+								OpenAPIValidationRulesList = append(OpenAPIValidationRulesList, OpenAPIValidationRulesItemMap)
 							}
-							OpenAPIValidationRulesList = append(OpenAPIValidationRulesList, OpenAPIValidationRulesItemMap)
+							FallThroughModeCustomMap["open_api_validation_rules"] = OpenAPIValidationRulesList
 						}
-						FallThroughModeCustomMap["open_api_validation_rules"] = OpenAPIValidationRulesList
 					}
 					FallThroughModeMap["fall_through_mode_custom"] = FallThroughModeCustomMap
 				}
 				ValidationCustomListMap["fall_through_mode"] = FallThroughModeMap
 			}
-			if len(data.APISpecification.ValidationCustomList.OpenAPIValidationRules) > 0 {
-				var OpenAPIValidationRulesList []map[string]interface{}
-				for _, OpenAPIValidationRulesItem := range data.APISpecification.ValidationCustomList.OpenAPIValidationRules {
-					OpenAPIValidationRulesItemMap := make(map[string]interface{})
-					if OpenAPIValidationRulesItem.AnyDomain != nil {
-						OpenAPIValidationRulesItemMap["any_domain"] = map[string]interface{}{}
-					}
-					if OpenAPIValidationRulesItem.APIEndpoint != nil {
-						APIEndpointMap := make(map[string]interface{})
-						if !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsUnknown() {
-							var MethodsItems []string
-							diags := OpenAPIValidationRulesItem.APIEndpoint.Methods.ElementsAs(ctx, &MethodsItems, false)
-							if !diags.HasError() {
-								APIEndpointMap["methods"] = MethodsItems
-							}
+			if !data.APISpecification.ValidationCustomList.OpenAPIValidationRules.IsNull() && !data.APISpecification.ValidationCustomList.OpenAPIValidationRules.IsUnknown() {
+				var OpenAPIValidationRulesElems []CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModel
+				diags := data.APISpecification.ValidationCustomList.OpenAPIValidationRules.ElementsAs(ctx, &OpenAPIValidationRulesElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(OpenAPIValidationRulesElems) > 0 {
+					var OpenAPIValidationRulesList []map[string]interface{}
+					for _, OpenAPIValidationRulesItem := range OpenAPIValidationRulesElems {
+						OpenAPIValidationRulesItemMap := make(map[string]interface{})
+						if OpenAPIValidationRulesItem.AnyDomain != nil {
+							OpenAPIValidationRulesItemMap["any_domain"] = map[string]interface{}{}
 						}
-						if !OpenAPIValidationRulesItem.APIEndpoint.Path.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Path.IsUnknown() {
-							APIEndpointMap["path"] = OpenAPIValidationRulesItem.APIEndpoint.Path.ValueString()
-						}
-						OpenAPIValidationRulesItemMap["api_endpoint"] = APIEndpointMap
-					}
-					if !OpenAPIValidationRulesItem.APIGroup.IsNull() && !OpenAPIValidationRulesItem.APIGroup.IsUnknown() {
-						OpenAPIValidationRulesItemMap["api_group"] = OpenAPIValidationRulesItem.APIGroup.ValueString()
-					}
-					if !OpenAPIValidationRulesItem.BasePath.IsNull() && !OpenAPIValidationRulesItem.BasePath.IsUnknown() {
-						OpenAPIValidationRulesItemMap["base_path"] = OpenAPIValidationRulesItem.BasePath.ValueString()
-					}
-					if OpenAPIValidationRulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
-						if !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsNull() && !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = OpenAPIValidationRulesItem.Metadata.DescriptionSpec.ValueString()
-						}
-						if !OpenAPIValidationRulesItem.Metadata.Name.IsNull() && !OpenAPIValidationRulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = OpenAPIValidationRulesItem.Metadata.Name.ValueString()
-						}
-						OpenAPIValidationRulesItemMap["metadata"] = MetadataMap
-					}
-					if !OpenAPIValidationRulesItem.SpecificDomain.IsNull() && !OpenAPIValidationRulesItem.SpecificDomain.IsUnknown() {
-						OpenAPIValidationRulesItemMap["specific_domain"] = OpenAPIValidationRulesItem.SpecificDomain.ValueString()
-					}
-					if OpenAPIValidationRulesItem.ValidationMode != nil {
-						ValidationModeMap := make(map[string]interface{})
-						if OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive != nil {
-							ResponseValidationModeActiveMap := make(map[string]interface{})
-							if OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.EnforcementBlock != nil {
-								ResponseValidationModeActiveMap["enforcement_block"] = map[string]interface{}{}
-							}
-							if OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.EnforcementReport != nil {
-								ResponseValidationModeActiveMap["enforcement_report"] = map[string]interface{}{}
-							}
-							if !OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.IsNull() && !OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.IsUnknown() {
-								var ResponseValidationPropertiesItems []string
-								diags := OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.ElementsAs(ctx, &ResponseValidationPropertiesItems, false)
+						if OpenAPIValidationRulesItem.APIEndpoint != nil {
+							APIEndpointMap := make(map[string]interface{})
+							if !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsUnknown() {
+								var MethodsItems []string
+								diags := OpenAPIValidationRulesItem.APIEndpoint.Methods.ElementsAs(ctx, &MethodsItems, false)
 								if !diags.HasError() {
-									ResponseValidationModeActiveMap["response_validation_properties"] = ResponseValidationPropertiesItems
+									APIEndpointMap["methods"] = MethodsItems
 								}
 							}
-							ValidationModeMap["response_validation_mode_active"] = ResponseValidationModeActiveMap
-						}
-						if OpenAPIValidationRulesItem.ValidationMode.SkipResponseValidation != nil {
-							ValidationModeMap["skip_response_validation"] = map[string]interface{}{}
-						}
-						if OpenAPIValidationRulesItem.ValidationMode.SkipValidation != nil {
-							ValidationModeMap["skip_validation"] = map[string]interface{}{}
-						}
-						if OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive != nil {
-							ValidationModeActiveMap := make(map[string]interface{})
-							if OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.EnforcementBlock != nil {
-								ValidationModeActiveMap["enforcement_block"] = map[string]interface{}{}
+							if !OpenAPIValidationRulesItem.APIEndpoint.Path.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Path.IsUnknown() {
+								APIEndpointMap["path"] = OpenAPIValidationRulesItem.APIEndpoint.Path.ValueString()
 							}
-							if OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.EnforcementReport != nil {
-								ValidationModeActiveMap["enforcement_report"] = map[string]interface{}{}
+							OpenAPIValidationRulesItemMap["api_endpoint"] = APIEndpointMap
+						}
+						if !OpenAPIValidationRulesItem.APIGroup.IsNull() && !OpenAPIValidationRulesItem.APIGroup.IsUnknown() {
+							OpenAPIValidationRulesItemMap["api_group"] = OpenAPIValidationRulesItem.APIGroup.ValueString()
+						}
+						if !OpenAPIValidationRulesItem.BasePath.IsNull() && !OpenAPIValidationRulesItem.BasePath.IsUnknown() {
+							OpenAPIValidationRulesItemMap["base_path"] = OpenAPIValidationRulesItem.BasePath.ValueString()
+						}
+						if OpenAPIValidationRulesItem.Metadata != nil {
+							MetadataMap := make(map[string]interface{})
+							if !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsNull() && !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsUnknown() {
+								MetadataMap["description"] = OpenAPIValidationRulesItem.Metadata.DescriptionSpec.ValueString()
 							}
-							if !OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.RequestValidationProperties.IsNull() && !OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.RequestValidationProperties.IsUnknown() {
-								var RequestValidationPropertiesItems []string
-								diags := OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.RequestValidationProperties.ElementsAs(ctx, &RequestValidationPropertiesItems, false)
-								if !diags.HasError() {
-									ValidationModeActiveMap["request_validation_properties"] = RequestValidationPropertiesItems
+							if !OpenAPIValidationRulesItem.Metadata.Name.IsNull() && !OpenAPIValidationRulesItem.Metadata.Name.IsUnknown() {
+								MetadataMap["name"] = OpenAPIValidationRulesItem.Metadata.Name.ValueString()
+							}
+							OpenAPIValidationRulesItemMap["metadata"] = MetadataMap
+						}
+						if !OpenAPIValidationRulesItem.SpecificDomain.IsNull() && !OpenAPIValidationRulesItem.SpecificDomain.IsUnknown() {
+							OpenAPIValidationRulesItemMap["specific_domain"] = OpenAPIValidationRulesItem.SpecificDomain.ValueString()
+						}
+						if OpenAPIValidationRulesItem.ValidationMode != nil {
+							ValidationModeMap := make(map[string]interface{})
+							if OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive != nil {
+								ResponseValidationModeActiveMap := make(map[string]interface{})
+								if OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.EnforcementBlock != nil {
+									ResponseValidationModeActiveMap["enforcement_block"] = map[string]interface{}{}
 								}
+								if OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.EnforcementReport != nil {
+									ResponseValidationModeActiveMap["enforcement_report"] = map[string]interface{}{}
+								}
+								if !OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.IsNull() && !OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.IsUnknown() {
+									var ResponseValidationPropertiesItems []string
+									diags := OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.ElementsAs(ctx, &ResponseValidationPropertiesItems, false)
+									if !diags.HasError() {
+										ResponseValidationModeActiveMap["response_validation_properties"] = ResponseValidationPropertiesItems
+									}
+								}
+								ValidationModeMap["response_validation_mode_active"] = ResponseValidationModeActiveMap
 							}
-							ValidationModeMap["validation_mode_active"] = ValidationModeActiveMap
+							if OpenAPIValidationRulesItem.ValidationMode.SkipResponseValidation != nil {
+								ValidationModeMap["skip_response_validation"] = map[string]interface{}{}
+							}
+							if OpenAPIValidationRulesItem.ValidationMode.SkipValidation != nil {
+								ValidationModeMap["skip_validation"] = map[string]interface{}{}
+							}
+							if OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive != nil {
+								ValidationModeActiveMap := make(map[string]interface{})
+								if OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.EnforcementBlock != nil {
+									ValidationModeActiveMap["enforcement_block"] = map[string]interface{}{}
+								}
+								if OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.EnforcementReport != nil {
+									ValidationModeActiveMap["enforcement_report"] = map[string]interface{}{}
+								}
+								if !OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.RequestValidationProperties.IsNull() && !OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.RequestValidationProperties.IsUnknown() {
+									var RequestValidationPropertiesItems []string
+									diags := OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.RequestValidationProperties.ElementsAs(ctx, &RequestValidationPropertiesItems, false)
+									if !diags.HasError() {
+										ValidationModeActiveMap["request_validation_properties"] = RequestValidationPropertiesItems
+									}
+								}
+								ValidationModeMap["validation_mode_active"] = ValidationModeActiveMap
+							}
+							OpenAPIValidationRulesItemMap["validation_mode"] = ValidationModeMap
 						}
-						OpenAPIValidationRulesItemMap["validation_mode"] = ValidationModeMap
+						OpenAPIValidationRulesList = append(OpenAPIValidationRulesList, OpenAPIValidationRulesItemMap)
 					}
-					OpenAPIValidationRulesList = append(OpenAPIValidationRulesList, OpenAPIValidationRulesItemMap)
+					ValidationCustomListMap["open_api_validation_rules"] = OpenAPIValidationRulesList
 				}
-				ValidationCustomListMap["open_api_validation_rules"] = OpenAPIValidationRulesList
 			}
 			if data.APISpecification.ValidationCustomList.Settings != nil {
 				SettingsMap := make(map[string]interface{})
@@ -13607,28 +13682,33 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				}
 				if BlockedClientsItem.HTTPHeader != nil {
 					HTTPHeaderMap := make(map[string]interface{})
-					if len(BlockedClientsItem.HTTPHeader.Headers) > 0 {
-						var HeadersList []map[string]interface{}
-						for _, HeadersItem := range BlockedClientsItem.HTTPHeader.Headers {
-							HeadersItemMap := make(map[string]interface{})
-							if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
-								HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
+					if !BlockedClientsItem.HTTPHeader.Headers.IsNull() && !BlockedClientsItem.HTTPHeader.Headers.IsUnknown() {
+						var HeadersElems []CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModel
+						diags := BlockedClientsItem.HTTPHeader.Headers.ElementsAs(ctx, &HeadersElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+							var HeadersList []map[string]interface{}
+							for _, HeadersItem := range HeadersElems {
+								HeadersItemMap := make(map[string]interface{})
+								if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
+									HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
+								}
+								if !HeadersItem.InvertMatch.IsNull() && !HeadersItem.InvertMatch.IsUnknown() {
+									HeadersItemMap["invert_match"] = HeadersItem.InvertMatch.ValueBool()
+								}
+								if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+									HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+								}
+								if !HeadersItem.Presence.IsNull() && !HeadersItem.Presence.IsUnknown() {
+									HeadersItemMap["presence"] = HeadersItem.Presence.ValueBool()
+								}
+								if !HeadersItem.Regex.IsNull() && !HeadersItem.Regex.IsUnknown() {
+									HeadersItemMap["regex"] = HeadersItem.Regex.ValueString()
+								}
+								HeadersList = append(HeadersList, HeadersItemMap)
 							}
-							if !HeadersItem.InvertMatch.IsNull() && !HeadersItem.InvertMatch.IsUnknown() {
-								HeadersItemMap["invert_match"] = HeadersItem.InvertMatch.ValueBool()
-							}
-							if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-								HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-							}
-							if !HeadersItem.Presence.IsNull() && !HeadersItem.Presence.IsUnknown() {
-								HeadersItemMap["presence"] = HeadersItem.Presence.ValueBool()
-							}
-							if !HeadersItem.Regex.IsNull() && !HeadersItem.Regex.IsUnknown() {
-								HeadersItemMap["regex"] = HeadersItem.Regex.ValueString()
-							}
-							HeadersList = append(HeadersList, HeadersItemMap)
+							HTTPHeaderMap["headers"] = HeadersList
 						}
-						HTTPHeaderMap["headers"] = HeadersList
 					}
 					BlockedClientsItemMap["http_header"] = HTTPHeaderMap
 				}
@@ -13693,52 +13773,57 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			}
 			if data.BotDefense.Policy.JsInsertAllPagesExcept != nil {
 				JsInsertAllPagesExceptMap := make(map[string]interface{})
-				if len(data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList) > 0 {
-					var ExcludeListList []map[string]interface{}
-					for _, ExcludeListItem := range data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList {
-						ExcludeListItemMap := make(map[string]interface{})
-						if ExcludeListItem.AnyDomain != nil {
-							ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+				if !data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
+					var ExcludeListElems []CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModel
+					diags := data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
+						var ExcludeListList []map[string]interface{}
+						for _, ExcludeListItem := range ExcludeListElems {
+							ExcludeListItemMap := make(map[string]interface{})
+							if ExcludeListItem.AnyDomain != nil {
+								ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+							}
+							if ExcludeListItem.Domain != nil {
+								DomainMap := make(map[string]interface{})
+								if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
+									DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
+									DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
+									DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
+								}
+								ExcludeListItemMap["domain"] = DomainMap
+							}
+							if ExcludeListItem.Metadata != nil {
+								MetadataMap := make(map[string]interface{})
+								if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
+									MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
+									MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
+								}
+								ExcludeListItemMap["metadata"] = MetadataMap
+							}
+							if ExcludeListItem.Path != nil {
+								PathMap := make(map[string]interface{})
+								if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
+									PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
+								}
+								if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
+									PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
+								}
+								if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
+									PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
+								}
+								ExcludeListItemMap["path"] = PathMap
+							}
+							ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
 						}
-						if ExcludeListItem.Domain != nil {
-							DomainMap := make(map[string]interface{})
-							if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
-								DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
-								DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
-								DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
-							}
-							ExcludeListItemMap["domain"] = DomainMap
-						}
-						if ExcludeListItem.Metadata != nil {
-							MetadataMap := make(map[string]interface{})
-							if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
-								MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
-							}
-							if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
-								MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
-							}
-							ExcludeListItemMap["metadata"] = MetadataMap
-						}
-						if ExcludeListItem.Path != nil {
-							PathMap := make(map[string]interface{})
-							if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
-								PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
-							}
-							if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
-								PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
-							}
-							if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
-								PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
-							}
-							ExcludeListItemMap["path"] = PathMap
-						}
-						ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
+						JsInsertAllPagesExceptMap["exclude_list"] = ExcludeListList
 					}
-					JsInsertAllPagesExceptMap["exclude_list"] = ExcludeListList
 				}
 				if !data.BotDefense.Policy.JsInsertAllPagesExcept.JavascriptLocation.IsNull() && !data.BotDefense.Policy.JsInsertAllPagesExcept.JavascriptLocation.IsUnknown() {
 					JsInsertAllPagesExceptMap["javascript_location"] = data.BotDefense.Policy.JsInsertAllPagesExcept.JavascriptLocation.ValueString()
@@ -13747,102 +13832,112 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			}
 			if data.BotDefense.Policy.JsInsertionRules != nil {
 				JsInsertionRulesMap := make(map[string]interface{})
-				if len(data.BotDefense.Policy.JsInsertionRules.ExcludeList) > 0 {
-					var ExcludeListList []map[string]interface{}
-					for _, ExcludeListItem := range data.BotDefense.Policy.JsInsertionRules.ExcludeList {
-						ExcludeListItemMap := make(map[string]interface{})
-						if ExcludeListItem.AnyDomain != nil {
-							ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+				if !data.BotDefense.Policy.JsInsertionRules.ExcludeList.IsNull() && !data.BotDefense.Policy.JsInsertionRules.ExcludeList.IsUnknown() {
+					var ExcludeListElems []CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModel
+					diags := data.BotDefense.Policy.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
+						var ExcludeListList []map[string]interface{}
+						for _, ExcludeListItem := range ExcludeListElems {
+							ExcludeListItemMap := make(map[string]interface{})
+							if ExcludeListItem.AnyDomain != nil {
+								ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+							}
+							if ExcludeListItem.Domain != nil {
+								DomainMap := make(map[string]interface{})
+								if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
+									DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
+									DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
+									DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
+								}
+								ExcludeListItemMap["domain"] = DomainMap
+							}
+							if ExcludeListItem.Metadata != nil {
+								MetadataMap := make(map[string]interface{})
+								if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
+									MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
+									MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
+								}
+								ExcludeListItemMap["metadata"] = MetadataMap
+							}
+							if ExcludeListItem.Path != nil {
+								PathMap := make(map[string]interface{})
+								if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
+									PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
+								}
+								if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
+									PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
+								}
+								if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
+									PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
+								}
+								ExcludeListItemMap["path"] = PathMap
+							}
+							ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
 						}
-						if ExcludeListItem.Domain != nil {
-							DomainMap := make(map[string]interface{})
-							if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
-								DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
-								DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
-								DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
-							}
-							ExcludeListItemMap["domain"] = DomainMap
-						}
-						if ExcludeListItem.Metadata != nil {
-							MetadataMap := make(map[string]interface{})
-							if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
-								MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
-							}
-							if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
-								MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
-							}
-							ExcludeListItemMap["metadata"] = MetadataMap
-						}
-						if ExcludeListItem.Path != nil {
-							PathMap := make(map[string]interface{})
-							if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
-								PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
-							}
-							if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
-								PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
-							}
-							if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
-								PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
-							}
-							ExcludeListItemMap["path"] = PathMap
-						}
-						ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
+						JsInsertionRulesMap["exclude_list"] = ExcludeListList
 					}
-					JsInsertionRulesMap["exclude_list"] = ExcludeListList
 				}
-				if len(data.BotDefense.Policy.JsInsertionRules.Rules) > 0 {
-					var RulesList []map[string]interface{}
-					for _, RulesItem := range data.BotDefense.Policy.JsInsertionRules.Rules {
-						RulesItemMap := make(map[string]interface{})
-						if RulesItem.AnyDomain != nil {
-							RulesItemMap["any_domain"] = map[string]interface{}{}
+				if !data.BotDefense.Policy.JsInsertionRules.Rules.IsNull() && !data.BotDefense.Policy.JsInsertionRules.Rules.IsUnknown() {
+					var RulesElems []CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModel
+					diags := data.BotDefense.Policy.JsInsertionRules.Rules.ElementsAs(ctx, &RulesElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
+						var RulesList []map[string]interface{}
+						for _, RulesItem := range RulesElems {
+							RulesItemMap := make(map[string]interface{})
+							if RulesItem.AnyDomain != nil {
+								RulesItemMap["any_domain"] = map[string]interface{}{}
+							}
+							if RulesItem.Domain != nil {
+								DomainMap := make(map[string]interface{})
+								if !RulesItem.Domain.ExactValue.IsNull() && !RulesItem.Domain.ExactValue.IsUnknown() {
+									DomainMap["exact_value"] = RulesItem.Domain.ExactValue.ValueString()
+								}
+								if !RulesItem.Domain.RegexValue.IsNull() && !RulesItem.Domain.RegexValue.IsUnknown() {
+									DomainMap["regex_value"] = RulesItem.Domain.RegexValue.ValueString()
+								}
+								if !RulesItem.Domain.SuffixValue.IsNull() && !RulesItem.Domain.SuffixValue.IsUnknown() {
+									DomainMap["suffix_value"] = RulesItem.Domain.SuffixValue.ValueString()
+								}
+								RulesItemMap["domain"] = DomainMap
+							}
+							if !RulesItem.JavascriptLocation.IsNull() && !RulesItem.JavascriptLocation.IsUnknown() {
+								RulesItemMap["javascript_location"] = RulesItem.JavascriptLocation.ValueString()
+							}
+							if RulesItem.Metadata != nil {
+								MetadataMap := make(map[string]interface{})
+								if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
+									MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
+									MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+								}
+								RulesItemMap["metadata"] = MetadataMap
+							}
+							if RulesItem.Path != nil {
+								PathMap := make(map[string]interface{})
+								if !RulesItem.Path.Path.IsNull() && !RulesItem.Path.Path.IsUnknown() {
+									PathMap["path"] = RulesItem.Path.Path.ValueString()
+								}
+								if !RulesItem.Path.Prefix.IsNull() && !RulesItem.Path.Prefix.IsUnknown() {
+									PathMap["prefix"] = RulesItem.Path.Prefix.ValueString()
+								}
+								if !RulesItem.Path.Regex.IsNull() && !RulesItem.Path.Regex.IsUnknown() {
+									PathMap["regex"] = RulesItem.Path.Regex.ValueString()
+								}
+								RulesItemMap["path"] = PathMap
+							}
+							RulesList = append(RulesList, RulesItemMap)
 						}
-						if RulesItem.Domain != nil {
-							DomainMap := make(map[string]interface{})
-							if !RulesItem.Domain.ExactValue.IsNull() && !RulesItem.Domain.ExactValue.IsUnknown() {
-								DomainMap["exact_value"] = RulesItem.Domain.ExactValue.ValueString()
-							}
-							if !RulesItem.Domain.RegexValue.IsNull() && !RulesItem.Domain.RegexValue.IsUnknown() {
-								DomainMap["regex_value"] = RulesItem.Domain.RegexValue.ValueString()
-							}
-							if !RulesItem.Domain.SuffixValue.IsNull() && !RulesItem.Domain.SuffixValue.IsUnknown() {
-								DomainMap["suffix_value"] = RulesItem.Domain.SuffixValue.ValueString()
-							}
-							RulesItemMap["domain"] = DomainMap
-						}
-						if !RulesItem.JavascriptLocation.IsNull() && !RulesItem.JavascriptLocation.IsUnknown() {
-							RulesItemMap["javascript_location"] = RulesItem.JavascriptLocation.ValueString()
-						}
-						if RulesItem.Metadata != nil {
-							MetadataMap := make(map[string]interface{})
-							if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
-								MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
-							}
-							if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
-								MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
-							}
-							RulesItemMap["metadata"] = MetadataMap
-						}
-						if RulesItem.Path != nil {
-							PathMap := make(map[string]interface{})
-							if !RulesItem.Path.Path.IsNull() && !RulesItem.Path.Path.IsUnknown() {
-								PathMap["path"] = RulesItem.Path.Path.ValueString()
-							}
-							if !RulesItem.Path.Prefix.IsNull() && !RulesItem.Path.Prefix.IsUnknown() {
-								PathMap["prefix"] = RulesItem.Path.Prefix.ValueString()
-							}
-							if !RulesItem.Path.Regex.IsNull() && !RulesItem.Path.Regex.IsUnknown() {
-								PathMap["regex"] = RulesItem.Path.Regex.ValueString()
-							}
-							RulesItemMap["path"] = PathMap
-						}
-						RulesList = append(RulesList, RulesItemMap)
+						JsInsertionRulesMap["rules"] = RulesList
 					}
-					JsInsertionRulesMap["rules"] = RulesList
 				}
 				PolicyMap["js_insertion_rules"] = JsInsertionRulesMap
 			}
@@ -13850,427 +13945,457 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				MobileSdkConfigMap := make(map[string]interface{})
 				if data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier != nil {
 					MobileIdentifierMap := make(map[string]interface{})
-					if len(data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers) > 0 {
-						var HeadersList []map[string]interface{}
-						for _, HeadersItem := range data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers {
-							HeadersItemMap := make(map[string]interface{})
-							if HeadersItem.CheckNotPresent != nil {
-								HeadersItemMap["check_not_present"] = map[string]interface{}{}
-							}
-							if HeadersItem.CheckPresent != nil {
-								HeadersItemMap["check_present"] = map[string]interface{}{}
-							}
-							if HeadersItem.Item != nil {
-								ItemMap := make(map[string]interface{})
-								if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
-									var ExactValuesItems []string
-									diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-									if !diags.HasError() {
-										ItemMap["exact_values"] = ExactValuesItems
-									}
+					if !data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
+						var HeadersElems []CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModel
+						diags := data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+							var HeadersList []map[string]interface{}
+							for _, HeadersItem := range HeadersElems {
+								HeadersItemMap := make(map[string]interface{})
+								if HeadersItem.CheckNotPresent != nil {
+									HeadersItemMap["check_not_present"] = map[string]interface{}{}
 								}
-								if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
-									var RegexValuesItems []string
-									diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-									if !diags.HasError() {
-										ItemMap["regex_values"] = RegexValuesItems
-									}
+								if HeadersItem.CheckPresent != nil {
+									HeadersItemMap["check_present"] = map[string]interface{}{}
 								}
-								if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
-									var TransformersItems []string
-									diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-									if !diags.HasError() {
-										ItemMap["transformers"] = TransformersItems
+								if HeadersItem.Item != nil {
+									ItemMap := make(map[string]interface{})
+									if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
+										var ExactValuesItems []string
+										diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+										if !diags.HasError() {
+											ItemMap["exact_values"] = ExactValuesItems
+										}
 									}
+									if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
+										var RegexValuesItems []string
+										diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+										if !diags.HasError() {
+											ItemMap["regex_values"] = RegexValuesItems
+										}
+									}
+									if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
+										var TransformersItems []string
+										diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+										if !diags.HasError() {
+											ItemMap["transformers"] = TransformersItems
+										}
+									}
+									HeadersItemMap["item"] = ItemMap
 								}
-								HeadersItemMap["item"] = ItemMap
+								if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+									HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+								}
+								HeadersList = append(HeadersList, HeadersItemMap)
 							}
-							if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-								HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-							}
-							HeadersList = append(HeadersList, HeadersItemMap)
+							MobileIdentifierMap["headers"] = HeadersList
 						}
-						MobileIdentifierMap["headers"] = HeadersList
 					}
 					MobileSdkConfigMap["mobile_identifier"] = MobileIdentifierMap
 				}
 				PolicyMap["mobile_sdk_config"] = MobileSdkConfigMap
 			}
-			if len(data.BotDefense.Policy.ProtectedAppEndpoints) > 0 {
-				var ProtectedAppEndpointsList []map[string]interface{}
-				for _, ProtectedAppEndpointsItem := range data.BotDefense.Policy.ProtectedAppEndpoints {
-					ProtectedAppEndpointsItemMap := make(map[string]interface{})
-					if ProtectedAppEndpointsItem.AllowGoodBots != nil {
-						ProtectedAppEndpointsItemMap["allow_good_bots"] = map[string]interface{}{}
-					}
-					if ProtectedAppEndpointsItem.AnyDomain != nil {
-						ProtectedAppEndpointsItemMap["any_domain"] = map[string]interface{}{}
-					}
-					if ProtectedAppEndpointsItem.Domain != nil {
-						DomainMap := make(map[string]interface{})
-						if !ProtectedAppEndpointsItem.Domain.ExactValue.IsNull() && !ProtectedAppEndpointsItem.Domain.ExactValue.IsUnknown() {
-							DomainMap["exact_value"] = ProtectedAppEndpointsItem.Domain.ExactValue.ValueString()
+			if !data.BotDefense.Policy.ProtectedAppEndpoints.IsNull() && !data.BotDefense.Policy.ProtectedAppEndpoints.IsUnknown() {
+				var ProtectedAppEndpointsElems []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModel
+				diags := data.BotDefense.Policy.ProtectedAppEndpoints.ElementsAs(ctx, &ProtectedAppEndpointsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ProtectedAppEndpointsElems) > 0 {
+					var ProtectedAppEndpointsList []map[string]interface{}
+					for _, ProtectedAppEndpointsItem := range ProtectedAppEndpointsElems {
+						ProtectedAppEndpointsItemMap := make(map[string]interface{})
+						if ProtectedAppEndpointsItem.AllowGoodBots != nil {
+							ProtectedAppEndpointsItemMap["allow_good_bots"] = map[string]interface{}{}
 						}
-						if !ProtectedAppEndpointsItem.Domain.RegexValue.IsNull() && !ProtectedAppEndpointsItem.Domain.RegexValue.IsUnknown() {
-							DomainMap["regex_value"] = ProtectedAppEndpointsItem.Domain.RegexValue.ValueString()
+						if ProtectedAppEndpointsItem.AnyDomain != nil {
+							ProtectedAppEndpointsItemMap["any_domain"] = map[string]interface{}{}
 						}
-						if !ProtectedAppEndpointsItem.Domain.SuffixValue.IsNull() && !ProtectedAppEndpointsItem.Domain.SuffixValue.IsUnknown() {
-							DomainMap["suffix_value"] = ProtectedAppEndpointsItem.Domain.SuffixValue.ValueString()
-						}
-						ProtectedAppEndpointsItemMap["domain"] = DomainMap
-					}
-					if ProtectedAppEndpointsItem.FlowLabel != nil {
-						FlowLabelMap := make(map[string]interface{})
-						if ProtectedAppEndpointsItem.FlowLabel.AccountManagement != nil {
-							AccountManagementMap := make(map[string]interface{})
-							if ProtectedAppEndpointsItem.FlowLabel.AccountManagement.Create != nil {
-								AccountManagementMap["create"] = map[string]interface{}{}
+						if ProtectedAppEndpointsItem.Domain != nil {
+							DomainMap := make(map[string]interface{})
+							if !ProtectedAppEndpointsItem.Domain.ExactValue.IsNull() && !ProtectedAppEndpointsItem.Domain.ExactValue.IsUnknown() {
+								DomainMap["exact_value"] = ProtectedAppEndpointsItem.Domain.ExactValue.ValueString()
 							}
-							if ProtectedAppEndpointsItem.FlowLabel.AccountManagement.PasswordReset != nil {
-								AccountManagementMap["password_reset"] = map[string]interface{}{}
+							if !ProtectedAppEndpointsItem.Domain.RegexValue.IsNull() && !ProtectedAppEndpointsItem.Domain.RegexValue.IsUnknown() {
+								DomainMap["regex_value"] = ProtectedAppEndpointsItem.Domain.RegexValue.ValueString()
 							}
-							FlowLabelMap["account_management"] = AccountManagementMap
+							if !ProtectedAppEndpointsItem.Domain.SuffixValue.IsNull() && !ProtectedAppEndpointsItem.Domain.SuffixValue.IsUnknown() {
+								DomainMap["suffix_value"] = ProtectedAppEndpointsItem.Domain.SuffixValue.ValueString()
+							}
+							ProtectedAppEndpointsItemMap["domain"] = DomainMap
 						}
-						if ProtectedAppEndpointsItem.FlowLabel.Authentication != nil {
-							AuthenticationMap := make(map[string]interface{})
-							if ProtectedAppEndpointsItem.FlowLabel.Authentication.Login != nil {
-								LoginMap := make(map[string]interface{})
-								if ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.DisableTransactionResult != nil {
-									LoginMap["disable_transaction_result"] = map[string]interface{}{}
+						if ProtectedAppEndpointsItem.FlowLabel != nil {
+							FlowLabelMap := make(map[string]interface{})
+							if ProtectedAppEndpointsItem.FlowLabel.AccountManagement != nil {
+								AccountManagementMap := make(map[string]interface{})
+								if ProtectedAppEndpointsItem.FlowLabel.AccountManagement.Create != nil {
+									AccountManagementMap["create"] = map[string]interface{}{}
 								}
-								if ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult != nil {
-									TransactionResultMap := make(map[string]interface{})
-									if len(ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.FailureConditions) > 0 {
-										var FailureConditionsList []map[string]interface{}
-										for _, FailureConditionsItem := range ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.FailureConditions {
-											FailureConditionsItemMap := make(map[string]interface{})
-											if !FailureConditionsItem.Name.IsNull() && !FailureConditionsItem.Name.IsUnknown() {
-												FailureConditionsItemMap["name"] = FailureConditionsItem.Name.ValueString()
-											}
-											if !FailureConditionsItem.RegexValues.IsNull() && !FailureConditionsItem.RegexValues.IsUnknown() {
-												var RegexValuesItems []string
-												diags := FailureConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-												if !diags.HasError() {
-													FailureConditionsItemMap["regex_values"] = RegexValuesItems
+								if ProtectedAppEndpointsItem.FlowLabel.AccountManagement.PasswordReset != nil {
+									AccountManagementMap["password_reset"] = map[string]interface{}{}
+								}
+								FlowLabelMap["account_management"] = AccountManagementMap
+							}
+							if ProtectedAppEndpointsItem.FlowLabel.Authentication != nil {
+								AuthenticationMap := make(map[string]interface{})
+								if ProtectedAppEndpointsItem.FlowLabel.Authentication.Login != nil {
+									LoginMap := make(map[string]interface{})
+									if ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.DisableTransactionResult != nil {
+										LoginMap["disable_transaction_result"] = map[string]interface{}{}
+									}
+									if ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult != nil {
+										TransactionResultMap := make(map[string]interface{})
+										if !ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsNull() && !ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsUnknown() {
+											var FailureConditionsElems []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel
+											diags := ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.FailureConditions.ElementsAs(ctx, &FailureConditionsElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(FailureConditionsElems) > 0 {
+												var FailureConditionsList []map[string]interface{}
+												for _, FailureConditionsItem := range FailureConditionsElems {
+													FailureConditionsItemMap := make(map[string]interface{})
+													if !FailureConditionsItem.Name.IsNull() && !FailureConditionsItem.Name.IsUnknown() {
+														FailureConditionsItemMap["name"] = FailureConditionsItem.Name.ValueString()
+													}
+													if !FailureConditionsItem.RegexValues.IsNull() && !FailureConditionsItem.RegexValues.IsUnknown() {
+														var RegexValuesItems []string
+														diags := FailureConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+														if !diags.HasError() {
+															FailureConditionsItemMap["regex_values"] = RegexValuesItems
+														}
+													}
+													if !FailureConditionsItem.Status.IsNull() && !FailureConditionsItem.Status.IsUnknown() {
+														FailureConditionsItemMap["status"] = FailureConditionsItem.Status.ValueString()
+													}
+													FailureConditionsList = append(FailureConditionsList, FailureConditionsItemMap)
 												}
+												TransactionResultMap["failure_conditions"] = FailureConditionsList
 											}
-											if !FailureConditionsItem.Status.IsNull() && !FailureConditionsItem.Status.IsUnknown() {
-												FailureConditionsItemMap["status"] = FailureConditionsItem.Status.ValueString()
-											}
-											FailureConditionsList = append(FailureConditionsList, FailureConditionsItemMap)
 										}
-										TransactionResultMap["failure_conditions"] = FailureConditionsList
-									}
-									if len(ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.SuccessConditions) > 0 {
-										var SuccessConditionsList []map[string]interface{}
-										for _, SuccessConditionsItem := range ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.SuccessConditions {
-											SuccessConditionsItemMap := make(map[string]interface{})
-											if !SuccessConditionsItem.Name.IsNull() && !SuccessConditionsItem.Name.IsUnknown() {
-												SuccessConditionsItemMap["name"] = SuccessConditionsItem.Name.ValueString()
-											}
-											if !SuccessConditionsItem.RegexValues.IsNull() && !SuccessConditionsItem.RegexValues.IsUnknown() {
-												var RegexValuesItems []string
-												diags := SuccessConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-												if !diags.HasError() {
-													SuccessConditionsItemMap["regex_values"] = RegexValuesItems
+										if !ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsNull() && !ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsUnknown() {
+											var SuccessConditionsElems []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel
+											diags := ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.ElementsAs(ctx, &SuccessConditionsElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(SuccessConditionsElems) > 0 {
+												var SuccessConditionsList []map[string]interface{}
+												for _, SuccessConditionsItem := range SuccessConditionsElems {
+													SuccessConditionsItemMap := make(map[string]interface{})
+													if !SuccessConditionsItem.Name.IsNull() && !SuccessConditionsItem.Name.IsUnknown() {
+														SuccessConditionsItemMap["name"] = SuccessConditionsItem.Name.ValueString()
+													}
+													if !SuccessConditionsItem.RegexValues.IsNull() && !SuccessConditionsItem.RegexValues.IsUnknown() {
+														var RegexValuesItems []string
+														diags := SuccessConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+														if !diags.HasError() {
+															SuccessConditionsItemMap["regex_values"] = RegexValuesItems
+														}
+													}
+													if !SuccessConditionsItem.Status.IsNull() && !SuccessConditionsItem.Status.IsUnknown() {
+														SuccessConditionsItemMap["status"] = SuccessConditionsItem.Status.ValueString()
+													}
+													SuccessConditionsList = append(SuccessConditionsList, SuccessConditionsItemMap)
 												}
+												TransactionResultMap["success_conditions"] = SuccessConditionsList
 											}
-											if !SuccessConditionsItem.Status.IsNull() && !SuccessConditionsItem.Status.IsUnknown() {
-												SuccessConditionsItemMap["status"] = SuccessConditionsItem.Status.ValueString()
-											}
-											SuccessConditionsList = append(SuccessConditionsList, SuccessConditionsItemMap)
 										}
-										TransactionResultMap["success_conditions"] = SuccessConditionsList
+										LoginMap["transaction_result"] = TransactionResultMap
 									}
-									LoginMap["transaction_result"] = TransactionResultMap
+									AuthenticationMap["login"] = LoginMap
 								}
-								AuthenticationMap["login"] = LoginMap
+								if ProtectedAppEndpointsItem.FlowLabel.Authentication.LoginMFA != nil {
+									AuthenticationMap["login_mfa"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.Authentication.LoginPartner != nil {
+									AuthenticationMap["login_partner"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.Authentication.Logout != nil {
+									AuthenticationMap["logout"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.Authentication.TokenRefresh != nil {
+									AuthenticationMap["token_refresh"] = map[string]interface{}{}
+								}
+								FlowLabelMap["authentication"] = AuthenticationMap
 							}
-							if ProtectedAppEndpointsItem.FlowLabel.Authentication.LoginMFA != nil {
-								AuthenticationMap["login_mfa"] = map[string]interface{}{}
+							if ProtectedAppEndpointsItem.FlowLabel.FinancialServices != nil {
+								FinancialServicesMap := make(map[string]interface{})
+								if ProtectedAppEndpointsItem.FlowLabel.FinancialServices.Apply != nil {
+									FinancialServicesMap["apply"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.FinancialServices.MoneyTransfer != nil {
+									FinancialServicesMap["money_transfer"] = map[string]interface{}{}
+								}
+								FlowLabelMap["financial_services"] = FinancialServicesMap
 							}
-							if ProtectedAppEndpointsItem.FlowLabel.Authentication.LoginPartner != nil {
-								AuthenticationMap["login_partner"] = map[string]interface{}{}
+							if ProtectedAppEndpointsItem.FlowLabel.Flight != nil {
+								FlightMap := make(map[string]interface{})
+								if ProtectedAppEndpointsItem.FlowLabel.Flight.Checking != nil {
+									FlightMap["checking"] = map[string]interface{}{}
+								}
+								FlowLabelMap["flight"] = FlightMap
 							}
-							if ProtectedAppEndpointsItem.FlowLabel.Authentication.Logout != nil {
-								AuthenticationMap["logout"] = map[string]interface{}{}
+							if ProtectedAppEndpointsItem.FlowLabel.ProfileManagement != nil {
+								ProfileManagementMap := make(map[string]interface{})
+								if ProtectedAppEndpointsItem.FlowLabel.ProfileManagement.Create != nil {
+									ProfileManagementMap["create"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ProfileManagement.Update != nil {
+									ProfileManagementMap["update"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ProfileManagement.View != nil {
+									ProfileManagementMap["view"] = map[string]interface{}{}
+								}
+								FlowLabelMap["profile_management"] = ProfileManagementMap
 							}
-							if ProtectedAppEndpointsItem.FlowLabel.Authentication.TokenRefresh != nil {
-								AuthenticationMap["token_refresh"] = map[string]interface{}{}
+							if ProtectedAppEndpointsItem.FlowLabel.Search != nil {
+								SearchMap := make(map[string]interface{})
+								if ProtectedAppEndpointsItem.FlowLabel.Search.FlightSearch != nil {
+									SearchMap["flight_search"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.Search.ProductSearch != nil {
+									SearchMap["product_search"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.Search.ReservationSearch != nil {
+									SearchMap["reservation_search"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.Search.RoomSearch != nil {
+									SearchMap["room_search"] = map[string]interface{}{}
+								}
+								FlowLabelMap["search"] = SearchMap
 							}
-							FlowLabelMap["authentication"] = AuthenticationMap
+							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards != nil {
+								ShoppingGiftCardsMap := make(map[string]interface{})
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard != nil {
+									ShoppingGiftCardsMap["gift_card_make_purchase_with_gift_card"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardValidation != nil {
+									ShoppingGiftCardsMap["gift_card_validation"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopAddToCart != nil {
+									ShoppingGiftCardsMap["shop_add_to_cart"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopCheckout != nil {
+									ShoppingGiftCardsMap["shop_checkout"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopChooseSeat != nil {
+									ShoppingGiftCardsMap["shop_choose_seat"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission != nil {
+									ShoppingGiftCardsMap["shop_enter_drawing_submission"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopMakePayment != nil {
+									ShoppingGiftCardsMap["shop_make_payment"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopOrder != nil {
+									ShoppingGiftCardsMap["shop_order"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPriceInquiry != nil {
+									ShoppingGiftCardsMap["shop_price_inquiry"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation != nil {
+									ShoppingGiftCardsMap["shop_promo_code_validation"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard != nil {
+									ShoppingGiftCardsMap["shop_purchase_gift_card"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopUpdateQuantity != nil {
+									ShoppingGiftCardsMap["shop_update_quantity"] = map[string]interface{}{}
+								}
+								FlowLabelMap["shopping_gift_cards"] = ShoppingGiftCardsMap
+							}
+							ProtectedAppEndpointsItemMap["flow_label"] = FlowLabelMap
 						}
-						if ProtectedAppEndpointsItem.FlowLabel.FinancialServices != nil {
-							FinancialServicesMap := make(map[string]interface{})
-							if ProtectedAppEndpointsItem.FlowLabel.FinancialServices.Apply != nil {
-								FinancialServicesMap["apply"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.FinancialServices.MoneyTransfer != nil {
-								FinancialServicesMap["money_transfer"] = map[string]interface{}{}
-							}
-							FlowLabelMap["financial_services"] = FinancialServicesMap
-						}
-						if ProtectedAppEndpointsItem.FlowLabel.Flight != nil {
-							FlightMap := make(map[string]interface{})
-							if ProtectedAppEndpointsItem.FlowLabel.Flight.Checking != nil {
-								FlightMap["checking"] = map[string]interface{}{}
-							}
-							FlowLabelMap["flight"] = FlightMap
-						}
-						if ProtectedAppEndpointsItem.FlowLabel.ProfileManagement != nil {
-							ProfileManagementMap := make(map[string]interface{})
-							if ProtectedAppEndpointsItem.FlowLabel.ProfileManagement.Create != nil {
-								ProfileManagementMap["create"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ProfileManagement.Update != nil {
-								ProfileManagementMap["update"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ProfileManagement.View != nil {
-								ProfileManagementMap["view"] = map[string]interface{}{}
-							}
-							FlowLabelMap["profile_management"] = ProfileManagementMap
-						}
-						if ProtectedAppEndpointsItem.FlowLabel.Search != nil {
-							SearchMap := make(map[string]interface{})
-							if ProtectedAppEndpointsItem.FlowLabel.Search.FlightSearch != nil {
-								SearchMap["flight_search"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.Search.ProductSearch != nil {
-								SearchMap["product_search"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.Search.ReservationSearch != nil {
-								SearchMap["reservation_search"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.Search.RoomSearch != nil {
-								SearchMap["room_search"] = map[string]interface{}{}
-							}
-							FlowLabelMap["search"] = SearchMap
-						}
-						if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards != nil {
-							ShoppingGiftCardsMap := make(map[string]interface{})
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard != nil {
-								ShoppingGiftCardsMap["gift_card_make_purchase_with_gift_card"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardValidation != nil {
-								ShoppingGiftCardsMap["gift_card_validation"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopAddToCart != nil {
-								ShoppingGiftCardsMap["shop_add_to_cart"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopCheckout != nil {
-								ShoppingGiftCardsMap["shop_checkout"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopChooseSeat != nil {
-								ShoppingGiftCardsMap["shop_choose_seat"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission != nil {
-								ShoppingGiftCardsMap["shop_enter_drawing_submission"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopMakePayment != nil {
-								ShoppingGiftCardsMap["shop_make_payment"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopOrder != nil {
-								ShoppingGiftCardsMap["shop_order"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPriceInquiry != nil {
-								ShoppingGiftCardsMap["shop_price_inquiry"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation != nil {
-								ShoppingGiftCardsMap["shop_promo_code_validation"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard != nil {
-								ShoppingGiftCardsMap["shop_purchase_gift_card"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopUpdateQuantity != nil {
-								ShoppingGiftCardsMap["shop_update_quantity"] = map[string]interface{}{}
-							}
-							FlowLabelMap["shopping_gift_cards"] = ShoppingGiftCardsMap
-						}
-						ProtectedAppEndpointsItemMap["flow_label"] = FlowLabelMap
-					}
-					if len(ProtectedAppEndpointsItem.Headers) > 0 {
-						var HeadersList []map[string]interface{}
-						for _, HeadersItem := range ProtectedAppEndpointsItem.Headers {
-							HeadersItemMap := make(map[string]interface{})
-							if HeadersItem.CheckNotPresent != nil {
-								HeadersItemMap["check_not_present"] = map[string]interface{}{}
-							}
-							if HeadersItem.CheckPresent != nil {
-								HeadersItemMap["check_present"] = map[string]interface{}{}
-							}
-							if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
-								HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
-							}
-							if HeadersItem.Item != nil {
-								ItemMap := make(map[string]interface{})
-								if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
-									var ExactValuesItems []string
-									diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-									if !diags.HasError() {
-										ItemMap["exact_values"] = ExactValuesItems
+						if !ProtectedAppEndpointsItem.Headers.IsNull() && !ProtectedAppEndpointsItem.Headers.IsUnknown() {
+							var HeadersElems []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsHeadersModel
+							diags := ProtectedAppEndpointsItem.Headers.ElementsAs(ctx, &HeadersElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+								var HeadersList []map[string]interface{}
+								for _, HeadersItem := range HeadersElems {
+									HeadersItemMap := make(map[string]interface{})
+									if HeadersItem.CheckNotPresent != nil {
+										HeadersItemMap["check_not_present"] = map[string]interface{}{}
 									}
-								}
-								if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
-									var RegexValuesItems []string
-									diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-									if !diags.HasError() {
-										ItemMap["regex_values"] = RegexValuesItems
+									if HeadersItem.CheckPresent != nil {
+										HeadersItemMap["check_present"] = map[string]interface{}{}
 									}
-								}
-								if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
-									var TransformersItems []string
-									diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-									if !diags.HasError() {
-										ItemMap["transformers"] = TransformersItems
+									if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
+										HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
 									}
-								}
-								HeadersItemMap["item"] = ItemMap
-							}
-							if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-								HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-							}
-							HeadersList = append(HeadersList, HeadersItemMap)
-						}
-						ProtectedAppEndpointsItemMap["headers"] = HeadersList
-					}
-					if !ProtectedAppEndpointsItem.HTTPMethods.IsNull() && !ProtectedAppEndpointsItem.HTTPMethods.IsUnknown() {
-						var HTTPMethodsItems []string
-						diags := ProtectedAppEndpointsItem.HTTPMethods.ElementsAs(ctx, &HTTPMethodsItems, false)
-						if !diags.HasError() {
-							ProtectedAppEndpointsItemMap["http_methods"] = HTTPMethodsItems
-						}
-					}
-					if ProtectedAppEndpointsItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
-						if !ProtectedAppEndpointsItem.Metadata.DescriptionSpec.IsNull() && !ProtectedAppEndpointsItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = ProtectedAppEndpointsItem.Metadata.DescriptionSpec.ValueString()
-						}
-						if !ProtectedAppEndpointsItem.Metadata.Name.IsNull() && !ProtectedAppEndpointsItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = ProtectedAppEndpointsItem.Metadata.Name.ValueString()
-						}
-						ProtectedAppEndpointsItemMap["metadata"] = MetadataMap
-					}
-					if ProtectedAppEndpointsItem.MitigateGoodBots != nil {
-						ProtectedAppEndpointsItemMap["mitigate_good_bots"] = map[string]interface{}{}
-					}
-					if ProtectedAppEndpointsItem.Mitigation != nil {
-						MitigationMap := make(map[string]interface{})
-						if ProtectedAppEndpointsItem.Mitigation.Block != nil {
-							BlockMap := make(map[string]interface{})
-							if !ProtectedAppEndpointsItem.Mitigation.Block.Body.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Block.Body.IsUnknown() {
-								BlockMap["body"] = ProtectedAppEndpointsItem.Mitigation.Block.Body.ValueString()
-							}
-							if !ProtectedAppEndpointsItem.Mitigation.Block.Status.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Block.Status.IsUnknown() {
-								BlockMap["status"] = ProtectedAppEndpointsItem.Mitigation.Block.Status.ValueString()
-							}
-							MitigationMap["block"] = BlockMap
-						}
-						if ProtectedAppEndpointsItem.Mitigation.Flag != nil {
-							FlagMap := make(map[string]interface{})
-							if ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders != nil {
-								AppendHeadersMap := make(map[string]interface{})
-								if !ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.AutoTypeHeaderName.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.AutoTypeHeaderName.IsUnknown() {
-									AppendHeadersMap["auto_type_header_name"] = ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.AutoTypeHeaderName.ValueString()
-								}
-								if !ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.InferenceHeaderName.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.InferenceHeaderName.IsUnknown() {
-									AppendHeadersMap["inference_header_name"] = ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.InferenceHeaderName.ValueString()
-								}
-								FlagMap["append_headers"] = AppendHeadersMap
-							}
-							if ProtectedAppEndpointsItem.Mitigation.Flag.NoHeaders != nil {
-								FlagMap["no_headers"] = map[string]interface{}{}
-							}
-							MitigationMap["flag"] = FlagMap
-						}
-						if ProtectedAppEndpointsItem.Mitigation.Redirect != nil {
-							RedirectMap := make(map[string]interface{})
-							if !ProtectedAppEndpointsItem.Mitigation.Redirect.URI.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Redirect.URI.IsUnknown() {
-								RedirectMap["uri"] = ProtectedAppEndpointsItem.Mitigation.Redirect.URI.ValueString()
-							}
-							MitigationMap["redirect"] = RedirectMap
-						}
-						ProtectedAppEndpointsItemMap["mitigation"] = MitigationMap
-					}
-					if ProtectedAppEndpointsItem.Mobile != nil {
-						ProtectedAppEndpointsItemMap["mobile"] = map[string]interface{}{}
-					}
-					if ProtectedAppEndpointsItem.Path != nil {
-						PathMap := make(map[string]interface{})
-						if !ProtectedAppEndpointsItem.Path.Path.IsNull() && !ProtectedAppEndpointsItem.Path.Path.IsUnknown() {
-							PathMap["path"] = ProtectedAppEndpointsItem.Path.Path.ValueString()
-						}
-						if !ProtectedAppEndpointsItem.Path.Prefix.IsNull() && !ProtectedAppEndpointsItem.Path.Prefix.IsUnknown() {
-							PathMap["prefix"] = ProtectedAppEndpointsItem.Path.Prefix.ValueString()
-						}
-						if !ProtectedAppEndpointsItem.Path.Regex.IsNull() && !ProtectedAppEndpointsItem.Path.Regex.IsUnknown() {
-							PathMap["regex"] = ProtectedAppEndpointsItem.Path.Regex.ValueString()
-						}
-						ProtectedAppEndpointsItemMap["path"] = PathMap
-					}
-					if !ProtectedAppEndpointsItem.Protocol.IsNull() && !ProtectedAppEndpointsItem.Protocol.IsUnknown() {
-						ProtectedAppEndpointsItemMap["protocol"] = ProtectedAppEndpointsItem.Protocol.ValueString()
-					}
-					if len(ProtectedAppEndpointsItem.QueryParams) > 0 {
-						var QueryParamsList []map[string]interface{}
-						for _, QueryParamsItem := range ProtectedAppEndpointsItem.QueryParams {
-							QueryParamsItemMap := make(map[string]interface{})
-							if QueryParamsItem.CheckNotPresent != nil {
-								QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
-							}
-							if QueryParamsItem.CheckPresent != nil {
-								QueryParamsItemMap["check_present"] = map[string]interface{}{}
-							}
-							if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
-								QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
-							}
-							if QueryParamsItem.Item != nil {
-								ItemMap := make(map[string]interface{})
-								if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
-									var ExactValuesItems []string
-									diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-									if !diags.HasError() {
-										ItemMap["exact_values"] = ExactValuesItems
+									if HeadersItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										HeadersItemMap["item"] = ItemMap
 									}
-								}
-								if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
-									var RegexValuesItems []string
-									diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-									if !diags.HasError() {
-										ItemMap["regex_values"] = RegexValuesItems
+									if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+										HeadersItemMap["name"] = HeadersItem.Name.ValueString()
 									}
+									HeadersList = append(HeadersList, HeadersItemMap)
 								}
-								if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
-									var TransformersItems []string
-									diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-									if !diags.HasError() {
-										ItemMap["transformers"] = TransformersItems
+								ProtectedAppEndpointsItemMap["headers"] = HeadersList
+							}
+						}
+						if !ProtectedAppEndpointsItem.HTTPMethods.IsNull() && !ProtectedAppEndpointsItem.HTTPMethods.IsUnknown() {
+							var HTTPMethodsItems []string
+							diags := ProtectedAppEndpointsItem.HTTPMethods.ElementsAs(ctx, &HTTPMethodsItems, false)
+							if !diags.HasError() {
+								ProtectedAppEndpointsItemMap["http_methods"] = HTTPMethodsItems
+							}
+						}
+						if ProtectedAppEndpointsItem.Metadata != nil {
+							MetadataMap := make(map[string]interface{})
+							if !ProtectedAppEndpointsItem.Metadata.DescriptionSpec.IsNull() && !ProtectedAppEndpointsItem.Metadata.DescriptionSpec.IsUnknown() {
+								MetadataMap["description"] = ProtectedAppEndpointsItem.Metadata.DescriptionSpec.ValueString()
+							}
+							if !ProtectedAppEndpointsItem.Metadata.Name.IsNull() && !ProtectedAppEndpointsItem.Metadata.Name.IsUnknown() {
+								MetadataMap["name"] = ProtectedAppEndpointsItem.Metadata.Name.ValueString()
+							}
+							ProtectedAppEndpointsItemMap["metadata"] = MetadataMap
+						}
+						if ProtectedAppEndpointsItem.MitigateGoodBots != nil {
+							ProtectedAppEndpointsItemMap["mitigate_good_bots"] = map[string]interface{}{}
+						}
+						if ProtectedAppEndpointsItem.Mitigation != nil {
+							MitigationMap := make(map[string]interface{})
+							if ProtectedAppEndpointsItem.Mitigation.Block != nil {
+								BlockMap := make(map[string]interface{})
+								if !ProtectedAppEndpointsItem.Mitigation.Block.Body.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Block.Body.IsUnknown() {
+									BlockMap["body"] = ProtectedAppEndpointsItem.Mitigation.Block.Body.ValueString()
+								}
+								if !ProtectedAppEndpointsItem.Mitigation.Block.Status.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Block.Status.IsUnknown() {
+									BlockMap["status"] = ProtectedAppEndpointsItem.Mitigation.Block.Status.ValueString()
+								}
+								MitigationMap["block"] = BlockMap
+							}
+							if ProtectedAppEndpointsItem.Mitigation.Flag != nil {
+								FlagMap := make(map[string]interface{})
+								if ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders != nil {
+									AppendHeadersMap := make(map[string]interface{})
+									if !ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.AutoTypeHeaderName.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.AutoTypeHeaderName.IsUnknown() {
+										AppendHeadersMap["auto_type_header_name"] = ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.AutoTypeHeaderName.ValueString()
 									}
+									if !ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.InferenceHeaderName.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.InferenceHeaderName.IsUnknown() {
+										AppendHeadersMap["inference_header_name"] = ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.InferenceHeaderName.ValueString()
+									}
+									FlagMap["append_headers"] = AppendHeadersMap
 								}
-								QueryParamsItemMap["item"] = ItemMap
+								if ProtectedAppEndpointsItem.Mitigation.Flag.NoHeaders != nil {
+									FlagMap["no_headers"] = map[string]interface{}{}
+								}
+								MitigationMap["flag"] = FlagMap
 							}
-							if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
-								QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
+							if ProtectedAppEndpointsItem.Mitigation.Redirect != nil {
+								RedirectMap := make(map[string]interface{})
+								if !ProtectedAppEndpointsItem.Mitigation.Redirect.URI.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Redirect.URI.IsUnknown() {
+									RedirectMap["uri"] = ProtectedAppEndpointsItem.Mitigation.Redirect.URI.ValueString()
+								}
+								MitigationMap["redirect"] = RedirectMap
 							}
-							QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
+							ProtectedAppEndpointsItemMap["mitigation"] = MitigationMap
 						}
-						ProtectedAppEndpointsItemMap["query_params"] = QueryParamsList
-					}
-					if ProtectedAppEndpointsItem.UndefinedFlowLabel != nil {
-						ProtectedAppEndpointsItemMap["undefined_flow_label"] = map[string]interface{}{}
-					}
-					if ProtectedAppEndpointsItem.Web != nil {
-						ProtectedAppEndpointsItemMap["web"] = map[string]interface{}{}
-					}
-					if ProtectedAppEndpointsItem.WebMobile != nil {
-						WebMobileMap := make(map[string]interface{})
-						if !ProtectedAppEndpointsItem.WebMobile.MobileIdentifier.IsNull() && !ProtectedAppEndpointsItem.WebMobile.MobileIdentifier.IsUnknown() {
-							WebMobileMap["mobile_identifier"] = ProtectedAppEndpointsItem.WebMobile.MobileIdentifier.ValueString()
+						if ProtectedAppEndpointsItem.Mobile != nil {
+							ProtectedAppEndpointsItemMap["mobile"] = map[string]interface{}{}
 						}
-						ProtectedAppEndpointsItemMap["web_mobile"] = WebMobileMap
+						if ProtectedAppEndpointsItem.Path != nil {
+							PathMap := make(map[string]interface{})
+							if !ProtectedAppEndpointsItem.Path.Path.IsNull() && !ProtectedAppEndpointsItem.Path.Path.IsUnknown() {
+								PathMap["path"] = ProtectedAppEndpointsItem.Path.Path.ValueString()
+							}
+							if !ProtectedAppEndpointsItem.Path.Prefix.IsNull() && !ProtectedAppEndpointsItem.Path.Prefix.IsUnknown() {
+								PathMap["prefix"] = ProtectedAppEndpointsItem.Path.Prefix.ValueString()
+							}
+							if !ProtectedAppEndpointsItem.Path.Regex.IsNull() && !ProtectedAppEndpointsItem.Path.Regex.IsUnknown() {
+								PathMap["regex"] = ProtectedAppEndpointsItem.Path.Regex.ValueString()
+							}
+							ProtectedAppEndpointsItemMap["path"] = PathMap
+						}
+						if !ProtectedAppEndpointsItem.Protocol.IsNull() && !ProtectedAppEndpointsItem.Protocol.IsUnknown() {
+							ProtectedAppEndpointsItemMap["protocol"] = ProtectedAppEndpointsItem.Protocol.ValueString()
+						}
+						if !ProtectedAppEndpointsItem.QueryParams.IsNull() && !ProtectedAppEndpointsItem.QueryParams.IsUnknown() {
+							var QueryParamsElems []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsQueryParamsModel
+							diags := ProtectedAppEndpointsItem.QueryParams.ElementsAs(ctx, &QueryParamsElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(QueryParamsElems) > 0 {
+								var QueryParamsList []map[string]interface{}
+								for _, QueryParamsItem := range QueryParamsElems {
+									QueryParamsItemMap := make(map[string]interface{})
+									if QueryParamsItem.CheckNotPresent != nil {
+										QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
+									}
+									if QueryParamsItem.CheckPresent != nil {
+										QueryParamsItemMap["check_present"] = map[string]interface{}{}
+									}
+									if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
+										QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
+									}
+									if QueryParamsItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										QueryParamsItemMap["item"] = ItemMap
+									}
+									if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
+										QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
+									}
+									QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
+								}
+								ProtectedAppEndpointsItemMap["query_params"] = QueryParamsList
+							}
+						}
+						if ProtectedAppEndpointsItem.UndefinedFlowLabel != nil {
+							ProtectedAppEndpointsItemMap["undefined_flow_label"] = map[string]interface{}{}
+						}
+						if ProtectedAppEndpointsItem.Web != nil {
+							ProtectedAppEndpointsItemMap["web"] = map[string]interface{}{}
+						}
+						if ProtectedAppEndpointsItem.WebMobile != nil {
+							WebMobileMap := make(map[string]interface{})
+							if !ProtectedAppEndpointsItem.WebMobile.MobileIdentifier.IsNull() && !ProtectedAppEndpointsItem.WebMobile.MobileIdentifier.IsUnknown() {
+								WebMobileMap["mobile_identifier"] = ProtectedAppEndpointsItem.WebMobile.MobileIdentifier.ValueString()
+							}
+							ProtectedAppEndpointsItemMap["web_mobile"] = WebMobileMap
+						}
+						ProtectedAppEndpointsList = append(ProtectedAppEndpointsList, ProtectedAppEndpointsItemMap)
 					}
-					ProtectedAppEndpointsList = append(ProtectedAppEndpointsList, ProtectedAppEndpointsItemMap)
+					PolicyMap["protected_app_endpoints"] = ProtectedAppEndpointsList
 				}
-				PolicyMap["protected_app_endpoints"] = ProtectedAppEndpointsList
 			}
 			BotDefenseMap["policy"] = PolicyMap
 		}
@@ -14304,150 +14429,165 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			}
 			if data.ClientSideDefense.Policy.JsInsertAllPagesExcept != nil {
 				JsInsertAllPagesExceptMap := make(map[string]interface{})
-				if len(data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList) > 0 {
-					var ExcludeListList []map[string]interface{}
-					for _, ExcludeListItem := range data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList {
-						ExcludeListItemMap := make(map[string]interface{})
-						if ExcludeListItem.AnyDomain != nil {
-							ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+				if !data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
+					var ExcludeListElems []CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModel
+					diags := data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
+						var ExcludeListList []map[string]interface{}
+						for _, ExcludeListItem := range ExcludeListElems {
+							ExcludeListItemMap := make(map[string]interface{})
+							if ExcludeListItem.AnyDomain != nil {
+								ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+							}
+							if ExcludeListItem.Domain != nil {
+								DomainMap := make(map[string]interface{})
+								if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
+									DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
+									DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
+									DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
+								}
+								ExcludeListItemMap["domain"] = DomainMap
+							}
+							if ExcludeListItem.Metadata != nil {
+								MetadataMap := make(map[string]interface{})
+								if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
+									MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
+									MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
+								}
+								ExcludeListItemMap["metadata"] = MetadataMap
+							}
+							if ExcludeListItem.Path != nil {
+								PathMap := make(map[string]interface{})
+								if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
+									PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
+								}
+								if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
+									PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
+								}
+								if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
+									PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
+								}
+								ExcludeListItemMap["path"] = PathMap
+							}
+							ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
 						}
-						if ExcludeListItem.Domain != nil {
-							DomainMap := make(map[string]interface{})
-							if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
-								DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
-								DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
-								DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
-							}
-							ExcludeListItemMap["domain"] = DomainMap
-						}
-						if ExcludeListItem.Metadata != nil {
-							MetadataMap := make(map[string]interface{})
-							if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
-								MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
-							}
-							if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
-								MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
-							}
-							ExcludeListItemMap["metadata"] = MetadataMap
-						}
-						if ExcludeListItem.Path != nil {
-							PathMap := make(map[string]interface{})
-							if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
-								PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
-							}
-							if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
-								PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
-							}
-							if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
-								PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
-							}
-							ExcludeListItemMap["path"] = PathMap
-						}
-						ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
+						JsInsertAllPagesExceptMap["exclude_list"] = ExcludeListList
 					}
-					JsInsertAllPagesExceptMap["exclude_list"] = ExcludeListList
 				}
 				PolicyMap["js_insert_all_pages_except"] = JsInsertAllPagesExceptMap
 			}
 			if data.ClientSideDefense.Policy.JsInsertionRules != nil {
 				JsInsertionRulesMap := make(map[string]interface{})
-				if len(data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList) > 0 {
-					var ExcludeListList []map[string]interface{}
-					for _, ExcludeListItem := range data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList {
-						ExcludeListItemMap := make(map[string]interface{})
-						if ExcludeListItem.AnyDomain != nil {
-							ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+				if !data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList.IsNull() && !data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList.IsUnknown() {
+					var ExcludeListElems []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModel
+					diags := data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
+						var ExcludeListList []map[string]interface{}
+						for _, ExcludeListItem := range ExcludeListElems {
+							ExcludeListItemMap := make(map[string]interface{})
+							if ExcludeListItem.AnyDomain != nil {
+								ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+							}
+							if ExcludeListItem.Domain != nil {
+								DomainMap := make(map[string]interface{})
+								if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
+									DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
+									DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
+									DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
+								}
+								ExcludeListItemMap["domain"] = DomainMap
+							}
+							if ExcludeListItem.Metadata != nil {
+								MetadataMap := make(map[string]interface{})
+								if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
+									MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
+									MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
+								}
+								ExcludeListItemMap["metadata"] = MetadataMap
+							}
+							if ExcludeListItem.Path != nil {
+								PathMap := make(map[string]interface{})
+								if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
+									PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
+								}
+								if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
+									PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
+								}
+								if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
+									PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
+								}
+								ExcludeListItemMap["path"] = PathMap
+							}
+							ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
 						}
-						if ExcludeListItem.Domain != nil {
-							DomainMap := make(map[string]interface{})
-							if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
-								DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
-								DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
-								DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
-							}
-							ExcludeListItemMap["domain"] = DomainMap
-						}
-						if ExcludeListItem.Metadata != nil {
-							MetadataMap := make(map[string]interface{})
-							if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
-								MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
-							}
-							if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
-								MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
-							}
-							ExcludeListItemMap["metadata"] = MetadataMap
-						}
-						if ExcludeListItem.Path != nil {
-							PathMap := make(map[string]interface{})
-							if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
-								PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
-							}
-							if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
-								PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
-							}
-							if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
-								PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
-							}
-							ExcludeListItemMap["path"] = PathMap
-						}
-						ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
+						JsInsertionRulesMap["exclude_list"] = ExcludeListList
 					}
-					JsInsertionRulesMap["exclude_list"] = ExcludeListList
 				}
-				if len(data.ClientSideDefense.Policy.JsInsertionRules.Rules) > 0 {
-					var RulesList []map[string]interface{}
-					for _, RulesItem := range data.ClientSideDefense.Policy.JsInsertionRules.Rules {
-						RulesItemMap := make(map[string]interface{})
-						if RulesItem.AnyDomain != nil {
-							RulesItemMap["any_domain"] = map[string]interface{}{}
+				if !data.ClientSideDefense.Policy.JsInsertionRules.Rules.IsNull() && !data.ClientSideDefense.Policy.JsInsertionRules.Rules.IsUnknown() {
+					var RulesElems []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModel
+					diags := data.ClientSideDefense.Policy.JsInsertionRules.Rules.ElementsAs(ctx, &RulesElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
+						var RulesList []map[string]interface{}
+						for _, RulesItem := range RulesElems {
+							RulesItemMap := make(map[string]interface{})
+							if RulesItem.AnyDomain != nil {
+								RulesItemMap["any_domain"] = map[string]interface{}{}
+							}
+							if RulesItem.Domain != nil {
+								DomainMap := make(map[string]interface{})
+								if !RulesItem.Domain.ExactValue.IsNull() && !RulesItem.Domain.ExactValue.IsUnknown() {
+									DomainMap["exact_value"] = RulesItem.Domain.ExactValue.ValueString()
+								}
+								if !RulesItem.Domain.RegexValue.IsNull() && !RulesItem.Domain.RegexValue.IsUnknown() {
+									DomainMap["regex_value"] = RulesItem.Domain.RegexValue.ValueString()
+								}
+								if !RulesItem.Domain.SuffixValue.IsNull() && !RulesItem.Domain.SuffixValue.IsUnknown() {
+									DomainMap["suffix_value"] = RulesItem.Domain.SuffixValue.ValueString()
+								}
+								RulesItemMap["domain"] = DomainMap
+							}
+							if RulesItem.Metadata != nil {
+								MetadataMap := make(map[string]interface{})
+								if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
+									MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
+									MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+								}
+								RulesItemMap["metadata"] = MetadataMap
+							}
+							if RulesItem.Path != nil {
+								PathMap := make(map[string]interface{})
+								if !RulesItem.Path.Path.IsNull() && !RulesItem.Path.Path.IsUnknown() {
+									PathMap["path"] = RulesItem.Path.Path.ValueString()
+								}
+								if !RulesItem.Path.Prefix.IsNull() && !RulesItem.Path.Prefix.IsUnknown() {
+									PathMap["prefix"] = RulesItem.Path.Prefix.ValueString()
+								}
+								if !RulesItem.Path.Regex.IsNull() && !RulesItem.Path.Regex.IsUnknown() {
+									PathMap["regex"] = RulesItem.Path.Regex.ValueString()
+								}
+								RulesItemMap["path"] = PathMap
+							}
+							RulesList = append(RulesList, RulesItemMap)
 						}
-						if RulesItem.Domain != nil {
-							DomainMap := make(map[string]interface{})
-							if !RulesItem.Domain.ExactValue.IsNull() && !RulesItem.Domain.ExactValue.IsUnknown() {
-								DomainMap["exact_value"] = RulesItem.Domain.ExactValue.ValueString()
-							}
-							if !RulesItem.Domain.RegexValue.IsNull() && !RulesItem.Domain.RegexValue.IsUnknown() {
-								DomainMap["regex_value"] = RulesItem.Domain.RegexValue.ValueString()
-							}
-							if !RulesItem.Domain.SuffixValue.IsNull() && !RulesItem.Domain.SuffixValue.IsUnknown() {
-								DomainMap["suffix_value"] = RulesItem.Domain.SuffixValue.ValueString()
-							}
-							RulesItemMap["domain"] = DomainMap
-						}
-						if RulesItem.Metadata != nil {
-							MetadataMap := make(map[string]interface{})
-							if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
-								MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
-							}
-							if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
-								MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
-							}
-							RulesItemMap["metadata"] = MetadataMap
-						}
-						if RulesItem.Path != nil {
-							PathMap := make(map[string]interface{})
-							if !RulesItem.Path.Path.IsNull() && !RulesItem.Path.Path.IsUnknown() {
-								PathMap["path"] = RulesItem.Path.Path.ValueString()
-							}
-							if !RulesItem.Path.Prefix.IsNull() && !RulesItem.Path.Prefix.IsUnknown() {
-								PathMap["prefix"] = RulesItem.Path.Prefix.ValueString()
-							}
-							if !RulesItem.Path.Regex.IsNull() && !RulesItem.Path.Regex.IsUnknown() {
-								PathMap["regex"] = RulesItem.Path.Regex.ValueString()
-							}
-							RulesItemMap["path"] = PathMap
-						}
-						RulesList = append(RulesList, RulesItemMap)
+						JsInsertionRulesMap["rules"] = RulesList
 					}
-					JsInsertionRulesMap["rules"] = RulesList
 				}
 				PolicyMap["js_insertion_rules"] = JsInsertionRulesMap
 			}
@@ -14736,50 +14876,55 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			APICrawlerMap := make(map[string]interface{})
 			if data.EnableAPIDiscovery.APICrawler.APICrawlerConfig != nil {
 				APICrawlerConfigMap := make(map[string]interface{})
-				if len(data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains) > 0 {
-					var DomainsList []map[string]interface{}
-					for _, DomainsItem := range data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains {
-						DomainsItemMap := make(map[string]interface{})
-						if !DomainsItem.Domain.IsNull() && !DomainsItem.Domain.IsUnknown() {
-							DomainsItemMap["domain"] = DomainsItem.Domain.ValueString()
-						}
-						if DomainsItem.SimpleLogin != nil {
-							SimpleLoginMap := make(map[string]interface{})
-							if DomainsItem.SimpleLogin.Password != nil {
-								PasswordMap := make(map[string]interface{})
-								if DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo != nil {
-									BlindfoldSecretInfoMap := make(map[string]interface{})
-									if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["decryption_provider"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-									}
-									if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-										BlindfoldSecretInfoMap["location"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.ValueString()
-									}
-									if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["store_provider"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
-									}
-									PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
-								}
-								if DomainsItem.SimpleLogin.Password.ClearSecretInfo != nil {
-									ClearSecretInfoMap := make(map[string]interface{})
-									if !DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.IsNull() && !DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.IsUnknown() {
-										ClearSecretInfoMap["provider"] = DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.ValueString()
-									}
-									if !DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.IsNull() && !DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.IsUnknown() {
-										ClearSecretInfoMap["url"] = DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.ValueString()
-									}
-									PasswordMap["clear_secret_info"] = ClearSecretInfoMap
-								}
-								SimpleLoginMap["password"] = PasswordMap
+				if !data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.IsNull() && !data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.IsUnknown() {
+					var DomainsElems []CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel
+					diags := data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.ElementsAs(ctx, &DomainsElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(DomainsElems) > 0 {
+						var DomainsList []map[string]interface{}
+						for _, DomainsItem := range DomainsElems {
+							DomainsItemMap := make(map[string]interface{})
+							if !DomainsItem.Domain.IsNull() && !DomainsItem.Domain.IsUnknown() {
+								DomainsItemMap["domain"] = DomainsItem.Domain.ValueString()
 							}
-							if !DomainsItem.SimpleLogin.User.IsNull() && !DomainsItem.SimpleLogin.User.IsUnknown() {
-								SimpleLoginMap["user"] = DomainsItem.SimpleLogin.User.ValueString()
+							if DomainsItem.SimpleLogin != nil {
+								SimpleLoginMap := make(map[string]interface{})
+								if DomainsItem.SimpleLogin.Password != nil {
+									PasswordMap := make(map[string]interface{})
+									if DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo != nil {
+										BlindfoldSecretInfoMap := make(map[string]interface{})
+										if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["decryption_provider"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+										}
+										if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+											BlindfoldSecretInfoMap["location"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.ValueString()
+										}
+										if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["store_provider"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+										}
+										PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									}
+									if DomainsItem.SimpleLogin.Password.ClearSecretInfo != nil {
+										ClearSecretInfoMap := make(map[string]interface{})
+										if !DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.IsNull() && !DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.IsUnknown() {
+											ClearSecretInfoMap["provider"] = DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.ValueString()
+										}
+										if !DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.IsNull() && !DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.IsUnknown() {
+											ClearSecretInfoMap["url"] = DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.ValueString()
+										}
+										PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+									}
+									SimpleLoginMap["password"] = PasswordMap
+								}
+								if !DomainsItem.SimpleLogin.User.IsNull() && !DomainsItem.SimpleLogin.User.IsUnknown() {
+									SimpleLoginMap["user"] = DomainsItem.SimpleLogin.User.ValueString()
+								}
+								DomainsItemMap["simple_login"] = SimpleLoginMap
 							}
-							DomainsItemMap["simple_login"] = SimpleLoginMap
+							DomainsList = append(DomainsList, DomainsItemMap)
 						}
-						DomainsList = append(DomainsList, DomainsItemMap)
+						APICrawlerConfigMap["domains"] = DomainsList
 					}
-					APICrawlerConfigMap["domains"] = DomainsList
 				}
 				APICrawlerMap["api_crawler_config"] = APICrawlerConfigMap
 			}
@@ -15133,63 +15278,68 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if data.HTTPS.TLSCertOptions.TLSInlineParams.NoMtls != nil {
 					TLSInlineParamsMap["no_mtls"] = map[string]interface{}{}
 				}
-				if len(data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates) > 0 {
-					var TLSCertificatesList []map[string]interface{}
-					for _, TLSCertificatesItem := range data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates {
-						TLSCertificatesItemMap := make(map[string]interface{})
-						if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
-							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
-						}
-						if TLSCertificatesItem.CustomHashAlgorithms != nil {
-							CustomHashAlgorithmsMap := make(map[string]interface{})
-							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
-								var HashAlgorithmsItems []string
-								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
-								if !diags.HasError() {
-									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
-								}
+				if !data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates.IsNull() && !data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates.IsUnknown() {
+					var TLSCertificatesElems []CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModel
+					diags := data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates.ElementsAs(ctx, &TLSCertificatesElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(TLSCertificatesElems) > 0 {
+						var TLSCertificatesList []map[string]interface{}
+						for _, TLSCertificatesItem := range TLSCertificatesElems {
+							TLSCertificatesItemMap := make(map[string]interface{})
+							if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+								TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 							}
-							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
-						}
-						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
-							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
-						}
-						if TLSCertificatesItem.DisableOCSPStapling != nil {
-							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
-						}
-						if TLSCertificatesItem.PrivateKey != nil {
-							PrivateKeyMap := make(map[string]interface{})
-							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
-								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							if TLSCertificatesItem.CustomHashAlgorithms != nil {
+								CustomHashAlgorithmsMap := make(map[string]interface{})
+								if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+									var HashAlgorithmsItems []string
+									diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+									if !diags.HasError() {
+										CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+									}
 								}
-								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
-								}
-								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
-								}
-								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
 							}
-							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
-								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
-								}
-								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
-								}
-								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+							if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+								TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 							}
-							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							if TLSCertificatesItem.DisableOCSPStapling != nil {
+								TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+							}
+							if TLSCertificatesItem.PrivateKey != nil {
+								PrivateKeyMap := make(map[string]interface{})
+								if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+									}
+									if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+									}
+									PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							}
+							if TLSCertificatesItem.UseSystemDefaults != nil {
+								TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+							}
+							TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 						}
-						if TLSCertificatesItem.UseSystemDefaults != nil {
-							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
-						}
-						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+						TLSInlineParamsMap["tls_certificates"] = TLSCertificatesList
 					}
-					TLSInlineParamsMap["tls_certificates"] = TLSCertificatesList
 				}
 				if data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig != nil {
 					TLSConfigMap := make(map[string]interface{})
@@ -15480,33 +15630,38 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		if !data.OriginPool.OriginRequestTimeout.IsNull() && !data.OriginPool.OriginRequestTimeout.IsUnknown() {
 			OriginPoolMap["origin_request_timeout"] = data.OriginPool.OriginRequestTimeout.ValueString()
 		}
-		if len(data.OriginPool.OriginServers) > 0 {
-			var OriginServersList []map[string]interface{}
-			for _, OriginServersItem := range data.OriginPool.OriginServers {
-				OriginServersItemMap := make(map[string]interface{})
-				if !OriginServersItem.Port.IsNull() && !OriginServersItem.Port.IsUnknown() {
-					OriginServersItemMap["port"] = OriginServersItem.Port.ValueInt64()
-				}
-				if OriginServersItem.PublicIP != nil {
-					PublicIPMap := make(map[string]interface{})
-					if !OriginServersItem.PublicIP.IP.IsNull() && !OriginServersItem.PublicIP.IP.IsUnknown() {
-						PublicIPMap["ip"] = OriginServersItem.PublicIP.IP.ValueString()
+		if !data.OriginPool.OriginServers.IsNull() && !data.OriginPool.OriginServers.IsUnknown() {
+			var OriginServersElems []CDNLoadBalancerOriginPoolOriginServersModel
+			diags := data.OriginPool.OriginServers.ElementsAs(ctx, &OriginServersElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(OriginServersElems) > 0 {
+				var OriginServersList []map[string]interface{}
+				for _, OriginServersItem := range OriginServersElems {
+					OriginServersItemMap := make(map[string]interface{})
+					if !OriginServersItem.Port.IsNull() && !OriginServersItem.Port.IsUnknown() {
+						OriginServersItemMap["port"] = OriginServersItem.Port.ValueInt64()
 					}
-					OriginServersItemMap["public_ip"] = PublicIPMap
-				}
-				if OriginServersItem.PublicName != nil {
-					PublicNameMap := make(map[string]interface{})
-					if !OriginServersItem.PublicName.DNSName.IsNull() && !OriginServersItem.PublicName.DNSName.IsUnknown() {
-						PublicNameMap["dns_name"] = OriginServersItem.PublicName.DNSName.ValueString()
+					if OriginServersItem.PublicIP != nil {
+						PublicIPMap := make(map[string]interface{})
+						if !OriginServersItem.PublicIP.IP.IsNull() && !OriginServersItem.PublicIP.IP.IsUnknown() {
+							PublicIPMap["ip"] = OriginServersItem.PublicIP.IP.ValueString()
+						}
+						OriginServersItemMap["public_ip"] = PublicIPMap
 					}
-					if !OriginServersItem.PublicName.RefreshInterval.IsNull() && !OriginServersItem.PublicName.RefreshInterval.IsUnknown() {
-						PublicNameMap["refresh_interval"] = OriginServersItem.PublicName.RefreshInterval.ValueInt64()
+					if OriginServersItem.PublicName != nil {
+						PublicNameMap := make(map[string]interface{})
+						if !OriginServersItem.PublicName.DNSName.IsNull() && !OriginServersItem.PublicName.DNSName.IsUnknown() {
+							PublicNameMap["dns_name"] = OriginServersItem.PublicName.DNSName.ValueString()
+						}
+						if !OriginServersItem.PublicName.RefreshInterval.IsNull() && !OriginServersItem.PublicName.RefreshInterval.IsUnknown() {
+							PublicNameMap["refresh_interval"] = OriginServersItem.PublicName.RefreshInterval.ValueInt64()
+						}
+						OriginServersItemMap["public_name"] = PublicNameMap
 					}
-					OriginServersItemMap["public_name"] = PublicNameMap
+					OriginServersList = append(OriginServersList, OriginServersItemMap)
 				}
-				OriginServersList = append(OriginServersList, OriginServersItemMap)
+				OriginPoolMap["origin_servers"] = OriginServersList
 			}
-			OriginPoolMap["origin_servers"] = OriginServersList
 		}
 		if data.OriginPool.PublicName != nil {
 			PublicNameMap := make(map[string]interface{})
@@ -15576,63 +15731,68 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			}
 			if data.OriginPool.UseTLS.UseMtls != nil {
 				UseMtlsMap := make(map[string]interface{})
-				if len(data.OriginPool.UseTLS.UseMtls.TLSCertificates) > 0 {
-					var TLSCertificatesList []map[string]interface{}
-					for _, TLSCertificatesItem := range data.OriginPool.UseTLS.UseMtls.TLSCertificates {
-						TLSCertificatesItemMap := make(map[string]interface{})
-						if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
-							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
-						}
-						if TLSCertificatesItem.CustomHashAlgorithms != nil {
-							CustomHashAlgorithmsMap := make(map[string]interface{})
-							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
-								var HashAlgorithmsItems []string
-								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
-								if !diags.HasError() {
-									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
-								}
+				if !data.OriginPool.UseTLS.UseMtls.TLSCertificates.IsNull() && !data.OriginPool.UseTLS.UseMtls.TLSCertificates.IsUnknown() {
+					var TLSCertificatesElems []CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModel
+					diags := data.OriginPool.UseTLS.UseMtls.TLSCertificates.ElementsAs(ctx, &TLSCertificatesElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(TLSCertificatesElems) > 0 {
+						var TLSCertificatesList []map[string]interface{}
+						for _, TLSCertificatesItem := range TLSCertificatesElems {
+							TLSCertificatesItemMap := make(map[string]interface{})
+							if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+								TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 							}
-							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
-						}
-						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
-							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
-						}
-						if TLSCertificatesItem.DisableOCSPStapling != nil {
-							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
-						}
-						if TLSCertificatesItem.PrivateKey != nil {
-							PrivateKeyMap := make(map[string]interface{})
-							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
-								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							if TLSCertificatesItem.CustomHashAlgorithms != nil {
+								CustomHashAlgorithmsMap := make(map[string]interface{})
+								if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+									var HashAlgorithmsItems []string
+									diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+									if !diags.HasError() {
+										CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+									}
 								}
-								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
-								}
-								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
-								}
-								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
 							}
-							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
-								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
-								}
-								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
-								}
-								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+							if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+								TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 							}
-							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							if TLSCertificatesItem.DisableOCSPStapling != nil {
+								TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+							}
+							if TLSCertificatesItem.PrivateKey != nil {
+								PrivateKeyMap := make(map[string]interface{})
+								if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+									}
+									if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+									}
+									PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							}
+							if TLSCertificatesItem.UseSystemDefaults != nil {
+								TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+							}
+							TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 						}
-						if TLSCertificatesItem.UseSystemDefaults != nil {
-							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
-						}
-						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+						UseMtlsMap["tls_certificates"] = TLSCertificatesList
 					}
-					UseMtlsMap["tls_certificates"] = TLSCertificatesList
 				}
 				UseTLSMap["use_mtls"] = UseMtlsMap
 			}
@@ -15683,49 +15843,54 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		}
 		if data.OtherSettings.HeaderOptions != nil {
 			HeaderOptionsMap := make(map[string]interface{})
-			if len(data.OtherSettings.HeaderOptions.RequestHeadersToAdd) > 0 {
-				var RequestHeadersToAddList []map[string]interface{}
-				for _, RequestHeadersToAddItem := range data.OtherSettings.HeaderOptions.RequestHeadersToAdd {
-					RequestHeadersToAddItemMap := make(map[string]interface{})
-					if !RequestHeadersToAddItem.Append.IsNull() && !RequestHeadersToAddItem.Append.IsUnknown() {
-						RequestHeadersToAddItemMap["append"] = RequestHeadersToAddItem.Append.ValueBool()
-					}
-					if !RequestHeadersToAddItem.Name.IsNull() && !RequestHeadersToAddItem.Name.IsUnknown() {
-						RequestHeadersToAddItemMap["name"] = RequestHeadersToAddItem.Name.ValueString()
-					}
-					if RequestHeadersToAddItem.SecretValue != nil {
-						SecretValueMap := make(map[string]interface{})
-						if RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
-							BlindfoldSecretInfoMap := make(map[string]interface{})
-							if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["decryption_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-							}
-							if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
-								BlindfoldSecretInfoMap["location"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
-							}
-							if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["store_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
-							}
-							SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			if !data.OtherSettings.HeaderOptions.RequestHeadersToAdd.IsNull() && !data.OtherSettings.HeaderOptions.RequestHeadersToAdd.IsUnknown() {
+				var RequestHeadersToAddElems []CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModel
+				diags := data.OtherSettings.HeaderOptions.RequestHeadersToAdd.ElementsAs(ctx, &RequestHeadersToAddElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RequestHeadersToAddElems) > 0 {
+					var RequestHeadersToAddList []map[string]interface{}
+					for _, RequestHeadersToAddItem := range RequestHeadersToAddElems {
+						RequestHeadersToAddItemMap := make(map[string]interface{})
+						if !RequestHeadersToAddItem.Append.IsNull() && !RequestHeadersToAddItem.Append.IsUnknown() {
+							RequestHeadersToAddItemMap["append"] = RequestHeadersToAddItem.Append.ValueBool()
 						}
-						if RequestHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
-							ClearSecretInfoMap := make(map[string]interface{})
-							if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
-								ClearSecretInfoMap["provider"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
-							}
-							if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
-								ClearSecretInfoMap["url"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
-							}
-							SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+						if !RequestHeadersToAddItem.Name.IsNull() && !RequestHeadersToAddItem.Name.IsUnknown() {
+							RequestHeadersToAddItemMap["name"] = RequestHeadersToAddItem.Name.ValueString()
 						}
-						RequestHeadersToAddItemMap["secret_value"] = SecretValueMap
+						if RequestHeadersToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if RequestHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							RequestHeadersToAddItemMap["secret_value"] = SecretValueMap
+						}
+						if !RequestHeadersToAddItem.Value.IsNull() && !RequestHeadersToAddItem.Value.IsUnknown() {
+							RequestHeadersToAddItemMap["value"] = RequestHeadersToAddItem.Value.ValueString()
+						}
+						RequestHeadersToAddList = append(RequestHeadersToAddList, RequestHeadersToAddItemMap)
 					}
-					if !RequestHeadersToAddItem.Value.IsNull() && !RequestHeadersToAddItem.Value.IsUnknown() {
-						RequestHeadersToAddItemMap["value"] = RequestHeadersToAddItem.Value.ValueString()
-					}
-					RequestHeadersToAddList = append(RequestHeadersToAddList, RequestHeadersToAddItemMap)
+					HeaderOptionsMap["request_headers_to_add"] = RequestHeadersToAddList
 				}
-				HeaderOptionsMap["request_headers_to_add"] = RequestHeadersToAddList
 			}
 			if !data.OtherSettings.HeaderOptions.RequestHeadersToRemove.IsNull() && !data.OtherSettings.HeaderOptions.RequestHeadersToRemove.IsUnknown() {
 				var RequestHeadersToRemoveItems []string
@@ -15734,49 +15899,54 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					HeaderOptionsMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 				}
 			}
-			if len(data.OtherSettings.HeaderOptions.ResponseHeadersToAdd) > 0 {
-				var ResponseHeadersToAddList []map[string]interface{}
-				for _, ResponseHeadersToAddItem := range data.OtherSettings.HeaderOptions.ResponseHeadersToAdd {
-					ResponseHeadersToAddItemMap := make(map[string]interface{})
-					if !ResponseHeadersToAddItem.Append.IsNull() && !ResponseHeadersToAddItem.Append.IsUnknown() {
-						ResponseHeadersToAddItemMap["append"] = ResponseHeadersToAddItem.Append.ValueBool()
-					}
-					if !ResponseHeadersToAddItem.Name.IsNull() && !ResponseHeadersToAddItem.Name.IsUnknown() {
-						ResponseHeadersToAddItemMap["name"] = ResponseHeadersToAddItem.Name.ValueString()
-					}
-					if ResponseHeadersToAddItem.SecretValue != nil {
-						SecretValueMap := make(map[string]interface{})
-						if ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
-							BlindfoldSecretInfoMap := make(map[string]interface{})
-							if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["decryption_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-							}
-							if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
-								BlindfoldSecretInfoMap["location"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
-							}
-							if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["store_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
-							}
-							SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			if !data.OtherSettings.HeaderOptions.ResponseHeadersToAdd.IsNull() && !data.OtherSettings.HeaderOptions.ResponseHeadersToAdd.IsUnknown() {
+				var ResponseHeadersToAddElems []CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModel
+				diags := data.OtherSettings.HeaderOptions.ResponseHeadersToAdd.ElementsAs(ctx, &ResponseHeadersToAddElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ResponseHeadersToAddElems) > 0 {
+					var ResponseHeadersToAddList []map[string]interface{}
+					for _, ResponseHeadersToAddItem := range ResponseHeadersToAddElems {
+						ResponseHeadersToAddItemMap := make(map[string]interface{})
+						if !ResponseHeadersToAddItem.Append.IsNull() && !ResponseHeadersToAddItem.Append.IsUnknown() {
+							ResponseHeadersToAddItemMap["append"] = ResponseHeadersToAddItem.Append.ValueBool()
 						}
-						if ResponseHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
-							ClearSecretInfoMap := make(map[string]interface{})
-							if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
-								ClearSecretInfoMap["provider"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
-							}
-							if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
-								ClearSecretInfoMap["url"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
-							}
-							SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+						if !ResponseHeadersToAddItem.Name.IsNull() && !ResponseHeadersToAddItem.Name.IsUnknown() {
+							ResponseHeadersToAddItemMap["name"] = ResponseHeadersToAddItem.Name.ValueString()
 						}
-						ResponseHeadersToAddItemMap["secret_value"] = SecretValueMap
+						if ResponseHeadersToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if ResponseHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							ResponseHeadersToAddItemMap["secret_value"] = SecretValueMap
+						}
+						if !ResponseHeadersToAddItem.Value.IsNull() && !ResponseHeadersToAddItem.Value.IsUnknown() {
+							ResponseHeadersToAddItemMap["value"] = ResponseHeadersToAddItem.Value.ValueString()
+						}
+						ResponseHeadersToAddList = append(ResponseHeadersToAddList, ResponseHeadersToAddItemMap)
 					}
-					if !ResponseHeadersToAddItem.Value.IsNull() && !ResponseHeadersToAddItem.Value.IsUnknown() {
-						ResponseHeadersToAddItemMap["value"] = ResponseHeadersToAddItem.Value.ValueString()
-					}
-					ResponseHeadersToAddList = append(ResponseHeadersToAddList, ResponseHeadersToAddItemMap)
+					HeaderOptionsMap["response_headers_to_add"] = ResponseHeadersToAddList
 				}
-				HeaderOptionsMap["response_headers_to_add"] = ResponseHeadersToAddList
 			}
 			if !data.OtherSettings.HeaderOptions.ResponseHeadersToRemove.IsNull() && !data.OtherSettings.HeaderOptions.ResponseHeadersToRemove.IsUnknown() {
 				var ResponseHeadersToRemoveItems []string
@@ -15905,50 +16075,55 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							if RulesItem.Spec.AnyIP != nil {
 								SpecMap["any_ip"] = map[string]interface{}{}
 							}
-							if len(RulesItem.Spec.ArgMatchers) > 0 {
-								var ArgMatchersList []map[string]interface{}
-								for _, ArgMatchersItem := range RulesItem.Spec.ArgMatchers {
-									ArgMatchersItemMap := make(map[string]interface{})
-									if ArgMatchersItem.CheckNotPresent != nil {
-										ArgMatchersItemMap["check_not_present"] = map[string]interface{}{}
-									}
-									if ArgMatchersItem.CheckPresent != nil {
-										ArgMatchersItemMap["check_present"] = map[string]interface{}{}
-									}
-									if !ArgMatchersItem.InvertMatcher.IsNull() && !ArgMatchersItem.InvertMatcher.IsUnknown() {
-										ArgMatchersItemMap["invert_matcher"] = ArgMatchersItem.InvertMatcher.ValueBool()
-									}
-									if ArgMatchersItem.Item != nil {
-										ItemMap := make(map[string]interface{})
-										if !ArgMatchersItem.Item.ExactValues.IsNull() && !ArgMatchersItem.Item.ExactValues.IsUnknown() {
-											var ExactValuesItems []string
-											diags := ArgMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["exact_values"] = ExactValuesItems
-											}
+							if !RulesItem.Spec.ArgMatchers.IsNull() && !RulesItem.Spec.ArgMatchers.IsUnknown() {
+								var ArgMatchersElems []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModel
+								diags := RulesItem.Spec.ArgMatchers.ElementsAs(ctx, &ArgMatchersElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(ArgMatchersElems) > 0 {
+									var ArgMatchersList []map[string]interface{}
+									for _, ArgMatchersItem := range ArgMatchersElems {
+										ArgMatchersItemMap := make(map[string]interface{})
+										if ArgMatchersItem.CheckNotPresent != nil {
+											ArgMatchersItemMap["check_not_present"] = map[string]interface{}{}
 										}
-										if !ArgMatchersItem.Item.RegexValues.IsNull() && !ArgMatchersItem.Item.RegexValues.IsUnknown() {
-											var RegexValuesItems []string
-											diags := ArgMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["regex_values"] = RegexValuesItems
-											}
+										if ArgMatchersItem.CheckPresent != nil {
+											ArgMatchersItemMap["check_present"] = map[string]interface{}{}
 										}
-										if !ArgMatchersItem.Item.Transformers.IsNull() && !ArgMatchersItem.Item.Transformers.IsUnknown() {
-											var TransformersItems []string
-											diags := ArgMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-											if !diags.HasError() {
-												ItemMap["transformers"] = TransformersItems
-											}
+										if !ArgMatchersItem.InvertMatcher.IsNull() && !ArgMatchersItem.InvertMatcher.IsUnknown() {
+											ArgMatchersItemMap["invert_matcher"] = ArgMatchersItem.InvertMatcher.ValueBool()
 										}
-										ArgMatchersItemMap["item"] = ItemMap
+										if ArgMatchersItem.Item != nil {
+											ItemMap := make(map[string]interface{})
+											if !ArgMatchersItem.Item.ExactValues.IsNull() && !ArgMatchersItem.Item.ExactValues.IsUnknown() {
+												var ExactValuesItems []string
+												diags := ArgMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["exact_values"] = ExactValuesItems
+												}
+											}
+											if !ArgMatchersItem.Item.RegexValues.IsNull() && !ArgMatchersItem.Item.RegexValues.IsUnknown() {
+												var RegexValuesItems []string
+												diags := ArgMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["regex_values"] = RegexValuesItems
+												}
+											}
+											if !ArgMatchersItem.Item.Transformers.IsNull() && !ArgMatchersItem.Item.Transformers.IsUnknown() {
+												var TransformersItems []string
+												diags := ArgMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												if !diags.HasError() {
+													ItemMap["transformers"] = TransformersItems
+												}
+											}
+											ArgMatchersItemMap["item"] = ItemMap
+										}
+										if !ArgMatchersItem.Name.IsNull() && !ArgMatchersItem.Name.IsUnknown() {
+											ArgMatchersItemMap["name"] = ArgMatchersItem.Name.ValueString()
+										}
+										ArgMatchersList = append(ArgMatchersList, ArgMatchersItemMap)
 									}
-									if !ArgMatchersItem.Name.IsNull() && !ArgMatchersItem.Name.IsUnknown() {
-										ArgMatchersItemMap["name"] = ArgMatchersItem.Name.ValueString()
-									}
-									ArgMatchersList = append(ArgMatchersList, ArgMatchersItemMap)
+									SpecMap["arg_matchers"] = ArgMatchersList
 								}
-								SpecMap["arg_matchers"] = ArgMatchersList
 							}
 							if RulesItem.Spec.AsnList != nil {
 								AsnListMap := make(map[string]interface{})
@@ -16029,50 +16204,55 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 								}
 								SpecMap["client_selector"] = ClientSelectorMap
 							}
-							if len(RulesItem.Spec.CookieMatchers) > 0 {
-								var CookieMatchersList []map[string]interface{}
-								for _, CookieMatchersItem := range RulesItem.Spec.CookieMatchers {
-									CookieMatchersItemMap := make(map[string]interface{})
-									if CookieMatchersItem.CheckNotPresent != nil {
-										CookieMatchersItemMap["check_not_present"] = map[string]interface{}{}
-									}
-									if CookieMatchersItem.CheckPresent != nil {
-										CookieMatchersItemMap["check_present"] = map[string]interface{}{}
-									}
-									if !CookieMatchersItem.InvertMatcher.IsNull() && !CookieMatchersItem.InvertMatcher.IsUnknown() {
-										CookieMatchersItemMap["invert_matcher"] = CookieMatchersItem.InvertMatcher.ValueBool()
-									}
-									if CookieMatchersItem.Item != nil {
-										ItemMap := make(map[string]interface{})
-										if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
-											var ExactValuesItems []string
-											diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["exact_values"] = ExactValuesItems
-											}
+							if !RulesItem.Spec.CookieMatchers.IsNull() && !RulesItem.Spec.CookieMatchers.IsUnknown() {
+								var CookieMatchersElems []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModel
+								diags := RulesItem.Spec.CookieMatchers.ElementsAs(ctx, &CookieMatchersElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(CookieMatchersElems) > 0 {
+									var CookieMatchersList []map[string]interface{}
+									for _, CookieMatchersItem := range CookieMatchersElems {
+										CookieMatchersItemMap := make(map[string]interface{})
+										if CookieMatchersItem.CheckNotPresent != nil {
+											CookieMatchersItemMap["check_not_present"] = map[string]interface{}{}
 										}
-										if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
-											var RegexValuesItems []string
-											diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["regex_values"] = RegexValuesItems
-											}
+										if CookieMatchersItem.CheckPresent != nil {
+											CookieMatchersItemMap["check_present"] = map[string]interface{}{}
 										}
-										if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
-											var TransformersItems []string
-											diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-											if !diags.HasError() {
-												ItemMap["transformers"] = TransformersItems
-											}
+										if !CookieMatchersItem.InvertMatcher.IsNull() && !CookieMatchersItem.InvertMatcher.IsUnknown() {
+											CookieMatchersItemMap["invert_matcher"] = CookieMatchersItem.InvertMatcher.ValueBool()
 										}
-										CookieMatchersItemMap["item"] = ItemMap
+										if CookieMatchersItem.Item != nil {
+											ItemMap := make(map[string]interface{})
+											if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
+												var ExactValuesItems []string
+												diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["exact_values"] = ExactValuesItems
+												}
+											}
+											if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
+												var RegexValuesItems []string
+												diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["regex_values"] = RegexValuesItems
+												}
+											}
+											if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
+												var TransformersItems []string
+												diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												if !diags.HasError() {
+													ItemMap["transformers"] = TransformersItems
+												}
+											}
+											CookieMatchersItemMap["item"] = ItemMap
+										}
+										if !CookieMatchersItem.Name.IsNull() && !CookieMatchersItem.Name.IsUnknown() {
+											CookieMatchersItemMap["name"] = CookieMatchersItem.Name.ValueString()
+										}
+										CookieMatchersList = append(CookieMatchersList, CookieMatchersItemMap)
 									}
-									if !CookieMatchersItem.Name.IsNull() && !CookieMatchersItem.Name.IsUnknown() {
-										CookieMatchersItemMap["name"] = CookieMatchersItem.Name.ValueString()
-									}
-									CookieMatchersList = append(CookieMatchersList, CookieMatchersItemMap)
+									SpecMap["cookie_matchers"] = CookieMatchersList
 								}
-								SpecMap["cookie_matchers"] = CookieMatchersList
 							}
 							if RulesItem.Spec.DisableChallenge != nil {
 								SpecMap["disable_challenge"] = map[string]interface{}{}
@@ -16104,50 +16284,55 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							if !RulesItem.Spec.ExpirationTimestamp.IsNull() && !RulesItem.Spec.ExpirationTimestamp.IsUnknown() {
 								SpecMap["expiration_timestamp"] = RulesItem.Spec.ExpirationTimestamp.ValueString()
 							}
-							if len(RulesItem.Spec.Headers) > 0 {
-								var HeadersList []map[string]interface{}
-								for _, HeadersItem := range RulesItem.Spec.Headers {
-									HeadersItemMap := make(map[string]interface{})
-									if HeadersItem.CheckNotPresent != nil {
-										HeadersItemMap["check_not_present"] = map[string]interface{}{}
-									}
-									if HeadersItem.CheckPresent != nil {
-										HeadersItemMap["check_present"] = map[string]interface{}{}
-									}
-									if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
-										HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
-									}
-									if HeadersItem.Item != nil {
-										ItemMap := make(map[string]interface{})
-										if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
-											var ExactValuesItems []string
-											diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["exact_values"] = ExactValuesItems
-											}
+							if !RulesItem.Spec.Headers.IsNull() && !RulesItem.Spec.Headers.IsUnknown() {
+								var HeadersElems []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModel
+								diags := RulesItem.Spec.Headers.ElementsAs(ctx, &HeadersElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+									var HeadersList []map[string]interface{}
+									for _, HeadersItem := range HeadersElems {
+										HeadersItemMap := make(map[string]interface{})
+										if HeadersItem.CheckNotPresent != nil {
+											HeadersItemMap["check_not_present"] = map[string]interface{}{}
 										}
-										if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
-											var RegexValuesItems []string
-											diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["regex_values"] = RegexValuesItems
-											}
+										if HeadersItem.CheckPresent != nil {
+											HeadersItemMap["check_present"] = map[string]interface{}{}
 										}
-										if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
-											var TransformersItems []string
-											diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-											if !diags.HasError() {
-												ItemMap["transformers"] = TransformersItems
-											}
+										if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
+											HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
 										}
-										HeadersItemMap["item"] = ItemMap
+										if HeadersItem.Item != nil {
+											ItemMap := make(map[string]interface{})
+											if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
+												var ExactValuesItems []string
+												diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["exact_values"] = ExactValuesItems
+												}
+											}
+											if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
+												var RegexValuesItems []string
+												diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["regex_values"] = RegexValuesItems
+												}
+											}
+											if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
+												var TransformersItems []string
+												diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												if !diags.HasError() {
+													ItemMap["transformers"] = TransformersItems
+												}
+											}
+											HeadersItemMap["item"] = ItemMap
+										}
+										if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+											HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+										}
+										HeadersList = append(HeadersList, HeadersItemMap)
 									}
-									if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-										HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-									}
-									HeadersList = append(HeadersList, HeadersItemMap)
+									SpecMap["headers"] = HeadersList
 								}
-								SpecMap["headers"] = HeadersList
 							}
 							if RulesItem.Spec.HTTPMethod != nil {
 								HTTPMethodMap := make(map[string]interface{})
@@ -16254,50 +16439,55 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 								}
 								SpecMap["path"] = PathMap
 							}
-							if len(RulesItem.Spec.QueryParams) > 0 {
-								var QueryParamsList []map[string]interface{}
-								for _, QueryParamsItem := range RulesItem.Spec.QueryParams {
-									QueryParamsItemMap := make(map[string]interface{})
-									if QueryParamsItem.CheckNotPresent != nil {
-										QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
-									}
-									if QueryParamsItem.CheckPresent != nil {
-										QueryParamsItemMap["check_present"] = map[string]interface{}{}
-									}
-									if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
-										QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
-									}
-									if QueryParamsItem.Item != nil {
-										ItemMap := make(map[string]interface{})
-										if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
-											var ExactValuesItems []string
-											diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["exact_values"] = ExactValuesItems
-											}
+							if !RulesItem.Spec.QueryParams.IsNull() && !RulesItem.Spec.QueryParams.IsUnknown() {
+								var QueryParamsElems []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModel
+								diags := RulesItem.Spec.QueryParams.ElementsAs(ctx, &QueryParamsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(QueryParamsElems) > 0 {
+									var QueryParamsList []map[string]interface{}
+									for _, QueryParamsItem := range QueryParamsElems {
+										QueryParamsItemMap := make(map[string]interface{})
+										if QueryParamsItem.CheckNotPresent != nil {
+											QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
 										}
-										if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
-											var RegexValuesItems []string
-											diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["regex_values"] = RegexValuesItems
-											}
+										if QueryParamsItem.CheckPresent != nil {
+											QueryParamsItemMap["check_present"] = map[string]interface{}{}
 										}
-										if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
-											var TransformersItems []string
-											diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-											if !diags.HasError() {
-												ItemMap["transformers"] = TransformersItems
-											}
+										if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
+											QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
 										}
-										QueryParamsItemMap["item"] = ItemMap
+										if QueryParamsItem.Item != nil {
+											ItemMap := make(map[string]interface{})
+											if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
+												var ExactValuesItems []string
+												diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["exact_values"] = ExactValuesItems
+												}
+											}
+											if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
+												var RegexValuesItems []string
+												diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["regex_values"] = RegexValuesItems
+												}
+											}
+											if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
+												var TransformersItems []string
+												diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												if !diags.HasError() {
+													ItemMap["transformers"] = TransformersItems
+												}
+											}
+											QueryParamsItemMap["item"] = ItemMap
+										}
+										if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
+											QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
+										}
+										QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
 									}
-									if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
-										QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
-									}
-									QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
+									SpecMap["query_params"] = QueryParamsList
 								}
-								SpecMap["query_params"] = QueryParamsList
 							}
 							if RulesItem.Spec.TLSFingerprintMatcher != nil {
 								TLSFingerprintMatcherMap := make(map[string]interface{})
@@ -16579,28 +16769,33 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				}
 				if TrustedClientsItem.HTTPHeader != nil {
 					HTTPHeaderMap := make(map[string]interface{})
-					if len(TrustedClientsItem.HTTPHeader.Headers) > 0 {
-						var HeadersList []map[string]interface{}
-						for _, HeadersItem := range TrustedClientsItem.HTTPHeader.Headers {
-							HeadersItemMap := make(map[string]interface{})
-							if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
-								HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
+					if !TrustedClientsItem.HTTPHeader.Headers.IsNull() && !TrustedClientsItem.HTTPHeader.Headers.IsUnknown() {
+						var HeadersElems []CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModel
+						diags := TrustedClientsItem.HTTPHeader.Headers.ElementsAs(ctx, &HeadersElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+							var HeadersList []map[string]interface{}
+							for _, HeadersItem := range HeadersElems {
+								HeadersItemMap := make(map[string]interface{})
+								if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
+									HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
+								}
+								if !HeadersItem.InvertMatch.IsNull() && !HeadersItem.InvertMatch.IsUnknown() {
+									HeadersItemMap["invert_match"] = HeadersItem.InvertMatch.ValueBool()
+								}
+								if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+									HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+								}
+								if !HeadersItem.Presence.IsNull() && !HeadersItem.Presence.IsUnknown() {
+									HeadersItemMap["presence"] = HeadersItem.Presence.ValueBool()
+								}
+								if !HeadersItem.Regex.IsNull() && !HeadersItem.Regex.IsUnknown() {
+									HeadersItemMap["regex"] = HeadersItem.Regex.ValueString()
+								}
+								HeadersList = append(HeadersList, HeadersItemMap)
 							}
-							if !HeadersItem.InvertMatch.IsNull() && !HeadersItem.InvertMatch.IsUnknown() {
-								HeadersItemMap["invert_match"] = HeadersItem.InvertMatch.ValueBool()
-							}
-							if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-								HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-							}
-							if !HeadersItem.Presence.IsNull() && !HeadersItem.Presence.IsUnknown() {
-								HeadersItemMap["presence"] = HeadersItem.Presence.ValueBool()
-							}
-							if !HeadersItem.Regex.IsNull() && !HeadersItem.Regex.IsUnknown() {
-								HeadersItemMap["regex"] = HeadersItem.Regex.ValueString()
-							}
-							HeadersList = append(HeadersList, HeadersItemMap)
+							HTTPHeaderMap["headers"] = HeadersList
 						}
-						HTTPHeaderMap["headers"] = HeadersList
 					}
 					TrustedClientsItemMap["http_header"] = HTTPHeaderMap
 				}
@@ -16654,120 +16849,145 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		WAFExclusionMap := make(map[string]interface{})
 		if data.WAFExclusion.WAFExclusionInlineRules != nil {
 			WAFExclusionInlineRulesMap := make(map[string]interface{})
-			if len(data.WAFExclusion.WAFExclusionInlineRules.Rules) > 0 {
-				var RulesList []map[string]interface{}
-				for _, RulesItem := range data.WAFExclusion.WAFExclusionInlineRules.Rules {
-					RulesItemMap := make(map[string]interface{})
-					if RulesItem.AnyDomain != nil {
-						RulesItemMap["any_domain"] = map[string]interface{}{}
-					}
-					if RulesItem.AnyPath != nil {
-						RulesItemMap["any_path"] = map[string]interface{}{}
-					}
-					if RulesItem.AppFirewallDetectionControl != nil {
-						AppFirewallDetectionControlMap := make(map[string]interface{})
-						if len(RulesItem.AppFirewallDetectionControl.ExcludeAttackTypeContexts) > 0 {
-							var ExcludeAttackTypeContextsList []map[string]interface{}
-							for _, ExcludeAttackTypeContextsItem := range RulesItem.AppFirewallDetectionControl.ExcludeAttackTypeContexts {
-								ExcludeAttackTypeContextsItemMap := make(map[string]interface{})
-								if !ExcludeAttackTypeContextsItem.Context.IsNull() && !ExcludeAttackTypeContextsItem.Context.IsUnknown() {
-									ExcludeAttackTypeContextsItemMap["context"] = ExcludeAttackTypeContextsItem.Context.ValueString()
+			if !data.WAFExclusion.WAFExclusionInlineRules.Rules.IsNull() && !data.WAFExclusion.WAFExclusionInlineRules.Rules.IsUnknown() {
+				var RulesElems []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModel
+				diags := data.WAFExclusion.WAFExclusionInlineRules.Rules.ElementsAs(ctx, &RulesElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
+					var RulesList []map[string]interface{}
+					for _, RulesItem := range RulesElems {
+						RulesItemMap := make(map[string]interface{})
+						if RulesItem.AnyDomain != nil {
+							RulesItemMap["any_domain"] = map[string]interface{}{}
+						}
+						if RulesItem.AnyPath != nil {
+							RulesItemMap["any_path"] = map[string]interface{}{}
+						}
+						if RulesItem.AppFirewallDetectionControl != nil {
+							AppFirewallDetectionControlMap := make(map[string]interface{})
+							if !RulesItem.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() && !RulesItem.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsUnknown() {
+								var ExcludeAttackTypeContextsElems []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel
+								diags := RulesItem.AppFirewallDetectionControl.ExcludeAttackTypeContexts.ElementsAs(ctx, &ExcludeAttackTypeContextsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(ExcludeAttackTypeContextsElems) > 0 {
+									var ExcludeAttackTypeContextsList []map[string]interface{}
+									for _, ExcludeAttackTypeContextsItem := range ExcludeAttackTypeContextsElems {
+										ExcludeAttackTypeContextsItemMap := make(map[string]interface{})
+										if !ExcludeAttackTypeContextsItem.Context.IsNull() && !ExcludeAttackTypeContextsItem.Context.IsUnknown() {
+											ExcludeAttackTypeContextsItemMap["context"] = ExcludeAttackTypeContextsItem.Context.ValueString()
+										}
+										if !ExcludeAttackTypeContextsItem.ContextName.IsNull() && !ExcludeAttackTypeContextsItem.ContextName.IsUnknown() {
+											ExcludeAttackTypeContextsItemMap["context_name"] = ExcludeAttackTypeContextsItem.ContextName.ValueString()
+										}
+										if !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsNull() && !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsUnknown() {
+											ExcludeAttackTypeContextsItemMap["exclude_attack_type"] = ExcludeAttackTypeContextsItem.ExcludeAttackType.ValueString()
+										}
+										ExcludeAttackTypeContextsList = append(ExcludeAttackTypeContextsList, ExcludeAttackTypeContextsItemMap)
+									}
+									AppFirewallDetectionControlMap["exclude_attack_type_contexts"] = ExcludeAttackTypeContextsList
 								}
-								if !ExcludeAttackTypeContextsItem.ContextName.IsNull() && !ExcludeAttackTypeContextsItem.ContextName.IsUnknown() {
-									ExcludeAttackTypeContextsItemMap["context_name"] = ExcludeAttackTypeContextsItem.ContextName.ValueString()
-								}
-								if !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsNull() && !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsUnknown() {
-									ExcludeAttackTypeContextsItemMap["exclude_attack_type"] = ExcludeAttackTypeContextsItem.ExcludeAttackType.ValueString()
-								}
-								ExcludeAttackTypeContextsList = append(ExcludeAttackTypeContextsList, ExcludeAttackTypeContextsItemMap)
 							}
-							AppFirewallDetectionControlMap["exclude_attack_type_contexts"] = ExcludeAttackTypeContextsList
-						}
-						if len(RulesItem.AppFirewallDetectionControl.ExcludeBotNameContexts) > 0 {
-							var ExcludeBotNameContextsList []map[string]interface{}
-							for _, ExcludeBotNameContextsItem := range RulesItem.AppFirewallDetectionControl.ExcludeBotNameContexts {
-								ExcludeBotNameContextsItemMap := make(map[string]interface{})
-								if !ExcludeBotNameContextsItem.BotName.IsNull() && !ExcludeBotNameContextsItem.BotName.IsUnknown() {
-									ExcludeBotNameContextsItemMap["bot_name"] = ExcludeBotNameContextsItem.BotName.ValueString()
+							if !RulesItem.AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() && !RulesItem.AppFirewallDetectionControl.ExcludeBotNameContexts.IsUnknown() {
+								var ExcludeBotNameContextsElems []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModel
+								diags := RulesItem.AppFirewallDetectionControl.ExcludeBotNameContexts.ElementsAs(ctx, &ExcludeBotNameContextsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(ExcludeBotNameContextsElems) > 0 {
+									var ExcludeBotNameContextsList []map[string]interface{}
+									for _, ExcludeBotNameContextsItem := range ExcludeBotNameContextsElems {
+										ExcludeBotNameContextsItemMap := make(map[string]interface{})
+										if !ExcludeBotNameContextsItem.BotName.IsNull() && !ExcludeBotNameContextsItem.BotName.IsUnknown() {
+											ExcludeBotNameContextsItemMap["bot_name"] = ExcludeBotNameContextsItem.BotName.ValueString()
+										}
+										ExcludeBotNameContextsList = append(ExcludeBotNameContextsList, ExcludeBotNameContextsItemMap)
+									}
+									AppFirewallDetectionControlMap["exclude_bot_name_contexts"] = ExcludeBotNameContextsList
 								}
-								ExcludeBotNameContextsList = append(ExcludeBotNameContextsList, ExcludeBotNameContextsItemMap)
 							}
-							AppFirewallDetectionControlMap["exclude_bot_name_contexts"] = ExcludeBotNameContextsList
-						}
-						if len(RulesItem.AppFirewallDetectionControl.ExcludeSignatureContexts) > 0 {
-							var ExcludeSignatureContextsList []map[string]interface{}
-							for _, ExcludeSignatureContextsItem := range RulesItem.AppFirewallDetectionControl.ExcludeSignatureContexts {
-								ExcludeSignatureContextsItemMap := make(map[string]interface{})
-								if !ExcludeSignatureContextsItem.Context.IsNull() && !ExcludeSignatureContextsItem.Context.IsUnknown() {
-									ExcludeSignatureContextsItemMap["context"] = ExcludeSignatureContextsItem.Context.ValueString()
+							if !RulesItem.AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() && !RulesItem.AppFirewallDetectionControl.ExcludeSignatureContexts.IsUnknown() {
+								var ExcludeSignatureContextsElems []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModel
+								diags := RulesItem.AppFirewallDetectionControl.ExcludeSignatureContexts.ElementsAs(ctx, &ExcludeSignatureContextsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(ExcludeSignatureContextsElems) > 0 {
+									var ExcludeSignatureContextsList []map[string]interface{}
+									for _, ExcludeSignatureContextsItem := range ExcludeSignatureContextsElems {
+										ExcludeSignatureContextsItemMap := make(map[string]interface{})
+										if !ExcludeSignatureContextsItem.Context.IsNull() && !ExcludeSignatureContextsItem.Context.IsUnknown() {
+											ExcludeSignatureContextsItemMap["context"] = ExcludeSignatureContextsItem.Context.ValueString()
+										}
+										if !ExcludeSignatureContextsItem.ContextName.IsNull() && !ExcludeSignatureContextsItem.ContextName.IsUnknown() {
+											ExcludeSignatureContextsItemMap["context_name"] = ExcludeSignatureContextsItem.ContextName.ValueString()
+										}
+										if !ExcludeSignatureContextsItem.SignatureID.IsNull() && !ExcludeSignatureContextsItem.SignatureID.IsUnknown() {
+											ExcludeSignatureContextsItemMap["signature_id"] = ExcludeSignatureContextsItem.SignatureID.ValueInt64()
+										}
+										ExcludeSignatureContextsList = append(ExcludeSignatureContextsList, ExcludeSignatureContextsItemMap)
+									}
+									AppFirewallDetectionControlMap["exclude_signature_contexts"] = ExcludeSignatureContextsList
 								}
-								if !ExcludeSignatureContextsItem.ContextName.IsNull() && !ExcludeSignatureContextsItem.ContextName.IsUnknown() {
-									ExcludeSignatureContextsItemMap["context_name"] = ExcludeSignatureContextsItem.ContextName.ValueString()
-								}
-								if !ExcludeSignatureContextsItem.SignatureID.IsNull() && !ExcludeSignatureContextsItem.SignatureID.IsUnknown() {
-									ExcludeSignatureContextsItemMap["signature_id"] = ExcludeSignatureContextsItem.SignatureID.ValueInt64()
-								}
-								ExcludeSignatureContextsList = append(ExcludeSignatureContextsList, ExcludeSignatureContextsItemMap)
 							}
-							AppFirewallDetectionControlMap["exclude_signature_contexts"] = ExcludeSignatureContextsList
-						}
-						if len(RulesItem.AppFirewallDetectionControl.ExcludeViolationContexts) > 0 {
-							var ExcludeViolationContextsList []map[string]interface{}
-							for _, ExcludeViolationContextsItem := range RulesItem.AppFirewallDetectionControl.ExcludeViolationContexts {
-								ExcludeViolationContextsItemMap := make(map[string]interface{})
-								if !ExcludeViolationContextsItem.Context.IsNull() && !ExcludeViolationContextsItem.Context.IsUnknown() {
-									ExcludeViolationContextsItemMap["context"] = ExcludeViolationContextsItem.Context.ValueString()
+							if !RulesItem.AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() && !RulesItem.AppFirewallDetectionControl.ExcludeViolationContexts.IsUnknown() {
+								var ExcludeViolationContextsElems []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModel
+								diags := RulesItem.AppFirewallDetectionControl.ExcludeViolationContexts.ElementsAs(ctx, &ExcludeViolationContextsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(ExcludeViolationContextsElems) > 0 {
+									var ExcludeViolationContextsList []map[string]interface{}
+									for _, ExcludeViolationContextsItem := range ExcludeViolationContextsElems {
+										ExcludeViolationContextsItemMap := make(map[string]interface{})
+										if !ExcludeViolationContextsItem.Context.IsNull() && !ExcludeViolationContextsItem.Context.IsUnknown() {
+											ExcludeViolationContextsItemMap["context"] = ExcludeViolationContextsItem.Context.ValueString()
+										}
+										if !ExcludeViolationContextsItem.ContextName.IsNull() && !ExcludeViolationContextsItem.ContextName.IsUnknown() {
+											ExcludeViolationContextsItemMap["context_name"] = ExcludeViolationContextsItem.ContextName.ValueString()
+										}
+										if !ExcludeViolationContextsItem.ExcludeViolation.IsNull() && !ExcludeViolationContextsItem.ExcludeViolation.IsUnknown() {
+											ExcludeViolationContextsItemMap["exclude_violation"] = ExcludeViolationContextsItem.ExcludeViolation.ValueString()
+										}
+										ExcludeViolationContextsList = append(ExcludeViolationContextsList, ExcludeViolationContextsItemMap)
+									}
+									AppFirewallDetectionControlMap["exclude_violation_contexts"] = ExcludeViolationContextsList
 								}
-								if !ExcludeViolationContextsItem.ContextName.IsNull() && !ExcludeViolationContextsItem.ContextName.IsUnknown() {
-									ExcludeViolationContextsItemMap["context_name"] = ExcludeViolationContextsItem.ContextName.ValueString()
-								}
-								if !ExcludeViolationContextsItem.ExcludeViolation.IsNull() && !ExcludeViolationContextsItem.ExcludeViolation.IsUnknown() {
-									ExcludeViolationContextsItemMap["exclude_violation"] = ExcludeViolationContextsItem.ExcludeViolation.ValueString()
-								}
-								ExcludeViolationContextsList = append(ExcludeViolationContextsList, ExcludeViolationContextsItemMap)
 							}
-							AppFirewallDetectionControlMap["exclude_violation_contexts"] = ExcludeViolationContextsList
+							RulesItemMap["app_firewall_detection_control"] = AppFirewallDetectionControlMap
 						}
-						RulesItemMap["app_firewall_detection_control"] = AppFirewallDetectionControlMap
-					}
-					if !RulesItem.ExactValue.IsNull() && !RulesItem.ExactValue.IsUnknown() {
-						RulesItemMap["exact_value"] = RulesItem.ExactValue.ValueString()
-					}
-					if !RulesItem.ExpirationTimestamp.IsNull() && !RulesItem.ExpirationTimestamp.IsUnknown() {
-						RulesItemMap["expiration_timestamp"] = RulesItem.ExpirationTimestamp.ValueString()
-					}
-					if RulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
-						if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+						if !RulesItem.ExactValue.IsNull() && !RulesItem.ExactValue.IsUnknown() {
+							RulesItemMap["exact_value"] = RulesItem.ExactValue.ValueString()
 						}
-						if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+						if !RulesItem.ExpirationTimestamp.IsNull() && !RulesItem.ExpirationTimestamp.IsUnknown() {
+							RulesItemMap["expiration_timestamp"] = RulesItem.ExpirationTimestamp.ValueString()
 						}
-						RulesItemMap["metadata"] = MetadataMap
-					}
-					if !RulesItem.Methods.IsNull() && !RulesItem.Methods.IsUnknown() {
-						var MethodsItems []string
-						diags := RulesItem.Methods.ElementsAs(ctx, &MethodsItems, false)
-						if !diags.HasError() {
-							RulesItemMap["methods"] = MethodsItems
+						if RulesItem.Metadata != nil {
+							MetadataMap := make(map[string]interface{})
+							if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
+								MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+							}
+							if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
+								MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+							}
+							RulesItemMap["metadata"] = MetadataMap
 						}
+						if !RulesItem.Methods.IsNull() && !RulesItem.Methods.IsUnknown() {
+							var MethodsItems []string
+							diags := RulesItem.Methods.ElementsAs(ctx, &MethodsItems, false)
+							if !diags.HasError() {
+								RulesItemMap["methods"] = MethodsItems
+							}
+						}
+						if !RulesItem.PathPrefix.IsNull() && !RulesItem.PathPrefix.IsUnknown() {
+							RulesItemMap["path_prefix"] = RulesItem.PathPrefix.ValueString()
+						}
+						if !RulesItem.PathRegex.IsNull() && !RulesItem.PathRegex.IsUnknown() {
+							RulesItemMap["path_regex"] = RulesItem.PathRegex.ValueString()
+						}
+						if !RulesItem.SuffixValue.IsNull() && !RulesItem.SuffixValue.IsUnknown() {
+							RulesItemMap["suffix_value"] = RulesItem.SuffixValue.ValueString()
+						}
+						if RulesItem.WAFSkipProcessing != nil {
+							RulesItemMap["waf_skip_processing"] = map[string]interface{}{}
+						}
+						RulesList = append(RulesList, RulesItemMap)
 					}
-					if !RulesItem.PathPrefix.IsNull() && !RulesItem.PathPrefix.IsUnknown() {
-						RulesItemMap["path_prefix"] = RulesItem.PathPrefix.ValueString()
-					}
-					if !RulesItem.PathRegex.IsNull() && !RulesItem.PathRegex.IsUnknown() {
-						RulesItemMap["path_regex"] = RulesItem.PathRegex.ValueString()
-					}
-					if !RulesItem.SuffixValue.IsNull() && !RulesItem.SuffixValue.IsUnknown() {
-						RulesItemMap["suffix_value"] = RulesItem.SuffixValue.ValueString()
-					}
-					if RulesItem.WAFSkipProcessing != nil {
-						RulesItemMap["waf_skip_processing"] = map[string]interface{}{}
-					}
-					RulesList = append(RulesList, RulesItemMap)
+					WAFExclusionInlineRulesMap["rules"] = RulesList
 				}
-				WAFExclusionInlineRulesMap["rules"] = RulesList
 			}
 			WAFExclusionMap["waf_exclusion_inline_rules"] = WAFExclusionInlineRulesMap
 		}
@@ -17239,7 +17459,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 								RequestMatcher: func() *CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherModel {
 									if RequestMatcherData, ok := APIEndpointRulesItemMap["request_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherModel{
-											CookieMatchers: func() []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModel {
+											CookieMatchers: func() types.List {
 												if rawList, ok := RequestMatcherData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var CookieMatchersResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModel
 													for _, CookieMatchersItem := range rawList {
@@ -17318,11 +17538,12 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															})
 														}
 													}
-													return CookieMatchersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModelAttrTypes}, CookieMatchersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModelAttrTypes})
 											}(),
-											Headers: func() []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModel {
+											Headers: func() types.List {
 												if rawList, ok := RequestMatcherData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModel
 													for _, HeadersItem := range rawList {
@@ -17401,11 +17622,12 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															})
 														}
 													}
-													return HeadersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModelAttrTypes}, HeadersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModelAttrTypes})
 											}(),
-											JWTClaims: func() []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModel {
+											JWTClaims: func() types.List {
 												if rawList, ok := RequestMatcherData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 													var JWTClaimsResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModel
 													for _, JWTClaimsItem := range rawList {
@@ -17484,11 +17706,12 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															})
 														}
 													}
-													return JWTClaimsResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModelAttrTypes}, JWTClaimsResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModelAttrTypes})
 											}(),
-											QueryParams: func() []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModel {
+											QueryParams: func() types.List {
 												if rawList, ok := RequestMatcherData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 													var QueryParamsResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModel
 													for _, QueryParamsItem := range rawList {
@@ -17567,9 +17790,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															})
 														}
 													}
-													return QueryParamsResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModelAttrTypes}, QueryParamsResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModelAttrTypes})
 											}(),
 										}
 									}
@@ -17927,7 +18151,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 											RequestMatcher: func() *CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherModel {
 												if RequestMatcherData, ok := BypassRateLimitingRulesItemMap["request_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherModel{
-														CookieMatchers: func() []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModel {
+														CookieMatchers: func() types.List {
 															if rawList, ok := RequestMatcherData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 																var CookieMatchersResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModel
 																for _, CookieMatchersItem := range rawList {
@@ -18006,11 +18230,12 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																		})
 																	}
 																}
-																return CookieMatchersResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModelAttrTypes}, CookieMatchersResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModelAttrTypes})
 														}(),
-														Headers: func() []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModel {
+														Headers: func() types.List {
 															if rawList, ok := RequestMatcherData["headers"].([]interface{}); ok && len(rawList) > 0 {
 																var HeadersResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModel
 																for _, HeadersItem := range rawList {
@@ -18089,11 +18314,12 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																		})
 																	}
 																}
-																return HeadersResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModelAttrTypes}, HeadersResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModelAttrTypes})
 														}(),
-														JWTClaims: func() []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModel {
+														JWTClaims: func() types.List {
 															if rawList, ok := RequestMatcherData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 																var JWTClaimsResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModel
 																for _, JWTClaimsItem := range rawList {
@@ -18172,11 +18398,12 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																		})
 																	}
 																}
-																return JWTClaimsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModelAttrTypes}, JWTClaimsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModelAttrTypes})
 														}(),
-														QueryParams: func() []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModel {
+														QueryParams: func() types.List {
 															if rawList, ok := RequestMatcherData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 																var QueryParamsResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModel
 																for _, QueryParamsItem := range rawList {
@@ -18255,9 +18482,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																		})
 																	}
 																}
-																return QueryParamsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModelAttrTypes}, QueryParamsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModelAttrTypes})
 														}(),
 													}
 												}
@@ -18719,7 +18947,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 								RequestMatcher: func() *CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherModel {
 									if RequestMatcherData, ok := ServerURLRulesItemMap["request_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherModel{
-											CookieMatchers: func() []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModel {
+											CookieMatchers: func() types.List {
 												if rawList, ok := RequestMatcherData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var CookieMatchersResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModel
 													for _, CookieMatchersItem := range rawList {
@@ -18798,11 +19026,12 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															})
 														}
 													}
-													return CookieMatchersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModelAttrTypes}, CookieMatchersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModelAttrTypes})
 											}(),
-											Headers: func() []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModel {
+											Headers: func() types.List {
 												if rawList, ok := RequestMatcherData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModel
 													for _, HeadersItem := range rawList {
@@ -18881,11 +19110,12 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															})
 														}
 													}
-													return HeadersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModelAttrTypes}, HeadersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModelAttrTypes})
 											}(),
-											JWTClaims: func() []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModel {
+											JWTClaims: func() types.List {
 												if rawList, ok := RequestMatcherData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 													var JWTClaimsResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModel
 													for _, JWTClaimsItem := range rawList {
@@ -18964,11 +19194,12 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															})
 														}
 													}
-													return JWTClaimsResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModelAttrTypes}, JWTClaimsResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModelAttrTypes})
 											}(),
-											QueryParams: func() []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModel {
+											QueryParams: func() types.List {
 												if rawList, ok := RequestMatcherData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 													var QueryParamsResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModel
 													for _, QueryParamsItem := range rawList {
@@ -19047,9 +19278,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															})
 														}
 													}
-													return QueryParamsResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModelAttrTypes}, QueryParamsResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModelAttrTypes})
 											}(),
 										}
 									}
@@ -19116,7 +19348,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									FallThroughModeCustom: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModel {
 										if FallThroughModeCustomData, ok := FallThroughModeData["fall_through_mode_custom"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModel{
-												OpenAPIValidationRules: func() []CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel {
+												OpenAPIValidationRules: func() types.List {
 													if rawList, ok := FallThroughModeCustomData["open_api_validation_rules"].([]interface{}); ok && len(rawList) > 0 {
 														var OpenAPIValidationRulesResult []CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
 														for _, OpenAPIValidationRulesItem := range rawList {
@@ -19200,9 +19432,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																})
 															}
 														}
-														return OpenAPIValidationRulesResult
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes}, OpenAPIValidationRulesResult)
+														return listVal
 													}
-													return nil
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes})
 												}(),
 											}
 										}
@@ -19368,7 +19601,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									FallThroughModeCustom: func() *CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModel {
 										if FallThroughModeCustomData, ok := FallThroughModeData["fall_through_mode_custom"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModel{
-												OpenAPIValidationRules: func() []CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel {
+												OpenAPIValidationRules: func() types.List {
 													if rawList, ok := FallThroughModeCustomData["open_api_validation_rules"].([]interface{}); ok && len(rawList) > 0 {
 														var OpenAPIValidationRulesResult []CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
 														for _, OpenAPIValidationRulesItem := range rawList {
@@ -19452,9 +19685,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																})
 															}
 														}
-														return OpenAPIValidationRulesResult
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes}, OpenAPIValidationRulesResult)
+														return listVal
 													}
-													return nil
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes})
 												}(),
 											}
 										}
@@ -19464,7 +19698,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							}
 							return nil
 						}(),
-						OpenAPIValidationRules: func() []CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModel {
+						OpenAPIValidationRules: func() types.List {
 							if rawList, ok := ValidationCustomListData["open_api_validation_rules"].([]interface{}); ok && len(rawList) > 0 {
 								var OpenAPIValidationRulesResult []CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModel
 								for _, OpenAPIValidationRulesItem := range rawList {
@@ -19625,9 +19859,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										})
 									}
 								}
-								return OpenAPIValidationRulesResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModelAttrTypes}, OpenAPIValidationRulesResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModelAttrTypes})
 						}(),
 						Settings: func() *CDNLoadBalancerAPISpecificationValidationCustomListSettingsModel {
 							if SettingsData, ok := ValidationCustomListData["settings"].(map[string]interface{}); ok {
@@ -19766,7 +20001,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					HTTPHeader: func() *CDNLoadBalancerBlockedClientsHTTPHeaderModel {
 						if HTTPHeaderData, ok := itemMap["http_header"].(map[string]interface{}); ok {
 							return &CDNLoadBalancerBlockedClientsHTTPHeaderModel{
-								Headers: func() []CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModel {
+								Headers: func() types.List {
 									if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 										var HeadersResult []CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModel
 										for _, HeadersItem := range rawList {
@@ -19805,9 +20040,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												})
 											}
 										}
-										return HeadersResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModelAttrTypes}, HeadersResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModelAttrTypes})
 								}(),
 							}
 						}
@@ -19945,7 +20181,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						JsInsertAllPagesExcept: func() *CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptModel {
 							if JsInsertAllPagesExceptData, ok := PolicyData["js_insert_all_pages_except"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptModel{
-									ExcludeList: func() []CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModel {
+									ExcludeList: func() types.List {
 										if rawList, ok := JsInsertAllPagesExceptData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModel
 											for _, ExcludeListItem := range rawList {
@@ -20029,9 +20265,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 													})
 												}
 											}
-											return ExcludeListResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModelAttrTypes}, ExcludeListResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModelAttrTypes})
 									}(),
 									JavascriptLocation: func() types.String {
 										if v, ok := JsInsertAllPagesExceptData["javascript_location"].(string); ok && v != "" {
@@ -20046,7 +20283,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						JsInsertionRules: func() *CDNLoadBalancerBotDefensePolicyJsInsertionRulesModel {
 							if JsInsertionRulesData, ok := PolicyData["js_insertion_rules"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerBotDefensePolicyJsInsertionRulesModel{
-									ExcludeList: func() []CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModel {
+									ExcludeList: func() types.List {
 										if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModel
 											for _, ExcludeListItem := range rawList {
@@ -20130,11 +20367,12 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 													})
 												}
 											}
-											return ExcludeListResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModelAttrTypes}, ExcludeListResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModelAttrTypes})
 									}(),
-									Rules: func() []CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModel {
+									Rules: func() types.List {
 										if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 											var RulesResult []CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModel
 											for _, RulesItem := range rawList {
@@ -20224,9 +20462,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 													})
 												}
 											}
-											return RulesResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModelAttrTypes}, RulesResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModelAttrTypes})
 									}(),
 								}
 							}
@@ -20238,7 +20477,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									MobileIdentifier: func() *CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierModel {
 										if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierModel{
-												Headers: func() []CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModel {
+												Headers: func() types.List {
 													if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
 														var HeadersResult []CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModel
 														for _, HeadersItem := range rawList {
@@ -20311,9 +20550,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																})
 															}
 														}
-														return HeadersResult
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModelAttrTypes}, HeadersResult)
+														return listVal
 													}
-													return nil
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
 												}(),
 											}
 										}
@@ -20323,7 +20563,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							}
 							return nil
 						}(),
-						ProtectedAppEndpoints: func() []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModel {
+						ProtectedAppEndpoints: func() types.List {
 							if rawList, ok := PolicyData["protected_app_endpoints"].([]interface{}); ok && len(rawList) > 0 {
 								var ProtectedAppEndpointsResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModel
 								for _, ProtectedAppEndpointsItem := range rawList {
@@ -20403,7 +20643,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																				TransactionResult: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultModel {
 																					if TransactionResultData, ok := LoginData["transaction_result"].(map[string]interface{}); ok {
 																						return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultModel{
-																							FailureConditions: func() []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel {
+																							FailureConditions: func() types.List {
 																								if rawList, ok := TransactionResultData["failure_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																									var FailureConditionsResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel
 																									for _, FailureConditionsItem := range rawList {
@@ -20437,11 +20677,12 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																											})
 																										}
 																									}
-																									return FailureConditionsResult
+																									listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes}, FailureConditionsResult)
+																									return listVal
 																								}
-																								return nil
+																								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes})
 																							}(),
-																							SuccessConditions: func() []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel {
+																							SuccessConditions: func() types.List {
 																								if rawList, ok := TransactionResultData["success_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																									var SuccessConditionsResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel
 																									for _, SuccessConditionsItem := range rawList {
@@ -20475,9 +20716,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																											})
 																										}
 																									}
-																									return SuccessConditionsResult
+																									listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModelAttrTypes}, SuccessConditionsResult)
+																									return listVal
 																								}
-																								return nil
+																								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModelAttrTypes})
 																							}(),
 																						}
 																					}
@@ -20686,7 +20928,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												}
 												return nil
 											}(),
-											Headers: func() []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsHeadersModel {
+											Headers: func() types.List {
 												if rawList, ok := ProtectedAppEndpointsItemMap["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsHeadersModel
 													for _, HeadersItem := range rawList {
@@ -20765,9 +21007,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															})
 														}
 													}
-													return HeadersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsHeadersModelAttrTypes}, HeadersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsHeadersModelAttrTypes})
 											}(),
 											HTTPMethods: func() types.List {
 												if v, ok := ProtectedAppEndpointsItemMap["http_methods"].([]interface{}); ok && len(v) > 0 {
@@ -20915,7 +21158,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												}
 												return types.StringNull()
 											}(),
-											QueryParams: func() []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsQueryParamsModel {
+											QueryParams: func() types.List {
 												if rawList, ok := ProtectedAppEndpointsItemMap["query_params"].([]interface{}); ok && len(rawList) > 0 {
 													var QueryParamsResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsQueryParamsModel
 													for _, QueryParamsItem := range rawList {
@@ -20994,9 +21237,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															})
 														}
 													}
-													return QueryParamsResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsQueryParamsModelAttrTypes}, QueryParamsResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsQueryParamsModelAttrTypes})
 											}(),
 											UndefinedFlowLabel: func() *CDNLoadBalancerEmptyModel {
 												if _, ok := ProtectedAppEndpointsItemMap["undefined_flow_label"].(map[string]interface{}); ok {
@@ -21026,9 +21270,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										})
 									}
 								}
-								return ProtectedAppEndpointsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModelAttrTypes}, ProtectedAppEndpointsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModelAttrTypes})
 						}(),
 					}
 				}
@@ -21093,7 +21338,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						JsInsertAllPagesExcept: func() *CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptModel {
 							if JsInsertAllPagesExceptData, ok := PolicyData["js_insert_all_pages_except"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptModel{
-									ExcludeList: func() []CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModel {
+									ExcludeList: func() types.List {
 										if rawList, ok := JsInsertAllPagesExceptData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModel
 											for _, ExcludeListItem := range rawList {
@@ -21177,9 +21422,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 													})
 												}
 											}
-											return ExcludeListResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModelAttrTypes}, ExcludeListResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModelAttrTypes})
 									}(),
 								}
 							}
@@ -21188,7 +21434,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						JsInsertionRules: func() *CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesModel {
 							if JsInsertionRulesData, ok := PolicyData["js_insertion_rules"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesModel{
-									ExcludeList: func() []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModel {
+									ExcludeList: func() types.List {
 										if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModel
 											for _, ExcludeListItem := range rawList {
@@ -21272,11 +21518,12 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 													})
 												}
 											}
-											return ExcludeListResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModelAttrTypes}, ExcludeListResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModelAttrTypes})
 									}(),
-									Rules: func() []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModel {
+									Rules: func() types.List {
 										if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 											var RulesResult []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModel
 											for _, RulesItem := range rawList {
@@ -21360,9 +21607,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 													})
 												}
 											}
-											return RulesResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModelAttrTypes}, RulesResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModelAttrTypes})
 									}(),
 								}
 							}
@@ -21891,7 +22139,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						APICrawlerConfig: func() *CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModel {
 							if APICrawlerConfigData, ok := APICrawlerData["api_crawler_config"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModel{
-									Domains: func() []CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel {
+									Domains: func() types.List {
 										if rawList, ok := APICrawlerConfigData["domains"].([]interface{}); ok && len(rawList) > 0 {
 											var DomainsResult []CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel
 											for _, DomainsItem := range rawList {
@@ -21970,9 +22218,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 													})
 												}
 											}
-											return DomainsResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModelAttrTypes}, DomainsResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModelAttrTypes})
 									}(),
 								}
 							}
@@ -22662,7 +22911,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										}
 										return nil
 									}(),
-									TLSCertificates: func() []CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModel {
+									TLSCertificates: func() types.List {
 										if rawList, ok := TLSInlineParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var TLSCertificatesResult []CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModel
 											for _, TLSCertificatesItem := range rawList {
@@ -22766,9 +23015,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 													})
 												}
 											}
-											return TLSCertificatesResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModelAttrTypes}, TLSCertificatesResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModelAttrTypes})
 									}(),
 									TLSConfig: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSConfigModel {
 										if TLSConfigData, ok := TLSInlineParamsData["tls_config"].(map[string]interface{}); ok {
@@ -23328,9 +23578,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				}
 				return types.StringNull()
 			}(),
-			OriginServers: func() []CDNLoadBalancerOriginPoolOriginServersModel {
-				if !isImport && data.OriginPool != nil && len(data.OriginPool.OriginServers) == 0 {
-					return nil
+			OriginServers: func() types.List {
+				if !isImport && data.OriginPool != nil && (data.OriginPool.OriginServers.IsNull() || len(data.OriginPool.OriginServers.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOriginPoolOriginServersModelAttrTypes})
 				}
 				if rawList, ok := blockData["origin_servers"].([]interface{}); ok && len(rawList) > 0 {
 					var OriginServersResult []CDNLoadBalancerOriginPoolOriginServersModel
@@ -23378,9 +23628,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							})
 						}
 					}
-					return OriginServersResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerOriginPoolOriginServersModelAttrTypes}, OriginServersResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOriginPoolOriginServersModelAttrTypes})
 			}(),
 			PublicName: func() *CDNLoadBalancerOriginPoolPublicNameModel {
 				if !isImport && data.OriginPool != nil && data.OriginPool.PublicName != nil {
@@ -23518,7 +23769,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						UseMtls: func() *CDNLoadBalancerOriginPoolUseTLSUseMtlsModel {
 							if UseMtlsData, ok := UseTLSData["use_mtls"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerOriginPoolUseTLSUseMtlsModel{
-									TLSCertificates: func() []CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModel {
+									TLSCertificates: func() types.List {
 										if rawList, ok := UseMtlsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var TLSCertificatesResult []CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModel
 											for _, TLSCertificatesItem := range rawList {
@@ -23622,9 +23873,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 													})
 												}
 											}
-											return TLSCertificatesResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModelAttrTypes}, TLSCertificatesResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModelAttrTypes})
 									}(),
 								}
 							}
@@ -23722,7 +23974,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				}
 				if HeaderOptionsData, ok := blockData["header_options"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerOtherSettingsHeaderOptionsModel{
-						RequestHeadersToAdd: func() []CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModel {
+						RequestHeadersToAdd: func() types.List {
 							if rawList, ok := HeaderOptionsData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var RequestHeadersToAddResult []CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModel
 								for _, RequestHeadersToAddItem := range rawList {
@@ -23800,9 +24052,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										})
 									}
 								}
-								return RequestHeadersToAddResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModelAttrTypes}, RequestHeadersToAddResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModelAttrTypes})
 						}(),
 						RequestHeadersToRemove: func() types.List {
 							if v, ok := HeaderOptionsData["request_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
@@ -23817,7 +24070,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							}
 							return types.ListNull(types.StringType)
 						}(),
-						ResponseHeadersToAdd: func() []CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModel {
+						ResponseHeadersToAdd: func() types.List {
 							if rawList, ok := HeaderOptionsData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var ResponseHeadersToAddResult []CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModel
 								for _, ResponseHeadersToAddItem := range rawList {
@@ -23895,9 +24148,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										})
 									}
 								}
-								return ResponseHeadersToAddResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModelAttrTypes}, ResponseHeadersToAddResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModelAttrTypes})
 						}(),
 						ResponseHeadersToRemove: func() types.List {
 							if v, ok := HeaderOptionsData["response_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
@@ -24160,7 +24414,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															}
 															return nil
 														}(),
-														ArgMatchers: func() []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModel {
+														ArgMatchers: func() types.List {
 															if rawList, ok := SpecData["arg_matchers"].([]interface{}); ok && len(rawList) > 0 {
 																var ArgMatchersResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModel
 																for _, ArgMatchersItem := range rawList {
@@ -24239,9 +24493,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																		})
 																	}
 																}
-																return ArgMatchersResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModelAttrTypes}, ArgMatchersResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModelAttrTypes})
 														}(),
 														AsnList: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnListModel {
 															if AsnListData, ok := SpecData["asn_list"].(map[string]interface{}); ok {
@@ -24380,7 +24635,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															}
 															return nil
 														}(),
-														CookieMatchers: func() []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModel {
+														CookieMatchers: func() types.List {
 															if rawList, ok := SpecData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 																var CookieMatchersResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModel
 																for _, CookieMatchersItem := range rawList {
@@ -24459,9 +24714,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																		})
 																	}
 																}
-																return CookieMatchersResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModelAttrTypes}, CookieMatchersResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModelAttrTypes})
 														}(),
 														DisableChallenge: func() *CDNLoadBalancerEmptyModel {
 															if _, ok := SpecData["disable_challenge"].(map[string]interface{}); ok {
@@ -24520,7 +24776,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															}
 															return types.StringNull()
 														}(),
-														Headers: func() []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModel {
+														Headers: func() types.List {
 															if rawList, ok := SpecData["headers"].([]interface{}); ok && len(rawList) > 0 {
 																var HeadersResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModel
 																for _, HeadersItem := range rawList {
@@ -24599,9 +24855,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																		})
 																	}
 																}
-																return HeadersResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModelAttrTypes}, HeadersResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModelAttrTypes})
 														}(),
 														HTTPMethod: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHTTPMethodModel {
 															if HTTPMethodData, ok := SpecData["http_method"].(map[string]interface{}); ok {
@@ -24790,7 +25047,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															}
 															return nil
 														}(),
-														QueryParams: func() []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModel {
+														QueryParams: func() types.List {
 															if rawList, ok := SpecData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 																var QueryParamsResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModel
 																for _, QueryParamsItem := range rawList {
@@ -24869,9 +25126,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																		})
 																	}
 																}
-																return QueryParamsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModelAttrTypes}, QueryParamsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModelAttrTypes})
 														}(),
 														TLSFingerprintMatcher: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecTLSFingerprintMatcherModel {
 															if TLSFingerprintMatcherData, ok := SpecData["tls_fingerprint_matcher"].(map[string]interface{}); ok {
@@ -25429,7 +25687,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					HTTPHeader: func() *CDNLoadBalancerTrustedClientsHTTPHeaderModel {
 						if HTTPHeaderData, ok := itemMap["http_header"].(map[string]interface{}); ok {
 							return &CDNLoadBalancerTrustedClientsHTTPHeaderModel{
-								Headers: func() []CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModel {
+								Headers: func() types.List {
 									if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 										var HeadersResult []CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModel
 										for _, HeadersItem := range rawList {
@@ -25468,9 +25726,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												})
 											}
 										}
-										return HeadersResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModelAttrTypes}, HeadersResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModelAttrTypes})
 								}(),
 							}
 						}
@@ -25575,7 +25834,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				}
 				if WAFExclusionInlineRulesData, ok := blockData["waf_exclusion_inline_rules"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesModel{
-						Rules: func() []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModel {
+						Rules: func() types.List {
 							if rawList, ok := WAFExclusionInlineRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 								var RulesResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModel
 								for _, RulesItem := range rawList {
@@ -25596,7 +25855,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 											AppFirewallDetectionControl: func() *CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlModel {
 												if AppFirewallDetectionControlData, ok := RulesItemMap["app_firewall_detection_control"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlModel{
-														ExcludeAttackTypeContexts: func() []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel {
+														ExcludeAttackTypeContexts: func() types.List {
 															if rawList, ok := AppFirewallDetectionControlData["exclude_attack_type_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeAttackTypeContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel
 																for _, ExcludeAttackTypeContextsItem := range rawList {
@@ -25623,11 +25882,12 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																		})
 																	}
 																}
-																return ExcludeAttackTypeContextsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes}, ExcludeAttackTypeContextsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
 														}(),
-														ExcludeBotNameContexts: func() []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModel {
+														ExcludeBotNameContexts: func() types.List {
 															if rawList, ok := AppFirewallDetectionControlData["exclude_bot_name_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeBotNameContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModel
 																for _, ExcludeBotNameContextsItem := range rawList {
@@ -25642,11 +25902,12 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																		})
 																	}
 																}
-																return ExcludeBotNameContextsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes}, ExcludeBotNameContextsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
 														}(),
-														ExcludeSignatureContexts: func() []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModel {
+														ExcludeSignatureContexts: func() types.List {
 															if rawList, ok := AppFirewallDetectionControlData["exclude_signature_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeSignatureContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModel
 																for _, ExcludeSignatureContextsItem := range rawList {
@@ -25673,11 +25934,12 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																		})
 																	}
 																}
-																return ExcludeSignatureContextsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes}, ExcludeSignatureContextsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
 														}(),
-														ExcludeViolationContexts: func() []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModel {
+														ExcludeViolationContexts: func() types.List {
 															if rawList, ok := AppFirewallDetectionControlData["exclude_violation_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeViolationContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModel
 																for _, ExcludeViolationContextsItem := range rawList {
@@ -25704,9 +25966,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																		})
 																	}
 																}
-																return ExcludeViolationContextsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes}, ExcludeViolationContextsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes})
 														}(),
 													}
 												}
@@ -25783,9 +26046,10 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										})
 									}
 								}
-								return RulesResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModelAttrTypes}, RulesResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModelAttrTypes})
 						}(),
 					}
 				}
@@ -26351,7 +26615,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 								RequestMatcher: func() *CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherModel {
 									if RequestMatcherData, ok := APIEndpointRulesItemMap["request_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherModel{
-											CookieMatchers: func() []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModel {
+											CookieMatchers: func() types.List {
 												if rawList, ok := RequestMatcherData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var CookieMatchersResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModel
 													for _, CookieMatchersItem := range rawList {
@@ -26430,11 +26694,12 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															})
 														}
 													}
-													return CookieMatchersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModelAttrTypes}, CookieMatchersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModelAttrTypes})
 											}(),
-											Headers: func() []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModel {
+											Headers: func() types.List {
 												if rawList, ok := RequestMatcherData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModel
 													for _, HeadersItem := range rawList {
@@ -26513,11 +26778,12 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															})
 														}
 													}
-													return HeadersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModelAttrTypes}, HeadersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModelAttrTypes})
 											}(),
-											JWTClaims: func() []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModel {
+											JWTClaims: func() types.List {
 												if rawList, ok := RequestMatcherData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 													var JWTClaimsResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModel
 													for _, JWTClaimsItem := range rawList {
@@ -26596,11 +26862,12 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															})
 														}
 													}
-													return JWTClaimsResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModelAttrTypes}, JWTClaimsResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModelAttrTypes})
 											}(),
-											QueryParams: func() []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModel {
+											QueryParams: func() types.List {
 												if rawList, ok := RequestMatcherData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 													var QueryParamsResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModel
 													for _, QueryParamsItem := range rawList {
@@ -26679,9 +26946,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															})
 														}
 													}
-													return QueryParamsResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModelAttrTypes}, QueryParamsResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModelAttrTypes})
 											}(),
 										}
 									}
@@ -27039,7 +27307,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 											RequestMatcher: func() *CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherModel {
 												if RequestMatcherData, ok := BypassRateLimitingRulesItemMap["request_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherModel{
-														CookieMatchers: func() []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModel {
+														CookieMatchers: func() types.List {
 															if rawList, ok := RequestMatcherData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 																var CookieMatchersResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModel
 																for _, CookieMatchersItem := range rawList {
@@ -27118,11 +27386,12 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																		})
 																	}
 																}
-																return CookieMatchersResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModelAttrTypes}, CookieMatchersResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModelAttrTypes})
 														}(),
-														Headers: func() []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModel {
+														Headers: func() types.List {
 															if rawList, ok := RequestMatcherData["headers"].([]interface{}); ok && len(rawList) > 0 {
 																var HeadersResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModel
 																for _, HeadersItem := range rawList {
@@ -27201,11 +27470,12 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																		})
 																	}
 																}
-																return HeadersResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModelAttrTypes}, HeadersResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModelAttrTypes})
 														}(),
-														JWTClaims: func() []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModel {
+														JWTClaims: func() types.List {
 															if rawList, ok := RequestMatcherData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 																var JWTClaimsResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModel
 																for _, JWTClaimsItem := range rawList {
@@ -27284,11 +27554,12 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																		})
 																	}
 																}
-																return JWTClaimsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModelAttrTypes}, JWTClaimsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModelAttrTypes})
 														}(),
-														QueryParams: func() []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModel {
+														QueryParams: func() types.List {
 															if rawList, ok := RequestMatcherData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 																var QueryParamsResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModel
 																for _, QueryParamsItem := range rawList {
@@ -27367,9 +27638,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																		})
 																	}
 																}
-																return QueryParamsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModelAttrTypes}, QueryParamsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModelAttrTypes})
 														}(),
 													}
 												}
@@ -27831,7 +28103,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 								RequestMatcher: func() *CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherModel {
 									if RequestMatcherData, ok := ServerURLRulesItemMap["request_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherModel{
-											CookieMatchers: func() []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModel {
+											CookieMatchers: func() types.List {
 												if rawList, ok := RequestMatcherData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var CookieMatchersResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModel
 													for _, CookieMatchersItem := range rawList {
@@ -27910,11 +28182,12 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															})
 														}
 													}
-													return CookieMatchersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModelAttrTypes}, CookieMatchersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModelAttrTypes})
 											}(),
-											Headers: func() []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModel {
+											Headers: func() types.List {
 												if rawList, ok := RequestMatcherData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModel
 													for _, HeadersItem := range rawList {
@@ -27993,11 +28266,12 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															})
 														}
 													}
-													return HeadersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModelAttrTypes}, HeadersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModelAttrTypes})
 											}(),
-											JWTClaims: func() []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModel {
+											JWTClaims: func() types.List {
 												if rawList, ok := RequestMatcherData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 													var JWTClaimsResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModel
 													for _, JWTClaimsItem := range rawList {
@@ -28076,11 +28350,12 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															})
 														}
 													}
-													return JWTClaimsResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModelAttrTypes}, JWTClaimsResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModelAttrTypes})
 											}(),
-											QueryParams: func() []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModel {
+											QueryParams: func() types.List {
 												if rawList, ok := RequestMatcherData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 													var QueryParamsResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModel
 													for _, QueryParamsItem := range rawList {
@@ -28159,9 +28434,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															})
 														}
 													}
-													return QueryParamsResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModelAttrTypes}, QueryParamsResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModelAttrTypes})
 											}(),
 										}
 									}
@@ -28228,7 +28504,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 									FallThroughModeCustom: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModel {
 										if FallThroughModeCustomData, ok := FallThroughModeData["fall_through_mode_custom"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModel{
-												OpenAPIValidationRules: func() []CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel {
+												OpenAPIValidationRules: func() types.List {
 													if rawList, ok := FallThroughModeCustomData["open_api_validation_rules"].([]interface{}); ok && len(rawList) > 0 {
 														var OpenAPIValidationRulesResult []CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
 														for _, OpenAPIValidationRulesItem := range rawList {
@@ -28312,9 +28588,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																})
 															}
 														}
-														return OpenAPIValidationRulesResult
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes}, OpenAPIValidationRulesResult)
+														return listVal
 													}
-													return nil
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes})
 												}(),
 											}
 										}
@@ -28480,7 +28757,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 									FallThroughModeCustom: func() *CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModel {
 										if FallThroughModeCustomData, ok := FallThroughModeData["fall_through_mode_custom"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModel{
-												OpenAPIValidationRules: func() []CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel {
+												OpenAPIValidationRules: func() types.List {
 													if rawList, ok := FallThroughModeCustomData["open_api_validation_rules"].([]interface{}); ok && len(rawList) > 0 {
 														var OpenAPIValidationRulesResult []CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
 														for _, OpenAPIValidationRulesItem := range rawList {
@@ -28564,9 +28841,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																})
 															}
 														}
-														return OpenAPIValidationRulesResult
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes}, OpenAPIValidationRulesResult)
+														return listVal
 													}
-													return nil
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes})
 												}(),
 											}
 										}
@@ -28576,7 +28854,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							}
 							return nil
 						}(),
-						OpenAPIValidationRules: func() []CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModel {
+						OpenAPIValidationRules: func() types.List {
 							if rawList, ok := ValidationCustomListData["open_api_validation_rules"].([]interface{}); ok && len(rawList) > 0 {
 								var OpenAPIValidationRulesResult []CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModel
 								for _, OpenAPIValidationRulesItem := range rawList {
@@ -28737,9 +29015,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										})
 									}
 								}
-								return OpenAPIValidationRulesResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModelAttrTypes}, OpenAPIValidationRulesResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModelAttrTypes})
 						}(),
 						Settings: func() *CDNLoadBalancerAPISpecificationValidationCustomListSettingsModel {
 							if SettingsData, ok := ValidationCustomListData["settings"].(map[string]interface{}); ok {
@@ -28878,7 +29157,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 					HTTPHeader: func() *CDNLoadBalancerBlockedClientsHTTPHeaderModel {
 						if HTTPHeaderData, ok := itemMap["http_header"].(map[string]interface{}); ok {
 							return &CDNLoadBalancerBlockedClientsHTTPHeaderModel{
-								Headers: func() []CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModel {
+								Headers: func() types.List {
 									if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 										var HeadersResult []CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModel
 										for _, HeadersItem := range rawList {
@@ -28917,9 +29196,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												})
 											}
 										}
-										return HeadersResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModelAttrTypes}, HeadersResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModelAttrTypes})
 								}(),
 							}
 						}
@@ -29057,7 +29337,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 						JsInsertAllPagesExcept: func() *CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptModel {
 							if JsInsertAllPagesExceptData, ok := PolicyData["js_insert_all_pages_except"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptModel{
-									ExcludeList: func() []CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModel {
+									ExcludeList: func() types.List {
 										if rawList, ok := JsInsertAllPagesExceptData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModel
 											for _, ExcludeListItem := range rawList {
@@ -29141,9 +29421,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 													})
 												}
 											}
-											return ExcludeListResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModelAttrTypes}, ExcludeListResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModelAttrTypes})
 									}(),
 									JavascriptLocation: func() types.String {
 										if v, ok := JsInsertAllPagesExceptData["javascript_location"].(string); ok && v != "" {
@@ -29158,7 +29439,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 						JsInsertionRules: func() *CDNLoadBalancerBotDefensePolicyJsInsertionRulesModel {
 							if JsInsertionRulesData, ok := PolicyData["js_insertion_rules"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerBotDefensePolicyJsInsertionRulesModel{
-									ExcludeList: func() []CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModel {
+									ExcludeList: func() types.List {
 										if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModel
 											for _, ExcludeListItem := range rawList {
@@ -29242,11 +29523,12 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 													})
 												}
 											}
-											return ExcludeListResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModelAttrTypes}, ExcludeListResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModelAttrTypes})
 									}(),
-									Rules: func() []CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModel {
+									Rules: func() types.List {
 										if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 											var RulesResult []CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModel
 											for _, RulesItem := range rawList {
@@ -29336,9 +29618,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 													})
 												}
 											}
-											return RulesResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModelAttrTypes}, RulesResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModelAttrTypes})
 									}(),
 								}
 							}
@@ -29350,7 +29633,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 									MobileIdentifier: func() *CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierModel {
 										if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierModel{
-												Headers: func() []CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModel {
+												Headers: func() types.List {
 													if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
 														var HeadersResult []CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModel
 														for _, HeadersItem := range rawList {
@@ -29423,9 +29706,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																})
 															}
 														}
-														return HeadersResult
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModelAttrTypes}, HeadersResult)
+														return listVal
 													}
-													return nil
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
 												}(),
 											}
 										}
@@ -29435,7 +29719,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							}
 							return nil
 						}(),
-						ProtectedAppEndpoints: func() []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModel {
+						ProtectedAppEndpoints: func() types.List {
 							if rawList, ok := PolicyData["protected_app_endpoints"].([]interface{}); ok && len(rawList) > 0 {
 								var ProtectedAppEndpointsResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModel
 								for _, ProtectedAppEndpointsItem := range rawList {
@@ -29515,7 +29799,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																				TransactionResult: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultModel {
 																					if TransactionResultData, ok := LoginData["transaction_result"].(map[string]interface{}); ok {
 																						return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultModel{
-																							FailureConditions: func() []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel {
+																							FailureConditions: func() types.List {
 																								if rawList, ok := TransactionResultData["failure_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																									var FailureConditionsResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel
 																									for _, FailureConditionsItem := range rawList {
@@ -29549,11 +29833,12 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																											})
 																										}
 																									}
-																									return FailureConditionsResult
+																									listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes}, FailureConditionsResult)
+																									return listVal
 																								}
-																								return nil
+																								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes})
 																							}(),
-																							SuccessConditions: func() []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel {
+																							SuccessConditions: func() types.List {
 																								if rawList, ok := TransactionResultData["success_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																									var SuccessConditionsResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel
 																									for _, SuccessConditionsItem := range rawList {
@@ -29587,9 +29872,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																											})
 																										}
 																									}
-																									return SuccessConditionsResult
+																									listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModelAttrTypes}, SuccessConditionsResult)
+																									return listVal
 																								}
-																								return nil
+																								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModelAttrTypes})
 																							}(),
 																						}
 																					}
@@ -29798,7 +30084,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												}
 												return nil
 											}(),
-											Headers: func() []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsHeadersModel {
+											Headers: func() types.List {
 												if rawList, ok := ProtectedAppEndpointsItemMap["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsHeadersModel
 													for _, HeadersItem := range rawList {
@@ -29877,9 +30163,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															})
 														}
 													}
-													return HeadersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsHeadersModelAttrTypes}, HeadersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsHeadersModelAttrTypes})
 											}(),
 											HTTPMethods: func() types.List {
 												if v, ok := ProtectedAppEndpointsItemMap["http_methods"].([]interface{}); ok && len(v) > 0 {
@@ -30027,7 +30314,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												}
 												return types.StringNull()
 											}(),
-											QueryParams: func() []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsQueryParamsModel {
+											QueryParams: func() types.List {
 												if rawList, ok := ProtectedAppEndpointsItemMap["query_params"].([]interface{}); ok && len(rawList) > 0 {
 													var QueryParamsResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsQueryParamsModel
 													for _, QueryParamsItem := range rawList {
@@ -30106,9 +30393,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															})
 														}
 													}
-													return QueryParamsResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsQueryParamsModelAttrTypes}, QueryParamsResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsQueryParamsModelAttrTypes})
 											}(),
 											UndefinedFlowLabel: func() *CDNLoadBalancerEmptyModel {
 												if _, ok := ProtectedAppEndpointsItemMap["undefined_flow_label"].(map[string]interface{}); ok {
@@ -30138,9 +30426,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										})
 									}
 								}
-								return ProtectedAppEndpointsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModelAttrTypes}, ProtectedAppEndpointsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModelAttrTypes})
 						}(),
 					}
 				}
@@ -30205,7 +30494,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 						JsInsertAllPagesExcept: func() *CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptModel {
 							if JsInsertAllPagesExceptData, ok := PolicyData["js_insert_all_pages_except"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptModel{
-									ExcludeList: func() []CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModel {
+									ExcludeList: func() types.List {
 										if rawList, ok := JsInsertAllPagesExceptData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModel
 											for _, ExcludeListItem := range rawList {
@@ -30289,9 +30578,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 													})
 												}
 											}
-											return ExcludeListResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModelAttrTypes}, ExcludeListResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModelAttrTypes})
 									}(),
 								}
 							}
@@ -30300,7 +30590,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 						JsInsertionRules: func() *CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesModel {
 							if JsInsertionRulesData, ok := PolicyData["js_insertion_rules"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesModel{
-									ExcludeList: func() []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModel {
+									ExcludeList: func() types.List {
 										if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModel
 											for _, ExcludeListItem := range rawList {
@@ -30384,11 +30674,12 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 													})
 												}
 											}
-											return ExcludeListResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModelAttrTypes}, ExcludeListResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModelAttrTypes})
 									}(),
-									Rules: func() []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModel {
+									Rules: func() types.List {
 										if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 											var RulesResult []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModel
 											for _, RulesItem := range rawList {
@@ -30472,9 +30763,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 													})
 												}
 											}
-											return RulesResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModelAttrTypes}, RulesResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModelAttrTypes})
 									}(),
 								}
 							}
@@ -31003,7 +31295,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 						APICrawlerConfig: func() *CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModel {
 							if APICrawlerConfigData, ok := APICrawlerData["api_crawler_config"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModel{
-									Domains: func() []CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel {
+									Domains: func() types.List {
 										if rawList, ok := APICrawlerConfigData["domains"].([]interface{}); ok && len(rawList) > 0 {
 											var DomainsResult []CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel
 											for _, DomainsItem := range rawList {
@@ -31082,9 +31374,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 													})
 												}
 											}
-											return DomainsResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModelAttrTypes}, DomainsResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModelAttrTypes})
 									}(),
 								}
 							}
@@ -31774,7 +32067,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										}
 										return nil
 									}(),
-									TLSCertificates: func() []CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModel {
+									TLSCertificates: func() types.List {
 										if rawList, ok := TLSInlineParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var TLSCertificatesResult []CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModel
 											for _, TLSCertificatesItem := range rawList {
@@ -31878,9 +32171,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 													})
 												}
 											}
-											return TLSCertificatesResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModelAttrTypes}, TLSCertificatesResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModelAttrTypes})
 									}(),
 									TLSConfig: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSConfigModel {
 										if TLSConfigData, ok := TLSInlineParamsData["tls_config"].(map[string]interface{}); ok {
@@ -32440,9 +32734,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				}
 				return types.StringNull()
 			}(),
-			OriginServers: func() []CDNLoadBalancerOriginPoolOriginServersModel {
-				if !isImport && data.OriginPool != nil && len(data.OriginPool.OriginServers) == 0 {
-					return nil
+			OriginServers: func() types.List {
+				if !isImport && data.OriginPool != nil && (data.OriginPool.OriginServers.IsNull() || len(data.OriginPool.OriginServers.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOriginPoolOriginServersModelAttrTypes})
 				}
 				if rawList, ok := blockData["origin_servers"].([]interface{}); ok && len(rawList) > 0 {
 					var OriginServersResult []CDNLoadBalancerOriginPoolOriginServersModel
@@ -32490,9 +32784,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							})
 						}
 					}
-					return OriginServersResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerOriginPoolOriginServersModelAttrTypes}, OriginServersResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOriginPoolOriginServersModelAttrTypes})
 			}(),
 			PublicName: func() *CDNLoadBalancerOriginPoolPublicNameModel {
 				if !isImport && data.OriginPool != nil && data.OriginPool.PublicName != nil {
@@ -32630,7 +32925,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 						UseMtls: func() *CDNLoadBalancerOriginPoolUseTLSUseMtlsModel {
 							if UseMtlsData, ok := UseTLSData["use_mtls"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerOriginPoolUseTLSUseMtlsModel{
-									TLSCertificates: func() []CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModel {
+									TLSCertificates: func() types.List {
 										if rawList, ok := UseMtlsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var TLSCertificatesResult []CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModel
 											for _, TLSCertificatesItem := range rawList {
@@ -32734,9 +33029,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 													})
 												}
 											}
-											return TLSCertificatesResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModelAttrTypes}, TLSCertificatesResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModelAttrTypes})
 									}(),
 								}
 							}
@@ -32834,7 +33130,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				}
 				if HeaderOptionsData, ok := blockData["header_options"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerOtherSettingsHeaderOptionsModel{
-						RequestHeadersToAdd: func() []CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModel {
+						RequestHeadersToAdd: func() types.List {
 							if rawList, ok := HeaderOptionsData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var RequestHeadersToAddResult []CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModel
 								for _, RequestHeadersToAddItem := range rawList {
@@ -32912,9 +33208,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										})
 									}
 								}
-								return RequestHeadersToAddResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModelAttrTypes}, RequestHeadersToAddResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModelAttrTypes})
 						}(),
 						RequestHeadersToRemove: func() types.List {
 							if v, ok := HeaderOptionsData["request_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
@@ -32929,7 +33226,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							}
 							return types.ListNull(types.StringType)
 						}(),
-						ResponseHeadersToAdd: func() []CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModel {
+						ResponseHeadersToAdd: func() types.List {
 							if rawList, ok := HeaderOptionsData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var ResponseHeadersToAddResult []CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModel
 								for _, ResponseHeadersToAddItem := range rawList {
@@ -33007,9 +33304,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										})
 									}
 								}
-								return ResponseHeadersToAddResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModelAttrTypes}, ResponseHeadersToAddResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModelAttrTypes})
 						}(),
 						ResponseHeadersToRemove: func() types.List {
 							if v, ok := HeaderOptionsData["response_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
@@ -33272,7 +33570,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															}
 															return nil
 														}(),
-														ArgMatchers: func() []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModel {
+														ArgMatchers: func() types.List {
 															if rawList, ok := SpecData["arg_matchers"].([]interface{}); ok && len(rawList) > 0 {
 																var ArgMatchersResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModel
 																for _, ArgMatchersItem := range rawList {
@@ -33351,9 +33649,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																		})
 																	}
 																}
-																return ArgMatchersResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModelAttrTypes}, ArgMatchersResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModelAttrTypes})
 														}(),
 														AsnList: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnListModel {
 															if AsnListData, ok := SpecData["asn_list"].(map[string]interface{}); ok {
@@ -33492,7 +33791,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															}
 															return nil
 														}(),
-														CookieMatchers: func() []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModel {
+														CookieMatchers: func() types.List {
 															if rawList, ok := SpecData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 																var CookieMatchersResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModel
 																for _, CookieMatchersItem := range rawList {
@@ -33571,9 +33870,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																		})
 																	}
 																}
-																return CookieMatchersResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModelAttrTypes}, CookieMatchersResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModelAttrTypes})
 														}(),
 														DisableChallenge: func() *CDNLoadBalancerEmptyModel {
 															if _, ok := SpecData["disable_challenge"].(map[string]interface{}); ok {
@@ -33632,7 +33932,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															}
 															return types.StringNull()
 														}(),
-														Headers: func() []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModel {
+														Headers: func() types.List {
 															if rawList, ok := SpecData["headers"].([]interface{}); ok && len(rawList) > 0 {
 																var HeadersResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModel
 																for _, HeadersItem := range rawList {
@@ -33711,9 +34011,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																		})
 																	}
 																}
-																return HeadersResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModelAttrTypes}, HeadersResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModelAttrTypes})
 														}(),
 														HTTPMethod: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHTTPMethodModel {
 															if HTTPMethodData, ok := SpecData["http_method"].(map[string]interface{}); ok {
@@ -33902,7 +34203,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															}
 															return nil
 														}(),
-														QueryParams: func() []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModel {
+														QueryParams: func() types.List {
 															if rawList, ok := SpecData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 																var QueryParamsResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModel
 																for _, QueryParamsItem := range rawList {
@@ -33981,9 +34282,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																		})
 																	}
 																}
-																return QueryParamsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModelAttrTypes}, QueryParamsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModelAttrTypes})
 														}(),
 														TLSFingerprintMatcher: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecTLSFingerprintMatcherModel {
 															if TLSFingerprintMatcherData, ok := SpecData["tls_fingerprint_matcher"].(map[string]interface{}); ok {
@@ -34541,7 +34843,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 					HTTPHeader: func() *CDNLoadBalancerTrustedClientsHTTPHeaderModel {
 						if HTTPHeaderData, ok := itemMap["http_header"].(map[string]interface{}); ok {
 							return &CDNLoadBalancerTrustedClientsHTTPHeaderModel{
-								Headers: func() []CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModel {
+								Headers: func() types.List {
 									if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 										var HeadersResult []CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModel
 										for _, HeadersItem := range rawList {
@@ -34580,9 +34882,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												})
 											}
 										}
-										return HeadersResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModelAttrTypes}, HeadersResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModelAttrTypes})
 								}(),
 							}
 						}
@@ -34687,7 +34990,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				}
 				if WAFExclusionInlineRulesData, ok := blockData["waf_exclusion_inline_rules"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesModel{
-						Rules: func() []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModel {
+						Rules: func() types.List {
 							if rawList, ok := WAFExclusionInlineRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 								var RulesResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModel
 								for _, RulesItem := range rawList {
@@ -34708,7 +35011,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 											AppFirewallDetectionControl: func() *CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlModel {
 												if AppFirewallDetectionControlData, ok := RulesItemMap["app_firewall_detection_control"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlModel{
-														ExcludeAttackTypeContexts: func() []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel {
+														ExcludeAttackTypeContexts: func() types.List {
 															if rawList, ok := AppFirewallDetectionControlData["exclude_attack_type_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeAttackTypeContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel
 																for _, ExcludeAttackTypeContextsItem := range rawList {
@@ -34735,11 +35038,12 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																		})
 																	}
 																}
-																return ExcludeAttackTypeContextsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes}, ExcludeAttackTypeContextsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
 														}(),
-														ExcludeBotNameContexts: func() []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModel {
+														ExcludeBotNameContexts: func() types.List {
 															if rawList, ok := AppFirewallDetectionControlData["exclude_bot_name_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeBotNameContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModel
 																for _, ExcludeBotNameContextsItem := range rawList {
@@ -34754,11 +35058,12 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																		})
 																	}
 																}
-																return ExcludeBotNameContextsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes}, ExcludeBotNameContextsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
 														}(),
-														ExcludeSignatureContexts: func() []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModel {
+														ExcludeSignatureContexts: func() types.List {
 															if rawList, ok := AppFirewallDetectionControlData["exclude_signature_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeSignatureContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModel
 																for _, ExcludeSignatureContextsItem := range rawList {
@@ -34785,11 +35090,12 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																		})
 																	}
 																}
-																return ExcludeSignatureContextsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes}, ExcludeSignatureContextsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
 														}(),
-														ExcludeViolationContexts: func() []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModel {
+														ExcludeViolationContexts: func() types.List {
 															if rawList, ok := AppFirewallDetectionControlData["exclude_violation_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeViolationContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModel
 																for _, ExcludeViolationContextsItem := range rawList {
@@ -34816,9 +35122,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																		})
 																	}
 																}
-																return ExcludeViolationContextsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes}, ExcludeViolationContextsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes})
 														}(),
 													}
 												}
@@ -34895,9 +35202,10 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										})
 									}
 								}
-								return RulesResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModelAttrTypes}, RulesResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModelAttrTypes})
 						}(),
 					}
 				}
@@ -35242,185 +35550,205 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					}
 					if APIEndpointRulesItem.RequestMatcher != nil {
 						RequestMatcherMap := make(map[string]interface{})
-						if len(APIEndpointRulesItem.RequestMatcher.CookieMatchers) > 0 {
-							var CookieMatchersList []map[string]interface{}
-							for _, CookieMatchersItem := range APIEndpointRulesItem.RequestMatcher.CookieMatchers {
-								CookieMatchersItemMap := make(map[string]interface{})
-								if CookieMatchersItem.CheckNotPresent != nil {
-									CookieMatchersItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if CookieMatchersItem.CheckPresent != nil {
-									CookieMatchersItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !CookieMatchersItem.InvertMatcher.IsNull() && !CookieMatchersItem.InvertMatcher.IsUnknown() {
-									CookieMatchersItemMap["invert_matcher"] = CookieMatchersItem.InvertMatcher.ValueBool()
-								}
-								if CookieMatchersItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !APIEndpointRulesItem.RequestMatcher.CookieMatchers.IsNull() && !APIEndpointRulesItem.RequestMatcher.CookieMatchers.IsUnknown() {
+							var CookieMatchersElems []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModel
+							diags := APIEndpointRulesItem.RequestMatcher.CookieMatchers.ElementsAs(ctx, &CookieMatchersElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(CookieMatchersElems) > 0 {
+								var CookieMatchersList []map[string]interface{}
+								for _, CookieMatchersItem := range CookieMatchersElems {
+									CookieMatchersItemMap := make(map[string]interface{})
+									if CookieMatchersItem.CheckNotPresent != nil {
+										CookieMatchersItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if CookieMatchersItem.CheckPresent != nil {
+										CookieMatchersItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !CookieMatchersItem.InvertMatcher.IsNull() && !CookieMatchersItem.InvertMatcher.IsUnknown() {
+										CookieMatchersItemMap["invert_matcher"] = CookieMatchersItem.InvertMatcher.ValueBool()
 									}
-									CookieMatchersItemMap["item"] = ItemMap
+									if CookieMatchersItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										CookieMatchersItemMap["item"] = ItemMap
+									}
+									if !CookieMatchersItem.Name.IsNull() && !CookieMatchersItem.Name.IsUnknown() {
+										CookieMatchersItemMap["name"] = CookieMatchersItem.Name.ValueString()
+									}
+									CookieMatchersList = append(CookieMatchersList, CookieMatchersItemMap)
 								}
-								if !CookieMatchersItem.Name.IsNull() && !CookieMatchersItem.Name.IsUnknown() {
-									CookieMatchersItemMap["name"] = CookieMatchersItem.Name.ValueString()
-								}
-								CookieMatchersList = append(CookieMatchersList, CookieMatchersItemMap)
+								RequestMatcherMap["cookie_matchers"] = CookieMatchersList
 							}
-							RequestMatcherMap["cookie_matchers"] = CookieMatchersList
 						}
-						if len(APIEndpointRulesItem.RequestMatcher.Headers) > 0 {
-							var HeadersList []map[string]interface{}
-							for _, HeadersItem := range APIEndpointRulesItem.RequestMatcher.Headers {
-								HeadersItemMap := make(map[string]interface{})
-								if HeadersItem.CheckNotPresent != nil {
-									HeadersItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if HeadersItem.CheckPresent != nil {
-									HeadersItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
-									HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
-								}
-								if HeadersItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !APIEndpointRulesItem.RequestMatcher.Headers.IsNull() && !APIEndpointRulesItem.RequestMatcher.Headers.IsUnknown() {
+							var HeadersElems []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModel
+							diags := APIEndpointRulesItem.RequestMatcher.Headers.ElementsAs(ctx, &HeadersElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+								var HeadersList []map[string]interface{}
+								for _, HeadersItem := range HeadersElems {
+									HeadersItemMap := make(map[string]interface{})
+									if HeadersItem.CheckNotPresent != nil {
+										HeadersItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if HeadersItem.CheckPresent != nil {
+										HeadersItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
+										HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
 									}
-									HeadersItemMap["item"] = ItemMap
+									if HeadersItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										HeadersItemMap["item"] = ItemMap
+									}
+									if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+										HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+									}
+									HeadersList = append(HeadersList, HeadersItemMap)
 								}
-								if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-									HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-								}
-								HeadersList = append(HeadersList, HeadersItemMap)
+								RequestMatcherMap["headers"] = HeadersList
 							}
-							RequestMatcherMap["headers"] = HeadersList
 						}
-						if len(APIEndpointRulesItem.RequestMatcher.JWTClaims) > 0 {
-							var JWTClaimsList []map[string]interface{}
-							for _, JWTClaimsItem := range APIEndpointRulesItem.RequestMatcher.JWTClaims {
-								JWTClaimsItemMap := make(map[string]interface{})
-								if JWTClaimsItem.CheckNotPresent != nil {
-									JWTClaimsItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if JWTClaimsItem.CheckPresent != nil {
-									JWTClaimsItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !JWTClaimsItem.InvertMatcher.IsNull() && !JWTClaimsItem.InvertMatcher.IsUnknown() {
-									JWTClaimsItemMap["invert_matcher"] = JWTClaimsItem.InvertMatcher.ValueBool()
-								}
-								if JWTClaimsItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !APIEndpointRulesItem.RequestMatcher.JWTClaims.IsNull() && !APIEndpointRulesItem.RequestMatcher.JWTClaims.IsUnknown() {
+							var JWTClaimsElems []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModel
+							diags := APIEndpointRulesItem.RequestMatcher.JWTClaims.ElementsAs(ctx, &JWTClaimsElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(JWTClaimsElems) > 0 {
+								var JWTClaimsList []map[string]interface{}
+								for _, JWTClaimsItem := range JWTClaimsElems {
+									JWTClaimsItemMap := make(map[string]interface{})
+									if JWTClaimsItem.CheckNotPresent != nil {
+										JWTClaimsItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if JWTClaimsItem.CheckPresent != nil {
+										JWTClaimsItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !JWTClaimsItem.InvertMatcher.IsNull() && !JWTClaimsItem.InvertMatcher.IsUnknown() {
+										JWTClaimsItemMap["invert_matcher"] = JWTClaimsItem.InvertMatcher.ValueBool()
 									}
-									JWTClaimsItemMap["item"] = ItemMap
+									if JWTClaimsItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										JWTClaimsItemMap["item"] = ItemMap
+									}
+									if !JWTClaimsItem.Name.IsNull() && !JWTClaimsItem.Name.IsUnknown() {
+										JWTClaimsItemMap["name"] = JWTClaimsItem.Name.ValueString()
+									}
+									JWTClaimsList = append(JWTClaimsList, JWTClaimsItemMap)
 								}
-								if !JWTClaimsItem.Name.IsNull() && !JWTClaimsItem.Name.IsUnknown() {
-									JWTClaimsItemMap["name"] = JWTClaimsItem.Name.ValueString()
-								}
-								JWTClaimsList = append(JWTClaimsList, JWTClaimsItemMap)
+								RequestMatcherMap["jwt_claims"] = JWTClaimsList
 							}
-							RequestMatcherMap["jwt_claims"] = JWTClaimsList
 						}
-						if len(APIEndpointRulesItem.RequestMatcher.QueryParams) > 0 {
-							var QueryParamsList []map[string]interface{}
-							for _, QueryParamsItem := range APIEndpointRulesItem.RequestMatcher.QueryParams {
-								QueryParamsItemMap := make(map[string]interface{})
-								if QueryParamsItem.CheckNotPresent != nil {
-									QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if QueryParamsItem.CheckPresent != nil {
-									QueryParamsItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
-									QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
-								}
-								if QueryParamsItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !APIEndpointRulesItem.RequestMatcher.QueryParams.IsNull() && !APIEndpointRulesItem.RequestMatcher.QueryParams.IsUnknown() {
+							var QueryParamsElems []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModel
+							diags := APIEndpointRulesItem.RequestMatcher.QueryParams.ElementsAs(ctx, &QueryParamsElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(QueryParamsElems) > 0 {
+								var QueryParamsList []map[string]interface{}
+								for _, QueryParamsItem := range QueryParamsElems {
+									QueryParamsItemMap := make(map[string]interface{})
+									if QueryParamsItem.CheckNotPresent != nil {
+										QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if QueryParamsItem.CheckPresent != nil {
+										QueryParamsItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
+										QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
 									}
-									QueryParamsItemMap["item"] = ItemMap
+									if QueryParamsItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										QueryParamsItemMap["item"] = ItemMap
+									}
+									if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
+										QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
+									}
+									QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
 								}
-								if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
-									QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
-								}
-								QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
+								RequestMatcherMap["query_params"] = QueryParamsList
 							}
-							RequestMatcherMap["query_params"] = QueryParamsList
 						}
 						APIEndpointRulesItemMap["request_matcher"] = RequestMatcherMap
 					}
@@ -35627,185 +35955,205 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						}
 						if BypassRateLimitingRulesItem.RequestMatcher != nil {
 							RequestMatcherMap := make(map[string]interface{})
-							if len(BypassRateLimitingRulesItem.RequestMatcher.CookieMatchers) > 0 {
-								var CookieMatchersList []map[string]interface{}
-								for _, CookieMatchersItem := range BypassRateLimitingRulesItem.RequestMatcher.CookieMatchers {
-									CookieMatchersItemMap := make(map[string]interface{})
-									if CookieMatchersItem.CheckNotPresent != nil {
-										CookieMatchersItemMap["check_not_present"] = map[string]interface{}{}
-									}
-									if CookieMatchersItem.CheckPresent != nil {
-										CookieMatchersItemMap["check_present"] = map[string]interface{}{}
-									}
-									if !CookieMatchersItem.InvertMatcher.IsNull() && !CookieMatchersItem.InvertMatcher.IsUnknown() {
-										CookieMatchersItemMap["invert_matcher"] = CookieMatchersItem.InvertMatcher.ValueBool()
-									}
-									if CookieMatchersItem.Item != nil {
-										ItemMap := make(map[string]interface{})
-										if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
-											var ExactValuesItems []string
-											diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["exact_values"] = ExactValuesItems
-											}
+							if !BypassRateLimitingRulesItem.RequestMatcher.CookieMatchers.IsNull() && !BypassRateLimitingRulesItem.RequestMatcher.CookieMatchers.IsUnknown() {
+								var CookieMatchersElems []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModel
+								diags := BypassRateLimitingRulesItem.RequestMatcher.CookieMatchers.ElementsAs(ctx, &CookieMatchersElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(CookieMatchersElems) > 0 {
+									var CookieMatchersList []map[string]interface{}
+									for _, CookieMatchersItem := range CookieMatchersElems {
+										CookieMatchersItemMap := make(map[string]interface{})
+										if CookieMatchersItem.CheckNotPresent != nil {
+											CookieMatchersItemMap["check_not_present"] = map[string]interface{}{}
 										}
-										if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
-											var RegexValuesItems []string
-											diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["regex_values"] = RegexValuesItems
-											}
+										if CookieMatchersItem.CheckPresent != nil {
+											CookieMatchersItemMap["check_present"] = map[string]interface{}{}
 										}
-										if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
-											var TransformersItems []string
-											diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-											if !diags.HasError() {
-												ItemMap["transformers"] = TransformersItems
-											}
+										if !CookieMatchersItem.InvertMatcher.IsNull() && !CookieMatchersItem.InvertMatcher.IsUnknown() {
+											CookieMatchersItemMap["invert_matcher"] = CookieMatchersItem.InvertMatcher.ValueBool()
 										}
-										CookieMatchersItemMap["item"] = ItemMap
+										if CookieMatchersItem.Item != nil {
+											ItemMap := make(map[string]interface{})
+											if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
+												var ExactValuesItems []string
+												diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["exact_values"] = ExactValuesItems
+												}
+											}
+											if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
+												var RegexValuesItems []string
+												diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["regex_values"] = RegexValuesItems
+												}
+											}
+											if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
+												var TransformersItems []string
+												diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												if !diags.HasError() {
+													ItemMap["transformers"] = TransformersItems
+												}
+											}
+											CookieMatchersItemMap["item"] = ItemMap
+										}
+										if !CookieMatchersItem.Name.IsNull() && !CookieMatchersItem.Name.IsUnknown() {
+											CookieMatchersItemMap["name"] = CookieMatchersItem.Name.ValueString()
+										}
+										CookieMatchersList = append(CookieMatchersList, CookieMatchersItemMap)
 									}
-									if !CookieMatchersItem.Name.IsNull() && !CookieMatchersItem.Name.IsUnknown() {
-										CookieMatchersItemMap["name"] = CookieMatchersItem.Name.ValueString()
-									}
-									CookieMatchersList = append(CookieMatchersList, CookieMatchersItemMap)
+									RequestMatcherMap["cookie_matchers"] = CookieMatchersList
 								}
-								RequestMatcherMap["cookie_matchers"] = CookieMatchersList
 							}
-							if len(BypassRateLimitingRulesItem.RequestMatcher.Headers) > 0 {
-								var HeadersList []map[string]interface{}
-								for _, HeadersItem := range BypassRateLimitingRulesItem.RequestMatcher.Headers {
-									HeadersItemMap := make(map[string]interface{})
-									if HeadersItem.CheckNotPresent != nil {
-										HeadersItemMap["check_not_present"] = map[string]interface{}{}
-									}
-									if HeadersItem.CheckPresent != nil {
-										HeadersItemMap["check_present"] = map[string]interface{}{}
-									}
-									if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
-										HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
-									}
-									if HeadersItem.Item != nil {
-										ItemMap := make(map[string]interface{})
-										if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
-											var ExactValuesItems []string
-											diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["exact_values"] = ExactValuesItems
-											}
+							if !BypassRateLimitingRulesItem.RequestMatcher.Headers.IsNull() && !BypassRateLimitingRulesItem.RequestMatcher.Headers.IsUnknown() {
+								var HeadersElems []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModel
+								diags := BypassRateLimitingRulesItem.RequestMatcher.Headers.ElementsAs(ctx, &HeadersElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+									var HeadersList []map[string]interface{}
+									for _, HeadersItem := range HeadersElems {
+										HeadersItemMap := make(map[string]interface{})
+										if HeadersItem.CheckNotPresent != nil {
+											HeadersItemMap["check_not_present"] = map[string]interface{}{}
 										}
-										if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
-											var RegexValuesItems []string
-											diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["regex_values"] = RegexValuesItems
-											}
+										if HeadersItem.CheckPresent != nil {
+											HeadersItemMap["check_present"] = map[string]interface{}{}
 										}
-										if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
-											var TransformersItems []string
-											diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-											if !diags.HasError() {
-												ItemMap["transformers"] = TransformersItems
-											}
+										if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
+											HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
 										}
-										HeadersItemMap["item"] = ItemMap
+										if HeadersItem.Item != nil {
+											ItemMap := make(map[string]interface{})
+											if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
+												var ExactValuesItems []string
+												diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["exact_values"] = ExactValuesItems
+												}
+											}
+											if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
+												var RegexValuesItems []string
+												diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["regex_values"] = RegexValuesItems
+												}
+											}
+											if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
+												var TransformersItems []string
+												diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												if !diags.HasError() {
+													ItemMap["transformers"] = TransformersItems
+												}
+											}
+											HeadersItemMap["item"] = ItemMap
+										}
+										if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+											HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+										}
+										HeadersList = append(HeadersList, HeadersItemMap)
 									}
-									if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-										HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-									}
-									HeadersList = append(HeadersList, HeadersItemMap)
+									RequestMatcherMap["headers"] = HeadersList
 								}
-								RequestMatcherMap["headers"] = HeadersList
 							}
-							if len(BypassRateLimitingRulesItem.RequestMatcher.JWTClaims) > 0 {
-								var JWTClaimsList []map[string]interface{}
-								for _, JWTClaimsItem := range BypassRateLimitingRulesItem.RequestMatcher.JWTClaims {
-									JWTClaimsItemMap := make(map[string]interface{})
-									if JWTClaimsItem.CheckNotPresent != nil {
-										JWTClaimsItemMap["check_not_present"] = map[string]interface{}{}
-									}
-									if JWTClaimsItem.CheckPresent != nil {
-										JWTClaimsItemMap["check_present"] = map[string]interface{}{}
-									}
-									if !JWTClaimsItem.InvertMatcher.IsNull() && !JWTClaimsItem.InvertMatcher.IsUnknown() {
-										JWTClaimsItemMap["invert_matcher"] = JWTClaimsItem.InvertMatcher.ValueBool()
-									}
-									if JWTClaimsItem.Item != nil {
-										ItemMap := make(map[string]interface{})
-										if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
-											var ExactValuesItems []string
-											diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["exact_values"] = ExactValuesItems
-											}
+							if !BypassRateLimitingRulesItem.RequestMatcher.JWTClaims.IsNull() && !BypassRateLimitingRulesItem.RequestMatcher.JWTClaims.IsUnknown() {
+								var JWTClaimsElems []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModel
+								diags := BypassRateLimitingRulesItem.RequestMatcher.JWTClaims.ElementsAs(ctx, &JWTClaimsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(JWTClaimsElems) > 0 {
+									var JWTClaimsList []map[string]interface{}
+									for _, JWTClaimsItem := range JWTClaimsElems {
+										JWTClaimsItemMap := make(map[string]interface{})
+										if JWTClaimsItem.CheckNotPresent != nil {
+											JWTClaimsItemMap["check_not_present"] = map[string]interface{}{}
 										}
-										if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
-											var RegexValuesItems []string
-											diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["regex_values"] = RegexValuesItems
-											}
+										if JWTClaimsItem.CheckPresent != nil {
+											JWTClaimsItemMap["check_present"] = map[string]interface{}{}
 										}
-										if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
-											var TransformersItems []string
-											diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-											if !diags.HasError() {
-												ItemMap["transformers"] = TransformersItems
-											}
+										if !JWTClaimsItem.InvertMatcher.IsNull() && !JWTClaimsItem.InvertMatcher.IsUnknown() {
+											JWTClaimsItemMap["invert_matcher"] = JWTClaimsItem.InvertMatcher.ValueBool()
 										}
-										JWTClaimsItemMap["item"] = ItemMap
+										if JWTClaimsItem.Item != nil {
+											ItemMap := make(map[string]interface{})
+											if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
+												var ExactValuesItems []string
+												diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["exact_values"] = ExactValuesItems
+												}
+											}
+											if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
+												var RegexValuesItems []string
+												diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["regex_values"] = RegexValuesItems
+												}
+											}
+											if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
+												var TransformersItems []string
+												diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												if !diags.HasError() {
+													ItemMap["transformers"] = TransformersItems
+												}
+											}
+											JWTClaimsItemMap["item"] = ItemMap
+										}
+										if !JWTClaimsItem.Name.IsNull() && !JWTClaimsItem.Name.IsUnknown() {
+											JWTClaimsItemMap["name"] = JWTClaimsItem.Name.ValueString()
+										}
+										JWTClaimsList = append(JWTClaimsList, JWTClaimsItemMap)
 									}
-									if !JWTClaimsItem.Name.IsNull() && !JWTClaimsItem.Name.IsUnknown() {
-										JWTClaimsItemMap["name"] = JWTClaimsItem.Name.ValueString()
-									}
-									JWTClaimsList = append(JWTClaimsList, JWTClaimsItemMap)
+									RequestMatcherMap["jwt_claims"] = JWTClaimsList
 								}
-								RequestMatcherMap["jwt_claims"] = JWTClaimsList
 							}
-							if len(BypassRateLimitingRulesItem.RequestMatcher.QueryParams) > 0 {
-								var QueryParamsList []map[string]interface{}
-								for _, QueryParamsItem := range BypassRateLimitingRulesItem.RequestMatcher.QueryParams {
-									QueryParamsItemMap := make(map[string]interface{})
-									if QueryParamsItem.CheckNotPresent != nil {
-										QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
-									}
-									if QueryParamsItem.CheckPresent != nil {
-										QueryParamsItemMap["check_present"] = map[string]interface{}{}
-									}
-									if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
-										QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
-									}
-									if QueryParamsItem.Item != nil {
-										ItemMap := make(map[string]interface{})
-										if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
-											var ExactValuesItems []string
-											diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["exact_values"] = ExactValuesItems
-											}
+							if !BypassRateLimitingRulesItem.RequestMatcher.QueryParams.IsNull() && !BypassRateLimitingRulesItem.RequestMatcher.QueryParams.IsUnknown() {
+								var QueryParamsElems []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModel
+								diags := BypassRateLimitingRulesItem.RequestMatcher.QueryParams.ElementsAs(ctx, &QueryParamsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(QueryParamsElems) > 0 {
+									var QueryParamsList []map[string]interface{}
+									for _, QueryParamsItem := range QueryParamsElems {
+										QueryParamsItemMap := make(map[string]interface{})
+										if QueryParamsItem.CheckNotPresent != nil {
+											QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
 										}
-										if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
-											var RegexValuesItems []string
-											diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["regex_values"] = RegexValuesItems
-											}
+										if QueryParamsItem.CheckPresent != nil {
+											QueryParamsItemMap["check_present"] = map[string]interface{}{}
 										}
-										if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
-											var TransformersItems []string
-											diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-											if !diags.HasError() {
-												ItemMap["transformers"] = TransformersItems
-											}
+										if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
+											QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
 										}
-										QueryParamsItemMap["item"] = ItemMap
+										if QueryParamsItem.Item != nil {
+											ItemMap := make(map[string]interface{})
+											if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
+												var ExactValuesItems []string
+												diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["exact_values"] = ExactValuesItems
+												}
+											}
+											if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
+												var RegexValuesItems []string
+												diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["regex_values"] = RegexValuesItems
+												}
+											}
+											if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
+												var TransformersItems []string
+												diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												if !diags.HasError() {
+													ItemMap["transformers"] = TransformersItems
+												}
+											}
+											QueryParamsItemMap["item"] = ItemMap
+										}
+										if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
+											QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
+										}
+										QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
 									}
-									if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
-										QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
-									}
-									QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
+									RequestMatcherMap["query_params"] = QueryParamsList
 								}
-								RequestMatcherMap["query_params"] = QueryParamsList
 							}
 							BypassRateLimitingRulesItemMap["request_matcher"] = RequestMatcherMap
 						}
@@ -36066,185 +36414,205 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					}
 					if ServerURLRulesItem.RequestMatcher != nil {
 						RequestMatcherMap := make(map[string]interface{})
-						if len(ServerURLRulesItem.RequestMatcher.CookieMatchers) > 0 {
-							var CookieMatchersList []map[string]interface{}
-							for _, CookieMatchersItem := range ServerURLRulesItem.RequestMatcher.CookieMatchers {
-								CookieMatchersItemMap := make(map[string]interface{})
-								if CookieMatchersItem.CheckNotPresent != nil {
-									CookieMatchersItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if CookieMatchersItem.CheckPresent != nil {
-									CookieMatchersItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !CookieMatchersItem.InvertMatcher.IsNull() && !CookieMatchersItem.InvertMatcher.IsUnknown() {
-									CookieMatchersItemMap["invert_matcher"] = CookieMatchersItem.InvertMatcher.ValueBool()
-								}
-								if CookieMatchersItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !ServerURLRulesItem.RequestMatcher.CookieMatchers.IsNull() && !ServerURLRulesItem.RequestMatcher.CookieMatchers.IsUnknown() {
+							var CookieMatchersElems []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModel
+							diags := ServerURLRulesItem.RequestMatcher.CookieMatchers.ElementsAs(ctx, &CookieMatchersElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(CookieMatchersElems) > 0 {
+								var CookieMatchersList []map[string]interface{}
+								for _, CookieMatchersItem := range CookieMatchersElems {
+									CookieMatchersItemMap := make(map[string]interface{})
+									if CookieMatchersItem.CheckNotPresent != nil {
+										CookieMatchersItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if CookieMatchersItem.CheckPresent != nil {
+										CookieMatchersItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !CookieMatchersItem.InvertMatcher.IsNull() && !CookieMatchersItem.InvertMatcher.IsUnknown() {
+										CookieMatchersItemMap["invert_matcher"] = CookieMatchersItem.InvertMatcher.ValueBool()
 									}
-									CookieMatchersItemMap["item"] = ItemMap
+									if CookieMatchersItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										CookieMatchersItemMap["item"] = ItemMap
+									}
+									if !CookieMatchersItem.Name.IsNull() && !CookieMatchersItem.Name.IsUnknown() {
+										CookieMatchersItemMap["name"] = CookieMatchersItem.Name.ValueString()
+									}
+									CookieMatchersList = append(CookieMatchersList, CookieMatchersItemMap)
 								}
-								if !CookieMatchersItem.Name.IsNull() && !CookieMatchersItem.Name.IsUnknown() {
-									CookieMatchersItemMap["name"] = CookieMatchersItem.Name.ValueString()
-								}
-								CookieMatchersList = append(CookieMatchersList, CookieMatchersItemMap)
+								RequestMatcherMap["cookie_matchers"] = CookieMatchersList
 							}
-							RequestMatcherMap["cookie_matchers"] = CookieMatchersList
 						}
-						if len(ServerURLRulesItem.RequestMatcher.Headers) > 0 {
-							var HeadersList []map[string]interface{}
-							for _, HeadersItem := range ServerURLRulesItem.RequestMatcher.Headers {
-								HeadersItemMap := make(map[string]interface{})
-								if HeadersItem.CheckNotPresent != nil {
-									HeadersItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if HeadersItem.CheckPresent != nil {
-									HeadersItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
-									HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
-								}
-								if HeadersItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !ServerURLRulesItem.RequestMatcher.Headers.IsNull() && !ServerURLRulesItem.RequestMatcher.Headers.IsUnknown() {
+							var HeadersElems []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModel
+							diags := ServerURLRulesItem.RequestMatcher.Headers.ElementsAs(ctx, &HeadersElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+								var HeadersList []map[string]interface{}
+								for _, HeadersItem := range HeadersElems {
+									HeadersItemMap := make(map[string]interface{})
+									if HeadersItem.CheckNotPresent != nil {
+										HeadersItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if HeadersItem.CheckPresent != nil {
+										HeadersItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
+										HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
 									}
-									HeadersItemMap["item"] = ItemMap
+									if HeadersItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										HeadersItemMap["item"] = ItemMap
+									}
+									if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+										HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+									}
+									HeadersList = append(HeadersList, HeadersItemMap)
 								}
-								if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-									HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-								}
-								HeadersList = append(HeadersList, HeadersItemMap)
+								RequestMatcherMap["headers"] = HeadersList
 							}
-							RequestMatcherMap["headers"] = HeadersList
 						}
-						if len(ServerURLRulesItem.RequestMatcher.JWTClaims) > 0 {
-							var JWTClaimsList []map[string]interface{}
-							for _, JWTClaimsItem := range ServerURLRulesItem.RequestMatcher.JWTClaims {
-								JWTClaimsItemMap := make(map[string]interface{})
-								if JWTClaimsItem.CheckNotPresent != nil {
-									JWTClaimsItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if JWTClaimsItem.CheckPresent != nil {
-									JWTClaimsItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !JWTClaimsItem.InvertMatcher.IsNull() && !JWTClaimsItem.InvertMatcher.IsUnknown() {
-									JWTClaimsItemMap["invert_matcher"] = JWTClaimsItem.InvertMatcher.ValueBool()
-								}
-								if JWTClaimsItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !ServerURLRulesItem.RequestMatcher.JWTClaims.IsNull() && !ServerURLRulesItem.RequestMatcher.JWTClaims.IsUnknown() {
+							var JWTClaimsElems []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModel
+							diags := ServerURLRulesItem.RequestMatcher.JWTClaims.ElementsAs(ctx, &JWTClaimsElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(JWTClaimsElems) > 0 {
+								var JWTClaimsList []map[string]interface{}
+								for _, JWTClaimsItem := range JWTClaimsElems {
+									JWTClaimsItemMap := make(map[string]interface{})
+									if JWTClaimsItem.CheckNotPresent != nil {
+										JWTClaimsItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if JWTClaimsItem.CheckPresent != nil {
+										JWTClaimsItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !JWTClaimsItem.InvertMatcher.IsNull() && !JWTClaimsItem.InvertMatcher.IsUnknown() {
+										JWTClaimsItemMap["invert_matcher"] = JWTClaimsItem.InvertMatcher.ValueBool()
 									}
-									JWTClaimsItemMap["item"] = ItemMap
+									if JWTClaimsItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										JWTClaimsItemMap["item"] = ItemMap
+									}
+									if !JWTClaimsItem.Name.IsNull() && !JWTClaimsItem.Name.IsUnknown() {
+										JWTClaimsItemMap["name"] = JWTClaimsItem.Name.ValueString()
+									}
+									JWTClaimsList = append(JWTClaimsList, JWTClaimsItemMap)
 								}
-								if !JWTClaimsItem.Name.IsNull() && !JWTClaimsItem.Name.IsUnknown() {
-									JWTClaimsItemMap["name"] = JWTClaimsItem.Name.ValueString()
-								}
-								JWTClaimsList = append(JWTClaimsList, JWTClaimsItemMap)
+								RequestMatcherMap["jwt_claims"] = JWTClaimsList
 							}
-							RequestMatcherMap["jwt_claims"] = JWTClaimsList
 						}
-						if len(ServerURLRulesItem.RequestMatcher.QueryParams) > 0 {
-							var QueryParamsList []map[string]interface{}
-							for _, QueryParamsItem := range ServerURLRulesItem.RequestMatcher.QueryParams {
-								QueryParamsItemMap := make(map[string]interface{})
-								if QueryParamsItem.CheckNotPresent != nil {
-									QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if QueryParamsItem.CheckPresent != nil {
-									QueryParamsItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
-									QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
-								}
-								if QueryParamsItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !ServerURLRulesItem.RequestMatcher.QueryParams.IsNull() && !ServerURLRulesItem.RequestMatcher.QueryParams.IsUnknown() {
+							var QueryParamsElems []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModel
+							diags := ServerURLRulesItem.RequestMatcher.QueryParams.ElementsAs(ctx, &QueryParamsElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(QueryParamsElems) > 0 {
+								var QueryParamsList []map[string]interface{}
+								for _, QueryParamsItem := range QueryParamsElems {
+									QueryParamsItemMap := make(map[string]interface{})
+									if QueryParamsItem.CheckNotPresent != nil {
+										QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if QueryParamsItem.CheckPresent != nil {
+										QueryParamsItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
+										QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
 									}
-									QueryParamsItemMap["item"] = ItemMap
+									if QueryParamsItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										QueryParamsItemMap["item"] = ItemMap
+									}
+									if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
+										QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
+									}
+									QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
 								}
-								if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
-									QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
-								}
-								QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
+								RequestMatcherMap["query_params"] = QueryParamsList
 							}
-							RequestMatcherMap["query_params"] = QueryParamsList
 						}
 						ServerURLRulesItemMap["request_matcher"] = RequestMatcherMap
 					}
@@ -36282,52 +36650,57 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				}
 				if data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom != nil {
 					FallThroughModeCustomMap := make(map[string]interface{})
-					if len(data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules) > 0 {
-						var OpenAPIValidationRulesList []map[string]interface{}
-						for _, OpenAPIValidationRulesItem := range data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules {
-							OpenAPIValidationRulesItemMap := make(map[string]interface{})
-							if OpenAPIValidationRulesItem.ActionBlock != nil {
-								OpenAPIValidationRulesItemMap["action_block"] = map[string]interface{}{}
-							}
-							if OpenAPIValidationRulesItem.ActionReport != nil {
-								OpenAPIValidationRulesItemMap["action_report"] = map[string]interface{}{}
-							}
-							if OpenAPIValidationRulesItem.ActionSkip != nil {
-								OpenAPIValidationRulesItemMap["action_skip"] = map[string]interface{}{}
-							}
-							if OpenAPIValidationRulesItem.APIEndpoint != nil {
-								APIEndpointMap := make(map[string]interface{})
-								if !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsUnknown() {
-									var MethodsItems []string
-									diags := OpenAPIValidationRulesItem.APIEndpoint.Methods.ElementsAs(ctx, &MethodsItems, false)
-									if !diags.HasError() {
-										APIEndpointMap["methods"] = MethodsItems
+					if !data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsNull() && !data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsUnknown() {
+						var OpenAPIValidationRulesElems []CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
+						diags := data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.ElementsAs(ctx, &OpenAPIValidationRulesElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(OpenAPIValidationRulesElems) > 0 {
+							var OpenAPIValidationRulesList []map[string]interface{}
+							for _, OpenAPIValidationRulesItem := range OpenAPIValidationRulesElems {
+								OpenAPIValidationRulesItemMap := make(map[string]interface{})
+								if OpenAPIValidationRulesItem.ActionBlock != nil {
+									OpenAPIValidationRulesItemMap["action_block"] = map[string]interface{}{}
+								}
+								if OpenAPIValidationRulesItem.ActionReport != nil {
+									OpenAPIValidationRulesItemMap["action_report"] = map[string]interface{}{}
+								}
+								if OpenAPIValidationRulesItem.ActionSkip != nil {
+									OpenAPIValidationRulesItemMap["action_skip"] = map[string]interface{}{}
+								}
+								if OpenAPIValidationRulesItem.APIEndpoint != nil {
+									APIEndpointMap := make(map[string]interface{})
+									if !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsUnknown() {
+										var MethodsItems []string
+										diags := OpenAPIValidationRulesItem.APIEndpoint.Methods.ElementsAs(ctx, &MethodsItems, false)
+										if !diags.HasError() {
+											APIEndpointMap["methods"] = MethodsItems
+										}
 									}
+									if !OpenAPIValidationRulesItem.APIEndpoint.Path.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Path.IsUnknown() {
+										APIEndpointMap["path"] = OpenAPIValidationRulesItem.APIEndpoint.Path.ValueString()
+									}
+									OpenAPIValidationRulesItemMap["api_endpoint"] = APIEndpointMap
 								}
-								if !OpenAPIValidationRulesItem.APIEndpoint.Path.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Path.IsUnknown() {
-									APIEndpointMap["path"] = OpenAPIValidationRulesItem.APIEndpoint.Path.ValueString()
+								if !OpenAPIValidationRulesItem.APIGroup.IsNull() && !OpenAPIValidationRulesItem.APIGroup.IsUnknown() {
+									OpenAPIValidationRulesItemMap["api_group"] = OpenAPIValidationRulesItem.APIGroup.ValueString()
 								}
-								OpenAPIValidationRulesItemMap["api_endpoint"] = APIEndpointMap
-							}
-							if !OpenAPIValidationRulesItem.APIGroup.IsNull() && !OpenAPIValidationRulesItem.APIGroup.IsUnknown() {
-								OpenAPIValidationRulesItemMap["api_group"] = OpenAPIValidationRulesItem.APIGroup.ValueString()
-							}
-							if !OpenAPIValidationRulesItem.BasePath.IsNull() && !OpenAPIValidationRulesItem.BasePath.IsUnknown() {
-								OpenAPIValidationRulesItemMap["base_path"] = OpenAPIValidationRulesItem.BasePath.ValueString()
-							}
-							if OpenAPIValidationRulesItem.Metadata != nil {
-								MetadataMap := make(map[string]interface{})
-								if !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsNull() && !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsUnknown() {
-									MetadataMap["description"] = OpenAPIValidationRulesItem.Metadata.DescriptionSpec.ValueString()
+								if !OpenAPIValidationRulesItem.BasePath.IsNull() && !OpenAPIValidationRulesItem.BasePath.IsUnknown() {
+									OpenAPIValidationRulesItemMap["base_path"] = OpenAPIValidationRulesItem.BasePath.ValueString()
 								}
-								if !OpenAPIValidationRulesItem.Metadata.Name.IsNull() && !OpenAPIValidationRulesItem.Metadata.Name.IsUnknown() {
-									MetadataMap["name"] = OpenAPIValidationRulesItem.Metadata.Name.ValueString()
+								if OpenAPIValidationRulesItem.Metadata != nil {
+									MetadataMap := make(map[string]interface{})
+									if !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsNull() && !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsUnknown() {
+										MetadataMap["description"] = OpenAPIValidationRulesItem.Metadata.DescriptionSpec.ValueString()
+									}
+									if !OpenAPIValidationRulesItem.Metadata.Name.IsNull() && !OpenAPIValidationRulesItem.Metadata.Name.IsUnknown() {
+										MetadataMap["name"] = OpenAPIValidationRulesItem.Metadata.Name.ValueString()
+									}
+									OpenAPIValidationRulesItemMap["metadata"] = MetadataMap
 								}
-								OpenAPIValidationRulesItemMap["metadata"] = MetadataMap
+								OpenAPIValidationRulesList = append(OpenAPIValidationRulesList, OpenAPIValidationRulesItemMap)
 							}
-							OpenAPIValidationRulesList = append(OpenAPIValidationRulesList, OpenAPIValidationRulesItemMap)
+							FallThroughModeCustomMap["open_api_validation_rules"] = OpenAPIValidationRulesList
 						}
-						FallThroughModeCustomMap["open_api_validation_rules"] = OpenAPIValidationRulesList
 					}
 					FallThroughModeMap["fall_through_mode_custom"] = FallThroughModeCustomMap
 				}
@@ -36415,144 +36788,154 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				}
 				if data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom != nil {
 					FallThroughModeCustomMap := make(map[string]interface{})
-					if len(data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules) > 0 {
-						var OpenAPIValidationRulesList []map[string]interface{}
-						for _, OpenAPIValidationRulesItem := range data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules {
-							OpenAPIValidationRulesItemMap := make(map[string]interface{})
-							if OpenAPIValidationRulesItem.ActionBlock != nil {
-								OpenAPIValidationRulesItemMap["action_block"] = map[string]interface{}{}
-							}
-							if OpenAPIValidationRulesItem.ActionReport != nil {
-								OpenAPIValidationRulesItemMap["action_report"] = map[string]interface{}{}
-							}
-							if OpenAPIValidationRulesItem.ActionSkip != nil {
-								OpenAPIValidationRulesItemMap["action_skip"] = map[string]interface{}{}
-							}
-							if OpenAPIValidationRulesItem.APIEndpoint != nil {
-								APIEndpointMap := make(map[string]interface{})
-								if !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsUnknown() {
-									var MethodsItems []string
-									diags := OpenAPIValidationRulesItem.APIEndpoint.Methods.ElementsAs(ctx, &MethodsItems, false)
-									if !diags.HasError() {
-										APIEndpointMap["methods"] = MethodsItems
+					if !data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsNull() && !data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsUnknown() {
+						var OpenAPIValidationRulesElems []CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
+						diags := data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.ElementsAs(ctx, &OpenAPIValidationRulesElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(OpenAPIValidationRulesElems) > 0 {
+							var OpenAPIValidationRulesList []map[string]interface{}
+							for _, OpenAPIValidationRulesItem := range OpenAPIValidationRulesElems {
+								OpenAPIValidationRulesItemMap := make(map[string]interface{})
+								if OpenAPIValidationRulesItem.ActionBlock != nil {
+									OpenAPIValidationRulesItemMap["action_block"] = map[string]interface{}{}
+								}
+								if OpenAPIValidationRulesItem.ActionReport != nil {
+									OpenAPIValidationRulesItemMap["action_report"] = map[string]interface{}{}
+								}
+								if OpenAPIValidationRulesItem.ActionSkip != nil {
+									OpenAPIValidationRulesItemMap["action_skip"] = map[string]interface{}{}
+								}
+								if OpenAPIValidationRulesItem.APIEndpoint != nil {
+									APIEndpointMap := make(map[string]interface{})
+									if !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsUnknown() {
+										var MethodsItems []string
+										diags := OpenAPIValidationRulesItem.APIEndpoint.Methods.ElementsAs(ctx, &MethodsItems, false)
+										if !diags.HasError() {
+											APIEndpointMap["methods"] = MethodsItems
+										}
 									}
+									if !OpenAPIValidationRulesItem.APIEndpoint.Path.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Path.IsUnknown() {
+										APIEndpointMap["path"] = OpenAPIValidationRulesItem.APIEndpoint.Path.ValueString()
+									}
+									OpenAPIValidationRulesItemMap["api_endpoint"] = APIEndpointMap
 								}
-								if !OpenAPIValidationRulesItem.APIEndpoint.Path.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Path.IsUnknown() {
-									APIEndpointMap["path"] = OpenAPIValidationRulesItem.APIEndpoint.Path.ValueString()
+								if !OpenAPIValidationRulesItem.APIGroup.IsNull() && !OpenAPIValidationRulesItem.APIGroup.IsUnknown() {
+									OpenAPIValidationRulesItemMap["api_group"] = OpenAPIValidationRulesItem.APIGroup.ValueString()
 								}
-								OpenAPIValidationRulesItemMap["api_endpoint"] = APIEndpointMap
-							}
-							if !OpenAPIValidationRulesItem.APIGroup.IsNull() && !OpenAPIValidationRulesItem.APIGroup.IsUnknown() {
-								OpenAPIValidationRulesItemMap["api_group"] = OpenAPIValidationRulesItem.APIGroup.ValueString()
-							}
-							if !OpenAPIValidationRulesItem.BasePath.IsNull() && !OpenAPIValidationRulesItem.BasePath.IsUnknown() {
-								OpenAPIValidationRulesItemMap["base_path"] = OpenAPIValidationRulesItem.BasePath.ValueString()
-							}
-							if OpenAPIValidationRulesItem.Metadata != nil {
-								MetadataMap := make(map[string]interface{})
-								if !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsNull() && !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsUnknown() {
-									MetadataMap["description"] = OpenAPIValidationRulesItem.Metadata.DescriptionSpec.ValueString()
+								if !OpenAPIValidationRulesItem.BasePath.IsNull() && !OpenAPIValidationRulesItem.BasePath.IsUnknown() {
+									OpenAPIValidationRulesItemMap["base_path"] = OpenAPIValidationRulesItem.BasePath.ValueString()
 								}
-								if !OpenAPIValidationRulesItem.Metadata.Name.IsNull() && !OpenAPIValidationRulesItem.Metadata.Name.IsUnknown() {
-									MetadataMap["name"] = OpenAPIValidationRulesItem.Metadata.Name.ValueString()
+								if OpenAPIValidationRulesItem.Metadata != nil {
+									MetadataMap := make(map[string]interface{})
+									if !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsNull() && !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsUnknown() {
+										MetadataMap["description"] = OpenAPIValidationRulesItem.Metadata.DescriptionSpec.ValueString()
+									}
+									if !OpenAPIValidationRulesItem.Metadata.Name.IsNull() && !OpenAPIValidationRulesItem.Metadata.Name.IsUnknown() {
+										MetadataMap["name"] = OpenAPIValidationRulesItem.Metadata.Name.ValueString()
+									}
+									OpenAPIValidationRulesItemMap["metadata"] = MetadataMap
 								}
-								OpenAPIValidationRulesItemMap["metadata"] = MetadataMap
+								OpenAPIValidationRulesList = append(OpenAPIValidationRulesList, OpenAPIValidationRulesItemMap)
 							}
-							OpenAPIValidationRulesList = append(OpenAPIValidationRulesList, OpenAPIValidationRulesItemMap)
+							FallThroughModeCustomMap["open_api_validation_rules"] = OpenAPIValidationRulesList
 						}
-						FallThroughModeCustomMap["open_api_validation_rules"] = OpenAPIValidationRulesList
 					}
 					FallThroughModeMap["fall_through_mode_custom"] = FallThroughModeCustomMap
 				}
 				ValidationCustomListMap["fall_through_mode"] = FallThroughModeMap
 			}
-			if len(data.APISpecification.ValidationCustomList.OpenAPIValidationRules) > 0 {
-				var OpenAPIValidationRulesList []map[string]interface{}
-				for _, OpenAPIValidationRulesItem := range data.APISpecification.ValidationCustomList.OpenAPIValidationRules {
-					OpenAPIValidationRulesItemMap := make(map[string]interface{})
-					if OpenAPIValidationRulesItem.AnyDomain != nil {
-						OpenAPIValidationRulesItemMap["any_domain"] = map[string]interface{}{}
-					}
-					if OpenAPIValidationRulesItem.APIEndpoint != nil {
-						APIEndpointMap := make(map[string]interface{})
-						if !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsUnknown() {
-							var MethodsItems []string
-							diags := OpenAPIValidationRulesItem.APIEndpoint.Methods.ElementsAs(ctx, &MethodsItems, false)
-							if !diags.HasError() {
-								APIEndpointMap["methods"] = MethodsItems
-							}
+			if !data.APISpecification.ValidationCustomList.OpenAPIValidationRules.IsNull() && !data.APISpecification.ValidationCustomList.OpenAPIValidationRules.IsUnknown() {
+				var OpenAPIValidationRulesElems []CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModel
+				diags := data.APISpecification.ValidationCustomList.OpenAPIValidationRules.ElementsAs(ctx, &OpenAPIValidationRulesElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(OpenAPIValidationRulesElems) > 0 {
+					var OpenAPIValidationRulesList []map[string]interface{}
+					for _, OpenAPIValidationRulesItem := range OpenAPIValidationRulesElems {
+						OpenAPIValidationRulesItemMap := make(map[string]interface{})
+						if OpenAPIValidationRulesItem.AnyDomain != nil {
+							OpenAPIValidationRulesItemMap["any_domain"] = map[string]interface{}{}
 						}
-						if !OpenAPIValidationRulesItem.APIEndpoint.Path.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Path.IsUnknown() {
-							APIEndpointMap["path"] = OpenAPIValidationRulesItem.APIEndpoint.Path.ValueString()
-						}
-						OpenAPIValidationRulesItemMap["api_endpoint"] = APIEndpointMap
-					}
-					if !OpenAPIValidationRulesItem.APIGroup.IsNull() && !OpenAPIValidationRulesItem.APIGroup.IsUnknown() {
-						OpenAPIValidationRulesItemMap["api_group"] = OpenAPIValidationRulesItem.APIGroup.ValueString()
-					}
-					if !OpenAPIValidationRulesItem.BasePath.IsNull() && !OpenAPIValidationRulesItem.BasePath.IsUnknown() {
-						OpenAPIValidationRulesItemMap["base_path"] = OpenAPIValidationRulesItem.BasePath.ValueString()
-					}
-					if OpenAPIValidationRulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
-						if !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsNull() && !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = OpenAPIValidationRulesItem.Metadata.DescriptionSpec.ValueString()
-						}
-						if !OpenAPIValidationRulesItem.Metadata.Name.IsNull() && !OpenAPIValidationRulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = OpenAPIValidationRulesItem.Metadata.Name.ValueString()
-						}
-						OpenAPIValidationRulesItemMap["metadata"] = MetadataMap
-					}
-					if !OpenAPIValidationRulesItem.SpecificDomain.IsNull() && !OpenAPIValidationRulesItem.SpecificDomain.IsUnknown() {
-						OpenAPIValidationRulesItemMap["specific_domain"] = OpenAPIValidationRulesItem.SpecificDomain.ValueString()
-					}
-					if OpenAPIValidationRulesItem.ValidationMode != nil {
-						ValidationModeMap := make(map[string]interface{})
-						if OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive != nil {
-							ResponseValidationModeActiveMap := make(map[string]interface{})
-							if OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.EnforcementBlock != nil {
-								ResponseValidationModeActiveMap["enforcement_block"] = map[string]interface{}{}
-							}
-							if OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.EnforcementReport != nil {
-								ResponseValidationModeActiveMap["enforcement_report"] = map[string]interface{}{}
-							}
-							if !OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.IsNull() && !OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.IsUnknown() {
-								var ResponseValidationPropertiesItems []string
-								diags := OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.ElementsAs(ctx, &ResponseValidationPropertiesItems, false)
+						if OpenAPIValidationRulesItem.APIEndpoint != nil {
+							APIEndpointMap := make(map[string]interface{})
+							if !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsUnknown() {
+								var MethodsItems []string
+								diags := OpenAPIValidationRulesItem.APIEndpoint.Methods.ElementsAs(ctx, &MethodsItems, false)
 								if !diags.HasError() {
-									ResponseValidationModeActiveMap["response_validation_properties"] = ResponseValidationPropertiesItems
+									APIEndpointMap["methods"] = MethodsItems
 								}
 							}
-							ValidationModeMap["response_validation_mode_active"] = ResponseValidationModeActiveMap
-						}
-						if OpenAPIValidationRulesItem.ValidationMode.SkipResponseValidation != nil {
-							ValidationModeMap["skip_response_validation"] = map[string]interface{}{}
-						}
-						if OpenAPIValidationRulesItem.ValidationMode.SkipValidation != nil {
-							ValidationModeMap["skip_validation"] = map[string]interface{}{}
-						}
-						if OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive != nil {
-							ValidationModeActiveMap := make(map[string]interface{})
-							if OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.EnforcementBlock != nil {
-								ValidationModeActiveMap["enforcement_block"] = map[string]interface{}{}
+							if !OpenAPIValidationRulesItem.APIEndpoint.Path.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Path.IsUnknown() {
+								APIEndpointMap["path"] = OpenAPIValidationRulesItem.APIEndpoint.Path.ValueString()
 							}
-							if OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.EnforcementReport != nil {
-								ValidationModeActiveMap["enforcement_report"] = map[string]interface{}{}
+							OpenAPIValidationRulesItemMap["api_endpoint"] = APIEndpointMap
+						}
+						if !OpenAPIValidationRulesItem.APIGroup.IsNull() && !OpenAPIValidationRulesItem.APIGroup.IsUnknown() {
+							OpenAPIValidationRulesItemMap["api_group"] = OpenAPIValidationRulesItem.APIGroup.ValueString()
+						}
+						if !OpenAPIValidationRulesItem.BasePath.IsNull() && !OpenAPIValidationRulesItem.BasePath.IsUnknown() {
+							OpenAPIValidationRulesItemMap["base_path"] = OpenAPIValidationRulesItem.BasePath.ValueString()
+						}
+						if OpenAPIValidationRulesItem.Metadata != nil {
+							MetadataMap := make(map[string]interface{})
+							if !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsNull() && !OpenAPIValidationRulesItem.Metadata.DescriptionSpec.IsUnknown() {
+								MetadataMap["description"] = OpenAPIValidationRulesItem.Metadata.DescriptionSpec.ValueString()
 							}
-							if !OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.RequestValidationProperties.IsNull() && !OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.RequestValidationProperties.IsUnknown() {
-								var RequestValidationPropertiesItems []string
-								diags := OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.RequestValidationProperties.ElementsAs(ctx, &RequestValidationPropertiesItems, false)
-								if !diags.HasError() {
-									ValidationModeActiveMap["request_validation_properties"] = RequestValidationPropertiesItems
+							if !OpenAPIValidationRulesItem.Metadata.Name.IsNull() && !OpenAPIValidationRulesItem.Metadata.Name.IsUnknown() {
+								MetadataMap["name"] = OpenAPIValidationRulesItem.Metadata.Name.ValueString()
+							}
+							OpenAPIValidationRulesItemMap["metadata"] = MetadataMap
+						}
+						if !OpenAPIValidationRulesItem.SpecificDomain.IsNull() && !OpenAPIValidationRulesItem.SpecificDomain.IsUnknown() {
+							OpenAPIValidationRulesItemMap["specific_domain"] = OpenAPIValidationRulesItem.SpecificDomain.ValueString()
+						}
+						if OpenAPIValidationRulesItem.ValidationMode != nil {
+							ValidationModeMap := make(map[string]interface{})
+							if OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive != nil {
+								ResponseValidationModeActiveMap := make(map[string]interface{})
+								if OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.EnforcementBlock != nil {
+									ResponseValidationModeActiveMap["enforcement_block"] = map[string]interface{}{}
 								}
+								if OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.EnforcementReport != nil {
+									ResponseValidationModeActiveMap["enforcement_report"] = map[string]interface{}{}
+								}
+								if !OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.IsNull() && !OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.IsUnknown() {
+									var ResponseValidationPropertiesItems []string
+									diags := OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.ElementsAs(ctx, &ResponseValidationPropertiesItems, false)
+									if !diags.HasError() {
+										ResponseValidationModeActiveMap["response_validation_properties"] = ResponseValidationPropertiesItems
+									}
+								}
+								ValidationModeMap["response_validation_mode_active"] = ResponseValidationModeActiveMap
 							}
-							ValidationModeMap["validation_mode_active"] = ValidationModeActiveMap
+							if OpenAPIValidationRulesItem.ValidationMode.SkipResponseValidation != nil {
+								ValidationModeMap["skip_response_validation"] = map[string]interface{}{}
+							}
+							if OpenAPIValidationRulesItem.ValidationMode.SkipValidation != nil {
+								ValidationModeMap["skip_validation"] = map[string]interface{}{}
+							}
+							if OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive != nil {
+								ValidationModeActiveMap := make(map[string]interface{})
+								if OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.EnforcementBlock != nil {
+									ValidationModeActiveMap["enforcement_block"] = map[string]interface{}{}
+								}
+								if OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.EnforcementReport != nil {
+									ValidationModeActiveMap["enforcement_report"] = map[string]interface{}{}
+								}
+								if !OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.RequestValidationProperties.IsNull() && !OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.RequestValidationProperties.IsUnknown() {
+									var RequestValidationPropertiesItems []string
+									diags := OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.RequestValidationProperties.ElementsAs(ctx, &RequestValidationPropertiesItems, false)
+									if !diags.HasError() {
+										ValidationModeActiveMap["request_validation_properties"] = RequestValidationPropertiesItems
+									}
+								}
+								ValidationModeMap["validation_mode_active"] = ValidationModeActiveMap
+							}
+							OpenAPIValidationRulesItemMap["validation_mode"] = ValidationModeMap
 						}
-						OpenAPIValidationRulesItemMap["validation_mode"] = ValidationModeMap
+						OpenAPIValidationRulesList = append(OpenAPIValidationRulesList, OpenAPIValidationRulesItemMap)
 					}
-					OpenAPIValidationRulesList = append(OpenAPIValidationRulesList, OpenAPIValidationRulesItemMap)
+					ValidationCustomListMap["open_api_validation_rules"] = OpenAPIValidationRulesList
 				}
-				ValidationCustomListMap["open_api_validation_rules"] = OpenAPIValidationRulesList
 			}
 			if data.APISpecification.ValidationCustomList.Settings != nil {
 				SettingsMap := make(map[string]interface{})
@@ -36627,28 +37010,33 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				}
 				if BlockedClientsItem.HTTPHeader != nil {
 					HTTPHeaderMap := make(map[string]interface{})
-					if len(BlockedClientsItem.HTTPHeader.Headers) > 0 {
-						var HeadersList []map[string]interface{}
-						for _, HeadersItem := range BlockedClientsItem.HTTPHeader.Headers {
-							HeadersItemMap := make(map[string]interface{})
-							if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
-								HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
+					if !BlockedClientsItem.HTTPHeader.Headers.IsNull() && !BlockedClientsItem.HTTPHeader.Headers.IsUnknown() {
+						var HeadersElems []CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModel
+						diags := BlockedClientsItem.HTTPHeader.Headers.ElementsAs(ctx, &HeadersElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+							var HeadersList []map[string]interface{}
+							for _, HeadersItem := range HeadersElems {
+								HeadersItemMap := make(map[string]interface{})
+								if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
+									HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
+								}
+								if !HeadersItem.InvertMatch.IsNull() && !HeadersItem.InvertMatch.IsUnknown() {
+									HeadersItemMap["invert_match"] = HeadersItem.InvertMatch.ValueBool()
+								}
+								if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+									HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+								}
+								if !HeadersItem.Presence.IsNull() && !HeadersItem.Presence.IsUnknown() {
+									HeadersItemMap["presence"] = HeadersItem.Presence.ValueBool()
+								}
+								if !HeadersItem.Regex.IsNull() && !HeadersItem.Regex.IsUnknown() {
+									HeadersItemMap["regex"] = HeadersItem.Regex.ValueString()
+								}
+								HeadersList = append(HeadersList, HeadersItemMap)
 							}
-							if !HeadersItem.InvertMatch.IsNull() && !HeadersItem.InvertMatch.IsUnknown() {
-								HeadersItemMap["invert_match"] = HeadersItem.InvertMatch.ValueBool()
-							}
-							if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-								HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-							}
-							if !HeadersItem.Presence.IsNull() && !HeadersItem.Presence.IsUnknown() {
-								HeadersItemMap["presence"] = HeadersItem.Presence.ValueBool()
-							}
-							if !HeadersItem.Regex.IsNull() && !HeadersItem.Regex.IsUnknown() {
-								HeadersItemMap["regex"] = HeadersItem.Regex.ValueString()
-							}
-							HeadersList = append(HeadersList, HeadersItemMap)
+							HTTPHeaderMap["headers"] = HeadersList
 						}
-						HTTPHeaderMap["headers"] = HeadersList
 					}
 					BlockedClientsItemMap["http_header"] = HTTPHeaderMap
 				}
@@ -36713,52 +37101,57 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			}
 			if data.BotDefense.Policy.JsInsertAllPagesExcept != nil {
 				JsInsertAllPagesExceptMap := make(map[string]interface{})
-				if len(data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList) > 0 {
-					var ExcludeListList []map[string]interface{}
-					for _, ExcludeListItem := range data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList {
-						ExcludeListItemMap := make(map[string]interface{})
-						if ExcludeListItem.AnyDomain != nil {
-							ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+				if !data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
+					var ExcludeListElems []CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModel
+					diags := data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
+						var ExcludeListList []map[string]interface{}
+						for _, ExcludeListItem := range ExcludeListElems {
+							ExcludeListItemMap := make(map[string]interface{})
+							if ExcludeListItem.AnyDomain != nil {
+								ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+							}
+							if ExcludeListItem.Domain != nil {
+								DomainMap := make(map[string]interface{})
+								if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
+									DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
+									DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
+									DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
+								}
+								ExcludeListItemMap["domain"] = DomainMap
+							}
+							if ExcludeListItem.Metadata != nil {
+								MetadataMap := make(map[string]interface{})
+								if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
+									MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
+									MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
+								}
+								ExcludeListItemMap["metadata"] = MetadataMap
+							}
+							if ExcludeListItem.Path != nil {
+								PathMap := make(map[string]interface{})
+								if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
+									PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
+								}
+								if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
+									PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
+								}
+								if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
+									PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
+								}
+								ExcludeListItemMap["path"] = PathMap
+							}
+							ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
 						}
-						if ExcludeListItem.Domain != nil {
-							DomainMap := make(map[string]interface{})
-							if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
-								DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
-								DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
-								DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
-							}
-							ExcludeListItemMap["domain"] = DomainMap
-						}
-						if ExcludeListItem.Metadata != nil {
-							MetadataMap := make(map[string]interface{})
-							if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
-								MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
-							}
-							if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
-								MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
-							}
-							ExcludeListItemMap["metadata"] = MetadataMap
-						}
-						if ExcludeListItem.Path != nil {
-							PathMap := make(map[string]interface{})
-							if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
-								PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
-							}
-							if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
-								PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
-							}
-							if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
-								PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
-							}
-							ExcludeListItemMap["path"] = PathMap
-						}
-						ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
+						JsInsertAllPagesExceptMap["exclude_list"] = ExcludeListList
 					}
-					JsInsertAllPagesExceptMap["exclude_list"] = ExcludeListList
 				}
 				if !data.BotDefense.Policy.JsInsertAllPagesExcept.JavascriptLocation.IsNull() && !data.BotDefense.Policy.JsInsertAllPagesExcept.JavascriptLocation.IsUnknown() {
 					JsInsertAllPagesExceptMap["javascript_location"] = data.BotDefense.Policy.JsInsertAllPagesExcept.JavascriptLocation.ValueString()
@@ -36767,102 +37160,112 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			}
 			if data.BotDefense.Policy.JsInsertionRules != nil {
 				JsInsertionRulesMap := make(map[string]interface{})
-				if len(data.BotDefense.Policy.JsInsertionRules.ExcludeList) > 0 {
-					var ExcludeListList []map[string]interface{}
-					for _, ExcludeListItem := range data.BotDefense.Policy.JsInsertionRules.ExcludeList {
-						ExcludeListItemMap := make(map[string]interface{})
-						if ExcludeListItem.AnyDomain != nil {
-							ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+				if !data.BotDefense.Policy.JsInsertionRules.ExcludeList.IsNull() && !data.BotDefense.Policy.JsInsertionRules.ExcludeList.IsUnknown() {
+					var ExcludeListElems []CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModel
+					diags := data.BotDefense.Policy.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
+						var ExcludeListList []map[string]interface{}
+						for _, ExcludeListItem := range ExcludeListElems {
+							ExcludeListItemMap := make(map[string]interface{})
+							if ExcludeListItem.AnyDomain != nil {
+								ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+							}
+							if ExcludeListItem.Domain != nil {
+								DomainMap := make(map[string]interface{})
+								if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
+									DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
+									DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
+									DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
+								}
+								ExcludeListItemMap["domain"] = DomainMap
+							}
+							if ExcludeListItem.Metadata != nil {
+								MetadataMap := make(map[string]interface{})
+								if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
+									MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
+									MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
+								}
+								ExcludeListItemMap["metadata"] = MetadataMap
+							}
+							if ExcludeListItem.Path != nil {
+								PathMap := make(map[string]interface{})
+								if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
+									PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
+								}
+								if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
+									PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
+								}
+								if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
+									PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
+								}
+								ExcludeListItemMap["path"] = PathMap
+							}
+							ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
 						}
-						if ExcludeListItem.Domain != nil {
-							DomainMap := make(map[string]interface{})
-							if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
-								DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
-								DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
-								DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
-							}
-							ExcludeListItemMap["domain"] = DomainMap
-						}
-						if ExcludeListItem.Metadata != nil {
-							MetadataMap := make(map[string]interface{})
-							if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
-								MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
-							}
-							if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
-								MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
-							}
-							ExcludeListItemMap["metadata"] = MetadataMap
-						}
-						if ExcludeListItem.Path != nil {
-							PathMap := make(map[string]interface{})
-							if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
-								PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
-							}
-							if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
-								PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
-							}
-							if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
-								PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
-							}
-							ExcludeListItemMap["path"] = PathMap
-						}
-						ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
+						JsInsertionRulesMap["exclude_list"] = ExcludeListList
 					}
-					JsInsertionRulesMap["exclude_list"] = ExcludeListList
 				}
-				if len(data.BotDefense.Policy.JsInsertionRules.Rules) > 0 {
-					var RulesList []map[string]interface{}
-					for _, RulesItem := range data.BotDefense.Policy.JsInsertionRules.Rules {
-						RulesItemMap := make(map[string]interface{})
-						if RulesItem.AnyDomain != nil {
-							RulesItemMap["any_domain"] = map[string]interface{}{}
+				if !data.BotDefense.Policy.JsInsertionRules.Rules.IsNull() && !data.BotDefense.Policy.JsInsertionRules.Rules.IsUnknown() {
+					var RulesElems []CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModel
+					diags := data.BotDefense.Policy.JsInsertionRules.Rules.ElementsAs(ctx, &RulesElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
+						var RulesList []map[string]interface{}
+						for _, RulesItem := range RulesElems {
+							RulesItemMap := make(map[string]interface{})
+							if RulesItem.AnyDomain != nil {
+								RulesItemMap["any_domain"] = map[string]interface{}{}
+							}
+							if RulesItem.Domain != nil {
+								DomainMap := make(map[string]interface{})
+								if !RulesItem.Domain.ExactValue.IsNull() && !RulesItem.Domain.ExactValue.IsUnknown() {
+									DomainMap["exact_value"] = RulesItem.Domain.ExactValue.ValueString()
+								}
+								if !RulesItem.Domain.RegexValue.IsNull() && !RulesItem.Domain.RegexValue.IsUnknown() {
+									DomainMap["regex_value"] = RulesItem.Domain.RegexValue.ValueString()
+								}
+								if !RulesItem.Domain.SuffixValue.IsNull() && !RulesItem.Domain.SuffixValue.IsUnknown() {
+									DomainMap["suffix_value"] = RulesItem.Domain.SuffixValue.ValueString()
+								}
+								RulesItemMap["domain"] = DomainMap
+							}
+							if !RulesItem.JavascriptLocation.IsNull() && !RulesItem.JavascriptLocation.IsUnknown() {
+								RulesItemMap["javascript_location"] = RulesItem.JavascriptLocation.ValueString()
+							}
+							if RulesItem.Metadata != nil {
+								MetadataMap := make(map[string]interface{})
+								if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
+									MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
+									MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+								}
+								RulesItemMap["metadata"] = MetadataMap
+							}
+							if RulesItem.Path != nil {
+								PathMap := make(map[string]interface{})
+								if !RulesItem.Path.Path.IsNull() && !RulesItem.Path.Path.IsUnknown() {
+									PathMap["path"] = RulesItem.Path.Path.ValueString()
+								}
+								if !RulesItem.Path.Prefix.IsNull() && !RulesItem.Path.Prefix.IsUnknown() {
+									PathMap["prefix"] = RulesItem.Path.Prefix.ValueString()
+								}
+								if !RulesItem.Path.Regex.IsNull() && !RulesItem.Path.Regex.IsUnknown() {
+									PathMap["regex"] = RulesItem.Path.Regex.ValueString()
+								}
+								RulesItemMap["path"] = PathMap
+							}
+							RulesList = append(RulesList, RulesItemMap)
 						}
-						if RulesItem.Domain != nil {
-							DomainMap := make(map[string]interface{})
-							if !RulesItem.Domain.ExactValue.IsNull() && !RulesItem.Domain.ExactValue.IsUnknown() {
-								DomainMap["exact_value"] = RulesItem.Domain.ExactValue.ValueString()
-							}
-							if !RulesItem.Domain.RegexValue.IsNull() && !RulesItem.Domain.RegexValue.IsUnknown() {
-								DomainMap["regex_value"] = RulesItem.Domain.RegexValue.ValueString()
-							}
-							if !RulesItem.Domain.SuffixValue.IsNull() && !RulesItem.Domain.SuffixValue.IsUnknown() {
-								DomainMap["suffix_value"] = RulesItem.Domain.SuffixValue.ValueString()
-							}
-							RulesItemMap["domain"] = DomainMap
-						}
-						if !RulesItem.JavascriptLocation.IsNull() && !RulesItem.JavascriptLocation.IsUnknown() {
-							RulesItemMap["javascript_location"] = RulesItem.JavascriptLocation.ValueString()
-						}
-						if RulesItem.Metadata != nil {
-							MetadataMap := make(map[string]interface{})
-							if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
-								MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
-							}
-							if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
-								MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
-							}
-							RulesItemMap["metadata"] = MetadataMap
-						}
-						if RulesItem.Path != nil {
-							PathMap := make(map[string]interface{})
-							if !RulesItem.Path.Path.IsNull() && !RulesItem.Path.Path.IsUnknown() {
-								PathMap["path"] = RulesItem.Path.Path.ValueString()
-							}
-							if !RulesItem.Path.Prefix.IsNull() && !RulesItem.Path.Prefix.IsUnknown() {
-								PathMap["prefix"] = RulesItem.Path.Prefix.ValueString()
-							}
-							if !RulesItem.Path.Regex.IsNull() && !RulesItem.Path.Regex.IsUnknown() {
-								PathMap["regex"] = RulesItem.Path.Regex.ValueString()
-							}
-							RulesItemMap["path"] = PathMap
-						}
-						RulesList = append(RulesList, RulesItemMap)
+						JsInsertionRulesMap["rules"] = RulesList
 					}
-					JsInsertionRulesMap["rules"] = RulesList
 				}
 				PolicyMap["js_insertion_rules"] = JsInsertionRulesMap
 			}
@@ -36870,427 +37273,457 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				MobileSdkConfigMap := make(map[string]interface{})
 				if data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier != nil {
 					MobileIdentifierMap := make(map[string]interface{})
-					if len(data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers) > 0 {
-						var HeadersList []map[string]interface{}
-						for _, HeadersItem := range data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers {
-							HeadersItemMap := make(map[string]interface{})
-							if HeadersItem.CheckNotPresent != nil {
-								HeadersItemMap["check_not_present"] = map[string]interface{}{}
-							}
-							if HeadersItem.CheckPresent != nil {
-								HeadersItemMap["check_present"] = map[string]interface{}{}
-							}
-							if HeadersItem.Item != nil {
-								ItemMap := make(map[string]interface{})
-								if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
-									var ExactValuesItems []string
-									diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-									if !diags.HasError() {
-										ItemMap["exact_values"] = ExactValuesItems
-									}
+					if !data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
+						var HeadersElems []CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModel
+						diags := data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+							var HeadersList []map[string]interface{}
+							for _, HeadersItem := range HeadersElems {
+								HeadersItemMap := make(map[string]interface{})
+								if HeadersItem.CheckNotPresent != nil {
+									HeadersItemMap["check_not_present"] = map[string]interface{}{}
 								}
-								if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
-									var RegexValuesItems []string
-									diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-									if !diags.HasError() {
-										ItemMap["regex_values"] = RegexValuesItems
-									}
+								if HeadersItem.CheckPresent != nil {
+									HeadersItemMap["check_present"] = map[string]interface{}{}
 								}
-								if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
-									var TransformersItems []string
-									diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-									if !diags.HasError() {
-										ItemMap["transformers"] = TransformersItems
+								if HeadersItem.Item != nil {
+									ItemMap := make(map[string]interface{})
+									if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
+										var ExactValuesItems []string
+										diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+										if !diags.HasError() {
+											ItemMap["exact_values"] = ExactValuesItems
+										}
 									}
+									if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
+										var RegexValuesItems []string
+										diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+										if !diags.HasError() {
+											ItemMap["regex_values"] = RegexValuesItems
+										}
+									}
+									if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
+										var TransformersItems []string
+										diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+										if !diags.HasError() {
+											ItemMap["transformers"] = TransformersItems
+										}
+									}
+									HeadersItemMap["item"] = ItemMap
 								}
-								HeadersItemMap["item"] = ItemMap
+								if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+									HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+								}
+								HeadersList = append(HeadersList, HeadersItemMap)
 							}
-							if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-								HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-							}
-							HeadersList = append(HeadersList, HeadersItemMap)
+							MobileIdentifierMap["headers"] = HeadersList
 						}
-						MobileIdentifierMap["headers"] = HeadersList
 					}
 					MobileSdkConfigMap["mobile_identifier"] = MobileIdentifierMap
 				}
 				PolicyMap["mobile_sdk_config"] = MobileSdkConfigMap
 			}
-			if len(data.BotDefense.Policy.ProtectedAppEndpoints) > 0 {
-				var ProtectedAppEndpointsList []map[string]interface{}
-				for _, ProtectedAppEndpointsItem := range data.BotDefense.Policy.ProtectedAppEndpoints {
-					ProtectedAppEndpointsItemMap := make(map[string]interface{})
-					if ProtectedAppEndpointsItem.AllowGoodBots != nil {
-						ProtectedAppEndpointsItemMap["allow_good_bots"] = map[string]interface{}{}
-					}
-					if ProtectedAppEndpointsItem.AnyDomain != nil {
-						ProtectedAppEndpointsItemMap["any_domain"] = map[string]interface{}{}
-					}
-					if ProtectedAppEndpointsItem.Domain != nil {
-						DomainMap := make(map[string]interface{})
-						if !ProtectedAppEndpointsItem.Domain.ExactValue.IsNull() && !ProtectedAppEndpointsItem.Domain.ExactValue.IsUnknown() {
-							DomainMap["exact_value"] = ProtectedAppEndpointsItem.Domain.ExactValue.ValueString()
+			if !data.BotDefense.Policy.ProtectedAppEndpoints.IsNull() && !data.BotDefense.Policy.ProtectedAppEndpoints.IsUnknown() {
+				var ProtectedAppEndpointsElems []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModel
+				diags := data.BotDefense.Policy.ProtectedAppEndpoints.ElementsAs(ctx, &ProtectedAppEndpointsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ProtectedAppEndpointsElems) > 0 {
+					var ProtectedAppEndpointsList []map[string]interface{}
+					for _, ProtectedAppEndpointsItem := range ProtectedAppEndpointsElems {
+						ProtectedAppEndpointsItemMap := make(map[string]interface{})
+						if ProtectedAppEndpointsItem.AllowGoodBots != nil {
+							ProtectedAppEndpointsItemMap["allow_good_bots"] = map[string]interface{}{}
 						}
-						if !ProtectedAppEndpointsItem.Domain.RegexValue.IsNull() && !ProtectedAppEndpointsItem.Domain.RegexValue.IsUnknown() {
-							DomainMap["regex_value"] = ProtectedAppEndpointsItem.Domain.RegexValue.ValueString()
+						if ProtectedAppEndpointsItem.AnyDomain != nil {
+							ProtectedAppEndpointsItemMap["any_domain"] = map[string]interface{}{}
 						}
-						if !ProtectedAppEndpointsItem.Domain.SuffixValue.IsNull() && !ProtectedAppEndpointsItem.Domain.SuffixValue.IsUnknown() {
-							DomainMap["suffix_value"] = ProtectedAppEndpointsItem.Domain.SuffixValue.ValueString()
-						}
-						ProtectedAppEndpointsItemMap["domain"] = DomainMap
-					}
-					if ProtectedAppEndpointsItem.FlowLabel != nil {
-						FlowLabelMap := make(map[string]interface{})
-						if ProtectedAppEndpointsItem.FlowLabel.AccountManagement != nil {
-							AccountManagementMap := make(map[string]interface{})
-							if ProtectedAppEndpointsItem.FlowLabel.AccountManagement.Create != nil {
-								AccountManagementMap["create"] = map[string]interface{}{}
+						if ProtectedAppEndpointsItem.Domain != nil {
+							DomainMap := make(map[string]interface{})
+							if !ProtectedAppEndpointsItem.Domain.ExactValue.IsNull() && !ProtectedAppEndpointsItem.Domain.ExactValue.IsUnknown() {
+								DomainMap["exact_value"] = ProtectedAppEndpointsItem.Domain.ExactValue.ValueString()
 							}
-							if ProtectedAppEndpointsItem.FlowLabel.AccountManagement.PasswordReset != nil {
-								AccountManagementMap["password_reset"] = map[string]interface{}{}
+							if !ProtectedAppEndpointsItem.Domain.RegexValue.IsNull() && !ProtectedAppEndpointsItem.Domain.RegexValue.IsUnknown() {
+								DomainMap["regex_value"] = ProtectedAppEndpointsItem.Domain.RegexValue.ValueString()
 							}
-							FlowLabelMap["account_management"] = AccountManagementMap
+							if !ProtectedAppEndpointsItem.Domain.SuffixValue.IsNull() && !ProtectedAppEndpointsItem.Domain.SuffixValue.IsUnknown() {
+								DomainMap["suffix_value"] = ProtectedAppEndpointsItem.Domain.SuffixValue.ValueString()
+							}
+							ProtectedAppEndpointsItemMap["domain"] = DomainMap
 						}
-						if ProtectedAppEndpointsItem.FlowLabel.Authentication != nil {
-							AuthenticationMap := make(map[string]interface{})
-							if ProtectedAppEndpointsItem.FlowLabel.Authentication.Login != nil {
-								LoginMap := make(map[string]interface{})
-								if ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.DisableTransactionResult != nil {
-									LoginMap["disable_transaction_result"] = map[string]interface{}{}
+						if ProtectedAppEndpointsItem.FlowLabel != nil {
+							FlowLabelMap := make(map[string]interface{})
+							if ProtectedAppEndpointsItem.FlowLabel.AccountManagement != nil {
+								AccountManagementMap := make(map[string]interface{})
+								if ProtectedAppEndpointsItem.FlowLabel.AccountManagement.Create != nil {
+									AccountManagementMap["create"] = map[string]interface{}{}
 								}
-								if ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult != nil {
-									TransactionResultMap := make(map[string]interface{})
-									if len(ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.FailureConditions) > 0 {
-										var FailureConditionsList []map[string]interface{}
-										for _, FailureConditionsItem := range ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.FailureConditions {
-											FailureConditionsItemMap := make(map[string]interface{})
-											if !FailureConditionsItem.Name.IsNull() && !FailureConditionsItem.Name.IsUnknown() {
-												FailureConditionsItemMap["name"] = FailureConditionsItem.Name.ValueString()
-											}
-											if !FailureConditionsItem.RegexValues.IsNull() && !FailureConditionsItem.RegexValues.IsUnknown() {
-												var RegexValuesItems []string
-												diags := FailureConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-												if !diags.HasError() {
-													FailureConditionsItemMap["regex_values"] = RegexValuesItems
+								if ProtectedAppEndpointsItem.FlowLabel.AccountManagement.PasswordReset != nil {
+									AccountManagementMap["password_reset"] = map[string]interface{}{}
+								}
+								FlowLabelMap["account_management"] = AccountManagementMap
+							}
+							if ProtectedAppEndpointsItem.FlowLabel.Authentication != nil {
+								AuthenticationMap := make(map[string]interface{})
+								if ProtectedAppEndpointsItem.FlowLabel.Authentication.Login != nil {
+									LoginMap := make(map[string]interface{})
+									if ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.DisableTransactionResult != nil {
+										LoginMap["disable_transaction_result"] = map[string]interface{}{}
+									}
+									if ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult != nil {
+										TransactionResultMap := make(map[string]interface{})
+										if !ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsNull() && !ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsUnknown() {
+											var FailureConditionsElems []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel
+											diags := ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.FailureConditions.ElementsAs(ctx, &FailureConditionsElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(FailureConditionsElems) > 0 {
+												var FailureConditionsList []map[string]interface{}
+												for _, FailureConditionsItem := range FailureConditionsElems {
+													FailureConditionsItemMap := make(map[string]interface{})
+													if !FailureConditionsItem.Name.IsNull() && !FailureConditionsItem.Name.IsUnknown() {
+														FailureConditionsItemMap["name"] = FailureConditionsItem.Name.ValueString()
+													}
+													if !FailureConditionsItem.RegexValues.IsNull() && !FailureConditionsItem.RegexValues.IsUnknown() {
+														var RegexValuesItems []string
+														diags := FailureConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+														if !diags.HasError() {
+															FailureConditionsItemMap["regex_values"] = RegexValuesItems
+														}
+													}
+													if !FailureConditionsItem.Status.IsNull() && !FailureConditionsItem.Status.IsUnknown() {
+														FailureConditionsItemMap["status"] = FailureConditionsItem.Status.ValueString()
+													}
+													FailureConditionsList = append(FailureConditionsList, FailureConditionsItemMap)
 												}
+												TransactionResultMap["failure_conditions"] = FailureConditionsList
 											}
-											if !FailureConditionsItem.Status.IsNull() && !FailureConditionsItem.Status.IsUnknown() {
-												FailureConditionsItemMap["status"] = FailureConditionsItem.Status.ValueString()
-											}
-											FailureConditionsList = append(FailureConditionsList, FailureConditionsItemMap)
 										}
-										TransactionResultMap["failure_conditions"] = FailureConditionsList
-									}
-									if len(ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.SuccessConditions) > 0 {
-										var SuccessConditionsList []map[string]interface{}
-										for _, SuccessConditionsItem := range ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.SuccessConditions {
-											SuccessConditionsItemMap := make(map[string]interface{})
-											if !SuccessConditionsItem.Name.IsNull() && !SuccessConditionsItem.Name.IsUnknown() {
-												SuccessConditionsItemMap["name"] = SuccessConditionsItem.Name.ValueString()
-											}
-											if !SuccessConditionsItem.RegexValues.IsNull() && !SuccessConditionsItem.RegexValues.IsUnknown() {
-												var RegexValuesItems []string
-												diags := SuccessConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-												if !diags.HasError() {
-													SuccessConditionsItemMap["regex_values"] = RegexValuesItems
+										if !ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsNull() && !ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsUnknown() {
+											var SuccessConditionsElems []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel
+											diags := ProtectedAppEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.ElementsAs(ctx, &SuccessConditionsElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(SuccessConditionsElems) > 0 {
+												var SuccessConditionsList []map[string]interface{}
+												for _, SuccessConditionsItem := range SuccessConditionsElems {
+													SuccessConditionsItemMap := make(map[string]interface{})
+													if !SuccessConditionsItem.Name.IsNull() && !SuccessConditionsItem.Name.IsUnknown() {
+														SuccessConditionsItemMap["name"] = SuccessConditionsItem.Name.ValueString()
+													}
+													if !SuccessConditionsItem.RegexValues.IsNull() && !SuccessConditionsItem.RegexValues.IsUnknown() {
+														var RegexValuesItems []string
+														diags := SuccessConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+														if !diags.HasError() {
+															SuccessConditionsItemMap["regex_values"] = RegexValuesItems
+														}
+													}
+													if !SuccessConditionsItem.Status.IsNull() && !SuccessConditionsItem.Status.IsUnknown() {
+														SuccessConditionsItemMap["status"] = SuccessConditionsItem.Status.ValueString()
+													}
+													SuccessConditionsList = append(SuccessConditionsList, SuccessConditionsItemMap)
 												}
+												TransactionResultMap["success_conditions"] = SuccessConditionsList
 											}
-											if !SuccessConditionsItem.Status.IsNull() && !SuccessConditionsItem.Status.IsUnknown() {
-												SuccessConditionsItemMap["status"] = SuccessConditionsItem.Status.ValueString()
-											}
-											SuccessConditionsList = append(SuccessConditionsList, SuccessConditionsItemMap)
 										}
-										TransactionResultMap["success_conditions"] = SuccessConditionsList
+										LoginMap["transaction_result"] = TransactionResultMap
 									}
-									LoginMap["transaction_result"] = TransactionResultMap
+									AuthenticationMap["login"] = LoginMap
 								}
-								AuthenticationMap["login"] = LoginMap
+								if ProtectedAppEndpointsItem.FlowLabel.Authentication.LoginMFA != nil {
+									AuthenticationMap["login_mfa"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.Authentication.LoginPartner != nil {
+									AuthenticationMap["login_partner"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.Authentication.Logout != nil {
+									AuthenticationMap["logout"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.Authentication.TokenRefresh != nil {
+									AuthenticationMap["token_refresh"] = map[string]interface{}{}
+								}
+								FlowLabelMap["authentication"] = AuthenticationMap
 							}
-							if ProtectedAppEndpointsItem.FlowLabel.Authentication.LoginMFA != nil {
-								AuthenticationMap["login_mfa"] = map[string]interface{}{}
+							if ProtectedAppEndpointsItem.FlowLabel.FinancialServices != nil {
+								FinancialServicesMap := make(map[string]interface{})
+								if ProtectedAppEndpointsItem.FlowLabel.FinancialServices.Apply != nil {
+									FinancialServicesMap["apply"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.FinancialServices.MoneyTransfer != nil {
+									FinancialServicesMap["money_transfer"] = map[string]interface{}{}
+								}
+								FlowLabelMap["financial_services"] = FinancialServicesMap
 							}
-							if ProtectedAppEndpointsItem.FlowLabel.Authentication.LoginPartner != nil {
-								AuthenticationMap["login_partner"] = map[string]interface{}{}
+							if ProtectedAppEndpointsItem.FlowLabel.Flight != nil {
+								FlightMap := make(map[string]interface{})
+								if ProtectedAppEndpointsItem.FlowLabel.Flight.Checking != nil {
+									FlightMap["checking"] = map[string]interface{}{}
+								}
+								FlowLabelMap["flight"] = FlightMap
 							}
-							if ProtectedAppEndpointsItem.FlowLabel.Authentication.Logout != nil {
-								AuthenticationMap["logout"] = map[string]interface{}{}
+							if ProtectedAppEndpointsItem.FlowLabel.ProfileManagement != nil {
+								ProfileManagementMap := make(map[string]interface{})
+								if ProtectedAppEndpointsItem.FlowLabel.ProfileManagement.Create != nil {
+									ProfileManagementMap["create"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ProfileManagement.Update != nil {
+									ProfileManagementMap["update"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ProfileManagement.View != nil {
+									ProfileManagementMap["view"] = map[string]interface{}{}
+								}
+								FlowLabelMap["profile_management"] = ProfileManagementMap
 							}
-							if ProtectedAppEndpointsItem.FlowLabel.Authentication.TokenRefresh != nil {
-								AuthenticationMap["token_refresh"] = map[string]interface{}{}
+							if ProtectedAppEndpointsItem.FlowLabel.Search != nil {
+								SearchMap := make(map[string]interface{})
+								if ProtectedAppEndpointsItem.FlowLabel.Search.FlightSearch != nil {
+									SearchMap["flight_search"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.Search.ProductSearch != nil {
+									SearchMap["product_search"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.Search.ReservationSearch != nil {
+									SearchMap["reservation_search"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.Search.RoomSearch != nil {
+									SearchMap["room_search"] = map[string]interface{}{}
+								}
+								FlowLabelMap["search"] = SearchMap
 							}
-							FlowLabelMap["authentication"] = AuthenticationMap
+							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards != nil {
+								ShoppingGiftCardsMap := make(map[string]interface{})
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard != nil {
+									ShoppingGiftCardsMap["gift_card_make_purchase_with_gift_card"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardValidation != nil {
+									ShoppingGiftCardsMap["gift_card_validation"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopAddToCart != nil {
+									ShoppingGiftCardsMap["shop_add_to_cart"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopCheckout != nil {
+									ShoppingGiftCardsMap["shop_checkout"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopChooseSeat != nil {
+									ShoppingGiftCardsMap["shop_choose_seat"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission != nil {
+									ShoppingGiftCardsMap["shop_enter_drawing_submission"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopMakePayment != nil {
+									ShoppingGiftCardsMap["shop_make_payment"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopOrder != nil {
+									ShoppingGiftCardsMap["shop_order"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPriceInquiry != nil {
+									ShoppingGiftCardsMap["shop_price_inquiry"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation != nil {
+									ShoppingGiftCardsMap["shop_promo_code_validation"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard != nil {
+									ShoppingGiftCardsMap["shop_purchase_gift_card"] = map[string]interface{}{}
+								}
+								if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopUpdateQuantity != nil {
+									ShoppingGiftCardsMap["shop_update_quantity"] = map[string]interface{}{}
+								}
+								FlowLabelMap["shopping_gift_cards"] = ShoppingGiftCardsMap
+							}
+							ProtectedAppEndpointsItemMap["flow_label"] = FlowLabelMap
 						}
-						if ProtectedAppEndpointsItem.FlowLabel.FinancialServices != nil {
-							FinancialServicesMap := make(map[string]interface{})
-							if ProtectedAppEndpointsItem.FlowLabel.FinancialServices.Apply != nil {
-								FinancialServicesMap["apply"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.FinancialServices.MoneyTransfer != nil {
-								FinancialServicesMap["money_transfer"] = map[string]interface{}{}
-							}
-							FlowLabelMap["financial_services"] = FinancialServicesMap
-						}
-						if ProtectedAppEndpointsItem.FlowLabel.Flight != nil {
-							FlightMap := make(map[string]interface{})
-							if ProtectedAppEndpointsItem.FlowLabel.Flight.Checking != nil {
-								FlightMap["checking"] = map[string]interface{}{}
-							}
-							FlowLabelMap["flight"] = FlightMap
-						}
-						if ProtectedAppEndpointsItem.FlowLabel.ProfileManagement != nil {
-							ProfileManagementMap := make(map[string]interface{})
-							if ProtectedAppEndpointsItem.FlowLabel.ProfileManagement.Create != nil {
-								ProfileManagementMap["create"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ProfileManagement.Update != nil {
-								ProfileManagementMap["update"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ProfileManagement.View != nil {
-								ProfileManagementMap["view"] = map[string]interface{}{}
-							}
-							FlowLabelMap["profile_management"] = ProfileManagementMap
-						}
-						if ProtectedAppEndpointsItem.FlowLabel.Search != nil {
-							SearchMap := make(map[string]interface{})
-							if ProtectedAppEndpointsItem.FlowLabel.Search.FlightSearch != nil {
-								SearchMap["flight_search"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.Search.ProductSearch != nil {
-								SearchMap["product_search"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.Search.ReservationSearch != nil {
-								SearchMap["reservation_search"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.Search.RoomSearch != nil {
-								SearchMap["room_search"] = map[string]interface{}{}
-							}
-							FlowLabelMap["search"] = SearchMap
-						}
-						if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards != nil {
-							ShoppingGiftCardsMap := make(map[string]interface{})
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard != nil {
-								ShoppingGiftCardsMap["gift_card_make_purchase_with_gift_card"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardValidation != nil {
-								ShoppingGiftCardsMap["gift_card_validation"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopAddToCart != nil {
-								ShoppingGiftCardsMap["shop_add_to_cart"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopCheckout != nil {
-								ShoppingGiftCardsMap["shop_checkout"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopChooseSeat != nil {
-								ShoppingGiftCardsMap["shop_choose_seat"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission != nil {
-								ShoppingGiftCardsMap["shop_enter_drawing_submission"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopMakePayment != nil {
-								ShoppingGiftCardsMap["shop_make_payment"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopOrder != nil {
-								ShoppingGiftCardsMap["shop_order"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPriceInquiry != nil {
-								ShoppingGiftCardsMap["shop_price_inquiry"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation != nil {
-								ShoppingGiftCardsMap["shop_promo_code_validation"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard != nil {
-								ShoppingGiftCardsMap["shop_purchase_gift_card"] = map[string]interface{}{}
-							}
-							if ProtectedAppEndpointsItem.FlowLabel.ShoppingGiftCards.ShopUpdateQuantity != nil {
-								ShoppingGiftCardsMap["shop_update_quantity"] = map[string]interface{}{}
-							}
-							FlowLabelMap["shopping_gift_cards"] = ShoppingGiftCardsMap
-						}
-						ProtectedAppEndpointsItemMap["flow_label"] = FlowLabelMap
-					}
-					if len(ProtectedAppEndpointsItem.Headers) > 0 {
-						var HeadersList []map[string]interface{}
-						for _, HeadersItem := range ProtectedAppEndpointsItem.Headers {
-							HeadersItemMap := make(map[string]interface{})
-							if HeadersItem.CheckNotPresent != nil {
-								HeadersItemMap["check_not_present"] = map[string]interface{}{}
-							}
-							if HeadersItem.CheckPresent != nil {
-								HeadersItemMap["check_present"] = map[string]interface{}{}
-							}
-							if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
-								HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
-							}
-							if HeadersItem.Item != nil {
-								ItemMap := make(map[string]interface{})
-								if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
-									var ExactValuesItems []string
-									diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-									if !diags.HasError() {
-										ItemMap["exact_values"] = ExactValuesItems
+						if !ProtectedAppEndpointsItem.Headers.IsNull() && !ProtectedAppEndpointsItem.Headers.IsUnknown() {
+							var HeadersElems []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsHeadersModel
+							diags := ProtectedAppEndpointsItem.Headers.ElementsAs(ctx, &HeadersElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+								var HeadersList []map[string]interface{}
+								for _, HeadersItem := range HeadersElems {
+									HeadersItemMap := make(map[string]interface{})
+									if HeadersItem.CheckNotPresent != nil {
+										HeadersItemMap["check_not_present"] = map[string]interface{}{}
 									}
-								}
-								if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
-									var RegexValuesItems []string
-									diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-									if !diags.HasError() {
-										ItemMap["regex_values"] = RegexValuesItems
+									if HeadersItem.CheckPresent != nil {
+										HeadersItemMap["check_present"] = map[string]interface{}{}
 									}
-								}
-								if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
-									var TransformersItems []string
-									diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-									if !diags.HasError() {
-										ItemMap["transformers"] = TransformersItems
+									if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
+										HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
 									}
-								}
-								HeadersItemMap["item"] = ItemMap
-							}
-							if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-								HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-							}
-							HeadersList = append(HeadersList, HeadersItemMap)
-						}
-						ProtectedAppEndpointsItemMap["headers"] = HeadersList
-					}
-					if !ProtectedAppEndpointsItem.HTTPMethods.IsNull() && !ProtectedAppEndpointsItem.HTTPMethods.IsUnknown() {
-						var HTTPMethodsItems []string
-						diags := ProtectedAppEndpointsItem.HTTPMethods.ElementsAs(ctx, &HTTPMethodsItems, false)
-						if !diags.HasError() {
-							ProtectedAppEndpointsItemMap["http_methods"] = HTTPMethodsItems
-						}
-					}
-					if ProtectedAppEndpointsItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
-						if !ProtectedAppEndpointsItem.Metadata.DescriptionSpec.IsNull() && !ProtectedAppEndpointsItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = ProtectedAppEndpointsItem.Metadata.DescriptionSpec.ValueString()
-						}
-						if !ProtectedAppEndpointsItem.Metadata.Name.IsNull() && !ProtectedAppEndpointsItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = ProtectedAppEndpointsItem.Metadata.Name.ValueString()
-						}
-						ProtectedAppEndpointsItemMap["metadata"] = MetadataMap
-					}
-					if ProtectedAppEndpointsItem.MitigateGoodBots != nil {
-						ProtectedAppEndpointsItemMap["mitigate_good_bots"] = map[string]interface{}{}
-					}
-					if ProtectedAppEndpointsItem.Mitigation != nil {
-						MitigationMap := make(map[string]interface{})
-						if ProtectedAppEndpointsItem.Mitigation.Block != nil {
-							BlockMap := make(map[string]interface{})
-							if !ProtectedAppEndpointsItem.Mitigation.Block.Body.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Block.Body.IsUnknown() {
-								BlockMap["body"] = ProtectedAppEndpointsItem.Mitigation.Block.Body.ValueString()
-							}
-							if !ProtectedAppEndpointsItem.Mitigation.Block.Status.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Block.Status.IsUnknown() {
-								BlockMap["status"] = ProtectedAppEndpointsItem.Mitigation.Block.Status.ValueString()
-							}
-							MitigationMap["block"] = BlockMap
-						}
-						if ProtectedAppEndpointsItem.Mitigation.Flag != nil {
-							FlagMap := make(map[string]interface{})
-							if ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders != nil {
-								AppendHeadersMap := make(map[string]interface{})
-								if !ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.AutoTypeHeaderName.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.AutoTypeHeaderName.IsUnknown() {
-									AppendHeadersMap["auto_type_header_name"] = ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.AutoTypeHeaderName.ValueString()
-								}
-								if !ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.InferenceHeaderName.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.InferenceHeaderName.IsUnknown() {
-									AppendHeadersMap["inference_header_name"] = ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.InferenceHeaderName.ValueString()
-								}
-								FlagMap["append_headers"] = AppendHeadersMap
-							}
-							if ProtectedAppEndpointsItem.Mitigation.Flag.NoHeaders != nil {
-								FlagMap["no_headers"] = map[string]interface{}{}
-							}
-							MitigationMap["flag"] = FlagMap
-						}
-						if ProtectedAppEndpointsItem.Mitigation.Redirect != nil {
-							RedirectMap := make(map[string]interface{})
-							if !ProtectedAppEndpointsItem.Mitigation.Redirect.URI.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Redirect.URI.IsUnknown() {
-								RedirectMap["uri"] = ProtectedAppEndpointsItem.Mitigation.Redirect.URI.ValueString()
-							}
-							MitigationMap["redirect"] = RedirectMap
-						}
-						ProtectedAppEndpointsItemMap["mitigation"] = MitigationMap
-					}
-					if ProtectedAppEndpointsItem.Mobile != nil {
-						ProtectedAppEndpointsItemMap["mobile"] = map[string]interface{}{}
-					}
-					if ProtectedAppEndpointsItem.Path != nil {
-						PathMap := make(map[string]interface{})
-						if !ProtectedAppEndpointsItem.Path.Path.IsNull() && !ProtectedAppEndpointsItem.Path.Path.IsUnknown() {
-							PathMap["path"] = ProtectedAppEndpointsItem.Path.Path.ValueString()
-						}
-						if !ProtectedAppEndpointsItem.Path.Prefix.IsNull() && !ProtectedAppEndpointsItem.Path.Prefix.IsUnknown() {
-							PathMap["prefix"] = ProtectedAppEndpointsItem.Path.Prefix.ValueString()
-						}
-						if !ProtectedAppEndpointsItem.Path.Regex.IsNull() && !ProtectedAppEndpointsItem.Path.Regex.IsUnknown() {
-							PathMap["regex"] = ProtectedAppEndpointsItem.Path.Regex.ValueString()
-						}
-						ProtectedAppEndpointsItemMap["path"] = PathMap
-					}
-					if !ProtectedAppEndpointsItem.Protocol.IsNull() && !ProtectedAppEndpointsItem.Protocol.IsUnknown() {
-						ProtectedAppEndpointsItemMap["protocol"] = ProtectedAppEndpointsItem.Protocol.ValueString()
-					}
-					if len(ProtectedAppEndpointsItem.QueryParams) > 0 {
-						var QueryParamsList []map[string]interface{}
-						for _, QueryParamsItem := range ProtectedAppEndpointsItem.QueryParams {
-							QueryParamsItemMap := make(map[string]interface{})
-							if QueryParamsItem.CheckNotPresent != nil {
-								QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
-							}
-							if QueryParamsItem.CheckPresent != nil {
-								QueryParamsItemMap["check_present"] = map[string]interface{}{}
-							}
-							if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
-								QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
-							}
-							if QueryParamsItem.Item != nil {
-								ItemMap := make(map[string]interface{})
-								if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
-									var ExactValuesItems []string
-									diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-									if !diags.HasError() {
-										ItemMap["exact_values"] = ExactValuesItems
+									if HeadersItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										HeadersItemMap["item"] = ItemMap
 									}
-								}
-								if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
-									var RegexValuesItems []string
-									diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-									if !diags.HasError() {
-										ItemMap["regex_values"] = RegexValuesItems
+									if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+										HeadersItemMap["name"] = HeadersItem.Name.ValueString()
 									}
+									HeadersList = append(HeadersList, HeadersItemMap)
 								}
-								if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
-									var TransformersItems []string
-									diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-									if !diags.HasError() {
-										ItemMap["transformers"] = TransformersItems
+								ProtectedAppEndpointsItemMap["headers"] = HeadersList
+							}
+						}
+						if !ProtectedAppEndpointsItem.HTTPMethods.IsNull() && !ProtectedAppEndpointsItem.HTTPMethods.IsUnknown() {
+							var HTTPMethodsItems []string
+							diags := ProtectedAppEndpointsItem.HTTPMethods.ElementsAs(ctx, &HTTPMethodsItems, false)
+							if !diags.HasError() {
+								ProtectedAppEndpointsItemMap["http_methods"] = HTTPMethodsItems
+							}
+						}
+						if ProtectedAppEndpointsItem.Metadata != nil {
+							MetadataMap := make(map[string]interface{})
+							if !ProtectedAppEndpointsItem.Metadata.DescriptionSpec.IsNull() && !ProtectedAppEndpointsItem.Metadata.DescriptionSpec.IsUnknown() {
+								MetadataMap["description"] = ProtectedAppEndpointsItem.Metadata.DescriptionSpec.ValueString()
+							}
+							if !ProtectedAppEndpointsItem.Metadata.Name.IsNull() && !ProtectedAppEndpointsItem.Metadata.Name.IsUnknown() {
+								MetadataMap["name"] = ProtectedAppEndpointsItem.Metadata.Name.ValueString()
+							}
+							ProtectedAppEndpointsItemMap["metadata"] = MetadataMap
+						}
+						if ProtectedAppEndpointsItem.MitigateGoodBots != nil {
+							ProtectedAppEndpointsItemMap["mitigate_good_bots"] = map[string]interface{}{}
+						}
+						if ProtectedAppEndpointsItem.Mitigation != nil {
+							MitigationMap := make(map[string]interface{})
+							if ProtectedAppEndpointsItem.Mitigation.Block != nil {
+								BlockMap := make(map[string]interface{})
+								if !ProtectedAppEndpointsItem.Mitigation.Block.Body.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Block.Body.IsUnknown() {
+									BlockMap["body"] = ProtectedAppEndpointsItem.Mitigation.Block.Body.ValueString()
+								}
+								if !ProtectedAppEndpointsItem.Mitigation.Block.Status.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Block.Status.IsUnknown() {
+									BlockMap["status"] = ProtectedAppEndpointsItem.Mitigation.Block.Status.ValueString()
+								}
+								MitigationMap["block"] = BlockMap
+							}
+							if ProtectedAppEndpointsItem.Mitigation.Flag != nil {
+								FlagMap := make(map[string]interface{})
+								if ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders != nil {
+									AppendHeadersMap := make(map[string]interface{})
+									if !ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.AutoTypeHeaderName.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.AutoTypeHeaderName.IsUnknown() {
+										AppendHeadersMap["auto_type_header_name"] = ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.AutoTypeHeaderName.ValueString()
 									}
+									if !ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.InferenceHeaderName.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.InferenceHeaderName.IsUnknown() {
+										AppendHeadersMap["inference_header_name"] = ProtectedAppEndpointsItem.Mitigation.Flag.AppendHeaders.InferenceHeaderName.ValueString()
+									}
+									FlagMap["append_headers"] = AppendHeadersMap
 								}
-								QueryParamsItemMap["item"] = ItemMap
+								if ProtectedAppEndpointsItem.Mitigation.Flag.NoHeaders != nil {
+									FlagMap["no_headers"] = map[string]interface{}{}
+								}
+								MitigationMap["flag"] = FlagMap
 							}
-							if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
-								QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
+							if ProtectedAppEndpointsItem.Mitigation.Redirect != nil {
+								RedirectMap := make(map[string]interface{})
+								if !ProtectedAppEndpointsItem.Mitigation.Redirect.URI.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Redirect.URI.IsUnknown() {
+									RedirectMap["uri"] = ProtectedAppEndpointsItem.Mitigation.Redirect.URI.ValueString()
+								}
+								MitigationMap["redirect"] = RedirectMap
 							}
-							QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
+							ProtectedAppEndpointsItemMap["mitigation"] = MitigationMap
 						}
-						ProtectedAppEndpointsItemMap["query_params"] = QueryParamsList
-					}
-					if ProtectedAppEndpointsItem.UndefinedFlowLabel != nil {
-						ProtectedAppEndpointsItemMap["undefined_flow_label"] = map[string]interface{}{}
-					}
-					if ProtectedAppEndpointsItem.Web != nil {
-						ProtectedAppEndpointsItemMap["web"] = map[string]interface{}{}
-					}
-					if ProtectedAppEndpointsItem.WebMobile != nil {
-						WebMobileMap := make(map[string]interface{})
-						if !ProtectedAppEndpointsItem.WebMobile.MobileIdentifier.IsNull() && !ProtectedAppEndpointsItem.WebMobile.MobileIdentifier.IsUnknown() {
-							WebMobileMap["mobile_identifier"] = ProtectedAppEndpointsItem.WebMobile.MobileIdentifier.ValueString()
+						if ProtectedAppEndpointsItem.Mobile != nil {
+							ProtectedAppEndpointsItemMap["mobile"] = map[string]interface{}{}
 						}
-						ProtectedAppEndpointsItemMap["web_mobile"] = WebMobileMap
+						if ProtectedAppEndpointsItem.Path != nil {
+							PathMap := make(map[string]interface{})
+							if !ProtectedAppEndpointsItem.Path.Path.IsNull() && !ProtectedAppEndpointsItem.Path.Path.IsUnknown() {
+								PathMap["path"] = ProtectedAppEndpointsItem.Path.Path.ValueString()
+							}
+							if !ProtectedAppEndpointsItem.Path.Prefix.IsNull() && !ProtectedAppEndpointsItem.Path.Prefix.IsUnknown() {
+								PathMap["prefix"] = ProtectedAppEndpointsItem.Path.Prefix.ValueString()
+							}
+							if !ProtectedAppEndpointsItem.Path.Regex.IsNull() && !ProtectedAppEndpointsItem.Path.Regex.IsUnknown() {
+								PathMap["regex"] = ProtectedAppEndpointsItem.Path.Regex.ValueString()
+							}
+							ProtectedAppEndpointsItemMap["path"] = PathMap
+						}
+						if !ProtectedAppEndpointsItem.Protocol.IsNull() && !ProtectedAppEndpointsItem.Protocol.IsUnknown() {
+							ProtectedAppEndpointsItemMap["protocol"] = ProtectedAppEndpointsItem.Protocol.ValueString()
+						}
+						if !ProtectedAppEndpointsItem.QueryParams.IsNull() && !ProtectedAppEndpointsItem.QueryParams.IsUnknown() {
+							var QueryParamsElems []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsQueryParamsModel
+							diags := ProtectedAppEndpointsItem.QueryParams.ElementsAs(ctx, &QueryParamsElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(QueryParamsElems) > 0 {
+								var QueryParamsList []map[string]interface{}
+								for _, QueryParamsItem := range QueryParamsElems {
+									QueryParamsItemMap := make(map[string]interface{})
+									if QueryParamsItem.CheckNotPresent != nil {
+										QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
+									}
+									if QueryParamsItem.CheckPresent != nil {
+										QueryParamsItemMap["check_present"] = map[string]interface{}{}
+									}
+									if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
+										QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
+									}
+									if QueryParamsItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										QueryParamsItemMap["item"] = ItemMap
+									}
+									if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
+										QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
+									}
+									QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
+								}
+								ProtectedAppEndpointsItemMap["query_params"] = QueryParamsList
+							}
+						}
+						if ProtectedAppEndpointsItem.UndefinedFlowLabel != nil {
+							ProtectedAppEndpointsItemMap["undefined_flow_label"] = map[string]interface{}{}
+						}
+						if ProtectedAppEndpointsItem.Web != nil {
+							ProtectedAppEndpointsItemMap["web"] = map[string]interface{}{}
+						}
+						if ProtectedAppEndpointsItem.WebMobile != nil {
+							WebMobileMap := make(map[string]interface{})
+							if !ProtectedAppEndpointsItem.WebMobile.MobileIdentifier.IsNull() && !ProtectedAppEndpointsItem.WebMobile.MobileIdentifier.IsUnknown() {
+								WebMobileMap["mobile_identifier"] = ProtectedAppEndpointsItem.WebMobile.MobileIdentifier.ValueString()
+							}
+							ProtectedAppEndpointsItemMap["web_mobile"] = WebMobileMap
+						}
+						ProtectedAppEndpointsList = append(ProtectedAppEndpointsList, ProtectedAppEndpointsItemMap)
 					}
-					ProtectedAppEndpointsList = append(ProtectedAppEndpointsList, ProtectedAppEndpointsItemMap)
+					PolicyMap["protected_app_endpoints"] = ProtectedAppEndpointsList
 				}
-				PolicyMap["protected_app_endpoints"] = ProtectedAppEndpointsList
 			}
 			BotDefenseMap["policy"] = PolicyMap
 		}
@@ -37324,150 +37757,165 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			}
 			if data.ClientSideDefense.Policy.JsInsertAllPagesExcept != nil {
 				JsInsertAllPagesExceptMap := make(map[string]interface{})
-				if len(data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList) > 0 {
-					var ExcludeListList []map[string]interface{}
-					for _, ExcludeListItem := range data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList {
-						ExcludeListItemMap := make(map[string]interface{})
-						if ExcludeListItem.AnyDomain != nil {
-							ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+				if !data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
+					var ExcludeListElems []CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModel
+					diags := data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
+						var ExcludeListList []map[string]interface{}
+						for _, ExcludeListItem := range ExcludeListElems {
+							ExcludeListItemMap := make(map[string]interface{})
+							if ExcludeListItem.AnyDomain != nil {
+								ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+							}
+							if ExcludeListItem.Domain != nil {
+								DomainMap := make(map[string]interface{})
+								if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
+									DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
+									DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
+									DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
+								}
+								ExcludeListItemMap["domain"] = DomainMap
+							}
+							if ExcludeListItem.Metadata != nil {
+								MetadataMap := make(map[string]interface{})
+								if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
+									MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
+									MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
+								}
+								ExcludeListItemMap["metadata"] = MetadataMap
+							}
+							if ExcludeListItem.Path != nil {
+								PathMap := make(map[string]interface{})
+								if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
+									PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
+								}
+								if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
+									PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
+								}
+								if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
+									PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
+								}
+								ExcludeListItemMap["path"] = PathMap
+							}
+							ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
 						}
-						if ExcludeListItem.Domain != nil {
-							DomainMap := make(map[string]interface{})
-							if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
-								DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
-								DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
-								DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
-							}
-							ExcludeListItemMap["domain"] = DomainMap
-						}
-						if ExcludeListItem.Metadata != nil {
-							MetadataMap := make(map[string]interface{})
-							if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
-								MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
-							}
-							if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
-								MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
-							}
-							ExcludeListItemMap["metadata"] = MetadataMap
-						}
-						if ExcludeListItem.Path != nil {
-							PathMap := make(map[string]interface{})
-							if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
-								PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
-							}
-							if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
-								PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
-							}
-							if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
-								PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
-							}
-							ExcludeListItemMap["path"] = PathMap
-						}
-						ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
+						JsInsertAllPagesExceptMap["exclude_list"] = ExcludeListList
 					}
-					JsInsertAllPagesExceptMap["exclude_list"] = ExcludeListList
 				}
 				PolicyMap["js_insert_all_pages_except"] = JsInsertAllPagesExceptMap
 			}
 			if data.ClientSideDefense.Policy.JsInsertionRules != nil {
 				JsInsertionRulesMap := make(map[string]interface{})
-				if len(data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList) > 0 {
-					var ExcludeListList []map[string]interface{}
-					for _, ExcludeListItem := range data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList {
-						ExcludeListItemMap := make(map[string]interface{})
-						if ExcludeListItem.AnyDomain != nil {
-							ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+				if !data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList.IsNull() && !data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList.IsUnknown() {
+					var ExcludeListElems []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModel
+					diags := data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
+						var ExcludeListList []map[string]interface{}
+						for _, ExcludeListItem := range ExcludeListElems {
+							ExcludeListItemMap := make(map[string]interface{})
+							if ExcludeListItem.AnyDomain != nil {
+								ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+							}
+							if ExcludeListItem.Domain != nil {
+								DomainMap := make(map[string]interface{})
+								if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
+									DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
+									DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
+									DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
+								}
+								ExcludeListItemMap["domain"] = DomainMap
+							}
+							if ExcludeListItem.Metadata != nil {
+								MetadataMap := make(map[string]interface{})
+								if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
+									MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
+									MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
+								}
+								ExcludeListItemMap["metadata"] = MetadataMap
+							}
+							if ExcludeListItem.Path != nil {
+								PathMap := make(map[string]interface{})
+								if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
+									PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
+								}
+								if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
+									PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
+								}
+								if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
+									PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
+								}
+								ExcludeListItemMap["path"] = PathMap
+							}
+							ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
 						}
-						if ExcludeListItem.Domain != nil {
-							DomainMap := make(map[string]interface{})
-							if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
-								DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
-								DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
-								DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
-							}
-							ExcludeListItemMap["domain"] = DomainMap
-						}
-						if ExcludeListItem.Metadata != nil {
-							MetadataMap := make(map[string]interface{})
-							if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
-								MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
-							}
-							if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
-								MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
-							}
-							ExcludeListItemMap["metadata"] = MetadataMap
-						}
-						if ExcludeListItem.Path != nil {
-							PathMap := make(map[string]interface{})
-							if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
-								PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
-							}
-							if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
-								PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
-							}
-							if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
-								PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
-							}
-							ExcludeListItemMap["path"] = PathMap
-						}
-						ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
+						JsInsertionRulesMap["exclude_list"] = ExcludeListList
 					}
-					JsInsertionRulesMap["exclude_list"] = ExcludeListList
 				}
-				if len(data.ClientSideDefense.Policy.JsInsertionRules.Rules) > 0 {
-					var RulesList []map[string]interface{}
-					for _, RulesItem := range data.ClientSideDefense.Policy.JsInsertionRules.Rules {
-						RulesItemMap := make(map[string]interface{})
-						if RulesItem.AnyDomain != nil {
-							RulesItemMap["any_domain"] = map[string]interface{}{}
+				if !data.ClientSideDefense.Policy.JsInsertionRules.Rules.IsNull() && !data.ClientSideDefense.Policy.JsInsertionRules.Rules.IsUnknown() {
+					var RulesElems []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModel
+					diags := data.ClientSideDefense.Policy.JsInsertionRules.Rules.ElementsAs(ctx, &RulesElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
+						var RulesList []map[string]interface{}
+						for _, RulesItem := range RulesElems {
+							RulesItemMap := make(map[string]interface{})
+							if RulesItem.AnyDomain != nil {
+								RulesItemMap["any_domain"] = map[string]interface{}{}
+							}
+							if RulesItem.Domain != nil {
+								DomainMap := make(map[string]interface{})
+								if !RulesItem.Domain.ExactValue.IsNull() && !RulesItem.Domain.ExactValue.IsUnknown() {
+									DomainMap["exact_value"] = RulesItem.Domain.ExactValue.ValueString()
+								}
+								if !RulesItem.Domain.RegexValue.IsNull() && !RulesItem.Domain.RegexValue.IsUnknown() {
+									DomainMap["regex_value"] = RulesItem.Domain.RegexValue.ValueString()
+								}
+								if !RulesItem.Domain.SuffixValue.IsNull() && !RulesItem.Domain.SuffixValue.IsUnknown() {
+									DomainMap["suffix_value"] = RulesItem.Domain.SuffixValue.ValueString()
+								}
+								RulesItemMap["domain"] = DomainMap
+							}
+							if RulesItem.Metadata != nil {
+								MetadataMap := make(map[string]interface{})
+								if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
+									MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
+									MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+								}
+								RulesItemMap["metadata"] = MetadataMap
+							}
+							if RulesItem.Path != nil {
+								PathMap := make(map[string]interface{})
+								if !RulesItem.Path.Path.IsNull() && !RulesItem.Path.Path.IsUnknown() {
+									PathMap["path"] = RulesItem.Path.Path.ValueString()
+								}
+								if !RulesItem.Path.Prefix.IsNull() && !RulesItem.Path.Prefix.IsUnknown() {
+									PathMap["prefix"] = RulesItem.Path.Prefix.ValueString()
+								}
+								if !RulesItem.Path.Regex.IsNull() && !RulesItem.Path.Regex.IsUnknown() {
+									PathMap["regex"] = RulesItem.Path.Regex.ValueString()
+								}
+								RulesItemMap["path"] = PathMap
+							}
+							RulesList = append(RulesList, RulesItemMap)
 						}
-						if RulesItem.Domain != nil {
-							DomainMap := make(map[string]interface{})
-							if !RulesItem.Domain.ExactValue.IsNull() && !RulesItem.Domain.ExactValue.IsUnknown() {
-								DomainMap["exact_value"] = RulesItem.Domain.ExactValue.ValueString()
-							}
-							if !RulesItem.Domain.RegexValue.IsNull() && !RulesItem.Domain.RegexValue.IsUnknown() {
-								DomainMap["regex_value"] = RulesItem.Domain.RegexValue.ValueString()
-							}
-							if !RulesItem.Domain.SuffixValue.IsNull() && !RulesItem.Domain.SuffixValue.IsUnknown() {
-								DomainMap["suffix_value"] = RulesItem.Domain.SuffixValue.ValueString()
-							}
-							RulesItemMap["domain"] = DomainMap
-						}
-						if RulesItem.Metadata != nil {
-							MetadataMap := make(map[string]interface{})
-							if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
-								MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
-							}
-							if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
-								MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
-							}
-							RulesItemMap["metadata"] = MetadataMap
-						}
-						if RulesItem.Path != nil {
-							PathMap := make(map[string]interface{})
-							if !RulesItem.Path.Path.IsNull() && !RulesItem.Path.Path.IsUnknown() {
-								PathMap["path"] = RulesItem.Path.Path.ValueString()
-							}
-							if !RulesItem.Path.Prefix.IsNull() && !RulesItem.Path.Prefix.IsUnknown() {
-								PathMap["prefix"] = RulesItem.Path.Prefix.ValueString()
-							}
-							if !RulesItem.Path.Regex.IsNull() && !RulesItem.Path.Regex.IsUnknown() {
-								PathMap["regex"] = RulesItem.Path.Regex.ValueString()
-							}
-							RulesItemMap["path"] = PathMap
-						}
-						RulesList = append(RulesList, RulesItemMap)
+						JsInsertionRulesMap["rules"] = RulesList
 					}
-					JsInsertionRulesMap["rules"] = RulesList
 				}
 				PolicyMap["js_insertion_rules"] = JsInsertionRulesMap
 			}
@@ -37756,50 +38204,55 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			APICrawlerMap := make(map[string]interface{})
 			if data.EnableAPIDiscovery.APICrawler.APICrawlerConfig != nil {
 				APICrawlerConfigMap := make(map[string]interface{})
-				if len(data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains) > 0 {
-					var DomainsList []map[string]interface{}
-					for _, DomainsItem := range data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains {
-						DomainsItemMap := make(map[string]interface{})
-						if !DomainsItem.Domain.IsNull() && !DomainsItem.Domain.IsUnknown() {
-							DomainsItemMap["domain"] = DomainsItem.Domain.ValueString()
-						}
-						if DomainsItem.SimpleLogin != nil {
-							SimpleLoginMap := make(map[string]interface{})
-							if DomainsItem.SimpleLogin.Password != nil {
-								PasswordMap := make(map[string]interface{})
-								if DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo != nil {
-									BlindfoldSecretInfoMap := make(map[string]interface{})
-									if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["decryption_provider"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-									}
-									if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-										BlindfoldSecretInfoMap["location"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.ValueString()
-									}
-									if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["store_provider"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
-									}
-									PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
-								}
-								if DomainsItem.SimpleLogin.Password.ClearSecretInfo != nil {
-									ClearSecretInfoMap := make(map[string]interface{})
-									if !DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.IsNull() && !DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.IsUnknown() {
-										ClearSecretInfoMap["provider"] = DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.ValueString()
-									}
-									if !DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.IsNull() && !DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.IsUnknown() {
-										ClearSecretInfoMap["url"] = DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.ValueString()
-									}
-									PasswordMap["clear_secret_info"] = ClearSecretInfoMap
-								}
-								SimpleLoginMap["password"] = PasswordMap
+				if !data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.IsNull() && !data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.IsUnknown() {
+					var DomainsElems []CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel
+					diags := data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.ElementsAs(ctx, &DomainsElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(DomainsElems) > 0 {
+						var DomainsList []map[string]interface{}
+						for _, DomainsItem := range DomainsElems {
+							DomainsItemMap := make(map[string]interface{})
+							if !DomainsItem.Domain.IsNull() && !DomainsItem.Domain.IsUnknown() {
+								DomainsItemMap["domain"] = DomainsItem.Domain.ValueString()
 							}
-							if !DomainsItem.SimpleLogin.User.IsNull() && !DomainsItem.SimpleLogin.User.IsUnknown() {
-								SimpleLoginMap["user"] = DomainsItem.SimpleLogin.User.ValueString()
+							if DomainsItem.SimpleLogin != nil {
+								SimpleLoginMap := make(map[string]interface{})
+								if DomainsItem.SimpleLogin.Password != nil {
+									PasswordMap := make(map[string]interface{})
+									if DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo != nil {
+										BlindfoldSecretInfoMap := make(map[string]interface{})
+										if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["decryption_provider"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+										}
+										if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+											BlindfoldSecretInfoMap["location"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.ValueString()
+										}
+										if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["store_provider"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+										}
+										PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									}
+									if DomainsItem.SimpleLogin.Password.ClearSecretInfo != nil {
+										ClearSecretInfoMap := make(map[string]interface{})
+										if !DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.IsNull() && !DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.IsUnknown() {
+											ClearSecretInfoMap["provider"] = DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.ValueString()
+										}
+										if !DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.IsNull() && !DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.IsUnknown() {
+											ClearSecretInfoMap["url"] = DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.ValueString()
+										}
+										PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+									}
+									SimpleLoginMap["password"] = PasswordMap
+								}
+								if !DomainsItem.SimpleLogin.User.IsNull() && !DomainsItem.SimpleLogin.User.IsUnknown() {
+									SimpleLoginMap["user"] = DomainsItem.SimpleLogin.User.ValueString()
+								}
+								DomainsItemMap["simple_login"] = SimpleLoginMap
 							}
-							DomainsItemMap["simple_login"] = SimpleLoginMap
+							DomainsList = append(DomainsList, DomainsItemMap)
 						}
-						DomainsList = append(DomainsList, DomainsItemMap)
+						APICrawlerConfigMap["domains"] = DomainsList
 					}
-					APICrawlerConfigMap["domains"] = DomainsList
 				}
 				APICrawlerMap["api_crawler_config"] = APICrawlerConfigMap
 			}
@@ -38153,63 +38606,68 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if data.HTTPS.TLSCertOptions.TLSInlineParams.NoMtls != nil {
 					TLSInlineParamsMap["no_mtls"] = map[string]interface{}{}
 				}
-				if len(data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates) > 0 {
-					var TLSCertificatesList []map[string]interface{}
-					for _, TLSCertificatesItem := range data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates {
-						TLSCertificatesItemMap := make(map[string]interface{})
-						if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
-							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
-						}
-						if TLSCertificatesItem.CustomHashAlgorithms != nil {
-							CustomHashAlgorithmsMap := make(map[string]interface{})
-							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
-								var HashAlgorithmsItems []string
-								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
-								if !diags.HasError() {
-									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
-								}
+				if !data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates.IsNull() && !data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates.IsUnknown() {
+					var TLSCertificatesElems []CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModel
+					diags := data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates.ElementsAs(ctx, &TLSCertificatesElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(TLSCertificatesElems) > 0 {
+						var TLSCertificatesList []map[string]interface{}
+						for _, TLSCertificatesItem := range TLSCertificatesElems {
+							TLSCertificatesItemMap := make(map[string]interface{})
+							if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+								TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 							}
-							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
-						}
-						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
-							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
-						}
-						if TLSCertificatesItem.DisableOCSPStapling != nil {
-							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
-						}
-						if TLSCertificatesItem.PrivateKey != nil {
-							PrivateKeyMap := make(map[string]interface{})
-							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
-								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							if TLSCertificatesItem.CustomHashAlgorithms != nil {
+								CustomHashAlgorithmsMap := make(map[string]interface{})
+								if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+									var HashAlgorithmsItems []string
+									diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+									if !diags.HasError() {
+										CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+									}
 								}
-								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
-								}
-								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
-								}
-								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
 							}
-							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
-								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
-								}
-								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
-								}
-								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+							if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+								TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 							}
-							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							if TLSCertificatesItem.DisableOCSPStapling != nil {
+								TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+							}
+							if TLSCertificatesItem.PrivateKey != nil {
+								PrivateKeyMap := make(map[string]interface{})
+								if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+									}
+									if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+									}
+									PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							}
+							if TLSCertificatesItem.UseSystemDefaults != nil {
+								TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+							}
+							TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 						}
-						if TLSCertificatesItem.UseSystemDefaults != nil {
-							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
-						}
-						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+						TLSInlineParamsMap["tls_certificates"] = TLSCertificatesList
 					}
-					TLSInlineParamsMap["tls_certificates"] = TLSCertificatesList
 				}
 				if data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig != nil {
 					TLSConfigMap := make(map[string]interface{})
@@ -38500,33 +38958,38 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		if !data.OriginPool.OriginRequestTimeout.IsNull() && !data.OriginPool.OriginRequestTimeout.IsUnknown() {
 			OriginPoolMap["origin_request_timeout"] = data.OriginPool.OriginRequestTimeout.ValueString()
 		}
-		if len(data.OriginPool.OriginServers) > 0 {
-			var OriginServersList []map[string]interface{}
-			for _, OriginServersItem := range data.OriginPool.OriginServers {
-				OriginServersItemMap := make(map[string]interface{})
-				if !OriginServersItem.Port.IsNull() && !OriginServersItem.Port.IsUnknown() {
-					OriginServersItemMap["port"] = OriginServersItem.Port.ValueInt64()
-				}
-				if OriginServersItem.PublicIP != nil {
-					PublicIPMap := make(map[string]interface{})
-					if !OriginServersItem.PublicIP.IP.IsNull() && !OriginServersItem.PublicIP.IP.IsUnknown() {
-						PublicIPMap["ip"] = OriginServersItem.PublicIP.IP.ValueString()
+		if !data.OriginPool.OriginServers.IsNull() && !data.OriginPool.OriginServers.IsUnknown() {
+			var OriginServersElems []CDNLoadBalancerOriginPoolOriginServersModel
+			diags := data.OriginPool.OriginServers.ElementsAs(ctx, &OriginServersElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(OriginServersElems) > 0 {
+				var OriginServersList []map[string]interface{}
+				for _, OriginServersItem := range OriginServersElems {
+					OriginServersItemMap := make(map[string]interface{})
+					if !OriginServersItem.Port.IsNull() && !OriginServersItem.Port.IsUnknown() {
+						OriginServersItemMap["port"] = OriginServersItem.Port.ValueInt64()
 					}
-					OriginServersItemMap["public_ip"] = PublicIPMap
-				}
-				if OriginServersItem.PublicName != nil {
-					PublicNameMap := make(map[string]interface{})
-					if !OriginServersItem.PublicName.DNSName.IsNull() && !OriginServersItem.PublicName.DNSName.IsUnknown() {
-						PublicNameMap["dns_name"] = OriginServersItem.PublicName.DNSName.ValueString()
+					if OriginServersItem.PublicIP != nil {
+						PublicIPMap := make(map[string]interface{})
+						if !OriginServersItem.PublicIP.IP.IsNull() && !OriginServersItem.PublicIP.IP.IsUnknown() {
+							PublicIPMap["ip"] = OriginServersItem.PublicIP.IP.ValueString()
+						}
+						OriginServersItemMap["public_ip"] = PublicIPMap
 					}
-					if !OriginServersItem.PublicName.RefreshInterval.IsNull() && !OriginServersItem.PublicName.RefreshInterval.IsUnknown() {
-						PublicNameMap["refresh_interval"] = OriginServersItem.PublicName.RefreshInterval.ValueInt64()
+					if OriginServersItem.PublicName != nil {
+						PublicNameMap := make(map[string]interface{})
+						if !OriginServersItem.PublicName.DNSName.IsNull() && !OriginServersItem.PublicName.DNSName.IsUnknown() {
+							PublicNameMap["dns_name"] = OriginServersItem.PublicName.DNSName.ValueString()
+						}
+						if !OriginServersItem.PublicName.RefreshInterval.IsNull() && !OriginServersItem.PublicName.RefreshInterval.IsUnknown() {
+							PublicNameMap["refresh_interval"] = OriginServersItem.PublicName.RefreshInterval.ValueInt64()
+						}
+						OriginServersItemMap["public_name"] = PublicNameMap
 					}
-					OriginServersItemMap["public_name"] = PublicNameMap
+					OriginServersList = append(OriginServersList, OriginServersItemMap)
 				}
-				OriginServersList = append(OriginServersList, OriginServersItemMap)
+				OriginPoolMap["origin_servers"] = OriginServersList
 			}
-			OriginPoolMap["origin_servers"] = OriginServersList
 		}
 		if data.OriginPool.PublicName != nil {
 			PublicNameMap := make(map[string]interface{})
@@ -38596,63 +39059,68 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			}
 			if data.OriginPool.UseTLS.UseMtls != nil {
 				UseMtlsMap := make(map[string]interface{})
-				if len(data.OriginPool.UseTLS.UseMtls.TLSCertificates) > 0 {
-					var TLSCertificatesList []map[string]interface{}
-					for _, TLSCertificatesItem := range data.OriginPool.UseTLS.UseMtls.TLSCertificates {
-						TLSCertificatesItemMap := make(map[string]interface{})
-						if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
-							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
-						}
-						if TLSCertificatesItem.CustomHashAlgorithms != nil {
-							CustomHashAlgorithmsMap := make(map[string]interface{})
-							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
-								var HashAlgorithmsItems []string
-								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
-								if !diags.HasError() {
-									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
-								}
+				if !data.OriginPool.UseTLS.UseMtls.TLSCertificates.IsNull() && !data.OriginPool.UseTLS.UseMtls.TLSCertificates.IsUnknown() {
+					var TLSCertificatesElems []CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModel
+					diags := data.OriginPool.UseTLS.UseMtls.TLSCertificates.ElementsAs(ctx, &TLSCertificatesElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(TLSCertificatesElems) > 0 {
+						var TLSCertificatesList []map[string]interface{}
+						for _, TLSCertificatesItem := range TLSCertificatesElems {
+							TLSCertificatesItemMap := make(map[string]interface{})
+							if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+								TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 							}
-							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
-						}
-						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
-							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
-						}
-						if TLSCertificatesItem.DisableOCSPStapling != nil {
-							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
-						}
-						if TLSCertificatesItem.PrivateKey != nil {
-							PrivateKeyMap := make(map[string]interface{})
-							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
-								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							if TLSCertificatesItem.CustomHashAlgorithms != nil {
+								CustomHashAlgorithmsMap := make(map[string]interface{})
+								if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+									var HashAlgorithmsItems []string
+									diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+									if !diags.HasError() {
+										CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+									}
 								}
-								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
-								}
-								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
-								}
-								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
 							}
-							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
-								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
-								}
-								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
-								}
-								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+							if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+								TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 							}
-							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							if TLSCertificatesItem.DisableOCSPStapling != nil {
+								TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+							}
+							if TLSCertificatesItem.PrivateKey != nil {
+								PrivateKeyMap := make(map[string]interface{})
+								if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+									}
+									if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+									}
+									PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							}
+							if TLSCertificatesItem.UseSystemDefaults != nil {
+								TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+							}
+							TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 						}
-						if TLSCertificatesItem.UseSystemDefaults != nil {
-							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
-						}
-						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+						UseMtlsMap["tls_certificates"] = TLSCertificatesList
 					}
-					UseMtlsMap["tls_certificates"] = TLSCertificatesList
 				}
 				UseTLSMap["use_mtls"] = UseMtlsMap
 			}
@@ -38703,49 +39171,54 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		}
 		if data.OtherSettings.HeaderOptions != nil {
 			HeaderOptionsMap := make(map[string]interface{})
-			if len(data.OtherSettings.HeaderOptions.RequestHeadersToAdd) > 0 {
-				var RequestHeadersToAddList []map[string]interface{}
-				for _, RequestHeadersToAddItem := range data.OtherSettings.HeaderOptions.RequestHeadersToAdd {
-					RequestHeadersToAddItemMap := make(map[string]interface{})
-					if !RequestHeadersToAddItem.Append.IsNull() && !RequestHeadersToAddItem.Append.IsUnknown() {
-						RequestHeadersToAddItemMap["append"] = RequestHeadersToAddItem.Append.ValueBool()
-					}
-					if !RequestHeadersToAddItem.Name.IsNull() && !RequestHeadersToAddItem.Name.IsUnknown() {
-						RequestHeadersToAddItemMap["name"] = RequestHeadersToAddItem.Name.ValueString()
-					}
-					if RequestHeadersToAddItem.SecretValue != nil {
-						SecretValueMap := make(map[string]interface{})
-						if RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
-							BlindfoldSecretInfoMap := make(map[string]interface{})
-							if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["decryption_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-							}
-							if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
-								BlindfoldSecretInfoMap["location"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
-							}
-							if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["store_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
-							}
-							SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			if !data.OtherSettings.HeaderOptions.RequestHeadersToAdd.IsNull() && !data.OtherSettings.HeaderOptions.RequestHeadersToAdd.IsUnknown() {
+				var RequestHeadersToAddElems []CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModel
+				diags := data.OtherSettings.HeaderOptions.RequestHeadersToAdd.ElementsAs(ctx, &RequestHeadersToAddElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RequestHeadersToAddElems) > 0 {
+					var RequestHeadersToAddList []map[string]interface{}
+					for _, RequestHeadersToAddItem := range RequestHeadersToAddElems {
+						RequestHeadersToAddItemMap := make(map[string]interface{})
+						if !RequestHeadersToAddItem.Append.IsNull() && !RequestHeadersToAddItem.Append.IsUnknown() {
+							RequestHeadersToAddItemMap["append"] = RequestHeadersToAddItem.Append.ValueBool()
 						}
-						if RequestHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
-							ClearSecretInfoMap := make(map[string]interface{})
-							if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
-								ClearSecretInfoMap["provider"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
-							}
-							if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
-								ClearSecretInfoMap["url"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
-							}
-							SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+						if !RequestHeadersToAddItem.Name.IsNull() && !RequestHeadersToAddItem.Name.IsUnknown() {
+							RequestHeadersToAddItemMap["name"] = RequestHeadersToAddItem.Name.ValueString()
 						}
-						RequestHeadersToAddItemMap["secret_value"] = SecretValueMap
+						if RequestHeadersToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if RequestHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							RequestHeadersToAddItemMap["secret_value"] = SecretValueMap
+						}
+						if !RequestHeadersToAddItem.Value.IsNull() && !RequestHeadersToAddItem.Value.IsUnknown() {
+							RequestHeadersToAddItemMap["value"] = RequestHeadersToAddItem.Value.ValueString()
+						}
+						RequestHeadersToAddList = append(RequestHeadersToAddList, RequestHeadersToAddItemMap)
 					}
-					if !RequestHeadersToAddItem.Value.IsNull() && !RequestHeadersToAddItem.Value.IsUnknown() {
-						RequestHeadersToAddItemMap["value"] = RequestHeadersToAddItem.Value.ValueString()
-					}
-					RequestHeadersToAddList = append(RequestHeadersToAddList, RequestHeadersToAddItemMap)
+					HeaderOptionsMap["request_headers_to_add"] = RequestHeadersToAddList
 				}
-				HeaderOptionsMap["request_headers_to_add"] = RequestHeadersToAddList
 			}
 			if !data.OtherSettings.HeaderOptions.RequestHeadersToRemove.IsNull() && !data.OtherSettings.HeaderOptions.RequestHeadersToRemove.IsUnknown() {
 				var RequestHeadersToRemoveItems []string
@@ -38754,49 +39227,54 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					HeaderOptionsMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 				}
 			}
-			if len(data.OtherSettings.HeaderOptions.ResponseHeadersToAdd) > 0 {
-				var ResponseHeadersToAddList []map[string]interface{}
-				for _, ResponseHeadersToAddItem := range data.OtherSettings.HeaderOptions.ResponseHeadersToAdd {
-					ResponseHeadersToAddItemMap := make(map[string]interface{})
-					if !ResponseHeadersToAddItem.Append.IsNull() && !ResponseHeadersToAddItem.Append.IsUnknown() {
-						ResponseHeadersToAddItemMap["append"] = ResponseHeadersToAddItem.Append.ValueBool()
-					}
-					if !ResponseHeadersToAddItem.Name.IsNull() && !ResponseHeadersToAddItem.Name.IsUnknown() {
-						ResponseHeadersToAddItemMap["name"] = ResponseHeadersToAddItem.Name.ValueString()
-					}
-					if ResponseHeadersToAddItem.SecretValue != nil {
-						SecretValueMap := make(map[string]interface{})
-						if ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
-							BlindfoldSecretInfoMap := make(map[string]interface{})
-							if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["decryption_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-							}
-							if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
-								BlindfoldSecretInfoMap["location"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
-							}
-							if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["store_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
-							}
-							SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			if !data.OtherSettings.HeaderOptions.ResponseHeadersToAdd.IsNull() && !data.OtherSettings.HeaderOptions.ResponseHeadersToAdd.IsUnknown() {
+				var ResponseHeadersToAddElems []CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModel
+				diags := data.OtherSettings.HeaderOptions.ResponseHeadersToAdd.ElementsAs(ctx, &ResponseHeadersToAddElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ResponseHeadersToAddElems) > 0 {
+					var ResponseHeadersToAddList []map[string]interface{}
+					for _, ResponseHeadersToAddItem := range ResponseHeadersToAddElems {
+						ResponseHeadersToAddItemMap := make(map[string]interface{})
+						if !ResponseHeadersToAddItem.Append.IsNull() && !ResponseHeadersToAddItem.Append.IsUnknown() {
+							ResponseHeadersToAddItemMap["append"] = ResponseHeadersToAddItem.Append.ValueBool()
 						}
-						if ResponseHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
-							ClearSecretInfoMap := make(map[string]interface{})
-							if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
-								ClearSecretInfoMap["provider"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
-							}
-							if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
-								ClearSecretInfoMap["url"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
-							}
-							SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+						if !ResponseHeadersToAddItem.Name.IsNull() && !ResponseHeadersToAddItem.Name.IsUnknown() {
+							ResponseHeadersToAddItemMap["name"] = ResponseHeadersToAddItem.Name.ValueString()
 						}
-						ResponseHeadersToAddItemMap["secret_value"] = SecretValueMap
+						if ResponseHeadersToAddItem.SecretValue != nil {
+							SecretValueMap := make(map[string]interface{})
+							if ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if ResponseHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+								}
+								if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+								}
+								SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							ResponseHeadersToAddItemMap["secret_value"] = SecretValueMap
+						}
+						if !ResponseHeadersToAddItem.Value.IsNull() && !ResponseHeadersToAddItem.Value.IsUnknown() {
+							ResponseHeadersToAddItemMap["value"] = ResponseHeadersToAddItem.Value.ValueString()
+						}
+						ResponseHeadersToAddList = append(ResponseHeadersToAddList, ResponseHeadersToAddItemMap)
 					}
-					if !ResponseHeadersToAddItem.Value.IsNull() && !ResponseHeadersToAddItem.Value.IsUnknown() {
-						ResponseHeadersToAddItemMap["value"] = ResponseHeadersToAddItem.Value.ValueString()
-					}
-					ResponseHeadersToAddList = append(ResponseHeadersToAddList, ResponseHeadersToAddItemMap)
+					HeaderOptionsMap["response_headers_to_add"] = ResponseHeadersToAddList
 				}
-				HeaderOptionsMap["response_headers_to_add"] = ResponseHeadersToAddList
 			}
 			if !data.OtherSettings.HeaderOptions.ResponseHeadersToRemove.IsNull() && !data.OtherSettings.HeaderOptions.ResponseHeadersToRemove.IsUnknown() {
 				var ResponseHeadersToRemoveItems []string
@@ -38925,50 +39403,55 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							if RulesItem.Spec.AnyIP != nil {
 								SpecMap["any_ip"] = map[string]interface{}{}
 							}
-							if len(RulesItem.Spec.ArgMatchers) > 0 {
-								var ArgMatchersList []map[string]interface{}
-								for _, ArgMatchersItem := range RulesItem.Spec.ArgMatchers {
-									ArgMatchersItemMap := make(map[string]interface{})
-									if ArgMatchersItem.CheckNotPresent != nil {
-										ArgMatchersItemMap["check_not_present"] = map[string]interface{}{}
-									}
-									if ArgMatchersItem.CheckPresent != nil {
-										ArgMatchersItemMap["check_present"] = map[string]interface{}{}
-									}
-									if !ArgMatchersItem.InvertMatcher.IsNull() && !ArgMatchersItem.InvertMatcher.IsUnknown() {
-										ArgMatchersItemMap["invert_matcher"] = ArgMatchersItem.InvertMatcher.ValueBool()
-									}
-									if ArgMatchersItem.Item != nil {
-										ItemMap := make(map[string]interface{})
-										if !ArgMatchersItem.Item.ExactValues.IsNull() && !ArgMatchersItem.Item.ExactValues.IsUnknown() {
-											var ExactValuesItems []string
-											diags := ArgMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["exact_values"] = ExactValuesItems
-											}
+							if !RulesItem.Spec.ArgMatchers.IsNull() && !RulesItem.Spec.ArgMatchers.IsUnknown() {
+								var ArgMatchersElems []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModel
+								diags := RulesItem.Spec.ArgMatchers.ElementsAs(ctx, &ArgMatchersElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(ArgMatchersElems) > 0 {
+									var ArgMatchersList []map[string]interface{}
+									for _, ArgMatchersItem := range ArgMatchersElems {
+										ArgMatchersItemMap := make(map[string]interface{})
+										if ArgMatchersItem.CheckNotPresent != nil {
+											ArgMatchersItemMap["check_not_present"] = map[string]interface{}{}
 										}
-										if !ArgMatchersItem.Item.RegexValues.IsNull() && !ArgMatchersItem.Item.RegexValues.IsUnknown() {
-											var RegexValuesItems []string
-											diags := ArgMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["regex_values"] = RegexValuesItems
-											}
+										if ArgMatchersItem.CheckPresent != nil {
+											ArgMatchersItemMap["check_present"] = map[string]interface{}{}
 										}
-										if !ArgMatchersItem.Item.Transformers.IsNull() && !ArgMatchersItem.Item.Transformers.IsUnknown() {
-											var TransformersItems []string
-											diags := ArgMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-											if !diags.HasError() {
-												ItemMap["transformers"] = TransformersItems
-											}
+										if !ArgMatchersItem.InvertMatcher.IsNull() && !ArgMatchersItem.InvertMatcher.IsUnknown() {
+											ArgMatchersItemMap["invert_matcher"] = ArgMatchersItem.InvertMatcher.ValueBool()
 										}
-										ArgMatchersItemMap["item"] = ItemMap
+										if ArgMatchersItem.Item != nil {
+											ItemMap := make(map[string]interface{})
+											if !ArgMatchersItem.Item.ExactValues.IsNull() && !ArgMatchersItem.Item.ExactValues.IsUnknown() {
+												var ExactValuesItems []string
+												diags := ArgMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["exact_values"] = ExactValuesItems
+												}
+											}
+											if !ArgMatchersItem.Item.RegexValues.IsNull() && !ArgMatchersItem.Item.RegexValues.IsUnknown() {
+												var RegexValuesItems []string
+												diags := ArgMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["regex_values"] = RegexValuesItems
+												}
+											}
+											if !ArgMatchersItem.Item.Transformers.IsNull() && !ArgMatchersItem.Item.Transformers.IsUnknown() {
+												var TransformersItems []string
+												diags := ArgMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												if !diags.HasError() {
+													ItemMap["transformers"] = TransformersItems
+												}
+											}
+											ArgMatchersItemMap["item"] = ItemMap
+										}
+										if !ArgMatchersItem.Name.IsNull() && !ArgMatchersItem.Name.IsUnknown() {
+											ArgMatchersItemMap["name"] = ArgMatchersItem.Name.ValueString()
+										}
+										ArgMatchersList = append(ArgMatchersList, ArgMatchersItemMap)
 									}
-									if !ArgMatchersItem.Name.IsNull() && !ArgMatchersItem.Name.IsUnknown() {
-										ArgMatchersItemMap["name"] = ArgMatchersItem.Name.ValueString()
-									}
-									ArgMatchersList = append(ArgMatchersList, ArgMatchersItemMap)
+									SpecMap["arg_matchers"] = ArgMatchersList
 								}
-								SpecMap["arg_matchers"] = ArgMatchersList
 							}
 							if RulesItem.Spec.AsnList != nil {
 								AsnListMap := make(map[string]interface{})
@@ -39049,50 +39532,55 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 								}
 								SpecMap["client_selector"] = ClientSelectorMap
 							}
-							if len(RulesItem.Spec.CookieMatchers) > 0 {
-								var CookieMatchersList []map[string]interface{}
-								for _, CookieMatchersItem := range RulesItem.Spec.CookieMatchers {
-									CookieMatchersItemMap := make(map[string]interface{})
-									if CookieMatchersItem.CheckNotPresent != nil {
-										CookieMatchersItemMap["check_not_present"] = map[string]interface{}{}
-									}
-									if CookieMatchersItem.CheckPresent != nil {
-										CookieMatchersItemMap["check_present"] = map[string]interface{}{}
-									}
-									if !CookieMatchersItem.InvertMatcher.IsNull() && !CookieMatchersItem.InvertMatcher.IsUnknown() {
-										CookieMatchersItemMap["invert_matcher"] = CookieMatchersItem.InvertMatcher.ValueBool()
-									}
-									if CookieMatchersItem.Item != nil {
-										ItemMap := make(map[string]interface{})
-										if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
-											var ExactValuesItems []string
-											diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["exact_values"] = ExactValuesItems
-											}
+							if !RulesItem.Spec.CookieMatchers.IsNull() && !RulesItem.Spec.CookieMatchers.IsUnknown() {
+								var CookieMatchersElems []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModel
+								diags := RulesItem.Spec.CookieMatchers.ElementsAs(ctx, &CookieMatchersElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(CookieMatchersElems) > 0 {
+									var CookieMatchersList []map[string]interface{}
+									for _, CookieMatchersItem := range CookieMatchersElems {
+										CookieMatchersItemMap := make(map[string]interface{})
+										if CookieMatchersItem.CheckNotPresent != nil {
+											CookieMatchersItemMap["check_not_present"] = map[string]interface{}{}
 										}
-										if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
-											var RegexValuesItems []string
-											diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["regex_values"] = RegexValuesItems
-											}
+										if CookieMatchersItem.CheckPresent != nil {
+											CookieMatchersItemMap["check_present"] = map[string]interface{}{}
 										}
-										if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
-											var TransformersItems []string
-											diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-											if !diags.HasError() {
-												ItemMap["transformers"] = TransformersItems
-											}
+										if !CookieMatchersItem.InvertMatcher.IsNull() && !CookieMatchersItem.InvertMatcher.IsUnknown() {
+											CookieMatchersItemMap["invert_matcher"] = CookieMatchersItem.InvertMatcher.ValueBool()
 										}
-										CookieMatchersItemMap["item"] = ItemMap
+										if CookieMatchersItem.Item != nil {
+											ItemMap := make(map[string]interface{})
+											if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
+												var ExactValuesItems []string
+												diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["exact_values"] = ExactValuesItems
+												}
+											}
+											if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
+												var RegexValuesItems []string
+												diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["regex_values"] = RegexValuesItems
+												}
+											}
+											if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
+												var TransformersItems []string
+												diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												if !diags.HasError() {
+													ItemMap["transformers"] = TransformersItems
+												}
+											}
+											CookieMatchersItemMap["item"] = ItemMap
+										}
+										if !CookieMatchersItem.Name.IsNull() && !CookieMatchersItem.Name.IsUnknown() {
+											CookieMatchersItemMap["name"] = CookieMatchersItem.Name.ValueString()
+										}
+										CookieMatchersList = append(CookieMatchersList, CookieMatchersItemMap)
 									}
-									if !CookieMatchersItem.Name.IsNull() && !CookieMatchersItem.Name.IsUnknown() {
-										CookieMatchersItemMap["name"] = CookieMatchersItem.Name.ValueString()
-									}
-									CookieMatchersList = append(CookieMatchersList, CookieMatchersItemMap)
+									SpecMap["cookie_matchers"] = CookieMatchersList
 								}
-								SpecMap["cookie_matchers"] = CookieMatchersList
 							}
 							if RulesItem.Spec.DisableChallenge != nil {
 								SpecMap["disable_challenge"] = map[string]interface{}{}
@@ -39124,50 +39612,55 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							if !RulesItem.Spec.ExpirationTimestamp.IsNull() && !RulesItem.Spec.ExpirationTimestamp.IsUnknown() {
 								SpecMap["expiration_timestamp"] = RulesItem.Spec.ExpirationTimestamp.ValueString()
 							}
-							if len(RulesItem.Spec.Headers) > 0 {
-								var HeadersList []map[string]interface{}
-								for _, HeadersItem := range RulesItem.Spec.Headers {
-									HeadersItemMap := make(map[string]interface{})
-									if HeadersItem.CheckNotPresent != nil {
-										HeadersItemMap["check_not_present"] = map[string]interface{}{}
-									}
-									if HeadersItem.CheckPresent != nil {
-										HeadersItemMap["check_present"] = map[string]interface{}{}
-									}
-									if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
-										HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
-									}
-									if HeadersItem.Item != nil {
-										ItemMap := make(map[string]interface{})
-										if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
-											var ExactValuesItems []string
-											diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["exact_values"] = ExactValuesItems
-											}
+							if !RulesItem.Spec.Headers.IsNull() && !RulesItem.Spec.Headers.IsUnknown() {
+								var HeadersElems []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModel
+								diags := RulesItem.Spec.Headers.ElementsAs(ctx, &HeadersElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+									var HeadersList []map[string]interface{}
+									for _, HeadersItem := range HeadersElems {
+										HeadersItemMap := make(map[string]interface{})
+										if HeadersItem.CheckNotPresent != nil {
+											HeadersItemMap["check_not_present"] = map[string]interface{}{}
 										}
-										if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
-											var RegexValuesItems []string
-											diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["regex_values"] = RegexValuesItems
-											}
+										if HeadersItem.CheckPresent != nil {
+											HeadersItemMap["check_present"] = map[string]interface{}{}
 										}
-										if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
-											var TransformersItems []string
-											diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-											if !diags.HasError() {
-												ItemMap["transformers"] = TransformersItems
-											}
+										if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
+											HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
 										}
-										HeadersItemMap["item"] = ItemMap
+										if HeadersItem.Item != nil {
+											ItemMap := make(map[string]interface{})
+											if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
+												var ExactValuesItems []string
+												diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["exact_values"] = ExactValuesItems
+												}
+											}
+											if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
+												var RegexValuesItems []string
+												diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["regex_values"] = RegexValuesItems
+												}
+											}
+											if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
+												var TransformersItems []string
+												diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												if !diags.HasError() {
+													ItemMap["transformers"] = TransformersItems
+												}
+											}
+											HeadersItemMap["item"] = ItemMap
+										}
+										if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+											HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+										}
+										HeadersList = append(HeadersList, HeadersItemMap)
 									}
-									if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-										HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-									}
-									HeadersList = append(HeadersList, HeadersItemMap)
+									SpecMap["headers"] = HeadersList
 								}
-								SpecMap["headers"] = HeadersList
 							}
 							if RulesItem.Spec.HTTPMethod != nil {
 								HTTPMethodMap := make(map[string]interface{})
@@ -39274,50 +39767,55 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 								}
 								SpecMap["path"] = PathMap
 							}
-							if len(RulesItem.Spec.QueryParams) > 0 {
-								var QueryParamsList []map[string]interface{}
-								for _, QueryParamsItem := range RulesItem.Spec.QueryParams {
-									QueryParamsItemMap := make(map[string]interface{})
-									if QueryParamsItem.CheckNotPresent != nil {
-										QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
-									}
-									if QueryParamsItem.CheckPresent != nil {
-										QueryParamsItemMap["check_present"] = map[string]interface{}{}
-									}
-									if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
-										QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
-									}
-									if QueryParamsItem.Item != nil {
-										ItemMap := make(map[string]interface{})
-										if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
-											var ExactValuesItems []string
-											diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["exact_values"] = ExactValuesItems
-											}
+							if !RulesItem.Spec.QueryParams.IsNull() && !RulesItem.Spec.QueryParams.IsUnknown() {
+								var QueryParamsElems []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModel
+								diags := RulesItem.Spec.QueryParams.ElementsAs(ctx, &QueryParamsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(QueryParamsElems) > 0 {
+									var QueryParamsList []map[string]interface{}
+									for _, QueryParamsItem := range QueryParamsElems {
+										QueryParamsItemMap := make(map[string]interface{})
+										if QueryParamsItem.CheckNotPresent != nil {
+											QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
 										}
-										if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
-											var RegexValuesItems []string
-											diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-											if !diags.HasError() {
-												ItemMap["regex_values"] = RegexValuesItems
-											}
+										if QueryParamsItem.CheckPresent != nil {
+											QueryParamsItemMap["check_present"] = map[string]interface{}{}
 										}
-										if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
-											var TransformersItems []string
-											diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-											if !diags.HasError() {
-												ItemMap["transformers"] = TransformersItems
-											}
+										if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
+											QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
 										}
-										QueryParamsItemMap["item"] = ItemMap
+										if QueryParamsItem.Item != nil {
+											ItemMap := make(map[string]interface{})
+											if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
+												var ExactValuesItems []string
+												diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["exact_values"] = ExactValuesItems
+												}
+											}
+											if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
+												var RegexValuesItems []string
+												diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												if !diags.HasError() {
+													ItemMap["regex_values"] = RegexValuesItems
+												}
+											}
+											if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
+												var TransformersItems []string
+												diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												if !diags.HasError() {
+													ItemMap["transformers"] = TransformersItems
+												}
+											}
+											QueryParamsItemMap["item"] = ItemMap
+										}
+										if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
+											QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
+										}
+										QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
 									}
-									if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
-										QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
-									}
-									QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
+									SpecMap["query_params"] = QueryParamsList
 								}
-								SpecMap["query_params"] = QueryParamsList
 							}
 							if RulesItem.Spec.TLSFingerprintMatcher != nil {
 								TLSFingerprintMatcherMap := make(map[string]interface{})
@@ -39599,28 +40097,33 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				}
 				if TrustedClientsItem.HTTPHeader != nil {
 					HTTPHeaderMap := make(map[string]interface{})
-					if len(TrustedClientsItem.HTTPHeader.Headers) > 0 {
-						var HeadersList []map[string]interface{}
-						for _, HeadersItem := range TrustedClientsItem.HTTPHeader.Headers {
-							HeadersItemMap := make(map[string]interface{})
-							if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
-								HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
+					if !TrustedClientsItem.HTTPHeader.Headers.IsNull() && !TrustedClientsItem.HTTPHeader.Headers.IsUnknown() {
+						var HeadersElems []CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModel
+						diags := TrustedClientsItem.HTTPHeader.Headers.ElementsAs(ctx, &HeadersElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+							var HeadersList []map[string]interface{}
+							for _, HeadersItem := range HeadersElems {
+								HeadersItemMap := make(map[string]interface{})
+								if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
+									HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
+								}
+								if !HeadersItem.InvertMatch.IsNull() && !HeadersItem.InvertMatch.IsUnknown() {
+									HeadersItemMap["invert_match"] = HeadersItem.InvertMatch.ValueBool()
+								}
+								if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+									HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+								}
+								if !HeadersItem.Presence.IsNull() && !HeadersItem.Presence.IsUnknown() {
+									HeadersItemMap["presence"] = HeadersItem.Presence.ValueBool()
+								}
+								if !HeadersItem.Regex.IsNull() && !HeadersItem.Regex.IsUnknown() {
+									HeadersItemMap["regex"] = HeadersItem.Regex.ValueString()
+								}
+								HeadersList = append(HeadersList, HeadersItemMap)
 							}
-							if !HeadersItem.InvertMatch.IsNull() && !HeadersItem.InvertMatch.IsUnknown() {
-								HeadersItemMap["invert_match"] = HeadersItem.InvertMatch.ValueBool()
-							}
-							if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-								HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-							}
-							if !HeadersItem.Presence.IsNull() && !HeadersItem.Presence.IsUnknown() {
-								HeadersItemMap["presence"] = HeadersItem.Presence.ValueBool()
-							}
-							if !HeadersItem.Regex.IsNull() && !HeadersItem.Regex.IsUnknown() {
-								HeadersItemMap["regex"] = HeadersItem.Regex.ValueString()
-							}
-							HeadersList = append(HeadersList, HeadersItemMap)
+							HTTPHeaderMap["headers"] = HeadersList
 						}
-						HTTPHeaderMap["headers"] = HeadersList
 					}
 					TrustedClientsItemMap["http_header"] = HTTPHeaderMap
 				}
@@ -39674,120 +40177,145 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		WAFExclusionMap := make(map[string]interface{})
 		if data.WAFExclusion.WAFExclusionInlineRules != nil {
 			WAFExclusionInlineRulesMap := make(map[string]interface{})
-			if len(data.WAFExclusion.WAFExclusionInlineRules.Rules) > 0 {
-				var RulesList []map[string]interface{}
-				for _, RulesItem := range data.WAFExclusion.WAFExclusionInlineRules.Rules {
-					RulesItemMap := make(map[string]interface{})
-					if RulesItem.AnyDomain != nil {
-						RulesItemMap["any_domain"] = map[string]interface{}{}
-					}
-					if RulesItem.AnyPath != nil {
-						RulesItemMap["any_path"] = map[string]interface{}{}
-					}
-					if RulesItem.AppFirewallDetectionControl != nil {
-						AppFirewallDetectionControlMap := make(map[string]interface{})
-						if len(RulesItem.AppFirewallDetectionControl.ExcludeAttackTypeContexts) > 0 {
-							var ExcludeAttackTypeContextsList []map[string]interface{}
-							for _, ExcludeAttackTypeContextsItem := range RulesItem.AppFirewallDetectionControl.ExcludeAttackTypeContexts {
-								ExcludeAttackTypeContextsItemMap := make(map[string]interface{})
-								if !ExcludeAttackTypeContextsItem.Context.IsNull() && !ExcludeAttackTypeContextsItem.Context.IsUnknown() {
-									ExcludeAttackTypeContextsItemMap["context"] = ExcludeAttackTypeContextsItem.Context.ValueString()
+			if !data.WAFExclusion.WAFExclusionInlineRules.Rules.IsNull() && !data.WAFExclusion.WAFExclusionInlineRules.Rules.IsUnknown() {
+				var RulesElems []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModel
+				diags := data.WAFExclusion.WAFExclusionInlineRules.Rules.ElementsAs(ctx, &RulesElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
+					var RulesList []map[string]interface{}
+					for _, RulesItem := range RulesElems {
+						RulesItemMap := make(map[string]interface{})
+						if RulesItem.AnyDomain != nil {
+							RulesItemMap["any_domain"] = map[string]interface{}{}
+						}
+						if RulesItem.AnyPath != nil {
+							RulesItemMap["any_path"] = map[string]interface{}{}
+						}
+						if RulesItem.AppFirewallDetectionControl != nil {
+							AppFirewallDetectionControlMap := make(map[string]interface{})
+							if !RulesItem.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() && !RulesItem.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsUnknown() {
+								var ExcludeAttackTypeContextsElems []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel
+								diags := RulesItem.AppFirewallDetectionControl.ExcludeAttackTypeContexts.ElementsAs(ctx, &ExcludeAttackTypeContextsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(ExcludeAttackTypeContextsElems) > 0 {
+									var ExcludeAttackTypeContextsList []map[string]interface{}
+									for _, ExcludeAttackTypeContextsItem := range ExcludeAttackTypeContextsElems {
+										ExcludeAttackTypeContextsItemMap := make(map[string]interface{})
+										if !ExcludeAttackTypeContextsItem.Context.IsNull() && !ExcludeAttackTypeContextsItem.Context.IsUnknown() {
+											ExcludeAttackTypeContextsItemMap["context"] = ExcludeAttackTypeContextsItem.Context.ValueString()
+										}
+										if !ExcludeAttackTypeContextsItem.ContextName.IsNull() && !ExcludeAttackTypeContextsItem.ContextName.IsUnknown() {
+											ExcludeAttackTypeContextsItemMap["context_name"] = ExcludeAttackTypeContextsItem.ContextName.ValueString()
+										}
+										if !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsNull() && !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsUnknown() {
+											ExcludeAttackTypeContextsItemMap["exclude_attack_type"] = ExcludeAttackTypeContextsItem.ExcludeAttackType.ValueString()
+										}
+										ExcludeAttackTypeContextsList = append(ExcludeAttackTypeContextsList, ExcludeAttackTypeContextsItemMap)
+									}
+									AppFirewallDetectionControlMap["exclude_attack_type_contexts"] = ExcludeAttackTypeContextsList
 								}
-								if !ExcludeAttackTypeContextsItem.ContextName.IsNull() && !ExcludeAttackTypeContextsItem.ContextName.IsUnknown() {
-									ExcludeAttackTypeContextsItemMap["context_name"] = ExcludeAttackTypeContextsItem.ContextName.ValueString()
-								}
-								if !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsNull() && !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsUnknown() {
-									ExcludeAttackTypeContextsItemMap["exclude_attack_type"] = ExcludeAttackTypeContextsItem.ExcludeAttackType.ValueString()
-								}
-								ExcludeAttackTypeContextsList = append(ExcludeAttackTypeContextsList, ExcludeAttackTypeContextsItemMap)
 							}
-							AppFirewallDetectionControlMap["exclude_attack_type_contexts"] = ExcludeAttackTypeContextsList
-						}
-						if len(RulesItem.AppFirewallDetectionControl.ExcludeBotNameContexts) > 0 {
-							var ExcludeBotNameContextsList []map[string]interface{}
-							for _, ExcludeBotNameContextsItem := range RulesItem.AppFirewallDetectionControl.ExcludeBotNameContexts {
-								ExcludeBotNameContextsItemMap := make(map[string]interface{})
-								if !ExcludeBotNameContextsItem.BotName.IsNull() && !ExcludeBotNameContextsItem.BotName.IsUnknown() {
-									ExcludeBotNameContextsItemMap["bot_name"] = ExcludeBotNameContextsItem.BotName.ValueString()
+							if !RulesItem.AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() && !RulesItem.AppFirewallDetectionControl.ExcludeBotNameContexts.IsUnknown() {
+								var ExcludeBotNameContextsElems []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModel
+								diags := RulesItem.AppFirewallDetectionControl.ExcludeBotNameContexts.ElementsAs(ctx, &ExcludeBotNameContextsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(ExcludeBotNameContextsElems) > 0 {
+									var ExcludeBotNameContextsList []map[string]interface{}
+									for _, ExcludeBotNameContextsItem := range ExcludeBotNameContextsElems {
+										ExcludeBotNameContextsItemMap := make(map[string]interface{})
+										if !ExcludeBotNameContextsItem.BotName.IsNull() && !ExcludeBotNameContextsItem.BotName.IsUnknown() {
+											ExcludeBotNameContextsItemMap["bot_name"] = ExcludeBotNameContextsItem.BotName.ValueString()
+										}
+										ExcludeBotNameContextsList = append(ExcludeBotNameContextsList, ExcludeBotNameContextsItemMap)
+									}
+									AppFirewallDetectionControlMap["exclude_bot_name_contexts"] = ExcludeBotNameContextsList
 								}
-								ExcludeBotNameContextsList = append(ExcludeBotNameContextsList, ExcludeBotNameContextsItemMap)
 							}
-							AppFirewallDetectionControlMap["exclude_bot_name_contexts"] = ExcludeBotNameContextsList
-						}
-						if len(RulesItem.AppFirewallDetectionControl.ExcludeSignatureContexts) > 0 {
-							var ExcludeSignatureContextsList []map[string]interface{}
-							for _, ExcludeSignatureContextsItem := range RulesItem.AppFirewallDetectionControl.ExcludeSignatureContexts {
-								ExcludeSignatureContextsItemMap := make(map[string]interface{})
-								if !ExcludeSignatureContextsItem.Context.IsNull() && !ExcludeSignatureContextsItem.Context.IsUnknown() {
-									ExcludeSignatureContextsItemMap["context"] = ExcludeSignatureContextsItem.Context.ValueString()
+							if !RulesItem.AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() && !RulesItem.AppFirewallDetectionControl.ExcludeSignatureContexts.IsUnknown() {
+								var ExcludeSignatureContextsElems []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModel
+								diags := RulesItem.AppFirewallDetectionControl.ExcludeSignatureContexts.ElementsAs(ctx, &ExcludeSignatureContextsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(ExcludeSignatureContextsElems) > 0 {
+									var ExcludeSignatureContextsList []map[string]interface{}
+									for _, ExcludeSignatureContextsItem := range ExcludeSignatureContextsElems {
+										ExcludeSignatureContextsItemMap := make(map[string]interface{})
+										if !ExcludeSignatureContextsItem.Context.IsNull() && !ExcludeSignatureContextsItem.Context.IsUnknown() {
+											ExcludeSignatureContextsItemMap["context"] = ExcludeSignatureContextsItem.Context.ValueString()
+										}
+										if !ExcludeSignatureContextsItem.ContextName.IsNull() && !ExcludeSignatureContextsItem.ContextName.IsUnknown() {
+											ExcludeSignatureContextsItemMap["context_name"] = ExcludeSignatureContextsItem.ContextName.ValueString()
+										}
+										if !ExcludeSignatureContextsItem.SignatureID.IsNull() && !ExcludeSignatureContextsItem.SignatureID.IsUnknown() {
+											ExcludeSignatureContextsItemMap["signature_id"] = ExcludeSignatureContextsItem.SignatureID.ValueInt64()
+										}
+										ExcludeSignatureContextsList = append(ExcludeSignatureContextsList, ExcludeSignatureContextsItemMap)
+									}
+									AppFirewallDetectionControlMap["exclude_signature_contexts"] = ExcludeSignatureContextsList
 								}
-								if !ExcludeSignatureContextsItem.ContextName.IsNull() && !ExcludeSignatureContextsItem.ContextName.IsUnknown() {
-									ExcludeSignatureContextsItemMap["context_name"] = ExcludeSignatureContextsItem.ContextName.ValueString()
-								}
-								if !ExcludeSignatureContextsItem.SignatureID.IsNull() && !ExcludeSignatureContextsItem.SignatureID.IsUnknown() {
-									ExcludeSignatureContextsItemMap["signature_id"] = ExcludeSignatureContextsItem.SignatureID.ValueInt64()
-								}
-								ExcludeSignatureContextsList = append(ExcludeSignatureContextsList, ExcludeSignatureContextsItemMap)
 							}
-							AppFirewallDetectionControlMap["exclude_signature_contexts"] = ExcludeSignatureContextsList
-						}
-						if len(RulesItem.AppFirewallDetectionControl.ExcludeViolationContexts) > 0 {
-							var ExcludeViolationContextsList []map[string]interface{}
-							for _, ExcludeViolationContextsItem := range RulesItem.AppFirewallDetectionControl.ExcludeViolationContexts {
-								ExcludeViolationContextsItemMap := make(map[string]interface{})
-								if !ExcludeViolationContextsItem.Context.IsNull() && !ExcludeViolationContextsItem.Context.IsUnknown() {
-									ExcludeViolationContextsItemMap["context"] = ExcludeViolationContextsItem.Context.ValueString()
+							if !RulesItem.AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() && !RulesItem.AppFirewallDetectionControl.ExcludeViolationContexts.IsUnknown() {
+								var ExcludeViolationContextsElems []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModel
+								diags := RulesItem.AppFirewallDetectionControl.ExcludeViolationContexts.ElementsAs(ctx, &ExcludeViolationContextsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(ExcludeViolationContextsElems) > 0 {
+									var ExcludeViolationContextsList []map[string]interface{}
+									for _, ExcludeViolationContextsItem := range ExcludeViolationContextsElems {
+										ExcludeViolationContextsItemMap := make(map[string]interface{})
+										if !ExcludeViolationContextsItem.Context.IsNull() && !ExcludeViolationContextsItem.Context.IsUnknown() {
+											ExcludeViolationContextsItemMap["context"] = ExcludeViolationContextsItem.Context.ValueString()
+										}
+										if !ExcludeViolationContextsItem.ContextName.IsNull() && !ExcludeViolationContextsItem.ContextName.IsUnknown() {
+											ExcludeViolationContextsItemMap["context_name"] = ExcludeViolationContextsItem.ContextName.ValueString()
+										}
+										if !ExcludeViolationContextsItem.ExcludeViolation.IsNull() && !ExcludeViolationContextsItem.ExcludeViolation.IsUnknown() {
+											ExcludeViolationContextsItemMap["exclude_violation"] = ExcludeViolationContextsItem.ExcludeViolation.ValueString()
+										}
+										ExcludeViolationContextsList = append(ExcludeViolationContextsList, ExcludeViolationContextsItemMap)
+									}
+									AppFirewallDetectionControlMap["exclude_violation_contexts"] = ExcludeViolationContextsList
 								}
-								if !ExcludeViolationContextsItem.ContextName.IsNull() && !ExcludeViolationContextsItem.ContextName.IsUnknown() {
-									ExcludeViolationContextsItemMap["context_name"] = ExcludeViolationContextsItem.ContextName.ValueString()
-								}
-								if !ExcludeViolationContextsItem.ExcludeViolation.IsNull() && !ExcludeViolationContextsItem.ExcludeViolation.IsUnknown() {
-									ExcludeViolationContextsItemMap["exclude_violation"] = ExcludeViolationContextsItem.ExcludeViolation.ValueString()
-								}
-								ExcludeViolationContextsList = append(ExcludeViolationContextsList, ExcludeViolationContextsItemMap)
 							}
-							AppFirewallDetectionControlMap["exclude_violation_contexts"] = ExcludeViolationContextsList
+							RulesItemMap["app_firewall_detection_control"] = AppFirewallDetectionControlMap
 						}
-						RulesItemMap["app_firewall_detection_control"] = AppFirewallDetectionControlMap
-					}
-					if !RulesItem.ExactValue.IsNull() && !RulesItem.ExactValue.IsUnknown() {
-						RulesItemMap["exact_value"] = RulesItem.ExactValue.ValueString()
-					}
-					if !RulesItem.ExpirationTimestamp.IsNull() && !RulesItem.ExpirationTimestamp.IsUnknown() {
-						RulesItemMap["expiration_timestamp"] = RulesItem.ExpirationTimestamp.ValueString()
-					}
-					if RulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
-						if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+						if !RulesItem.ExactValue.IsNull() && !RulesItem.ExactValue.IsUnknown() {
+							RulesItemMap["exact_value"] = RulesItem.ExactValue.ValueString()
 						}
-						if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+						if !RulesItem.ExpirationTimestamp.IsNull() && !RulesItem.ExpirationTimestamp.IsUnknown() {
+							RulesItemMap["expiration_timestamp"] = RulesItem.ExpirationTimestamp.ValueString()
 						}
-						RulesItemMap["metadata"] = MetadataMap
-					}
-					if !RulesItem.Methods.IsNull() && !RulesItem.Methods.IsUnknown() {
-						var MethodsItems []string
-						diags := RulesItem.Methods.ElementsAs(ctx, &MethodsItems, false)
-						if !diags.HasError() {
-							RulesItemMap["methods"] = MethodsItems
+						if RulesItem.Metadata != nil {
+							MetadataMap := make(map[string]interface{})
+							if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
+								MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+							}
+							if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
+								MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+							}
+							RulesItemMap["metadata"] = MetadataMap
 						}
+						if !RulesItem.Methods.IsNull() && !RulesItem.Methods.IsUnknown() {
+							var MethodsItems []string
+							diags := RulesItem.Methods.ElementsAs(ctx, &MethodsItems, false)
+							if !diags.HasError() {
+								RulesItemMap["methods"] = MethodsItems
+							}
+						}
+						if !RulesItem.PathPrefix.IsNull() && !RulesItem.PathPrefix.IsUnknown() {
+							RulesItemMap["path_prefix"] = RulesItem.PathPrefix.ValueString()
+						}
+						if !RulesItem.PathRegex.IsNull() && !RulesItem.PathRegex.IsUnknown() {
+							RulesItemMap["path_regex"] = RulesItem.PathRegex.ValueString()
+						}
+						if !RulesItem.SuffixValue.IsNull() && !RulesItem.SuffixValue.IsUnknown() {
+							RulesItemMap["suffix_value"] = RulesItem.SuffixValue.ValueString()
+						}
+						if RulesItem.WAFSkipProcessing != nil {
+							RulesItemMap["waf_skip_processing"] = map[string]interface{}{}
+						}
+						RulesList = append(RulesList, RulesItemMap)
 					}
-					if !RulesItem.PathPrefix.IsNull() && !RulesItem.PathPrefix.IsUnknown() {
-						RulesItemMap["path_prefix"] = RulesItem.PathPrefix.ValueString()
-					}
-					if !RulesItem.PathRegex.IsNull() && !RulesItem.PathRegex.IsUnknown() {
-						RulesItemMap["path_regex"] = RulesItem.PathRegex.ValueString()
-					}
-					if !RulesItem.SuffixValue.IsNull() && !RulesItem.SuffixValue.IsUnknown() {
-						RulesItemMap["suffix_value"] = RulesItem.SuffixValue.ValueString()
-					}
-					if RulesItem.WAFSkipProcessing != nil {
-						RulesItemMap["waf_skip_processing"] = map[string]interface{}{}
-					}
-					RulesList = append(RulesList, RulesItemMap)
+					WAFExclusionInlineRulesMap["rules"] = RulesList
 				}
-				WAFExclusionInlineRulesMap["rules"] = RulesList
 			}
 			WAFExclusionMap["waf_exclusion_inline_rules"] = WAFExclusionInlineRulesMap
 		}
@@ -40270,7 +40798,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 								RequestMatcher: func() *CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherModel {
 									if RequestMatcherData, ok := APIEndpointRulesItemMap["request_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherModel{
-											CookieMatchers: func() []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModel {
+											CookieMatchers: func() types.List {
 												if rawList, ok := RequestMatcherData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var CookieMatchersResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModel
 													for _, CookieMatchersItem := range rawList {
@@ -40349,11 +40877,12 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															})
 														}
 													}
-													return CookieMatchersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModelAttrTypes}, CookieMatchersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModelAttrTypes})
 											}(),
-											Headers: func() []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModel {
+											Headers: func() types.List {
 												if rawList, ok := RequestMatcherData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModel
 													for _, HeadersItem := range rawList {
@@ -40432,11 +40961,12 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															})
 														}
 													}
-													return HeadersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModelAttrTypes}, HeadersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModelAttrTypes})
 											}(),
-											JWTClaims: func() []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModel {
+											JWTClaims: func() types.List {
 												if rawList, ok := RequestMatcherData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 													var JWTClaimsResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModel
 													for _, JWTClaimsItem := range rawList {
@@ -40515,11 +41045,12 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															})
 														}
 													}
-													return JWTClaimsResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModelAttrTypes}, JWTClaimsResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModelAttrTypes})
 											}(),
-											QueryParams: func() []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModel {
+											QueryParams: func() types.List {
 												if rawList, ok := RequestMatcherData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 													var QueryParamsResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModel
 													for _, QueryParamsItem := range rawList {
@@ -40598,9 +41129,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															})
 														}
 													}
-													return QueryParamsResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModelAttrTypes}, QueryParamsResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModelAttrTypes})
 											}(),
 										}
 									}
@@ -40958,7 +41490,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 											RequestMatcher: func() *CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherModel {
 												if RequestMatcherData, ok := BypassRateLimitingRulesItemMap["request_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherModel{
-														CookieMatchers: func() []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModel {
+														CookieMatchers: func() types.List {
 															if rawList, ok := RequestMatcherData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 																var CookieMatchersResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModel
 																for _, CookieMatchersItem := range rawList {
@@ -41037,11 +41569,12 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																		})
 																	}
 																}
-																return CookieMatchersResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModelAttrTypes}, CookieMatchersResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModelAttrTypes})
 														}(),
-														Headers: func() []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModel {
+														Headers: func() types.List {
 															if rawList, ok := RequestMatcherData["headers"].([]interface{}); ok && len(rawList) > 0 {
 																var HeadersResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModel
 																for _, HeadersItem := range rawList {
@@ -41120,11 +41653,12 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																		})
 																	}
 																}
-																return HeadersResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModelAttrTypes}, HeadersResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModelAttrTypes})
 														}(),
-														JWTClaims: func() []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModel {
+														JWTClaims: func() types.List {
 															if rawList, ok := RequestMatcherData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 																var JWTClaimsResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModel
 																for _, JWTClaimsItem := range rawList {
@@ -41203,11 +41737,12 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																		})
 																	}
 																}
-																return JWTClaimsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModelAttrTypes}, JWTClaimsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModelAttrTypes})
 														}(),
-														QueryParams: func() []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModel {
+														QueryParams: func() types.List {
 															if rawList, ok := RequestMatcherData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 																var QueryParamsResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModel
 																for _, QueryParamsItem := range rawList {
@@ -41286,9 +41821,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																		})
 																	}
 																}
-																return QueryParamsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModelAttrTypes}, QueryParamsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModelAttrTypes})
 														}(),
 													}
 												}
@@ -41750,7 +42286,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 								RequestMatcher: func() *CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherModel {
 									if RequestMatcherData, ok := ServerURLRulesItemMap["request_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherModel{
-											CookieMatchers: func() []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModel {
+											CookieMatchers: func() types.List {
 												if rawList, ok := RequestMatcherData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var CookieMatchersResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModel
 													for _, CookieMatchersItem := range rawList {
@@ -41829,11 +42365,12 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															})
 														}
 													}
-													return CookieMatchersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModelAttrTypes}, CookieMatchersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModelAttrTypes})
 											}(),
-											Headers: func() []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModel {
+											Headers: func() types.List {
 												if rawList, ok := RequestMatcherData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModel
 													for _, HeadersItem := range rawList {
@@ -41912,11 +42449,12 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															})
 														}
 													}
-													return HeadersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModelAttrTypes}, HeadersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModelAttrTypes})
 											}(),
-											JWTClaims: func() []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModel {
+											JWTClaims: func() types.List {
 												if rawList, ok := RequestMatcherData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 													var JWTClaimsResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModel
 													for _, JWTClaimsItem := range rawList {
@@ -41995,11 +42533,12 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															})
 														}
 													}
-													return JWTClaimsResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModelAttrTypes}, JWTClaimsResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModelAttrTypes})
 											}(),
-											QueryParams: func() []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModel {
+											QueryParams: func() types.List {
 												if rawList, ok := RequestMatcherData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 													var QueryParamsResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModel
 													for _, QueryParamsItem := range rawList {
@@ -42078,9 +42617,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															})
 														}
 													}
-													return QueryParamsResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModelAttrTypes}, QueryParamsResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModelAttrTypes})
 											}(),
 										}
 									}
@@ -42147,7 +42687,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									FallThroughModeCustom: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModel {
 										if FallThroughModeCustomData, ok := FallThroughModeData["fall_through_mode_custom"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModel{
-												OpenAPIValidationRules: func() []CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel {
+												OpenAPIValidationRules: func() types.List {
 													if rawList, ok := FallThroughModeCustomData["open_api_validation_rules"].([]interface{}); ok && len(rawList) > 0 {
 														var OpenAPIValidationRulesResult []CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
 														for _, OpenAPIValidationRulesItem := range rawList {
@@ -42231,9 +42771,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																})
 															}
 														}
-														return OpenAPIValidationRulesResult
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes}, OpenAPIValidationRulesResult)
+														return listVal
 													}
-													return nil
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes})
 												}(),
 											}
 										}
@@ -42399,7 +42940,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									FallThroughModeCustom: func() *CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModel {
 										if FallThroughModeCustomData, ok := FallThroughModeData["fall_through_mode_custom"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModel{
-												OpenAPIValidationRules: func() []CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel {
+												OpenAPIValidationRules: func() types.List {
 													if rawList, ok := FallThroughModeCustomData["open_api_validation_rules"].([]interface{}); ok && len(rawList) > 0 {
 														var OpenAPIValidationRulesResult []CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
 														for _, OpenAPIValidationRulesItem := range rawList {
@@ -42483,9 +43024,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																})
 															}
 														}
-														return OpenAPIValidationRulesResult
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes}, OpenAPIValidationRulesResult)
+														return listVal
 													}
-													return nil
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes})
 												}(),
 											}
 										}
@@ -42495,7 +43037,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							}
 							return nil
 						}(),
-						OpenAPIValidationRules: func() []CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModel {
+						OpenAPIValidationRules: func() types.List {
 							if rawList, ok := ValidationCustomListData["open_api_validation_rules"].([]interface{}); ok && len(rawList) > 0 {
 								var OpenAPIValidationRulesResult []CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModel
 								for _, OpenAPIValidationRulesItem := range rawList {
@@ -42656,9 +43198,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										})
 									}
 								}
-								return OpenAPIValidationRulesResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModelAttrTypes}, OpenAPIValidationRulesResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModelAttrTypes})
 						}(),
 						Settings: func() *CDNLoadBalancerAPISpecificationValidationCustomListSettingsModel {
 							if SettingsData, ok := ValidationCustomListData["settings"].(map[string]interface{}); ok {
@@ -42797,7 +43340,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					HTTPHeader: func() *CDNLoadBalancerBlockedClientsHTTPHeaderModel {
 						if HTTPHeaderData, ok := itemMap["http_header"].(map[string]interface{}); ok {
 							return &CDNLoadBalancerBlockedClientsHTTPHeaderModel{
-								Headers: func() []CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModel {
+								Headers: func() types.List {
 									if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 										var HeadersResult []CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModel
 										for _, HeadersItem := range rawList {
@@ -42836,9 +43379,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												})
 											}
 										}
-										return HeadersResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModelAttrTypes}, HeadersResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModelAttrTypes})
 								}(),
 							}
 						}
@@ -42976,7 +43520,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						JsInsertAllPagesExcept: func() *CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptModel {
 							if JsInsertAllPagesExceptData, ok := PolicyData["js_insert_all_pages_except"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptModel{
-									ExcludeList: func() []CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModel {
+									ExcludeList: func() types.List {
 										if rawList, ok := JsInsertAllPagesExceptData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModel
 											for _, ExcludeListItem := range rawList {
@@ -43060,9 +43604,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 													})
 												}
 											}
-											return ExcludeListResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModelAttrTypes}, ExcludeListResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModelAttrTypes})
 									}(),
 									JavascriptLocation: func() types.String {
 										if v, ok := JsInsertAllPagesExceptData["javascript_location"].(string); ok && v != "" {
@@ -43077,7 +43622,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						JsInsertionRules: func() *CDNLoadBalancerBotDefensePolicyJsInsertionRulesModel {
 							if JsInsertionRulesData, ok := PolicyData["js_insertion_rules"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerBotDefensePolicyJsInsertionRulesModel{
-									ExcludeList: func() []CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModel {
+									ExcludeList: func() types.List {
 										if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModel
 											for _, ExcludeListItem := range rawList {
@@ -43161,11 +43706,12 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 													})
 												}
 											}
-											return ExcludeListResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModelAttrTypes}, ExcludeListResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModelAttrTypes})
 									}(),
-									Rules: func() []CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModel {
+									Rules: func() types.List {
 										if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 											var RulesResult []CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModel
 											for _, RulesItem := range rawList {
@@ -43255,9 +43801,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 													})
 												}
 											}
-											return RulesResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModelAttrTypes}, RulesResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModelAttrTypes})
 									}(),
 								}
 							}
@@ -43269,7 +43816,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									MobileIdentifier: func() *CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierModel {
 										if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierModel{
-												Headers: func() []CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModel {
+												Headers: func() types.List {
 													if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
 														var HeadersResult []CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModel
 														for _, HeadersItem := range rawList {
@@ -43342,9 +43889,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																})
 															}
 														}
-														return HeadersResult
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModelAttrTypes}, HeadersResult)
+														return listVal
 													}
-													return nil
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
 												}(),
 											}
 										}
@@ -43354,7 +43902,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							}
 							return nil
 						}(),
-						ProtectedAppEndpoints: func() []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModel {
+						ProtectedAppEndpoints: func() types.List {
 							if rawList, ok := PolicyData["protected_app_endpoints"].([]interface{}); ok && len(rawList) > 0 {
 								var ProtectedAppEndpointsResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModel
 								for _, ProtectedAppEndpointsItem := range rawList {
@@ -43434,7 +43982,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																				TransactionResult: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultModel {
 																					if TransactionResultData, ok := LoginData["transaction_result"].(map[string]interface{}); ok {
 																						return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultModel{
-																							FailureConditions: func() []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel {
+																							FailureConditions: func() types.List {
 																								if rawList, ok := TransactionResultData["failure_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																									var FailureConditionsResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel
 																									for _, FailureConditionsItem := range rawList {
@@ -43468,11 +44016,12 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																											})
 																										}
 																									}
-																									return FailureConditionsResult
+																									listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes}, FailureConditionsResult)
+																									return listVal
 																								}
-																								return nil
+																								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes})
 																							}(),
-																							SuccessConditions: func() []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel {
+																							SuccessConditions: func() types.List {
 																								if rawList, ok := TransactionResultData["success_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																									var SuccessConditionsResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel
 																									for _, SuccessConditionsItem := range rawList {
@@ -43506,9 +44055,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																											})
 																										}
 																									}
-																									return SuccessConditionsResult
+																									listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModelAttrTypes}, SuccessConditionsResult)
+																									return listVal
 																								}
-																								return nil
+																								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModelAttrTypes})
 																							}(),
 																						}
 																					}
@@ -43717,7 +44267,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												}
 												return nil
 											}(),
-											Headers: func() []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsHeadersModel {
+											Headers: func() types.List {
 												if rawList, ok := ProtectedAppEndpointsItemMap["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsHeadersModel
 													for _, HeadersItem := range rawList {
@@ -43796,9 +44346,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															})
 														}
 													}
-													return HeadersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsHeadersModelAttrTypes}, HeadersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsHeadersModelAttrTypes})
 											}(),
 											HTTPMethods: func() types.List {
 												if v, ok := ProtectedAppEndpointsItemMap["http_methods"].([]interface{}); ok && len(v) > 0 {
@@ -43946,7 +44497,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												}
 												return types.StringNull()
 											}(),
-											QueryParams: func() []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsQueryParamsModel {
+											QueryParams: func() types.List {
 												if rawList, ok := ProtectedAppEndpointsItemMap["query_params"].([]interface{}); ok && len(rawList) > 0 {
 													var QueryParamsResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsQueryParamsModel
 													for _, QueryParamsItem := range rawList {
@@ -44025,9 +44576,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															})
 														}
 													}
-													return QueryParamsResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsQueryParamsModelAttrTypes}, QueryParamsResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsQueryParamsModelAttrTypes})
 											}(),
 											UndefinedFlowLabel: func() *CDNLoadBalancerEmptyModel {
 												if _, ok := ProtectedAppEndpointsItemMap["undefined_flow_label"].(map[string]interface{}); ok {
@@ -44057,9 +44609,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										})
 									}
 								}
-								return ProtectedAppEndpointsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModelAttrTypes}, ProtectedAppEndpointsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModelAttrTypes})
 						}(),
 					}
 				}
@@ -44124,7 +44677,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						JsInsertAllPagesExcept: func() *CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptModel {
 							if JsInsertAllPagesExceptData, ok := PolicyData["js_insert_all_pages_except"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptModel{
-									ExcludeList: func() []CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModel {
+									ExcludeList: func() types.List {
 										if rawList, ok := JsInsertAllPagesExceptData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModel
 											for _, ExcludeListItem := range rawList {
@@ -44208,9 +44761,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 													})
 												}
 											}
-											return ExcludeListResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModelAttrTypes}, ExcludeListResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModelAttrTypes})
 									}(),
 								}
 							}
@@ -44219,7 +44773,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						JsInsertionRules: func() *CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesModel {
 							if JsInsertionRulesData, ok := PolicyData["js_insertion_rules"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesModel{
-									ExcludeList: func() []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModel {
+									ExcludeList: func() types.List {
 										if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModel
 											for _, ExcludeListItem := range rawList {
@@ -44303,11 +44857,12 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 													})
 												}
 											}
-											return ExcludeListResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModelAttrTypes}, ExcludeListResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModelAttrTypes})
 									}(),
-									Rules: func() []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModel {
+									Rules: func() types.List {
 										if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 											var RulesResult []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModel
 											for _, RulesItem := range rawList {
@@ -44391,9 +44946,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 													})
 												}
 											}
-											return RulesResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModelAttrTypes}, RulesResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModelAttrTypes})
 									}(),
 								}
 							}
@@ -44922,7 +45478,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						APICrawlerConfig: func() *CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModel {
 							if APICrawlerConfigData, ok := APICrawlerData["api_crawler_config"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModel{
-									Domains: func() []CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel {
+									Domains: func() types.List {
 										if rawList, ok := APICrawlerConfigData["domains"].([]interface{}); ok && len(rawList) > 0 {
 											var DomainsResult []CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel
 											for _, DomainsItem := range rawList {
@@ -45001,9 +45557,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 													})
 												}
 											}
-											return DomainsResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModelAttrTypes}, DomainsResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModelAttrTypes})
 									}(),
 								}
 							}
@@ -45693,7 +46250,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										}
 										return nil
 									}(),
-									TLSCertificates: func() []CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModel {
+									TLSCertificates: func() types.List {
 										if rawList, ok := TLSInlineParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var TLSCertificatesResult []CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModel
 											for _, TLSCertificatesItem := range rawList {
@@ -45797,9 +46354,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 													})
 												}
 											}
-											return TLSCertificatesResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModelAttrTypes}, TLSCertificatesResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModelAttrTypes})
 									}(),
 									TLSConfig: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSConfigModel {
 										if TLSConfigData, ok := TLSInlineParamsData["tls_config"].(map[string]interface{}); ok {
@@ -46359,9 +46917,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				}
 				return types.StringNull()
 			}(),
-			OriginServers: func() []CDNLoadBalancerOriginPoolOriginServersModel {
-				if !isImport && data.OriginPool != nil && len(data.OriginPool.OriginServers) == 0 {
-					return nil
+			OriginServers: func() types.List {
+				if !isImport && data.OriginPool != nil && (data.OriginPool.OriginServers.IsNull() || len(data.OriginPool.OriginServers.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOriginPoolOriginServersModelAttrTypes})
 				}
 				if rawList, ok := blockData["origin_servers"].([]interface{}); ok && len(rawList) > 0 {
 					var OriginServersResult []CDNLoadBalancerOriginPoolOriginServersModel
@@ -46409,9 +46967,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							})
 						}
 					}
-					return OriginServersResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerOriginPoolOriginServersModelAttrTypes}, OriginServersResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOriginPoolOriginServersModelAttrTypes})
 			}(),
 			PublicName: func() *CDNLoadBalancerOriginPoolPublicNameModel {
 				if !isImport && data.OriginPool != nil && data.OriginPool.PublicName != nil {
@@ -46549,7 +47108,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						UseMtls: func() *CDNLoadBalancerOriginPoolUseTLSUseMtlsModel {
 							if UseMtlsData, ok := UseTLSData["use_mtls"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerOriginPoolUseTLSUseMtlsModel{
-									TLSCertificates: func() []CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModel {
+									TLSCertificates: func() types.List {
 										if rawList, ok := UseMtlsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var TLSCertificatesResult []CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModel
 											for _, TLSCertificatesItem := range rawList {
@@ -46653,9 +47212,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 													})
 												}
 											}
-											return TLSCertificatesResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModelAttrTypes}, TLSCertificatesResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModelAttrTypes})
 									}(),
 								}
 							}
@@ -46753,7 +47313,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				}
 				if HeaderOptionsData, ok := blockData["header_options"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerOtherSettingsHeaderOptionsModel{
-						RequestHeadersToAdd: func() []CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModel {
+						RequestHeadersToAdd: func() types.List {
 							if rawList, ok := HeaderOptionsData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var RequestHeadersToAddResult []CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModel
 								for _, RequestHeadersToAddItem := range rawList {
@@ -46831,9 +47391,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										})
 									}
 								}
-								return RequestHeadersToAddResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModelAttrTypes}, RequestHeadersToAddResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModelAttrTypes})
 						}(),
 						RequestHeadersToRemove: func() types.List {
 							if v, ok := HeaderOptionsData["request_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
@@ -46848,7 +47409,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							}
 							return types.ListNull(types.StringType)
 						}(),
-						ResponseHeadersToAdd: func() []CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModel {
+						ResponseHeadersToAdd: func() types.List {
 							if rawList, ok := HeaderOptionsData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var ResponseHeadersToAddResult []CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModel
 								for _, ResponseHeadersToAddItem := range rawList {
@@ -46926,9 +47487,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										})
 									}
 								}
-								return ResponseHeadersToAddResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModelAttrTypes}, ResponseHeadersToAddResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModelAttrTypes})
 						}(),
 						ResponseHeadersToRemove: func() types.List {
 							if v, ok := HeaderOptionsData["response_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
@@ -47191,7 +47753,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															}
 															return nil
 														}(),
-														ArgMatchers: func() []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModel {
+														ArgMatchers: func() types.List {
 															if rawList, ok := SpecData["arg_matchers"].([]interface{}); ok && len(rawList) > 0 {
 																var ArgMatchersResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModel
 																for _, ArgMatchersItem := range rawList {
@@ -47270,9 +47832,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																		})
 																	}
 																}
-																return ArgMatchersResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModelAttrTypes}, ArgMatchersResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModelAttrTypes})
 														}(),
 														AsnList: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnListModel {
 															if AsnListData, ok := SpecData["asn_list"].(map[string]interface{}); ok {
@@ -47411,7 +47974,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															}
 															return nil
 														}(),
-														CookieMatchers: func() []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModel {
+														CookieMatchers: func() types.List {
 															if rawList, ok := SpecData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 																var CookieMatchersResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModel
 																for _, CookieMatchersItem := range rawList {
@@ -47490,9 +48053,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																		})
 																	}
 																}
-																return CookieMatchersResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModelAttrTypes}, CookieMatchersResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModelAttrTypes})
 														}(),
 														DisableChallenge: func() *CDNLoadBalancerEmptyModel {
 															if _, ok := SpecData["disable_challenge"].(map[string]interface{}); ok {
@@ -47551,7 +48115,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															}
 															return types.StringNull()
 														}(),
-														Headers: func() []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModel {
+														Headers: func() types.List {
 															if rawList, ok := SpecData["headers"].([]interface{}); ok && len(rawList) > 0 {
 																var HeadersResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModel
 																for _, HeadersItem := range rawList {
@@ -47630,9 +48194,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																		})
 																	}
 																}
-																return HeadersResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModelAttrTypes}, HeadersResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModelAttrTypes})
 														}(),
 														HTTPMethod: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHTTPMethodModel {
 															if HTTPMethodData, ok := SpecData["http_method"].(map[string]interface{}); ok {
@@ -47821,7 +48386,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															}
 															return nil
 														}(),
-														QueryParams: func() []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModel {
+														QueryParams: func() types.List {
 															if rawList, ok := SpecData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 																var QueryParamsResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModel
 																for _, QueryParamsItem := range rawList {
@@ -47900,9 +48465,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																		})
 																	}
 																}
-																return QueryParamsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModelAttrTypes}, QueryParamsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModelAttrTypes})
 														}(),
 														TLSFingerprintMatcher: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecTLSFingerprintMatcherModel {
 															if TLSFingerprintMatcherData, ok := SpecData["tls_fingerprint_matcher"].(map[string]interface{}); ok {
@@ -48460,7 +49026,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					HTTPHeader: func() *CDNLoadBalancerTrustedClientsHTTPHeaderModel {
 						if HTTPHeaderData, ok := itemMap["http_header"].(map[string]interface{}); ok {
 							return &CDNLoadBalancerTrustedClientsHTTPHeaderModel{
-								Headers: func() []CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModel {
+								Headers: func() types.List {
 									if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 										var HeadersResult []CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModel
 										for _, HeadersItem := range rawList {
@@ -48499,9 +49065,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												})
 											}
 										}
-										return HeadersResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModelAttrTypes}, HeadersResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModelAttrTypes})
 								}(),
 							}
 						}
@@ -48606,7 +49173,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				}
 				if WAFExclusionInlineRulesData, ok := blockData["waf_exclusion_inline_rules"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesModel{
-						Rules: func() []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModel {
+						Rules: func() types.List {
 							if rawList, ok := WAFExclusionInlineRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 								var RulesResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModel
 								for _, RulesItem := range rawList {
@@ -48627,7 +49194,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 											AppFirewallDetectionControl: func() *CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlModel {
 												if AppFirewallDetectionControlData, ok := RulesItemMap["app_firewall_detection_control"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlModel{
-														ExcludeAttackTypeContexts: func() []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel {
+														ExcludeAttackTypeContexts: func() types.List {
 															if rawList, ok := AppFirewallDetectionControlData["exclude_attack_type_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeAttackTypeContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel
 																for _, ExcludeAttackTypeContextsItem := range rawList {
@@ -48654,11 +49221,12 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																		})
 																	}
 																}
-																return ExcludeAttackTypeContextsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes}, ExcludeAttackTypeContextsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
 														}(),
-														ExcludeBotNameContexts: func() []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModel {
+														ExcludeBotNameContexts: func() types.List {
 															if rawList, ok := AppFirewallDetectionControlData["exclude_bot_name_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeBotNameContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModel
 																for _, ExcludeBotNameContextsItem := range rawList {
@@ -48673,11 +49241,12 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																		})
 																	}
 																}
-																return ExcludeBotNameContextsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes}, ExcludeBotNameContextsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
 														}(),
-														ExcludeSignatureContexts: func() []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModel {
+														ExcludeSignatureContexts: func() types.List {
 															if rawList, ok := AppFirewallDetectionControlData["exclude_signature_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeSignatureContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModel
 																for _, ExcludeSignatureContextsItem := range rawList {
@@ -48704,11 +49273,12 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																		})
 																	}
 																}
-																return ExcludeSignatureContextsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes}, ExcludeSignatureContextsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
 														}(),
-														ExcludeViolationContexts: func() []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModel {
+														ExcludeViolationContexts: func() types.List {
 															if rawList, ok := AppFirewallDetectionControlData["exclude_violation_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeViolationContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModel
 																for _, ExcludeViolationContextsItem := range rawList {
@@ -48735,9 +49305,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																		})
 																	}
 																}
-																return ExcludeViolationContextsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes}, ExcludeViolationContextsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes})
 														}(),
 													}
 												}
@@ -48814,9 +49385,10 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										})
 									}
 								}
-								return RulesResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModelAttrTypes}, RulesResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModelAttrTypes})
 						}(),
 					}
 				}

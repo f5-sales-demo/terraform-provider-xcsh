@@ -149,8 +149,8 @@ var DNSZonePrimaryDefaultRrSetGroupAaaaRecordModelAttrTypes = map[string]attr.Ty
 
 // DNSZonePrimaryDefaultRrSetGroupAfsdbRecordModel represents afsdb_record block
 type DNSZonePrimaryDefaultRrSetGroupAfsdbRecordModel struct {
-	Name   types.String                                            `tfsdk:"name"`
-	Values []DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModel `tfsdk:"values"`
+	Name   types.String `tfsdk:"name"`
+	Values types.List   `tfsdk:"values"`
 }
 
 // DNSZonePrimaryDefaultRrSetGroupAfsdbRecordModelAttrTypes defines the attribute types for DNSZonePrimaryDefaultRrSetGroupAfsdbRecordModel
@@ -183,8 +183,8 @@ var DNSZonePrimaryDefaultRrSetGroupAliasRecordModelAttrTypes = map[string]attr.T
 
 // DNSZonePrimaryDefaultRrSetGroupCaaRecordModel represents caa_record block
 type DNSZonePrimaryDefaultRrSetGroupCaaRecordModel struct {
-	Name   types.String                                          `tfsdk:"name"`
-	Values []DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModel `tfsdk:"values"`
+	Name   types.String `tfsdk:"name"`
+	Values types.List   `tfsdk:"values"`
 }
 
 // DNSZonePrimaryDefaultRrSetGroupCaaRecordModelAttrTypes defines the attribute types for DNSZonePrimaryDefaultRrSetGroupCaaRecordModel
@@ -209,8 +209,8 @@ var DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModelAttrTypes = map[string]at
 
 // DNSZonePrimaryDefaultRrSetGroupCdsRecordModel represents cds_record block
 type DNSZonePrimaryDefaultRrSetGroupCdsRecordModel struct {
-	Name   types.String                                          `tfsdk:"name"`
-	Values []DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModel `tfsdk:"values"`
+	Name   types.String `tfsdk:"name"`
+	Values types.List   `tfsdk:"values"`
 }
 
 // DNSZonePrimaryDefaultRrSetGroupCdsRecordModelAttrTypes defines the attribute types for DNSZonePrimaryDefaultRrSetGroupCdsRecordModel
@@ -269,8 +269,8 @@ var DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesSha384DigestModelAttrTypes = m
 
 // DNSZonePrimaryDefaultRrSetGroupCertRecordModel represents cert_record block
 type DNSZonePrimaryDefaultRrSetGroupCertRecordModel struct {
-	Name   types.String                                           `tfsdk:"name"`
-	Values []DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModel `tfsdk:"values"`
+	Name   types.String `tfsdk:"name"`
+	Values types.List   `tfsdk:"values"`
 }
 
 // DNSZonePrimaryDefaultRrSetGroupCertRecordModelAttrTypes defines the attribute types for DNSZonePrimaryDefaultRrSetGroupCertRecordModel
@@ -309,8 +309,8 @@ var DNSZonePrimaryDefaultRrSetGroupCnameRecordModelAttrTypes = map[string]attr.T
 
 // DNSZonePrimaryDefaultRrSetGroupDsRecordModel represents ds_record block
 type DNSZonePrimaryDefaultRrSetGroupDsRecordModel struct {
-	Name   types.String                                         `tfsdk:"name"`
-	Values []DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModel `tfsdk:"values"`
+	Name   types.String `tfsdk:"name"`
+	Values types.List   `tfsdk:"values"`
 }
 
 // DNSZonePrimaryDefaultRrSetGroupDsRecordModelAttrTypes defines the attribute types for DNSZonePrimaryDefaultRrSetGroupDsRecordModel
@@ -419,8 +419,8 @@ var DNSZonePrimaryDefaultRrSetGroupLBRecordValueModelAttrTypes = map[string]attr
 
 // DNSZonePrimaryDefaultRrSetGroupLocRecordModel represents loc_record block
 type DNSZonePrimaryDefaultRrSetGroupLocRecordModel struct {
-	Name   types.String                                          `tfsdk:"name"`
-	Values []DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModel `tfsdk:"values"`
+	Name   types.String `tfsdk:"name"`
+	Values types.List   `tfsdk:"values"`
 }
 
 // DNSZonePrimaryDefaultRrSetGroupLocRecordModelAttrTypes defines the attribute types for DNSZonePrimaryDefaultRrSetGroupLocRecordModel
@@ -463,8 +463,8 @@ var DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModelAttrTypes = map[string]at
 
 // DNSZonePrimaryDefaultRrSetGroupMxRecordModel represents mx_record block
 type DNSZonePrimaryDefaultRrSetGroupMxRecordModel struct {
-	Name   types.String                                         `tfsdk:"name"`
-	Values []DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModel `tfsdk:"values"`
+	Name   types.String `tfsdk:"name"`
+	Values types.List   `tfsdk:"values"`
 }
 
 // DNSZonePrimaryDefaultRrSetGroupMxRecordModelAttrTypes defines the attribute types for DNSZonePrimaryDefaultRrSetGroupMxRecordModel
@@ -487,8 +487,8 @@ var DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModelAttrTypes = map[string]att
 
 // DNSZonePrimaryDefaultRrSetGroupNaptrRecordModel represents naptr_record block
 type DNSZonePrimaryDefaultRrSetGroupNaptrRecordModel struct {
-	Name   types.String                                            `tfsdk:"name"`
-	Values []DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModel `tfsdk:"values"`
+	Name   types.String `tfsdk:"name"`
+	Values types.List   `tfsdk:"values"`
 }
 
 // DNSZonePrimaryDefaultRrSetGroupNaptrRecordModelAttrTypes defines the attribute types for DNSZonePrimaryDefaultRrSetGroupNaptrRecordModel
@@ -543,8 +543,8 @@ var DNSZonePrimaryDefaultRrSetGroupPtrRecordModelAttrTypes = map[string]attr.Typ
 
 // DNSZonePrimaryDefaultRrSetGroupSrvRecordModel represents srv_record block
 type DNSZonePrimaryDefaultRrSetGroupSrvRecordModel struct {
-	Name   types.String                                          `tfsdk:"name"`
-	Values []DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModel `tfsdk:"values"`
+	Name   types.String `tfsdk:"name"`
+	Values types.List   `tfsdk:"values"`
 }
 
 // DNSZonePrimaryDefaultRrSetGroupSrvRecordModelAttrTypes defines the attribute types for DNSZonePrimaryDefaultRrSetGroupSrvRecordModel
@@ -571,8 +571,8 @@ var DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModelAttrTypes = map[string]at
 
 // DNSZonePrimaryDefaultRrSetGroupSshfpRecordModel represents sshfp_record block
 type DNSZonePrimaryDefaultRrSetGroupSshfpRecordModel struct {
-	Name   types.String                                            `tfsdk:"name"`
-	Values []DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModel `tfsdk:"values"`
+	Name   types.String `tfsdk:"name"`
+	Values types.List   `tfsdk:"values"`
 }
 
 // DNSZonePrimaryDefaultRrSetGroupSshfpRecordModelAttrTypes defines the attribute types for DNSZonePrimaryDefaultRrSetGroupSshfpRecordModel
@@ -617,8 +617,8 @@ var DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesSha256FingerprintModelAttrTy
 
 // DNSZonePrimaryDefaultRrSetGroupTlsaRecordModel represents tlsa_record block
 type DNSZonePrimaryDefaultRrSetGroupTlsaRecordModel struct {
-	Name   types.String                                           `tfsdk:"name"`
-	Values []DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModel `tfsdk:"values"`
+	Name   types.String `tfsdk:"name"`
+	Values types.List   `tfsdk:"values"`
 }
 
 // DNSZonePrimaryDefaultRrSetGroupTlsaRecordModelAttrTypes defines the attribute types for DNSZonePrimaryDefaultRrSetGroupTlsaRecordModel
@@ -771,8 +771,8 @@ var DNSZonePrimaryRrSetGroupRrSetAaaaRecordModelAttrTypes = map[string]attr.Type
 
 // DNSZonePrimaryRrSetGroupRrSetAfsdbRecordModel represents afsdb_record block
 type DNSZonePrimaryRrSetGroupRrSetAfsdbRecordModel struct {
-	Name   types.String                                          `tfsdk:"name"`
-	Values []DNSZonePrimaryRrSetGroupRrSetAfsdbRecordValuesModel `tfsdk:"values"`
+	Name   types.String `tfsdk:"name"`
+	Values types.List   `tfsdk:"values"`
 }
 
 // DNSZonePrimaryRrSetGroupRrSetAfsdbRecordModelAttrTypes defines the attribute types for DNSZonePrimaryRrSetGroupRrSetAfsdbRecordModel
@@ -805,8 +805,8 @@ var DNSZonePrimaryRrSetGroupRrSetAliasRecordModelAttrTypes = map[string]attr.Typ
 
 // DNSZonePrimaryRrSetGroupRrSetCaaRecordModel represents caa_record block
 type DNSZonePrimaryRrSetGroupRrSetCaaRecordModel struct {
-	Name   types.String                                        `tfsdk:"name"`
-	Values []DNSZonePrimaryRrSetGroupRrSetCaaRecordValuesModel `tfsdk:"values"`
+	Name   types.String `tfsdk:"name"`
+	Values types.List   `tfsdk:"values"`
 }
 
 // DNSZonePrimaryRrSetGroupRrSetCaaRecordModelAttrTypes defines the attribute types for DNSZonePrimaryRrSetGroupRrSetCaaRecordModel
@@ -831,8 +831,8 @@ var DNSZonePrimaryRrSetGroupRrSetCaaRecordValuesModelAttrTypes = map[string]attr
 
 // DNSZonePrimaryRrSetGroupRrSetCdsRecordModel represents cds_record block
 type DNSZonePrimaryRrSetGroupRrSetCdsRecordModel struct {
-	Name   types.String                                        `tfsdk:"name"`
-	Values []DNSZonePrimaryRrSetGroupRrSetCdsRecordValuesModel `tfsdk:"values"`
+	Name   types.String `tfsdk:"name"`
+	Values types.List   `tfsdk:"values"`
 }
 
 // DNSZonePrimaryRrSetGroupRrSetCdsRecordModelAttrTypes defines the attribute types for DNSZonePrimaryRrSetGroupRrSetCdsRecordModel
@@ -891,8 +891,8 @@ var DNSZonePrimaryRrSetGroupRrSetCdsRecordValuesSha384DigestModelAttrTypes = map
 
 // DNSZonePrimaryRrSetGroupRrSetCertRecordModel represents cert_record block
 type DNSZonePrimaryRrSetGroupRrSetCertRecordModel struct {
-	Name   types.String                                         `tfsdk:"name"`
-	Values []DNSZonePrimaryRrSetGroupRrSetCertRecordValuesModel `tfsdk:"values"`
+	Name   types.String `tfsdk:"name"`
+	Values types.List   `tfsdk:"values"`
 }
 
 // DNSZonePrimaryRrSetGroupRrSetCertRecordModelAttrTypes defines the attribute types for DNSZonePrimaryRrSetGroupRrSetCertRecordModel
@@ -931,8 +931,8 @@ var DNSZonePrimaryRrSetGroupRrSetCnameRecordModelAttrTypes = map[string]attr.Typ
 
 // DNSZonePrimaryRrSetGroupRrSetDsRecordModel represents ds_record block
 type DNSZonePrimaryRrSetGroupRrSetDsRecordModel struct {
-	Name   types.String                                       `tfsdk:"name"`
-	Values []DNSZonePrimaryRrSetGroupRrSetDsRecordValuesModel `tfsdk:"values"`
+	Name   types.String `tfsdk:"name"`
+	Values types.List   `tfsdk:"values"`
 }
 
 // DNSZonePrimaryRrSetGroupRrSetDsRecordModelAttrTypes defines the attribute types for DNSZonePrimaryRrSetGroupRrSetDsRecordModel
@@ -1041,8 +1041,8 @@ var DNSZonePrimaryRrSetGroupRrSetLBRecordValueModelAttrTypes = map[string]attr.T
 
 // DNSZonePrimaryRrSetGroupRrSetLocRecordModel represents loc_record block
 type DNSZonePrimaryRrSetGroupRrSetLocRecordModel struct {
-	Name   types.String                                        `tfsdk:"name"`
-	Values []DNSZonePrimaryRrSetGroupRrSetLocRecordValuesModel `tfsdk:"values"`
+	Name   types.String `tfsdk:"name"`
+	Values types.List   `tfsdk:"values"`
 }
 
 // DNSZonePrimaryRrSetGroupRrSetLocRecordModelAttrTypes defines the attribute types for DNSZonePrimaryRrSetGroupRrSetLocRecordModel
@@ -1085,8 +1085,8 @@ var DNSZonePrimaryRrSetGroupRrSetLocRecordValuesModelAttrTypes = map[string]attr
 
 // DNSZonePrimaryRrSetGroupRrSetMxRecordModel represents mx_record block
 type DNSZonePrimaryRrSetGroupRrSetMxRecordModel struct {
-	Name   types.String                                       `tfsdk:"name"`
-	Values []DNSZonePrimaryRrSetGroupRrSetMxRecordValuesModel `tfsdk:"values"`
+	Name   types.String `tfsdk:"name"`
+	Values types.List   `tfsdk:"values"`
 }
 
 // DNSZonePrimaryRrSetGroupRrSetMxRecordModelAttrTypes defines the attribute types for DNSZonePrimaryRrSetGroupRrSetMxRecordModel
@@ -1109,8 +1109,8 @@ var DNSZonePrimaryRrSetGroupRrSetMxRecordValuesModelAttrTypes = map[string]attr.
 
 // DNSZonePrimaryRrSetGroupRrSetNaptrRecordModel represents naptr_record block
 type DNSZonePrimaryRrSetGroupRrSetNaptrRecordModel struct {
-	Name   types.String                                          `tfsdk:"name"`
-	Values []DNSZonePrimaryRrSetGroupRrSetNaptrRecordValuesModel `tfsdk:"values"`
+	Name   types.String `tfsdk:"name"`
+	Values types.List   `tfsdk:"values"`
 }
 
 // DNSZonePrimaryRrSetGroupRrSetNaptrRecordModelAttrTypes defines the attribute types for DNSZonePrimaryRrSetGroupRrSetNaptrRecordModel
@@ -1165,8 +1165,8 @@ var DNSZonePrimaryRrSetGroupRrSetPtrRecordModelAttrTypes = map[string]attr.Type{
 
 // DNSZonePrimaryRrSetGroupRrSetSrvRecordModel represents srv_record block
 type DNSZonePrimaryRrSetGroupRrSetSrvRecordModel struct {
-	Name   types.String                                        `tfsdk:"name"`
-	Values []DNSZonePrimaryRrSetGroupRrSetSrvRecordValuesModel `tfsdk:"values"`
+	Name   types.String `tfsdk:"name"`
+	Values types.List   `tfsdk:"values"`
 }
 
 // DNSZonePrimaryRrSetGroupRrSetSrvRecordModelAttrTypes defines the attribute types for DNSZonePrimaryRrSetGroupRrSetSrvRecordModel
@@ -1193,8 +1193,8 @@ var DNSZonePrimaryRrSetGroupRrSetSrvRecordValuesModelAttrTypes = map[string]attr
 
 // DNSZonePrimaryRrSetGroupRrSetSshfpRecordModel represents sshfp_record block
 type DNSZonePrimaryRrSetGroupRrSetSshfpRecordModel struct {
-	Name   types.String                                          `tfsdk:"name"`
-	Values []DNSZonePrimaryRrSetGroupRrSetSshfpRecordValuesModel `tfsdk:"values"`
+	Name   types.String `tfsdk:"name"`
+	Values types.List   `tfsdk:"values"`
 }
 
 // DNSZonePrimaryRrSetGroupRrSetSshfpRecordModelAttrTypes defines the attribute types for DNSZonePrimaryRrSetGroupRrSetSshfpRecordModel
@@ -1239,8 +1239,8 @@ var DNSZonePrimaryRrSetGroupRrSetSshfpRecordValuesSha256FingerprintModelAttrType
 
 // DNSZonePrimaryRrSetGroupRrSetTlsaRecordModel represents tlsa_record block
 type DNSZonePrimaryRrSetGroupRrSetTlsaRecordModel struct {
-	Name   types.String                                         `tfsdk:"name"`
-	Values []DNSZonePrimaryRrSetGroupRrSetTlsaRecordValuesModel `tfsdk:"values"`
+	Name   types.String `tfsdk:"name"`
+	Values types.List   `tfsdk:"values"`
 }
 
 // DNSZonePrimaryRrSetGroupRrSetTlsaRecordModelAttrTypes defines the attribute types for DNSZonePrimaryRrSetGroupRrSetTlsaRecordModel
@@ -3309,19 +3309,24 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 						if !DefaultRrSetGroupItem.AfsdbRecord.Name.IsNull() && !DefaultRrSetGroupItem.AfsdbRecord.Name.IsUnknown() {
 							AfsdbRecordMap["name"] = DefaultRrSetGroupItem.AfsdbRecord.Name.ValueString()
 						}
-						if len(DefaultRrSetGroupItem.AfsdbRecord.Values) > 0 {
-							var ValuesList []map[string]interface{}
-							for _, ValuesItem := range DefaultRrSetGroupItem.AfsdbRecord.Values {
-								ValuesItemMap := make(map[string]interface{})
-								if !ValuesItem.Hostname.IsNull() && !ValuesItem.Hostname.IsUnknown() {
-									ValuesItemMap["hostname"] = ValuesItem.Hostname.ValueString()
+						if !DefaultRrSetGroupItem.AfsdbRecord.Values.IsNull() && !DefaultRrSetGroupItem.AfsdbRecord.Values.IsUnknown() {
+							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModel
+							diags := DefaultRrSetGroupItem.AfsdbRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+								var ValuesList []map[string]interface{}
+								for _, ValuesItem := range ValuesElems {
+									ValuesItemMap := make(map[string]interface{})
+									if !ValuesItem.Hostname.IsNull() && !ValuesItem.Hostname.IsUnknown() {
+										ValuesItemMap["hostname"] = ValuesItem.Hostname.ValueString()
+									}
+									if !ValuesItem.Subtype.IsNull() && !ValuesItem.Subtype.IsUnknown() {
+										ValuesItemMap["subtype"] = ValuesItem.Subtype.ValueString()
+									}
+									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								if !ValuesItem.Subtype.IsNull() && !ValuesItem.Subtype.IsUnknown() {
-									ValuesItemMap["subtype"] = ValuesItem.Subtype.ValueString()
-								}
-								ValuesList = append(ValuesList, ValuesItemMap)
+								AfsdbRecordMap["values"] = ValuesList
 							}
-							AfsdbRecordMap["values"] = ValuesList
 						}
 						DefaultRrSetGroupItemMap["afsdb_record"] = AfsdbRecordMap
 					}
@@ -3337,22 +3342,27 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 						if !DefaultRrSetGroupItem.CaaRecord.Name.IsNull() && !DefaultRrSetGroupItem.CaaRecord.Name.IsUnknown() {
 							CaaRecordMap["name"] = DefaultRrSetGroupItem.CaaRecord.Name.ValueString()
 						}
-						if len(DefaultRrSetGroupItem.CaaRecord.Values) > 0 {
-							var ValuesList []map[string]interface{}
-							for _, ValuesItem := range DefaultRrSetGroupItem.CaaRecord.Values {
-								ValuesItemMap := make(map[string]interface{})
-								if !ValuesItem.Flags.IsNull() && !ValuesItem.Flags.IsUnknown() {
-									ValuesItemMap["flags"] = ValuesItem.Flags.ValueInt64()
+						if !DefaultRrSetGroupItem.CaaRecord.Values.IsNull() && !DefaultRrSetGroupItem.CaaRecord.Values.IsUnknown() {
+							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModel
+							diags := DefaultRrSetGroupItem.CaaRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+								var ValuesList []map[string]interface{}
+								for _, ValuesItem := range ValuesElems {
+									ValuesItemMap := make(map[string]interface{})
+									if !ValuesItem.Flags.IsNull() && !ValuesItem.Flags.IsUnknown() {
+										ValuesItemMap["flags"] = ValuesItem.Flags.ValueInt64()
+									}
+									if !ValuesItem.Tag.IsNull() && !ValuesItem.Tag.IsUnknown() {
+										ValuesItemMap["tag"] = ValuesItem.Tag.ValueString()
+									}
+									if !ValuesItem.Value.IsNull() && !ValuesItem.Value.IsUnknown() {
+										ValuesItemMap["value"] = ValuesItem.Value.ValueString()
+									}
+									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								if !ValuesItem.Tag.IsNull() && !ValuesItem.Tag.IsUnknown() {
-									ValuesItemMap["tag"] = ValuesItem.Tag.ValueString()
-								}
-								if !ValuesItem.Value.IsNull() && !ValuesItem.Value.IsUnknown() {
-									ValuesItemMap["value"] = ValuesItem.Value.ValueString()
-								}
-								ValuesList = append(ValuesList, ValuesItemMap)
+								CaaRecordMap["values"] = ValuesList
 							}
-							CaaRecordMap["values"] = ValuesList
 						}
 						DefaultRrSetGroupItemMap["caa_record"] = CaaRecordMap
 					}
@@ -3361,40 +3371,45 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 						if !DefaultRrSetGroupItem.CdsRecord.Name.IsNull() && !DefaultRrSetGroupItem.CdsRecord.Name.IsUnknown() {
 							CdsRecordMap["name"] = DefaultRrSetGroupItem.CdsRecord.Name.ValueString()
 						}
-						if len(DefaultRrSetGroupItem.CdsRecord.Values) > 0 {
-							var ValuesList []map[string]interface{}
-							for _, ValuesItem := range DefaultRrSetGroupItem.CdsRecord.Values {
-								ValuesItemMap := make(map[string]interface{})
-								if !ValuesItem.DsKeyAlgorithm.IsNull() && !ValuesItem.DsKeyAlgorithm.IsUnknown() {
-									ValuesItemMap["ds_key_algorithm"] = ValuesItem.DsKeyAlgorithm.ValueString()
-								}
-								if !ValuesItem.KeyTag.IsNull() && !ValuesItem.KeyTag.IsUnknown() {
-									ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
-								}
-								if ValuesItem.Sha1Digest != nil {
-									Sha1DigestMap := make(map[string]interface{})
-									if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
-										Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+						if !DefaultRrSetGroupItem.CdsRecord.Values.IsNull() && !DefaultRrSetGroupItem.CdsRecord.Values.IsUnknown() {
+							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModel
+							diags := DefaultRrSetGroupItem.CdsRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+								var ValuesList []map[string]interface{}
+								for _, ValuesItem := range ValuesElems {
+									ValuesItemMap := make(map[string]interface{})
+									if !ValuesItem.DsKeyAlgorithm.IsNull() && !ValuesItem.DsKeyAlgorithm.IsUnknown() {
+										ValuesItemMap["ds_key_algorithm"] = ValuesItem.DsKeyAlgorithm.ValueString()
 									}
-									ValuesItemMap["sha1_digest"] = Sha1DigestMap
-								}
-								if ValuesItem.Sha256Digest != nil {
-									Sha256DigestMap := make(map[string]interface{})
-									if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
-										Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+									if !ValuesItem.KeyTag.IsNull() && !ValuesItem.KeyTag.IsUnknown() {
+										ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
 									}
-									ValuesItemMap["sha256_digest"] = Sha256DigestMap
-								}
-								if ValuesItem.Sha384Digest != nil {
-									Sha384DigestMap := make(map[string]interface{})
-									if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
-										Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+									if ValuesItem.Sha1Digest != nil {
+										Sha1DigestMap := make(map[string]interface{})
+										if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
+											Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+										}
+										ValuesItemMap["sha1_digest"] = Sha1DigestMap
 									}
-									ValuesItemMap["sha384_digest"] = Sha384DigestMap
+									if ValuesItem.Sha256Digest != nil {
+										Sha256DigestMap := make(map[string]interface{})
+										if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
+											Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+										}
+										ValuesItemMap["sha256_digest"] = Sha256DigestMap
+									}
+									if ValuesItem.Sha384Digest != nil {
+										Sha384DigestMap := make(map[string]interface{})
+										if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
+											Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+										}
+										ValuesItemMap["sha384_digest"] = Sha384DigestMap
+									}
+									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								ValuesList = append(ValuesList, ValuesItemMap)
+								CdsRecordMap["values"] = ValuesList
 							}
-							CdsRecordMap["values"] = ValuesList
 						}
 						DefaultRrSetGroupItemMap["cds_record"] = CdsRecordMap
 					}
@@ -3403,25 +3418,30 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 						if !DefaultRrSetGroupItem.CertRecord.Name.IsNull() && !DefaultRrSetGroupItem.CertRecord.Name.IsUnknown() {
 							CertRecordMap["name"] = DefaultRrSetGroupItem.CertRecord.Name.ValueString()
 						}
-						if len(DefaultRrSetGroupItem.CertRecord.Values) > 0 {
-							var ValuesList []map[string]interface{}
-							for _, ValuesItem := range DefaultRrSetGroupItem.CertRecord.Values {
-								ValuesItemMap := make(map[string]interface{})
-								if !ValuesItem.Algorithm.IsNull() && !ValuesItem.Algorithm.IsUnknown() {
-									ValuesItemMap["algorithm"] = ValuesItem.Algorithm.ValueString()
+						if !DefaultRrSetGroupItem.CertRecord.Values.IsNull() && !DefaultRrSetGroupItem.CertRecord.Values.IsUnknown() {
+							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModel
+							diags := DefaultRrSetGroupItem.CertRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+								var ValuesList []map[string]interface{}
+								for _, ValuesItem := range ValuesElems {
+									ValuesItemMap := make(map[string]interface{})
+									if !ValuesItem.Algorithm.IsNull() && !ValuesItem.Algorithm.IsUnknown() {
+										ValuesItemMap["algorithm"] = ValuesItem.Algorithm.ValueString()
+									}
+									if !ValuesItem.CertKeyTag.IsNull() && !ValuesItem.CertKeyTag.IsUnknown() {
+										ValuesItemMap["cert_key_tag"] = ValuesItem.CertKeyTag.ValueInt64()
+									}
+									if !ValuesItem.CertType.IsNull() && !ValuesItem.CertType.IsUnknown() {
+										ValuesItemMap["cert_type"] = ValuesItem.CertType.ValueString()
+									}
+									if !ValuesItem.Certificate.IsNull() && !ValuesItem.Certificate.IsUnknown() {
+										ValuesItemMap["certificate"] = ValuesItem.Certificate.ValueString()
+									}
+									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								if !ValuesItem.CertKeyTag.IsNull() && !ValuesItem.CertKeyTag.IsUnknown() {
-									ValuesItemMap["cert_key_tag"] = ValuesItem.CertKeyTag.ValueInt64()
-								}
-								if !ValuesItem.CertType.IsNull() && !ValuesItem.CertType.IsUnknown() {
-									ValuesItemMap["cert_type"] = ValuesItem.CertType.ValueString()
-								}
-								if !ValuesItem.Certificate.IsNull() && !ValuesItem.Certificate.IsUnknown() {
-									ValuesItemMap["certificate"] = ValuesItem.Certificate.ValueString()
-								}
-								ValuesList = append(ValuesList, ValuesItemMap)
+								CertRecordMap["values"] = ValuesList
 							}
-							CertRecordMap["values"] = ValuesList
 						}
 						DefaultRrSetGroupItemMap["cert_record"] = CertRecordMap
 					}
@@ -3443,40 +3463,45 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 						if !DefaultRrSetGroupItem.DsRecord.Name.IsNull() && !DefaultRrSetGroupItem.DsRecord.Name.IsUnknown() {
 							DsRecordMap["name"] = DefaultRrSetGroupItem.DsRecord.Name.ValueString()
 						}
-						if len(DefaultRrSetGroupItem.DsRecord.Values) > 0 {
-							var ValuesList []map[string]interface{}
-							for _, ValuesItem := range DefaultRrSetGroupItem.DsRecord.Values {
-								ValuesItemMap := make(map[string]interface{})
-								if !ValuesItem.DsKeyAlgorithm.IsNull() && !ValuesItem.DsKeyAlgorithm.IsUnknown() {
-									ValuesItemMap["ds_key_algorithm"] = ValuesItem.DsKeyAlgorithm.ValueString()
-								}
-								if !ValuesItem.KeyTag.IsNull() && !ValuesItem.KeyTag.IsUnknown() {
-									ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
-								}
-								if ValuesItem.Sha1Digest != nil {
-									Sha1DigestMap := make(map[string]interface{})
-									if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
-										Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+						if !DefaultRrSetGroupItem.DsRecord.Values.IsNull() && !DefaultRrSetGroupItem.DsRecord.Values.IsUnknown() {
+							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModel
+							diags := DefaultRrSetGroupItem.DsRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+								var ValuesList []map[string]interface{}
+								for _, ValuesItem := range ValuesElems {
+									ValuesItemMap := make(map[string]interface{})
+									if !ValuesItem.DsKeyAlgorithm.IsNull() && !ValuesItem.DsKeyAlgorithm.IsUnknown() {
+										ValuesItemMap["ds_key_algorithm"] = ValuesItem.DsKeyAlgorithm.ValueString()
 									}
-									ValuesItemMap["sha1_digest"] = Sha1DigestMap
-								}
-								if ValuesItem.Sha256Digest != nil {
-									Sha256DigestMap := make(map[string]interface{})
-									if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
-										Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+									if !ValuesItem.KeyTag.IsNull() && !ValuesItem.KeyTag.IsUnknown() {
+										ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
 									}
-									ValuesItemMap["sha256_digest"] = Sha256DigestMap
-								}
-								if ValuesItem.Sha384Digest != nil {
-									Sha384DigestMap := make(map[string]interface{})
-									if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
-										Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+									if ValuesItem.Sha1Digest != nil {
+										Sha1DigestMap := make(map[string]interface{})
+										if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
+											Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+										}
+										ValuesItemMap["sha1_digest"] = Sha1DigestMap
 									}
-									ValuesItemMap["sha384_digest"] = Sha384DigestMap
+									if ValuesItem.Sha256Digest != nil {
+										Sha256DigestMap := make(map[string]interface{})
+										if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
+											Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+										}
+										ValuesItemMap["sha256_digest"] = Sha256DigestMap
+									}
+									if ValuesItem.Sha384Digest != nil {
+										Sha384DigestMap := make(map[string]interface{})
+										if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
+											Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+										}
+										ValuesItemMap["sha384_digest"] = Sha384DigestMap
+									}
+									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								ValuesList = append(ValuesList, ValuesItemMap)
+								DsRecordMap["values"] = ValuesList
 							}
-							DsRecordMap["values"] = ValuesList
 						}
 						DefaultRrSetGroupItemMap["ds_record"] = DsRecordMap
 					}
@@ -3525,49 +3550,54 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 						if !DefaultRrSetGroupItem.LocRecord.Name.IsNull() && !DefaultRrSetGroupItem.LocRecord.Name.IsUnknown() {
 							LocRecordMap["name"] = DefaultRrSetGroupItem.LocRecord.Name.ValueString()
 						}
-						if len(DefaultRrSetGroupItem.LocRecord.Values) > 0 {
-							var ValuesList []map[string]interface{}
-							for _, ValuesItem := range DefaultRrSetGroupItem.LocRecord.Values {
-								ValuesItemMap := make(map[string]interface{})
-								if !ValuesItem.Altitude.IsNull() && !ValuesItem.Altitude.IsUnknown() {
-									ValuesItemMap["altitude"] = ValuesItem.Altitude.ValueInt64()
+						if !DefaultRrSetGroupItem.LocRecord.Values.IsNull() && !DefaultRrSetGroupItem.LocRecord.Values.IsUnknown() {
+							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModel
+							diags := DefaultRrSetGroupItem.LocRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+								var ValuesList []map[string]interface{}
+								for _, ValuesItem := range ValuesElems {
+									ValuesItemMap := make(map[string]interface{})
+									if !ValuesItem.Altitude.IsNull() && !ValuesItem.Altitude.IsUnknown() {
+										ValuesItemMap["altitude"] = ValuesItem.Altitude.ValueInt64()
+									}
+									if !ValuesItem.HorizontalPrecision.IsNull() && !ValuesItem.HorizontalPrecision.IsUnknown() {
+										ValuesItemMap["horizontal_precision"] = ValuesItem.HorizontalPrecision.ValueInt64()
+									}
+									if !ValuesItem.LatitudeDegree.IsNull() && !ValuesItem.LatitudeDegree.IsUnknown() {
+										ValuesItemMap["latitude_degree"] = ValuesItem.LatitudeDegree.ValueInt64()
+									}
+									if !ValuesItem.LatitudeHemisphere.IsNull() && !ValuesItem.LatitudeHemisphere.IsUnknown() {
+										ValuesItemMap["latitude_hemisphere"] = ValuesItem.LatitudeHemisphere.ValueString()
+									}
+									if !ValuesItem.LatitudeMinute.IsNull() && !ValuesItem.LatitudeMinute.IsUnknown() {
+										ValuesItemMap["latitude_minute"] = ValuesItem.LatitudeMinute.ValueInt64()
+									}
+									if !ValuesItem.LatitudeSecond.IsNull() && !ValuesItem.LatitudeSecond.IsUnknown() {
+										ValuesItemMap["latitude_second"] = ValuesItem.LatitudeSecond.ValueInt64()
+									}
+									if !ValuesItem.LocationDiameter.IsNull() && !ValuesItem.LocationDiameter.IsUnknown() {
+										ValuesItemMap["location_diameter"] = ValuesItem.LocationDiameter.ValueInt64()
+									}
+									if !ValuesItem.LongitudeDegree.IsNull() && !ValuesItem.LongitudeDegree.IsUnknown() {
+										ValuesItemMap["longitude_degree"] = ValuesItem.LongitudeDegree.ValueInt64()
+									}
+									if !ValuesItem.LongitudeHemisphere.IsNull() && !ValuesItem.LongitudeHemisphere.IsUnknown() {
+										ValuesItemMap["longitude_hemisphere"] = ValuesItem.LongitudeHemisphere.ValueString()
+									}
+									if !ValuesItem.LongitudeMinute.IsNull() && !ValuesItem.LongitudeMinute.IsUnknown() {
+										ValuesItemMap["longitude_minute"] = ValuesItem.LongitudeMinute.ValueInt64()
+									}
+									if !ValuesItem.LongitudeSecond.IsNull() && !ValuesItem.LongitudeSecond.IsUnknown() {
+										ValuesItemMap["longitude_second"] = ValuesItem.LongitudeSecond.ValueInt64()
+									}
+									if !ValuesItem.VerticalPrecision.IsNull() && !ValuesItem.VerticalPrecision.IsUnknown() {
+										ValuesItemMap["vertical_precision"] = ValuesItem.VerticalPrecision.ValueInt64()
+									}
+									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								if !ValuesItem.HorizontalPrecision.IsNull() && !ValuesItem.HorizontalPrecision.IsUnknown() {
-									ValuesItemMap["horizontal_precision"] = ValuesItem.HorizontalPrecision.ValueInt64()
-								}
-								if !ValuesItem.LatitudeDegree.IsNull() && !ValuesItem.LatitudeDegree.IsUnknown() {
-									ValuesItemMap["latitude_degree"] = ValuesItem.LatitudeDegree.ValueInt64()
-								}
-								if !ValuesItem.LatitudeHemisphere.IsNull() && !ValuesItem.LatitudeHemisphere.IsUnknown() {
-									ValuesItemMap["latitude_hemisphere"] = ValuesItem.LatitudeHemisphere.ValueString()
-								}
-								if !ValuesItem.LatitudeMinute.IsNull() && !ValuesItem.LatitudeMinute.IsUnknown() {
-									ValuesItemMap["latitude_minute"] = ValuesItem.LatitudeMinute.ValueInt64()
-								}
-								if !ValuesItem.LatitudeSecond.IsNull() && !ValuesItem.LatitudeSecond.IsUnknown() {
-									ValuesItemMap["latitude_second"] = ValuesItem.LatitudeSecond.ValueInt64()
-								}
-								if !ValuesItem.LocationDiameter.IsNull() && !ValuesItem.LocationDiameter.IsUnknown() {
-									ValuesItemMap["location_diameter"] = ValuesItem.LocationDiameter.ValueInt64()
-								}
-								if !ValuesItem.LongitudeDegree.IsNull() && !ValuesItem.LongitudeDegree.IsUnknown() {
-									ValuesItemMap["longitude_degree"] = ValuesItem.LongitudeDegree.ValueInt64()
-								}
-								if !ValuesItem.LongitudeHemisphere.IsNull() && !ValuesItem.LongitudeHemisphere.IsUnknown() {
-									ValuesItemMap["longitude_hemisphere"] = ValuesItem.LongitudeHemisphere.ValueString()
-								}
-								if !ValuesItem.LongitudeMinute.IsNull() && !ValuesItem.LongitudeMinute.IsUnknown() {
-									ValuesItemMap["longitude_minute"] = ValuesItem.LongitudeMinute.ValueInt64()
-								}
-								if !ValuesItem.LongitudeSecond.IsNull() && !ValuesItem.LongitudeSecond.IsUnknown() {
-									ValuesItemMap["longitude_second"] = ValuesItem.LongitudeSecond.ValueInt64()
-								}
-								if !ValuesItem.VerticalPrecision.IsNull() && !ValuesItem.VerticalPrecision.IsUnknown() {
-									ValuesItemMap["vertical_precision"] = ValuesItem.VerticalPrecision.ValueInt64()
-								}
-								ValuesList = append(ValuesList, ValuesItemMap)
+								LocRecordMap["values"] = ValuesList
 							}
-							LocRecordMap["values"] = ValuesList
 						}
 						DefaultRrSetGroupItemMap["loc_record"] = LocRecordMap
 					}
@@ -3576,19 +3606,24 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 						if !DefaultRrSetGroupItem.MxRecord.Name.IsNull() && !DefaultRrSetGroupItem.MxRecord.Name.IsUnknown() {
 							MxRecordMap["name"] = DefaultRrSetGroupItem.MxRecord.Name.ValueString()
 						}
-						if len(DefaultRrSetGroupItem.MxRecord.Values) > 0 {
-							var ValuesList []map[string]interface{}
-							for _, ValuesItem := range DefaultRrSetGroupItem.MxRecord.Values {
-								ValuesItemMap := make(map[string]interface{})
-								if !ValuesItem.Domain.IsNull() && !ValuesItem.Domain.IsUnknown() {
-									ValuesItemMap["domain"] = ValuesItem.Domain.ValueString()
+						if !DefaultRrSetGroupItem.MxRecord.Values.IsNull() && !DefaultRrSetGroupItem.MxRecord.Values.IsUnknown() {
+							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModel
+							diags := DefaultRrSetGroupItem.MxRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+								var ValuesList []map[string]interface{}
+								for _, ValuesItem := range ValuesElems {
+									ValuesItemMap := make(map[string]interface{})
+									if !ValuesItem.Domain.IsNull() && !ValuesItem.Domain.IsUnknown() {
+										ValuesItemMap["domain"] = ValuesItem.Domain.ValueString()
+									}
+									if !ValuesItem.Priority.IsNull() && !ValuesItem.Priority.IsUnknown() {
+										ValuesItemMap["priority"] = ValuesItem.Priority.ValueInt64()
+									}
+									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								if !ValuesItem.Priority.IsNull() && !ValuesItem.Priority.IsUnknown() {
-									ValuesItemMap["priority"] = ValuesItem.Priority.ValueInt64()
-								}
-								ValuesList = append(ValuesList, ValuesItemMap)
+								MxRecordMap["values"] = ValuesList
 							}
-							MxRecordMap["values"] = ValuesList
 						}
 						DefaultRrSetGroupItemMap["mx_record"] = MxRecordMap
 					}
@@ -3597,31 +3632,36 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 						if !DefaultRrSetGroupItem.NaptrRecord.Name.IsNull() && !DefaultRrSetGroupItem.NaptrRecord.Name.IsUnknown() {
 							NaptrRecordMap["name"] = DefaultRrSetGroupItem.NaptrRecord.Name.ValueString()
 						}
-						if len(DefaultRrSetGroupItem.NaptrRecord.Values) > 0 {
-							var ValuesList []map[string]interface{}
-							for _, ValuesItem := range DefaultRrSetGroupItem.NaptrRecord.Values {
-								ValuesItemMap := make(map[string]interface{})
-								if !ValuesItem.Flags.IsNull() && !ValuesItem.Flags.IsUnknown() {
-									ValuesItemMap["flags"] = ValuesItem.Flags.ValueString()
+						if !DefaultRrSetGroupItem.NaptrRecord.Values.IsNull() && !DefaultRrSetGroupItem.NaptrRecord.Values.IsUnknown() {
+							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModel
+							diags := DefaultRrSetGroupItem.NaptrRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+								var ValuesList []map[string]interface{}
+								for _, ValuesItem := range ValuesElems {
+									ValuesItemMap := make(map[string]interface{})
+									if !ValuesItem.Flags.IsNull() && !ValuesItem.Flags.IsUnknown() {
+										ValuesItemMap["flags"] = ValuesItem.Flags.ValueString()
+									}
+									if !ValuesItem.Order.IsNull() && !ValuesItem.Order.IsUnknown() {
+										ValuesItemMap["order"] = ValuesItem.Order.ValueInt64()
+									}
+									if !ValuesItem.Preference.IsNull() && !ValuesItem.Preference.IsUnknown() {
+										ValuesItemMap["preference"] = ValuesItem.Preference.ValueInt64()
+									}
+									if !ValuesItem.Regexp.IsNull() && !ValuesItem.Regexp.IsUnknown() {
+										ValuesItemMap["regexp"] = ValuesItem.Regexp.ValueString()
+									}
+									if !ValuesItem.Replacement.IsNull() && !ValuesItem.Replacement.IsUnknown() {
+										ValuesItemMap["replacement"] = ValuesItem.Replacement.ValueString()
+									}
+									if !ValuesItem.Service.IsNull() && !ValuesItem.Service.IsUnknown() {
+										ValuesItemMap["service"] = ValuesItem.Service.ValueString()
+									}
+									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								if !ValuesItem.Order.IsNull() && !ValuesItem.Order.IsUnknown() {
-									ValuesItemMap["order"] = ValuesItem.Order.ValueInt64()
-								}
-								if !ValuesItem.Preference.IsNull() && !ValuesItem.Preference.IsUnknown() {
-									ValuesItemMap["preference"] = ValuesItem.Preference.ValueInt64()
-								}
-								if !ValuesItem.Regexp.IsNull() && !ValuesItem.Regexp.IsUnknown() {
-									ValuesItemMap["regexp"] = ValuesItem.Regexp.ValueString()
-								}
-								if !ValuesItem.Replacement.IsNull() && !ValuesItem.Replacement.IsUnknown() {
-									ValuesItemMap["replacement"] = ValuesItem.Replacement.ValueString()
-								}
-								if !ValuesItem.Service.IsNull() && !ValuesItem.Service.IsUnknown() {
-									ValuesItemMap["service"] = ValuesItem.Service.ValueString()
-								}
-								ValuesList = append(ValuesList, ValuesItemMap)
+								NaptrRecordMap["values"] = ValuesList
 							}
-							NaptrRecordMap["values"] = ValuesList
 						}
 						DefaultRrSetGroupItemMap["naptr_record"] = NaptrRecordMap
 					}
@@ -3658,25 +3698,30 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 						if !DefaultRrSetGroupItem.SrvRecord.Name.IsNull() && !DefaultRrSetGroupItem.SrvRecord.Name.IsUnknown() {
 							SrvRecordMap["name"] = DefaultRrSetGroupItem.SrvRecord.Name.ValueString()
 						}
-						if len(DefaultRrSetGroupItem.SrvRecord.Values) > 0 {
-							var ValuesList []map[string]interface{}
-							for _, ValuesItem := range DefaultRrSetGroupItem.SrvRecord.Values {
-								ValuesItemMap := make(map[string]interface{})
-								if !ValuesItem.Port.IsNull() && !ValuesItem.Port.IsUnknown() {
-									ValuesItemMap["port"] = ValuesItem.Port.ValueInt64()
+						if !DefaultRrSetGroupItem.SrvRecord.Values.IsNull() && !DefaultRrSetGroupItem.SrvRecord.Values.IsUnknown() {
+							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModel
+							diags := DefaultRrSetGroupItem.SrvRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+								var ValuesList []map[string]interface{}
+								for _, ValuesItem := range ValuesElems {
+									ValuesItemMap := make(map[string]interface{})
+									if !ValuesItem.Port.IsNull() && !ValuesItem.Port.IsUnknown() {
+										ValuesItemMap["port"] = ValuesItem.Port.ValueInt64()
+									}
+									if !ValuesItem.Priority.IsNull() && !ValuesItem.Priority.IsUnknown() {
+										ValuesItemMap["priority"] = ValuesItem.Priority.ValueInt64()
+									}
+									if !ValuesItem.Target.IsNull() && !ValuesItem.Target.IsUnknown() {
+										ValuesItemMap["target"] = ValuesItem.Target.ValueString()
+									}
+									if !ValuesItem.Weight.IsNull() && !ValuesItem.Weight.IsUnknown() {
+										ValuesItemMap["weight"] = ValuesItem.Weight.ValueInt64()
+									}
+									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								if !ValuesItem.Priority.IsNull() && !ValuesItem.Priority.IsUnknown() {
-									ValuesItemMap["priority"] = ValuesItem.Priority.ValueInt64()
-								}
-								if !ValuesItem.Target.IsNull() && !ValuesItem.Target.IsUnknown() {
-									ValuesItemMap["target"] = ValuesItem.Target.ValueString()
-								}
-								if !ValuesItem.Weight.IsNull() && !ValuesItem.Weight.IsUnknown() {
-									ValuesItemMap["weight"] = ValuesItem.Weight.ValueInt64()
-								}
-								ValuesList = append(ValuesList, ValuesItemMap)
+								SrvRecordMap["values"] = ValuesList
 							}
-							SrvRecordMap["values"] = ValuesList
 						}
 						DefaultRrSetGroupItemMap["srv_record"] = SrvRecordMap
 					}
@@ -3685,30 +3730,35 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 						if !DefaultRrSetGroupItem.SshfpRecord.Name.IsNull() && !DefaultRrSetGroupItem.SshfpRecord.Name.IsUnknown() {
 							SshfpRecordMap["name"] = DefaultRrSetGroupItem.SshfpRecord.Name.ValueString()
 						}
-						if len(DefaultRrSetGroupItem.SshfpRecord.Values) > 0 {
-							var ValuesList []map[string]interface{}
-							for _, ValuesItem := range DefaultRrSetGroupItem.SshfpRecord.Values {
-								ValuesItemMap := make(map[string]interface{})
-								if !ValuesItem.Algorithm.IsNull() && !ValuesItem.Algorithm.IsUnknown() {
-									ValuesItemMap["algorithm"] = ValuesItem.Algorithm.ValueString()
-								}
-								if ValuesItem.Sha1Fingerprint != nil {
-									Sha1FingerprintMap := make(map[string]interface{})
-									if !ValuesItem.Sha1Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha1Fingerprint.Fingerprint.IsUnknown() {
-										Sha1FingerprintMap["fingerprint"] = ValuesItem.Sha1Fingerprint.Fingerprint.ValueString()
+						if !DefaultRrSetGroupItem.SshfpRecord.Values.IsNull() && !DefaultRrSetGroupItem.SshfpRecord.Values.IsUnknown() {
+							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModel
+							diags := DefaultRrSetGroupItem.SshfpRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+								var ValuesList []map[string]interface{}
+								for _, ValuesItem := range ValuesElems {
+									ValuesItemMap := make(map[string]interface{})
+									if !ValuesItem.Algorithm.IsNull() && !ValuesItem.Algorithm.IsUnknown() {
+										ValuesItemMap["algorithm"] = ValuesItem.Algorithm.ValueString()
 									}
-									ValuesItemMap["sha1_fingerprint"] = Sha1FingerprintMap
-								}
-								if ValuesItem.Sha256Fingerprint != nil {
-									Sha256FingerprintMap := make(map[string]interface{})
-									if !ValuesItem.Sha256Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha256Fingerprint.Fingerprint.IsUnknown() {
-										Sha256FingerprintMap["fingerprint"] = ValuesItem.Sha256Fingerprint.Fingerprint.ValueString()
+									if ValuesItem.Sha1Fingerprint != nil {
+										Sha1FingerprintMap := make(map[string]interface{})
+										if !ValuesItem.Sha1Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha1Fingerprint.Fingerprint.IsUnknown() {
+											Sha1FingerprintMap["fingerprint"] = ValuesItem.Sha1Fingerprint.Fingerprint.ValueString()
+										}
+										ValuesItemMap["sha1_fingerprint"] = Sha1FingerprintMap
 									}
-									ValuesItemMap["sha256_fingerprint"] = Sha256FingerprintMap
+									if ValuesItem.Sha256Fingerprint != nil {
+										Sha256FingerprintMap := make(map[string]interface{})
+										if !ValuesItem.Sha256Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha256Fingerprint.Fingerprint.IsUnknown() {
+											Sha256FingerprintMap["fingerprint"] = ValuesItem.Sha256Fingerprint.Fingerprint.ValueString()
+										}
+										ValuesItemMap["sha256_fingerprint"] = Sha256FingerprintMap
+									}
+									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								ValuesList = append(ValuesList, ValuesItemMap)
+								SshfpRecordMap["values"] = ValuesList
 							}
-							SshfpRecordMap["values"] = ValuesList
 						}
 						DefaultRrSetGroupItemMap["sshfp_record"] = SshfpRecordMap
 					}
@@ -3717,25 +3767,30 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 						if !DefaultRrSetGroupItem.TlsaRecord.Name.IsNull() && !DefaultRrSetGroupItem.TlsaRecord.Name.IsUnknown() {
 							TlsaRecordMap["name"] = DefaultRrSetGroupItem.TlsaRecord.Name.ValueString()
 						}
-						if len(DefaultRrSetGroupItem.TlsaRecord.Values) > 0 {
-							var ValuesList []map[string]interface{}
-							for _, ValuesItem := range DefaultRrSetGroupItem.TlsaRecord.Values {
-								ValuesItemMap := make(map[string]interface{})
-								if !ValuesItem.CertificateAssociationData.IsNull() && !ValuesItem.CertificateAssociationData.IsUnknown() {
-									ValuesItemMap["certificate_association_data"] = ValuesItem.CertificateAssociationData.ValueString()
+						if !DefaultRrSetGroupItem.TlsaRecord.Values.IsNull() && !DefaultRrSetGroupItem.TlsaRecord.Values.IsUnknown() {
+							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModel
+							diags := DefaultRrSetGroupItem.TlsaRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+								var ValuesList []map[string]interface{}
+								for _, ValuesItem := range ValuesElems {
+									ValuesItemMap := make(map[string]interface{})
+									if !ValuesItem.CertificateAssociationData.IsNull() && !ValuesItem.CertificateAssociationData.IsUnknown() {
+										ValuesItemMap["certificate_association_data"] = ValuesItem.CertificateAssociationData.ValueString()
+									}
+									if !ValuesItem.CertificateUsage.IsNull() && !ValuesItem.CertificateUsage.IsUnknown() {
+										ValuesItemMap["certificate_usage"] = ValuesItem.CertificateUsage.ValueString()
+									}
+									if !ValuesItem.MatchingType.IsNull() && !ValuesItem.MatchingType.IsUnknown() {
+										ValuesItemMap["matching_type"] = ValuesItem.MatchingType.ValueString()
+									}
+									if !ValuesItem.Selector.IsNull() && !ValuesItem.Selector.IsUnknown() {
+										ValuesItemMap["selector"] = ValuesItem.Selector.ValueString()
+									}
+									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								if !ValuesItem.CertificateUsage.IsNull() && !ValuesItem.CertificateUsage.IsUnknown() {
-									ValuesItemMap["certificate_usage"] = ValuesItem.CertificateUsage.ValueString()
-								}
-								if !ValuesItem.MatchingType.IsNull() && !ValuesItem.MatchingType.IsUnknown() {
-									ValuesItemMap["matching_type"] = ValuesItem.MatchingType.ValueString()
-								}
-								if !ValuesItem.Selector.IsNull() && !ValuesItem.Selector.IsUnknown() {
-									ValuesItemMap["selector"] = ValuesItem.Selector.ValueString()
-								}
-								ValuesList = append(ValuesList, ValuesItemMap)
+								TlsaRecordMap["values"] = ValuesList
 							}
-							TlsaRecordMap["values"] = ValuesList
 						}
 						DefaultRrSetGroupItemMap["tlsa_record"] = TlsaRecordMap
 					}
@@ -3833,19 +3888,24 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									if !RrSetItem.AfsdbRecord.Name.IsNull() && !RrSetItem.AfsdbRecord.Name.IsUnknown() {
 										AfsdbRecordMap["name"] = RrSetItem.AfsdbRecord.Name.ValueString()
 									}
-									if len(RrSetItem.AfsdbRecord.Values) > 0 {
-										var ValuesList []map[string]interface{}
-										for _, ValuesItem := range RrSetItem.AfsdbRecord.Values {
-											ValuesItemMap := make(map[string]interface{})
-											if !ValuesItem.Hostname.IsNull() && !ValuesItem.Hostname.IsUnknown() {
-												ValuesItemMap["hostname"] = ValuesItem.Hostname.ValueString()
+									if !RrSetItem.AfsdbRecord.Values.IsNull() && !RrSetItem.AfsdbRecord.Values.IsUnknown() {
+										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetAfsdbRecordValuesModel
+										diags := RrSetItem.AfsdbRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+											var ValuesList []map[string]interface{}
+											for _, ValuesItem := range ValuesElems {
+												ValuesItemMap := make(map[string]interface{})
+												if !ValuesItem.Hostname.IsNull() && !ValuesItem.Hostname.IsUnknown() {
+													ValuesItemMap["hostname"] = ValuesItem.Hostname.ValueString()
+												}
+												if !ValuesItem.Subtype.IsNull() && !ValuesItem.Subtype.IsUnknown() {
+													ValuesItemMap["subtype"] = ValuesItem.Subtype.ValueString()
+												}
+												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											if !ValuesItem.Subtype.IsNull() && !ValuesItem.Subtype.IsUnknown() {
-												ValuesItemMap["subtype"] = ValuesItem.Subtype.ValueString()
-											}
-											ValuesList = append(ValuesList, ValuesItemMap)
+											AfsdbRecordMap["values"] = ValuesList
 										}
-										AfsdbRecordMap["values"] = ValuesList
 									}
 									RrSetItemMap["afsdb_record"] = AfsdbRecordMap
 								}
@@ -3861,22 +3921,27 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									if !RrSetItem.CaaRecord.Name.IsNull() && !RrSetItem.CaaRecord.Name.IsUnknown() {
 										CaaRecordMap["name"] = RrSetItem.CaaRecord.Name.ValueString()
 									}
-									if len(RrSetItem.CaaRecord.Values) > 0 {
-										var ValuesList []map[string]interface{}
-										for _, ValuesItem := range RrSetItem.CaaRecord.Values {
-											ValuesItemMap := make(map[string]interface{})
-											if !ValuesItem.Flags.IsNull() && !ValuesItem.Flags.IsUnknown() {
-												ValuesItemMap["flags"] = ValuesItem.Flags.ValueInt64()
+									if !RrSetItem.CaaRecord.Values.IsNull() && !RrSetItem.CaaRecord.Values.IsUnknown() {
+										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetCaaRecordValuesModel
+										diags := RrSetItem.CaaRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+											var ValuesList []map[string]interface{}
+											for _, ValuesItem := range ValuesElems {
+												ValuesItemMap := make(map[string]interface{})
+												if !ValuesItem.Flags.IsNull() && !ValuesItem.Flags.IsUnknown() {
+													ValuesItemMap["flags"] = ValuesItem.Flags.ValueInt64()
+												}
+												if !ValuesItem.Tag.IsNull() && !ValuesItem.Tag.IsUnknown() {
+													ValuesItemMap["tag"] = ValuesItem.Tag.ValueString()
+												}
+												if !ValuesItem.Value.IsNull() && !ValuesItem.Value.IsUnknown() {
+													ValuesItemMap["value"] = ValuesItem.Value.ValueString()
+												}
+												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											if !ValuesItem.Tag.IsNull() && !ValuesItem.Tag.IsUnknown() {
-												ValuesItemMap["tag"] = ValuesItem.Tag.ValueString()
-											}
-											if !ValuesItem.Value.IsNull() && !ValuesItem.Value.IsUnknown() {
-												ValuesItemMap["value"] = ValuesItem.Value.ValueString()
-											}
-											ValuesList = append(ValuesList, ValuesItemMap)
+											CaaRecordMap["values"] = ValuesList
 										}
-										CaaRecordMap["values"] = ValuesList
 									}
 									RrSetItemMap["caa_record"] = CaaRecordMap
 								}
@@ -3885,40 +3950,45 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									if !RrSetItem.CdsRecord.Name.IsNull() && !RrSetItem.CdsRecord.Name.IsUnknown() {
 										CdsRecordMap["name"] = RrSetItem.CdsRecord.Name.ValueString()
 									}
-									if len(RrSetItem.CdsRecord.Values) > 0 {
-										var ValuesList []map[string]interface{}
-										for _, ValuesItem := range RrSetItem.CdsRecord.Values {
-											ValuesItemMap := make(map[string]interface{})
-											if !ValuesItem.DsKeyAlgorithm.IsNull() && !ValuesItem.DsKeyAlgorithm.IsUnknown() {
-												ValuesItemMap["ds_key_algorithm"] = ValuesItem.DsKeyAlgorithm.ValueString()
-											}
-											if !ValuesItem.KeyTag.IsNull() && !ValuesItem.KeyTag.IsUnknown() {
-												ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
-											}
-											if ValuesItem.Sha1Digest != nil {
-												Sha1DigestMap := make(map[string]interface{})
-												if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
-													Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+									if !RrSetItem.CdsRecord.Values.IsNull() && !RrSetItem.CdsRecord.Values.IsUnknown() {
+										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetCdsRecordValuesModel
+										diags := RrSetItem.CdsRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+											var ValuesList []map[string]interface{}
+											for _, ValuesItem := range ValuesElems {
+												ValuesItemMap := make(map[string]interface{})
+												if !ValuesItem.DsKeyAlgorithm.IsNull() && !ValuesItem.DsKeyAlgorithm.IsUnknown() {
+													ValuesItemMap["ds_key_algorithm"] = ValuesItem.DsKeyAlgorithm.ValueString()
 												}
-												ValuesItemMap["sha1_digest"] = Sha1DigestMap
-											}
-											if ValuesItem.Sha256Digest != nil {
-												Sha256DigestMap := make(map[string]interface{})
-												if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
-													Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+												if !ValuesItem.KeyTag.IsNull() && !ValuesItem.KeyTag.IsUnknown() {
+													ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
 												}
-												ValuesItemMap["sha256_digest"] = Sha256DigestMap
-											}
-											if ValuesItem.Sha384Digest != nil {
-												Sha384DigestMap := make(map[string]interface{})
-												if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
-													Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+												if ValuesItem.Sha1Digest != nil {
+													Sha1DigestMap := make(map[string]interface{})
+													if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
+														Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+													}
+													ValuesItemMap["sha1_digest"] = Sha1DigestMap
 												}
-												ValuesItemMap["sha384_digest"] = Sha384DigestMap
+												if ValuesItem.Sha256Digest != nil {
+													Sha256DigestMap := make(map[string]interface{})
+													if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
+														Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+													}
+													ValuesItemMap["sha256_digest"] = Sha256DigestMap
+												}
+												if ValuesItem.Sha384Digest != nil {
+													Sha384DigestMap := make(map[string]interface{})
+													if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
+														Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+													}
+													ValuesItemMap["sha384_digest"] = Sha384DigestMap
+												}
+												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											ValuesList = append(ValuesList, ValuesItemMap)
+											CdsRecordMap["values"] = ValuesList
 										}
-										CdsRecordMap["values"] = ValuesList
 									}
 									RrSetItemMap["cds_record"] = CdsRecordMap
 								}
@@ -3927,25 +3997,30 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									if !RrSetItem.CertRecord.Name.IsNull() && !RrSetItem.CertRecord.Name.IsUnknown() {
 										CertRecordMap["name"] = RrSetItem.CertRecord.Name.ValueString()
 									}
-									if len(RrSetItem.CertRecord.Values) > 0 {
-										var ValuesList []map[string]interface{}
-										for _, ValuesItem := range RrSetItem.CertRecord.Values {
-											ValuesItemMap := make(map[string]interface{})
-											if !ValuesItem.Algorithm.IsNull() && !ValuesItem.Algorithm.IsUnknown() {
-												ValuesItemMap["algorithm"] = ValuesItem.Algorithm.ValueString()
+									if !RrSetItem.CertRecord.Values.IsNull() && !RrSetItem.CertRecord.Values.IsUnknown() {
+										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetCertRecordValuesModel
+										diags := RrSetItem.CertRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+											var ValuesList []map[string]interface{}
+											for _, ValuesItem := range ValuesElems {
+												ValuesItemMap := make(map[string]interface{})
+												if !ValuesItem.Algorithm.IsNull() && !ValuesItem.Algorithm.IsUnknown() {
+													ValuesItemMap["algorithm"] = ValuesItem.Algorithm.ValueString()
+												}
+												if !ValuesItem.CertKeyTag.IsNull() && !ValuesItem.CertKeyTag.IsUnknown() {
+													ValuesItemMap["cert_key_tag"] = ValuesItem.CertKeyTag.ValueInt64()
+												}
+												if !ValuesItem.CertType.IsNull() && !ValuesItem.CertType.IsUnknown() {
+													ValuesItemMap["cert_type"] = ValuesItem.CertType.ValueString()
+												}
+												if !ValuesItem.Certificate.IsNull() && !ValuesItem.Certificate.IsUnknown() {
+													ValuesItemMap["certificate"] = ValuesItem.Certificate.ValueString()
+												}
+												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											if !ValuesItem.CertKeyTag.IsNull() && !ValuesItem.CertKeyTag.IsUnknown() {
-												ValuesItemMap["cert_key_tag"] = ValuesItem.CertKeyTag.ValueInt64()
-											}
-											if !ValuesItem.CertType.IsNull() && !ValuesItem.CertType.IsUnknown() {
-												ValuesItemMap["cert_type"] = ValuesItem.CertType.ValueString()
-											}
-											if !ValuesItem.Certificate.IsNull() && !ValuesItem.Certificate.IsUnknown() {
-												ValuesItemMap["certificate"] = ValuesItem.Certificate.ValueString()
-											}
-											ValuesList = append(ValuesList, ValuesItemMap)
+											CertRecordMap["values"] = ValuesList
 										}
-										CertRecordMap["values"] = ValuesList
 									}
 									RrSetItemMap["cert_record"] = CertRecordMap
 								}
@@ -3967,40 +4042,45 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									if !RrSetItem.DsRecord.Name.IsNull() && !RrSetItem.DsRecord.Name.IsUnknown() {
 										DsRecordMap["name"] = RrSetItem.DsRecord.Name.ValueString()
 									}
-									if len(RrSetItem.DsRecord.Values) > 0 {
-										var ValuesList []map[string]interface{}
-										for _, ValuesItem := range RrSetItem.DsRecord.Values {
-											ValuesItemMap := make(map[string]interface{})
-											if !ValuesItem.DsKeyAlgorithm.IsNull() && !ValuesItem.DsKeyAlgorithm.IsUnknown() {
-												ValuesItemMap["ds_key_algorithm"] = ValuesItem.DsKeyAlgorithm.ValueString()
-											}
-											if !ValuesItem.KeyTag.IsNull() && !ValuesItem.KeyTag.IsUnknown() {
-												ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
-											}
-											if ValuesItem.Sha1Digest != nil {
-												Sha1DigestMap := make(map[string]interface{})
-												if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
-													Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+									if !RrSetItem.DsRecord.Values.IsNull() && !RrSetItem.DsRecord.Values.IsUnknown() {
+										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetDsRecordValuesModel
+										diags := RrSetItem.DsRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+											var ValuesList []map[string]interface{}
+											for _, ValuesItem := range ValuesElems {
+												ValuesItemMap := make(map[string]interface{})
+												if !ValuesItem.DsKeyAlgorithm.IsNull() && !ValuesItem.DsKeyAlgorithm.IsUnknown() {
+													ValuesItemMap["ds_key_algorithm"] = ValuesItem.DsKeyAlgorithm.ValueString()
 												}
-												ValuesItemMap["sha1_digest"] = Sha1DigestMap
-											}
-											if ValuesItem.Sha256Digest != nil {
-												Sha256DigestMap := make(map[string]interface{})
-												if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
-													Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+												if !ValuesItem.KeyTag.IsNull() && !ValuesItem.KeyTag.IsUnknown() {
+													ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
 												}
-												ValuesItemMap["sha256_digest"] = Sha256DigestMap
-											}
-											if ValuesItem.Sha384Digest != nil {
-												Sha384DigestMap := make(map[string]interface{})
-												if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
-													Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+												if ValuesItem.Sha1Digest != nil {
+													Sha1DigestMap := make(map[string]interface{})
+													if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
+														Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+													}
+													ValuesItemMap["sha1_digest"] = Sha1DigestMap
 												}
-												ValuesItemMap["sha384_digest"] = Sha384DigestMap
+												if ValuesItem.Sha256Digest != nil {
+													Sha256DigestMap := make(map[string]interface{})
+													if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
+														Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+													}
+													ValuesItemMap["sha256_digest"] = Sha256DigestMap
+												}
+												if ValuesItem.Sha384Digest != nil {
+													Sha384DigestMap := make(map[string]interface{})
+													if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
+														Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+													}
+													ValuesItemMap["sha384_digest"] = Sha384DigestMap
+												}
+												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											ValuesList = append(ValuesList, ValuesItemMap)
+											DsRecordMap["values"] = ValuesList
 										}
-										DsRecordMap["values"] = ValuesList
 									}
 									RrSetItemMap["ds_record"] = DsRecordMap
 								}
@@ -4049,49 +4129,54 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									if !RrSetItem.LocRecord.Name.IsNull() && !RrSetItem.LocRecord.Name.IsUnknown() {
 										LocRecordMap["name"] = RrSetItem.LocRecord.Name.ValueString()
 									}
-									if len(RrSetItem.LocRecord.Values) > 0 {
-										var ValuesList []map[string]interface{}
-										for _, ValuesItem := range RrSetItem.LocRecord.Values {
-											ValuesItemMap := make(map[string]interface{})
-											if !ValuesItem.Altitude.IsNull() && !ValuesItem.Altitude.IsUnknown() {
-												ValuesItemMap["altitude"] = ValuesItem.Altitude.ValueInt64()
+									if !RrSetItem.LocRecord.Values.IsNull() && !RrSetItem.LocRecord.Values.IsUnknown() {
+										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetLocRecordValuesModel
+										diags := RrSetItem.LocRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+											var ValuesList []map[string]interface{}
+											for _, ValuesItem := range ValuesElems {
+												ValuesItemMap := make(map[string]interface{})
+												if !ValuesItem.Altitude.IsNull() && !ValuesItem.Altitude.IsUnknown() {
+													ValuesItemMap["altitude"] = ValuesItem.Altitude.ValueInt64()
+												}
+												if !ValuesItem.HorizontalPrecision.IsNull() && !ValuesItem.HorizontalPrecision.IsUnknown() {
+													ValuesItemMap["horizontal_precision"] = ValuesItem.HorizontalPrecision.ValueInt64()
+												}
+												if !ValuesItem.LatitudeDegree.IsNull() && !ValuesItem.LatitudeDegree.IsUnknown() {
+													ValuesItemMap["latitude_degree"] = ValuesItem.LatitudeDegree.ValueInt64()
+												}
+												if !ValuesItem.LatitudeHemisphere.IsNull() && !ValuesItem.LatitudeHemisphere.IsUnknown() {
+													ValuesItemMap["latitude_hemisphere"] = ValuesItem.LatitudeHemisphere.ValueString()
+												}
+												if !ValuesItem.LatitudeMinute.IsNull() && !ValuesItem.LatitudeMinute.IsUnknown() {
+													ValuesItemMap["latitude_minute"] = ValuesItem.LatitudeMinute.ValueInt64()
+												}
+												if !ValuesItem.LatitudeSecond.IsNull() && !ValuesItem.LatitudeSecond.IsUnknown() {
+													ValuesItemMap["latitude_second"] = ValuesItem.LatitudeSecond.ValueInt64()
+												}
+												if !ValuesItem.LocationDiameter.IsNull() && !ValuesItem.LocationDiameter.IsUnknown() {
+													ValuesItemMap["location_diameter"] = ValuesItem.LocationDiameter.ValueInt64()
+												}
+												if !ValuesItem.LongitudeDegree.IsNull() && !ValuesItem.LongitudeDegree.IsUnknown() {
+													ValuesItemMap["longitude_degree"] = ValuesItem.LongitudeDegree.ValueInt64()
+												}
+												if !ValuesItem.LongitudeHemisphere.IsNull() && !ValuesItem.LongitudeHemisphere.IsUnknown() {
+													ValuesItemMap["longitude_hemisphere"] = ValuesItem.LongitudeHemisphere.ValueString()
+												}
+												if !ValuesItem.LongitudeMinute.IsNull() && !ValuesItem.LongitudeMinute.IsUnknown() {
+													ValuesItemMap["longitude_minute"] = ValuesItem.LongitudeMinute.ValueInt64()
+												}
+												if !ValuesItem.LongitudeSecond.IsNull() && !ValuesItem.LongitudeSecond.IsUnknown() {
+													ValuesItemMap["longitude_second"] = ValuesItem.LongitudeSecond.ValueInt64()
+												}
+												if !ValuesItem.VerticalPrecision.IsNull() && !ValuesItem.VerticalPrecision.IsUnknown() {
+													ValuesItemMap["vertical_precision"] = ValuesItem.VerticalPrecision.ValueInt64()
+												}
+												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											if !ValuesItem.HorizontalPrecision.IsNull() && !ValuesItem.HorizontalPrecision.IsUnknown() {
-												ValuesItemMap["horizontal_precision"] = ValuesItem.HorizontalPrecision.ValueInt64()
-											}
-											if !ValuesItem.LatitudeDegree.IsNull() && !ValuesItem.LatitudeDegree.IsUnknown() {
-												ValuesItemMap["latitude_degree"] = ValuesItem.LatitudeDegree.ValueInt64()
-											}
-											if !ValuesItem.LatitudeHemisphere.IsNull() && !ValuesItem.LatitudeHemisphere.IsUnknown() {
-												ValuesItemMap["latitude_hemisphere"] = ValuesItem.LatitudeHemisphere.ValueString()
-											}
-											if !ValuesItem.LatitudeMinute.IsNull() && !ValuesItem.LatitudeMinute.IsUnknown() {
-												ValuesItemMap["latitude_minute"] = ValuesItem.LatitudeMinute.ValueInt64()
-											}
-											if !ValuesItem.LatitudeSecond.IsNull() && !ValuesItem.LatitudeSecond.IsUnknown() {
-												ValuesItemMap["latitude_second"] = ValuesItem.LatitudeSecond.ValueInt64()
-											}
-											if !ValuesItem.LocationDiameter.IsNull() && !ValuesItem.LocationDiameter.IsUnknown() {
-												ValuesItemMap["location_diameter"] = ValuesItem.LocationDiameter.ValueInt64()
-											}
-											if !ValuesItem.LongitudeDegree.IsNull() && !ValuesItem.LongitudeDegree.IsUnknown() {
-												ValuesItemMap["longitude_degree"] = ValuesItem.LongitudeDegree.ValueInt64()
-											}
-											if !ValuesItem.LongitudeHemisphere.IsNull() && !ValuesItem.LongitudeHemisphere.IsUnknown() {
-												ValuesItemMap["longitude_hemisphere"] = ValuesItem.LongitudeHemisphere.ValueString()
-											}
-											if !ValuesItem.LongitudeMinute.IsNull() && !ValuesItem.LongitudeMinute.IsUnknown() {
-												ValuesItemMap["longitude_minute"] = ValuesItem.LongitudeMinute.ValueInt64()
-											}
-											if !ValuesItem.LongitudeSecond.IsNull() && !ValuesItem.LongitudeSecond.IsUnknown() {
-												ValuesItemMap["longitude_second"] = ValuesItem.LongitudeSecond.ValueInt64()
-											}
-											if !ValuesItem.VerticalPrecision.IsNull() && !ValuesItem.VerticalPrecision.IsUnknown() {
-												ValuesItemMap["vertical_precision"] = ValuesItem.VerticalPrecision.ValueInt64()
-											}
-											ValuesList = append(ValuesList, ValuesItemMap)
+											LocRecordMap["values"] = ValuesList
 										}
-										LocRecordMap["values"] = ValuesList
 									}
 									RrSetItemMap["loc_record"] = LocRecordMap
 								}
@@ -4100,19 +4185,24 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									if !RrSetItem.MxRecord.Name.IsNull() && !RrSetItem.MxRecord.Name.IsUnknown() {
 										MxRecordMap["name"] = RrSetItem.MxRecord.Name.ValueString()
 									}
-									if len(RrSetItem.MxRecord.Values) > 0 {
-										var ValuesList []map[string]interface{}
-										for _, ValuesItem := range RrSetItem.MxRecord.Values {
-											ValuesItemMap := make(map[string]interface{})
-											if !ValuesItem.Domain.IsNull() && !ValuesItem.Domain.IsUnknown() {
-												ValuesItemMap["domain"] = ValuesItem.Domain.ValueString()
+									if !RrSetItem.MxRecord.Values.IsNull() && !RrSetItem.MxRecord.Values.IsUnknown() {
+										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetMxRecordValuesModel
+										diags := RrSetItem.MxRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+											var ValuesList []map[string]interface{}
+											for _, ValuesItem := range ValuesElems {
+												ValuesItemMap := make(map[string]interface{})
+												if !ValuesItem.Domain.IsNull() && !ValuesItem.Domain.IsUnknown() {
+													ValuesItemMap["domain"] = ValuesItem.Domain.ValueString()
+												}
+												if !ValuesItem.Priority.IsNull() && !ValuesItem.Priority.IsUnknown() {
+													ValuesItemMap["priority"] = ValuesItem.Priority.ValueInt64()
+												}
+												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											if !ValuesItem.Priority.IsNull() && !ValuesItem.Priority.IsUnknown() {
-												ValuesItemMap["priority"] = ValuesItem.Priority.ValueInt64()
-											}
-											ValuesList = append(ValuesList, ValuesItemMap)
+											MxRecordMap["values"] = ValuesList
 										}
-										MxRecordMap["values"] = ValuesList
 									}
 									RrSetItemMap["mx_record"] = MxRecordMap
 								}
@@ -4121,31 +4211,36 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									if !RrSetItem.NaptrRecord.Name.IsNull() && !RrSetItem.NaptrRecord.Name.IsUnknown() {
 										NaptrRecordMap["name"] = RrSetItem.NaptrRecord.Name.ValueString()
 									}
-									if len(RrSetItem.NaptrRecord.Values) > 0 {
-										var ValuesList []map[string]interface{}
-										for _, ValuesItem := range RrSetItem.NaptrRecord.Values {
-											ValuesItemMap := make(map[string]interface{})
-											if !ValuesItem.Flags.IsNull() && !ValuesItem.Flags.IsUnknown() {
-												ValuesItemMap["flags"] = ValuesItem.Flags.ValueString()
+									if !RrSetItem.NaptrRecord.Values.IsNull() && !RrSetItem.NaptrRecord.Values.IsUnknown() {
+										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetNaptrRecordValuesModel
+										diags := RrSetItem.NaptrRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+											var ValuesList []map[string]interface{}
+											for _, ValuesItem := range ValuesElems {
+												ValuesItemMap := make(map[string]interface{})
+												if !ValuesItem.Flags.IsNull() && !ValuesItem.Flags.IsUnknown() {
+													ValuesItemMap["flags"] = ValuesItem.Flags.ValueString()
+												}
+												if !ValuesItem.Order.IsNull() && !ValuesItem.Order.IsUnknown() {
+													ValuesItemMap["order"] = ValuesItem.Order.ValueInt64()
+												}
+												if !ValuesItem.Preference.IsNull() && !ValuesItem.Preference.IsUnknown() {
+													ValuesItemMap["preference"] = ValuesItem.Preference.ValueInt64()
+												}
+												if !ValuesItem.Regexp.IsNull() && !ValuesItem.Regexp.IsUnknown() {
+													ValuesItemMap["regexp"] = ValuesItem.Regexp.ValueString()
+												}
+												if !ValuesItem.Replacement.IsNull() && !ValuesItem.Replacement.IsUnknown() {
+													ValuesItemMap["replacement"] = ValuesItem.Replacement.ValueString()
+												}
+												if !ValuesItem.Service.IsNull() && !ValuesItem.Service.IsUnknown() {
+													ValuesItemMap["service"] = ValuesItem.Service.ValueString()
+												}
+												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											if !ValuesItem.Order.IsNull() && !ValuesItem.Order.IsUnknown() {
-												ValuesItemMap["order"] = ValuesItem.Order.ValueInt64()
-											}
-											if !ValuesItem.Preference.IsNull() && !ValuesItem.Preference.IsUnknown() {
-												ValuesItemMap["preference"] = ValuesItem.Preference.ValueInt64()
-											}
-											if !ValuesItem.Regexp.IsNull() && !ValuesItem.Regexp.IsUnknown() {
-												ValuesItemMap["regexp"] = ValuesItem.Regexp.ValueString()
-											}
-											if !ValuesItem.Replacement.IsNull() && !ValuesItem.Replacement.IsUnknown() {
-												ValuesItemMap["replacement"] = ValuesItem.Replacement.ValueString()
-											}
-											if !ValuesItem.Service.IsNull() && !ValuesItem.Service.IsUnknown() {
-												ValuesItemMap["service"] = ValuesItem.Service.ValueString()
-											}
-											ValuesList = append(ValuesList, ValuesItemMap)
+											NaptrRecordMap["values"] = ValuesList
 										}
-										NaptrRecordMap["values"] = ValuesList
 									}
 									RrSetItemMap["naptr_record"] = NaptrRecordMap
 								}
@@ -4182,25 +4277,30 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									if !RrSetItem.SrvRecord.Name.IsNull() && !RrSetItem.SrvRecord.Name.IsUnknown() {
 										SrvRecordMap["name"] = RrSetItem.SrvRecord.Name.ValueString()
 									}
-									if len(RrSetItem.SrvRecord.Values) > 0 {
-										var ValuesList []map[string]interface{}
-										for _, ValuesItem := range RrSetItem.SrvRecord.Values {
-											ValuesItemMap := make(map[string]interface{})
-											if !ValuesItem.Port.IsNull() && !ValuesItem.Port.IsUnknown() {
-												ValuesItemMap["port"] = ValuesItem.Port.ValueInt64()
+									if !RrSetItem.SrvRecord.Values.IsNull() && !RrSetItem.SrvRecord.Values.IsUnknown() {
+										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetSrvRecordValuesModel
+										diags := RrSetItem.SrvRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+											var ValuesList []map[string]interface{}
+											for _, ValuesItem := range ValuesElems {
+												ValuesItemMap := make(map[string]interface{})
+												if !ValuesItem.Port.IsNull() && !ValuesItem.Port.IsUnknown() {
+													ValuesItemMap["port"] = ValuesItem.Port.ValueInt64()
+												}
+												if !ValuesItem.Priority.IsNull() && !ValuesItem.Priority.IsUnknown() {
+													ValuesItemMap["priority"] = ValuesItem.Priority.ValueInt64()
+												}
+												if !ValuesItem.Target.IsNull() && !ValuesItem.Target.IsUnknown() {
+													ValuesItemMap["target"] = ValuesItem.Target.ValueString()
+												}
+												if !ValuesItem.Weight.IsNull() && !ValuesItem.Weight.IsUnknown() {
+													ValuesItemMap["weight"] = ValuesItem.Weight.ValueInt64()
+												}
+												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											if !ValuesItem.Priority.IsNull() && !ValuesItem.Priority.IsUnknown() {
-												ValuesItemMap["priority"] = ValuesItem.Priority.ValueInt64()
-											}
-											if !ValuesItem.Target.IsNull() && !ValuesItem.Target.IsUnknown() {
-												ValuesItemMap["target"] = ValuesItem.Target.ValueString()
-											}
-											if !ValuesItem.Weight.IsNull() && !ValuesItem.Weight.IsUnknown() {
-												ValuesItemMap["weight"] = ValuesItem.Weight.ValueInt64()
-											}
-											ValuesList = append(ValuesList, ValuesItemMap)
+											SrvRecordMap["values"] = ValuesList
 										}
-										SrvRecordMap["values"] = ValuesList
 									}
 									RrSetItemMap["srv_record"] = SrvRecordMap
 								}
@@ -4209,30 +4309,35 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									if !RrSetItem.SshfpRecord.Name.IsNull() && !RrSetItem.SshfpRecord.Name.IsUnknown() {
 										SshfpRecordMap["name"] = RrSetItem.SshfpRecord.Name.ValueString()
 									}
-									if len(RrSetItem.SshfpRecord.Values) > 0 {
-										var ValuesList []map[string]interface{}
-										for _, ValuesItem := range RrSetItem.SshfpRecord.Values {
-											ValuesItemMap := make(map[string]interface{})
-											if !ValuesItem.Algorithm.IsNull() && !ValuesItem.Algorithm.IsUnknown() {
-												ValuesItemMap["algorithm"] = ValuesItem.Algorithm.ValueString()
-											}
-											if ValuesItem.Sha1Fingerprint != nil {
-												Sha1FingerprintMap := make(map[string]interface{})
-												if !ValuesItem.Sha1Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha1Fingerprint.Fingerprint.IsUnknown() {
-													Sha1FingerprintMap["fingerprint"] = ValuesItem.Sha1Fingerprint.Fingerprint.ValueString()
+									if !RrSetItem.SshfpRecord.Values.IsNull() && !RrSetItem.SshfpRecord.Values.IsUnknown() {
+										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetSshfpRecordValuesModel
+										diags := RrSetItem.SshfpRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+											var ValuesList []map[string]interface{}
+											for _, ValuesItem := range ValuesElems {
+												ValuesItemMap := make(map[string]interface{})
+												if !ValuesItem.Algorithm.IsNull() && !ValuesItem.Algorithm.IsUnknown() {
+													ValuesItemMap["algorithm"] = ValuesItem.Algorithm.ValueString()
 												}
-												ValuesItemMap["sha1_fingerprint"] = Sha1FingerprintMap
-											}
-											if ValuesItem.Sha256Fingerprint != nil {
-												Sha256FingerprintMap := make(map[string]interface{})
-												if !ValuesItem.Sha256Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha256Fingerprint.Fingerprint.IsUnknown() {
-													Sha256FingerprintMap["fingerprint"] = ValuesItem.Sha256Fingerprint.Fingerprint.ValueString()
+												if ValuesItem.Sha1Fingerprint != nil {
+													Sha1FingerprintMap := make(map[string]interface{})
+													if !ValuesItem.Sha1Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha1Fingerprint.Fingerprint.IsUnknown() {
+														Sha1FingerprintMap["fingerprint"] = ValuesItem.Sha1Fingerprint.Fingerprint.ValueString()
+													}
+													ValuesItemMap["sha1_fingerprint"] = Sha1FingerprintMap
 												}
-												ValuesItemMap["sha256_fingerprint"] = Sha256FingerprintMap
+												if ValuesItem.Sha256Fingerprint != nil {
+													Sha256FingerprintMap := make(map[string]interface{})
+													if !ValuesItem.Sha256Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha256Fingerprint.Fingerprint.IsUnknown() {
+														Sha256FingerprintMap["fingerprint"] = ValuesItem.Sha256Fingerprint.Fingerprint.ValueString()
+													}
+													ValuesItemMap["sha256_fingerprint"] = Sha256FingerprintMap
+												}
+												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											ValuesList = append(ValuesList, ValuesItemMap)
+											SshfpRecordMap["values"] = ValuesList
 										}
-										SshfpRecordMap["values"] = ValuesList
 									}
 									RrSetItemMap["sshfp_record"] = SshfpRecordMap
 								}
@@ -4241,25 +4346,30 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									if !RrSetItem.TlsaRecord.Name.IsNull() && !RrSetItem.TlsaRecord.Name.IsUnknown() {
 										TlsaRecordMap["name"] = RrSetItem.TlsaRecord.Name.ValueString()
 									}
-									if len(RrSetItem.TlsaRecord.Values) > 0 {
-										var ValuesList []map[string]interface{}
-										for _, ValuesItem := range RrSetItem.TlsaRecord.Values {
-											ValuesItemMap := make(map[string]interface{})
-											if !ValuesItem.CertificateAssociationData.IsNull() && !ValuesItem.CertificateAssociationData.IsUnknown() {
-												ValuesItemMap["certificate_association_data"] = ValuesItem.CertificateAssociationData.ValueString()
+									if !RrSetItem.TlsaRecord.Values.IsNull() && !RrSetItem.TlsaRecord.Values.IsUnknown() {
+										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetTlsaRecordValuesModel
+										diags := RrSetItem.TlsaRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+											var ValuesList []map[string]interface{}
+											for _, ValuesItem := range ValuesElems {
+												ValuesItemMap := make(map[string]interface{})
+												if !ValuesItem.CertificateAssociationData.IsNull() && !ValuesItem.CertificateAssociationData.IsUnknown() {
+													ValuesItemMap["certificate_association_data"] = ValuesItem.CertificateAssociationData.ValueString()
+												}
+												if !ValuesItem.CertificateUsage.IsNull() && !ValuesItem.CertificateUsage.IsUnknown() {
+													ValuesItemMap["certificate_usage"] = ValuesItem.CertificateUsage.ValueString()
+												}
+												if !ValuesItem.MatchingType.IsNull() && !ValuesItem.MatchingType.IsUnknown() {
+													ValuesItemMap["matching_type"] = ValuesItem.MatchingType.ValueString()
+												}
+												if !ValuesItem.Selector.IsNull() && !ValuesItem.Selector.IsUnknown() {
+													ValuesItemMap["selector"] = ValuesItem.Selector.ValueString()
+												}
+												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											if !ValuesItem.CertificateUsage.IsNull() && !ValuesItem.CertificateUsage.IsUnknown() {
-												ValuesItemMap["certificate_usage"] = ValuesItem.CertificateUsage.ValueString()
-											}
-											if !ValuesItem.MatchingType.IsNull() && !ValuesItem.MatchingType.IsUnknown() {
-												ValuesItemMap["matching_type"] = ValuesItem.MatchingType.ValueString()
-											}
-											if !ValuesItem.Selector.IsNull() && !ValuesItem.Selector.IsUnknown() {
-												ValuesItemMap["selector"] = ValuesItem.Selector.ValueString()
-											}
-											ValuesList = append(ValuesList, ValuesItemMap)
+											TlsaRecordMap["values"] = ValuesList
 										}
-										TlsaRecordMap["values"] = ValuesList
 									}
 									RrSetItemMap["tlsa_record"] = TlsaRecordMap
 								}
@@ -4449,7 +4559,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := AfsdbRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -4470,9 +4580,10 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -4500,7 +4611,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := CaaRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -4527,9 +4638,10 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -4544,7 +4656,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := CdsRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -4604,9 +4716,10 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -4621,7 +4734,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := CertRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -4654,9 +4767,10 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -4696,7 +4810,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := DsRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -4756,9 +4870,10 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -4849,7 +4964,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := LocRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -4930,9 +5045,10 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -4947,7 +5063,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := MxRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -4968,9 +5084,10 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -4985,7 +5102,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := NaptrRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -5030,9 +5147,10 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -5099,7 +5217,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := SrvRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -5132,9 +5250,10 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -5149,7 +5268,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := SshfpRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -5190,9 +5309,10 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -5207,7 +5327,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := TlsaRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -5240,9 +5360,10 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -5414,7 +5535,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetAfsdbRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := AfsdbRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetAfsdbRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -5435,9 +5556,10 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetAfsdbRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetAfsdbRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -5465,7 +5587,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetCaaRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := CaaRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetCaaRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -5492,9 +5614,10 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetCaaRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetCaaRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -5509,7 +5632,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetCdsRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := CdsRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetCdsRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -5569,9 +5692,10 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetCdsRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetCdsRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -5586,7 +5710,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetCertRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := CertRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetCertRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -5619,9 +5743,10 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetCertRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetCertRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -5661,7 +5786,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetDsRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := DsRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetDsRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -5721,9 +5846,10 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetDsRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetDsRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -5814,7 +5940,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetLocRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := LocRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetLocRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -5895,9 +6021,10 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetLocRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetLocRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -5912,7 +6039,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetMxRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := MxRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetMxRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -5933,9 +6060,10 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetMxRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetMxRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -5950,7 +6078,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetNaptrRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := NaptrRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetNaptrRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -5995,9 +6123,10 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetNaptrRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetNaptrRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -6064,7 +6193,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetSrvRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := SrvRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetSrvRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -6097,9 +6226,10 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetSrvRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetSrvRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -6114,7 +6244,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetSshfpRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := SshfpRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetSshfpRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -6155,9 +6285,10 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetSshfpRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetSshfpRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -6172,7 +6303,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetTlsaRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := TlsaRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetTlsaRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -6205,9 +6336,10 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetTlsaRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetTlsaRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -6560,7 +6692,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := AfsdbRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -6581,9 +6713,10 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -6611,7 +6744,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := CaaRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -6638,9 +6771,10 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -6655,7 +6789,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := CdsRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -6715,9 +6849,10 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -6732,7 +6867,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := CertRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -6765,9 +6900,10 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -6807,7 +6943,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := DsRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -6867,9 +7003,10 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -6960,7 +7097,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := LocRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -7041,9 +7178,10 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -7058,7 +7196,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := MxRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -7079,9 +7217,10 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -7096,7 +7235,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := NaptrRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -7141,9 +7280,10 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -7210,7 +7350,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := SrvRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -7243,9 +7383,10 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -7260,7 +7401,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := SshfpRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -7301,9 +7442,10 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -7318,7 +7460,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := TlsaRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -7351,9 +7493,10 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -7525,7 +7668,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetAfsdbRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := AfsdbRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetAfsdbRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -7546,9 +7689,10 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetAfsdbRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetAfsdbRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -7576,7 +7720,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetCaaRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := CaaRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetCaaRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -7603,9 +7747,10 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetCaaRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetCaaRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -7620,7 +7765,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetCdsRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := CdsRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetCdsRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -7680,9 +7825,10 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetCdsRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetCdsRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -7697,7 +7843,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetCertRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := CertRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetCertRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -7730,9 +7876,10 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetCertRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetCertRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -7772,7 +7919,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetDsRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := DsRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetDsRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -7832,9 +7979,10 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetDsRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetDsRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -7925,7 +8073,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetLocRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := LocRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetLocRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -8006,9 +8154,10 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetLocRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetLocRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -8023,7 +8172,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetMxRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := MxRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetMxRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -8044,9 +8193,10 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetMxRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetMxRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -8061,7 +8211,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetNaptrRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := NaptrRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetNaptrRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -8106,9 +8256,10 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetNaptrRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetNaptrRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -8175,7 +8326,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetSrvRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := SrvRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetSrvRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -8208,9 +8359,10 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetSrvRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetSrvRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -8225,7 +8377,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetSshfpRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := SshfpRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetSshfpRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -8266,9 +8418,10 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetSshfpRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetSshfpRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -8283,7 +8436,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetTlsaRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := TlsaRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetTlsaRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -8316,9 +8469,10 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetTlsaRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetTlsaRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -8602,19 +8756,24 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 						if !DefaultRrSetGroupItem.AfsdbRecord.Name.IsNull() && !DefaultRrSetGroupItem.AfsdbRecord.Name.IsUnknown() {
 							AfsdbRecordMap["name"] = DefaultRrSetGroupItem.AfsdbRecord.Name.ValueString()
 						}
-						if len(DefaultRrSetGroupItem.AfsdbRecord.Values) > 0 {
-							var ValuesList []map[string]interface{}
-							for _, ValuesItem := range DefaultRrSetGroupItem.AfsdbRecord.Values {
-								ValuesItemMap := make(map[string]interface{})
-								if !ValuesItem.Hostname.IsNull() && !ValuesItem.Hostname.IsUnknown() {
-									ValuesItemMap["hostname"] = ValuesItem.Hostname.ValueString()
+						if !DefaultRrSetGroupItem.AfsdbRecord.Values.IsNull() && !DefaultRrSetGroupItem.AfsdbRecord.Values.IsUnknown() {
+							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModel
+							diags := DefaultRrSetGroupItem.AfsdbRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+								var ValuesList []map[string]interface{}
+								for _, ValuesItem := range ValuesElems {
+									ValuesItemMap := make(map[string]interface{})
+									if !ValuesItem.Hostname.IsNull() && !ValuesItem.Hostname.IsUnknown() {
+										ValuesItemMap["hostname"] = ValuesItem.Hostname.ValueString()
+									}
+									if !ValuesItem.Subtype.IsNull() && !ValuesItem.Subtype.IsUnknown() {
+										ValuesItemMap["subtype"] = ValuesItem.Subtype.ValueString()
+									}
+									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								if !ValuesItem.Subtype.IsNull() && !ValuesItem.Subtype.IsUnknown() {
-									ValuesItemMap["subtype"] = ValuesItem.Subtype.ValueString()
-								}
-								ValuesList = append(ValuesList, ValuesItemMap)
+								AfsdbRecordMap["values"] = ValuesList
 							}
-							AfsdbRecordMap["values"] = ValuesList
 						}
 						DefaultRrSetGroupItemMap["afsdb_record"] = AfsdbRecordMap
 					}
@@ -8630,22 +8789,27 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 						if !DefaultRrSetGroupItem.CaaRecord.Name.IsNull() && !DefaultRrSetGroupItem.CaaRecord.Name.IsUnknown() {
 							CaaRecordMap["name"] = DefaultRrSetGroupItem.CaaRecord.Name.ValueString()
 						}
-						if len(DefaultRrSetGroupItem.CaaRecord.Values) > 0 {
-							var ValuesList []map[string]interface{}
-							for _, ValuesItem := range DefaultRrSetGroupItem.CaaRecord.Values {
-								ValuesItemMap := make(map[string]interface{})
-								if !ValuesItem.Flags.IsNull() && !ValuesItem.Flags.IsUnknown() {
-									ValuesItemMap["flags"] = ValuesItem.Flags.ValueInt64()
+						if !DefaultRrSetGroupItem.CaaRecord.Values.IsNull() && !DefaultRrSetGroupItem.CaaRecord.Values.IsUnknown() {
+							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModel
+							diags := DefaultRrSetGroupItem.CaaRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+								var ValuesList []map[string]interface{}
+								for _, ValuesItem := range ValuesElems {
+									ValuesItemMap := make(map[string]interface{})
+									if !ValuesItem.Flags.IsNull() && !ValuesItem.Flags.IsUnknown() {
+										ValuesItemMap["flags"] = ValuesItem.Flags.ValueInt64()
+									}
+									if !ValuesItem.Tag.IsNull() && !ValuesItem.Tag.IsUnknown() {
+										ValuesItemMap["tag"] = ValuesItem.Tag.ValueString()
+									}
+									if !ValuesItem.Value.IsNull() && !ValuesItem.Value.IsUnknown() {
+										ValuesItemMap["value"] = ValuesItem.Value.ValueString()
+									}
+									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								if !ValuesItem.Tag.IsNull() && !ValuesItem.Tag.IsUnknown() {
-									ValuesItemMap["tag"] = ValuesItem.Tag.ValueString()
-								}
-								if !ValuesItem.Value.IsNull() && !ValuesItem.Value.IsUnknown() {
-									ValuesItemMap["value"] = ValuesItem.Value.ValueString()
-								}
-								ValuesList = append(ValuesList, ValuesItemMap)
+								CaaRecordMap["values"] = ValuesList
 							}
-							CaaRecordMap["values"] = ValuesList
 						}
 						DefaultRrSetGroupItemMap["caa_record"] = CaaRecordMap
 					}
@@ -8654,40 +8818,45 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 						if !DefaultRrSetGroupItem.CdsRecord.Name.IsNull() && !DefaultRrSetGroupItem.CdsRecord.Name.IsUnknown() {
 							CdsRecordMap["name"] = DefaultRrSetGroupItem.CdsRecord.Name.ValueString()
 						}
-						if len(DefaultRrSetGroupItem.CdsRecord.Values) > 0 {
-							var ValuesList []map[string]interface{}
-							for _, ValuesItem := range DefaultRrSetGroupItem.CdsRecord.Values {
-								ValuesItemMap := make(map[string]interface{})
-								if !ValuesItem.DsKeyAlgorithm.IsNull() && !ValuesItem.DsKeyAlgorithm.IsUnknown() {
-									ValuesItemMap["ds_key_algorithm"] = ValuesItem.DsKeyAlgorithm.ValueString()
-								}
-								if !ValuesItem.KeyTag.IsNull() && !ValuesItem.KeyTag.IsUnknown() {
-									ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
-								}
-								if ValuesItem.Sha1Digest != nil {
-									Sha1DigestMap := make(map[string]interface{})
-									if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
-										Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+						if !DefaultRrSetGroupItem.CdsRecord.Values.IsNull() && !DefaultRrSetGroupItem.CdsRecord.Values.IsUnknown() {
+							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModel
+							diags := DefaultRrSetGroupItem.CdsRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+								var ValuesList []map[string]interface{}
+								for _, ValuesItem := range ValuesElems {
+									ValuesItemMap := make(map[string]interface{})
+									if !ValuesItem.DsKeyAlgorithm.IsNull() && !ValuesItem.DsKeyAlgorithm.IsUnknown() {
+										ValuesItemMap["ds_key_algorithm"] = ValuesItem.DsKeyAlgorithm.ValueString()
 									}
-									ValuesItemMap["sha1_digest"] = Sha1DigestMap
-								}
-								if ValuesItem.Sha256Digest != nil {
-									Sha256DigestMap := make(map[string]interface{})
-									if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
-										Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+									if !ValuesItem.KeyTag.IsNull() && !ValuesItem.KeyTag.IsUnknown() {
+										ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
 									}
-									ValuesItemMap["sha256_digest"] = Sha256DigestMap
-								}
-								if ValuesItem.Sha384Digest != nil {
-									Sha384DigestMap := make(map[string]interface{})
-									if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
-										Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+									if ValuesItem.Sha1Digest != nil {
+										Sha1DigestMap := make(map[string]interface{})
+										if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
+											Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+										}
+										ValuesItemMap["sha1_digest"] = Sha1DigestMap
 									}
-									ValuesItemMap["sha384_digest"] = Sha384DigestMap
+									if ValuesItem.Sha256Digest != nil {
+										Sha256DigestMap := make(map[string]interface{})
+										if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
+											Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+										}
+										ValuesItemMap["sha256_digest"] = Sha256DigestMap
+									}
+									if ValuesItem.Sha384Digest != nil {
+										Sha384DigestMap := make(map[string]interface{})
+										if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
+											Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+										}
+										ValuesItemMap["sha384_digest"] = Sha384DigestMap
+									}
+									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								ValuesList = append(ValuesList, ValuesItemMap)
+								CdsRecordMap["values"] = ValuesList
 							}
-							CdsRecordMap["values"] = ValuesList
 						}
 						DefaultRrSetGroupItemMap["cds_record"] = CdsRecordMap
 					}
@@ -8696,25 +8865,30 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 						if !DefaultRrSetGroupItem.CertRecord.Name.IsNull() && !DefaultRrSetGroupItem.CertRecord.Name.IsUnknown() {
 							CertRecordMap["name"] = DefaultRrSetGroupItem.CertRecord.Name.ValueString()
 						}
-						if len(DefaultRrSetGroupItem.CertRecord.Values) > 0 {
-							var ValuesList []map[string]interface{}
-							for _, ValuesItem := range DefaultRrSetGroupItem.CertRecord.Values {
-								ValuesItemMap := make(map[string]interface{})
-								if !ValuesItem.Algorithm.IsNull() && !ValuesItem.Algorithm.IsUnknown() {
-									ValuesItemMap["algorithm"] = ValuesItem.Algorithm.ValueString()
+						if !DefaultRrSetGroupItem.CertRecord.Values.IsNull() && !DefaultRrSetGroupItem.CertRecord.Values.IsUnknown() {
+							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModel
+							diags := DefaultRrSetGroupItem.CertRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+								var ValuesList []map[string]interface{}
+								for _, ValuesItem := range ValuesElems {
+									ValuesItemMap := make(map[string]interface{})
+									if !ValuesItem.Algorithm.IsNull() && !ValuesItem.Algorithm.IsUnknown() {
+										ValuesItemMap["algorithm"] = ValuesItem.Algorithm.ValueString()
+									}
+									if !ValuesItem.CertKeyTag.IsNull() && !ValuesItem.CertKeyTag.IsUnknown() {
+										ValuesItemMap["cert_key_tag"] = ValuesItem.CertKeyTag.ValueInt64()
+									}
+									if !ValuesItem.CertType.IsNull() && !ValuesItem.CertType.IsUnknown() {
+										ValuesItemMap["cert_type"] = ValuesItem.CertType.ValueString()
+									}
+									if !ValuesItem.Certificate.IsNull() && !ValuesItem.Certificate.IsUnknown() {
+										ValuesItemMap["certificate"] = ValuesItem.Certificate.ValueString()
+									}
+									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								if !ValuesItem.CertKeyTag.IsNull() && !ValuesItem.CertKeyTag.IsUnknown() {
-									ValuesItemMap["cert_key_tag"] = ValuesItem.CertKeyTag.ValueInt64()
-								}
-								if !ValuesItem.CertType.IsNull() && !ValuesItem.CertType.IsUnknown() {
-									ValuesItemMap["cert_type"] = ValuesItem.CertType.ValueString()
-								}
-								if !ValuesItem.Certificate.IsNull() && !ValuesItem.Certificate.IsUnknown() {
-									ValuesItemMap["certificate"] = ValuesItem.Certificate.ValueString()
-								}
-								ValuesList = append(ValuesList, ValuesItemMap)
+								CertRecordMap["values"] = ValuesList
 							}
-							CertRecordMap["values"] = ValuesList
 						}
 						DefaultRrSetGroupItemMap["cert_record"] = CertRecordMap
 					}
@@ -8736,40 +8910,45 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 						if !DefaultRrSetGroupItem.DsRecord.Name.IsNull() && !DefaultRrSetGroupItem.DsRecord.Name.IsUnknown() {
 							DsRecordMap["name"] = DefaultRrSetGroupItem.DsRecord.Name.ValueString()
 						}
-						if len(DefaultRrSetGroupItem.DsRecord.Values) > 0 {
-							var ValuesList []map[string]interface{}
-							for _, ValuesItem := range DefaultRrSetGroupItem.DsRecord.Values {
-								ValuesItemMap := make(map[string]interface{})
-								if !ValuesItem.DsKeyAlgorithm.IsNull() && !ValuesItem.DsKeyAlgorithm.IsUnknown() {
-									ValuesItemMap["ds_key_algorithm"] = ValuesItem.DsKeyAlgorithm.ValueString()
-								}
-								if !ValuesItem.KeyTag.IsNull() && !ValuesItem.KeyTag.IsUnknown() {
-									ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
-								}
-								if ValuesItem.Sha1Digest != nil {
-									Sha1DigestMap := make(map[string]interface{})
-									if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
-										Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+						if !DefaultRrSetGroupItem.DsRecord.Values.IsNull() && !DefaultRrSetGroupItem.DsRecord.Values.IsUnknown() {
+							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModel
+							diags := DefaultRrSetGroupItem.DsRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+								var ValuesList []map[string]interface{}
+								for _, ValuesItem := range ValuesElems {
+									ValuesItemMap := make(map[string]interface{})
+									if !ValuesItem.DsKeyAlgorithm.IsNull() && !ValuesItem.DsKeyAlgorithm.IsUnknown() {
+										ValuesItemMap["ds_key_algorithm"] = ValuesItem.DsKeyAlgorithm.ValueString()
 									}
-									ValuesItemMap["sha1_digest"] = Sha1DigestMap
-								}
-								if ValuesItem.Sha256Digest != nil {
-									Sha256DigestMap := make(map[string]interface{})
-									if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
-										Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+									if !ValuesItem.KeyTag.IsNull() && !ValuesItem.KeyTag.IsUnknown() {
+										ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
 									}
-									ValuesItemMap["sha256_digest"] = Sha256DigestMap
-								}
-								if ValuesItem.Sha384Digest != nil {
-									Sha384DigestMap := make(map[string]interface{})
-									if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
-										Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+									if ValuesItem.Sha1Digest != nil {
+										Sha1DigestMap := make(map[string]interface{})
+										if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
+											Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+										}
+										ValuesItemMap["sha1_digest"] = Sha1DigestMap
 									}
-									ValuesItemMap["sha384_digest"] = Sha384DigestMap
+									if ValuesItem.Sha256Digest != nil {
+										Sha256DigestMap := make(map[string]interface{})
+										if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
+											Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+										}
+										ValuesItemMap["sha256_digest"] = Sha256DigestMap
+									}
+									if ValuesItem.Sha384Digest != nil {
+										Sha384DigestMap := make(map[string]interface{})
+										if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
+											Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+										}
+										ValuesItemMap["sha384_digest"] = Sha384DigestMap
+									}
+									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								ValuesList = append(ValuesList, ValuesItemMap)
+								DsRecordMap["values"] = ValuesList
 							}
-							DsRecordMap["values"] = ValuesList
 						}
 						DefaultRrSetGroupItemMap["ds_record"] = DsRecordMap
 					}
@@ -8818,49 +8997,54 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 						if !DefaultRrSetGroupItem.LocRecord.Name.IsNull() && !DefaultRrSetGroupItem.LocRecord.Name.IsUnknown() {
 							LocRecordMap["name"] = DefaultRrSetGroupItem.LocRecord.Name.ValueString()
 						}
-						if len(DefaultRrSetGroupItem.LocRecord.Values) > 0 {
-							var ValuesList []map[string]interface{}
-							for _, ValuesItem := range DefaultRrSetGroupItem.LocRecord.Values {
-								ValuesItemMap := make(map[string]interface{})
-								if !ValuesItem.Altitude.IsNull() && !ValuesItem.Altitude.IsUnknown() {
-									ValuesItemMap["altitude"] = ValuesItem.Altitude.ValueInt64()
+						if !DefaultRrSetGroupItem.LocRecord.Values.IsNull() && !DefaultRrSetGroupItem.LocRecord.Values.IsUnknown() {
+							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModel
+							diags := DefaultRrSetGroupItem.LocRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+								var ValuesList []map[string]interface{}
+								for _, ValuesItem := range ValuesElems {
+									ValuesItemMap := make(map[string]interface{})
+									if !ValuesItem.Altitude.IsNull() && !ValuesItem.Altitude.IsUnknown() {
+										ValuesItemMap["altitude"] = ValuesItem.Altitude.ValueInt64()
+									}
+									if !ValuesItem.HorizontalPrecision.IsNull() && !ValuesItem.HorizontalPrecision.IsUnknown() {
+										ValuesItemMap["horizontal_precision"] = ValuesItem.HorizontalPrecision.ValueInt64()
+									}
+									if !ValuesItem.LatitudeDegree.IsNull() && !ValuesItem.LatitudeDegree.IsUnknown() {
+										ValuesItemMap["latitude_degree"] = ValuesItem.LatitudeDegree.ValueInt64()
+									}
+									if !ValuesItem.LatitudeHemisphere.IsNull() && !ValuesItem.LatitudeHemisphere.IsUnknown() {
+										ValuesItemMap["latitude_hemisphere"] = ValuesItem.LatitudeHemisphere.ValueString()
+									}
+									if !ValuesItem.LatitudeMinute.IsNull() && !ValuesItem.LatitudeMinute.IsUnknown() {
+										ValuesItemMap["latitude_minute"] = ValuesItem.LatitudeMinute.ValueInt64()
+									}
+									if !ValuesItem.LatitudeSecond.IsNull() && !ValuesItem.LatitudeSecond.IsUnknown() {
+										ValuesItemMap["latitude_second"] = ValuesItem.LatitudeSecond.ValueInt64()
+									}
+									if !ValuesItem.LocationDiameter.IsNull() && !ValuesItem.LocationDiameter.IsUnknown() {
+										ValuesItemMap["location_diameter"] = ValuesItem.LocationDiameter.ValueInt64()
+									}
+									if !ValuesItem.LongitudeDegree.IsNull() && !ValuesItem.LongitudeDegree.IsUnknown() {
+										ValuesItemMap["longitude_degree"] = ValuesItem.LongitudeDegree.ValueInt64()
+									}
+									if !ValuesItem.LongitudeHemisphere.IsNull() && !ValuesItem.LongitudeHemisphere.IsUnknown() {
+										ValuesItemMap["longitude_hemisphere"] = ValuesItem.LongitudeHemisphere.ValueString()
+									}
+									if !ValuesItem.LongitudeMinute.IsNull() && !ValuesItem.LongitudeMinute.IsUnknown() {
+										ValuesItemMap["longitude_minute"] = ValuesItem.LongitudeMinute.ValueInt64()
+									}
+									if !ValuesItem.LongitudeSecond.IsNull() && !ValuesItem.LongitudeSecond.IsUnknown() {
+										ValuesItemMap["longitude_second"] = ValuesItem.LongitudeSecond.ValueInt64()
+									}
+									if !ValuesItem.VerticalPrecision.IsNull() && !ValuesItem.VerticalPrecision.IsUnknown() {
+										ValuesItemMap["vertical_precision"] = ValuesItem.VerticalPrecision.ValueInt64()
+									}
+									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								if !ValuesItem.HorizontalPrecision.IsNull() && !ValuesItem.HorizontalPrecision.IsUnknown() {
-									ValuesItemMap["horizontal_precision"] = ValuesItem.HorizontalPrecision.ValueInt64()
-								}
-								if !ValuesItem.LatitudeDegree.IsNull() && !ValuesItem.LatitudeDegree.IsUnknown() {
-									ValuesItemMap["latitude_degree"] = ValuesItem.LatitudeDegree.ValueInt64()
-								}
-								if !ValuesItem.LatitudeHemisphere.IsNull() && !ValuesItem.LatitudeHemisphere.IsUnknown() {
-									ValuesItemMap["latitude_hemisphere"] = ValuesItem.LatitudeHemisphere.ValueString()
-								}
-								if !ValuesItem.LatitudeMinute.IsNull() && !ValuesItem.LatitudeMinute.IsUnknown() {
-									ValuesItemMap["latitude_minute"] = ValuesItem.LatitudeMinute.ValueInt64()
-								}
-								if !ValuesItem.LatitudeSecond.IsNull() && !ValuesItem.LatitudeSecond.IsUnknown() {
-									ValuesItemMap["latitude_second"] = ValuesItem.LatitudeSecond.ValueInt64()
-								}
-								if !ValuesItem.LocationDiameter.IsNull() && !ValuesItem.LocationDiameter.IsUnknown() {
-									ValuesItemMap["location_diameter"] = ValuesItem.LocationDiameter.ValueInt64()
-								}
-								if !ValuesItem.LongitudeDegree.IsNull() && !ValuesItem.LongitudeDegree.IsUnknown() {
-									ValuesItemMap["longitude_degree"] = ValuesItem.LongitudeDegree.ValueInt64()
-								}
-								if !ValuesItem.LongitudeHemisphere.IsNull() && !ValuesItem.LongitudeHemisphere.IsUnknown() {
-									ValuesItemMap["longitude_hemisphere"] = ValuesItem.LongitudeHemisphere.ValueString()
-								}
-								if !ValuesItem.LongitudeMinute.IsNull() && !ValuesItem.LongitudeMinute.IsUnknown() {
-									ValuesItemMap["longitude_minute"] = ValuesItem.LongitudeMinute.ValueInt64()
-								}
-								if !ValuesItem.LongitudeSecond.IsNull() && !ValuesItem.LongitudeSecond.IsUnknown() {
-									ValuesItemMap["longitude_second"] = ValuesItem.LongitudeSecond.ValueInt64()
-								}
-								if !ValuesItem.VerticalPrecision.IsNull() && !ValuesItem.VerticalPrecision.IsUnknown() {
-									ValuesItemMap["vertical_precision"] = ValuesItem.VerticalPrecision.ValueInt64()
-								}
-								ValuesList = append(ValuesList, ValuesItemMap)
+								LocRecordMap["values"] = ValuesList
 							}
-							LocRecordMap["values"] = ValuesList
 						}
 						DefaultRrSetGroupItemMap["loc_record"] = LocRecordMap
 					}
@@ -8869,19 +9053,24 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 						if !DefaultRrSetGroupItem.MxRecord.Name.IsNull() && !DefaultRrSetGroupItem.MxRecord.Name.IsUnknown() {
 							MxRecordMap["name"] = DefaultRrSetGroupItem.MxRecord.Name.ValueString()
 						}
-						if len(DefaultRrSetGroupItem.MxRecord.Values) > 0 {
-							var ValuesList []map[string]interface{}
-							for _, ValuesItem := range DefaultRrSetGroupItem.MxRecord.Values {
-								ValuesItemMap := make(map[string]interface{})
-								if !ValuesItem.Domain.IsNull() && !ValuesItem.Domain.IsUnknown() {
-									ValuesItemMap["domain"] = ValuesItem.Domain.ValueString()
+						if !DefaultRrSetGroupItem.MxRecord.Values.IsNull() && !DefaultRrSetGroupItem.MxRecord.Values.IsUnknown() {
+							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModel
+							diags := DefaultRrSetGroupItem.MxRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+								var ValuesList []map[string]interface{}
+								for _, ValuesItem := range ValuesElems {
+									ValuesItemMap := make(map[string]interface{})
+									if !ValuesItem.Domain.IsNull() && !ValuesItem.Domain.IsUnknown() {
+										ValuesItemMap["domain"] = ValuesItem.Domain.ValueString()
+									}
+									if !ValuesItem.Priority.IsNull() && !ValuesItem.Priority.IsUnknown() {
+										ValuesItemMap["priority"] = ValuesItem.Priority.ValueInt64()
+									}
+									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								if !ValuesItem.Priority.IsNull() && !ValuesItem.Priority.IsUnknown() {
-									ValuesItemMap["priority"] = ValuesItem.Priority.ValueInt64()
-								}
-								ValuesList = append(ValuesList, ValuesItemMap)
+								MxRecordMap["values"] = ValuesList
 							}
-							MxRecordMap["values"] = ValuesList
 						}
 						DefaultRrSetGroupItemMap["mx_record"] = MxRecordMap
 					}
@@ -8890,31 +9079,36 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 						if !DefaultRrSetGroupItem.NaptrRecord.Name.IsNull() && !DefaultRrSetGroupItem.NaptrRecord.Name.IsUnknown() {
 							NaptrRecordMap["name"] = DefaultRrSetGroupItem.NaptrRecord.Name.ValueString()
 						}
-						if len(DefaultRrSetGroupItem.NaptrRecord.Values) > 0 {
-							var ValuesList []map[string]interface{}
-							for _, ValuesItem := range DefaultRrSetGroupItem.NaptrRecord.Values {
-								ValuesItemMap := make(map[string]interface{})
-								if !ValuesItem.Flags.IsNull() && !ValuesItem.Flags.IsUnknown() {
-									ValuesItemMap["flags"] = ValuesItem.Flags.ValueString()
+						if !DefaultRrSetGroupItem.NaptrRecord.Values.IsNull() && !DefaultRrSetGroupItem.NaptrRecord.Values.IsUnknown() {
+							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModel
+							diags := DefaultRrSetGroupItem.NaptrRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+								var ValuesList []map[string]interface{}
+								for _, ValuesItem := range ValuesElems {
+									ValuesItemMap := make(map[string]interface{})
+									if !ValuesItem.Flags.IsNull() && !ValuesItem.Flags.IsUnknown() {
+										ValuesItemMap["flags"] = ValuesItem.Flags.ValueString()
+									}
+									if !ValuesItem.Order.IsNull() && !ValuesItem.Order.IsUnknown() {
+										ValuesItemMap["order"] = ValuesItem.Order.ValueInt64()
+									}
+									if !ValuesItem.Preference.IsNull() && !ValuesItem.Preference.IsUnknown() {
+										ValuesItemMap["preference"] = ValuesItem.Preference.ValueInt64()
+									}
+									if !ValuesItem.Regexp.IsNull() && !ValuesItem.Regexp.IsUnknown() {
+										ValuesItemMap["regexp"] = ValuesItem.Regexp.ValueString()
+									}
+									if !ValuesItem.Replacement.IsNull() && !ValuesItem.Replacement.IsUnknown() {
+										ValuesItemMap["replacement"] = ValuesItem.Replacement.ValueString()
+									}
+									if !ValuesItem.Service.IsNull() && !ValuesItem.Service.IsUnknown() {
+										ValuesItemMap["service"] = ValuesItem.Service.ValueString()
+									}
+									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								if !ValuesItem.Order.IsNull() && !ValuesItem.Order.IsUnknown() {
-									ValuesItemMap["order"] = ValuesItem.Order.ValueInt64()
-								}
-								if !ValuesItem.Preference.IsNull() && !ValuesItem.Preference.IsUnknown() {
-									ValuesItemMap["preference"] = ValuesItem.Preference.ValueInt64()
-								}
-								if !ValuesItem.Regexp.IsNull() && !ValuesItem.Regexp.IsUnknown() {
-									ValuesItemMap["regexp"] = ValuesItem.Regexp.ValueString()
-								}
-								if !ValuesItem.Replacement.IsNull() && !ValuesItem.Replacement.IsUnknown() {
-									ValuesItemMap["replacement"] = ValuesItem.Replacement.ValueString()
-								}
-								if !ValuesItem.Service.IsNull() && !ValuesItem.Service.IsUnknown() {
-									ValuesItemMap["service"] = ValuesItem.Service.ValueString()
-								}
-								ValuesList = append(ValuesList, ValuesItemMap)
+								NaptrRecordMap["values"] = ValuesList
 							}
-							NaptrRecordMap["values"] = ValuesList
 						}
 						DefaultRrSetGroupItemMap["naptr_record"] = NaptrRecordMap
 					}
@@ -8951,25 +9145,30 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 						if !DefaultRrSetGroupItem.SrvRecord.Name.IsNull() && !DefaultRrSetGroupItem.SrvRecord.Name.IsUnknown() {
 							SrvRecordMap["name"] = DefaultRrSetGroupItem.SrvRecord.Name.ValueString()
 						}
-						if len(DefaultRrSetGroupItem.SrvRecord.Values) > 0 {
-							var ValuesList []map[string]interface{}
-							for _, ValuesItem := range DefaultRrSetGroupItem.SrvRecord.Values {
-								ValuesItemMap := make(map[string]interface{})
-								if !ValuesItem.Port.IsNull() && !ValuesItem.Port.IsUnknown() {
-									ValuesItemMap["port"] = ValuesItem.Port.ValueInt64()
+						if !DefaultRrSetGroupItem.SrvRecord.Values.IsNull() && !DefaultRrSetGroupItem.SrvRecord.Values.IsUnknown() {
+							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModel
+							diags := DefaultRrSetGroupItem.SrvRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+								var ValuesList []map[string]interface{}
+								for _, ValuesItem := range ValuesElems {
+									ValuesItemMap := make(map[string]interface{})
+									if !ValuesItem.Port.IsNull() && !ValuesItem.Port.IsUnknown() {
+										ValuesItemMap["port"] = ValuesItem.Port.ValueInt64()
+									}
+									if !ValuesItem.Priority.IsNull() && !ValuesItem.Priority.IsUnknown() {
+										ValuesItemMap["priority"] = ValuesItem.Priority.ValueInt64()
+									}
+									if !ValuesItem.Target.IsNull() && !ValuesItem.Target.IsUnknown() {
+										ValuesItemMap["target"] = ValuesItem.Target.ValueString()
+									}
+									if !ValuesItem.Weight.IsNull() && !ValuesItem.Weight.IsUnknown() {
+										ValuesItemMap["weight"] = ValuesItem.Weight.ValueInt64()
+									}
+									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								if !ValuesItem.Priority.IsNull() && !ValuesItem.Priority.IsUnknown() {
-									ValuesItemMap["priority"] = ValuesItem.Priority.ValueInt64()
-								}
-								if !ValuesItem.Target.IsNull() && !ValuesItem.Target.IsUnknown() {
-									ValuesItemMap["target"] = ValuesItem.Target.ValueString()
-								}
-								if !ValuesItem.Weight.IsNull() && !ValuesItem.Weight.IsUnknown() {
-									ValuesItemMap["weight"] = ValuesItem.Weight.ValueInt64()
-								}
-								ValuesList = append(ValuesList, ValuesItemMap)
+								SrvRecordMap["values"] = ValuesList
 							}
-							SrvRecordMap["values"] = ValuesList
 						}
 						DefaultRrSetGroupItemMap["srv_record"] = SrvRecordMap
 					}
@@ -8978,30 +9177,35 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 						if !DefaultRrSetGroupItem.SshfpRecord.Name.IsNull() && !DefaultRrSetGroupItem.SshfpRecord.Name.IsUnknown() {
 							SshfpRecordMap["name"] = DefaultRrSetGroupItem.SshfpRecord.Name.ValueString()
 						}
-						if len(DefaultRrSetGroupItem.SshfpRecord.Values) > 0 {
-							var ValuesList []map[string]interface{}
-							for _, ValuesItem := range DefaultRrSetGroupItem.SshfpRecord.Values {
-								ValuesItemMap := make(map[string]interface{})
-								if !ValuesItem.Algorithm.IsNull() && !ValuesItem.Algorithm.IsUnknown() {
-									ValuesItemMap["algorithm"] = ValuesItem.Algorithm.ValueString()
-								}
-								if ValuesItem.Sha1Fingerprint != nil {
-									Sha1FingerprintMap := make(map[string]interface{})
-									if !ValuesItem.Sha1Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha1Fingerprint.Fingerprint.IsUnknown() {
-										Sha1FingerprintMap["fingerprint"] = ValuesItem.Sha1Fingerprint.Fingerprint.ValueString()
+						if !DefaultRrSetGroupItem.SshfpRecord.Values.IsNull() && !DefaultRrSetGroupItem.SshfpRecord.Values.IsUnknown() {
+							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModel
+							diags := DefaultRrSetGroupItem.SshfpRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+								var ValuesList []map[string]interface{}
+								for _, ValuesItem := range ValuesElems {
+									ValuesItemMap := make(map[string]interface{})
+									if !ValuesItem.Algorithm.IsNull() && !ValuesItem.Algorithm.IsUnknown() {
+										ValuesItemMap["algorithm"] = ValuesItem.Algorithm.ValueString()
 									}
-									ValuesItemMap["sha1_fingerprint"] = Sha1FingerprintMap
-								}
-								if ValuesItem.Sha256Fingerprint != nil {
-									Sha256FingerprintMap := make(map[string]interface{})
-									if !ValuesItem.Sha256Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha256Fingerprint.Fingerprint.IsUnknown() {
-										Sha256FingerprintMap["fingerprint"] = ValuesItem.Sha256Fingerprint.Fingerprint.ValueString()
+									if ValuesItem.Sha1Fingerprint != nil {
+										Sha1FingerprintMap := make(map[string]interface{})
+										if !ValuesItem.Sha1Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha1Fingerprint.Fingerprint.IsUnknown() {
+											Sha1FingerprintMap["fingerprint"] = ValuesItem.Sha1Fingerprint.Fingerprint.ValueString()
+										}
+										ValuesItemMap["sha1_fingerprint"] = Sha1FingerprintMap
 									}
-									ValuesItemMap["sha256_fingerprint"] = Sha256FingerprintMap
+									if ValuesItem.Sha256Fingerprint != nil {
+										Sha256FingerprintMap := make(map[string]interface{})
+										if !ValuesItem.Sha256Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha256Fingerprint.Fingerprint.IsUnknown() {
+											Sha256FingerprintMap["fingerprint"] = ValuesItem.Sha256Fingerprint.Fingerprint.ValueString()
+										}
+										ValuesItemMap["sha256_fingerprint"] = Sha256FingerprintMap
+									}
+									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								ValuesList = append(ValuesList, ValuesItemMap)
+								SshfpRecordMap["values"] = ValuesList
 							}
-							SshfpRecordMap["values"] = ValuesList
 						}
 						DefaultRrSetGroupItemMap["sshfp_record"] = SshfpRecordMap
 					}
@@ -9010,25 +9214,30 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 						if !DefaultRrSetGroupItem.TlsaRecord.Name.IsNull() && !DefaultRrSetGroupItem.TlsaRecord.Name.IsUnknown() {
 							TlsaRecordMap["name"] = DefaultRrSetGroupItem.TlsaRecord.Name.ValueString()
 						}
-						if len(DefaultRrSetGroupItem.TlsaRecord.Values) > 0 {
-							var ValuesList []map[string]interface{}
-							for _, ValuesItem := range DefaultRrSetGroupItem.TlsaRecord.Values {
-								ValuesItemMap := make(map[string]interface{})
-								if !ValuesItem.CertificateAssociationData.IsNull() && !ValuesItem.CertificateAssociationData.IsUnknown() {
-									ValuesItemMap["certificate_association_data"] = ValuesItem.CertificateAssociationData.ValueString()
+						if !DefaultRrSetGroupItem.TlsaRecord.Values.IsNull() && !DefaultRrSetGroupItem.TlsaRecord.Values.IsUnknown() {
+							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModel
+							diags := DefaultRrSetGroupItem.TlsaRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+								var ValuesList []map[string]interface{}
+								for _, ValuesItem := range ValuesElems {
+									ValuesItemMap := make(map[string]interface{})
+									if !ValuesItem.CertificateAssociationData.IsNull() && !ValuesItem.CertificateAssociationData.IsUnknown() {
+										ValuesItemMap["certificate_association_data"] = ValuesItem.CertificateAssociationData.ValueString()
+									}
+									if !ValuesItem.CertificateUsage.IsNull() && !ValuesItem.CertificateUsage.IsUnknown() {
+										ValuesItemMap["certificate_usage"] = ValuesItem.CertificateUsage.ValueString()
+									}
+									if !ValuesItem.MatchingType.IsNull() && !ValuesItem.MatchingType.IsUnknown() {
+										ValuesItemMap["matching_type"] = ValuesItem.MatchingType.ValueString()
+									}
+									if !ValuesItem.Selector.IsNull() && !ValuesItem.Selector.IsUnknown() {
+										ValuesItemMap["selector"] = ValuesItem.Selector.ValueString()
+									}
+									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								if !ValuesItem.CertificateUsage.IsNull() && !ValuesItem.CertificateUsage.IsUnknown() {
-									ValuesItemMap["certificate_usage"] = ValuesItem.CertificateUsage.ValueString()
-								}
-								if !ValuesItem.MatchingType.IsNull() && !ValuesItem.MatchingType.IsUnknown() {
-									ValuesItemMap["matching_type"] = ValuesItem.MatchingType.ValueString()
-								}
-								if !ValuesItem.Selector.IsNull() && !ValuesItem.Selector.IsUnknown() {
-									ValuesItemMap["selector"] = ValuesItem.Selector.ValueString()
-								}
-								ValuesList = append(ValuesList, ValuesItemMap)
+								TlsaRecordMap["values"] = ValuesList
 							}
-							TlsaRecordMap["values"] = ValuesList
 						}
 						DefaultRrSetGroupItemMap["tlsa_record"] = TlsaRecordMap
 					}
@@ -9126,19 +9335,24 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									if !RrSetItem.AfsdbRecord.Name.IsNull() && !RrSetItem.AfsdbRecord.Name.IsUnknown() {
 										AfsdbRecordMap["name"] = RrSetItem.AfsdbRecord.Name.ValueString()
 									}
-									if len(RrSetItem.AfsdbRecord.Values) > 0 {
-										var ValuesList []map[string]interface{}
-										for _, ValuesItem := range RrSetItem.AfsdbRecord.Values {
-											ValuesItemMap := make(map[string]interface{})
-											if !ValuesItem.Hostname.IsNull() && !ValuesItem.Hostname.IsUnknown() {
-												ValuesItemMap["hostname"] = ValuesItem.Hostname.ValueString()
+									if !RrSetItem.AfsdbRecord.Values.IsNull() && !RrSetItem.AfsdbRecord.Values.IsUnknown() {
+										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetAfsdbRecordValuesModel
+										diags := RrSetItem.AfsdbRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+											var ValuesList []map[string]interface{}
+											for _, ValuesItem := range ValuesElems {
+												ValuesItemMap := make(map[string]interface{})
+												if !ValuesItem.Hostname.IsNull() && !ValuesItem.Hostname.IsUnknown() {
+													ValuesItemMap["hostname"] = ValuesItem.Hostname.ValueString()
+												}
+												if !ValuesItem.Subtype.IsNull() && !ValuesItem.Subtype.IsUnknown() {
+													ValuesItemMap["subtype"] = ValuesItem.Subtype.ValueString()
+												}
+												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											if !ValuesItem.Subtype.IsNull() && !ValuesItem.Subtype.IsUnknown() {
-												ValuesItemMap["subtype"] = ValuesItem.Subtype.ValueString()
-											}
-											ValuesList = append(ValuesList, ValuesItemMap)
+											AfsdbRecordMap["values"] = ValuesList
 										}
-										AfsdbRecordMap["values"] = ValuesList
 									}
 									RrSetItemMap["afsdb_record"] = AfsdbRecordMap
 								}
@@ -9154,22 +9368,27 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									if !RrSetItem.CaaRecord.Name.IsNull() && !RrSetItem.CaaRecord.Name.IsUnknown() {
 										CaaRecordMap["name"] = RrSetItem.CaaRecord.Name.ValueString()
 									}
-									if len(RrSetItem.CaaRecord.Values) > 0 {
-										var ValuesList []map[string]interface{}
-										for _, ValuesItem := range RrSetItem.CaaRecord.Values {
-											ValuesItemMap := make(map[string]interface{})
-											if !ValuesItem.Flags.IsNull() && !ValuesItem.Flags.IsUnknown() {
-												ValuesItemMap["flags"] = ValuesItem.Flags.ValueInt64()
+									if !RrSetItem.CaaRecord.Values.IsNull() && !RrSetItem.CaaRecord.Values.IsUnknown() {
+										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetCaaRecordValuesModel
+										diags := RrSetItem.CaaRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+											var ValuesList []map[string]interface{}
+											for _, ValuesItem := range ValuesElems {
+												ValuesItemMap := make(map[string]interface{})
+												if !ValuesItem.Flags.IsNull() && !ValuesItem.Flags.IsUnknown() {
+													ValuesItemMap["flags"] = ValuesItem.Flags.ValueInt64()
+												}
+												if !ValuesItem.Tag.IsNull() && !ValuesItem.Tag.IsUnknown() {
+													ValuesItemMap["tag"] = ValuesItem.Tag.ValueString()
+												}
+												if !ValuesItem.Value.IsNull() && !ValuesItem.Value.IsUnknown() {
+													ValuesItemMap["value"] = ValuesItem.Value.ValueString()
+												}
+												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											if !ValuesItem.Tag.IsNull() && !ValuesItem.Tag.IsUnknown() {
-												ValuesItemMap["tag"] = ValuesItem.Tag.ValueString()
-											}
-											if !ValuesItem.Value.IsNull() && !ValuesItem.Value.IsUnknown() {
-												ValuesItemMap["value"] = ValuesItem.Value.ValueString()
-											}
-											ValuesList = append(ValuesList, ValuesItemMap)
+											CaaRecordMap["values"] = ValuesList
 										}
-										CaaRecordMap["values"] = ValuesList
 									}
 									RrSetItemMap["caa_record"] = CaaRecordMap
 								}
@@ -9178,40 +9397,45 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									if !RrSetItem.CdsRecord.Name.IsNull() && !RrSetItem.CdsRecord.Name.IsUnknown() {
 										CdsRecordMap["name"] = RrSetItem.CdsRecord.Name.ValueString()
 									}
-									if len(RrSetItem.CdsRecord.Values) > 0 {
-										var ValuesList []map[string]interface{}
-										for _, ValuesItem := range RrSetItem.CdsRecord.Values {
-											ValuesItemMap := make(map[string]interface{})
-											if !ValuesItem.DsKeyAlgorithm.IsNull() && !ValuesItem.DsKeyAlgorithm.IsUnknown() {
-												ValuesItemMap["ds_key_algorithm"] = ValuesItem.DsKeyAlgorithm.ValueString()
-											}
-											if !ValuesItem.KeyTag.IsNull() && !ValuesItem.KeyTag.IsUnknown() {
-												ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
-											}
-											if ValuesItem.Sha1Digest != nil {
-												Sha1DigestMap := make(map[string]interface{})
-												if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
-													Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+									if !RrSetItem.CdsRecord.Values.IsNull() && !RrSetItem.CdsRecord.Values.IsUnknown() {
+										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetCdsRecordValuesModel
+										diags := RrSetItem.CdsRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+											var ValuesList []map[string]interface{}
+											for _, ValuesItem := range ValuesElems {
+												ValuesItemMap := make(map[string]interface{})
+												if !ValuesItem.DsKeyAlgorithm.IsNull() && !ValuesItem.DsKeyAlgorithm.IsUnknown() {
+													ValuesItemMap["ds_key_algorithm"] = ValuesItem.DsKeyAlgorithm.ValueString()
 												}
-												ValuesItemMap["sha1_digest"] = Sha1DigestMap
-											}
-											if ValuesItem.Sha256Digest != nil {
-												Sha256DigestMap := make(map[string]interface{})
-												if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
-													Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+												if !ValuesItem.KeyTag.IsNull() && !ValuesItem.KeyTag.IsUnknown() {
+													ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
 												}
-												ValuesItemMap["sha256_digest"] = Sha256DigestMap
-											}
-											if ValuesItem.Sha384Digest != nil {
-												Sha384DigestMap := make(map[string]interface{})
-												if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
-													Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+												if ValuesItem.Sha1Digest != nil {
+													Sha1DigestMap := make(map[string]interface{})
+													if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
+														Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+													}
+													ValuesItemMap["sha1_digest"] = Sha1DigestMap
 												}
-												ValuesItemMap["sha384_digest"] = Sha384DigestMap
+												if ValuesItem.Sha256Digest != nil {
+													Sha256DigestMap := make(map[string]interface{})
+													if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
+														Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+													}
+													ValuesItemMap["sha256_digest"] = Sha256DigestMap
+												}
+												if ValuesItem.Sha384Digest != nil {
+													Sha384DigestMap := make(map[string]interface{})
+													if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
+														Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+													}
+													ValuesItemMap["sha384_digest"] = Sha384DigestMap
+												}
+												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											ValuesList = append(ValuesList, ValuesItemMap)
+											CdsRecordMap["values"] = ValuesList
 										}
-										CdsRecordMap["values"] = ValuesList
 									}
 									RrSetItemMap["cds_record"] = CdsRecordMap
 								}
@@ -9220,25 +9444,30 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									if !RrSetItem.CertRecord.Name.IsNull() && !RrSetItem.CertRecord.Name.IsUnknown() {
 										CertRecordMap["name"] = RrSetItem.CertRecord.Name.ValueString()
 									}
-									if len(RrSetItem.CertRecord.Values) > 0 {
-										var ValuesList []map[string]interface{}
-										for _, ValuesItem := range RrSetItem.CertRecord.Values {
-											ValuesItemMap := make(map[string]interface{})
-											if !ValuesItem.Algorithm.IsNull() && !ValuesItem.Algorithm.IsUnknown() {
-												ValuesItemMap["algorithm"] = ValuesItem.Algorithm.ValueString()
+									if !RrSetItem.CertRecord.Values.IsNull() && !RrSetItem.CertRecord.Values.IsUnknown() {
+										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetCertRecordValuesModel
+										diags := RrSetItem.CertRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+											var ValuesList []map[string]interface{}
+											for _, ValuesItem := range ValuesElems {
+												ValuesItemMap := make(map[string]interface{})
+												if !ValuesItem.Algorithm.IsNull() && !ValuesItem.Algorithm.IsUnknown() {
+													ValuesItemMap["algorithm"] = ValuesItem.Algorithm.ValueString()
+												}
+												if !ValuesItem.CertKeyTag.IsNull() && !ValuesItem.CertKeyTag.IsUnknown() {
+													ValuesItemMap["cert_key_tag"] = ValuesItem.CertKeyTag.ValueInt64()
+												}
+												if !ValuesItem.CertType.IsNull() && !ValuesItem.CertType.IsUnknown() {
+													ValuesItemMap["cert_type"] = ValuesItem.CertType.ValueString()
+												}
+												if !ValuesItem.Certificate.IsNull() && !ValuesItem.Certificate.IsUnknown() {
+													ValuesItemMap["certificate"] = ValuesItem.Certificate.ValueString()
+												}
+												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											if !ValuesItem.CertKeyTag.IsNull() && !ValuesItem.CertKeyTag.IsUnknown() {
-												ValuesItemMap["cert_key_tag"] = ValuesItem.CertKeyTag.ValueInt64()
-											}
-											if !ValuesItem.CertType.IsNull() && !ValuesItem.CertType.IsUnknown() {
-												ValuesItemMap["cert_type"] = ValuesItem.CertType.ValueString()
-											}
-											if !ValuesItem.Certificate.IsNull() && !ValuesItem.Certificate.IsUnknown() {
-												ValuesItemMap["certificate"] = ValuesItem.Certificate.ValueString()
-											}
-											ValuesList = append(ValuesList, ValuesItemMap)
+											CertRecordMap["values"] = ValuesList
 										}
-										CertRecordMap["values"] = ValuesList
 									}
 									RrSetItemMap["cert_record"] = CertRecordMap
 								}
@@ -9260,40 +9489,45 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									if !RrSetItem.DsRecord.Name.IsNull() && !RrSetItem.DsRecord.Name.IsUnknown() {
 										DsRecordMap["name"] = RrSetItem.DsRecord.Name.ValueString()
 									}
-									if len(RrSetItem.DsRecord.Values) > 0 {
-										var ValuesList []map[string]interface{}
-										for _, ValuesItem := range RrSetItem.DsRecord.Values {
-											ValuesItemMap := make(map[string]interface{})
-											if !ValuesItem.DsKeyAlgorithm.IsNull() && !ValuesItem.DsKeyAlgorithm.IsUnknown() {
-												ValuesItemMap["ds_key_algorithm"] = ValuesItem.DsKeyAlgorithm.ValueString()
-											}
-											if !ValuesItem.KeyTag.IsNull() && !ValuesItem.KeyTag.IsUnknown() {
-												ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
-											}
-											if ValuesItem.Sha1Digest != nil {
-												Sha1DigestMap := make(map[string]interface{})
-												if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
-													Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+									if !RrSetItem.DsRecord.Values.IsNull() && !RrSetItem.DsRecord.Values.IsUnknown() {
+										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetDsRecordValuesModel
+										diags := RrSetItem.DsRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+											var ValuesList []map[string]interface{}
+											for _, ValuesItem := range ValuesElems {
+												ValuesItemMap := make(map[string]interface{})
+												if !ValuesItem.DsKeyAlgorithm.IsNull() && !ValuesItem.DsKeyAlgorithm.IsUnknown() {
+													ValuesItemMap["ds_key_algorithm"] = ValuesItem.DsKeyAlgorithm.ValueString()
 												}
-												ValuesItemMap["sha1_digest"] = Sha1DigestMap
-											}
-											if ValuesItem.Sha256Digest != nil {
-												Sha256DigestMap := make(map[string]interface{})
-												if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
-													Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+												if !ValuesItem.KeyTag.IsNull() && !ValuesItem.KeyTag.IsUnknown() {
+													ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
 												}
-												ValuesItemMap["sha256_digest"] = Sha256DigestMap
-											}
-											if ValuesItem.Sha384Digest != nil {
-												Sha384DigestMap := make(map[string]interface{})
-												if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
-													Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+												if ValuesItem.Sha1Digest != nil {
+													Sha1DigestMap := make(map[string]interface{})
+													if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
+														Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+													}
+													ValuesItemMap["sha1_digest"] = Sha1DigestMap
 												}
-												ValuesItemMap["sha384_digest"] = Sha384DigestMap
+												if ValuesItem.Sha256Digest != nil {
+													Sha256DigestMap := make(map[string]interface{})
+													if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
+														Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+													}
+													ValuesItemMap["sha256_digest"] = Sha256DigestMap
+												}
+												if ValuesItem.Sha384Digest != nil {
+													Sha384DigestMap := make(map[string]interface{})
+													if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
+														Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+													}
+													ValuesItemMap["sha384_digest"] = Sha384DigestMap
+												}
+												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											ValuesList = append(ValuesList, ValuesItemMap)
+											DsRecordMap["values"] = ValuesList
 										}
-										DsRecordMap["values"] = ValuesList
 									}
 									RrSetItemMap["ds_record"] = DsRecordMap
 								}
@@ -9342,49 +9576,54 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									if !RrSetItem.LocRecord.Name.IsNull() && !RrSetItem.LocRecord.Name.IsUnknown() {
 										LocRecordMap["name"] = RrSetItem.LocRecord.Name.ValueString()
 									}
-									if len(RrSetItem.LocRecord.Values) > 0 {
-										var ValuesList []map[string]interface{}
-										for _, ValuesItem := range RrSetItem.LocRecord.Values {
-											ValuesItemMap := make(map[string]interface{})
-											if !ValuesItem.Altitude.IsNull() && !ValuesItem.Altitude.IsUnknown() {
-												ValuesItemMap["altitude"] = ValuesItem.Altitude.ValueInt64()
+									if !RrSetItem.LocRecord.Values.IsNull() && !RrSetItem.LocRecord.Values.IsUnknown() {
+										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetLocRecordValuesModel
+										diags := RrSetItem.LocRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+											var ValuesList []map[string]interface{}
+											for _, ValuesItem := range ValuesElems {
+												ValuesItemMap := make(map[string]interface{})
+												if !ValuesItem.Altitude.IsNull() && !ValuesItem.Altitude.IsUnknown() {
+													ValuesItemMap["altitude"] = ValuesItem.Altitude.ValueInt64()
+												}
+												if !ValuesItem.HorizontalPrecision.IsNull() && !ValuesItem.HorizontalPrecision.IsUnknown() {
+													ValuesItemMap["horizontal_precision"] = ValuesItem.HorizontalPrecision.ValueInt64()
+												}
+												if !ValuesItem.LatitudeDegree.IsNull() && !ValuesItem.LatitudeDegree.IsUnknown() {
+													ValuesItemMap["latitude_degree"] = ValuesItem.LatitudeDegree.ValueInt64()
+												}
+												if !ValuesItem.LatitudeHemisphere.IsNull() && !ValuesItem.LatitudeHemisphere.IsUnknown() {
+													ValuesItemMap["latitude_hemisphere"] = ValuesItem.LatitudeHemisphere.ValueString()
+												}
+												if !ValuesItem.LatitudeMinute.IsNull() && !ValuesItem.LatitudeMinute.IsUnknown() {
+													ValuesItemMap["latitude_minute"] = ValuesItem.LatitudeMinute.ValueInt64()
+												}
+												if !ValuesItem.LatitudeSecond.IsNull() && !ValuesItem.LatitudeSecond.IsUnknown() {
+													ValuesItemMap["latitude_second"] = ValuesItem.LatitudeSecond.ValueInt64()
+												}
+												if !ValuesItem.LocationDiameter.IsNull() && !ValuesItem.LocationDiameter.IsUnknown() {
+													ValuesItemMap["location_diameter"] = ValuesItem.LocationDiameter.ValueInt64()
+												}
+												if !ValuesItem.LongitudeDegree.IsNull() && !ValuesItem.LongitudeDegree.IsUnknown() {
+													ValuesItemMap["longitude_degree"] = ValuesItem.LongitudeDegree.ValueInt64()
+												}
+												if !ValuesItem.LongitudeHemisphere.IsNull() && !ValuesItem.LongitudeHemisphere.IsUnknown() {
+													ValuesItemMap["longitude_hemisphere"] = ValuesItem.LongitudeHemisphere.ValueString()
+												}
+												if !ValuesItem.LongitudeMinute.IsNull() && !ValuesItem.LongitudeMinute.IsUnknown() {
+													ValuesItemMap["longitude_minute"] = ValuesItem.LongitudeMinute.ValueInt64()
+												}
+												if !ValuesItem.LongitudeSecond.IsNull() && !ValuesItem.LongitudeSecond.IsUnknown() {
+													ValuesItemMap["longitude_second"] = ValuesItem.LongitudeSecond.ValueInt64()
+												}
+												if !ValuesItem.VerticalPrecision.IsNull() && !ValuesItem.VerticalPrecision.IsUnknown() {
+													ValuesItemMap["vertical_precision"] = ValuesItem.VerticalPrecision.ValueInt64()
+												}
+												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											if !ValuesItem.HorizontalPrecision.IsNull() && !ValuesItem.HorizontalPrecision.IsUnknown() {
-												ValuesItemMap["horizontal_precision"] = ValuesItem.HorizontalPrecision.ValueInt64()
-											}
-											if !ValuesItem.LatitudeDegree.IsNull() && !ValuesItem.LatitudeDegree.IsUnknown() {
-												ValuesItemMap["latitude_degree"] = ValuesItem.LatitudeDegree.ValueInt64()
-											}
-											if !ValuesItem.LatitudeHemisphere.IsNull() && !ValuesItem.LatitudeHemisphere.IsUnknown() {
-												ValuesItemMap["latitude_hemisphere"] = ValuesItem.LatitudeHemisphere.ValueString()
-											}
-											if !ValuesItem.LatitudeMinute.IsNull() && !ValuesItem.LatitudeMinute.IsUnknown() {
-												ValuesItemMap["latitude_minute"] = ValuesItem.LatitudeMinute.ValueInt64()
-											}
-											if !ValuesItem.LatitudeSecond.IsNull() && !ValuesItem.LatitudeSecond.IsUnknown() {
-												ValuesItemMap["latitude_second"] = ValuesItem.LatitudeSecond.ValueInt64()
-											}
-											if !ValuesItem.LocationDiameter.IsNull() && !ValuesItem.LocationDiameter.IsUnknown() {
-												ValuesItemMap["location_diameter"] = ValuesItem.LocationDiameter.ValueInt64()
-											}
-											if !ValuesItem.LongitudeDegree.IsNull() && !ValuesItem.LongitudeDegree.IsUnknown() {
-												ValuesItemMap["longitude_degree"] = ValuesItem.LongitudeDegree.ValueInt64()
-											}
-											if !ValuesItem.LongitudeHemisphere.IsNull() && !ValuesItem.LongitudeHemisphere.IsUnknown() {
-												ValuesItemMap["longitude_hemisphere"] = ValuesItem.LongitudeHemisphere.ValueString()
-											}
-											if !ValuesItem.LongitudeMinute.IsNull() && !ValuesItem.LongitudeMinute.IsUnknown() {
-												ValuesItemMap["longitude_minute"] = ValuesItem.LongitudeMinute.ValueInt64()
-											}
-											if !ValuesItem.LongitudeSecond.IsNull() && !ValuesItem.LongitudeSecond.IsUnknown() {
-												ValuesItemMap["longitude_second"] = ValuesItem.LongitudeSecond.ValueInt64()
-											}
-											if !ValuesItem.VerticalPrecision.IsNull() && !ValuesItem.VerticalPrecision.IsUnknown() {
-												ValuesItemMap["vertical_precision"] = ValuesItem.VerticalPrecision.ValueInt64()
-											}
-											ValuesList = append(ValuesList, ValuesItemMap)
+											LocRecordMap["values"] = ValuesList
 										}
-										LocRecordMap["values"] = ValuesList
 									}
 									RrSetItemMap["loc_record"] = LocRecordMap
 								}
@@ -9393,19 +9632,24 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									if !RrSetItem.MxRecord.Name.IsNull() && !RrSetItem.MxRecord.Name.IsUnknown() {
 										MxRecordMap["name"] = RrSetItem.MxRecord.Name.ValueString()
 									}
-									if len(RrSetItem.MxRecord.Values) > 0 {
-										var ValuesList []map[string]interface{}
-										for _, ValuesItem := range RrSetItem.MxRecord.Values {
-											ValuesItemMap := make(map[string]interface{})
-											if !ValuesItem.Domain.IsNull() && !ValuesItem.Domain.IsUnknown() {
-												ValuesItemMap["domain"] = ValuesItem.Domain.ValueString()
+									if !RrSetItem.MxRecord.Values.IsNull() && !RrSetItem.MxRecord.Values.IsUnknown() {
+										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetMxRecordValuesModel
+										diags := RrSetItem.MxRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+											var ValuesList []map[string]interface{}
+											for _, ValuesItem := range ValuesElems {
+												ValuesItemMap := make(map[string]interface{})
+												if !ValuesItem.Domain.IsNull() && !ValuesItem.Domain.IsUnknown() {
+													ValuesItemMap["domain"] = ValuesItem.Domain.ValueString()
+												}
+												if !ValuesItem.Priority.IsNull() && !ValuesItem.Priority.IsUnknown() {
+													ValuesItemMap["priority"] = ValuesItem.Priority.ValueInt64()
+												}
+												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											if !ValuesItem.Priority.IsNull() && !ValuesItem.Priority.IsUnknown() {
-												ValuesItemMap["priority"] = ValuesItem.Priority.ValueInt64()
-											}
-											ValuesList = append(ValuesList, ValuesItemMap)
+											MxRecordMap["values"] = ValuesList
 										}
-										MxRecordMap["values"] = ValuesList
 									}
 									RrSetItemMap["mx_record"] = MxRecordMap
 								}
@@ -9414,31 +9658,36 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									if !RrSetItem.NaptrRecord.Name.IsNull() && !RrSetItem.NaptrRecord.Name.IsUnknown() {
 										NaptrRecordMap["name"] = RrSetItem.NaptrRecord.Name.ValueString()
 									}
-									if len(RrSetItem.NaptrRecord.Values) > 0 {
-										var ValuesList []map[string]interface{}
-										for _, ValuesItem := range RrSetItem.NaptrRecord.Values {
-											ValuesItemMap := make(map[string]interface{})
-											if !ValuesItem.Flags.IsNull() && !ValuesItem.Flags.IsUnknown() {
-												ValuesItemMap["flags"] = ValuesItem.Flags.ValueString()
+									if !RrSetItem.NaptrRecord.Values.IsNull() && !RrSetItem.NaptrRecord.Values.IsUnknown() {
+										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetNaptrRecordValuesModel
+										diags := RrSetItem.NaptrRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+											var ValuesList []map[string]interface{}
+											for _, ValuesItem := range ValuesElems {
+												ValuesItemMap := make(map[string]interface{})
+												if !ValuesItem.Flags.IsNull() && !ValuesItem.Flags.IsUnknown() {
+													ValuesItemMap["flags"] = ValuesItem.Flags.ValueString()
+												}
+												if !ValuesItem.Order.IsNull() && !ValuesItem.Order.IsUnknown() {
+													ValuesItemMap["order"] = ValuesItem.Order.ValueInt64()
+												}
+												if !ValuesItem.Preference.IsNull() && !ValuesItem.Preference.IsUnknown() {
+													ValuesItemMap["preference"] = ValuesItem.Preference.ValueInt64()
+												}
+												if !ValuesItem.Regexp.IsNull() && !ValuesItem.Regexp.IsUnknown() {
+													ValuesItemMap["regexp"] = ValuesItem.Regexp.ValueString()
+												}
+												if !ValuesItem.Replacement.IsNull() && !ValuesItem.Replacement.IsUnknown() {
+													ValuesItemMap["replacement"] = ValuesItem.Replacement.ValueString()
+												}
+												if !ValuesItem.Service.IsNull() && !ValuesItem.Service.IsUnknown() {
+													ValuesItemMap["service"] = ValuesItem.Service.ValueString()
+												}
+												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											if !ValuesItem.Order.IsNull() && !ValuesItem.Order.IsUnknown() {
-												ValuesItemMap["order"] = ValuesItem.Order.ValueInt64()
-											}
-											if !ValuesItem.Preference.IsNull() && !ValuesItem.Preference.IsUnknown() {
-												ValuesItemMap["preference"] = ValuesItem.Preference.ValueInt64()
-											}
-											if !ValuesItem.Regexp.IsNull() && !ValuesItem.Regexp.IsUnknown() {
-												ValuesItemMap["regexp"] = ValuesItem.Regexp.ValueString()
-											}
-											if !ValuesItem.Replacement.IsNull() && !ValuesItem.Replacement.IsUnknown() {
-												ValuesItemMap["replacement"] = ValuesItem.Replacement.ValueString()
-											}
-											if !ValuesItem.Service.IsNull() && !ValuesItem.Service.IsUnknown() {
-												ValuesItemMap["service"] = ValuesItem.Service.ValueString()
-											}
-											ValuesList = append(ValuesList, ValuesItemMap)
+											NaptrRecordMap["values"] = ValuesList
 										}
-										NaptrRecordMap["values"] = ValuesList
 									}
 									RrSetItemMap["naptr_record"] = NaptrRecordMap
 								}
@@ -9475,25 +9724,30 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									if !RrSetItem.SrvRecord.Name.IsNull() && !RrSetItem.SrvRecord.Name.IsUnknown() {
 										SrvRecordMap["name"] = RrSetItem.SrvRecord.Name.ValueString()
 									}
-									if len(RrSetItem.SrvRecord.Values) > 0 {
-										var ValuesList []map[string]interface{}
-										for _, ValuesItem := range RrSetItem.SrvRecord.Values {
-											ValuesItemMap := make(map[string]interface{})
-											if !ValuesItem.Port.IsNull() && !ValuesItem.Port.IsUnknown() {
-												ValuesItemMap["port"] = ValuesItem.Port.ValueInt64()
+									if !RrSetItem.SrvRecord.Values.IsNull() && !RrSetItem.SrvRecord.Values.IsUnknown() {
+										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetSrvRecordValuesModel
+										diags := RrSetItem.SrvRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+											var ValuesList []map[string]interface{}
+											for _, ValuesItem := range ValuesElems {
+												ValuesItemMap := make(map[string]interface{})
+												if !ValuesItem.Port.IsNull() && !ValuesItem.Port.IsUnknown() {
+													ValuesItemMap["port"] = ValuesItem.Port.ValueInt64()
+												}
+												if !ValuesItem.Priority.IsNull() && !ValuesItem.Priority.IsUnknown() {
+													ValuesItemMap["priority"] = ValuesItem.Priority.ValueInt64()
+												}
+												if !ValuesItem.Target.IsNull() && !ValuesItem.Target.IsUnknown() {
+													ValuesItemMap["target"] = ValuesItem.Target.ValueString()
+												}
+												if !ValuesItem.Weight.IsNull() && !ValuesItem.Weight.IsUnknown() {
+													ValuesItemMap["weight"] = ValuesItem.Weight.ValueInt64()
+												}
+												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											if !ValuesItem.Priority.IsNull() && !ValuesItem.Priority.IsUnknown() {
-												ValuesItemMap["priority"] = ValuesItem.Priority.ValueInt64()
-											}
-											if !ValuesItem.Target.IsNull() && !ValuesItem.Target.IsUnknown() {
-												ValuesItemMap["target"] = ValuesItem.Target.ValueString()
-											}
-											if !ValuesItem.Weight.IsNull() && !ValuesItem.Weight.IsUnknown() {
-												ValuesItemMap["weight"] = ValuesItem.Weight.ValueInt64()
-											}
-											ValuesList = append(ValuesList, ValuesItemMap)
+											SrvRecordMap["values"] = ValuesList
 										}
-										SrvRecordMap["values"] = ValuesList
 									}
 									RrSetItemMap["srv_record"] = SrvRecordMap
 								}
@@ -9502,30 +9756,35 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									if !RrSetItem.SshfpRecord.Name.IsNull() && !RrSetItem.SshfpRecord.Name.IsUnknown() {
 										SshfpRecordMap["name"] = RrSetItem.SshfpRecord.Name.ValueString()
 									}
-									if len(RrSetItem.SshfpRecord.Values) > 0 {
-										var ValuesList []map[string]interface{}
-										for _, ValuesItem := range RrSetItem.SshfpRecord.Values {
-											ValuesItemMap := make(map[string]interface{})
-											if !ValuesItem.Algorithm.IsNull() && !ValuesItem.Algorithm.IsUnknown() {
-												ValuesItemMap["algorithm"] = ValuesItem.Algorithm.ValueString()
-											}
-											if ValuesItem.Sha1Fingerprint != nil {
-												Sha1FingerprintMap := make(map[string]interface{})
-												if !ValuesItem.Sha1Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha1Fingerprint.Fingerprint.IsUnknown() {
-													Sha1FingerprintMap["fingerprint"] = ValuesItem.Sha1Fingerprint.Fingerprint.ValueString()
+									if !RrSetItem.SshfpRecord.Values.IsNull() && !RrSetItem.SshfpRecord.Values.IsUnknown() {
+										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetSshfpRecordValuesModel
+										diags := RrSetItem.SshfpRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+											var ValuesList []map[string]interface{}
+											for _, ValuesItem := range ValuesElems {
+												ValuesItemMap := make(map[string]interface{})
+												if !ValuesItem.Algorithm.IsNull() && !ValuesItem.Algorithm.IsUnknown() {
+													ValuesItemMap["algorithm"] = ValuesItem.Algorithm.ValueString()
 												}
-												ValuesItemMap["sha1_fingerprint"] = Sha1FingerprintMap
-											}
-											if ValuesItem.Sha256Fingerprint != nil {
-												Sha256FingerprintMap := make(map[string]interface{})
-												if !ValuesItem.Sha256Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha256Fingerprint.Fingerprint.IsUnknown() {
-													Sha256FingerprintMap["fingerprint"] = ValuesItem.Sha256Fingerprint.Fingerprint.ValueString()
+												if ValuesItem.Sha1Fingerprint != nil {
+													Sha1FingerprintMap := make(map[string]interface{})
+													if !ValuesItem.Sha1Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha1Fingerprint.Fingerprint.IsUnknown() {
+														Sha1FingerprintMap["fingerprint"] = ValuesItem.Sha1Fingerprint.Fingerprint.ValueString()
+													}
+													ValuesItemMap["sha1_fingerprint"] = Sha1FingerprintMap
 												}
-												ValuesItemMap["sha256_fingerprint"] = Sha256FingerprintMap
+												if ValuesItem.Sha256Fingerprint != nil {
+													Sha256FingerprintMap := make(map[string]interface{})
+													if !ValuesItem.Sha256Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha256Fingerprint.Fingerprint.IsUnknown() {
+														Sha256FingerprintMap["fingerprint"] = ValuesItem.Sha256Fingerprint.Fingerprint.ValueString()
+													}
+													ValuesItemMap["sha256_fingerprint"] = Sha256FingerprintMap
+												}
+												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											ValuesList = append(ValuesList, ValuesItemMap)
+											SshfpRecordMap["values"] = ValuesList
 										}
-										SshfpRecordMap["values"] = ValuesList
 									}
 									RrSetItemMap["sshfp_record"] = SshfpRecordMap
 								}
@@ -9534,25 +9793,30 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									if !RrSetItem.TlsaRecord.Name.IsNull() && !RrSetItem.TlsaRecord.Name.IsUnknown() {
 										TlsaRecordMap["name"] = RrSetItem.TlsaRecord.Name.ValueString()
 									}
-									if len(RrSetItem.TlsaRecord.Values) > 0 {
-										var ValuesList []map[string]interface{}
-										for _, ValuesItem := range RrSetItem.TlsaRecord.Values {
-											ValuesItemMap := make(map[string]interface{})
-											if !ValuesItem.CertificateAssociationData.IsNull() && !ValuesItem.CertificateAssociationData.IsUnknown() {
-												ValuesItemMap["certificate_association_data"] = ValuesItem.CertificateAssociationData.ValueString()
+									if !RrSetItem.TlsaRecord.Values.IsNull() && !RrSetItem.TlsaRecord.Values.IsUnknown() {
+										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetTlsaRecordValuesModel
+										diags := RrSetItem.TlsaRecord.Values.ElementsAs(ctx, &ValuesElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(ValuesElems) > 0 {
+											var ValuesList []map[string]interface{}
+											for _, ValuesItem := range ValuesElems {
+												ValuesItemMap := make(map[string]interface{})
+												if !ValuesItem.CertificateAssociationData.IsNull() && !ValuesItem.CertificateAssociationData.IsUnknown() {
+													ValuesItemMap["certificate_association_data"] = ValuesItem.CertificateAssociationData.ValueString()
+												}
+												if !ValuesItem.CertificateUsage.IsNull() && !ValuesItem.CertificateUsage.IsUnknown() {
+													ValuesItemMap["certificate_usage"] = ValuesItem.CertificateUsage.ValueString()
+												}
+												if !ValuesItem.MatchingType.IsNull() && !ValuesItem.MatchingType.IsUnknown() {
+													ValuesItemMap["matching_type"] = ValuesItem.MatchingType.ValueString()
+												}
+												if !ValuesItem.Selector.IsNull() && !ValuesItem.Selector.IsUnknown() {
+													ValuesItemMap["selector"] = ValuesItem.Selector.ValueString()
+												}
+												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											if !ValuesItem.CertificateUsage.IsNull() && !ValuesItem.CertificateUsage.IsUnknown() {
-												ValuesItemMap["certificate_usage"] = ValuesItem.CertificateUsage.ValueString()
-											}
-											if !ValuesItem.MatchingType.IsNull() && !ValuesItem.MatchingType.IsUnknown() {
-												ValuesItemMap["matching_type"] = ValuesItem.MatchingType.ValueString()
-											}
-											if !ValuesItem.Selector.IsNull() && !ValuesItem.Selector.IsUnknown() {
-												ValuesItemMap["selector"] = ValuesItem.Selector.ValueString()
-											}
-											ValuesList = append(ValuesList, ValuesItemMap)
+											TlsaRecordMap["values"] = ValuesList
 										}
-										TlsaRecordMap["values"] = ValuesList
 									}
 									RrSetItemMap["tlsa_record"] = TlsaRecordMap
 								}
@@ -9753,7 +10017,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := AfsdbRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -9774,9 +10038,10 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -9804,7 +10069,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := CaaRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -9831,9 +10096,10 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -9848,7 +10114,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := CdsRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -9908,9 +10174,10 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -9925,7 +10192,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := CertRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -9958,9 +10225,10 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -10000,7 +10268,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := DsRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -10060,9 +10328,10 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -10153,7 +10422,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := LocRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -10234,9 +10503,10 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -10251,7 +10521,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := MxRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -10272,9 +10542,10 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -10289,7 +10560,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := NaptrRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -10334,9 +10605,10 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -10403,7 +10675,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := SrvRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -10436,9 +10708,10 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -10453,7 +10726,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := SshfpRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -10494,9 +10767,10 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -10511,7 +10785,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												}
 												return types.StringNull()
 											}(),
-											Values: func() []DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModel {
+											Values: func() types.List {
 												if rawList, ok := TlsaRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModel
 													for _, ValuesItem := range rawList {
@@ -10544,9 +10818,10 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 															})
 														}
 													}
-													return ValuesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModelAttrTypes}, ValuesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModelAttrTypes})
 											}(),
 										}
 									}
@@ -10718,7 +10993,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetAfsdbRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := AfsdbRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetAfsdbRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -10739,9 +11014,10 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetAfsdbRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetAfsdbRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -10769,7 +11045,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetCaaRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := CaaRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetCaaRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -10796,9 +11072,10 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetCaaRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetCaaRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -10813,7 +11090,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetCdsRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := CdsRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetCdsRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -10873,9 +11150,10 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetCdsRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetCdsRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -10890,7 +11168,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetCertRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := CertRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetCertRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -10923,9 +11201,10 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetCertRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetCertRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -10965,7 +11244,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetDsRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := DsRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetDsRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -11025,9 +11304,10 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetDsRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetDsRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -11118,7 +11398,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetLocRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := LocRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetLocRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -11199,9 +11479,10 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetLocRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetLocRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -11216,7 +11497,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetMxRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := MxRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetMxRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -11237,9 +11518,10 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetMxRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetMxRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -11254,7 +11536,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetNaptrRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := NaptrRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetNaptrRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -11299,9 +11581,10 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetNaptrRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetNaptrRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -11368,7 +11651,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetSrvRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := SrvRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetSrvRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -11401,9 +11684,10 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetSrvRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetSrvRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -11418,7 +11702,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetSshfpRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := SshfpRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetSshfpRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -11459,9 +11743,10 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetSshfpRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetSshfpRecordValuesModelAttrTypes})
 																}(),
 															}
 														}
@@ -11476,7 +11761,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																	}
 																	return types.StringNull()
 																}(),
-																Values: func() []DNSZonePrimaryRrSetGroupRrSetTlsaRecordValuesModel {
+																Values: func() types.List {
 																	if rawList, ok := TlsaRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 																		var ValuesResult []DNSZonePrimaryRrSetGroupRrSetTlsaRecordValuesModel
 																		for _, ValuesItem := range rawList {
@@ -11509,9 +11794,10 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																				})
 																			}
 																		}
-																		return ValuesResult
+																		listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetTlsaRecordValuesModelAttrTypes}, ValuesResult)
+																		return listVal
 																	}
-																	return nil
+																	return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupRrSetTlsaRecordValuesModelAttrTypes})
 																}(),
 															}
 														}

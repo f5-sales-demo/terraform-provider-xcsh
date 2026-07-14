@@ -618,10 +618,10 @@ var OriginPoolAdvancedOptionsCircuitBreakerModelAttrTypes = map[string]attr.Type
 
 // OriginPoolAdvancedOptionsEnableSubsetsModel represents enable_subsets block
 type OriginPoolAdvancedOptionsEnableSubsetsModel struct {
-	AnyEndpoint     *OriginPoolEmptyModel                                        `tfsdk:"any_endpoint"`
-	DefaultSubset   *OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel    `tfsdk:"default_subset"`
-	EndpointSubsets []OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModel `tfsdk:"endpoint_subsets"`
-	FailRequest     *OriginPoolEmptyModel                                        `tfsdk:"fail_request"`
+	AnyEndpoint     *OriginPoolEmptyModel                                     `tfsdk:"any_endpoint"`
+	DefaultSubset   *OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel `tfsdk:"default_subset"`
+	EndpointSubsets types.List                                                `tfsdk:"endpoint_subsets"`
+	FailRequest     *OriginPoolEmptyModel                                     `tfsdk:"fail_request"`
 }
 
 // OriginPoolAdvancedOptionsEnableSubsetsModelAttrTypes defines the attribute types for OriginPoolAdvancedOptionsEnableSubsetsModel
@@ -784,7 +784,7 @@ var OriginPoolUseTLSTLSConfigCustomSecurityModelAttrTypes = map[string]attr.Type
 
 // OriginPoolUseTLSUseMtlsModel represents use_mtls block
 type OriginPoolUseTLSUseMtlsModel struct {
-	TLSCertificates []OriginPoolUseTLSUseMtlsTLSCertificatesModel `tfsdk:"tls_certificates"`
+	TLSCertificates types.List `tfsdk:"tls_certificates"`
 }
 
 // OriginPoolUseTLSUseMtlsModelAttrTypes defines the attribute types for OriginPoolUseTLSUseMtlsModel
@@ -2743,20 +2743,25 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				EnableSubsetsMap["default_subset"] = DefaultSubsetMap
 			}
-			if len(data.AdvancedOptions.EnableSubsets.EndpointSubsets) > 0 {
-				var EndpointSubsetsList []map[string]interface{}
-				for _, EndpointSubsetsItem := range data.AdvancedOptions.EnableSubsets.EndpointSubsets {
-					EndpointSubsetsItemMap := make(map[string]interface{})
-					if !EndpointSubsetsItem.Keys.IsNull() && !EndpointSubsetsItem.Keys.IsUnknown() {
-						var KeysItems []string
-						diags := EndpointSubsetsItem.Keys.ElementsAs(ctx, &KeysItems, false)
-						if !diags.HasError() {
-							EndpointSubsetsItemMap["keys"] = KeysItems
+			if !data.AdvancedOptions.EnableSubsets.EndpointSubsets.IsNull() && !data.AdvancedOptions.EnableSubsets.EndpointSubsets.IsUnknown() {
+				var EndpointSubsetsElems []OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModel
+				diags := data.AdvancedOptions.EnableSubsets.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(EndpointSubsetsElems) > 0 {
+					var EndpointSubsetsList []map[string]interface{}
+					for _, EndpointSubsetsItem := range EndpointSubsetsElems {
+						EndpointSubsetsItemMap := make(map[string]interface{})
+						if !EndpointSubsetsItem.Keys.IsNull() && !EndpointSubsetsItem.Keys.IsUnknown() {
+							var KeysItems []string
+							diags := EndpointSubsetsItem.Keys.ElementsAs(ctx, &KeysItems, false)
+							if !diags.HasError() {
+								EndpointSubsetsItemMap["keys"] = KeysItems
+							}
 						}
+						EndpointSubsetsList = append(EndpointSubsetsList, EndpointSubsetsItemMap)
 					}
-					EndpointSubsetsList = append(EndpointSubsetsList, EndpointSubsetsItemMap)
+					EnableSubsetsMap["endpoint_subsets"] = EndpointSubsetsList
 				}
-				EnableSubsetsMap["endpoint_subsets"] = EndpointSubsetsList
 			}
 			if data.AdvancedOptions.EnableSubsets.FailRequest != nil {
 				EnableSubsetsMap["fail_request"] = map[string]interface{}{}
@@ -2906,63 +2911,68 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		if data.UseTLS.UseMtls != nil {
 			UseMtlsMap := make(map[string]interface{})
-			if len(data.UseTLS.UseMtls.TLSCertificates) > 0 {
-				var TLSCertificatesList []map[string]interface{}
-				for _, TLSCertificatesItem := range data.UseTLS.UseMtls.TLSCertificates {
-					TLSCertificatesItemMap := make(map[string]interface{})
-					if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
-						TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
-					}
-					if TLSCertificatesItem.CustomHashAlgorithms != nil {
-						CustomHashAlgorithmsMap := make(map[string]interface{})
-						if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
-							var HashAlgorithmsItems []string
-							diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
-							if !diags.HasError() {
-								CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
-							}
+			if !data.UseTLS.UseMtls.TLSCertificates.IsNull() && !data.UseTLS.UseMtls.TLSCertificates.IsUnknown() {
+				var TLSCertificatesElems []OriginPoolUseTLSUseMtlsTLSCertificatesModel
+				diags := data.UseTLS.UseMtls.TLSCertificates.ElementsAs(ctx, &TLSCertificatesElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TLSCertificatesElems) > 0 {
+					var TLSCertificatesList []map[string]interface{}
+					for _, TLSCertificatesItem := range TLSCertificatesElems {
+						TLSCertificatesItemMap := make(map[string]interface{})
+						if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 						}
-						TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
-					}
-					if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
-						TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
-					}
-					if TLSCertificatesItem.DisableOCSPStapling != nil {
-						TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
-					}
-					if TLSCertificatesItem.PrivateKey != nil {
-						PrivateKeyMap := make(map[string]interface{})
-						if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-							BlindfoldSecretInfoMap := make(map[string]interface{})
-							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						if TLSCertificatesItem.CustomHashAlgorithms != nil {
+							CustomHashAlgorithmsMap := make(map[string]interface{})
+							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+								var HashAlgorithmsItems []string
+								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								if !diags.HasError() {
+									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+								}
 							}
-							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-								BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
-							}
-							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
-							}
-							PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
 						}
-						if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-							ClearSecretInfoMap := make(map[string]interface{})
-							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-								ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
-							}
-							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-								ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
-							}
-							PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 						}
-						TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+						if TLSCertificatesItem.DisableOCSPStapling != nil {
+							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+						}
+						if TLSCertificatesItem.PrivateKey != nil {
+							PrivateKeyMap := make(map[string]interface{})
+							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+								}
+								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+						}
+						if TLSCertificatesItem.UseSystemDefaults != nil {
+							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+						}
+						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 					}
-					if TLSCertificatesItem.UseSystemDefaults != nil {
-						TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
-					}
-					TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+					UseMtlsMap["tls_certificates"] = TLSCertificatesList
 				}
-				UseMtlsMap["tls_certificates"] = TLSCertificatesList
 			}
 			UseTLSMap["use_mtls"] = UseMtlsMap
 		}
@@ -3918,7 +3928,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return nil
 						}(),
-						EndpointSubsets: func() []OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModel {
+						EndpointSubsets: func() types.List {
 							if rawList, ok := EnableSubsetsData["endpoint_subsets"].([]interface{}); ok && len(rawList) > 0 {
 								var EndpointSubsetsResult []OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModel
 								for _, EndpointSubsetsItem := range rawList {
@@ -3940,9 +3950,10 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 										})
 									}
 								}
-								return EndpointSubsetsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModelAttrTypes}, EndpointSubsetsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModelAttrTypes})
 						}(),
 						FailRequest: func() *OriginPoolEmptyModel {
 							if _, ok := EnableSubsetsData["fail_request"].(map[string]interface{}); ok {
@@ -4281,7 +4292,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				if UseMtlsData, ok := blockData["use_mtls"].(map[string]interface{}); ok {
 					return &OriginPoolUseTLSUseMtlsModel{
-						TLSCertificates: func() []OriginPoolUseTLSUseMtlsTLSCertificatesModel {
+						TLSCertificates: func() types.List {
 							if rawList, ok := UseMtlsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []OriginPoolUseTLSUseMtlsTLSCertificatesModel
 								for _, TLSCertificatesItem := range rawList {
@@ -4385,9 +4396,10 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 										})
 									}
 								}
-								return TLSCertificatesResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: OriginPoolUseTLSUseMtlsTLSCertificatesModelAttrTypes}, TLSCertificatesResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: OriginPoolUseTLSUseMtlsTLSCertificatesModelAttrTypes})
 						}(),
 					}
 				}
@@ -5491,7 +5503,7 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return nil
 						}(),
-						EndpointSubsets: func() []OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModel {
+						EndpointSubsets: func() types.List {
 							if rawList, ok := EnableSubsetsData["endpoint_subsets"].([]interface{}); ok && len(rawList) > 0 {
 								var EndpointSubsetsResult []OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModel
 								for _, EndpointSubsetsItem := range rawList {
@@ -5513,9 +5525,10 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 										})
 									}
 								}
-								return EndpointSubsetsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModelAttrTypes}, EndpointSubsetsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModelAttrTypes})
 						}(),
 						FailRequest: func() *OriginPoolEmptyModel {
 							if _, ok := EnableSubsetsData["fail_request"].(map[string]interface{}); ok {
@@ -5854,7 +5867,7 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				if UseMtlsData, ok := blockData["use_mtls"].(map[string]interface{}); ok {
 					return &OriginPoolUseTLSUseMtlsModel{
-						TLSCertificates: func() []OriginPoolUseTLSUseMtlsTLSCertificatesModel {
+						TLSCertificates: func() types.List {
 							if rawList, ok := UseMtlsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []OriginPoolUseTLSUseMtlsTLSCertificatesModel
 								for _, TLSCertificatesItem := range rawList {
@@ -5958,9 +5971,10 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 										})
 									}
 								}
-								return TLSCertificatesResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: OriginPoolUseTLSUseMtlsTLSCertificatesModelAttrTypes}, TLSCertificatesResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: OriginPoolUseTLSUseMtlsTLSCertificatesModelAttrTypes})
 						}(),
 					}
 				}
@@ -6605,20 +6619,25 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				EnableSubsetsMap["default_subset"] = DefaultSubsetMap
 			}
-			if len(data.AdvancedOptions.EnableSubsets.EndpointSubsets) > 0 {
-				var EndpointSubsetsList []map[string]interface{}
-				for _, EndpointSubsetsItem := range data.AdvancedOptions.EnableSubsets.EndpointSubsets {
-					EndpointSubsetsItemMap := make(map[string]interface{})
-					if !EndpointSubsetsItem.Keys.IsNull() && !EndpointSubsetsItem.Keys.IsUnknown() {
-						var KeysItems []string
-						diags := EndpointSubsetsItem.Keys.ElementsAs(ctx, &KeysItems, false)
-						if !diags.HasError() {
-							EndpointSubsetsItemMap["keys"] = KeysItems
+			if !data.AdvancedOptions.EnableSubsets.EndpointSubsets.IsNull() && !data.AdvancedOptions.EnableSubsets.EndpointSubsets.IsUnknown() {
+				var EndpointSubsetsElems []OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModel
+				diags := data.AdvancedOptions.EnableSubsets.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(EndpointSubsetsElems) > 0 {
+					var EndpointSubsetsList []map[string]interface{}
+					for _, EndpointSubsetsItem := range EndpointSubsetsElems {
+						EndpointSubsetsItemMap := make(map[string]interface{})
+						if !EndpointSubsetsItem.Keys.IsNull() && !EndpointSubsetsItem.Keys.IsUnknown() {
+							var KeysItems []string
+							diags := EndpointSubsetsItem.Keys.ElementsAs(ctx, &KeysItems, false)
+							if !diags.HasError() {
+								EndpointSubsetsItemMap["keys"] = KeysItems
+							}
 						}
+						EndpointSubsetsList = append(EndpointSubsetsList, EndpointSubsetsItemMap)
 					}
-					EndpointSubsetsList = append(EndpointSubsetsList, EndpointSubsetsItemMap)
+					EnableSubsetsMap["endpoint_subsets"] = EndpointSubsetsList
 				}
-				EnableSubsetsMap["endpoint_subsets"] = EndpointSubsetsList
 			}
 			if data.AdvancedOptions.EnableSubsets.FailRequest != nil {
 				EnableSubsetsMap["fail_request"] = map[string]interface{}{}
@@ -6768,63 +6787,68 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		if data.UseTLS.UseMtls != nil {
 			UseMtlsMap := make(map[string]interface{})
-			if len(data.UseTLS.UseMtls.TLSCertificates) > 0 {
-				var TLSCertificatesList []map[string]interface{}
-				for _, TLSCertificatesItem := range data.UseTLS.UseMtls.TLSCertificates {
-					TLSCertificatesItemMap := make(map[string]interface{})
-					if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
-						TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
-					}
-					if TLSCertificatesItem.CustomHashAlgorithms != nil {
-						CustomHashAlgorithmsMap := make(map[string]interface{})
-						if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
-							var HashAlgorithmsItems []string
-							diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
-							if !diags.HasError() {
-								CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
-							}
+			if !data.UseTLS.UseMtls.TLSCertificates.IsNull() && !data.UseTLS.UseMtls.TLSCertificates.IsUnknown() {
+				var TLSCertificatesElems []OriginPoolUseTLSUseMtlsTLSCertificatesModel
+				diags := data.UseTLS.UseMtls.TLSCertificates.ElementsAs(ctx, &TLSCertificatesElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TLSCertificatesElems) > 0 {
+					var TLSCertificatesList []map[string]interface{}
+					for _, TLSCertificatesItem := range TLSCertificatesElems {
+						TLSCertificatesItemMap := make(map[string]interface{})
+						if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 						}
-						TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
-					}
-					if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
-						TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
-					}
-					if TLSCertificatesItem.DisableOCSPStapling != nil {
-						TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
-					}
-					if TLSCertificatesItem.PrivateKey != nil {
-						PrivateKeyMap := make(map[string]interface{})
-						if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-							BlindfoldSecretInfoMap := make(map[string]interface{})
-							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						if TLSCertificatesItem.CustomHashAlgorithms != nil {
+							CustomHashAlgorithmsMap := make(map[string]interface{})
+							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+								var HashAlgorithmsItems []string
+								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								if !diags.HasError() {
+									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+								}
 							}
-							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-								BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
-							}
-							if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
-							}
-							PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
 						}
-						if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-							ClearSecretInfoMap := make(map[string]interface{})
-							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-								ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
-							}
-							if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-								ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
-							}
-							PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 						}
-						TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+						if TLSCertificatesItem.DisableOCSPStapling != nil {
+							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+						}
+						if TLSCertificatesItem.PrivateKey != nil {
+							PrivateKeyMap := make(map[string]interface{})
+							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							}
+							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+								}
+								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+								}
+								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+							}
+							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+						}
+						if TLSCertificatesItem.UseSystemDefaults != nil {
+							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+						}
+						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 					}
-					if TLSCertificatesItem.UseSystemDefaults != nil {
-						TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
-					}
-					TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+					UseMtlsMap["tls_certificates"] = TLSCertificatesList
 				}
-				UseMtlsMap["tls_certificates"] = TLSCertificatesList
 			}
 			UseTLSMap["use_mtls"] = UseMtlsMap
 		}
@@ -7819,7 +7843,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return nil
 						}(),
-						EndpointSubsets: func() []OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModel {
+						EndpointSubsets: func() types.List {
 							if rawList, ok := EnableSubsetsData["endpoint_subsets"].([]interface{}); ok && len(rawList) > 0 {
 								var EndpointSubsetsResult []OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModel
 								for _, EndpointSubsetsItem := range rawList {
@@ -7841,9 +7865,10 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 										})
 									}
 								}
-								return EndpointSubsetsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModelAttrTypes}, EndpointSubsetsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModelAttrTypes})
 						}(),
 						FailRequest: func() *OriginPoolEmptyModel {
 							if _, ok := EnableSubsetsData["fail_request"].(map[string]interface{}); ok {
@@ -8182,7 +8207,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				if UseMtlsData, ok := blockData["use_mtls"].(map[string]interface{}); ok {
 					return &OriginPoolUseTLSUseMtlsModel{
-						TLSCertificates: func() []OriginPoolUseTLSUseMtlsTLSCertificatesModel {
+						TLSCertificates: func() types.List {
 							if rawList, ok := UseMtlsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []OriginPoolUseTLSUseMtlsTLSCertificatesModel
 								for _, TLSCertificatesItem := range rawList {
@@ -8286,9 +8311,10 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 										})
 									}
 								}
-								return TLSCertificatesResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: OriginPoolUseTLSUseMtlsTLSCertificatesModelAttrTypes}, TLSCertificatesResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: OriginPoolUseTLSUseMtlsTLSCertificatesModelAttrTypes})
 						}(),
 					}
 				}

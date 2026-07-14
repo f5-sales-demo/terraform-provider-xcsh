@@ -154,11 +154,11 @@ var BigIPHTTPProxyOriginPoolsPoolsOriginServersModelAttrTypes = map[string]attr.
 
 // BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModel represents health_checks block
 type BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModel struct {
-	HealthyThreshold   types.Int64                                                               `tfsdk:"healthy_threshold"`
-	Interval           types.Int64                                                               `tfsdk:"interval"`
-	Timeout            types.Int64                                                               `tfsdk:"timeout"`
-	UnhealthyThreshold types.Int64                                                               `tfsdk:"unhealthy_threshold"`
-	HealthCheck        []BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel `tfsdk:"health_check"`
+	HealthyThreshold   types.Int64 `tfsdk:"healthy_threshold"`
+	Interval           types.Int64 `tfsdk:"interval"`
+	Timeout            types.Int64 `tfsdk:"timeout"`
+	UnhealthyThreshold types.Int64 `tfsdk:"unhealthy_threshold"`
+	HealthCheck        types.List  `tfsdk:"health_check"`
 }
 
 // BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModelAttrTypes defines the attribute types for BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModel
@@ -884,10 +884,10 @@ var BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsXfccOptionsModelAttrTypes 
 
 // BigIPHTTPProxyProxyConfigHTTPSTLSParametersModel represents tls_parameters block
 type BigIPHTTPProxyProxyConfigHTTPSTLSParametersModel struct {
-	NoMtls          *BigIPHTTPProxyEmptyModel                                         `tfsdk:"no_mtls"`
-	TLSCertificates []BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModel `tfsdk:"tls_certificates"`
-	TLSConfig       *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigModel        `tfsdk:"tls_config"`
-	UseMtls         *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsModel          `tfsdk:"use_mtls"`
+	NoMtls          *BigIPHTTPProxyEmptyModel                                  `tfsdk:"no_mtls"`
+	TLSCertificates types.List                                                 `tfsdk:"tls_certificates"`
+	TLSConfig       *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigModel `tfsdk:"tls_config"`
+	UseMtls         *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsModel   `tfsdk:"use_mtls"`
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSTLSParametersModelAttrTypes defines the attribute types for BigIPHTTPProxyProxyConfigHTTPSTLSParametersModel
@@ -3092,26 +3092,31 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 						}
 						if PoolsItem.OriginServers.HealthChecks != nil {
 							HealthChecksMap := make(map[string]interface{})
-							if len(PoolsItem.OriginServers.HealthChecks.HealthCheck) > 0 {
-								var HealthCheckList []map[string]interface{}
-								for _, HealthCheckItem := range PoolsItem.OriginServers.HealthChecks.HealthCheck {
-									HealthCheckItemMap := make(map[string]interface{})
-									if HealthCheckItem.ICMPHealthCheck != nil {
-										HealthCheckItemMap["icmp_health_check"] = map[string]interface{}{}
-									}
-									if HealthCheckItem.TCPHealthCheck != nil {
-										TCPHealthCheckMap := make(map[string]interface{})
-										if !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsUnknown() {
-											TCPHealthCheckMap["expected_response"] = HealthCheckItem.TCPHealthCheck.ExpectedResponse.ValueString()
+							if !PoolsItem.OriginServers.HealthChecks.HealthCheck.IsNull() && !PoolsItem.OriginServers.HealthChecks.HealthCheck.IsUnknown() {
+								var HealthCheckElems []BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel
+								diags := PoolsItem.OriginServers.HealthChecks.HealthCheck.ElementsAs(ctx, &HealthCheckElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(HealthCheckElems) > 0 {
+									var HealthCheckList []map[string]interface{}
+									for _, HealthCheckItem := range HealthCheckElems {
+										HealthCheckItemMap := make(map[string]interface{})
+										if HealthCheckItem.ICMPHealthCheck != nil {
+											HealthCheckItemMap["icmp_health_check"] = map[string]interface{}{}
 										}
-										if !HealthCheckItem.TCPHealthCheck.SendPayload.IsNull() && !HealthCheckItem.TCPHealthCheck.SendPayload.IsUnknown() {
-											TCPHealthCheckMap["send_payload"] = HealthCheckItem.TCPHealthCheck.SendPayload.ValueString()
+										if HealthCheckItem.TCPHealthCheck != nil {
+											TCPHealthCheckMap := make(map[string]interface{})
+											if !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsUnknown() {
+												TCPHealthCheckMap["expected_response"] = HealthCheckItem.TCPHealthCheck.ExpectedResponse.ValueString()
+											}
+											if !HealthCheckItem.TCPHealthCheck.SendPayload.IsNull() && !HealthCheckItem.TCPHealthCheck.SendPayload.IsUnknown() {
+												TCPHealthCheckMap["send_payload"] = HealthCheckItem.TCPHealthCheck.SendPayload.ValueString()
+											}
+											HealthCheckItemMap["tcp_health_check"] = TCPHealthCheckMap
 										}
-										HealthCheckItemMap["tcp_health_check"] = TCPHealthCheckMap
+										HealthCheckList = append(HealthCheckList, HealthCheckItemMap)
 									}
-									HealthCheckList = append(HealthCheckList, HealthCheckItemMap)
+									HealthChecksMap["health_check"] = HealthCheckList
 								}
-								HealthChecksMap["health_check"] = HealthCheckList
 							}
 							if !PoolsItem.OriginServers.HealthChecks.HealthyThreshold.IsNull() && !PoolsItem.OriginServers.HealthChecks.HealthyThreshold.IsUnknown() {
 								HealthChecksMap["healthy_threshold"] = PoolsItem.OriginServers.HealthChecks.HealthyThreshold.ValueInt64()
@@ -3714,63 +3719,68 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 				if data.ProxyConfig.HTTPS.TLSParameters.NoMtls != nil {
 					TLSParametersMap["no_mtls"] = map[string]interface{}{}
 				}
-				if len(data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates) > 0 {
-					var TLSCertificatesList []map[string]interface{}
-					for _, TLSCertificatesItem := range data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates {
-						TLSCertificatesItemMap := make(map[string]interface{})
-						if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
-							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
-						}
-						if TLSCertificatesItem.CustomHashAlgorithms != nil {
-							CustomHashAlgorithmsMap := make(map[string]interface{})
-							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
-								var HashAlgorithmsItems []string
-								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
-								if !diags.HasError() {
-									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
-								}
+				if !data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates.IsUnknown() {
+					var TLSCertificatesElems []BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModel
+					diags := data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates.ElementsAs(ctx, &TLSCertificatesElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(TLSCertificatesElems) > 0 {
+						var TLSCertificatesList []map[string]interface{}
+						for _, TLSCertificatesItem := range TLSCertificatesElems {
+							TLSCertificatesItemMap := make(map[string]interface{})
+							if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+								TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 							}
-							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
-						}
-						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
-							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
-						}
-						if TLSCertificatesItem.DisableOCSPStapling != nil {
-							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
-						}
-						if TLSCertificatesItem.PrivateKey != nil {
-							PrivateKeyMap := make(map[string]interface{})
-							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
-								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							if TLSCertificatesItem.CustomHashAlgorithms != nil {
+								CustomHashAlgorithmsMap := make(map[string]interface{})
+								if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+									var HashAlgorithmsItems []string
+									diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+									if !diags.HasError() {
+										CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+									}
 								}
-								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
-								}
-								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
-								}
-								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
 							}
-							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
-								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
-								}
-								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
-								}
-								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+							if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+								TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 							}
-							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							if TLSCertificatesItem.DisableOCSPStapling != nil {
+								TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+							}
+							if TLSCertificatesItem.PrivateKey != nil {
+								PrivateKeyMap := make(map[string]interface{})
+								if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+									}
+									if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+									}
+									PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							}
+							if TLSCertificatesItem.UseSystemDefaults != nil {
+								TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+							}
+							TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 						}
-						if TLSCertificatesItem.UseSystemDefaults != nil {
-							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
-						}
-						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+						TLSParametersMap["tls_certificates"] = TLSCertificatesList
 					}
-					TLSParametersMap["tls_certificates"] = TLSCertificatesList
 				}
 				if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil {
 					TLSConfigMap := make(map[string]interface{})
@@ -4168,7 +4178,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 											HealthChecks: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModel {
 												if HealthChecksData, ok := OriginServersData["health_checks"].(map[string]interface{}); ok {
 													return &BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModel{
-														HealthCheck: func() []BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel {
+														HealthCheck: func() types.List {
 															if rawList, ok := HealthChecksData["health_check"].([]interface{}); ok && len(rawList) > 0 {
 																var HealthCheckResult []BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel
 																for _, HealthCheckItem := range rawList {
@@ -4202,9 +4212,10 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 																		})
 																	}
 																}
-																return HealthCheckResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModelAttrTypes}, HealthCheckResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModelAttrTypes})
 														}(),
 														HealthyThreshold: func() types.Int64 {
 															if v, ok := HealthChecksData["healthy_threshold"].(float64); ok && v != 0 {
@@ -5326,7 +5337,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 										}
 										return nil
 									}(),
-									TLSCertificates: func() []BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModel {
+									TLSCertificates: func() types.List {
 										if rawList, ok := TLSParametersData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var TLSCertificatesResult []BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModel
 											for _, TLSCertificatesItem := range rawList {
@@ -5430,9 +5441,10 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 													})
 												}
 											}
-											return TLSCertificatesResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModelAttrTypes}, TLSCertificatesResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModelAttrTypes})
 									}(),
 									TLSConfig: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigModel {
 										if TLSConfigData, ok := TLSParametersData["tls_config"].(map[string]interface{}); ok {
@@ -6148,7 +6160,7 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 											HealthChecks: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModel {
 												if HealthChecksData, ok := OriginServersData["health_checks"].(map[string]interface{}); ok {
 													return &BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModel{
-														HealthCheck: func() []BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel {
+														HealthCheck: func() types.List {
 															if rawList, ok := HealthChecksData["health_check"].([]interface{}); ok && len(rawList) > 0 {
 																var HealthCheckResult []BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel
 																for _, HealthCheckItem := range rawList {
@@ -6182,9 +6194,10 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 																		})
 																	}
 																}
-																return HealthCheckResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModelAttrTypes}, HealthCheckResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModelAttrTypes})
 														}(),
 														HealthyThreshold: func() types.Int64 {
 															if v, ok := HealthChecksData["healthy_threshold"].(float64); ok && v != 0 {
@@ -7306,7 +7319,7 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 										}
 										return nil
 									}(),
-									TLSCertificates: func() []BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModel {
+									TLSCertificates: func() types.List {
 										if rawList, ok := TLSParametersData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var TLSCertificatesResult []BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModel
 											for _, TLSCertificatesItem := range rawList {
@@ -7410,9 +7423,10 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 													})
 												}
 											}
-											return TLSCertificatesResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModelAttrTypes}, TLSCertificatesResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModelAttrTypes})
 									}(),
 									TLSConfig: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigModel {
 										if TLSConfigData, ok := TLSParametersData["tls_config"].(map[string]interface{}); ok {
@@ -8042,26 +8056,31 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 						}
 						if PoolsItem.OriginServers.HealthChecks != nil {
 							HealthChecksMap := make(map[string]interface{})
-							if len(PoolsItem.OriginServers.HealthChecks.HealthCheck) > 0 {
-								var HealthCheckList []map[string]interface{}
-								for _, HealthCheckItem := range PoolsItem.OriginServers.HealthChecks.HealthCheck {
-									HealthCheckItemMap := make(map[string]interface{})
-									if HealthCheckItem.ICMPHealthCheck != nil {
-										HealthCheckItemMap["icmp_health_check"] = map[string]interface{}{}
-									}
-									if HealthCheckItem.TCPHealthCheck != nil {
-										TCPHealthCheckMap := make(map[string]interface{})
-										if !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsUnknown() {
-											TCPHealthCheckMap["expected_response"] = HealthCheckItem.TCPHealthCheck.ExpectedResponse.ValueString()
+							if !PoolsItem.OriginServers.HealthChecks.HealthCheck.IsNull() && !PoolsItem.OriginServers.HealthChecks.HealthCheck.IsUnknown() {
+								var HealthCheckElems []BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel
+								diags := PoolsItem.OriginServers.HealthChecks.HealthCheck.ElementsAs(ctx, &HealthCheckElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(HealthCheckElems) > 0 {
+									var HealthCheckList []map[string]interface{}
+									for _, HealthCheckItem := range HealthCheckElems {
+										HealthCheckItemMap := make(map[string]interface{})
+										if HealthCheckItem.ICMPHealthCheck != nil {
+											HealthCheckItemMap["icmp_health_check"] = map[string]interface{}{}
 										}
-										if !HealthCheckItem.TCPHealthCheck.SendPayload.IsNull() && !HealthCheckItem.TCPHealthCheck.SendPayload.IsUnknown() {
-											TCPHealthCheckMap["send_payload"] = HealthCheckItem.TCPHealthCheck.SendPayload.ValueString()
+										if HealthCheckItem.TCPHealthCheck != nil {
+											TCPHealthCheckMap := make(map[string]interface{})
+											if !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsUnknown() {
+												TCPHealthCheckMap["expected_response"] = HealthCheckItem.TCPHealthCheck.ExpectedResponse.ValueString()
+											}
+											if !HealthCheckItem.TCPHealthCheck.SendPayload.IsNull() && !HealthCheckItem.TCPHealthCheck.SendPayload.IsUnknown() {
+												TCPHealthCheckMap["send_payload"] = HealthCheckItem.TCPHealthCheck.SendPayload.ValueString()
+											}
+											HealthCheckItemMap["tcp_health_check"] = TCPHealthCheckMap
 										}
-										HealthCheckItemMap["tcp_health_check"] = TCPHealthCheckMap
+										HealthCheckList = append(HealthCheckList, HealthCheckItemMap)
 									}
-									HealthCheckList = append(HealthCheckList, HealthCheckItemMap)
+									HealthChecksMap["health_check"] = HealthCheckList
 								}
-								HealthChecksMap["health_check"] = HealthCheckList
 							}
 							if !PoolsItem.OriginServers.HealthChecks.HealthyThreshold.IsNull() && !PoolsItem.OriginServers.HealthChecks.HealthyThreshold.IsUnknown() {
 								HealthChecksMap["healthy_threshold"] = PoolsItem.OriginServers.HealthChecks.HealthyThreshold.ValueInt64()
@@ -8664,63 +8683,68 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 				if data.ProxyConfig.HTTPS.TLSParameters.NoMtls != nil {
 					TLSParametersMap["no_mtls"] = map[string]interface{}{}
 				}
-				if len(data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates) > 0 {
-					var TLSCertificatesList []map[string]interface{}
-					for _, TLSCertificatesItem := range data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates {
-						TLSCertificatesItemMap := make(map[string]interface{})
-						if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
-							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
-						}
-						if TLSCertificatesItem.CustomHashAlgorithms != nil {
-							CustomHashAlgorithmsMap := make(map[string]interface{})
-							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
-								var HashAlgorithmsItems []string
-								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
-								if !diags.HasError() {
-									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
-								}
+				if !data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates.IsUnknown() {
+					var TLSCertificatesElems []BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModel
+					diags := data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates.ElementsAs(ctx, &TLSCertificatesElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(TLSCertificatesElems) > 0 {
+						var TLSCertificatesList []map[string]interface{}
+						for _, TLSCertificatesItem := range TLSCertificatesElems {
+							TLSCertificatesItemMap := make(map[string]interface{})
+							if !TLSCertificatesItem.CertificateURL.IsNull() && !TLSCertificatesItem.CertificateURL.IsUnknown() {
+								TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 							}
-							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
-						}
-						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
-							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
-						}
-						if TLSCertificatesItem.DisableOCSPStapling != nil {
-							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
-						}
-						if TLSCertificatesItem.PrivateKey != nil {
-							PrivateKeyMap := make(map[string]interface{})
-							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
-								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							if TLSCertificatesItem.CustomHashAlgorithms != nil {
+								CustomHashAlgorithmsMap := make(map[string]interface{})
+								if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
+									var HashAlgorithmsItems []string
+									diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+									if !diags.HasError() {
+										CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+									}
 								}
-								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
-								}
-								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
-								}
-								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
 							}
-							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
-								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
-								}
-								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
-								}
-								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+							if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
+								TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 							}
-							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							if TLSCertificatesItem.DisableOCSPStapling != nil {
+								TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
+							}
+							if TLSCertificatesItem.PrivateKey != nil {
+								PrivateKeyMap := make(map[string]interface{})
+								if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+									}
+									if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+									}
+									PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							}
+							if TLSCertificatesItem.UseSystemDefaults != nil {
+								TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
+							}
+							TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 						}
-						if TLSCertificatesItem.UseSystemDefaults != nil {
-							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
-						}
-						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
+						TLSParametersMap["tls_certificates"] = TLSCertificatesList
 					}
-					TLSParametersMap["tls_certificates"] = TLSCertificatesList
 				}
 				if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil {
 					TLSConfigMap := make(map[string]interface{})
@@ -9129,7 +9153,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 											HealthChecks: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModel {
 												if HealthChecksData, ok := OriginServersData["health_checks"].(map[string]interface{}); ok {
 													return &BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModel{
-														HealthCheck: func() []BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel {
+														HealthCheck: func() types.List {
 															if rawList, ok := HealthChecksData["health_check"].([]interface{}); ok && len(rawList) > 0 {
 																var HealthCheckResult []BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel
 																for _, HealthCheckItem := range rawList {
@@ -9163,9 +9187,10 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 																		})
 																	}
 																}
-																return HealthCheckResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModelAttrTypes}, HealthCheckResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModelAttrTypes})
 														}(),
 														HealthyThreshold: func() types.Int64 {
 															if v, ok := HealthChecksData["healthy_threshold"].(float64); ok && v != 0 {
@@ -10287,7 +10312,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 										}
 										return nil
 									}(),
-									TLSCertificates: func() []BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModel {
+									TLSCertificates: func() types.List {
 										if rawList, ok := TLSParametersData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var TLSCertificatesResult []BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModel
 											for _, TLSCertificatesItem := range rawList {
@@ -10391,9 +10416,10 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 													})
 												}
 											}
-											return TLSCertificatesResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModelAttrTypes}, TLSCertificatesResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModelAttrTypes})
 									}(),
 									TLSConfig: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigModel {
 										if TLSConfigData, ok := TLSParametersData["tls_config"].(map[string]interface{}); ok {

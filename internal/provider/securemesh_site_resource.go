@@ -88,7 +88,7 @@ var SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = m
 
 // SecuremeshSiteBlockedServicesModel represents blocked_services block
 type SecuremeshSiteBlockedServicesModel struct {
-	BlockedService []SecuremeshSiteBlockedServicesBlockedServiceModel `tfsdk:"blocked_service"`
+	BlockedService types.List `tfsdk:"blocked_service"`
 }
 
 // SecuremeshSiteBlockedServicesModelAttrTypes defines the attribute types for SecuremeshSiteBlockedServicesModel
@@ -114,7 +114,7 @@ var SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes = map[string]attr.
 
 // SecuremeshSiteBondDeviceListModel represents bond_device_list block
 type SecuremeshSiteBondDeviceListModel struct {
-	BondDevices []SecuremeshSiteBondDeviceListBondDevicesModel `tfsdk:"bond_devices"`
+	BondDevices types.List `tfsdk:"bond_devices"`
 }
 
 // SecuremeshSiteBondDeviceListModelAttrTypes defines the attribute types for SecuremeshSiteBondDeviceListModel
@@ -499,7 +499,7 @@ type SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDH
 	FirstAddress           *SecuremeshSiteEmptyModel                                                                                                   `tfsdk:"first_address"`
 	LastAddress            *SecuremeshSiteEmptyModel                                                                                                   `tfsdk:"last_address"`
 	NetworkPrefixAllocator *SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel `tfsdk:"network_prefix_allocator"`
-	Pools                  []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel                 `tfsdk:"pools"`
+	Pools                  types.List                                                                                                                  `tfsdk:"pools"`
 	SameAsDgw              *SecuremeshSiteEmptyModel                                                                                                   `tfsdk:"same_as_dgw"`
 }
 
@@ -620,7 +620,7 @@ var SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv
 type SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulModel struct {
 	AutomaticFromEnd   *SecuremeshSiteEmptyModel                                                                                                 `tfsdk:"automatic_from_end"`
 	AutomaticFromStart *SecuremeshSiteEmptyModel                                                                                                 `tfsdk:"automatic_from_start"`
-	DHCPNetworks       []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel  `tfsdk:"dhcp_networks"`
+	DHCPNetworks       types.List                                                                                                                `tfsdk:"dhcp_networks"`
 	FixedIPMap         *SecuremeshSiteEmptyModel                                                                                                 `tfsdk:"fixed_ip_map"`
 	InterfaceIPMap     *SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel `tfsdk:"interface_ip_map"`
 }
@@ -636,9 +636,9 @@ var SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel represents dhcp_networks block
 type SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel struct {
-	NetworkPrefix types.String                                                                                                                  `tfsdk:"network_prefix"`
-	PoolSettings  types.String                                                                                                                  `tfsdk:"pool_settings"`
-	Pools         []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel `tfsdk:"pools"`
+	NetworkPrefix types.String `tfsdk:"network_prefix"`
+	PoolSettings  types.String `tfsdk:"pool_settings"`
+	Pools         types.List   `tfsdk:"pools"`
 }
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
@@ -2935,63 +2935,73 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 	}
 	if data.BlockedServices != nil {
 		BlockedServicesMap := make(map[string]interface{})
-		if len(data.BlockedServices.BlockedService) > 0 {
-			var BlockedServiceList []map[string]interface{}
-			for _, BlockedServiceItem := range data.BlockedServices.BlockedService {
-				BlockedServiceItemMap := make(map[string]interface{})
-				if BlockedServiceItem.DNS != nil {
-					BlockedServiceItemMap["dns"] = map[string]interface{}{}
+		if !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
+			var BlockedServiceElems []SecuremeshSiteBlockedServicesBlockedServiceModel
+			diags := data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(BlockedServiceElems) > 0 {
+				var BlockedServiceList []map[string]interface{}
+				for _, BlockedServiceItem := range BlockedServiceElems {
+					BlockedServiceItemMap := make(map[string]interface{})
+					if BlockedServiceItem.DNS != nil {
+						BlockedServiceItemMap["dns"] = map[string]interface{}{}
+					}
+					if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
+						BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
+					}
+					if BlockedServiceItem.SSH != nil {
+						BlockedServiceItemMap["ssh"] = map[string]interface{}{}
+					}
+					if BlockedServiceItem.WebUserInterface != nil {
+						BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
+					}
+					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
 				}
-				if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
-					BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
-				}
-				if BlockedServiceItem.SSH != nil {
-					BlockedServiceItemMap["ssh"] = map[string]interface{}{}
-				}
-				if BlockedServiceItem.WebUserInterface != nil {
-					BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
-				}
-				BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
+				BlockedServicesMap["blocked_service"] = BlockedServiceList
 			}
-			BlockedServicesMap["blocked_service"] = BlockedServiceList
 		}
 		createReq.Spec["blocked_services"] = BlockedServicesMap
 	}
 	if data.BondDeviceList != nil {
 		BondDeviceListMap := make(map[string]interface{})
-		if len(data.BondDeviceList.BondDevices) > 0 {
-			var BondDevicesList []map[string]interface{}
-			for _, BondDevicesItem := range data.BondDeviceList.BondDevices {
-				BondDevicesItemMap := make(map[string]interface{})
-				if BondDevicesItem.ActiveBackup != nil {
-					BondDevicesItemMap["active_backup"] = map[string]interface{}{}
-				}
-				if !BondDevicesItem.Devices.IsNull() && !BondDevicesItem.Devices.IsUnknown() {
-					var DevicesItems []string
-					diags := BondDevicesItem.Devices.ElementsAs(ctx, &DevicesItems, false)
-					if !diags.HasError() {
-						BondDevicesItemMap["devices"] = DevicesItems
+		if !data.BondDeviceList.BondDevices.IsNull() && !data.BondDeviceList.BondDevices.IsUnknown() {
+			var BondDevicesElems []SecuremeshSiteBondDeviceListBondDevicesModel
+			diags := data.BondDeviceList.BondDevices.ElementsAs(ctx, &BondDevicesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(BondDevicesElems) > 0 {
+				var BondDevicesList []map[string]interface{}
+				for _, BondDevicesItem := range BondDevicesElems {
+					BondDevicesItemMap := make(map[string]interface{})
+					if BondDevicesItem.ActiveBackup != nil {
+						BondDevicesItemMap["active_backup"] = map[string]interface{}{}
 					}
-				}
-				if BondDevicesItem.Lacp != nil {
-					LacpMap := make(map[string]interface{})
-					if !BondDevicesItem.Lacp.Rate.IsNull() && !BondDevicesItem.Lacp.Rate.IsUnknown() {
-						LacpMap["rate"] = BondDevicesItem.Lacp.Rate.ValueInt64()
+					if !BondDevicesItem.Devices.IsNull() && !BondDevicesItem.Devices.IsUnknown() {
+						var DevicesItems []string
+						diags := BondDevicesItem.Devices.ElementsAs(ctx, &DevicesItems, false)
+						if !diags.HasError() {
+							BondDevicesItemMap["devices"] = DevicesItems
+						}
 					}
-					BondDevicesItemMap["lacp"] = LacpMap
+					if BondDevicesItem.Lacp != nil {
+						LacpMap := make(map[string]interface{})
+						if !BondDevicesItem.Lacp.Rate.IsNull() && !BondDevicesItem.Lacp.Rate.IsUnknown() {
+							LacpMap["rate"] = BondDevicesItem.Lacp.Rate.ValueInt64()
+						}
+						BondDevicesItemMap["lacp"] = LacpMap
+					}
+					if !BondDevicesItem.LinkPollingInterval.IsNull() && !BondDevicesItem.LinkPollingInterval.IsUnknown() {
+						BondDevicesItemMap["link_polling_interval"] = BondDevicesItem.LinkPollingInterval.ValueInt64()
+					}
+					if !BondDevicesItem.LinkUpDelay.IsNull() && !BondDevicesItem.LinkUpDelay.IsUnknown() {
+						BondDevicesItemMap["link_up_delay"] = BondDevicesItem.LinkUpDelay.ValueInt64()
+					}
+					if !BondDevicesItem.Name.IsNull() && !BondDevicesItem.Name.IsUnknown() {
+						BondDevicesItemMap["name"] = BondDevicesItem.Name.ValueString()
+					}
+					BondDevicesList = append(BondDevicesList, BondDevicesItemMap)
 				}
-				if !BondDevicesItem.LinkPollingInterval.IsNull() && !BondDevicesItem.LinkPollingInterval.IsUnknown() {
-					BondDevicesItemMap["link_polling_interval"] = BondDevicesItem.LinkPollingInterval.ValueInt64()
-				}
-				if !BondDevicesItem.LinkUpDelay.IsNull() && !BondDevicesItem.LinkUpDelay.IsUnknown() {
-					BondDevicesItemMap["link_up_delay"] = BondDevicesItem.LinkUpDelay.ValueInt64()
-				}
-				if !BondDevicesItem.Name.IsNull() && !BondDevicesItem.Name.IsUnknown() {
-					BondDevicesItemMap["name"] = BondDevicesItem.Name.ValueString()
-				}
-				BondDevicesList = append(BondDevicesList, BondDevicesItemMap)
+				BondDeviceListMap["bond_devices"] = BondDevicesList
 			}
-			BondDeviceListMap["bond_devices"] = BondDevicesList
 		}
 		createReq.Spec["bond_device_list"] = BondDeviceListMap
 	}
@@ -3272,22 +3282,27 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 											if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
 												DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
 											}
-											if len(DHCPNetworksItem.Pools) > 0 {
-												var PoolsList []map[string]interface{}
-												for _, PoolsItem := range DHCPNetworksItem.Pools {
-													PoolsItemMap := make(map[string]interface{})
-													if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-														PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+											if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+												var PoolsElems []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
+												diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+												resp.Diagnostics.Append(diags...)
+												if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+													var PoolsList []map[string]interface{}
+													for _, PoolsItem := range PoolsElems {
+														PoolsItemMap := make(map[string]interface{})
+														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+														}
+														if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+															PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+														}
+														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+														}
+														PoolsList = append(PoolsList, PoolsItemMap)
 													}
-													if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
-														PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
-													}
-													if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-														PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-													}
-													PoolsList = append(PoolsList, PoolsItemMap)
+													DHCPNetworksItemMap["pools"] = PoolsList
 												}
-												DHCPNetworksItemMap["pools"] = PoolsList
 											}
 											if DHCPNetworksItem.SameAsDgw != nil {
 												DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
@@ -3355,33 +3370,43 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 										if InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
 											StatefulMap["automatic_from_start"] = map[string]interface{}{}
 										}
-										if len(InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
+										if !InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
+											diags := InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
 													}
-													DHCPNetworksItemMap["pools"] = PoolsList
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
 												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												StatefulMap["dhcp_networks"] = DHCPNetworksList
 											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
 										}
 										if InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
 											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
@@ -4103,9 +4128,9 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &SecuremeshSiteBlockedServicesModel{
-			BlockedService: func() []SecuremeshSiteBlockedServicesBlockedServiceModel {
-				if !isImport && data.BlockedServices != nil && len(data.BlockedServices.BlockedService) == 0 {
-					return nil
+			BlockedService: func() types.List {
+				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes})
 				}
 				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []SecuremeshSiteBlockedServicesBlockedServiceModel
@@ -4139,17 +4164,18 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 							})
 						}
 					}
-					return BlockedServiceResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes}, BlockedServiceResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["bond_device_list"].(map[string]interface{}); ok && (isImport || data.BondDeviceList != nil) {
 		data.BondDeviceList = &SecuremeshSiteBondDeviceListModel{
-			BondDevices: func() []SecuremeshSiteBondDeviceListBondDevicesModel {
-				if !isImport && data.BondDeviceList != nil && len(data.BondDeviceList.BondDevices) == 0 {
-					return nil
+			BondDevices: func() types.List {
+				if !isImport && data.BondDeviceList != nil && (data.BondDeviceList.BondDevices.IsNull() || len(data.BondDeviceList.BondDevices.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBondDeviceListBondDevicesModelAttrTypes})
 				}
 				if rawList, ok := blockData["bond_devices"].([]interface{}); ok && len(rawList) > 0 {
 					var BondDevicesResult []SecuremeshSiteBondDeviceListBondDevicesModel
@@ -4209,9 +4235,10 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 							})
 						}
 					}
-					return BondDevicesResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteBondDeviceListBondDevicesModelAttrTypes}, BondDevicesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBondDeviceListBondDevicesModelAttrTypes})
 			}(),
 		}
 	}
@@ -4714,7 +4741,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																							}
 																							return types.StringNull()
 																						}(),
-																						Pools: func() []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel {
+																						Pools: func() types.List {
 																							if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																								var PoolsResult []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
 																								for _, PoolsItem := range rawList {
@@ -4741,9 +4768,10 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																										})
 																									}
 																								}
-																								return PoolsResult
+																								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																								return listVal
 																							}
-																							return nil
+																							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 																						}(),
 																						SameAsDgw: func() *SecuremeshSiteEmptyModel {
 																							if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
@@ -4867,7 +4895,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																								}
 																								return nil
 																							}(),
-																							DHCPNetworks: func() []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																							DHCPNetworks: func() types.List {
 																								if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																									var DHCPNetworksResult []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																									for _, DHCPNetworksItem := range rawList {
@@ -4885,7 +4913,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																													}
 																													return types.StringNull()
 																												}(),
-																												Pools: func() []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																												Pools: func() types.List {
 																													if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																														var PoolsResult []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																														for _, PoolsItem := range rawList {
@@ -4906,16 +4934,18 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																																})
 																															}
 																														}
-																														return PoolsResult
+																														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																														return listVal
 																													}
-																													return nil
+																													return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																												}(),
 																											})
 																										}
 																									}
-																									return DHCPNetworksResult
+																									listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																									return listVal
 																								}
-																								return nil
+																								return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																							}(),
 																							FixedIPMap: func() *SecuremeshSiteEmptyModel {
 																								if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -6181,9 +6211,9 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &SecuremeshSiteBlockedServicesModel{
-			BlockedService: func() []SecuremeshSiteBlockedServicesBlockedServiceModel {
-				if !isImport && data.BlockedServices != nil && len(data.BlockedServices.BlockedService) == 0 {
-					return nil
+			BlockedService: func() types.List {
+				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes})
 				}
 				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []SecuremeshSiteBlockedServicesBlockedServiceModel
@@ -6217,17 +6247,18 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 							})
 						}
 					}
-					return BlockedServiceResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes}, BlockedServiceResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["bond_device_list"].(map[string]interface{}); ok && (isImport || data.BondDeviceList != nil) {
 		data.BondDeviceList = &SecuremeshSiteBondDeviceListModel{
-			BondDevices: func() []SecuremeshSiteBondDeviceListBondDevicesModel {
-				if !isImport && data.BondDeviceList != nil && len(data.BondDeviceList.BondDevices) == 0 {
-					return nil
+			BondDevices: func() types.List {
+				if !isImport && data.BondDeviceList != nil && (data.BondDeviceList.BondDevices.IsNull() || len(data.BondDeviceList.BondDevices.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBondDeviceListBondDevicesModelAttrTypes})
 				}
 				if rawList, ok := blockData["bond_devices"].([]interface{}); ok && len(rawList) > 0 {
 					var BondDevicesResult []SecuremeshSiteBondDeviceListBondDevicesModel
@@ -6287,9 +6318,10 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 							})
 						}
 					}
-					return BondDevicesResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteBondDeviceListBondDevicesModelAttrTypes}, BondDevicesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBondDeviceListBondDevicesModelAttrTypes})
 			}(),
 		}
 	}
@@ -6792,7 +6824,7 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																							}
 																							return types.StringNull()
 																						}(),
-																						Pools: func() []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel {
+																						Pools: func() types.List {
 																							if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																								var PoolsResult []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
 																								for _, PoolsItem := range rawList {
@@ -6819,9 +6851,10 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																										})
 																									}
 																								}
-																								return PoolsResult
+																								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																								return listVal
 																							}
-																							return nil
+																							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 																						}(),
 																						SameAsDgw: func() *SecuremeshSiteEmptyModel {
 																							if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
@@ -6945,7 +6978,7 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																								}
 																								return nil
 																							}(),
-																							DHCPNetworks: func() []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																							DHCPNetworks: func() types.List {
 																								if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																									var DHCPNetworksResult []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																									for _, DHCPNetworksItem := range rawList {
@@ -6963,7 +6996,7 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																													}
 																													return types.StringNull()
 																												}(),
-																												Pools: func() []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																												Pools: func() types.List {
 																													if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																														var PoolsResult []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																														for _, PoolsItem := range rawList {
@@ -6984,16 +7017,18 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																																})
 																															}
 																														}
-																														return PoolsResult
+																														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																														return listVal
 																													}
-																													return nil
+																													return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																												}(),
 																											})
 																										}
 																									}
-																									return DHCPNetworksResult
+																									listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																									return listVal
 																								}
-																								return nil
+																								return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																							}(),
 																							FixedIPMap: func() *SecuremeshSiteEmptyModel {
 																								if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
@@ -8189,63 +8224,73 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 	}
 	if data.BlockedServices != nil {
 		BlockedServicesMap := make(map[string]interface{})
-		if len(data.BlockedServices.BlockedService) > 0 {
-			var BlockedServiceList []map[string]interface{}
-			for _, BlockedServiceItem := range data.BlockedServices.BlockedService {
-				BlockedServiceItemMap := make(map[string]interface{})
-				if BlockedServiceItem.DNS != nil {
-					BlockedServiceItemMap["dns"] = map[string]interface{}{}
+		if !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
+			var BlockedServiceElems []SecuremeshSiteBlockedServicesBlockedServiceModel
+			diags := data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(BlockedServiceElems) > 0 {
+				var BlockedServiceList []map[string]interface{}
+				for _, BlockedServiceItem := range BlockedServiceElems {
+					BlockedServiceItemMap := make(map[string]interface{})
+					if BlockedServiceItem.DNS != nil {
+						BlockedServiceItemMap["dns"] = map[string]interface{}{}
+					}
+					if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
+						BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
+					}
+					if BlockedServiceItem.SSH != nil {
+						BlockedServiceItemMap["ssh"] = map[string]interface{}{}
+					}
+					if BlockedServiceItem.WebUserInterface != nil {
+						BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
+					}
+					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
 				}
-				if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
-					BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
-				}
-				if BlockedServiceItem.SSH != nil {
-					BlockedServiceItemMap["ssh"] = map[string]interface{}{}
-				}
-				if BlockedServiceItem.WebUserInterface != nil {
-					BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
-				}
-				BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
+				BlockedServicesMap["blocked_service"] = BlockedServiceList
 			}
-			BlockedServicesMap["blocked_service"] = BlockedServiceList
 		}
 		apiResource.Spec["blocked_services"] = BlockedServicesMap
 	}
 	if data.BondDeviceList != nil {
 		BondDeviceListMap := make(map[string]interface{})
-		if len(data.BondDeviceList.BondDevices) > 0 {
-			var BondDevicesList []map[string]interface{}
-			for _, BondDevicesItem := range data.BondDeviceList.BondDevices {
-				BondDevicesItemMap := make(map[string]interface{})
-				if BondDevicesItem.ActiveBackup != nil {
-					BondDevicesItemMap["active_backup"] = map[string]interface{}{}
-				}
-				if !BondDevicesItem.Devices.IsNull() && !BondDevicesItem.Devices.IsUnknown() {
-					var DevicesItems []string
-					diags := BondDevicesItem.Devices.ElementsAs(ctx, &DevicesItems, false)
-					if !diags.HasError() {
-						BondDevicesItemMap["devices"] = DevicesItems
+		if !data.BondDeviceList.BondDevices.IsNull() && !data.BondDeviceList.BondDevices.IsUnknown() {
+			var BondDevicesElems []SecuremeshSiteBondDeviceListBondDevicesModel
+			diags := data.BondDeviceList.BondDevices.ElementsAs(ctx, &BondDevicesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(BondDevicesElems) > 0 {
+				var BondDevicesList []map[string]interface{}
+				for _, BondDevicesItem := range BondDevicesElems {
+					BondDevicesItemMap := make(map[string]interface{})
+					if BondDevicesItem.ActiveBackup != nil {
+						BondDevicesItemMap["active_backup"] = map[string]interface{}{}
 					}
-				}
-				if BondDevicesItem.Lacp != nil {
-					LacpMap := make(map[string]interface{})
-					if !BondDevicesItem.Lacp.Rate.IsNull() && !BondDevicesItem.Lacp.Rate.IsUnknown() {
-						LacpMap["rate"] = BondDevicesItem.Lacp.Rate.ValueInt64()
+					if !BondDevicesItem.Devices.IsNull() && !BondDevicesItem.Devices.IsUnknown() {
+						var DevicesItems []string
+						diags := BondDevicesItem.Devices.ElementsAs(ctx, &DevicesItems, false)
+						if !diags.HasError() {
+							BondDevicesItemMap["devices"] = DevicesItems
+						}
 					}
-					BondDevicesItemMap["lacp"] = LacpMap
+					if BondDevicesItem.Lacp != nil {
+						LacpMap := make(map[string]interface{})
+						if !BondDevicesItem.Lacp.Rate.IsNull() && !BondDevicesItem.Lacp.Rate.IsUnknown() {
+							LacpMap["rate"] = BondDevicesItem.Lacp.Rate.ValueInt64()
+						}
+						BondDevicesItemMap["lacp"] = LacpMap
+					}
+					if !BondDevicesItem.LinkPollingInterval.IsNull() && !BondDevicesItem.LinkPollingInterval.IsUnknown() {
+						BondDevicesItemMap["link_polling_interval"] = BondDevicesItem.LinkPollingInterval.ValueInt64()
+					}
+					if !BondDevicesItem.LinkUpDelay.IsNull() && !BondDevicesItem.LinkUpDelay.IsUnknown() {
+						BondDevicesItemMap["link_up_delay"] = BondDevicesItem.LinkUpDelay.ValueInt64()
+					}
+					if !BondDevicesItem.Name.IsNull() && !BondDevicesItem.Name.IsUnknown() {
+						BondDevicesItemMap["name"] = BondDevicesItem.Name.ValueString()
+					}
+					BondDevicesList = append(BondDevicesList, BondDevicesItemMap)
 				}
-				if !BondDevicesItem.LinkPollingInterval.IsNull() && !BondDevicesItem.LinkPollingInterval.IsUnknown() {
-					BondDevicesItemMap["link_polling_interval"] = BondDevicesItem.LinkPollingInterval.ValueInt64()
-				}
-				if !BondDevicesItem.LinkUpDelay.IsNull() && !BondDevicesItem.LinkUpDelay.IsUnknown() {
-					BondDevicesItemMap["link_up_delay"] = BondDevicesItem.LinkUpDelay.ValueInt64()
-				}
-				if !BondDevicesItem.Name.IsNull() && !BondDevicesItem.Name.IsUnknown() {
-					BondDevicesItemMap["name"] = BondDevicesItem.Name.ValueString()
-				}
-				BondDevicesList = append(BondDevicesList, BondDevicesItemMap)
+				BondDeviceListMap["bond_devices"] = BondDevicesList
 			}
-			BondDeviceListMap["bond_devices"] = BondDevicesList
 		}
 		apiResource.Spec["bond_device_list"] = BondDeviceListMap
 	}
@@ -8526,22 +8571,27 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 											if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
 												DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
 											}
-											if len(DHCPNetworksItem.Pools) > 0 {
-												var PoolsList []map[string]interface{}
-												for _, PoolsItem := range DHCPNetworksItem.Pools {
-													PoolsItemMap := make(map[string]interface{})
-													if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-														PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+											if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+												var PoolsElems []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
+												diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+												resp.Diagnostics.Append(diags...)
+												if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+													var PoolsList []map[string]interface{}
+													for _, PoolsItem := range PoolsElems {
+														PoolsItemMap := make(map[string]interface{})
+														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+														}
+														if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+															PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+														}
+														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+														}
+														PoolsList = append(PoolsList, PoolsItemMap)
 													}
-													if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
-														PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
-													}
-													if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-														PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-													}
-													PoolsList = append(PoolsList, PoolsItemMap)
+													DHCPNetworksItemMap["pools"] = PoolsList
 												}
-												DHCPNetworksItemMap["pools"] = PoolsList
 											}
 											if DHCPNetworksItem.SameAsDgw != nil {
 												DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
@@ -8609,33 +8659,43 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 										if InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
 											StatefulMap["automatic_from_start"] = map[string]interface{}{}
 										}
-										if len(InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks) > 0 {
-											var DHCPNetworksList []map[string]interface{}
-											for _, DHCPNetworksItem := range InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks {
-												DHCPNetworksItemMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
-													DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
-												}
-												if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
-													DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
-												}
-												if len(DHCPNetworksItem.Pools) > 0 {
-													var PoolsList []map[string]interface{}
-													for _, PoolsItem := range DHCPNetworksItem.Pools {
-														PoolsItemMap := make(map[string]interface{})
-														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
-															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
-															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
-														}
-														PoolsList = append(PoolsList, PoolsItemMap)
+										if !InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
+											diags := InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
 													}
-													DHCPNetworksItemMap["pools"] = PoolsList
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
 												}
-												DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												StatefulMap["dhcp_networks"] = DHCPNetworksList
 											}
-											StatefulMap["dhcp_networks"] = DHCPNetworksList
 										}
 										if InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
 											StatefulMap["fixed_ip_map"] = map[string]interface{}{}
@@ -9368,9 +9428,9 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &SecuremeshSiteBlockedServicesModel{
-			BlockedService: func() []SecuremeshSiteBlockedServicesBlockedServiceModel {
-				if !isImport && data.BlockedServices != nil && len(data.BlockedServices.BlockedService) == 0 {
-					return nil
+			BlockedService: func() types.List {
+				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes})
 				}
 				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []SecuremeshSiteBlockedServicesBlockedServiceModel
@@ -9404,17 +9464,18 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 							})
 						}
 					}
-					return BlockedServiceResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes}, BlockedServiceResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["bond_device_list"].(map[string]interface{}); ok && (isImport || data.BondDeviceList != nil) {
 		data.BondDeviceList = &SecuremeshSiteBondDeviceListModel{
-			BondDevices: func() []SecuremeshSiteBondDeviceListBondDevicesModel {
-				if !isImport && data.BondDeviceList != nil && len(data.BondDeviceList.BondDevices) == 0 {
-					return nil
+			BondDevices: func() types.List {
+				if !isImport && data.BondDeviceList != nil && (data.BondDeviceList.BondDevices.IsNull() || len(data.BondDeviceList.BondDevices.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBondDeviceListBondDevicesModelAttrTypes})
 				}
 				if rawList, ok := blockData["bond_devices"].([]interface{}); ok && len(rawList) > 0 {
 					var BondDevicesResult []SecuremeshSiteBondDeviceListBondDevicesModel
@@ -9474,9 +9535,10 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 							})
 						}
 					}
-					return BondDevicesResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteBondDeviceListBondDevicesModelAttrTypes}, BondDevicesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBondDeviceListBondDevicesModelAttrTypes})
 			}(),
 		}
 	}
@@ -9979,7 +10041,7 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																							}
 																							return types.StringNull()
 																						}(),
-																						Pools: func() []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel {
+																						Pools: func() types.List {
 																							if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																								var PoolsResult []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
 																								for _, PoolsItem := range rawList {
@@ -10006,9 +10068,10 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																										})
 																									}
 																								}
-																								return PoolsResult
+																								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																								return listVal
 																							}
-																							return nil
+																							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 																						}(),
 																						SameAsDgw: func() *SecuremeshSiteEmptyModel {
 																							if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
@@ -10132,7 +10195,7 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																								}
 																								return nil
 																							}(),
-																							DHCPNetworks: func() []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel {
+																							DHCPNetworks: func() types.List {
 																								if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																									var DHCPNetworksResult []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
 																									for _, DHCPNetworksItem := range rawList {
@@ -10150,7 +10213,7 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																													}
 																													return types.StringNull()
 																												}(),
-																												Pools: func() []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel {
+																												Pools: func() types.List {
 																													if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																														var PoolsResult []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
 																														for _, PoolsItem := range rawList {
@@ -10171,16 +10234,18 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																																})
 																															}
 																														}
-																														return PoolsResult
+																														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																														return listVal
 																													}
-																													return nil
+																													return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
 																												}(),
 																											})
 																										}
 																									}
-																									return DHCPNetworksResult
+																									listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																									return listVal
 																								}
-																								return nil
+																								return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																							}(),
 																							FixedIPMap: func() *SecuremeshSiteEmptyModel {
 																								if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {

@@ -108,7 +108,7 @@ type RateLimiterPolicyRulesSpecModel struct {
 	CountryList       *RateLimiterPolicyRulesSpecCountryListModel       `tfsdk:"country_list"`
 	CustomRateLimiter *RateLimiterPolicyRulesSpecCustomRateLimiterModel `tfsdk:"custom_rate_limiter"`
 	DomainMatcher     *RateLimiterPolicyRulesSpecDomainMatcherModel     `tfsdk:"domain_matcher"`
-	Headers           []RateLimiterPolicyRulesSpecHeadersModel          `tfsdk:"headers"`
+	Headers           types.List                                        `tfsdk:"headers"`
 	HTTPMethod        *RateLimiterPolicyRulesSpecHTTPMethodModel        `tfsdk:"http_method"`
 	IPMatcher         *RateLimiterPolicyRulesSpecIPMatcherModel         `tfsdk:"ip_matcher"`
 	IPPrefixList      *RateLimiterPolicyRulesSpecIPPrefixListModel      `tfsdk:"ip_prefix_list"`
@@ -1064,50 +1064,55 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 						}
 						SpecMap["domain_matcher"] = DomainMatcherMap
 					}
-					if len(RulesItem.Spec.Headers) > 0 {
-						var HeadersList []map[string]interface{}
-						for _, HeadersItem := range RulesItem.Spec.Headers {
-							HeadersItemMap := make(map[string]interface{})
-							if HeadersItem.CheckNotPresent != nil {
-								HeadersItemMap["check_not_present"] = map[string]interface{}{}
-							}
-							if HeadersItem.CheckPresent != nil {
-								HeadersItemMap["check_present"] = map[string]interface{}{}
-							}
-							if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
-								HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
-							}
-							if HeadersItem.Item != nil {
-								ItemMap := make(map[string]interface{})
-								if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
-									var ExactValuesItems []string
-									diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-									if !diags.HasError() {
-										ItemMap["exact_values"] = ExactValuesItems
-									}
+					if !RulesItem.Spec.Headers.IsNull() && !RulesItem.Spec.Headers.IsUnknown() {
+						var HeadersElems []RateLimiterPolicyRulesSpecHeadersModel
+						diags := RulesItem.Spec.Headers.ElementsAs(ctx, &HeadersElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+							var HeadersList []map[string]interface{}
+							for _, HeadersItem := range HeadersElems {
+								HeadersItemMap := make(map[string]interface{})
+								if HeadersItem.CheckNotPresent != nil {
+									HeadersItemMap["check_not_present"] = map[string]interface{}{}
 								}
-								if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
-									var RegexValuesItems []string
-									diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-									if !diags.HasError() {
-										ItemMap["regex_values"] = RegexValuesItems
-									}
+								if HeadersItem.CheckPresent != nil {
+									HeadersItemMap["check_present"] = map[string]interface{}{}
 								}
-								if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
-									var TransformersItems []string
-									diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-									if !diags.HasError() {
-										ItemMap["transformers"] = TransformersItems
-									}
+								if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
+									HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
 								}
-								HeadersItemMap["item"] = ItemMap
+								if HeadersItem.Item != nil {
+									ItemMap := make(map[string]interface{})
+									if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
+										var ExactValuesItems []string
+										diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+										if !diags.HasError() {
+											ItemMap["exact_values"] = ExactValuesItems
+										}
+									}
+									if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
+										var RegexValuesItems []string
+										diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+										if !diags.HasError() {
+											ItemMap["regex_values"] = RegexValuesItems
+										}
+									}
+									if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
+										var TransformersItems []string
+										diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+										if !diags.HasError() {
+											ItemMap["transformers"] = TransformersItems
+										}
+									}
+									HeadersItemMap["item"] = ItemMap
+								}
+								if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+									HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+								}
+								HeadersList = append(HeadersList, HeadersItemMap)
 							}
-							if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-								HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-							}
-							HeadersList = append(HeadersList, HeadersItemMap)
+							SpecMap["headers"] = HeadersList
 						}
-						SpecMap["headers"] = HeadersList
 					}
 					if RulesItem.Spec.HTTPMethod != nil {
 						HTTPMethodMap := make(map[string]interface{})
@@ -1506,7 +1511,7 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 									}
 									return nil
 								}(),
-								Headers: func() []RateLimiterPolicyRulesSpecHeadersModel {
+								Headers: func() types.List {
 									if rawList, ok := SpecData["headers"].([]interface{}); ok && len(rawList) > 0 {
 										var HeadersResult []RateLimiterPolicyRulesSpecHeadersModel
 										for _, HeadersItem := range rawList {
@@ -1585,9 +1590,10 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 												})
 											}
 										}
-										return HeadersResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecHeadersModelAttrTypes}, HeadersResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecHeadersModelAttrTypes})
 								}(),
 								HTTPMethod: func() *RateLimiterPolicyRulesSpecHTTPMethodModel {
 									if HTTPMethodData, ok := SpecData["http_method"].(map[string]interface{}); ok {
@@ -2158,7 +2164,7 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 									}
 									return nil
 								}(),
-								Headers: func() []RateLimiterPolicyRulesSpecHeadersModel {
+								Headers: func() types.List {
 									if rawList, ok := SpecData["headers"].([]interface{}); ok && len(rawList) > 0 {
 										var HeadersResult []RateLimiterPolicyRulesSpecHeadersModel
 										for _, HeadersItem := range rawList {
@@ -2237,9 +2243,10 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 												})
 											}
 										}
-										return HeadersResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecHeadersModelAttrTypes}, HeadersResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecHeadersModelAttrTypes})
 								}(),
 								HTTPMethod: func() *RateLimiterPolicyRulesSpecHTTPMethodModel {
 									if HTTPMethodData, ok := SpecData["http_method"].(map[string]interface{}); ok {
@@ -2662,50 +2669,55 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 						}
 						SpecMap["domain_matcher"] = DomainMatcherMap
 					}
-					if len(RulesItem.Spec.Headers) > 0 {
-						var HeadersList []map[string]interface{}
-						for _, HeadersItem := range RulesItem.Spec.Headers {
-							HeadersItemMap := make(map[string]interface{})
-							if HeadersItem.CheckNotPresent != nil {
-								HeadersItemMap["check_not_present"] = map[string]interface{}{}
-							}
-							if HeadersItem.CheckPresent != nil {
-								HeadersItemMap["check_present"] = map[string]interface{}{}
-							}
-							if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
-								HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
-							}
-							if HeadersItem.Item != nil {
-								ItemMap := make(map[string]interface{})
-								if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
-									var ExactValuesItems []string
-									diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-									if !diags.HasError() {
-										ItemMap["exact_values"] = ExactValuesItems
-									}
+					if !RulesItem.Spec.Headers.IsNull() && !RulesItem.Spec.Headers.IsUnknown() {
+						var HeadersElems []RateLimiterPolicyRulesSpecHeadersModel
+						diags := RulesItem.Spec.Headers.ElementsAs(ctx, &HeadersElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+							var HeadersList []map[string]interface{}
+							for _, HeadersItem := range HeadersElems {
+								HeadersItemMap := make(map[string]interface{})
+								if HeadersItem.CheckNotPresent != nil {
+									HeadersItemMap["check_not_present"] = map[string]interface{}{}
 								}
-								if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
-									var RegexValuesItems []string
-									diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-									if !diags.HasError() {
-										ItemMap["regex_values"] = RegexValuesItems
-									}
+								if HeadersItem.CheckPresent != nil {
+									HeadersItemMap["check_present"] = map[string]interface{}{}
 								}
-								if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
-									var TransformersItems []string
-									diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-									if !diags.HasError() {
-										ItemMap["transformers"] = TransformersItems
-									}
+								if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
+									HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
 								}
-								HeadersItemMap["item"] = ItemMap
+								if HeadersItem.Item != nil {
+									ItemMap := make(map[string]interface{})
+									if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
+										var ExactValuesItems []string
+										diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+										if !diags.HasError() {
+											ItemMap["exact_values"] = ExactValuesItems
+										}
+									}
+									if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
+										var RegexValuesItems []string
+										diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+										if !diags.HasError() {
+											ItemMap["regex_values"] = RegexValuesItems
+										}
+									}
+									if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
+										var TransformersItems []string
+										diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+										if !diags.HasError() {
+											ItemMap["transformers"] = TransformersItems
+										}
+									}
+									HeadersItemMap["item"] = ItemMap
+								}
+								if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+									HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+								}
+								HeadersList = append(HeadersList, HeadersItemMap)
 							}
-							if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-								HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-							}
-							HeadersList = append(HeadersList, HeadersItemMap)
+							SpecMap["headers"] = HeadersList
 						}
-						SpecMap["headers"] = HeadersList
 					}
 					if RulesItem.Spec.HTTPMethod != nil {
 						HTTPMethodMap := make(map[string]interface{})
@@ -3122,7 +3134,7 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 									}
 									return nil
 								}(),
-								Headers: func() []RateLimiterPolicyRulesSpecHeadersModel {
+								Headers: func() types.List {
 									if rawList, ok := SpecData["headers"].([]interface{}); ok && len(rawList) > 0 {
 										var HeadersResult []RateLimiterPolicyRulesSpecHeadersModel
 										for _, HeadersItem := range rawList {
@@ -3201,9 +3213,10 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 												})
 											}
 										}
-										return HeadersResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecHeadersModelAttrTypes}, HeadersResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecHeadersModelAttrTypes})
 								}(),
 								HTTPMethod: func() *RateLimiterPolicyRulesSpecHTTPMethodModel {
 									if HTTPMethodData, ok := SpecData["http_method"].(map[string]interface{}); ok {

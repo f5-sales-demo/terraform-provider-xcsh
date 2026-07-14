@@ -158,7 +158,7 @@ var NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyCle
 
 // NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel represents policy block
 type NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel struct {
-	InterceptionRules []NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel `tfsdk:"interception_rules"`
+	InterceptionRules types.List `tfsdk:"interception_rules"`
 }
 
 // NetworkConnectorEnableForwardProxyTLSInterceptPolicyModelAttrTypes defines the attribute types for NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel
@@ -781,32 +781,37 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 			}
 			if data.EnableForwardProxy.TLSIntercept.Policy != nil {
 				PolicyMap := make(map[string]interface{})
-				if len(data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules) > 0 {
-					var InterceptionRulesList []map[string]interface{}
-					for _, InterceptionRulesItem := range data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules {
-						InterceptionRulesItemMap := make(map[string]interface{})
-						if InterceptionRulesItem.DisableInterception != nil {
-							InterceptionRulesItemMap["disable_interception"] = map[string]interface{}{}
-						}
-						if InterceptionRulesItem.DomainMatch != nil {
-							DomainMatchMap := make(map[string]interface{})
-							if !InterceptionRulesItem.DomainMatch.ExactValue.IsNull() && !InterceptionRulesItem.DomainMatch.ExactValue.IsUnknown() {
-								DomainMatchMap["exact_value"] = InterceptionRulesItem.DomainMatch.ExactValue.ValueString()
+				if !data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.IsNull() && !data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.IsUnknown() {
+					var InterceptionRulesElems []NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel
+					diags := data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.ElementsAs(ctx, &InterceptionRulesElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(InterceptionRulesElems) > 0 {
+						var InterceptionRulesList []map[string]interface{}
+						for _, InterceptionRulesItem := range InterceptionRulesElems {
+							InterceptionRulesItemMap := make(map[string]interface{})
+							if InterceptionRulesItem.DisableInterception != nil {
+								InterceptionRulesItemMap["disable_interception"] = map[string]interface{}{}
 							}
-							if !InterceptionRulesItem.DomainMatch.RegexValue.IsNull() && !InterceptionRulesItem.DomainMatch.RegexValue.IsUnknown() {
-								DomainMatchMap["regex_value"] = InterceptionRulesItem.DomainMatch.RegexValue.ValueString()
+							if InterceptionRulesItem.DomainMatch != nil {
+								DomainMatchMap := make(map[string]interface{})
+								if !InterceptionRulesItem.DomainMatch.ExactValue.IsNull() && !InterceptionRulesItem.DomainMatch.ExactValue.IsUnknown() {
+									DomainMatchMap["exact_value"] = InterceptionRulesItem.DomainMatch.ExactValue.ValueString()
+								}
+								if !InterceptionRulesItem.DomainMatch.RegexValue.IsNull() && !InterceptionRulesItem.DomainMatch.RegexValue.IsUnknown() {
+									DomainMatchMap["regex_value"] = InterceptionRulesItem.DomainMatch.RegexValue.ValueString()
+								}
+								if !InterceptionRulesItem.DomainMatch.SuffixValue.IsNull() && !InterceptionRulesItem.DomainMatch.SuffixValue.IsUnknown() {
+									DomainMatchMap["suffix_value"] = InterceptionRulesItem.DomainMatch.SuffixValue.ValueString()
+								}
+								InterceptionRulesItemMap["domain_match"] = DomainMatchMap
 							}
-							if !InterceptionRulesItem.DomainMatch.SuffixValue.IsNull() && !InterceptionRulesItem.DomainMatch.SuffixValue.IsUnknown() {
-								DomainMatchMap["suffix_value"] = InterceptionRulesItem.DomainMatch.SuffixValue.ValueString()
+							if InterceptionRulesItem.EnableInterception != nil {
+								InterceptionRulesItemMap["enable_interception"] = map[string]interface{}{}
 							}
-							InterceptionRulesItemMap["domain_match"] = DomainMatchMap
+							InterceptionRulesList = append(InterceptionRulesList, InterceptionRulesItemMap)
 						}
-						if InterceptionRulesItem.EnableInterception != nil {
-							InterceptionRulesItemMap["enable_interception"] = map[string]interface{}{}
-						}
-						InterceptionRulesList = append(InterceptionRulesList, InterceptionRulesItemMap)
+						PolicyMap["interception_rules"] = InterceptionRulesList
 					}
-					PolicyMap["interception_rules"] = InterceptionRulesList
 				}
 				TLSInterceptMap["policy"] = PolicyMap
 			}
@@ -1043,7 +1048,7 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 						Policy: func() *NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel {
 							if PolicyData, ok := TLSInterceptData["policy"].(map[string]interface{}); ok {
 								return &NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel{
-									InterceptionRules: func() []NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel {
+									InterceptionRules: func() types.List {
 										if rawList, ok := PolicyData["interception_rules"].([]interface{}); ok && len(rawList) > 0 {
 											var InterceptionRulesResult []NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel
 											for _, InterceptionRulesItem := range rawList {
@@ -1089,9 +1094,10 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 													})
 												}
 											}
-											return InterceptionRulesResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModelAttrTypes}, InterceptionRulesResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModelAttrTypes})
 									}(),
 								}
 							}
@@ -1469,7 +1475,7 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 						Policy: func() *NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel {
 							if PolicyData, ok := TLSInterceptData["policy"].(map[string]interface{}); ok {
 								return &NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel{
-									InterceptionRules: func() []NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel {
+									InterceptionRules: func() types.List {
 										if rawList, ok := PolicyData["interception_rules"].([]interface{}); ok && len(rawList) > 0 {
 											var InterceptionRulesResult []NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel
 											for _, InterceptionRulesItem := range rawList {
@@ -1515,9 +1521,10 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 													})
 												}
 											}
-											return InterceptionRulesResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModelAttrTypes}, InterceptionRulesResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModelAttrTypes})
 									}(),
 								}
 							}
@@ -1787,32 +1794,37 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 			}
 			if data.EnableForwardProxy.TLSIntercept.Policy != nil {
 				PolicyMap := make(map[string]interface{})
-				if len(data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules) > 0 {
-					var InterceptionRulesList []map[string]interface{}
-					for _, InterceptionRulesItem := range data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules {
-						InterceptionRulesItemMap := make(map[string]interface{})
-						if InterceptionRulesItem.DisableInterception != nil {
-							InterceptionRulesItemMap["disable_interception"] = map[string]interface{}{}
-						}
-						if InterceptionRulesItem.DomainMatch != nil {
-							DomainMatchMap := make(map[string]interface{})
-							if !InterceptionRulesItem.DomainMatch.ExactValue.IsNull() && !InterceptionRulesItem.DomainMatch.ExactValue.IsUnknown() {
-								DomainMatchMap["exact_value"] = InterceptionRulesItem.DomainMatch.ExactValue.ValueString()
+				if !data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.IsNull() && !data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.IsUnknown() {
+					var InterceptionRulesElems []NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel
+					diags := data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.ElementsAs(ctx, &InterceptionRulesElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(InterceptionRulesElems) > 0 {
+						var InterceptionRulesList []map[string]interface{}
+						for _, InterceptionRulesItem := range InterceptionRulesElems {
+							InterceptionRulesItemMap := make(map[string]interface{})
+							if InterceptionRulesItem.DisableInterception != nil {
+								InterceptionRulesItemMap["disable_interception"] = map[string]interface{}{}
 							}
-							if !InterceptionRulesItem.DomainMatch.RegexValue.IsNull() && !InterceptionRulesItem.DomainMatch.RegexValue.IsUnknown() {
-								DomainMatchMap["regex_value"] = InterceptionRulesItem.DomainMatch.RegexValue.ValueString()
+							if InterceptionRulesItem.DomainMatch != nil {
+								DomainMatchMap := make(map[string]interface{})
+								if !InterceptionRulesItem.DomainMatch.ExactValue.IsNull() && !InterceptionRulesItem.DomainMatch.ExactValue.IsUnknown() {
+									DomainMatchMap["exact_value"] = InterceptionRulesItem.DomainMatch.ExactValue.ValueString()
+								}
+								if !InterceptionRulesItem.DomainMatch.RegexValue.IsNull() && !InterceptionRulesItem.DomainMatch.RegexValue.IsUnknown() {
+									DomainMatchMap["regex_value"] = InterceptionRulesItem.DomainMatch.RegexValue.ValueString()
+								}
+								if !InterceptionRulesItem.DomainMatch.SuffixValue.IsNull() && !InterceptionRulesItem.DomainMatch.SuffixValue.IsUnknown() {
+									DomainMatchMap["suffix_value"] = InterceptionRulesItem.DomainMatch.SuffixValue.ValueString()
+								}
+								InterceptionRulesItemMap["domain_match"] = DomainMatchMap
 							}
-							if !InterceptionRulesItem.DomainMatch.SuffixValue.IsNull() && !InterceptionRulesItem.DomainMatch.SuffixValue.IsUnknown() {
-								DomainMatchMap["suffix_value"] = InterceptionRulesItem.DomainMatch.SuffixValue.ValueString()
+							if InterceptionRulesItem.EnableInterception != nil {
+								InterceptionRulesItemMap["enable_interception"] = map[string]interface{}{}
 							}
-							InterceptionRulesItemMap["domain_match"] = DomainMatchMap
+							InterceptionRulesList = append(InterceptionRulesList, InterceptionRulesItemMap)
 						}
-						if InterceptionRulesItem.EnableInterception != nil {
-							InterceptionRulesItemMap["enable_interception"] = map[string]interface{}{}
-						}
-						InterceptionRulesList = append(InterceptionRulesList, InterceptionRulesItemMap)
+						PolicyMap["interception_rules"] = InterceptionRulesList
 					}
-					PolicyMap["interception_rules"] = InterceptionRulesList
 				}
 				TLSInterceptMap["policy"] = PolicyMap
 			}
@@ -2060,7 +2072,7 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 						Policy: func() *NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel {
 							if PolicyData, ok := TLSInterceptData["policy"].(map[string]interface{}); ok {
 								return &NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel{
-									InterceptionRules: func() []NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel {
+									InterceptionRules: func() types.List {
 										if rawList, ok := PolicyData["interception_rules"].([]interface{}); ok && len(rawList) > 0 {
 											var InterceptionRulesResult []NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel
 											for _, InterceptionRulesItem := range rawList {
@@ -2106,9 +2118,10 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 													})
 												}
 											}
-											return InterceptionRulesResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModelAttrTypes}, InterceptionRulesResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModelAttrTypes})
 									}(),
 								}
 							}

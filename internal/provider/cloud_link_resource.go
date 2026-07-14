@@ -77,7 +77,7 @@ var CloudLinkAWSAWSCredModelAttrTypes = map[string]attr.Type{
 
 // CloudLinkAWSByocModel represents byoc block
 type CloudLinkAWSByocModel struct {
-	Connections []CloudLinkAWSByocConnectionsModel `tfsdk:"connections"`
+	Connections types.List `tfsdk:"connections"`
 }
 
 // CloudLinkAWSByocModelAttrTypes defines the attribute types for CloudLinkAWSByocModel
@@ -201,7 +201,7 @@ var CloudLinkGCPModelAttrTypes = map[string]attr.Type{
 
 // CloudLinkGCPByocModel represents byoc block
 type CloudLinkGCPByocModel struct {
-	Connections []CloudLinkGCPByocConnectionsModel `tfsdk:"connections"`
+	Connections types.List `tfsdk:"connections"`
 }
 
 // CloudLinkGCPByocModelAttrTypes defines the attribute types for CloudLinkGCPByocModel
@@ -727,84 +727,89 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 		}
 		if data.AWS.Byoc != nil {
 			ByocMap := make(map[string]interface{})
-			if len(data.AWS.Byoc.Connections) > 0 {
-				var ConnectionsList []map[string]interface{}
-				for _, ConnectionsItem := range data.AWS.Byoc.Connections {
-					ConnectionsItemMap := make(map[string]interface{})
-					if ConnectionsItem.AuthKey != nil {
-						AuthKeyMap := make(map[string]interface{})
-						if ConnectionsItem.AuthKey.BlindfoldSecretInfo != nil {
-							BlindfoldSecretInfoMap := make(map[string]interface{})
-							if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["decryption_provider"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+			if !data.AWS.Byoc.Connections.IsNull() && !data.AWS.Byoc.Connections.IsUnknown() {
+				var ConnectionsElems []CloudLinkAWSByocConnectionsModel
+				diags := data.AWS.Byoc.Connections.ElementsAs(ctx, &ConnectionsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ConnectionsElems) > 0 {
+					var ConnectionsList []map[string]interface{}
+					for _, ConnectionsItem := range ConnectionsElems {
+						ConnectionsItemMap := make(map[string]interface{})
+						if ConnectionsItem.AuthKey != nil {
+							AuthKeyMap := make(map[string]interface{})
+							if ConnectionsItem.AuthKey.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								AuthKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
 							}
-							if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.IsUnknown() {
-								BlindfoldSecretInfoMap["location"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.ValueString()
+							if ConnectionsItem.AuthKey.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !ConnectionsItem.AuthKey.ClearSecretInfo.Provider.IsNull() && !ConnectionsItem.AuthKey.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = ConnectionsItem.AuthKey.ClearSecretInfo.Provider.ValueString()
+								}
+								if !ConnectionsItem.AuthKey.ClearSecretInfo.URL.IsNull() && !ConnectionsItem.AuthKey.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = ConnectionsItem.AuthKey.ClearSecretInfo.URL.ValueString()
+								}
+								AuthKeyMap["clear_secret_info"] = ClearSecretInfoMap
 							}
-							if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["store_provider"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							ConnectionsItemMap["auth_key"] = AuthKeyMap
+						}
+						if !ConnectionsItem.BGPAsn.IsNull() && !ConnectionsItem.BGPAsn.IsUnknown() {
+							ConnectionsItemMap["bgp_asn"] = ConnectionsItem.BGPAsn.ValueInt64()
+						}
+						if !ConnectionsItem.ConnectionID.IsNull() && !ConnectionsItem.ConnectionID.IsUnknown() {
+							ConnectionsItemMap["connection_id"] = ConnectionsItem.ConnectionID.ValueString()
+						}
+						if ConnectionsItem.Ipv4 != nil {
+							Ipv4Map := make(map[string]interface{})
+							if !ConnectionsItem.Ipv4.AWSRouterPeerAddress.IsNull() && !ConnectionsItem.Ipv4.AWSRouterPeerAddress.IsUnknown() {
+								Ipv4Map["aws_router_peer_address"] = ConnectionsItem.Ipv4.AWSRouterPeerAddress.ValueString()
 							}
-							AuthKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
-						}
-						if ConnectionsItem.AuthKey.ClearSecretInfo != nil {
-							ClearSecretInfoMap := make(map[string]interface{})
-							if !ConnectionsItem.AuthKey.ClearSecretInfo.Provider.IsNull() && !ConnectionsItem.AuthKey.ClearSecretInfo.Provider.IsUnknown() {
-								ClearSecretInfoMap["provider"] = ConnectionsItem.AuthKey.ClearSecretInfo.Provider.ValueString()
+							if !ConnectionsItem.Ipv4.RouterPeerAddress.IsNull() && !ConnectionsItem.Ipv4.RouterPeerAddress.IsUnknown() {
+								Ipv4Map["router_peer_address"] = ConnectionsItem.Ipv4.RouterPeerAddress.ValueString()
 							}
-							if !ConnectionsItem.AuthKey.ClearSecretInfo.URL.IsNull() && !ConnectionsItem.AuthKey.ClearSecretInfo.URL.IsUnknown() {
-								ClearSecretInfoMap["url"] = ConnectionsItem.AuthKey.ClearSecretInfo.URL.ValueString()
+							ConnectionsItemMap["ipv4"] = Ipv4Map
+						}
+						if ConnectionsItem.Metadata != nil {
+							MetadataMap := make(map[string]interface{})
+							if !ConnectionsItem.Metadata.DescriptionSpec.IsNull() && !ConnectionsItem.Metadata.DescriptionSpec.IsUnknown() {
+								MetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
 							}
-							AuthKeyMap["clear_secret_info"] = ClearSecretInfoMap
+							if !ConnectionsItem.Metadata.Name.IsNull() && !ConnectionsItem.Metadata.Name.IsUnknown() {
+								MetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
+							}
+							ConnectionsItemMap["metadata"] = MetadataMap
 						}
-						ConnectionsItemMap["auth_key"] = AuthKeyMap
-					}
-					if !ConnectionsItem.BGPAsn.IsNull() && !ConnectionsItem.BGPAsn.IsUnknown() {
-						ConnectionsItemMap["bgp_asn"] = ConnectionsItem.BGPAsn.ValueInt64()
-					}
-					if !ConnectionsItem.ConnectionID.IsNull() && !ConnectionsItem.ConnectionID.IsUnknown() {
-						ConnectionsItemMap["connection_id"] = ConnectionsItem.ConnectionID.ValueString()
-					}
-					if ConnectionsItem.Ipv4 != nil {
-						Ipv4Map := make(map[string]interface{})
-						if !ConnectionsItem.Ipv4.AWSRouterPeerAddress.IsNull() && !ConnectionsItem.Ipv4.AWSRouterPeerAddress.IsUnknown() {
-							Ipv4Map["aws_router_peer_address"] = ConnectionsItem.Ipv4.AWSRouterPeerAddress.ValueString()
+						if !ConnectionsItem.Region.IsNull() && !ConnectionsItem.Region.IsUnknown() {
+							ConnectionsItemMap["region"] = ConnectionsItem.Region.ValueString()
 						}
-						if !ConnectionsItem.Ipv4.RouterPeerAddress.IsNull() && !ConnectionsItem.Ipv4.RouterPeerAddress.IsUnknown() {
-							Ipv4Map["router_peer_address"] = ConnectionsItem.Ipv4.RouterPeerAddress.ValueString()
+						if ConnectionsItem.SystemGeneratedName != nil {
+							ConnectionsItemMap["system_generated_name"] = map[string]interface{}{}
 						}
-						ConnectionsItemMap["ipv4"] = Ipv4Map
-					}
-					if ConnectionsItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
-						if !ConnectionsItem.Metadata.DescriptionSpec.IsNull() && !ConnectionsItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
+						if ConnectionsItem.Tags != nil {
+							ConnectionsItemMap["tags"] = map[string]interface{}{}
 						}
-						if !ConnectionsItem.Metadata.Name.IsNull() && !ConnectionsItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
+						if !ConnectionsItem.UserAssignedName.IsNull() && !ConnectionsItem.UserAssignedName.IsUnknown() {
+							ConnectionsItemMap["user_assigned_name"] = ConnectionsItem.UserAssignedName.ValueString()
 						}
-						ConnectionsItemMap["metadata"] = MetadataMap
+						if !ConnectionsItem.VirtualInterfaceType.IsNull() && !ConnectionsItem.VirtualInterfaceType.IsUnknown() {
+							ConnectionsItemMap["virtual_interface_type"] = ConnectionsItem.VirtualInterfaceType.ValueString()
+						}
+						if !ConnectionsItem.VLAN.IsNull() && !ConnectionsItem.VLAN.IsUnknown() {
+							ConnectionsItemMap["vlan"] = ConnectionsItem.VLAN.ValueInt64()
+						}
+						ConnectionsList = append(ConnectionsList, ConnectionsItemMap)
 					}
-					if !ConnectionsItem.Region.IsNull() && !ConnectionsItem.Region.IsUnknown() {
-						ConnectionsItemMap["region"] = ConnectionsItem.Region.ValueString()
-					}
-					if ConnectionsItem.SystemGeneratedName != nil {
-						ConnectionsItemMap["system_generated_name"] = map[string]interface{}{}
-					}
-					if ConnectionsItem.Tags != nil {
-						ConnectionsItemMap["tags"] = map[string]interface{}{}
-					}
-					if !ConnectionsItem.UserAssignedName.IsNull() && !ConnectionsItem.UserAssignedName.IsUnknown() {
-						ConnectionsItemMap["user_assigned_name"] = ConnectionsItem.UserAssignedName.ValueString()
-					}
-					if !ConnectionsItem.VirtualInterfaceType.IsNull() && !ConnectionsItem.VirtualInterfaceType.IsUnknown() {
-						ConnectionsItemMap["virtual_interface_type"] = ConnectionsItem.VirtualInterfaceType.ValueString()
-					}
-					if !ConnectionsItem.VLAN.IsNull() && !ConnectionsItem.VLAN.IsUnknown() {
-						ConnectionsItemMap["vlan"] = ConnectionsItem.VLAN.ValueInt64()
-					}
-					ConnectionsList = append(ConnectionsList, ConnectionsItemMap)
+					ByocMap["connections"] = ConnectionsList
 				}
-				ByocMap["connections"] = ConnectionsList
 			}
 			AWSMap["byoc"] = ByocMap
 		}
@@ -827,35 +832,40 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 		GCPMap := make(map[string]interface{})
 		if data.GCP.Byoc != nil {
 			ByocMap := make(map[string]interface{})
-			if len(data.GCP.Byoc.Connections) > 0 {
-				var ConnectionsList []map[string]interface{}
-				for _, ConnectionsItem := range data.GCP.Byoc.Connections {
-					ConnectionsItemMap := make(map[string]interface{})
-					if !ConnectionsItem.InterconnectAttachmentName.IsNull() && !ConnectionsItem.InterconnectAttachmentName.IsUnknown() {
-						ConnectionsItemMap["interconnect_attachment_name"] = ConnectionsItem.InterconnectAttachmentName.ValueString()
-					}
-					if ConnectionsItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
-						if !ConnectionsItem.Metadata.DescriptionSpec.IsNull() && !ConnectionsItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
+			if !data.GCP.Byoc.Connections.IsNull() && !data.GCP.Byoc.Connections.IsUnknown() {
+				var ConnectionsElems []CloudLinkGCPByocConnectionsModel
+				diags := data.GCP.Byoc.Connections.ElementsAs(ctx, &ConnectionsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ConnectionsElems) > 0 {
+					var ConnectionsList []map[string]interface{}
+					for _, ConnectionsItem := range ConnectionsElems {
+						ConnectionsItemMap := make(map[string]interface{})
+						if !ConnectionsItem.InterconnectAttachmentName.IsNull() && !ConnectionsItem.InterconnectAttachmentName.IsUnknown() {
+							ConnectionsItemMap["interconnect_attachment_name"] = ConnectionsItem.InterconnectAttachmentName.ValueString()
 						}
-						if !ConnectionsItem.Metadata.Name.IsNull() && !ConnectionsItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
+						if ConnectionsItem.Metadata != nil {
+							MetadataMap := make(map[string]interface{})
+							if !ConnectionsItem.Metadata.DescriptionSpec.IsNull() && !ConnectionsItem.Metadata.DescriptionSpec.IsUnknown() {
+								MetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
+							}
+							if !ConnectionsItem.Metadata.Name.IsNull() && !ConnectionsItem.Metadata.Name.IsUnknown() {
+								MetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
+							}
+							ConnectionsItemMap["metadata"] = MetadataMap
 						}
-						ConnectionsItemMap["metadata"] = MetadataMap
+						if !ConnectionsItem.Project.IsNull() && !ConnectionsItem.Project.IsUnknown() {
+							ConnectionsItemMap["project"] = ConnectionsItem.Project.ValueString()
+						}
+						if !ConnectionsItem.Region.IsNull() && !ConnectionsItem.Region.IsUnknown() {
+							ConnectionsItemMap["region"] = ConnectionsItem.Region.ValueString()
+						}
+						if ConnectionsItem.SameAsCredential != nil {
+							ConnectionsItemMap["same_as_credential"] = map[string]interface{}{}
+						}
+						ConnectionsList = append(ConnectionsList, ConnectionsItemMap)
 					}
-					if !ConnectionsItem.Project.IsNull() && !ConnectionsItem.Project.IsUnknown() {
-						ConnectionsItemMap["project"] = ConnectionsItem.Project.ValueString()
-					}
-					if !ConnectionsItem.Region.IsNull() && !ConnectionsItem.Region.IsUnknown() {
-						ConnectionsItemMap["region"] = ConnectionsItem.Region.ValueString()
-					}
-					if ConnectionsItem.SameAsCredential != nil {
-						ConnectionsItemMap["same_as_credential"] = map[string]interface{}{}
-					}
-					ConnectionsList = append(ConnectionsList, ConnectionsItemMap)
+					ByocMap["connections"] = ConnectionsList
 				}
-				ByocMap["connections"] = ConnectionsList
 			}
 			GCPMap["byoc"] = ByocMap
 		}
@@ -920,7 +930,7 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 				}
 				if ByocData, ok := blockData["byoc"].(map[string]interface{}); ok {
 					return &CloudLinkAWSByocModel{
-						Connections: func() []CloudLinkAWSByocConnectionsModel {
+						Connections: func() types.List {
 							if rawList, ok := ByocData["connections"].([]interface{}); ok && len(rawList) > 0 {
 								var ConnectionsResult []CloudLinkAWSByocConnectionsModel
 								for _, ConnectionsItem := range rawList {
@@ -1066,9 +1076,10 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 										})
 									}
 								}
-								return ConnectionsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudLinkAWSByocConnectionsModelAttrTypes}, ConnectionsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CloudLinkAWSByocConnectionsModelAttrTypes})
 						}(),
 					}
 				}
@@ -1106,7 +1117,7 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 				}
 				if ByocData, ok := blockData["byoc"].(map[string]interface{}); ok {
 					return &CloudLinkGCPByocModel{
-						Connections: func() []CloudLinkGCPByocConnectionsModel {
+						Connections: func() types.List {
 							if rawList, ok := ByocData["connections"].([]interface{}); ok && len(rawList) > 0 {
 								var ConnectionsResult []CloudLinkGCPByocConnectionsModel
 								for _, ConnectionsItem := range rawList {
@@ -1158,9 +1169,10 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 										})
 									}
 								}
-								return ConnectionsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudLinkGCPByocConnectionsModelAttrTypes}, ConnectionsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CloudLinkGCPByocConnectionsModelAttrTypes})
 						}(),
 					}
 				}
@@ -1319,7 +1331,7 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 				}
 				if ByocData, ok := blockData["byoc"].(map[string]interface{}); ok {
 					return &CloudLinkAWSByocModel{
-						Connections: func() []CloudLinkAWSByocConnectionsModel {
+						Connections: func() types.List {
 							if rawList, ok := ByocData["connections"].([]interface{}); ok && len(rawList) > 0 {
 								var ConnectionsResult []CloudLinkAWSByocConnectionsModel
 								for _, ConnectionsItem := range rawList {
@@ -1465,9 +1477,10 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 										})
 									}
 								}
-								return ConnectionsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudLinkAWSByocConnectionsModelAttrTypes}, ConnectionsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CloudLinkAWSByocConnectionsModelAttrTypes})
 						}(),
 					}
 				}
@@ -1505,7 +1518,7 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 				}
 				if ByocData, ok := blockData["byoc"].(map[string]interface{}); ok {
 					return &CloudLinkGCPByocModel{
-						Connections: func() []CloudLinkGCPByocConnectionsModel {
+						Connections: func() types.List {
 							if rawList, ok := ByocData["connections"].([]interface{}); ok && len(rawList) > 0 {
 								var ConnectionsResult []CloudLinkGCPByocConnectionsModel
 								for _, ConnectionsItem := range rawList {
@@ -1557,9 +1570,10 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 										})
 									}
 								}
-								return ConnectionsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudLinkGCPByocConnectionsModelAttrTypes}, ConnectionsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CloudLinkGCPByocConnectionsModelAttrTypes})
 						}(),
 					}
 				}
@@ -1668,84 +1682,89 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 		}
 		if data.AWS.Byoc != nil {
 			ByocMap := make(map[string]interface{})
-			if len(data.AWS.Byoc.Connections) > 0 {
-				var ConnectionsList []map[string]interface{}
-				for _, ConnectionsItem := range data.AWS.Byoc.Connections {
-					ConnectionsItemMap := make(map[string]interface{})
-					if ConnectionsItem.AuthKey != nil {
-						AuthKeyMap := make(map[string]interface{})
-						if ConnectionsItem.AuthKey.BlindfoldSecretInfo != nil {
-							BlindfoldSecretInfoMap := make(map[string]interface{})
-							if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["decryption_provider"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+			if !data.AWS.Byoc.Connections.IsNull() && !data.AWS.Byoc.Connections.IsUnknown() {
+				var ConnectionsElems []CloudLinkAWSByocConnectionsModel
+				diags := data.AWS.Byoc.Connections.ElementsAs(ctx, &ConnectionsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ConnectionsElems) > 0 {
+					var ConnectionsList []map[string]interface{}
+					for _, ConnectionsItem := range ConnectionsElems {
+						ConnectionsItemMap := make(map[string]interface{})
+						if ConnectionsItem.AuthKey != nil {
+							AuthKeyMap := make(map[string]interface{})
+							if ConnectionsItem.AuthKey.BlindfoldSecretInfo != nil {
+								BlindfoldSecretInfoMap := make(map[string]interface{})
+								if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								}
+								if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.ValueString()
+								}
+								if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+								}
+								AuthKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
 							}
-							if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.IsUnknown() {
-								BlindfoldSecretInfoMap["location"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.ValueString()
+							if ConnectionsItem.AuthKey.ClearSecretInfo != nil {
+								ClearSecretInfoMap := make(map[string]interface{})
+								if !ConnectionsItem.AuthKey.ClearSecretInfo.Provider.IsNull() && !ConnectionsItem.AuthKey.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = ConnectionsItem.AuthKey.ClearSecretInfo.Provider.ValueString()
+								}
+								if !ConnectionsItem.AuthKey.ClearSecretInfo.URL.IsNull() && !ConnectionsItem.AuthKey.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = ConnectionsItem.AuthKey.ClearSecretInfo.URL.ValueString()
+								}
+								AuthKeyMap["clear_secret_info"] = ClearSecretInfoMap
 							}
-							if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["store_provider"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							ConnectionsItemMap["auth_key"] = AuthKeyMap
+						}
+						if !ConnectionsItem.BGPAsn.IsNull() && !ConnectionsItem.BGPAsn.IsUnknown() {
+							ConnectionsItemMap["bgp_asn"] = ConnectionsItem.BGPAsn.ValueInt64()
+						}
+						if !ConnectionsItem.ConnectionID.IsNull() && !ConnectionsItem.ConnectionID.IsUnknown() {
+							ConnectionsItemMap["connection_id"] = ConnectionsItem.ConnectionID.ValueString()
+						}
+						if ConnectionsItem.Ipv4 != nil {
+							Ipv4Map := make(map[string]interface{})
+							if !ConnectionsItem.Ipv4.AWSRouterPeerAddress.IsNull() && !ConnectionsItem.Ipv4.AWSRouterPeerAddress.IsUnknown() {
+								Ipv4Map["aws_router_peer_address"] = ConnectionsItem.Ipv4.AWSRouterPeerAddress.ValueString()
 							}
-							AuthKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
-						}
-						if ConnectionsItem.AuthKey.ClearSecretInfo != nil {
-							ClearSecretInfoMap := make(map[string]interface{})
-							if !ConnectionsItem.AuthKey.ClearSecretInfo.Provider.IsNull() && !ConnectionsItem.AuthKey.ClearSecretInfo.Provider.IsUnknown() {
-								ClearSecretInfoMap["provider"] = ConnectionsItem.AuthKey.ClearSecretInfo.Provider.ValueString()
+							if !ConnectionsItem.Ipv4.RouterPeerAddress.IsNull() && !ConnectionsItem.Ipv4.RouterPeerAddress.IsUnknown() {
+								Ipv4Map["router_peer_address"] = ConnectionsItem.Ipv4.RouterPeerAddress.ValueString()
 							}
-							if !ConnectionsItem.AuthKey.ClearSecretInfo.URL.IsNull() && !ConnectionsItem.AuthKey.ClearSecretInfo.URL.IsUnknown() {
-								ClearSecretInfoMap["url"] = ConnectionsItem.AuthKey.ClearSecretInfo.URL.ValueString()
+							ConnectionsItemMap["ipv4"] = Ipv4Map
+						}
+						if ConnectionsItem.Metadata != nil {
+							MetadataMap := make(map[string]interface{})
+							if !ConnectionsItem.Metadata.DescriptionSpec.IsNull() && !ConnectionsItem.Metadata.DescriptionSpec.IsUnknown() {
+								MetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
 							}
-							AuthKeyMap["clear_secret_info"] = ClearSecretInfoMap
+							if !ConnectionsItem.Metadata.Name.IsNull() && !ConnectionsItem.Metadata.Name.IsUnknown() {
+								MetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
+							}
+							ConnectionsItemMap["metadata"] = MetadataMap
 						}
-						ConnectionsItemMap["auth_key"] = AuthKeyMap
-					}
-					if !ConnectionsItem.BGPAsn.IsNull() && !ConnectionsItem.BGPAsn.IsUnknown() {
-						ConnectionsItemMap["bgp_asn"] = ConnectionsItem.BGPAsn.ValueInt64()
-					}
-					if !ConnectionsItem.ConnectionID.IsNull() && !ConnectionsItem.ConnectionID.IsUnknown() {
-						ConnectionsItemMap["connection_id"] = ConnectionsItem.ConnectionID.ValueString()
-					}
-					if ConnectionsItem.Ipv4 != nil {
-						Ipv4Map := make(map[string]interface{})
-						if !ConnectionsItem.Ipv4.AWSRouterPeerAddress.IsNull() && !ConnectionsItem.Ipv4.AWSRouterPeerAddress.IsUnknown() {
-							Ipv4Map["aws_router_peer_address"] = ConnectionsItem.Ipv4.AWSRouterPeerAddress.ValueString()
+						if !ConnectionsItem.Region.IsNull() && !ConnectionsItem.Region.IsUnknown() {
+							ConnectionsItemMap["region"] = ConnectionsItem.Region.ValueString()
 						}
-						if !ConnectionsItem.Ipv4.RouterPeerAddress.IsNull() && !ConnectionsItem.Ipv4.RouterPeerAddress.IsUnknown() {
-							Ipv4Map["router_peer_address"] = ConnectionsItem.Ipv4.RouterPeerAddress.ValueString()
+						if ConnectionsItem.SystemGeneratedName != nil {
+							ConnectionsItemMap["system_generated_name"] = map[string]interface{}{}
 						}
-						ConnectionsItemMap["ipv4"] = Ipv4Map
-					}
-					if ConnectionsItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
-						if !ConnectionsItem.Metadata.DescriptionSpec.IsNull() && !ConnectionsItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
+						if ConnectionsItem.Tags != nil {
+							ConnectionsItemMap["tags"] = map[string]interface{}{}
 						}
-						if !ConnectionsItem.Metadata.Name.IsNull() && !ConnectionsItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
+						if !ConnectionsItem.UserAssignedName.IsNull() && !ConnectionsItem.UserAssignedName.IsUnknown() {
+							ConnectionsItemMap["user_assigned_name"] = ConnectionsItem.UserAssignedName.ValueString()
 						}
-						ConnectionsItemMap["metadata"] = MetadataMap
+						if !ConnectionsItem.VirtualInterfaceType.IsNull() && !ConnectionsItem.VirtualInterfaceType.IsUnknown() {
+							ConnectionsItemMap["virtual_interface_type"] = ConnectionsItem.VirtualInterfaceType.ValueString()
+						}
+						if !ConnectionsItem.VLAN.IsNull() && !ConnectionsItem.VLAN.IsUnknown() {
+							ConnectionsItemMap["vlan"] = ConnectionsItem.VLAN.ValueInt64()
+						}
+						ConnectionsList = append(ConnectionsList, ConnectionsItemMap)
 					}
-					if !ConnectionsItem.Region.IsNull() && !ConnectionsItem.Region.IsUnknown() {
-						ConnectionsItemMap["region"] = ConnectionsItem.Region.ValueString()
-					}
-					if ConnectionsItem.SystemGeneratedName != nil {
-						ConnectionsItemMap["system_generated_name"] = map[string]interface{}{}
-					}
-					if ConnectionsItem.Tags != nil {
-						ConnectionsItemMap["tags"] = map[string]interface{}{}
-					}
-					if !ConnectionsItem.UserAssignedName.IsNull() && !ConnectionsItem.UserAssignedName.IsUnknown() {
-						ConnectionsItemMap["user_assigned_name"] = ConnectionsItem.UserAssignedName.ValueString()
-					}
-					if !ConnectionsItem.VirtualInterfaceType.IsNull() && !ConnectionsItem.VirtualInterfaceType.IsUnknown() {
-						ConnectionsItemMap["virtual_interface_type"] = ConnectionsItem.VirtualInterfaceType.ValueString()
-					}
-					if !ConnectionsItem.VLAN.IsNull() && !ConnectionsItem.VLAN.IsUnknown() {
-						ConnectionsItemMap["vlan"] = ConnectionsItem.VLAN.ValueInt64()
-					}
-					ConnectionsList = append(ConnectionsList, ConnectionsItemMap)
+					ByocMap["connections"] = ConnectionsList
 				}
-				ByocMap["connections"] = ConnectionsList
 			}
 			AWSMap["byoc"] = ByocMap
 		}
@@ -1768,35 +1787,40 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 		GCPMap := make(map[string]interface{})
 		if data.GCP.Byoc != nil {
 			ByocMap := make(map[string]interface{})
-			if len(data.GCP.Byoc.Connections) > 0 {
-				var ConnectionsList []map[string]interface{}
-				for _, ConnectionsItem := range data.GCP.Byoc.Connections {
-					ConnectionsItemMap := make(map[string]interface{})
-					if !ConnectionsItem.InterconnectAttachmentName.IsNull() && !ConnectionsItem.InterconnectAttachmentName.IsUnknown() {
-						ConnectionsItemMap["interconnect_attachment_name"] = ConnectionsItem.InterconnectAttachmentName.ValueString()
-					}
-					if ConnectionsItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
-						if !ConnectionsItem.Metadata.DescriptionSpec.IsNull() && !ConnectionsItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
+			if !data.GCP.Byoc.Connections.IsNull() && !data.GCP.Byoc.Connections.IsUnknown() {
+				var ConnectionsElems []CloudLinkGCPByocConnectionsModel
+				diags := data.GCP.Byoc.Connections.ElementsAs(ctx, &ConnectionsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ConnectionsElems) > 0 {
+					var ConnectionsList []map[string]interface{}
+					for _, ConnectionsItem := range ConnectionsElems {
+						ConnectionsItemMap := make(map[string]interface{})
+						if !ConnectionsItem.InterconnectAttachmentName.IsNull() && !ConnectionsItem.InterconnectAttachmentName.IsUnknown() {
+							ConnectionsItemMap["interconnect_attachment_name"] = ConnectionsItem.InterconnectAttachmentName.ValueString()
 						}
-						if !ConnectionsItem.Metadata.Name.IsNull() && !ConnectionsItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
+						if ConnectionsItem.Metadata != nil {
+							MetadataMap := make(map[string]interface{})
+							if !ConnectionsItem.Metadata.DescriptionSpec.IsNull() && !ConnectionsItem.Metadata.DescriptionSpec.IsUnknown() {
+								MetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
+							}
+							if !ConnectionsItem.Metadata.Name.IsNull() && !ConnectionsItem.Metadata.Name.IsUnknown() {
+								MetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
+							}
+							ConnectionsItemMap["metadata"] = MetadataMap
 						}
-						ConnectionsItemMap["metadata"] = MetadataMap
+						if !ConnectionsItem.Project.IsNull() && !ConnectionsItem.Project.IsUnknown() {
+							ConnectionsItemMap["project"] = ConnectionsItem.Project.ValueString()
+						}
+						if !ConnectionsItem.Region.IsNull() && !ConnectionsItem.Region.IsUnknown() {
+							ConnectionsItemMap["region"] = ConnectionsItem.Region.ValueString()
+						}
+						if ConnectionsItem.SameAsCredential != nil {
+							ConnectionsItemMap["same_as_credential"] = map[string]interface{}{}
+						}
+						ConnectionsList = append(ConnectionsList, ConnectionsItemMap)
 					}
-					if !ConnectionsItem.Project.IsNull() && !ConnectionsItem.Project.IsUnknown() {
-						ConnectionsItemMap["project"] = ConnectionsItem.Project.ValueString()
-					}
-					if !ConnectionsItem.Region.IsNull() && !ConnectionsItem.Region.IsUnknown() {
-						ConnectionsItemMap["region"] = ConnectionsItem.Region.ValueString()
-					}
-					if ConnectionsItem.SameAsCredential != nil {
-						ConnectionsItemMap["same_as_credential"] = map[string]interface{}{}
-					}
-					ConnectionsList = append(ConnectionsList, ConnectionsItemMap)
+					ByocMap["connections"] = ConnectionsList
 				}
-				ByocMap["connections"] = ConnectionsList
 			}
 			GCPMap["byoc"] = ByocMap
 		}
@@ -1872,7 +1896,7 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 				}
 				if ByocData, ok := blockData["byoc"].(map[string]interface{}); ok {
 					return &CloudLinkAWSByocModel{
-						Connections: func() []CloudLinkAWSByocConnectionsModel {
+						Connections: func() types.List {
 							if rawList, ok := ByocData["connections"].([]interface{}); ok && len(rawList) > 0 {
 								var ConnectionsResult []CloudLinkAWSByocConnectionsModel
 								for _, ConnectionsItem := range rawList {
@@ -2018,9 +2042,10 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 										})
 									}
 								}
-								return ConnectionsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudLinkAWSByocConnectionsModelAttrTypes}, ConnectionsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CloudLinkAWSByocConnectionsModelAttrTypes})
 						}(),
 					}
 				}
@@ -2058,7 +2083,7 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 				}
 				if ByocData, ok := blockData["byoc"].(map[string]interface{}); ok {
 					return &CloudLinkGCPByocModel{
-						Connections: func() []CloudLinkGCPByocConnectionsModel {
+						Connections: func() types.List {
 							if rawList, ok := ByocData["connections"].([]interface{}); ok && len(rawList) > 0 {
 								var ConnectionsResult []CloudLinkGCPByocConnectionsModel
 								for _, ConnectionsItem := range rawList {
@@ -2110,9 +2135,10 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 										})
 									}
 								}
-								return ConnectionsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudLinkGCPByocConnectionsModelAttrTypes}, ConnectionsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: CloudLinkGCPByocConnectionsModelAttrTypes})
 						}(),
 					}
 				}

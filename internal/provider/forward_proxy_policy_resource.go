@@ -50,12 +50,12 @@ type ForwardProxyPolicyEmptyModel struct {
 
 // ForwardProxyPolicyAllowListModel represents allow_list block
 type ForwardProxyPolicyAllowListModel struct {
-	DefaultActionAllow      *ForwardProxyPolicyEmptyModel              `tfsdk:"default_action_allow"`
-	DefaultActionDeny       *ForwardProxyPolicyEmptyModel              `tfsdk:"default_action_deny"`
-	DefaultActionNextPolicy *ForwardProxyPolicyEmptyModel              `tfsdk:"default_action_next_policy"`
-	DestList                []ForwardProxyPolicyAllowListDestListModel `tfsdk:"dest_list"`
-	HTTPList                []ForwardProxyPolicyAllowListHTTPListModel `tfsdk:"http_list"`
-	TLSList                 []ForwardProxyPolicyAllowListTLSListModel  `tfsdk:"tls_list"`
+	DefaultActionAllow      *ForwardProxyPolicyEmptyModel `tfsdk:"default_action_allow"`
+	DefaultActionDeny       *ForwardProxyPolicyEmptyModel `tfsdk:"default_action_deny"`
+	DefaultActionNextPolicy *ForwardProxyPolicyEmptyModel `tfsdk:"default_action_next_policy"`
+	DestList                types.List                    `tfsdk:"dest_list"`
+	HTTPList                types.List                    `tfsdk:"http_list"`
+	TLSList                 types.List                    `tfsdk:"tls_list"`
 }
 
 // ForwardProxyPolicyAllowListModelAttrTypes defines the attribute types for ForwardProxyPolicyAllowListModel
@@ -120,12 +120,12 @@ var ForwardProxyPolicyAllowListTLSListModelAttrTypes = map[string]attr.Type{
 
 // ForwardProxyPolicyDenyListModel represents deny_list block
 type ForwardProxyPolicyDenyListModel struct {
-	DefaultActionAllow      *ForwardProxyPolicyEmptyModel             `tfsdk:"default_action_allow"`
-	DefaultActionDeny       *ForwardProxyPolicyEmptyModel             `tfsdk:"default_action_deny"`
-	DefaultActionNextPolicy *ForwardProxyPolicyEmptyModel             `tfsdk:"default_action_next_policy"`
-	DestList                []ForwardProxyPolicyDenyListDestListModel `tfsdk:"dest_list"`
-	HTTPList                []ForwardProxyPolicyDenyListHTTPListModel `tfsdk:"http_list"`
-	TLSList                 []ForwardProxyPolicyDenyListTLSListModel  `tfsdk:"tls_list"`
+	DefaultActionAllow      *ForwardProxyPolicyEmptyModel `tfsdk:"default_action_allow"`
+	DefaultActionDeny       *ForwardProxyPolicyEmptyModel `tfsdk:"default_action_deny"`
+	DefaultActionNextPolicy *ForwardProxyPolicyEmptyModel `tfsdk:"default_action_next_policy"`
+	DestList                types.List                    `tfsdk:"dest_list"`
+	HTTPList                types.List                    `tfsdk:"http_list"`
+	TLSList                 types.List                    `tfsdk:"tls_list"`
 }
 
 // ForwardProxyPolicyDenyListModelAttrTypes defines the attribute types for ForwardProxyPolicyDenyListModel
@@ -324,7 +324,7 @@ var ForwardProxyPolicyRuleListRulesDstPrefixListModelAttrTypes = map[string]attr
 
 // ForwardProxyPolicyRuleListRulesHTTPListModel represents http_list block
 type ForwardProxyPolicyRuleListRulesHTTPListModel struct {
-	HTTPList []ForwardProxyPolicyRuleListRulesHTTPListHTTPListModel `tfsdk:"http_list"`
+	HTTPList types.List `tfsdk:"http_list"`
 }
 
 // ForwardProxyPolicyRuleListRulesHTTPListModelAttrTypes defines the attribute types for ForwardProxyPolicyRuleListRulesHTTPListModel
@@ -414,7 +414,7 @@ var ForwardProxyPolicyRuleListRulesPrefixListModelAttrTypes = map[string]attr.Ty
 
 // ForwardProxyPolicyRuleListRulesTLSListModel represents tls_list block
 type ForwardProxyPolicyRuleListRulesTLSListModel struct {
-	TLSList []ForwardProxyPolicyRuleListRulesTLSListTLSListModel `tfsdk:"tls_list"`
+	TLSList types.List `tfsdk:"tls_list"`
 }
 
 // ForwardProxyPolicyRuleListRulesTLSListModelAttrTypes defines the attribute types for ForwardProxyPolicyRuleListRulesTLSListModel
@@ -1281,76 +1281,91 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 		if data.AllowList.DefaultActionNextPolicy != nil {
 			AllowListMap["default_action_next_policy"] = map[string]interface{}{}
 		}
-		if len(data.AllowList.DestList) > 0 {
-			var DestListList []map[string]interface{}
-			for _, DestListItem := range data.AllowList.DestList {
-				DestListItemMap := make(map[string]interface{})
-				if !DestListItem.Ipv6Prefixes.IsNull() && !DestListItem.Ipv6Prefixes.IsUnknown() {
-					var Ipv6PrefixesItems []string
-					diags := DestListItem.Ipv6Prefixes.ElementsAs(ctx, &Ipv6PrefixesItems, false)
-					if !diags.HasError() {
-						DestListItemMap["ipv6_prefixes"] = Ipv6PrefixesItems
+		if !data.AllowList.DestList.IsNull() && !data.AllowList.DestList.IsUnknown() {
+			var DestListElems []ForwardProxyPolicyAllowListDestListModel
+			diags := data.AllowList.DestList.ElementsAs(ctx, &DestListElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(DestListElems) > 0 {
+				var DestListList []map[string]interface{}
+				for _, DestListItem := range DestListElems {
+					DestListItemMap := make(map[string]interface{})
+					if !DestListItem.Ipv6Prefixes.IsNull() && !DestListItem.Ipv6Prefixes.IsUnknown() {
+						var Ipv6PrefixesItems []string
+						diags := DestListItem.Ipv6Prefixes.ElementsAs(ctx, &Ipv6PrefixesItems, false)
+						if !diags.HasError() {
+							DestListItemMap["ipv6_prefixes"] = Ipv6PrefixesItems
+						}
 					}
-				}
-				if !DestListItem.PortRanges.IsNull() && !DestListItem.PortRanges.IsUnknown() {
-					DestListItemMap["port_ranges"] = DestListItem.PortRanges.ValueString()
-				}
-				if !DestListItem.Prefixes.IsNull() && !DestListItem.Prefixes.IsUnknown() {
-					var PrefixesItems []string
-					diags := DestListItem.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
-					if !diags.HasError() {
-						DestListItemMap["prefixes"] = PrefixesItems
+					if !DestListItem.PortRanges.IsNull() && !DestListItem.PortRanges.IsUnknown() {
+						DestListItemMap["port_ranges"] = DestListItem.PortRanges.ValueString()
 					}
+					if !DestListItem.Prefixes.IsNull() && !DestListItem.Prefixes.IsUnknown() {
+						var PrefixesItems []string
+						diags := DestListItem.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+						if !diags.HasError() {
+							DestListItemMap["prefixes"] = PrefixesItems
+						}
+					}
+					DestListList = append(DestListList, DestListItemMap)
 				}
-				DestListList = append(DestListList, DestListItemMap)
+				AllowListMap["dest_list"] = DestListList
 			}
-			AllowListMap["dest_list"] = DestListList
 		}
-		if len(data.AllowList.HTTPList) > 0 {
-			var HTTPListList []map[string]interface{}
-			for _, HTTPListItem := range data.AllowList.HTTPList {
-				HTTPListItemMap := make(map[string]interface{})
-				if HTTPListItem.AnyPath != nil {
-					HTTPListItemMap["any_path"] = map[string]interface{}{}
+		if !data.AllowList.HTTPList.IsNull() && !data.AllowList.HTTPList.IsUnknown() {
+			var HTTPListElems []ForwardProxyPolicyAllowListHTTPListModel
+			diags := data.AllowList.HTTPList.ElementsAs(ctx, &HTTPListElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(HTTPListElems) > 0 {
+				var HTTPListList []map[string]interface{}
+				for _, HTTPListItem := range HTTPListElems {
+					HTTPListItemMap := make(map[string]interface{})
+					if HTTPListItem.AnyPath != nil {
+						HTTPListItemMap["any_path"] = map[string]interface{}{}
+					}
+					if !HTTPListItem.ExactValue.IsNull() && !HTTPListItem.ExactValue.IsUnknown() {
+						HTTPListItemMap["exact_value"] = HTTPListItem.ExactValue.ValueString()
+					}
+					if !HTTPListItem.PathExactValue.IsNull() && !HTTPListItem.PathExactValue.IsUnknown() {
+						HTTPListItemMap["path_exact_value"] = HTTPListItem.PathExactValue.ValueString()
+					}
+					if !HTTPListItem.PathPrefixValue.IsNull() && !HTTPListItem.PathPrefixValue.IsUnknown() {
+						HTTPListItemMap["path_prefix_value"] = HTTPListItem.PathPrefixValue.ValueString()
+					}
+					if !HTTPListItem.PathRegexValue.IsNull() && !HTTPListItem.PathRegexValue.IsUnknown() {
+						HTTPListItemMap["path_regex_value"] = HTTPListItem.PathRegexValue.ValueString()
+					}
+					if !HTTPListItem.RegexValue.IsNull() && !HTTPListItem.RegexValue.IsUnknown() {
+						HTTPListItemMap["regex_value"] = HTTPListItem.RegexValue.ValueString()
+					}
+					if !HTTPListItem.SuffixValue.IsNull() && !HTTPListItem.SuffixValue.IsUnknown() {
+						HTTPListItemMap["suffix_value"] = HTTPListItem.SuffixValue.ValueString()
+					}
+					HTTPListList = append(HTTPListList, HTTPListItemMap)
 				}
-				if !HTTPListItem.ExactValue.IsNull() && !HTTPListItem.ExactValue.IsUnknown() {
-					HTTPListItemMap["exact_value"] = HTTPListItem.ExactValue.ValueString()
-				}
-				if !HTTPListItem.PathExactValue.IsNull() && !HTTPListItem.PathExactValue.IsUnknown() {
-					HTTPListItemMap["path_exact_value"] = HTTPListItem.PathExactValue.ValueString()
-				}
-				if !HTTPListItem.PathPrefixValue.IsNull() && !HTTPListItem.PathPrefixValue.IsUnknown() {
-					HTTPListItemMap["path_prefix_value"] = HTTPListItem.PathPrefixValue.ValueString()
-				}
-				if !HTTPListItem.PathRegexValue.IsNull() && !HTTPListItem.PathRegexValue.IsUnknown() {
-					HTTPListItemMap["path_regex_value"] = HTTPListItem.PathRegexValue.ValueString()
-				}
-				if !HTTPListItem.RegexValue.IsNull() && !HTTPListItem.RegexValue.IsUnknown() {
-					HTTPListItemMap["regex_value"] = HTTPListItem.RegexValue.ValueString()
-				}
-				if !HTTPListItem.SuffixValue.IsNull() && !HTTPListItem.SuffixValue.IsUnknown() {
-					HTTPListItemMap["suffix_value"] = HTTPListItem.SuffixValue.ValueString()
-				}
-				HTTPListList = append(HTTPListList, HTTPListItemMap)
+				AllowListMap["http_list"] = HTTPListList
 			}
-			AllowListMap["http_list"] = HTTPListList
 		}
-		if len(data.AllowList.TLSList) > 0 {
-			var TLSListList []map[string]interface{}
-			for _, TLSListItem := range data.AllowList.TLSList {
-				TLSListItemMap := make(map[string]interface{})
-				if !TLSListItem.ExactValue.IsNull() && !TLSListItem.ExactValue.IsUnknown() {
-					TLSListItemMap["exact_value"] = TLSListItem.ExactValue.ValueString()
+		if !data.AllowList.TLSList.IsNull() && !data.AllowList.TLSList.IsUnknown() {
+			var TLSListElems []ForwardProxyPolicyAllowListTLSListModel
+			diags := data.AllowList.TLSList.ElementsAs(ctx, &TLSListElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(TLSListElems) > 0 {
+				var TLSListList []map[string]interface{}
+				for _, TLSListItem := range TLSListElems {
+					TLSListItemMap := make(map[string]interface{})
+					if !TLSListItem.ExactValue.IsNull() && !TLSListItem.ExactValue.IsUnknown() {
+						TLSListItemMap["exact_value"] = TLSListItem.ExactValue.ValueString()
+					}
+					if !TLSListItem.RegexValue.IsNull() && !TLSListItem.RegexValue.IsUnknown() {
+						TLSListItemMap["regex_value"] = TLSListItem.RegexValue.ValueString()
+					}
+					if !TLSListItem.SuffixValue.IsNull() && !TLSListItem.SuffixValue.IsUnknown() {
+						TLSListItemMap["suffix_value"] = TLSListItem.SuffixValue.ValueString()
+					}
+					TLSListList = append(TLSListList, TLSListItemMap)
 				}
-				if !TLSListItem.RegexValue.IsNull() && !TLSListItem.RegexValue.IsUnknown() {
-					TLSListItemMap["regex_value"] = TLSListItem.RegexValue.ValueString()
-				}
-				if !TLSListItem.SuffixValue.IsNull() && !TLSListItem.SuffixValue.IsUnknown() {
-					TLSListItemMap["suffix_value"] = TLSListItem.SuffixValue.ValueString()
-				}
-				TLSListList = append(TLSListList, TLSListItemMap)
+				AllowListMap["tls_list"] = TLSListList
 			}
-			AllowListMap["tls_list"] = TLSListList
 		}
 		createReq.Spec["allow_list"] = AllowListMap
 	}
@@ -1368,76 +1383,91 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 		if data.DenyList.DefaultActionNextPolicy != nil {
 			DenyListMap["default_action_next_policy"] = map[string]interface{}{}
 		}
-		if len(data.DenyList.DestList) > 0 {
-			var DestListList []map[string]interface{}
-			for _, DestListItem := range data.DenyList.DestList {
-				DestListItemMap := make(map[string]interface{})
-				if !DestListItem.Ipv6Prefixes.IsNull() && !DestListItem.Ipv6Prefixes.IsUnknown() {
-					var Ipv6PrefixesItems []string
-					diags := DestListItem.Ipv6Prefixes.ElementsAs(ctx, &Ipv6PrefixesItems, false)
-					if !diags.HasError() {
-						DestListItemMap["ipv6_prefixes"] = Ipv6PrefixesItems
+		if !data.DenyList.DestList.IsNull() && !data.DenyList.DestList.IsUnknown() {
+			var DestListElems []ForwardProxyPolicyDenyListDestListModel
+			diags := data.DenyList.DestList.ElementsAs(ctx, &DestListElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(DestListElems) > 0 {
+				var DestListList []map[string]interface{}
+				for _, DestListItem := range DestListElems {
+					DestListItemMap := make(map[string]interface{})
+					if !DestListItem.Ipv6Prefixes.IsNull() && !DestListItem.Ipv6Prefixes.IsUnknown() {
+						var Ipv6PrefixesItems []string
+						diags := DestListItem.Ipv6Prefixes.ElementsAs(ctx, &Ipv6PrefixesItems, false)
+						if !diags.HasError() {
+							DestListItemMap["ipv6_prefixes"] = Ipv6PrefixesItems
+						}
 					}
-				}
-				if !DestListItem.PortRanges.IsNull() && !DestListItem.PortRanges.IsUnknown() {
-					DestListItemMap["port_ranges"] = DestListItem.PortRanges.ValueString()
-				}
-				if !DestListItem.Prefixes.IsNull() && !DestListItem.Prefixes.IsUnknown() {
-					var PrefixesItems []string
-					diags := DestListItem.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
-					if !diags.HasError() {
-						DestListItemMap["prefixes"] = PrefixesItems
+					if !DestListItem.PortRanges.IsNull() && !DestListItem.PortRanges.IsUnknown() {
+						DestListItemMap["port_ranges"] = DestListItem.PortRanges.ValueString()
 					}
+					if !DestListItem.Prefixes.IsNull() && !DestListItem.Prefixes.IsUnknown() {
+						var PrefixesItems []string
+						diags := DestListItem.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+						if !diags.HasError() {
+							DestListItemMap["prefixes"] = PrefixesItems
+						}
+					}
+					DestListList = append(DestListList, DestListItemMap)
 				}
-				DestListList = append(DestListList, DestListItemMap)
+				DenyListMap["dest_list"] = DestListList
 			}
-			DenyListMap["dest_list"] = DestListList
 		}
-		if len(data.DenyList.HTTPList) > 0 {
-			var HTTPListList []map[string]interface{}
-			for _, HTTPListItem := range data.DenyList.HTTPList {
-				HTTPListItemMap := make(map[string]interface{})
-				if HTTPListItem.AnyPath != nil {
-					HTTPListItemMap["any_path"] = map[string]interface{}{}
+		if !data.DenyList.HTTPList.IsNull() && !data.DenyList.HTTPList.IsUnknown() {
+			var HTTPListElems []ForwardProxyPolicyDenyListHTTPListModel
+			diags := data.DenyList.HTTPList.ElementsAs(ctx, &HTTPListElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(HTTPListElems) > 0 {
+				var HTTPListList []map[string]interface{}
+				for _, HTTPListItem := range HTTPListElems {
+					HTTPListItemMap := make(map[string]interface{})
+					if HTTPListItem.AnyPath != nil {
+						HTTPListItemMap["any_path"] = map[string]interface{}{}
+					}
+					if !HTTPListItem.ExactValue.IsNull() && !HTTPListItem.ExactValue.IsUnknown() {
+						HTTPListItemMap["exact_value"] = HTTPListItem.ExactValue.ValueString()
+					}
+					if !HTTPListItem.PathExactValue.IsNull() && !HTTPListItem.PathExactValue.IsUnknown() {
+						HTTPListItemMap["path_exact_value"] = HTTPListItem.PathExactValue.ValueString()
+					}
+					if !HTTPListItem.PathPrefixValue.IsNull() && !HTTPListItem.PathPrefixValue.IsUnknown() {
+						HTTPListItemMap["path_prefix_value"] = HTTPListItem.PathPrefixValue.ValueString()
+					}
+					if !HTTPListItem.PathRegexValue.IsNull() && !HTTPListItem.PathRegexValue.IsUnknown() {
+						HTTPListItemMap["path_regex_value"] = HTTPListItem.PathRegexValue.ValueString()
+					}
+					if !HTTPListItem.RegexValue.IsNull() && !HTTPListItem.RegexValue.IsUnknown() {
+						HTTPListItemMap["regex_value"] = HTTPListItem.RegexValue.ValueString()
+					}
+					if !HTTPListItem.SuffixValue.IsNull() && !HTTPListItem.SuffixValue.IsUnknown() {
+						HTTPListItemMap["suffix_value"] = HTTPListItem.SuffixValue.ValueString()
+					}
+					HTTPListList = append(HTTPListList, HTTPListItemMap)
 				}
-				if !HTTPListItem.ExactValue.IsNull() && !HTTPListItem.ExactValue.IsUnknown() {
-					HTTPListItemMap["exact_value"] = HTTPListItem.ExactValue.ValueString()
-				}
-				if !HTTPListItem.PathExactValue.IsNull() && !HTTPListItem.PathExactValue.IsUnknown() {
-					HTTPListItemMap["path_exact_value"] = HTTPListItem.PathExactValue.ValueString()
-				}
-				if !HTTPListItem.PathPrefixValue.IsNull() && !HTTPListItem.PathPrefixValue.IsUnknown() {
-					HTTPListItemMap["path_prefix_value"] = HTTPListItem.PathPrefixValue.ValueString()
-				}
-				if !HTTPListItem.PathRegexValue.IsNull() && !HTTPListItem.PathRegexValue.IsUnknown() {
-					HTTPListItemMap["path_regex_value"] = HTTPListItem.PathRegexValue.ValueString()
-				}
-				if !HTTPListItem.RegexValue.IsNull() && !HTTPListItem.RegexValue.IsUnknown() {
-					HTTPListItemMap["regex_value"] = HTTPListItem.RegexValue.ValueString()
-				}
-				if !HTTPListItem.SuffixValue.IsNull() && !HTTPListItem.SuffixValue.IsUnknown() {
-					HTTPListItemMap["suffix_value"] = HTTPListItem.SuffixValue.ValueString()
-				}
-				HTTPListList = append(HTTPListList, HTTPListItemMap)
+				DenyListMap["http_list"] = HTTPListList
 			}
-			DenyListMap["http_list"] = HTTPListList
 		}
-		if len(data.DenyList.TLSList) > 0 {
-			var TLSListList []map[string]interface{}
-			for _, TLSListItem := range data.DenyList.TLSList {
-				TLSListItemMap := make(map[string]interface{})
-				if !TLSListItem.ExactValue.IsNull() && !TLSListItem.ExactValue.IsUnknown() {
-					TLSListItemMap["exact_value"] = TLSListItem.ExactValue.ValueString()
+		if !data.DenyList.TLSList.IsNull() && !data.DenyList.TLSList.IsUnknown() {
+			var TLSListElems []ForwardProxyPolicyDenyListTLSListModel
+			diags := data.DenyList.TLSList.ElementsAs(ctx, &TLSListElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(TLSListElems) > 0 {
+				var TLSListList []map[string]interface{}
+				for _, TLSListItem := range TLSListElems {
+					TLSListItemMap := make(map[string]interface{})
+					if !TLSListItem.ExactValue.IsNull() && !TLSListItem.ExactValue.IsUnknown() {
+						TLSListItemMap["exact_value"] = TLSListItem.ExactValue.ValueString()
+					}
+					if !TLSListItem.RegexValue.IsNull() && !TLSListItem.RegexValue.IsUnknown() {
+						TLSListItemMap["regex_value"] = TLSListItem.RegexValue.ValueString()
+					}
+					if !TLSListItem.SuffixValue.IsNull() && !TLSListItem.SuffixValue.IsUnknown() {
+						TLSListItemMap["suffix_value"] = TLSListItem.SuffixValue.ValueString()
+					}
+					TLSListList = append(TLSListList, TLSListItemMap)
 				}
-				if !TLSListItem.RegexValue.IsNull() && !TLSListItem.RegexValue.IsUnknown() {
-					TLSListItemMap["regex_value"] = TLSListItem.RegexValue.ValueString()
-				}
-				if !TLSListItem.SuffixValue.IsNull() && !TLSListItem.SuffixValue.IsUnknown() {
-					TLSListItemMap["suffix_value"] = TLSListItem.SuffixValue.ValueString()
-				}
-				TLSListList = append(TLSListList, TLSListItemMap)
+				DenyListMap["tls_list"] = TLSListList
 			}
-			DenyListMap["tls_list"] = TLSListList
 		}
 		createReq.Spec["deny_list"] = DenyListMap
 	}
@@ -1548,34 +1578,39 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 					}
 					if RulesItem.HTTPList != nil {
 						HTTPListMap := make(map[string]interface{})
-						if len(RulesItem.HTTPList.HTTPList) > 0 {
-							var HTTPListList []map[string]interface{}
-							for _, HTTPListItem := range RulesItem.HTTPList.HTTPList {
-								HTTPListItemMap := make(map[string]interface{})
-								if HTTPListItem.AnyPath != nil {
-									HTTPListItemMap["any_path"] = map[string]interface{}{}
+						if !RulesItem.HTTPList.HTTPList.IsNull() && !RulesItem.HTTPList.HTTPList.IsUnknown() {
+							var HTTPListElems []ForwardProxyPolicyRuleListRulesHTTPListHTTPListModel
+							diags := RulesItem.HTTPList.HTTPList.ElementsAs(ctx, &HTTPListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(HTTPListElems) > 0 {
+								var HTTPListList []map[string]interface{}
+								for _, HTTPListItem := range HTTPListElems {
+									HTTPListItemMap := make(map[string]interface{})
+									if HTTPListItem.AnyPath != nil {
+										HTTPListItemMap["any_path"] = map[string]interface{}{}
+									}
+									if !HTTPListItem.ExactValue.IsNull() && !HTTPListItem.ExactValue.IsUnknown() {
+										HTTPListItemMap["exact_value"] = HTTPListItem.ExactValue.ValueString()
+									}
+									if !HTTPListItem.PathExactValue.IsNull() && !HTTPListItem.PathExactValue.IsUnknown() {
+										HTTPListItemMap["path_exact_value"] = HTTPListItem.PathExactValue.ValueString()
+									}
+									if !HTTPListItem.PathPrefixValue.IsNull() && !HTTPListItem.PathPrefixValue.IsUnknown() {
+										HTTPListItemMap["path_prefix_value"] = HTTPListItem.PathPrefixValue.ValueString()
+									}
+									if !HTTPListItem.PathRegexValue.IsNull() && !HTTPListItem.PathRegexValue.IsUnknown() {
+										HTTPListItemMap["path_regex_value"] = HTTPListItem.PathRegexValue.ValueString()
+									}
+									if !HTTPListItem.RegexValue.IsNull() && !HTTPListItem.RegexValue.IsUnknown() {
+										HTTPListItemMap["regex_value"] = HTTPListItem.RegexValue.ValueString()
+									}
+									if !HTTPListItem.SuffixValue.IsNull() && !HTTPListItem.SuffixValue.IsUnknown() {
+										HTTPListItemMap["suffix_value"] = HTTPListItem.SuffixValue.ValueString()
+									}
+									HTTPListList = append(HTTPListList, HTTPListItemMap)
 								}
-								if !HTTPListItem.ExactValue.IsNull() && !HTTPListItem.ExactValue.IsUnknown() {
-									HTTPListItemMap["exact_value"] = HTTPListItem.ExactValue.ValueString()
-								}
-								if !HTTPListItem.PathExactValue.IsNull() && !HTTPListItem.PathExactValue.IsUnknown() {
-									HTTPListItemMap["path_exact_value"] = HTTPListItem.PathExactValue.ValueString()
-								}
-								if !HTTPListItem.PathPrefixValue.IsNull() && !HTTPListItem.PathPrefixValue.IsUnknown() {
-									HTTPListItemMap["path_prefix_value"] = HTTPListItem.PathPrefixValue.ValueString()
-								}
-								if !HTTPListItem.PathRegexValue.IsNull() && !HTTPListItem.PathRegexValue.IsUnknown() {
-									HTTPListItemMap["path_regex_value"] = HTTPListItem.PathRegexValue.ValueString()
-								}
-								if !HTTPListItem.RegexValue.IsNull() && !HTTPListItem.RegexValue.IsUnknown() {
-									HTTPListItemMap["regex_value"] = HTTPListItem.RegexValue.ValueString()
-								}
-								if !HTTPListItem.SuffixValue.IsNull() && !HTTPListItem.SuffixValue.IsUnknown() {
-									HTTPListItemMap["suffix_value"] = HTTPListItem.SuffixValue.ValueString()
-								}
-								HTTPListList = append(HTTPListList, HTTPListItemMap)
+								HTTPListMap["http_list"] = HTTPListList
 							}
-							HTTPListMap["http_list"] = HTTPListList
 						}
 						RulesItemMap["http_list"] = HTTPListMap
 					}
@@ -1643,22 +1678,27 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 					}
 					if RulesItem.TLSList != nil {
 						TLSListMap := make(map[string]interface{})
-						if len(RulesItem.TLSList.TLSList) > 0 {
-							var TLSListList []map[string]interface{}
-							for _, TLSListItem := range RulesItem.TLSList.TLSList {
-								TLSListItemMap := make(map[string]interface{})
-								if !TLSListItem.ExactValue.IsNull() && !TLSListItem.ExactValue.IsUnknown() {
-									TLSListItemMap["exact_value"] = TLSListItem.ExactValue.ValueString()
+						if !RulesItem.TLSList.TLSList.IsNull() && !RulesItem.TLSList.TLSList.IsUnknown() {
+							var TLSListElems []ForwardProxyPolicyRuleListRulesTLSListTLSListModel
+							diags := RulesItem.TLSList.TLSList.ElementsAs(ctx, &TLSListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(TLSListElems) > 0 {
+								var TLSListList []map[string]interface{}
+								for _, TLSListItem := range TLSListElems {
+									TLSListItemMap := make(map[string]interface{})
+									if !TLSListItem.ExactValue.IsNull() && !TLSListItem.ExactValue.IsUnknown() {
+										TLSListItemMap["exact_value"] = TLSListItem.ExactValue.ValueString()
+									}
+									if !TLSListItem.RegexValue.IsNull() && !TLSListItem.RegexValue.IsUnknown() {
+										TLSListItemMap["regex_value"] = TLSListItem.RegexValue.ValueString()
+									}
+									if !TLSListItem.SuffixValue.IsNull() && !TLSListItem.SuffixValue.IsUnknown() {
+										TLSListItemMap["suffix_value"] = TLSListItem.SuffixValue.ValueString()
+									}
+									TLSListList = append(TLSListList, TLSListItemMap)
 								}
-								if !TLSListItem.RegexValue.IsNull() && !TLSListItem.RegexValue.IsUnknown() {
-									TLSListItemMap["regex_value"] = TLSListItem.RegexValue.ValueString()
-								}
-								if !TLSListItem.SuffixValue.IsNull() && !TLSListItem.SuffixValue.IsUnknown() {
-									TLSListItemMap["suffix_value"] = TLSListItem.SuffixValue.ValueString()
-								}
-								TLSListList = append(TLSListList, TLSListItemMap)
+								TLSListMap["tls_list"] = TLSListList
 							}
-							TLSListMap["tls_list"] = TLSListList
 						}
 						RulesItemMap["tls_list"] = TLSListMap
 					}
@@ -1725,9 +1765,9 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 				}
 				return nil
 			}(),
-			DestList: func() []ForwardProxyPolicyAllowListDestListModel {
-				if !isImport && data.AllowList != nil && len(data.AllowList.DestList) == 0 {
-					return nil
+			DestList: func() types.List {
+				if !isImport && data.AllowList != nil && (data.AllowList.DestList.IsNull() || len(data.AllowList.DestList.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListDestListModelAttrTypes})
 				}
 				if rawList, ok := blockData["dest_list"].([]interface{}); ok && len(rawList) > 0 {
 					var DestListResult []ForwardProxyPolicyAllowListDestListModel
@@ -1769,13 +1809,14 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 							})
 						}
 					}
-					return DestListResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListDestListModelAttrTypes}, DestListResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListDestListModelAttrTypes})
 			}(),
-			HTTPList: func() []ForwardProxyPolicyAllowListHTTPListModel {
-				if !isImport && data.AllowList != nil && len(data.AllowList.HTTPList) == 0 {
-					return nil
+			HTTPList: func() types.List {
+				if !isImport && data.AllowList != nil && (data.AllowList.HTTPList.IsNull() || len(data.AllowList.HTTPList.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListHTTPListModelAttrTypes})
 				}
 				if rawList, ok := blockData["http_list"].([]interface{}); ok && len(rawList) > 0 {
 					var HTTPListResult []ForwardProxyPolicyAllowListHTTPListModel
@@ -1827,13 +1868,14 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 							})
 						}
 					}
-					return HTTPListResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListHTTPListModelAttrTypes}, HTTPListResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListHTTPListModelAttrTypes})
 			}(),
-			TLSList: func() []ForwardProxyPolicyAllowListTLSListModel {
-				if !isImport && data.AllowList != nil && len(data.AllowList.TLSList) == 0 {
-					return nil
+			TLSList: func() types.List {
+				if !isImport && data.AllowList != nil && (data.AllowList.TLSList.IsNull() || len(data.AllowList.TLSList.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListTLSListModelAttrTypes})
 				}
 				if rawList, ok := blockData["tls_list"].([]interface{}); ok && len(rawList) > 0 {
 					var TLSListResult []ForwardProxyPolicyAllowListTLSListModel
@@ -1861,9 +1903,10 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 							})
 						}
 					}
-					return TLSListResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListTLSListModelAttrTypes}, TLSListResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListTLSListModelAttrTypes})
 			}(),
 		}
 	}
@@ -1899,9 +1942,9 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 				}
 				return nil
 			}(),
-			DestList: func() []ForwardProxyPolicyDenyListDestListModel {
-				if !isImport && data.DenyList != nil && len(data.DenyList.DestList) == 0 {
-					return nil
+			DestList: func() types.List {
+				if !isImport && data.DenyList != nil && (data.DenyList.DestList.IsNull() || len(data.DenyList.DestList.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListDestListModelAttrTypes})
 				}
 				if rawList, ok := blockData["dest_list"].([]interface{}); ok && len(rawList) > 0 {
 					var DestListResult []ForwardProxyPolicyDenyListDestListModel
@@ -1943,13 +1986,14 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 							})
 						}
 					}
-					return DestListResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListDestListModelAttrTypes}, DestListResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListDestListModelAttrTypes})
 			}(),
-			HTTPList: func() []ForwardProxyPolicyDenyListHTTPListModel {
-				if !isImport && data.DenyList != nil && len(data.DenyList.HTTPList) == 0 {
-					return nil
+			HTTPList: func() types.List {
+				if !isImport && data.DenyList != nil && (data.DenyList.HTTPList.IsNull() || len(data.DenyList.HTTPList.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListHTTPListModelAttrTypes})
 				}
 				if rawList, ok := blockData["http_list"].([]interface{}); ok && len(rawList) > 0 {
 					var HTTPListResult []ForwardProxyPolicyDenyListHTTPListModel
@@ -2001,13 +2045,14 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 							})
 						}
 					}
-					return HTTPListResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListHTTPListModelAttrTypes}, HTTPListResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListHTTPListModelAttrTypes})
 			}(),
-			TLSList: func() []ForwardProxyPolicyDenyListTLSListModel {
-				if !isImport && data.DenyList != nil && len(data.DenyList.TLSList) == 0 {
-					return nil
+			TLSList: func() types.List {
+				if !isImport && data.DenyList != nil && (data.DenyList.TLSList.IsNull() || len(data.DenyList.TLSList.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListTLSListModelAttrTypes})
 				}
 				if rawList, ok := blockData["tls_list"].([]interface{}); ok && len(rawList) > 0 {
 					var TLSListResult []ForwardProxyPolicyDenyListTLSListModel
@@ -2035,9 +2080,10 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 							})
 						}
 					}
-					return TLSListResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListTLSListModelAttrTypes}, TLSListResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListTLSListModelAttrTypes})
 			}(),
 		}
 	}
@@ -2225,7 +2271,7 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 								HTTPList: func() *ForwardProxyPolicyRuleListRulesHTTPListModel {
 									if HTTPListData, ok := RulesItemMap["http_list"].(map[string]interface{}); ok {
 										return &ForwardProxyPolicyRuleListRulesHTTPListModel{
-											HTTPList: func() []ForwardProxyPolicyRuleListRulesHTTPListHTTPListModel {
+											HTTPList: func() types.List {
 												if rawList, ok := HTTPListData["http_list"].([]interface{}); ok && len(rawList) > 0 {
 													var HTTPListResult []ForwardProxyPolicyRuleListRulesHTTPListHTTPListModel
 													for _, HTTPListItem := range rawList {
@@ -2276,9 +2322,10 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 															})
 														}
 													}
-													return HTTPListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyRuleListRulesHTTPListHTTPListModelAttrTypes}, HTTPListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyRuleListRulesHTTPListHTTPListModelAttrTypes})
 											}(),
 										}
 									}
@@ -2403,7 +2450,7 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 								TLSList: func() *ForwardProxyPolicyRuleListRulesTLSListModel {
 									if TLSListData, ok := RulesItemMap["tls_list"].(map[string]interface{}); ok {
 										return &ForwardProxyPolicyRuleListRulesTLSListModel{
-											TLSList: func() []ForwardProxyPolicyRuleListRulesTLSListTLSListModel {
+											TLSList: func() types.List {
 												if rawList, ok := TLSListData["tls_list"].([]interface{}); ok && len(rawList) > 0 {
 													var TLSListResult []ForwardProxyPolicyRuleListRulesTLSListTLSListModel
 													for _, TLSListItem := range rawList {
@@ -2430,9 +2477,10 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 															})
 														}
 													}
-													return TLSListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyRuleListRulesTLSListTLSListModelAttrTypes}, TLSListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyRuleListRulesTLSListTLSListModelAttrTypes})
 											}(),
 										}
 									}
@@ -2593,9 +2641,9 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 				}
 				return nil
 			}(),
-			DestList: func() []ForwardProxyPolicyAllowListDestListModel {
-				if !isImport && data.AllowList != nil && len(data.AllowList.DestList) == 0 {
-					return nil
+			DestList: func() types.List {
+				if !isImport && data.AllowList != nil && (data.AllowList.DestList.IsNull() || len(data.AllowList.DestList.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListDestListModelAttrTypes})
 				}
 				if rawList, ok := blockData["dest_list"].([]interface{}); ok && len(rawList) > 0 {
 					var DestListResult []ForwardProxyPolicyAllowListDestListModel
@@ -2637,13 +2685,14 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 							})
 						}
 					}
-					return DestListResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListDestListModelAttrTypes}, DestListResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListDestListModelAttrTypes})
 			}(),
-			HTTPList: func() []ForwardProxyPolicyAllowListHTTPListModel {
-				if !isImport && data.AllowList != nil && len(data.AllowList.HTTPList) == 0 {
-					return nil
+			HTTPList: func() types.List {
+				if !isImport && data.AllowList != nil && (data.AllowList.HTTPList.IsNull() || len(data.AllowList.HTTPList.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListHTTPListModelAttrTypes})
 				}
 				if rawList, ok := blockData["http_list"].([]interface{}); ok && len(rawList) > 0 {
 					var HTTPListResult []ForwardProxyPolicyAllowListHTTPListModel
@@ -2695,13 +2744,14 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 							})
 						}
 					}
-					return HTTPListResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListHTTPListModelAttrTypes}, HTTPListResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListHTTPListModelAttrTypes})
 			}(),
-			TLSList: func() []ForwardProxyPolicyAllowListTLSListModel {
-				if !isImport && data.AllowList != nil && len(data.AllowList.TLSList) == 0 {
-					return nil
+			TLSList: func() types.List {
+				if !isImport && data.AllowList != nil && (data.AllowList.TLSList.IsNull() || len(data.AllowList.TLSList.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListTLSListModelAttrTypes})
 				}
 				if rawList, ok := blockData["tls_list"].([]interface{}); ok && len(rawList) > 0 {
 					var TLSListResult []ForwardProxyPolicyAllowListTLSListModel
@@ -2729,9 +2779,10 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 							})
 						}
 					}
-					return TLSListResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListTLSListModelAttrTypes}, TLSListResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListTLSListModelAttrTypes})
 			}(),
 		}
 	}
@@ -2767,9 +2818,9 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 				}
 				return nil
 			}(),
-			DestList: func() []ForwardProxyPolicyDenyListDestListModel {
-				if !isImport && data.DenyList != nil && len(data.DenyList.DestList) == 0 {
-					return nil
+			DestList: func() types.List {
+				if !isImport && data.DenyList != nil && (data.DenyList.DestList.IsNull() || len(data.DenyList.DestList.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListDestListModelAttrTypes})
 				}
 				if rawList, ok := blockData["dest_list"].([]interface{}); ok && len(rawList) > 0 {
 					var DestListResult []ForwardProxyPolicyDenyListDestListModel
@@ -2811,13 +2862,14 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 							})
 						}
 					}
-					return DestListResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListDestListModelAttrTypes}, DestListResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListDestListModelAttrTypes})
 			}(),
-			HTTPList: func() []ForwardProxyPolicyDenyListHTTPListModel {
-				if !isImport && data.DenyList != nil && len(data.DenyList.HTTPList) == 0 {
-					return nil
+			HTTPList: func() types.List {
+				if !isImport && data.DenyList != nil && (data.DenyList.HTTPList.IsNull() || len(data.DenyList.HTTPList.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListHTTPListModelAttrTypes})
 				}
 				if rawList, ok := blockData["http_list"].([]interface{}); ok && len(rawList) > 0 {
 					var HTTPListResult []ForwardProxyPolicyDenyListHTTPListModel
@@ -2869,13 +2921,14 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 							})
 						}
 					}
-					return HTTPListResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListHTTPListModelAttrTypes}, HTTPListResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListHTTPListModelAttrTypes})
 			}(),
-			TLSList: func() []ForwardProxyPolicyDenyListTLSListModel {
-				if !isImport && data.DenyList != nil && len(data.DenyList.TLSList) == 0 {
-					return nil
+			TLSList: func() types.List {
+				if !isImport && data.DenyList != nil && (data.DenyList.TLSList.IsNull() || len(data.DenyList.TLSList.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListTLSListModelAttrTypes})
 				}
 				if rawList, ok := blockData["tls_list"].([]interface{}); ok && len(rawList) > 0 {
 					var TLSListResult []ForwardProxyPolicyDenyListTLSListModel
@@ -2903,9 +2956,10 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 							})
 						}
 					}
-					return TLSListResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListTLSListModelAttrTypes}, TLSListResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListTLSListModelAttrTypes})
 			}(),
 		}
 	}
@@ -3093,7 +3147,7 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 								HTTPList: func() *ForwardProxyPolicyRuleListRulesHTTPListModel {
 									if HTTPListData, ok := RulesItemMap["http_list"].(map[string]interface{}); ok {
 										return &ForwardProxyPolicyRuleListRulesHTTPListModel{
-											HTTPList: func() []ForwardProxyPolicyRuleListRulesHTTPListHTTPListModel {
+											HTTPList: func() types.List {
 												if rawList, ok := HTTPListData["http_list"].([]interface{}); ok && len(rawList) > 0 {
 													var HTTPListResult []ForwardProxyPolicyRuleListRulesHTTPListHTTPListModel
 													for _, HTTPListItem := range rawList {
@@ -3144,9 +3198,10 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 															})
 														}
 													}
-													return HTTPListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyRuleListRulesHTTPListHTTPListModelAttrTypes}, HTTPListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyRuleListRulesHTTPListHTTPListModelAttrTypes})
 											}(),
 										}
 									}
@@ -3271,7 +3326,7 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 								TLSList: func() *ForwardProxyPolicyRuleListRulesTLSListModel {
 									if TLSListData, ok := RulesItemMap["tls_list"].(map[string]interface{}); ok {
 										return &ForwardProxyPolicyRuleListRulesTLSListModel{
-											TLSList: func() []ForwardProxyPolicyRuleListRulesTLSListTLSListModel {
+											TLSList: func() types.List {
 												if rawList, ok := TLSListData["tls_list"].([]interface{}); ok && len(rawList) > 0 {
 													var TLSListResult []ForwardProxyPolicyRuleListRulesTLSListTLSListModel
 													for _, TLSListItem := range rawList {
@@ -3298,9 +3353,10 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 															})
 														}
 													}
-													return TLSListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyRuleListRulesTLSListTLSListModelAttrTypes}, TLSListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyRuleListRulesTLSListTLSListModelAttrTypes})
 											}(),
 										}
 									}
@@ -3409,76 +3465,91 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 		if data.AllowList.DefaultActionNextPolicy != nil {
 			AllowListMap["default_action_next_policy"] = map[string]interface{}{}
 		}
-		if len(data.AllowList.DestList) > 0 {
-			var DestListList []map[string]interface{}
-			for _, DestListItem := range data.AllowList.DestList {
-				DestListItemMap := make(map[string]interface{})
-				if !DestListItem.Ipv6Prefixes.IsNull() && !DestListItem.Ipv6Prefixes.IsUnknown() {
-					var Ipv6PrefixesItems []string
-					diags := DestListItem.Ipv6Prefixes.ElementsAs(ctx, &Ipv6PrefixesItems, false)
-					if !diags.HasError() {
-						DestListItemMap["ipv6_prefixes"] = Ipv6PrefixesItems
+		if !data.AllowList.DestList.IsNull() && !data.AllowList.DestList.IsUnknown() {
+			var DestListElems []ForwardProxyPolicyAllowListDestListModel
+			diags := data.AllowList.DestList.ElementsAs(ctx, &DestListElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(DestListElems) > 0 {
+				var DestListList []map[string]interface{}
+				for _, DestListItem := range DestListElems {
+					DestListItemMap := make(map[string]interface{})
+					if !DestListItem.Ipv6Prefixes.IsNull() && !DestListItem.Ipv6Prefixes.IsUnknown() {
+						var Ipv6PrefixesItems []string
+						diags := DestListItem.Ipv6Prefixes.ElementsAs(ctx, &Ipv6PrefixesItems, false)
+						if !diags.HasError() {
+							DestListItemMap["ipv6_prefixes"] = Ipv6PrefixesItems
+						}
 					}
-				}
-				if !DestListItem.PortRanges.IsNull() && !DestListItem.PortRanges.IsUnknown() {
-					DestListItemMap["port_ranges"] = DestListItem.PortRanges.ValueString()
-				}
-				if !DestListItem.Prefixes.IsNull() && !DestListItem.Prefixes.IsUnknown() {
-					var PrefixesItems []string
-					diags := DestListItem.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
-					if !diags.HasError() {
-						DestListItemMap["prefixes"] = PrefixesItems
+					if !DestListItem.PortRanges.IsNull() && !DestListItem.PortRanges.IsUnknown() {
+						DestListItemMap["port_ranges"] = DestListItem.PortRanges.ValueString()
 					}
+					if !DestListItem.Prefixes.IsNull() && !DestListItem.Prefixes.IsUnknown() {
+						var PrefixesItems []string
+						diags := DestListItem.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+						if !diags.HasError() {
+							DestListItemMap["prefixes"] = PrefixesItems
+						}
+					}
+					DestListList = append(DestListList, DestListItemMap)
 				}
-				DestListList = append(DestListList, DestListItemMap)
+				AllowListMap["dest_list"] = DestListList
 			}
-			AllowListMap["dest_list"] = DestListList
 		}
-		if len(data.AllowList.HTTPList) > 0 {
-			var HTTPListList []map[string]interface{}
-			for _, HTTPListItem := range data.AllowList.HTTPList {
-				HTTPListItemMap := make(map[string]interface{})
-				if HTTPListItem.AnyPath != nil {
-					HTTPListItemMap["any_path"] = map[string]interface{}{}
+		if !data.AllowList.HTTPList.IsNull() && !data.AllowList.HTTPList.IsUnknown() {
+			var HTTPListElems []ForwardProxyPolicyAllowListHTTPListModel
+			diags := data.AllowList.HTTPList.ElementsAs(ctx, &HTTPListElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(HTTPListElems) > 0 {
+				var HTTPListList []map[string]interface{}
+				for _, HTTPListItem := range HTTPListElems {
+					HTTPListItemMap := make(map[string]interface{})
+					if HTTPListItem.AnyPath != nil {
+						HTTPListItemMap["any_path"] = map[string]interface{}{}
+					}
+					if !HTTPListItem.ExactValue.IsNull() && !HTTPListItem.ExactValue.IsUnknown() {
+						HTTPListItemMap["exact_value"] = HTTPListItem.ExactValue.ValueString()
+					}
+					if !HTTPListItem.PathExactValue.IsNull() && !HTTPListItem.PathExactValue.IsUnknown() {
+						HTTPListItemMap["path_exact_value"] = HTTPListItem.PathExactValue.ValueString()
+					}
+					if !HTTPListItem.PathPrefixValue.IsNull() && !HTTPListItem.PathPrefixValue.IsUnknown() {
+						HTTPListItemMap["path_prefix_value"] = HTTPListItem.PathPrefixValue.ValueString()
+					}
+					if !HTTPListItem.PathRegexValue.IsNull() && !HTTPListItem.PathRegexValue.IsUnknown() {
+						HTTPListItemMap["path_regex_value"] = HTTPListItem.PathRegexValue.ValueString()
+					}
+					if !HTTPListItem.RegexValue.IsNull() && !HTTPListItem.RegexValue.IsUnknown() {
+						HTTPListItemMap["regex_value"] = HTTPListItem.RegexValue.ValueString()
+					}
+					if !HTTPListItem.SuffixValue.IsNull() && !HTTPListItem.SuffixValue.IsUnknown() {
+						HTTPListItemMap["suffix_value"] = HTTPListItem.SuffixValue.ValueString()
+					}
+					HTTPListList = append(HTTPListList, HTTPListItemMap)
 				}
-				if !HTTPListItem.ExactValue.IsNull() && !HTTPListItem.ExactValue.IsUnknown() {
-					HTTPListItemMap["exact_value"] = HTTPListItem.ExactValue.ValueString()
-				}
-				if !HTTPListItem.PathExactValue.IsNull() && !HTTPListItem.PathExactValue.IsUnknown() {
-					HTTPListItemMap["path_exact_value"] = HTTPListItem.PathExactValue.ValueString()
-				}
-				if !HTTPListItem.PathPrefixValue.IsNull() && !HTTPListItem.PathPrefixValue.IsUnknown() {
-					HTTPListItemMap["path_prefix_value"] = HTTPListItem.PathPrefixValue.ValueString()
-				}
-				if !HTTPListItem.PathRegexValue.IsNull() && !HTTPListItem.PathRegexValue.IsUnknown() {
-					HTTPListItemMap["path_regex_value"] = HTTPListItem.PathRegexValue.ValueString()
-				}
-				if !HTTPListItem.RegexValue.IsNull() && !HTTPListItem.RegexValue.IsUnknown() {
-					HTTPListItemMap["regex_value"] = HTTPListItem.RegexValue.ValueString()
-				}
-				if !HTTPListItem.SuffixValue.IsNull() && !HTTPListItem.SuffixValue.IsUnknown() {
-					HTTPListItemMap["suffix_value"] = HTTPListItem.SuffixValue.ValueString()
-				}
-				HTTPListList = append(HTTPListList, HTTPListItemMap)
+				AllowListMap["http_list"] = HTTPListList
 			}
-			AllowListMap["http_list"] = HTTPListList
 		}
-		if len(data.AllowList.TLSList) > 0 {
-			var TLSListList []map[string]interface{}
-			for _, TLSListItem := range data.AllowList.TLSList {
-				TLSListItemMap := make(map[string]interface{})
-				if !TLSListItem.ExactValue.IsNull() && !TLSListItem.ExactValue.IsUnknown() {
-					TLSListItemMap["exact_value"] = TLSListItem.ExactValue.ValueString()
+		if !data.AllowList.TLSList.IsNull() && !data.AllowList.TLSList.IsUnknown() {
+			var TLSListElems []ForwardProxyPolicyAllowListTLSListModel
+			diags := data.AllowList.TLSList.ElementsAs(ctx, &TLSListElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(TLSListElems) > 0 {
+				var TLSListList []map[string]interface{}
+				for _, TLSListItem := range TLSListElems {
+					TLSListItemMap := make(map[string]interface{})
+					if !TLSListItem.ExactValue.IsNull() && !TLSListItem.ExactValue.IsUnknown() {
+						TLSListItemMap["exact_value"] = TLSListItem.ExactValue.ValueString()
+					}
+					if !TLSListItem.RegexValue.IsNull() && !TLSListItem.RegexValue.IsUnknown() {
+						TLSListItemMap["regex_value"] = TLSListItem.RegexValue.ValueString()
+					}
+					if !TLSListItem.SuffixValue.IsNull() && !TLSListItem.SuffixValue.IsUnknown() {
+						TLSListItemMap["suffix_value"] = TLSListItem.SuffixValue.ValueString()
+					}
+					TLSListList = append(TLSListList, TLSListItemMap)
 				}
-				if !TLSListItem.RegexValue.IsNull() && !TLSListItem.RegexValue.IsUnknown() {
-					TLSListItemMap["regex_value"] = TLSListItem.RegexValue.ValueString()
-				}
-				if !TLSListItem.SuffixValue.IsNull() && !TLSListItem.SuffixValue.IsUnknown() {
-					TLSListItemMap["suffix_value"] = TLSListItem.SuffixValue.ValueString()
-				}
-				TLSListList = append(TLSListList, TLSListItemMap)
+				AllowListMap["tls_list"] = TLSListList
 			}
-			AllowListMap["tls_list"] = TLSListList
 		}
 		apiResource.Spec["allow_list"] = AllowListMap
 	}
@@ -3496,76 +3567,91 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 		if data.DenyList.DefaultActionNextPolicy != nil {
 			DenyListMap["default_action_next_policy"] = map[string]interface{}{}
 		}
-		if len(data.DenyList.DestList) > 0 {
-			var DestListList []map[string]interface{}
-			for _, DestListItem := range data.DenyList.DestList {
-				DestListItemMap := make(map[string]interface{})
-				if !DestListItem.Ipv6Prefixes.IsNull() && !DestListItem.Ipv6Prefixes.IsUnknown() {
-					var Ipv6PrefixesItems []string
-					diags := DestListItem.Ipv6Prefixes.ElementsAs(ctx, &Ipv6PrefixesItems, false)
-					if !diags.HasError() {
-						DestListItemMap["ipv6_prefixes"] = Ipv6PrefixesItems
+		if !data.DenyList.DestList.IsNull() && !data.DenyList.DestList.IsUnknown() {
+			var DestListElems []ForwardProxyPolicyDenyListDestListModel
+			diags := data.DenyList.DestList.ElementsAs(ctx, &DestListElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(DestListElems) > 0 {
+				var DestListList []map[string]interface{}
+				for _, DestListItem := range DestListElems {
+					DestListItemMap := make(map[string]interface{})
+					if !DestListItem.Ipv6Prefixes.IsNull() && !DestListItem.Ipv6Prefixes.IsUnknown() {
+						var Ipv6PrefixesItems []string
+						diags := DestListItem.Ipv6Prefixes.ElementsAs(ctx, &Ipv6PrefixesItems, false)
+						if !diags.HasError() {
+							DestListItemMap["ipv6_prefixes"] = Ipv6PrefixesItems
+						}
 					}
-				}
-				if !DestListItem.PortRanges.IsNull() && !DestListItem.PortRanges.IsUnknown() {
-					DestListItemMap["port_ranges"] = DestListItem.PortRanges.ValueString()
-				}
-				if !DestListItem.Prefixes.IsNull() && !DestListItem.Prefixes.IsUnknown() {
-					var PrefixesItems []string
-					diags := DestListItem.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
-					if !diags.HasError() {
-						DestListItemMap["prefixes"] = PrefixesItems
+					if !DestListItem.PortRanges.IsNull() && !DestListItem.PortRanges.IsUnknown() {
+						DestListItemMap["port_ranges"] = DestListItem.PortRanges.ValueString()
 					}
+					if !DestListItem.Prefixes.IsNull() && !DestListItem.Prefixes.IsUnknown() {
+						var PrefixesItems []string
+						diags := DestListItem.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+						if !diags.HasError() {
+							DestListItemMap["prefixes"] = PrefixesItems
+						}
+					}
+					DestListList = append(DestListList, DestListItemMap)
 				}
-				DestListList = append(DestListList, DestListItemMap)
+				DenyListMap["dest_list"] = DestListList
 			}
-			DenyListMap["dest_list"] = DestListList
 		}
-		if len(data.DenyList.HTTPList) > 0 {
-			var HTTPListList []map[string]interface{}
-			for _, HTTPListItem := range data.DenyList.HTTPList {
-				HTTPListItemMap := make(map[string]interface{})
-				if HTTPListItem.AnyPath != nil {
-					HTTPListItemMap["any_path"] = map[string]interface{}{}
+		if !data.DenyList.HTTPList.IsNull() && !data.DenyList.HTTPList.IsUnknown() {
+			var HTTPListElems []ForwardProxyPolicyDenyListHTTPListModel
+			diags := data.DenyList.HTTPList.ElementsAs(ctx, &HTTPListElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(HTTPListElems) > 0 {
+				var HTTPListList []map[string]interface{}
+				for _, HTTPListItem := range HTTPListElems {
+					HTTPListItemMap := make(map[string]interface{})
+					if HTTPListItem.AnyPath != nil {
+						HTTPListItemMap["any_path"] = map[string]interface{}{}
+					}
+					if !HTTPListItem.ExactValue.IsNull() && !HTTPListItem.ExactValue.IsUnknown() {
+						HTTPListItemMap["exact_value"] = HTTPListItem.ExactValue.ValueString()
+					}
+					if !HTTPListItem.PathExactValue.IsNull() && !HTTPListItem.PathExactValue.IsUnknown() {
+						HTTPListItemMap["path_exact_value"] = HTTPListItem.PathExactValue.ValueString()
+					}
+					if !HTTPListItem.PathPrefixValue.IsNull() && !HTTPListItem.PathPrefixValue.IsUnknown() {
+						HTTPListItemMap["path_prefix_value"] = HTTPListItem.PathPrefixValue.ValueString()
+					}
+					if !HTTPListItem.PathRegexValue.IsNull() && !HTTPListItem.PathRegexValue.IsUnknown() {
+						HTTPListItemMap["path_regex_value"] = HTTPListItem.PathRegexValue.ValueString()
+					}
+					if !HTTPListItem.RegexValue.IsNull() && !HTTPListItem.RegexValue.IsUnknown() {
+						HTTPListItemMap["regex_value"] = HTTPListItem.RegexValue.ValueString()
+					}
+					if !HTTPListItem.SuffixValue.IsNull() && !HTTPListItem.SuffixValue.IsUnknown() {
+						HTTPListItemMap["suffix_value"] = HTTPListItem.SuffixValue.ValueString()
+					}
+					HTTPListList = append(HTTPListList, HTTPListItemMap)
 				}
-				if !HTTPListItem.ExactValue.IsNull() && !HTTPListItem.ExactValue.IsUnknown() {
-					HTTPListItemMap["exact_value"] = HTTPListItem.ExactValue.ValueString()
-				}
-				if !HTTPListItem.PathExactValue.IsNull() && !HTTPListItem.PathExactValue.IsUnknown() {
-					HTTPListItemMap["path_exact_value"] = HTTPListItem.PathExactValue.ValueString()
-				}
-				if !HTTPListItem.PathPrefixValue.IsNull() && !HTTPListItem.PathPrefixValue.IsUnknown() {
-					HTTPListItemMap["path_prefix_value"] = HTTPListItem.PathPrefixValue.ValueString()
-				}
-				if !HTTPListItem.PathRegexValue.IsNull() && !HTTPListItem.PathRegexValue.IsUnknown() {
-					HTTPListItemMap["path_regex_value"] = HTTPListItem.PathRegexValue.ValueString()
-				}
-				if !HTTPListItem.RegexValue.IsNull() && !HTTPListItem.RegexValue.IsUnknown() {
-					HTTPListItemMap["regex_value"] = HTTPListItem.RegexValue.ValueString()
-				}
-				if !HTTPListItem.SuffixValue.IsNull() && !HTTPListItem.SuffixValue.IsUnknown() {
-					HTTPListItemMap["suffix_value"] = HTTPListItem.SuffixValue.ValueString()
-				}
-				HTTPListList = append(HTTPListList, HTTPListItemMap)
+				DenyListMap["http_list"] = HTTPListList
 			}
-			DenyListMap["http_list"] = HTTPListList
 		}
-		if len(data.DenyList.TLSList) > 0 {
-			var TLSListList []map[string]interface{}
-			for _, TLSListItem := range data.DenyList.TLSList {
-				TLSListItemMap := make(map[string]interface{})
-				if !TLSListItem.ExactValue.IsNull() && !TLSListItem.ExactValue.IsUnknown() {
-					TLSListItemMap["exact_value"] = TLSListItem.ExactValue.ValueString()
+		if !data.DenyList.TLSList.IsNull() && !data.DenyList.TLSList.IsUnknown() {
+			var TLSListElems []ForwardProxyPolicyDenyListTLSListModel
+			diags := data.DenyList.TLSList.ElementsAs(ctx, &TLSListElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(TLSListElems) > 0 {
+				var TLSListList []map[string]interface{}
+				for _, TLSListItem := range TLSListElems {
+					TLSListItemMap := make(map[string]interface{})
+					if !TLSListItem.ExactValue.IsNull() && !TLSListItem.ExactValue.IsUnknown() {
+						TLSListItemMap["exact_value"] = TLSListItem.ExactValue.ValueString()
+					}
+					if !TLSListItem.RegexValue.IsNull() && !TLSListItem.RegexValue.IsUnknown() {
+						TLSListItemMap["regex_value"] = TLSListItem.RegexValue.ValueString()
+					}
+					if !TLSListItem.SuffixValue.IsNull() && !TLSListItem.SuffixValue.IsUnknown() {
+						TLSListItemMap["suffix_value"] = TLSListItem.SuffixValue.ValueString()
+					}
+					TLSListList = append(TLSListList, TLSListItemMap)
 				}
-				if !TLSListItem.RegexValue.IsNull() && !TLSListItem.RegexValue.IsUnknown() {
-					TLSListItemMap["regex_value"] = TLSListItem.RegexValue.ValueString()
-				}
-				if !TLSListItem.SuffixValue.IsNull() && !TLSListItem.SuffixValue.IsUnknown() {
-					TLSListItemMap["suffix_value"] = TLSListItem.SuffixValue.ValueString()
-				}
-				TLSListList = append(TLSListList, TLSListItemMap)
+				DenyListMap["tls_list"] = TLSListList
 			}
-			DenyListMap["tls_list"] = TLSListList
 		}
 		apiResource.Spec["deny_list"] = DenyListMap
 	}
@@ -3676,34 +3762,39 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 					}
 					if RulesItem.HTTPList != nil {
 						HTTPListMap := make(map[string]interface{})
-						if len(RulesItem.HTTPList.HTTPList) > 0 {
-							var HTTPListList []map[string]interface{}
-							for _, HTTPListItem := range RulesItem.HTTPList.HTTPList {
-								HTTPListItemMap := make(map[string]interface{})
-								if HTTPListItem.AnyPath != nil {
-									HTTPListItemMap["any_path"] = map[string]interface{}{}
+						if !RulesItem.HTTPList.HTTPList.IsNull() && !RulesItem.HTTPList.HTTPList.IsUnknown() {
+							var HTTPListElems []ForwardProxyPolicyRuleListRulesHTTPListHTTPListModel
+							diags := RulesItem.HTTPList.HTTPList.ElementsAs(ctx, &HTTPListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(HTTPListElems) > 0 {
+								var HTTPListList []map[string]interface{}
+								for _, HTTPListItem := range HTTPListElems {
+									HTTPListItemMap := make(map[string]interface{})
+									if HTTPListItem.AnyPath != nil {
+										HTTPListItemMap["any_path"] = map[string]interface{}{}
+									}
+									if !HTTPListItem.ExactValue.IsNull() && !HTTPListItem.ExactValue.IsUnknown() {
+										HTTPListItemMap["exact_value"] = HTTPListItem.ExactValue.ValueString()
+									}
+									if !HTTPListItem.PathExactValue.IsNull() && !HTTPListItem.PathExactValue.IsUnknown() {
+										HTTPListItemMap["path_exact_value"] = HTTPListItem.PathExactValue.ValueString()
+									}
+									if !HTTPListItem.PathPrefixValue.IsNull() && !HTTPListItem.PathPrefixValue.IsUnknown() {
+										HTTPListItemMap["path_prefix_value"] = HTTPListItem.PathPrefixValue.ValueString()
+									}
+									if !HTTPListItem.PathRegexValue.IsNull() && !HTTPListItem.PathRegexValue.IsUnknown() {
+										HTTPListItemMap["path_regex_value"] = HTTPListItem.PathRegexValue.ValueString()
+									}
+									if !HTTPListItem.RegexValue.IsNull() && !HTTPListItem.RegexValue.IsUnknown() {
+										HTTPListItemMap["regex_value"] = HTTPListItem.RegexValue.ValueString()
+									}
+									if !HTTPListItem.SuffixValue.IsNull() && !HTTPListItem.SuffixValue.IsUnknown() {
+										HTTPListItemMap["suffix_value"] = HTTPListItem.SuffixValue.ValueString()
+									}
+									HTTPListList = append(HTTPListList, HTTPListItemMap)
 								}
-								if !HTTPListItem.ExactValue.IsNull() && !HTTPListItem.ExactValue.IsUnknown() {
-									HTTPListItemMap["exact_value"] = HTTPListItem.ExactValue.ValueString()
-								}
-								if !HTTPListItem.PathExactValue.IsNull() && !HTTPListItem.PathExactValue.IsUnknown() {
-									HTTPListItemMap["path_exact_value"] = HTTPListItem.PathExactValue.ValueString()
-								}
-								if !HTTPListItem.PathPrefixValue.IsNull() && !HTTPListItem.PathPrefixValue.IsUnknown() {
-									HTTPListItemMap["path_prefix_value"] = HTTPListItem.PathPrefixValue.ValueString()
-								}
-								if !HTTPListItem.PathRegexValue.IsNull() && !HTTPListItem.PathRegexValue.IsUnknown() {
-									HTTPListItemMap["path_regex_value"] = HTTPListItem.PathRegexValue.ValueString()
-								}
-								if !HTTPListItem.RegexValue.IsNull() && !HTTPListItem.RegexValue.IsUnknown() {
-									HTTPListItemMap["regex_value"] = HTTPListItem.RegexValue.ValueString()
-								}
-								if !HTTPListItem.SuffixValue.IsNull() && !HTTPListItem.SuffixValue.IsUnknown() {
-									HTTPListItemMap["suffix_value"] = HTTPListItem.SuffixValue.ValueString()
-								}
-								HTTPListList = append(HTTPListList, HTTPListItemMap)
+								HTTPListMap["http_list"] = HTTPListList
 							}
-							HTTPListMap["http_list"] = HTTPListList
 						}
 						RulesItemMap["http_list"] = HTTPListMap
 					}
@@ -3771,22 +3862,27 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 					}
 					if RulesItem.TLSList != nil {
 						TLSListMap := make(map[string]interface{})
-						if len(RulesItem.TLSList.TLSList) > 0 {
-							var TLSListList []map[string]interface{}
-							for _, TLSListItem := range RulesItem.TLSList.TLSList {
-								TLSListItemMap := make(map[string]interface{})
-								if !TLSListItem.ExactValue.IsNull() && !TLSListItem.ExactValue.IsUnknown() {
-									TLSListItemMap["exact_value"] = TLSListItem.ExactValue.ValueString()
+						if !RulesItem.TLSList.TLSList.IsNull() && !RulesItem.TLSList.TLSList.IsUnknown() {
+							var TLSListElems []ForwardProxyPolicyRuleListRulesTLSListTLSListModel
+							diags := RulesItem.TLSList.TLSList.ElementsAs(ctx, &TLSListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(TLSListElems) > 0 {
+								var TLSListList []map[string]interface{}
+								for _, TLSListItem := range TLSListElems {
+									TLSListItemMap := make(map[string]interface{})
+									if !TLSListItem.ExactValue.IsNull() && !TLSListItem.ExactValue.IsUnknown() {
+										TLSListItemMap["exact_value"] = TLSListItem.ExactValue.ValueString()
+									}
+									if !TLSListItem.RegexValue.IsNull() && !TLSListItem.RegexValue.IsUnknown() {
+										TLSListItemMap["regex_value"] = TLSListItem.RegexValue.ValueString()
+									}
+									if !TLSListItem.SuffixValue.IsNull() && !TLSListItem.SuffixValue.IsUnknown() {
+										TLSListItemMap["suffix_value"] = TLSListItem.SuffixValue.ValueString()
+									}
+									TLSListList = append(TLSListList, TLSListItemMap)
 								}
-								if !TLSListItem.RegexValue.IsNull() && !TLSListItem.RegexValue.IsUnknown() {
-									TLSListItemMap["regex_value"] = TLSListItem.RegexValue.ValueString()
-								}
-								if !TLSListItem.SuffixValue.IsNull() && !TLSListItem.SuffixValue.IsUnknown() {
-									TLSListItemMap["suffix_value"] = TLSListItem.SuffixValue.ValueString()
-								}
-								TLSListList = append(TLSListList, TLSListItemMap)
+								TLSListMap["tls_list"] = TLSListList
 							}
-							TLSListMap["tls_list"] = TLSListList
 						}
 						RulesItemMap["tls_list"] = TLSListMap
 					}
@@ -3864,9 +3960,9 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 				}
 				return nil
 			}(),
-			DestList: func() []ForwardProxyPolicyAllowListDestListModel {
-				if !isImport && data.AllowList != nil && len(data.AllowList.DestList) == 0 {
-					return nil
+			DestList: func() types.List {
+				if !isImport && data.AllowList != nil && (data.AllowList.DestList.IsNull() || len(data.AllowList.DestList.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListDestListModelAttrTypes})
 				}
 				if rawList, ok := blockData["dest_list"].([]interface{}); ok && len(rawList) > 0 {
 					var DestListResult []ForwardProxyPolicyAllowListDestListModel
@@ -3908,13 +4004,14 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 							})
 						}
 					}
-					return DestListResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListDestListModelAttrTypes}, DestListResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListDestListModelAttrTypes})
 			}(),
-			HTTPList: func() []ForwardProxyPolicyAllowListHTTPListModel {
-				if !isImport && data.AllowList != nil && len(data.AllowList.HTTPList) == 0 {
-					return nil
+			HTTPList: func() types.List {
+				if !isImport && data.AllowList != nil && (data.AllowList.HTTPList.IsNull() || len(data.AllowList.HTTPList.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListHTTPListModelAttrTypes})
 				}
 				if rawList, ok := blockData["http_list"].([]interface{}); ok && len(rawList) > 0 {
 					var HTTPListResult []ForwardProxyPolicyAllowListHTTPListModel
@@ -3966,13 +4063,14 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 							})
 						}
 					}
-					return HTTPListResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListHTTPListModelAttrTypes}, HTTPListResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListHTTPListModelAttrTypes})
 			}(),
-			TLSList: func() []ForwardProxyPolicyAllowListTLSListModel {
-				if !isImport && data.AllowList != nil && len(data.AllowList.TLSList) == 0 {
-					return nil
+			TLSList: func() types.List {
+				if !isImport && data.AllowList != nil && (data.AllowList.TLSList.IsNull() || len(data.AllowList.TLSList.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListTLSListModelAttrTypes})
 				}
 				if rawList, ok := blockData["tls_list"].([]interface{}); ok && len(rawList) > 0 {
 					var TLSListResult []ForwardProxyPolicyAllowListTLSListModel
@@ -4000,9 +4098,10 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 							})
 						}
 					}
-					return TLSListResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListTLSListModelAttrTypes}, TLSListResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyAllowListTLSListModelAttrTypes})
 			}(),
 		}
 	}
@@ -4038,9 +4137,9 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 				}
 				return nil
 			}(),
-			DestList: func() []ForwardProxyPolicyDenyListDestListModel {
-				if !isImport && data.DenyList != nil && len(data.DenyList.DestList) == 0 {
-					return nil
+			DestList: func() types.List {
+				if !isImport && data.DenyList != nil && (data.DenyList.DestList.IsNull() || len(data.DenyList.DestList.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListDestListModelAttrTypes})
 				}
 				if rawList, ok := blockData["dest_list"].([]interface{}); ok && len(rawList) > 0 {
 					var DestListResult []ForwardProxyPolicyDenyListDestListModel
@@ -4082,13 +4181,14 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 							})
 						}
 					}
-					return DestListResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListDestListModelAttrTypes}, DestListResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListDestListModelAttrTypes})
 			}(),
-			HTTPList: func() []ForwardProxyPolicyDenyListHTTPListModel {
-				if !isImport && data.DenyList != nil && len(data.DenyList.HTTPList) == 0 {
-					return nil
+			HTTPList: func() types.List {
+				if !isImport && data.DenyList != nil && (data.DenyList.HTTPList.IsNull() || len(data.DenyList.HTTPList.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListHTTPListModelAttrTypes})
 				}
 				if rawList, ok := blockData["http_list"].([]interface{}); ok && len(rawList) > 0 {
 					var HTTPListResult []ForwardProxyPolicyDenyListHTTPListModel
@@ -4140,13 +4240,14 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 							})
 						}
 					}
-					return HTTPListResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListHTTPListModelAttrTypes}, HTTPListResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListHTTPListModelAttrTypes})
 			}(),
-			TLSList: func() []ForwardProxyPolicyDenyListTLSListModel {
-				if !isImport && data.DenyList != nil && len(data.DenyList.TLSList) == 0 {
-					return nil
+			TLSList: func() types.List {
+				if !isImport && data.DenyList != nil && (data.DenyList.TLSList.IsNull() || len(data.DenyList.TLSList.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListTLSListModelAttrTypes})
 				}
 				if rawList, ok := blockData["tls_list"].([]interface{}); ok && len(rawList) > 0 {
 					var TLSListResult []ForwardProxyPolicyDenyListTLSListModel
@@ -4174,9 +4275,10 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 							})
 						}
 					}
-					return TLSListResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListTLSListModelAttrTypes}, TLSListResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyDenyListTLSListModelAttrTypes})
 			}(),
 		}
 	}
@@ -4364,7 +4466,7 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 								HTTPList: func() *ForwardProxyPolicyRuleListRulesHTTPListModel {
 									if HTTPListData, ok := RulesItemMap["http_list"].(map[string]interface{}); ok {
 										return &ForwardProxyPolicyRuleListRulesHTTPListModel{
-											HTTPList: func() []ForwardProxyPolicyRuleListRulesHTTPListHTTPListModel {
+											HTTPList: func() types.List {
 												if rawList, ok := HTTPListData["http_list"].([]interface{}); ok && len(rawList) > 0 {
 													var HTTPListResult []ForwardProxyPolicyRuleListRulesHTTPListHTTPListModel
 													for _, HTTPListItem := range rawList {
@@ -4415,9 +4517,10 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 															})
 														}
 													}
-													return HTTPListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyRuleListRulesHTTPListHTTPListModelAttrTypes}, HTTPListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyRuleListRulesHTTPListHTTPListModelAttrTypes})
 											}(),
 										}
 									}
@@ -4542,7 +4645,7 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 								TLSList: func() *ForwardProxyPolicyRuleListRulesTLSListModel {
 									if TLSListData, ok := RulesItemMap["tls_list"].(map[string]interface{}); ok {
 										return &ForwardProxyPolicyRuleListRulesTLSListModel{
-											TLSList: func() []ForwardProxyPolicyRuleListRulesTLSListTLSListModel {
+											TLSList: func() types.List {
 												if rawList, ok := TLSListData["tls_list"].([]interface{}); ok && len(rawList) > 0 {
 													var TLSListResult []ForwardProxyPolicyRuleListRulesTLSListTLSListModel
 													for _, TLSListItem := range rawList {
@@ -4569,9 +4672,10 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 															})
 														}
 													}
-													return TLSListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ForwardProxyPolicyRuleListRulesTLSListTLSListModelAttrTypes}, TLSListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ForwardProxyPolicyRuleListRulesTLSListTLSListModelAttrTypes})
 											}(),
 										}
 									}
