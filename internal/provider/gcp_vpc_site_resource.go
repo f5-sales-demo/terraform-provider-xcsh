@@ -140,7 +140,7 @@ var GCPVPCSiteAdminPasswordWingmanSecretInfoModelAttrTypes = map[string]attr.Typ
 
 // GCPVPCSiteBlockedServicesModel represents blocked_services block
 type GCPVPCSiteBlockedServicesModel struct {
-	BlockedService []GCPVPCSiteBlockedServicesBlockedServiceModel `tfsdk:"blocked_service"`
+	BlockedService types.List `tfsdk:"blocked_service"`
 }
 
 // GCPVPCSiteBlockedServicesModelAttrTypes defines the attribute types for GCPVPCSiteBlockedServicesModel
@@ -500,10 +500,10 @@ var GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListModelAttrTypes = m
 
 // GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteModel represents custom_static_route block
 type GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteModel struct {
-	Attrs   types.List                                                                                `tfsdk:"attrs"`
-	Labels  *GCPVPCSiteEmptyModel                                                                     `tfsdk:"labels"`
-	Nexthop *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel  `tfsdk:"nexthop"`
-	Subnets []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel `tfsdk:"subnets"`
+	Attrs   types.List                                                                               `tfsdk:"attrs"`
+	Labels  *GCPVPCSiteEmptyModel                                                                    `tfsdk:"labels"`
+	Nexthop *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel `tfsdk:"nexthop"`
+	Subnets types.List                                                                               `tfsdk:"subnets"`
 }
 
 // GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes defines the attribute types for GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteModel
@@ -706,10 +706,10 @@ var GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListModelAttrTypes = 
 
 // GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteModel represents custom_static_route block
 type GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteModel struct {
-	Attrs   types.List                                                                                 `tfsdk:"attrs"`
-	Labels  *GCPVPCSiteEmptyModel                                                                      `tfsdk:"labels"`
-	Nexthop *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel  `tfsdk:"nexthop"`
-	Subnets []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel `tfsdk:"subnets"`
+	Attrs   types.List                                                                                `tfsdk:"attrs"`
+	Labels  *GCPVPCSiteEmptyModel                                                                     `tfsdk:"labels"`
+	Nexthop *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel `tfsdk:"nexthop"`
+	Subnets types.List                                                                                `tfsdk:"subnets"`
 }
 
 // GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes defines the attribute types for GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteModel
@@ -1344,10 +1344,10 @@ var GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListModelAttrTypes =
 
 // GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteModel represents custom_static_route block
 type GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteModel struct {
-	Attrs   types.List                                                                                  `tfsdk:"attrs"`
-	Labels  *GCPVPCSiteEmptyModel                                                                       `tfsdk:"labels"`
-	Nexthop *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel  `tfsdk:"nexthop"`
-	Subnets []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel `tfsdk:"subnets"`
+	Attrs   types.List                                                                                 `tfsdk:"attrs"`
+	Labels  *GCPVPCSiteEmptyModel                                                                      `tfsdk:"labels"`
+	Nexthop *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel `tfsdk:"nexthop"`
+	Subnets types.List                                                                                 `tfsdk:"subnets"`
 }
 
 // GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes defines the attribute types for GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteModel
@@ -1528,7 +1528,7 @@ var GCPVPCSiteVoltstackClusterSiteLocalSubnetNewSubnetModelAttrTypes = map[strin
 
 // GCPVPCSiteVoltstackClusterStorageClassListModel represents storage_class_list block
 type GCPVPCSiteVoltstackClusterStorageClassListModel struct {
-	StorageClasses []GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModel `tfsdk:"storage_classes"`
+	StorageClasses types.List `tfsdk:"storage_classes"`
 }
 
 // GCPVPCSiteVoltstackClusterStorageClassListModelAttrTypes defines the attribute types for GCPVPCSiteVoltstackClusterStorageClassListModel
@@ -3716,25 +3716,30 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	}
 	if data.BlockedServices != nil {
 		BlockedServicesMap := make(map[string]interface{})
-		if len(data.BlockedServices.BlockedService) > 0 {
-			var BlockedServiceList []map[string]interface{}
-			for _, BlockedServiceItem := range data.BlockedServices.BlockedService {
-				BlockedServiceItemMap := make(map[string]interface{})
-				if BlockedServiceItem.DNS != nil {
-					BlockedServiceItemMap["dns"] = map[string]interface{}{}
+		if !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
+			var BlockedServiceElems []GCPVPCSiteBlockedServicesBlockedServiceModel
+			diags := data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(BlockedServiceElems) > 0 {
+				var BlockedServiceList []map[string]interface{}
+				for _, BlockedServiceItem := range BlockedServiceElems {
+					BlockedServiceItemMap := make(map[string]interface{})
+					if BlockedServiceItem.DNS != nil {
+						BlockedServiceItemMap["dns"] = map[string]interface{}{}
+					}
+					if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
+						BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
+					}
+					if BlockedServiceItem.SSH != nil {
+						BlockedServiceItemMap["ssh"] = map[string]interface{}{}
+					}
+					if BlockedServiceItem.WebUserInterface != nil {
+						BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
+					}
+					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
 				}
-				if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
-					BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
-				}
-				if BlockedServiceItem.SSH != nil {
-					BlockedServiceItemMap["ssh"] = map[string]interface{}{}
-				}
-				if BlockedServiceItem.WebUserInterface != nil {
-					BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
-				}
-				BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
+				BlockedServicesMap["blocked_service"] = BlockedServiceList
 			}
-			BlockedServicesMap["blocked_service"] = BlockedServiceList
 		}
 		createReq.Spec["blocked_services"] = BlockedServicesMap
 	}
@@ -4056,33 +4061,38 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 								}
 								CustomStaticRouteMap["nexthop"] = NexthopMap
 							}
-							if len(StaticRouteListItem.CustomStaticRoute.Subnets) > 0 {
-								var SubnetsList []map[string]interface{}
-								for _, SubnetsItem := range StaticRouteListItem.CustomStaticRoute.Subnets {
-									SubnetsItemMap := make(map[string]interface{})
-									if SubnetsItem.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-											Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
+								var SubnetsElems []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
+								diags := StaticRouteListItem.CustomStaticRoute.Subnets.ElementsAs(ctx, &SubnetsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(SubnetsElems) > 0 {
+									var SubnetsList []map[string]interface{}
+									for _, SubnetsItem := range SubnetsElems {
+										SubnetsItemMap := make(map[string]interface{})
+										if SubnetsItem.Ipv4 != nil {
+											Ipv4Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
+												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
+												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv4"] = Ipv4Map
 										}
-										if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-											Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+										if SubnetsItem.Ipv6 != nil {
+											Ipv6Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
+												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
+												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv6"] = Ipv6Map
 										}
-										SubnetsItemMap["ipv4"] = Ipv4Map
+										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									if SubnetsItem.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-											Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
-										}
-										if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-											Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
-										}
-										SubnetsItemMap["ipv6"] = Ipv6Map
-									}
-									SubnetsList = append(SubnetsList, SubnetsItemMap)
+									CustomStaticRouteMap["subnets"] = SubnetsList
 								}
-								CustomStaticRouteMap["subnets"] = SubnetsList
 							}
 							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
 						}
@@ -4234,33 +4244,38 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 								}
 								CustomStaticRouteMap["nexthop"] = NexthopMap
 							}
-							if len(StaticRouteListItem.CustomStaticRoute.Subnets) > 0 {
-								var SubnetsList []map[string]interface{}
-								for _, SubnetsItem := range StaticRouteListItem.CustomStaticRoute.Subnets {
-									SubnetsItemMap := make(map[string]interface{})
-									if SubnetsItem.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-											Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
+								var SubnetsElems []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
+								diags := StaticRouteListItem.CustomStaticRoute.Subnets.ElementsAs(ctx, &SubnetsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(SubnetsElems) > 0 {
+									var SubnetsList []map[string]interface{}
+									for _, SubnetsItem := range SubnetsElems {
+										SubnetsItemMap := make(map[string]interface{})
+										if SubnetsItem.Ipv4 != nil {
+											Ipv4Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
+												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
+												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv4"] = Ipv4Map
 										}
-										if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-											Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+										if SubnetsItem.Ipv6 != nil {
+											Ipv6Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
+												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
+												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv6"] = Ipv6Map
 										}
-										SubnetsItemMap["ipv4"] = Ipv4Map
+										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									if SubnetsItem.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-											Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
-										}
-										if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-											Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
-										}
-										SubnetsItemMap["ipv6"] = Ipv6Map
-									}
-									SubnetsList = append(SubnetsList, SubnetsItemMap)
+									CustomStaticRouteMap["subnets"] = SubnetsList
 								}
-								CustomStaticRouteMap["subnets"] = SubnetsList
 							}
 							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
 						}
@@ -4760,33 +4775,38 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 								}
 								CustomStaticRouteMap["nexthop"] = NexthopMap
 							}
-							if len(StaticRouteListItem.CustomStaticRoute.Subnets) > 0 {
-								var SubnetsList []map[string]interface{}
-								for _, SubnetsItem := range StaticRouteListItem.CustomStaticRoute.Subnets {
-									SubnetsItemMap := make(map[string]interface{})
-									if SubnetsItem.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-											Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
+								var SubnetsElems []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
+								diags := StaticRouteListItem.CustomStaticRoute.Subnets.ElementsAs(ctx, &SubnetsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(SubnetsElems) > 0 {
+									var SubnetsList []map[string]interface{}
+									for _, SubnetsItem := range SubnetsElems {
+										SubnetsItemMap := make(map[string]interface{})
+										if SubnetsItem.Ipv4 != nil {
+											Ipv4Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
+												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
+												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv4"] = Ipv4Map
 										}
-										if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-											Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+										if SubnetsItem.Ipv6 != nil {
+											Ipv6Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
+												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
+												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv6"] = Ipv6Map
 										}
-										SubnetsItemMap["ipv4"] = Ipv4Map
+										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									if SubnetsItem.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-											Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
-										}
-										if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-											Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
-										}
-										SubnetsItemMap["ipv6"] = Ipv6Map
-									}
-									SubnetsList = append(SubnetsList, SubnetsItemMap)
+									CustomStaticRouteMap["subnets"] = SubnetsList
 								}
-								CustomStaticRouteMap["subnets"] = SubnetsList
 							}
 							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
 						}
@@ -4850,19 +4870,24 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		if data.VoltstackCluster.StorageClassList != nil {
 			StorageClassListMap := make(map[string]interface{})
-			if len(data.VoltstackCluster.StorageClassList.StorageClasses) > 0 {
-				var StorageClassesList []map[string]interface{}
-				for _, StorageClassesItem := range data.VoltstackCluster.StorageClassList.StorageClasses {
-					StorageClassesItemMap := make(map[string]interface{})
-					if !StorageClassesItem.DefaultStorageClass.IsNull() && !StorageClassesItem.DefaultStorageClass.IsUnknown() {
-						StorageClassesItemMap["default_storage_class"] = StorageClassesItem.DefaultStorageClass.ValueBool()
+			if !data.VoltstackCluster.StorageClassList.StorageClasses.IsNull() && !data.VoltstackCluster.StorageClassList.StorageClasses.IsUnknown() {
+				var StorageClassesElems []GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModel
+				diags := data.VoltstackCluster.StorageClassList.StorageClasses.ElementsAs(ctx, &StorageClassesElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(StorageClassesElems) > 0 {
+					var StorageClassesList []map[string]interface{}
+					for _, StorageClassesItem := range StorageClassesElems {
+						StorageClassesItemMap := make(map[string]interface{})
+						if !StorageClassesItem.DefaultStorageClass.IsNull() && !StorageClassesItem.DefaultStorageClass.IsUnknown() {
+							StorageClassesItemMap["default_storage_class"] = StorageClassesItem.DefaultStorageClass.ValueBool()
+						}
+						if !StorageClassesItem.StorageClassName.IsNull() && !StorageClassesItem.StorageClassName.IsUnknown() {
+							StorageClassesItemMap["storage_class_name"] = StorageClassesItem.StorageClassName.ValueString()
+						}
+						StorageClassesList = append(StorageClassesList, StorageClassesItemMap)
 					}
-					if !StorageClassesItem.StorageClassName.IsNull() && !StorageClassesItem.StorageClassName.IsUnknown() {
-						StorageClassesItemMap["storage_class_name"] = StorageClassesItem.StorageClassName.ValueString()
-					}
-					StorageClassesList = append(StorageClassesList, StorageClassesItemMap)
+					StorageClassListMap["storage_classes"] = StorageClassesList
 				}
-				StorageClassListMap["storage_classes"] = StorageClassesList
 			}
 			VoltstackClusterMap["storage_class_list"] = StorageClassListMap
 		}
@@ -5051,9 +5076,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &GCPVPCSiteBlockedServicesModel{
-			BlockedService: func() []GCPVPCSiteBlockedServicesBlockedServiceModel {
-				if !isImport && data.BlockedServices != nil && len(data.BlockedServices.BlockedService) == 0 {
-					return nil
+			BlockedService: func() types.List {
+				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteBlockedServicesBlockedServiceModelAttrTypes})
 				}
 				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []GCPVPCSiteBlockedServicesBlockedServiceModel
@@ -5087,9 +5112,10 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							})
 						}
 					}
-					return BlockedServiceResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: GCPVPCSiteBlockedServicesBlockedServiceModelAttrTypes}, BlockedServiceResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteBlockedServicesBlockedServiceModelAttrTypes})
 			}(),
 		}
 	}
@@ -5638,7 +5664,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 															}
 															return nil
 														}(),
-														Subnets: func() []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel {
+														Subnets: func() types.List {
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
 																for _, SubnetsItem := range rawList {
@@ -5685,9 +5711,10 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																		})
 																	}
 																}
-																return SubnetsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}, SubnetsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
 														}(),
 													}
 												}
@@ -5982,7 +6009,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 															}
 															return nil
 														}(),
-														Subnets: func() []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel {
+														Subnets: func() types.List {
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
 																for _, SubnetsItem := range rawList {
@@ -6029,9 +6056,10 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																		})
 																	}
 																}
-																return SubnetsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}, SubnetsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
 														}(),
 													}
 												}
@@ -6975,7 +7003,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 															}
 															return nil
 														}(),
-														Subnets: func() []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel {
+														Subnets: func() types.List {
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
 																for _, SubnetsItem := range rawList {
@@ -7022,9 +7050,10 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																		})
 																	}
 																}
-																return SubnetsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}, SubnetsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
 														}(),
 													}
 												}
@@ -7156,7 +7185,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				if StorageClassListData, ok := blockData["storage_class_list"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterStorageClassListModel{
-						StorageClasses: func() []GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModel {
+						StorageClasses: func() types.List {
 							if rawList, ok := StorageClassListData["storage_classes"].([]interface{}); ok && len(rawList) > 0 {
 								var StorageClassesResult []GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModel
 								for _, StorageClassesItem := range rawList {
@@ -7177,9 +7206,10 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 										})
 									}
 								}
-								return StorageClassesResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModelAttrTypes}, StorageClassesResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModelAttrTypes})
 						}(),
 					}
 				}
@@ -7454,9 +7484,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &GCPVPCSiteBlockedServicesModel{
-			BlockedService: func() []GCPVPCSiteBlockedServicesBlockedServiceModel {
-				if !isImport && data.BlockedServices != nil && len(data.BlockedServices.BlockedService) == 0 {
-					return nil
+			BlockedService: func() types.List {
+				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteBlockedServicesBlockedServiceModelAttrTypes})
 				}
 				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []GCPVPCSiteBlockedServicesBlockedServiceModel
@@ -7490,9 +7520,10 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							})
 						}
 					}
-					return BlockedServiceResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: GCPVPCSiteBlockedServicesBlockedServiceModelAttrTypes}, BlockedServiceResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteBlockedServicesBlockedServiceModelAttrTypes})
 			}(),
 		}
 	}
@@ -8041,7 +8072,7 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 															}
 															return nil
 														}(),
-														Subnets: func() []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel {
+														Subnets: func() types.List {
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
 																for _, SubnetsItem := range rawList {
@@ -8088,9 +8119,10 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																		})
 																	}
 																}
-																return SubnetsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}, SubnetsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
 														}(),
 													}
 												}
@@ -8385,7 +8417,7 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 															}
 															return nil
 														}(),
-														Subnets: func() []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel {
+														Subnets: func() types.List {
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
 																for _, SubnetsItem := range rawList {
@@ -8432,9 +8464,10 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																		})
 																	}
 																}
-																return SubnetsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}, SubnetsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
 														}(),
 													}
 												}
@@ -9378,7 +9411,7 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 															}
 															return nil
 														}(),
-														Subnets: func() []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel {
+														Subnets: func() types.List {
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
 																for _, SubnetsItem := range rawList {
@@ -9425,9 +9458,10 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																		})
 																	}
 																}
-																return SubnetsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}, SubnetsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
 														}(),
 													}
 												}
@@ -9559,7 +9593,7 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				if StorageClassListData, ok := blockData["storage_class_list"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterStorageClassListModel{
-						StorageClasses: func() []GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModel {
+						StorageClasses: func() types.List {
 							if rawList, ok := StorageClassListData["storage_classes"].([]interface{}); ok && len(rawList) > 0 {
 								var StorageClassesResult []GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModel
 								for _, StorageClassesItem := range rawList {
@@ -9580,9 +9614,10 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 										})
 									}
 								}
-								return StorageClassesResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModelAttrTypes}, StorageClassesResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModelAttrTypes})
 						}(),
 					}
 				}
@@ -9742,25 +9777,30 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	}
 	if data.BlockedServices != nil {
 		BlockedServicesMap := make(map[string]interface{})
-		if len(data.BlockedServices.BlockedService) > 0 {
-			var BlockedServiceList []map[string]interface{}
-			for _, BlockedServiceItem := range data.BlockedServices.BlockedService {
-				BlockedServiceItemMap := make(map[string]interface{})
-				if BlockedServiceItem.DNS != nil {
-					BlockedServiceItemMap["dns"] = map[string]interface{}{}
+		if !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
+			var BlockedServiceElems []GCPVPCSiteBlockedServicesBlockedServiceModel
+			diags := data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(BlockedServiceElems) > 0 {
+				var BlockedServiceList []map[string]interface{}
+				for _, BlockedServiceItem := range BlockedServiceElems {
+					BlockedServiceItemMap := make(map[string]interface{})
+					if BlockedServiceItem.DNS != nil {
+						BlockedServiceItemMap["dns"] = map[string]interface{}{}
+					}
+					if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
+						BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
+					}
+					if BlockedServiceItem.SSH != nil {
+						BlockedServiceItemMap["ssh"] = map[string]interface{}{}
+					}
+					if BlockedServiceItem.WebUserInterface != nil {
+						BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
+					}
+					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
 				}
-				if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
-					BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
-				}
-				if BlockedServiceItem.SSH != nil {
-					BlockedServiceItemMap["ssh"] = map[string]interface{}{}
-				}
-				if BlockedServiceItem.WebUserInterface != nil {
-					BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
-				}
-				BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
+				BlockedServicesMap["blocked_service"] = BlockedServiceList
 			}
-			BlockedServicesMap["blocked_service"] = BlockedServiceList
 		}
 		apiResource.Spec["blocked_services"] = BlockedServicesMap
 	}
@@ -10082,33 +10122,38 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 								}
 								CustomStaticRouteMap["nexthop"] = NexthopMap
 							}
-							if len(StaticRouteListItem.CustomStaticRoute.Subnets) > 0 {
-								var SubnetsList []map[string]interface{}
-								for _, SubnetsItem := range StaticRouteListItem.CustomStaticRoute.Subnets {
-									SubnetsItemMap := make(map[string]interface{})
-									if SubnetsItem.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-											Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
+								var SubnetsElems []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
+								diags := StaticRouteListItem.CustomStaticRoute.Subnets.ElementsAs(ctx, &SubnetsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(SubnetsElems) > 0 {
+									var SubnetsList []map[string]interface{}
+									for _, SubnetsItem := range SubnetsElems {
+										SubnetsItemMap := make(map[string]interface{})
+										if SubnetsItem.Ipv4 != nil {
+											Ipv4Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
+												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
+												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv4"] = Ipv4Map
 										}
-										if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-											Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+										if SubnetsItem.Ipv6 != nil {
+											Ipv6Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
+												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
+												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv6"] = Ipv6Map
 										}
-										SubnetsItemMap["ipv4"] = Ipv4Map
+										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									if SubnetsItem.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-											Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
-										}
-										if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-											Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
-										}
-										SubnetsItemMap["ipv6"] = Ipv6Map
-									}
-									SubnetsList = append(SubnetsList, SubnetsItemMap)
+									CustomStaticRouteMap["subnets"] = SubnetsList
 								}
-								CustomStaticRouteMap["subnets"] = SubnetsList
 							}
 							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
 						}
@@ -10260,33 +10305,38 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 								}
 								CustomStaticRouteMap["nexthop"] = NexthopMap
 							}
-							if len(StaticRouteListItem.CustomStaticRoute.Subnets) > 0 {
-								var SubnetsList []map[string]interface{}
-								for _, SubnetsItem := range StaticRouteListItem.CustomStaticRoute.Subnets {
-									SubnetsItemMap := make(map[string]interface{})
-									if SubnetsItem.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-											Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
+								var SubnetsElems []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
+								diags := StaticRouteListItem.CustomStaticRoute.Subnets.ElementsAs(ctx, &SubnetsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(SubnetsElems) > 0 {
+									var SubnetsList []map[string]interface{}
+									for _, SubnetsItem := range SubnetsElems {
+										SubnetsItemMap := make(map[string]interface{})
+										if SubnetsItem.Ipv4 != nil {
+											Ipv4Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
+												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
+												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv4"] = Ipv4Map
 										}
-										if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-											Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+										if SubnetsItem.Ipv6 != nil {
+											Ipv6Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
+												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
+												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv6"] = Ipv6Map
 										}
-										SubnetsItemMap["ipv4"] = Ipv4Map
+										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									if SubnetsItem.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-											Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
-										}
-										if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-											Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
-										}
-										SubnetsItemMap["ipv6"] = Ipv6Map
-									}
-									SubnetsList = append(SubnetsList, SubnetsItemMap)
+									CustomStaticRouteMap["subnets"] = SubnetsList
 								}
-								CustomStaticRouteMap["subnets"] = SubnetsList
 							}
 							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
 						}
@@ -10786,33 +10836,38 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 								}
 								CustomStaticRouteMap["nexthop"] = NexthopMap
 							}
-							if len(StaticRouteListItem.CustomStaticRoute.Subnets) > 0 {
-								var SubnetsList []map[string]interface{}
-								for _, SubnetsItem := range StaticRouteListItem.CustomStaticRoute.Subnets {
-									SubnetsItemMap := make(map[string]interface{})
-									if SubnetsItem.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-											Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
+								var SubnetsElems []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
+								diags := StaticRouteListItem.CustomStaticRoute.Subnets.ElementsAs(ctx, &SubnetsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(SubnetsElems) > 0 {
+									var SubnetsList []map[string]interface{}
+									for _, SubnetsItem := range SubnetsElems {
+										SubnetsItemMap := make(map[string]interface{})
+										if SubnetsItem.Ipv4 != nil {
+											Ipv4Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
+												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
+												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv4"] = Ipv4Map
 										}
-										if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-											Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+										if SubnetsItem.Ipv6 != nil {
+											Ipv6Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
+												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
+												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv6"] = Ipv6Map
 										}
-										SubnetsItemMap["ipv4"] = Ipv4Map
+										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									if SubnetsItem.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-											Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
-										}
-										if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-											Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
-										}
-										SubnetsItemMap["ipv6"] = Ipv6Map
-									}
-									SubnetsList = append(SubnetsList, SubnetsItemMap)
+									CustomStaticRouteMap["subnets"] = SubnetsList
 								}
-								CustomStaticRouteMap["subnets"] = SubnetsList
 							}
 							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
 						}
@@ -10876,19 +10931,24 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		if data.VoltstackCluster.StorageClassList != nil {
 			StorageClassListMap := make(map[string]interface{})
-			if len(data.VoltstackCluster.StorageClassList.StorageClasses) > 0 {
-				var StorageClassesList []map[string]interface{}
-				for _, StorageClassesItem := range data.VoltstackCluster.StorageClassList.StorageClasses {
-					StorageClassesItemMap := make(map[string]interface{})
-					if !StorageClassesItem.DefaultStorageClass.IsNull() && !StorageClassesItem.DefaultStorageClass.IsUnknown() {
-						StorageClassesItemMap["default_storage_class"] = StorageClassesItem.DefaultStorageClass.ValueBool()
+			if !data.VoltstackCluster.StorageClassList.StorageClasses.IsNull() && !data.VoltstackCluster.StorageClassList.StorageClasses.IsUnknown() {
+				var StorageClassesElems []GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModel
+				diags := data.VoltstackCluster.StorageClassList.StorageClasses.ElementsAs(ctx, &StorageClassesElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(StorageClassesElems) > 0 {
+					var StorageClassesList []map[string]interface{}
+					for _, StorageClassesItem := range StorageClassesElems {
+						StorageClassesItemMap := make(map[string]interface{})
+						if !StorageClassesItem.DefaultStorageClass.IsNull() && !StorageClassesItem.DefaultStorageClass.IsUnknown() {
+							StorageClassesItemMap["default_storage_class"] = StorageClassesItem.DefaultStorageClass.ValueBool()
+						}
+						if !StorageClassesItem.StorageClassName.IsNull() && !StorageClassesItem.StorageClassName.IsUnknown() {
+							StorageClassesItemMap["storage_class_name"] = StorageClassesItem.StorageClassName.ValueString()
+						}
+						StorageClassesList = append(StorageClassesList, StorageClassesItemMap)
 					}
-					if !StorageClassesItem.StorageClassName.IsNull() && !StorageClassesItem.StorageClassName.IsUnknown() {
-						StorageClassesItemMap["storage_class_name"] = StorageClassesItem.StorageClassName.ValueString()
-					}
-					StorageClassesList = append(StorageClassesList, StorageClassesItemMap)
+					StorageClassListMap["storage_classes"] = StorageClassesList
 				}
-				StorageClassListMap["storage_classes"] = StorageClassesList
 			}
 			VoltstackClusterMap["storage_class_list"] = StorageClassListMap
 		}
@@ -11088,9 +11148,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &GCPVPCSiteBlockedServicesModel{
-			BlockedService: func() []GCPVPCSiteBlockedServicesBlockedServiceModel {
-				if !isImport && data.BlockedServices != nil && len(data.BlockedServices.BlockedService) == 0 {
-					return nil
+			BlockedService: func() types.List {
+				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteBlockedServicesBlockedServiceModelAttrTypes})
 				}
 				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []GCPVPCSiteBlockedServicesBlockedServiceModel
@@ -11124,9 +11184,10 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							})
 						}
 					}
-					return BlockedServiceResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: GCPVPCSiteBlockedServicesBlockedServiceModelAttrTypes}, BlockedServiceResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteBlockedServicesBlockedServiceModelAttrTypes})
 			}(),
 		}
 	}
@@ -11675,7 +11736,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 															}
 															return nil
 														}(),
-														Subnets: func() []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel {
+														Subnets: func() types.List {
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
 																for _, SubnetsItem := range rawList {
@@ -11722,9 +11783,10 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																		})
 																	}
 																}
-																return SubnetsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}, SubnetsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
 														}(),
 													}
 												}
@@ -12019,7 +12081,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 															}
 															return nil
 														}(),
-														Subnets: func() []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel {
+														Subnets: func() types.List {
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
 																for _, SubnetsItem := range rawList {
@@ -12066,9 +12128,10 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																		})
 																	}
 																}
-																return SubnetsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}, SubnetsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
 														}(),
 													}
 												}
@@ -13012,7 +13075,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 															}
 															return nil
 														}(),
-														Subnets: func() []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel {
+														Subnets: func() types.List {
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
 																for _, SubnetsItem := range rawList {
@@ -13059,9 +13122,10 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																		})
 																	}
 																}
-																return SubnetsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}, SubnetsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
 														}(),
 													}
 												}
@@ -13193,7 +13257,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				if StorageClassListData, ok := blockData["storage_class_list"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterStorageClassListModel{
-						StorageClasses: func() []GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModel {
+						StorageClasses: func() types.List {
 							if rawList, ok := StorageClassListData["storage_classes"].([]interface{}); ok && len(rawList) > 0 {
 								var StorageClassesResult []GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModel
 								for _, StorageClassesItem := range rawList {
@@ -13214,9 +13278,10 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 										})
 									}
 								}
-								return StorageClassesResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModelAttrTypes}, StorageClassesResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModelAttrTypes})
 						}(),
 					}
 				}

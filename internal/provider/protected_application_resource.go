@@ -50,16 +50,16 @@ type ProtectedApplicationEmptyModel struct {
 
 // ProtectedApplicationCloudflareModel represents cloudflare block
 type ProtectedApplicationCloudflareModel struct {
-	ContinueMitigationActionHdr types.String                                            `tfsdk:"continue_mitigation_action_hdr"`
-	Loglevel                    types.String                                            `tfsdk:"loglevel"`
-	Timeout                     types.Int64                                             `tfsdk:"timeout"`
-	DisableJsInsert             *ProtectedApplicationEmptyModel                         `tfsdk:"disable_js_insert"`
-	DisableMobileSdk            *ProtectedApplicationEmptyModel                         `tfsdk:"disable_mobile_sdk"`
-	JsInsertionRules            *ProtectedApplicationCloudflareJsInsertionRulesModel    `tfsdk:"js_insertion_rules"`
-	ManualJsInsert              *ProtectedApplicationCloudflareManualJsInsertModel      `tfsdk:"manual_js_insert"`
-	MobileSdkConfig             *ProtectedApplicationCloudflareMobileSdkConfigModel     `tfsdk:"mobile_sdk_config"`
-	ProtectedEndpoints          []ProtectedApplicationCloudflareProtectedEndpointsModel `tfsdk:"protected_endpoints"`
-	TrustedClients              []ProtectedApplicationCloudflareTrustedClientsModel     `tfsdk:"trusted_clients"`
+	ContinueMitigationActionHdr types.String                                         `tfsdk:"continue_mitigation_action_hdr"`
+	Loglevel                    types.String                                         `tfsdk:"loglevel"`
+	Timeout                     types.Int64                                          `tfsdk:"timeout"`
+	DisableJsInsert             *ProtectedApplicationEmptyModel                      `tfsdk:"disable_js_insert"`
+	DisableMobileSdk            *ProtectedApplicationEmptyModel                      `tfsdk:"disable_mobile_sdk"`
+	JsInsertionRules            *ProtectedApplicationCloudflareJsInsertionRulesModel `tfsdk:"js_insertion_rules"`
+	ManualJsInsert              *ProtectedApplicationCloudflareManualJsInsertModel   `tfsdk:"manual_js_insert"`
+	MobileSdkConfig             *ProtectedApplicationCloudflareMobileSdkConfigModel  `tfsdk:"mobile_sdk_config"`
+	ProtectedEndpoints          types.List                                           `tfsdk:"protected_endpoints"`
+	TrustedClients              types.List                                           `tfsdk:"trusted_clients"`
 }
 
 // ProtectedApplicationCloudflareModelAttrTypes defines the attribute types for ProtectedApplicationCloudflareModel
@@ -78,10 +78,10 @@ var ProtectedApplicationCloudflareModelAttrTypes = map[string]attr.Type{
 
 // ProtectedApplicationCloudflareJsInsertionRulesModel represents js_insertion_rules block
 type ProtectedApplicationCloudflareJsInsertionRulesModel struct {
-	JavascriptLocation types.String                                                     `tfsdk:"javascript_location"`
-	JsDownloadPath     types.String                                                     `tfsdk:"js_download_path"`
-	ExcludeList        []ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel `tfsdk:"exclude_list"`
-	Rules              []ProtectedApplicationCloudflareJsInsertionRulesRulesModel       `tfsdk:"rules"`
+	JavascriptLocation types.String `tfsdk:"javascript_location"`
+	JsDownloadPath     types.String `tfsdk:"js_download_path"`
+	ExcludeList        types.List   `tfsdk:"exclude_list"`
+	Rules              types.List   `tfsdk:"rules"`
 }
 
 // ProtectedApplicationCloudflareJsInsertionRulesModelAttrTypes defines the attribute types for ProtectedApplicationCloudflareJsInsertionRulesModel
@@ -216,7 +216,7 @@ var ProtectedApplicationCloudflareMobileSdkConfigModelAttrTypes = map[string]att
 
 // ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierModel represents mobile_identifier block
 type ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierModel struct {
-	Headers []ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModel `tfsdk:"headers"`
+	Headers types.List `tfsdk:"headers"`
 }
 
 // ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierModelAttrTypes defines the attribute types for ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierModel
@@ -490,7 +490,7 @@ var ProtectedApplicationCloudflareTrustedClientsModelAttrTypes = map[string]attr
 
 // ProtectedApplicationCloudflareTrustedClientsHTTPHeaderModel represents http_header block
 type ProtectedApplicationCloudflareTrustedClientsHTTPHeaderModel struct {
-	Headers []ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModel `tfsdk:"headers"`
+	Headers types.List `tfsdk:"headers"`
 }
 
 // ProtectedApplicationCloudflareTrustedClientsHTTPHeaderModelAttrTypes defines the attribute types for ProtectedApplicationCloudflareTrustedClientsHTTPHeaderModel
@@ -538,8 +538,8 @@ type ProtectedApplicationCloudfrontModel struct {
 	JsInsertionRules            *ProtectedApplicationCloudfrontJsInsertionRulesModel            `tfsdk:"js_insertion_rules"`
 	ManualJsInsert              *ProtectedApplicationCloudfrontManualJsInsertModel              `tfsdk:"manual_js_insert"`
 	MobileSdkConfig             *ProtectedApplicationCloudfrontMobileSdkConfigModel             `tfsdk:"mobile_sdk_config"`
-	ProtectedEndpoints          []ProtectedApplicationCloudfrontProtectedEndpointsModel         `tfsdk:"protected_endpoints"`
-	TrustedClients              []ProtectedApplicationCloudfrontTrustedClientsModel             `tfsdk:"trusted_clients"`
+	ProtectedEndpoints          types.List                                                      `tfsdk:"protected_endpoints"`
+	TrustedClients              types.List                                                      `tfsdk:"trusted_clients"`
 }
 
 // ProtectedApplicationCloudfrontModelAttrTypes defines the attribute types for ProtectedApplicationCloudfrontModel
@@ -582,11 +582,11 @@ var ProtectedApplicationCloudfrontAWSConfigurationTagSelectorModelAttrTypes = ma
 
 // ProtectedApplicationCloudfrontJsInsertionRulesModel represents js_insertion_rules block
 type ProtectedApplicationCloudfrontJsInsertionRulesModel struct {
-	JavascriptLocation types.String                                                     `tfsdk:"javascript_location"`
-	JavascriptMode     types.String                                                     `tfsdk:"javascript_mode"`
-	JsDownloadPath     types.String                                                     `tfsdk:"js_download_path"`
-	ExcludeList        []ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel `tfsdk:"exclude_list"`
-	Rules              []ProtectedApplicationCloudfrontJsInsertionRulesRulesModel       `tfsdk:"rules"`
+	JavascriptLocation types.String `tfsdk:"javascript_location"`
+	JavascriptMode     types.String `tfsdk:"javascript_mode"`
+	JsDownloadPath     types.String `tfsdk:"js_download_path"`
+	ExcludeList        types.List   `tfsdk:"exclude_list"`
+	Rules              types.List   `tfsdk:"rules"`
 }
 
 // ProtectedApplicationCloudfrontJsInsertionRulesModelAttrTypes defines the attribute types for ProtectedApplicationCloudfrontJsInsertionRulesModel
@@ -724,7 +724,7 @@ var ProtectedApplicationCloudfrontMobileSdkConfigModelAttrTypes = map[string]att
 
 // ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierModel represents mobile_identifier block
 type ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierModel struct {
-	Headers []ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModel `tfsdk:"headers"`
+	Headers types.List `tfsdk:"headers"`
 }
 
 // ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierModelAttrTypes defines the attribute types for ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierModel
@@ -856,8 +856,8 @@ var ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLogin
 
 // ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultModel represents transaction_result block
 type ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultModel struct {
-	FailureConditions []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel `tfsdk:"failure_conditions"`
-	SuccessConditions []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel `tfsdk:"success_conditions"`
+	FailureConditions types.List `tfsdk:"failure_conditions"`
+	SuccessConditions types.List `tfsdk:"success_conditions"`
 }
 
 // ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultModelAttrTypes defines the attribute types for ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultModel
@@ -1178,7 +1178,7 @@ var ProtectedApplicationCloudfrontTrustedClientsModelAttrTypes = map[string]attr
 
 // ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderModel represents http_header block
 type ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderModel struct {
-	Headers []ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModel `tfsdk:"headers"`
+	Headers types.List `tfsdk:"headers"`
 }
 
 // ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderModelAttrTypes defines the attribute types for ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderModel
@@ -2927,52 +2927,57 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 		}
 		if data.Cloudflare.JsInsertionRules != nil {
 			JsInsertionRulesMap := make(map[string]interface{})
-			if len(data.Cloudflare.JsInsertionRules.ExcludeList) > 0 {
-				var ExcludeListList []map[string]interface{}
-				for _, ExcludeListItem := range data.Cloudflare.JsInsertionRules.ExcludeList {
-					ExcludeListItemMap := make(map[string]interface{})
-					if ExcludeListItem.AnyDomain != nil {
-						ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+			if !data.Cloudflare.JsInsertionRules.ExcludeList.IsNull() && !data.Cloudflare.JsInsertionRules.ExcludeList.IsUnknown() {
+				var ExcludeListElems []ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel
+				diags := data.Cloudflare.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
+					var ExcludeListList []map[string]interface{}
+					for _, ExcludeListItem := range ExcludeListElems {
+						ExcludeListItemMap := make(map[string]interface{})
+						if ExcludeListItem.AnyDomain != nil {
+							ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+						}
+						if ExcludeListItem.Domain != nil {
+							DomainMap := make(map[string]interface{})
+							if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
+								DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
+							}
+							if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
+								DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
+							}
+							if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
+								DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
+							}
+							ExcludeListItemMap["domain"] = DomainMap
+						}
+						if ExcludeListItem.Metadata != nil {
+							MetadataMap := make(map[string]interface{})
+							if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
+								MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
+							}
+							if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
+								MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
+							}
+							ExcludeListItemMap["metadata"] = MetadataMap
+						}
+						if ExcludeListItem.Path != nil {
+							PathMap := make(map[string]interface{})
+							if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
+								PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
+							}
+							if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
+								PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
+							}
+							if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
+								PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
+							}
+							ExcludeListItemMap["path"] = PathMap
+						}
+						ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
 					}
-					if ExcludeListItem.Domain != nil {
-						DomainMap := make(map[string]interface{})
-						if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
-							DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
-						}
-						if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
-							DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
-						}
-						if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
-							DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
-						}
-						ExcludeListItemMap["domain"] = DomainMap
-					}
-					if ExcludeListItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
-						if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
-						}
-						if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
-						}
-						ExcludeListItemMap["metadata"] = MetadataMap
-					}
-					if ExcludeListItem.Path != nil {
-						PathMap := make(map[string]interface{})
-						if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
-							PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
-						}
-						if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
-							PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
-						}
-						if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
-							PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
-						}
-						ExcludeListItemMap["path"] = PathMap
-					}
-					ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
+					JsInsertionRulesMap["exclude_list"] = ExcludeListList
 				}
-				JsInsertionRulesMap["exclude_list"] = ExcludeListList
 			}
 			if !data.Cloudflare.JsInsertionRules.JavascriptLocation.IsNull() && !data.Cloudflare.JsInsertionRules.JavascriptLocation.IsUnknown() {
 				JsInsertionRulesMap["javascript_location"] = data.Cloudflare.JsInsertionRules.JavascriptLocation.ValueString()
@@ -2980,48 +2985,53 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 			if !data.Cloudflare.JsInsertionRules.JsDownloadPath.IsNull() && !data.Cloudflare.JsInsertionRules.JsDownloadPath.IsUnknown() {
 				JsInsertionRulesMap["js_download_path"] = data.Cloudflare.JsInsertionRules.JsDownloadPath.ValueString()
 			}
-			if len(data.Cloudflare.JsInsertionRules.Rules) > 0 {
-				var RulesList []map[string]interface{}
-				for _, RulesItem := range data.Cloudflare.JsInsertionRules.Rules {
-					RulesItemMap := make(map[string]interface{})
-					if RulesItem.AnyDomain != nil {
-						RulesItemMap["any_domain"] = map[string]interface{}{}
-					}
-					if RulesItem.Domain != nil {
-						DomainMap := make(map[string]interface{})
-						if !RulesItem.Domain.ExactValue.IsNull() && !RulesItem.Domain.ExactValue.IsUnknown() {
-							DomainMap["exact_value"] = RulesItem.Domain.ExactValue.ValueString()
+			if !data.Cloudflare.JsInsertionRules.Rules.IsNull() && !data.Cloudflare.JsInsertionRules.Rules.IsUnknown() {
+				var RulesElems []ProtectedApplicationCloudflareJsInsertionRulesRulesModel
+				diags := data.Cloudflare.JsInsertionRules.Rules.ElementsAs(ctx, &RulesElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
+					var RulesList []map[string]interface{}
+					for _, RulesItem := range RulesElems {
+						RulesItemMap := make(map[string]interface{})
+						if RulesItem.AnyDomain != nil {
+							RulesItemMap["any_domain"] = map[string]interface{}{}
 						}
-						if !RulesItem.Domain.RegexValue.IsNull() && !RulesItem.Domain.RegexValue.IsUnknown() {
-							DomainMap["regex_value"] = RulesItem.Domain.RegexValue.ValueString()
+						if RulesItem.Domain != nil {
+							DomainMap := make(map[string]interface{})
+							if !RulesItem.Domain.ExactValue.IsNull() && !RulesItem.Domain.ExactValue.IsUnknown() {
+								DomainMap["exact_value"] = RulesItem.Domain.ExactValue.ValueString()
+							}
+							if !RulesItem.Domain.RegexValue.IsNull() && !RulesItem.Domain.RegexValue.IsUnknown() {
+								DomainMap["regex_value"] = RulesItem.Domain.RegexValue.ValueString()
+							}
+							if !RulesItem.Domain.SuffixValue.IsNull() && !RulesItem.Domain.SuffixValue.IsUnknown() {
+								DomainMap["suffix_value"] = RulesItem.Domain.SuffixValue.ValueString()
+							}
+							RulesItemMap["domain"] = DomainMap
 						}
-						if !RulesItem.Domain.SuffixValue.IsNull() && !RulesItem.Domain.SuffixValue.IsUnknown() {
-							DomainMap["suffix_value"] = RulesItem.Domain.SuffixValue.ValueString()
+						if !RulesItem.ExactPath.IsNull() && !RulesItem.ExactPath.IsUnknown() {
+							RulesItemMap["exact_path"] = RulesItem.ExactPath.ValueString()
 						}
-						RulesItemMap["domain"] = DomainMap
-					}
-					if !RulesItem.ExactPath.IsNull() && !RulesItem.ExactPath.IsUnknown() {
-						RulesItemMap["exact_path"] = RulesItem.ExactPath.ValueString()
-					}
-					if !RulesItem.Glob.IsNull() && !RulesItem.Glob.IsUnknown() {
-						RulesItemMap["glob"] = RulesItem.Glob.ValueString()
-					}
-					if RulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
-						if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+						if !RulesItem.Glob.IsNull() && !RulesItem.Glob.IsUnknown() {
+							RulesItemMap["glob"] = RulesItem.Glob.ValueString()
 						}
-						if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+						if RulesItem.Metadata != nil {
+							MetadataMap := make(map[string]interface{})
+							if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
+								MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+							}
+							if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
+								MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+							}
+							RulesItemMap["metadata"] = MetadataMap
 						}
-						RulesItemMap["metadata"] = MetadataMap
+						if !RulesItem.Prefix.IsNull() && !RulesItem.Prefix.IsUnknown() {
+							RulesItemMap["prefix"] = RulesItem.Prefix.ValueString()
+						}
+						RulesList = append(RulesList, RulesItemMap)
 					}
-					if !RulesItem.Prefix.IsNull() && !RulesItem.Prefix.IsUnknown() {
-						RulesItemMap["prefix"] = RulesItem.Prefix.ValueString()
-					}
-					RulesList = append(RulesList, RulesItemMap)
+					JsInsertionRulesMap["rules"] = RulesList
 				}
-				JsInsertionRulesMap["rules"] = RulesList
 			}
 			CloudflareMap["js_insertion_rules"] = JsInsertionRulesMap
 		}
@@ -3039,217 +3049,13 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 			MobileSdkConfigMap := make(map[string]interface{})
 			if data.Cloudflare.MobileSdkConfig.MobileIdentifier != nil {
 				MobileIdentifierMap := make(map[string]interface{})
-				if len(data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers) > 0 {
-					var HeadersList []map[string]interface{}
-					for _, HeadersItem := range data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers {
-						HeadersItemMap := make(map[string]interface{})
-						if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
-							HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
-						}
-						if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-							HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-						}
-						if !HeadersItem.Regex.IsNull() && !HeadersItem.Regex.IsUnknown() {
-							HeadersItemMap["regex"] = HeadersItem.Regex.ValueString()
-						}
-						HeadersList = append(HeadersList, HeadersItemMap)
-					}
-					MobileIdentifierMap["headers"] = HeadersList
-				}
-				MobileSdkConfigMap["mobile_identifier"] = MobileIdentifierMap
-			}
-			CloudflareMap["mobile_sdk_config"] = MobileSdkConfigMap
-		}
-		if len(data.Cloudflare.ProtectedEndpoints) > 0 {
-			var ProtectedEndpointsList []map[string]interface{}
-			for _, ProtectedEndpointsItem := range data.Cloudflare.ProtectedEndpoints {
-				ProtectedEndpointsItemMap := make(map[string]interface{})
-				if ProtectedEndpointsItem.AnyDomain != nil {
-					ProtectedEndpointsItemMap["any_domain"] = map[string]interface{}{}
-				}
-				if ProtectedEndpointsItem.Domain != nil {
-					DomainMap := make(map[string]interface{})
-					if !ProtectedEndpointsItem.Domain.ExactValue.IsNull() && !ProtectedEndpointsItem.Domain.ExactValue.IsUnknown() {
-						DomainMap["exact_value"] = ProtectedEndpointsItem.Domain.ExactValue.ValueString()
-					}
-					if !ProtectedEndpointsItem.Domain.RegexValue.IsNull() && !ProtectedEndpointsItem.Domain.RegexValue.IsUnknown() {
-						DomainMap["regex_value"] = ProtectedEndpointsItem.Domain.RegexValue.ValueString()
-					}
-					if !ProtectedEndpointsItem.Domain.SuffixValue.IsNull() && !ProtectedEndpointsItem.Domain.SuffixValue.IsUnknown() {
-						DomainMap["suffix_value"] = ProtectedEndpointsItem.Domain.SuffixValue.ValueString()
-					}
-					ProtectedEndpointsItemMap["domain"] = DomainMap
-				}
-				if !ProtectedEndpointsItem.HTTPMethods.IsNull() && !ProtectedEndpointsItem.HTTPMethods.IsUnknown() {
-					var HTTPMethodsItems []string
-					diags := ProtectedEndpointsItem.HTTPMethods.ElementsAs(ctx, &HTTPMethodsItems, false)
-					if !diags.HasError() {
-						ProtectedEndpointsItemMap["http_methods"] = HTTPMethodsItems
-					}
-				}
-				if ProtectedEndpointsItem.Metadata != nil {
-					MetadataMap := make(map[string]interface{})
-					if !ProtectedEndpointsItem.Metadata.DescriptionSpec.IsNull() && !ProtectedEndpointsItem.Metadata.DescriptionSpec.IsUnknown() {
-						MetadataMap["description"] = ProtectedEndpointsItem.Metadata.DescriptionSpec.ValueString()
-					}
-					if !ProtectedEndpointsItem.Metadata.Name.IsNull() && !ProtectedEndpointsItem.Metadata.Name.IsUnknown() {
-						MetadataMap["name"] = ProtectedEndpointsItem.Metadata.Name.ValueString()
-					}
-					ProtectedEndpointsItemMap["metadata"] = MetadataMap
-				}
-				if ProtectedEndpointsItem.MobileClient != nil {
-					MobileClientMap := make(map[string]interface{})
-					if ProtectedEndpointsItem.MobileClient.Block != nil {
-						BlockMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.MobileClient.Block.Body.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.Body.IsUnknown() {
-							BlockMap["body"] = ProtectedEndpointsItem.MobileClient.Block.Body.ValueString()
-						}
-						if !ProtectedEndpointsItem.MobileClient.Block.ContentType.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.ContentType.IsUnknown() {
-							BlockMap["content_type"] = ProtectedEndpointsItem.MobileClient.Block.ContentType.ValueString()
-						}
-						if !ProtectedEndpointsItem.MobileClient.Block.Status.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.Status.IsUnknown() {
-							BlockMap["status"] = ProtectedEndpointsItem.MobileClient.Block.Status.ValueString()
-						}
-						MobileClientMap["block"] = BlockMap
-					}
-					if ProtectedEndpointsItem.MobileClient.Continue != nil {
-						ContinueMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.MobileClient.Continue.AddHeader != nil {
-							ContinueMap["add_header"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.MobileClient.Continue.NoHeader != nil {
-							ContinueMap["no_header"] = map[string]interface{}{}
-						}
-						MobileClientMap["continue"] = ContinueMap
-					}
-					ProtectedEndpointsItemMap["mobile_client"] = MobileClientMap
-				}
-				if ProtectedEndpointsItem.Path != nil {
-					PathMap := make(map[string]interface{})
-					if !ProtectedEndpointsItem.Path.Caseinsensitive.IsNull() && !ProtectedEndpointsItem.Path.Caseinsensitive.IsUnknown() {
-						PathMap["caseinsensitive"] = ProtectedEndpointsItem.Path.Caseinsensitive.ValueBool()
-					}
-					if !ProtectedEndpointsItem.Path.Path.IsNull() && !ProtectedEndpointsItem.Path.Path.IsUnknown() {
-						PathMap["path"] = ProtectedEndpointsItem.Path.Path.ValueString()
-					}
-					ProtectedEndpointsItemMap["path"] = PathMap
-				}
-				if !ProtectedEndpointsItem.Query.IsNull() && !ProtectedEndpointsItem.Query.IsUnknown() {
-					ProtectedEndpointsItemMap["query"] = ProtectedEndpointsItem.Query.ValueString()
-				}
-				if ProtectedEndpointsItem.WebClient != nil {
-					WebClientMap := make(map[string]interface{})
-					if ProtectedEndpointsItem.WebClient.Block != nil {
-						BlockMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.WebClient.Block.Body.IsNull() && !ProtectedEndpointsItem.WebClient.Block.Body.IsUnknown() {
-							BlockMap["body"] = ProtectedEndpointsItem.WebClient.Block.Body.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebClient.Block.ContentType.IsNull() && !ProtectedEndpointsItem.WebClient.Block.ContentType.IsUnknown() {
-							BlockMap["content_type"] = ProtectedEndpointsItem.WebClient.Block.ContentType.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebClient.Block.Status.IsNull() && !ProtectedEndpointsItem.WebClient.Block.Status.IsUnknown() {
-							BlockMap["status"] = ProtectedEndpointsItem.WebClient.Block.Status.ValueString()
-						}
-						WebClientMap["block"] = BlockMap
-					}
-					if ProtectedEndpointsItem.WebClient.Continue != nil {
-						ContinueMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.WebClient.Continue.AddHeader != nil {
-							ContinueMap["add_header"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.WebClient.Continue.NoHeader != nil {
-							ContinueMap["no_header"] = map[string]interface{}{}
-						}
-						WebClientMap["continue"] = ContinueMap
-					}
-					if ProtectedEndpointsItem.WebClient.Redirect != nil {
-						RedirectMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.WebClient.Redirect.Location.IsNull() && !ProtectedEndpointsItem.WebClient.Redirect.Location.IsUnknown() {
-							RedirectMap["location"] = ProtectedEndpointsItem.WebClient.Redirect.Location.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebClient.Redirect.Status.IsNull() && !ProtectedEndpointsItem.WebClient.Redirect.Status.IsUnknown() {
-							RedirectMap["status"] = ProtectedEndpointsItem.WebClient.Redirect.Status.ValueString()
-						}
-						WebClientMap["redirect"] = RedirectMap
-					}
-					ProtectedEndpointsItemMap["web_client"] = WebClientMap
-				}
-				if ProtectedEndpointsItem.WebMobileClient != nil {
-					WebMobileClientMap := make(map[string]interface{})
-					if ProtectedEndpointsItem.WebMobileClient.BlockMobile != nil {
-						BlockMobileMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.IsUnknown() {
-							BlockMobileMap["body"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.IsUnknown() {
-							BlockMobileMap["content_type"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.IsUnknown() {
-							BlockMobileMap["status"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.ValueString()
-						}
-						WebMobileClientMap["block_mobile"] = BlockMobileMap
-					}
-					if ProtectedEndpointsItem.WebMobileClient.BlockWeb != nil {
-						BlockWebMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.IsUnknown() {
-							BlockWebMap["body"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.IsUnknown() {
-							BlockWebMap["content_type"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.IsUnknown() {
-							BlockWebMap["status"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.ValueString()
-						}
-						WebMobileClientMap["block_web"] = BlockWebMap
-					}
-					if ProtectedEndpointsItem.WebMobileClient.ContinueMobile != nil {
-						ContinueMobileMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.AddHeader != nil {
-							ContinueMobileMap["add_header"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.NoHeader != nil {
-							ContinueMobileMap["no_header"] = map[string]interface{}{}
-						}
-						WebMobileClientMap["continue_mobile"] = ContinueMobileMap
-					}
-					if ProtectedEndpointsItem.WebMobileClient.ContinueWeb != nil {
-						ContinueWebMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.AddHeader != nil {
-							ContinueWebMap["add_header"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.NoHeader != nil {
-							ContinueWebMap["no_header"] = map[string]interface{}{}
-						}
-						WebMobileClientMap["continue_web"] = ContinueWebMap
-					}
-					if ProtectedEndpointsItem.WebMobileClient.RedirectWeb != nil {
-						RedirectWebMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.IsNull() && !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.IsUnknown() {
-							RedirectWebMap["location"] = ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.IsUnknown() {
-							RedirectWebMap["status"] = ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.ValueString()
-						}
-						WebMobileClientMap["redirect_web"] = RedirectWebMap
-					}
-					ProtectedEndpointsItemMap["web_mobile_client"] = WebMobileClientMap
-				}
-				ProtectedEndpointsList = append(ProtectedEndpointsList, ProtectedEndpointsItemMap)
-			}
-			CloudflareMap["protected_endpoints"] = ProtectedEndpointsList
-		}
-		if !data.Cloudflare.Timeout.IsNull() && !data.Cloudflare.Timeout.IsUnknown() {
-			CloudflareMap["timeout"] = data.Cloudflare.Timeout.ValueInt64()
-		}
-		if len(data.Cloudflare.TrustedClients) > 0 {
-			var TrustedClientsList []map[string]interface{}
-			for _, TrustedClientsItem := range data.Cloudflare.TrustedClients {
-				TrustedClientsItemMap := make(map[string]interface{})
-				if TrustedClientsItem.HTTPHeader != nil {
-					HTTPHeaderMap := make(map[string]interface{})
-					if len(TrustedClientsItem.HTTPHeader.Headers) > 0 {
+				if !data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
+					var HeadersElems []ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModel
+					diags := data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
 						var HeadersList []map[string]interface{}
-						for _, HeadersItem := range TrustedClientsItem.HTTPHeader.Headers {
+						for _, HeadersItem := range HeadersElems {
 							HeadersItemMap := make(map[string]interface{})
 							if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
 								HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
@@ -3262,26 +3068,250 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 							}
 							HeadersList = append(HeadersList, HeadersItemMap)
 						}
-						HTTPHeaderMap["headers"] = HeadersList
+						MobileIdentifierMap["headers"] = HeadersList
 					}
-					TrustedClientsItemMap["http_header"] = HTTPHeaderMap
 				}
-				if !TrustedClientsItem.IPPrefix.IsNull() && !TrustedClientsItem.IPPrefix.IsUnknown() {
-					TrustedClientsItemMap["ip_prefix"] = TrustedClientsItem.IPPrefix.ValueString()
-				}
-				if TrustedClientsItem.Metadata != nil {
-					MetadataMap := make(map[string]interface{})
-					if !TrustedClientsItem.Metadata.DescriptionSpec.IsNull() && !TrustedClientsItem.Metadata.DescriptionSpec.IsUnknown() {
-						MetadataMap["description"] = TrustedClientsItem.Metadata.DescriptionSpec.ValueString()
-					}
-					if !TrustedClientsItem.Metadata.Name.IsNull() && !TrustedClientsItem.Metadata.Name.IsUnknown() {
-						MetadataMap["name"] = TrustedClientsItem.Metadata.Name.ValueString()
-					}
-					TrustedClientsItemMap["metadata"] = MetadataMap
-				}
-				TrustedClientsList = append(TrustedClientsList, TrustedClientsItemMap)
+				MobileSdkConfigMap["mobile_identifier"] = MobileIdentifierMap
 			}
-			CloudflareMap["trusted_clients"] = TrustedClientsList
+			CloudflareMap["mobile_sdk_config"] = MobileSdkConfigMap
+		}
+		if !data.Cloudflare.ProtectedEndpoints.IsNull() && !data.Cloudflare.ProtectedEndpoints.IsUnknown() {
+			var ProtectedEndpointsElems []ProtectedApplicationCloudflareProtectedEndpointsModel
+			diags := data.Cloudflare.ProtectedEndpoints.ElementsAs(ctx, &ProtectedEndpointsElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(ProtectedEndpointsElems) > 0 {
+				var ProtectedEndpointsList []map[string]interface{}
+				for _, ProtectedEndpointsItem := range ProtectedEndpointsElems {
+					ProtectedEndpointsItemMap := make(map[string]interface{})
+					if ProtectedEndpointsItem.AnyDomain != nil {
+						ProtectedEndpointsItemMap["any_domain"] = map[string]interface{}{}
+					}
+					if ProtectedEndpointsItem.Domain != nil {
+						DomainMap := make(map[string]interface{})
+						if !ProtectedEndpointsItem.Domain.ExactValue.IsNull() && !ProtectedEndpointsItem.Domain.ExactValue.IsUnknown() {
+							DomainMap["exact_value"] = ProtectedEndpointsItem.Domain.ExactValue.ValueString()
+						}
+						if !ProtectedEndpointsItem.Domain.RegexValue.IsNull() && !ProtectedEndpointsItem.Domain.RegexValue.IsUnknown() {
+							DomainMap["regex_value"] = ProtectedEndpointsItem.Domain.RegexValue.ValueString()
+						}
+						if !ProtectedEndpointsItem.Domain.SuffixValue.IsNull() && !ProtectedEndpointsItem.Domain.SuffixValue.IsUnknown() {
+							DomainMap["suffix_value"] = ProtectedEndpointsItem.Domain.SuffixValue.ValueString()
+						}
+						ProtectedEndpointsItemMap["domain"] = DomainMap
+					}
+					if !ProtectedEndpointsItem.HTTPMethods.IsNull() && !ProtectedEndpointsItem.HTTPMethods.IsUnknown() {
+						var HTTPMethodsItems []string
+						diags := ProtectedEndpointsItem.HTTPMethods.ElementsAs(ctx, &HTTPMethodsItems, false)
+						if !diags.HasError() {
+							ProtectedEndpointsItemMap["http_methods"] = HTTPMethodsItems
+						}
+					}
+					if ProtectedEndpointsItem.Metadata != nil {
+						MetadataMap := make(map[string]interface{})
+						if !ProtectedEndpointsItem.Metadata.DescriptionSpec.IsNull() && !ProtectedEndpointsItem.Metadata.DescriptionSpec.IsUnknown() {
+							MetadataMap["description"] = ProtectedEndpointsItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !ProtectedEndpointsItem.Metadata.Name.IsNull() && !ProtectedEndpointsItem.Metadata.Name.IsUnknown() {
+							MetadataMap["name"] = ProtectedEndpointsItem.Metadata.Name.ValueString()
+						}
+						ProtectedEndpointsItemMap["metadata"] = MetadataMap
+					}
+					if ProtectedEndpointsItem.MobileClient != nil {
+						MobileClientMap := make(map[string]interface{})
+						if ProtectedEndpointsItem.MobileClient.Block != nil {
+							BlockMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.MobileClient.Block.Body.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.Body.IsUnknown() {
+								BlockMap["body"] = ProtectedEndpointsItem.MobileClient.Block.Body.ValueString()
+							}
+							if !ProtectedEndpointsItem.MobileClient.Block.ContentType.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.ContentType.IsUnknown() {
+								BlockMap["content_type"] = ProtectedEndpointsItem.MobileClient.Block.ContentType.ValueString()
+							}
+							if !ProtectedEndpointsItem.MobileClient.Block.Status.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.Status.IsUnknown() {
+								BlockMap["status"] = ProtectedEndpointsItem.MobileClient.Block.Status.ValueString()
+							}
+							MobileClientMap["block"] = BlockMap
+						}
+						if ProtectedEndpointsItem.MobileClient.Continue != nil {
+							ContinueMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.MobileClient.Continue.AddHeader != nil {
+								ContinueMap["add_header"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.MobileClient.Continue.NoHeader != nil {
+								ContinueMap["no_header"] = map[string]interface{}{}
+							}
+							MobileClientMap["continue"] = ContinueMap
+						}
+						ProtectedEndpointsItemMap["mobile_client"] = MobileClientMap
+					}
+					if ProtectedEndpointsItem.Path != nil {
+						PathMap := make(map[string]interface{})
+						if !ProtectedEndpointsItem.Path.Caseinsensitive.IsNull() && !ProtectedEndpointsItem.Path.Caseinsensitive.IsUnknown() {
+							PathMap["caseinsensitive"] = ProtectedEndpointsItem.Path.Caseinsensitive.ValueBool()
+						}
+						if !ProtectedEndpointsItem.Path.Path.IsNull() && !ProtectedEndpointsItem.Path.Path.IsUnknown() {
+							PathMap["path"] = ProtectedEndpointsItem.Path.Path.ValueString()
+						}
+						ProtectedEndpointsItemMap["path"] = PathMap
+					}
+					if !ProtectedEndpointsItem.Query.IsNull() && !ProtectedEndpointsItem.Query.IsUnknown() {
+						ProtectedEndpointsItemMap["query"] = ProtectedEndpointsItem.Query.ValueString()
+					}
+					if ProtectedEndpointsItem.WebClient != nil {
+						WebClientMap := make(map[string]interface{})
+						if ProtectedEndpointsItem.WebClient.Block != nil {
+							BlockMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.WebClient.Block.Body.IsNull() && !ProtectedEndpointsItem.WebClient.Block.Body.IsUnknown() {
+								BlockMap["body"] = ProtectedEndpointsItem.WebClient.Block.Body.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebClient.Block.ContentType.IsNull() && !ProtectedEndpointsItem.WebClient.Block.ContentType.IsUnknown() {
+								BlockMap["content_type"] = ProtectedEndpointsItem.WebClient.Block.ContentType.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebClient.Block.Status.IsNull() && !ProtectedEndpointsItem.WebClient.Block.Status.IsUnknown() {
+								BlockMap["status"] = ProtectedEndpointsItem.WebClient.Block.Status.ValueString()
+							}
+							WebClientMap["block"] = BlockMap
+						}
+						if ProtectedEndpointsItem.WebClient.Continue != nil {
+							ContinueMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.WebClient.Continue.AddHeader != nil {
+								ContinueMap["add_header"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.WebClient.Continue.NoHeader != nil {
+								ContinueMap["no_header"] = map[string]interface{}{}
+							}
+							WebClientMap["continue"] = ContinueMap
+						}
+						if ProtectedEndpointsItem.WebClient.Redirect != nil {
+							RedirectMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.WebClient.Redirect.Location.IsNull() && !ProtectedEndpointsItem.WebClient.Redirect.Location.IsUnknown() {
+								RedirectMap["location"] = ProtectedEndpointsItem.WebClient.Redirect.Location.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebClient.Redirect.Status.IsNull() && !ProtectedEndpointsItem.WebClient.Redirect.Status.IsUnknown() {
+								RedirectMap["status"] = ProtectedEndpointsItem.WebClient.Redirect.Status.ValueString()
+							}
+							WebClientMap["redirect"] = RedirectMap
+						}
+						ProtectedEndpointsItemMap["web_client"] = WebClientMap
+					}
+					if ProtectedEndpointsItem.WebMobileClient != nil {
+						WebMobileClientMap := make(map[string]interface{})
+						if ProtectedEndpointsItem.WebMobileClient.BlockMobile != nil {
+							BlockMobileMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.IsUnknown() {
+								BlockMobileMap["body"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.IsUnknown() {
+								BlockMobileMap["content_type"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.IsUnknown() {
+								BlockMobileMap["status"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.ValueString()
+							}
+							WebMobileClientMap["block_mobile"] = BlockMobileMap
+						}
+						if ProtectedEndpointsItem.WebMobileClient.BlockWeb != nil {
+							BlockWebMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.IsUnknown() {
+								BlockWebMap["body"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.IsUnknown() {
+								BlockWebMap["content_type"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.IsUnknown() {
+								BlockWebMap["status"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.ValueString()
+							}
+							WebMobileClientMap["block_web"] = BlockWebMap
+						}
+						if ProtectedEndpointsItem.WebMobileClient.ContinueMobile != nil {
+							ContinueMobileMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.AddHeader != nil {
+								ContinueMobileMap["add_header"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.NoHeader != nil {
+								ContinueMobileMap["no_header"] = map[string]interface{}{}
+							}
+							WebMobileClientMap["continue_mobile"] = ContinueMobileMap
+						}
+						if ProtectedEndpointsItem.WebMobileClient.ContinueWeb != nil {
+							ContinueWebMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.AddHeader != nil {
+								ContinueWebMap["add_header"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.NoHeader != nil {
+								ContinueWebMap["no_header"] = map[string]interface{}{}
+							}
+							WebMobileClientMap["continue_web"] = ContinueWebMap
+						}
+						if ProtectedEndpointsItem.WebMobileClient.RedirectWeb != nil {
+							RedirectWebMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.IsNull() && !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.IsUnknown() {
+								RedirectWebMap["location"] = ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.IsUnknown() {
+								RedirectWebMap["status"] = ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.ValueString()
+							}
+							WebMobileClientMap["redirect_web"] = RedirectWebMap
+						}
+						ProtectedEndpointsItemMap["web_mobile_client"] = WebMobileClientMap
+					}
+					ProtectedEndpointsList = append(ProtectedEndpointsList, ProtectedEndpointsItemMap)
+				}
+				CloudflareMap["protected_endpoints"] = ProtectedEndpointsList
+			}
+		}
+		if !data.Cloudflare.Timeout.IsNull() && !data.Cloudflare.Timeout.IsUnknown() {
+			CloudflareMap["timeout"] = data.Cloudflare.Timeout.ValueInt64()
+		}
+		if !data.Cloudflare.TrustedClients.IsNull() && !data.Cloudflare.TrustedClients.IsUnknown() {
+			var TrustedClientsElems []ProtectedApplicationCloudflareTrustedClientsModel
+			diags := data.Cloudflare.TrustedClients.ElementsAs(ctx, &TrustedClientsElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(TrustedClientsElems) > 0 {
+				var TrustedClientsList []map[string]interface{}
+				for _, TrustedClientsItem := range TrustedClientsElems {
+					TrustedClientsItemMap := make(map[string]interface{})
+					if TrustedClientsItem.HTTPHeader != nil {
+						HTTPHeaderMap := make(map[string]interface{})
+						if !TrustedClientsItem.HTTPHeader.Headers.IsNull() && !TrustedClientsItem.HTTPHeader.Headers.IsUnknown() {
+							var HeadersElems []ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModel
+							diags := TrustedClientsItem.HTTPHeader.Headers.ElementsAs(ctx, &HeadersElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+								var HeadersList []map[string]interface{}
+								for _, HeadersItem := range HeadersElems {
+									HeadersItemMap := make(map[string]interface{})
+									if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
+										HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
+									}
+									if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+										HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+									}
+									if !HeadersItem.Regex.IsNull() && !HeadersItem.Regex.IsUnknown() {
+										HeadersItemMap["regex"] = HeadersItem.Regex.ValueString()
+									}
+									HeadersList = append(HeadersList, HeadersItemMap)
+								}
+								HTTPHeaderMap["headers"] = HeadersList
+							}
+						}
+						TrustedClientsItemMap["http_header"] = HTTPHeaderMap
+					}
+					if !TrustedClientsItem.IPPrefix.IsNull() && !TrustedClientsItem.IPPrefix.IsUnknown() {
+						TrustedClientsItemMap["ip_prefix"] = TrustedClientsItem.IPPrefix.ValueString()
+					}
+					if TrustedClientsItem.Metadata != nil {
+						MetadataMap := make(map[string]interface{})
+						if !TrustedClientsItem.Metadata.DescriptionSpec.IsNull() && !TrustedClientsItem.Metadata.DescriptionSpec.IsUnknown() {
+							MetadataMap["description"] = TrustedClientsItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !TrustedClientsItem.Metadata.Name.IsNull() && !TrustedClientsItem.Metadata.Name.IsUnknown() {
+							MetadataMap["name"] = TrustedClientsItem.Metadata.Name.ValueString()
+						}
+						TrustedClientsItemMap["metadata"] = MetadataMap
+					}
+					TrustedClientsList = append(TrustedClientsList, TrustedClientsItemMap)
+				}
+				CloudflareMap["trusted_clients"] = TrustedClientsList
+			}
 		}
 		createReq.Spec["cloudflare"] = CloudflareMap
 	}
@@ -3322,52 +3352,57 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 		}
 		if data.Cloudfront.JsInsertionRules != nil {
 			JsInsertionRulesMap := make(map[string]interface{})
-			if len(data.Cloudfront.JsInsertionRules.ExcludeList) > 0 {
-				var ExcludeListList []map[string]interface{}
-				for _, ExcludeListItem := range data.Cloudfront.JsInsertionRules.ExcludeList {
-					ExcludeListItemMap := make(map[string]interface{})
-					if ExcludeListItem.AnyDomain != nil {
-						ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+			if !data.Cloudfront.JsInsertionRules.ExcludeList.IsNull() && !data.Cloudfront.JsInsertionRules.ExcludeList.IsUnknown() {
+				var ExcludeListElems []ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel
+				diags := data.Cloudfront.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
+					var ExcludeListList []map[string]interface{}
+					for _, ExcludeListItem := range ExcludeListElems {
+						ExcludeListItemMap := make(map[string]interface{})
+						if ExcludeListItem.AnyDomain != nil {
+							ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+						}
+						if ExcludeListItem.Domain != nil {
+							DomainMap := make(map[string]interface{})
+							if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
+								DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
+							}
+							if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
+								DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
+							}
+							if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
+								DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
+							}
+							ExcludeListItemMap["domain"] = DomainMap
+						}
+						if ExcludeListItem.Metadata != nil {
+							MetadataMap := make(map[string]interface{})
+							if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
+								MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
+							}
+							if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
+								MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
+							}
+							ExcludeListItemMap["metadata"] = MetadataMap
+						}
+						if ExcludeListItem.Path != nil {
+							PathMap := make(map[string]interface{})
+							if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
+								PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
+							}
+							if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
+								PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
+							}
+							if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
+								PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
+							}
+							ExcludeListItemMap["path"] = PathMap
+						}
+						ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
 					}
-					if ExcludeListItem.Domain != nil {
-						DomainMap := make(map[string]interface{})
-						if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
-							DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
-						}
-						if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
-							DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
-						}
-						if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
-							DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
-						}
-						ExcludeListItemMap["domain"] = DomainMap
-					}
-					if ExcludeListItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
-						if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
-						}
-						if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
-						}
-						ExcludeListItemMap["metadata"] = MetadataMap
-					}
-					if ExcludeListItem.Path != nil {
-						PathMap := make(map[string]interface{})
-						if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
-							PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
-						}
-						if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
-							PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
-						}
-						if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
-							PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
-						}
-						ExcludeListItemMap["path"] = PathMap
-					}
-					ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
+					JsInsertionRulesMap["exclude_list"] = ExcludeListList
 				}
-				JsInsertionRulesMap["exclude_list"] = ExcludeListList
 			}
 			if !data.Cloudfront.JsInsertionRules.JavascriptLocation.IsNull() && !data.Cloudfront.JsInsertionRules.JavascriptLocation.IsUnknown() {
 				JsInsertionRulesMap["javascript_location"] = data.Cloudfront.JsInsertionRules.JavascriptLocation.ValueString()
@@ -3378,48 +3413,53 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 			if !data.Cloudfront.JsInsertionRules.JsDownloadPath.IsNull() && !data.Cloudfront.JsInsertionRules.JsDownloadPath.IsUnknown() {
 				JsInsertionRulesMap["js_download_path"] = data.Cloudfront.JsInsertionRules.JsDownloadPath.ValueString()
 			}
-			if len(data.Cloudfront.JsInsertionRules.Rules) > 0 {
-				var RulesList []map[string]interface{}
-				for _, RulesItem := range data.Cloudfront.JsInsertionRules.Rules {
-					RulesItemMap := make(map[string]interface{})
-					if RulesItem.AnyDomain != nil {
-						RulesItemMap["any_domain"] = map[string]interface{}{}
-					}
-					if RulesItem.Domain != nil {
-						DomainMap := make(map[string]interface{})
-						if !RulesItem.Domain.ExactValue.IsNull() && !RulesItem.Domain.ExactValue.IsUnknown() {
-							DomainMap["exact_value"] = RulesItem.Domain.ExactValue.ValueString()
+			if !data.Cloudfront.JsInsertionRules.Rules.IsNull() && !data.Cloudfront.JsInsertionRules.Rules.IsUnknown() {
+				var RulesElems []ProtectedApplicationCloudfrontJsInsertionRulesRulesModel
+				diags := data.Cloudfront.JsInsertionRules.Rules.ElementsAs(ctx, &RulesElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
+					var RulesList []map[string]interface{}
+					for _, RulesItem := range RulesElems {
+						RulesItemMap := make(map[string]interface{})
+						if RulesItem.AnyDomain != nil {
+							RulesItemMap["any_domain"] = map[string]interface{}{}
 						}
-						if !RulesItem.Domain.RegexValue.IsNull() && !RulesItem.Domain.RegexValue.IsUnknown() {
-							DomainMap["regex_value"] = RulesItem.Domain.RegexValue.ValueString()
+						if RulesItem.Domain != nil {
+							DomainMap := make(map[string]interface{})
+							if !RulesItem.Domain.ExactValue.IsNull() && !RulesItem.Domain.ExactValue.IsUnknown() {
+								DomainMap["exact_value"] = RulesItem.Domain.ExactValue.ValueString()
+							}
+							if !RulesItem.Domain.RegexValue.IsNull() && !RulesItem.Domain.RegexValue.IsUnknown() {
+								DomainMap["regex_value"] = RulesItem.Domain.RegexValue.ValueString()
+							}
+							if !RulesItem.Domain.SuffixValue.IsNull() && !RulesItem.Domain.SuffixValue.IsUnknown() {
+								DomainMap["suffix_value"] = RulesItem.Domain.SuffixValue.ValueString()
+							}
+							RulesItemMap["domain"] = DomainMap
 						}
-						if !RulesItem.Domain.SuffixValue.IsNull() && !RulesItem.Domain.SuffixValue.IsUnknown() {
-							DomainMap["suffix_value"] = RulesItem.Domain.SuffixValue.ValueString()
+						if !RulesItem.ExactPath.IsNull() && !RulesItem.ExactPath.IsUnknown() {
+							RulesItemMap["exact_path"] = RulesItem.ExactPath.ValueString()
 						}
-						RulesItemMap["domain"] = DomainMap
-					}
-					if !RulesItem.ExactPath.IsNull() && !RulesItem.ExactPath.IsUnknown() {
-						RulesItemMap["exact_path"] = RulesItem.ExactPath.ValueString()
-					}
-					if !RulesItem.Glob.IsNull() && !RulesItem.Glob.IsUnknown() {
-						RulesItemMap["glob"] = RulesItem.Glob.ValueString()
-					}
-					if RulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
-						if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+						if !RulesItem.Glob.IsNull() && !RulesItem.Glob.IsUnknown() {
+							RulesItemMap["glob"] = RulesItem.Glob.ValueString()
 						}
-						if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+						if RulesItem.Metadata != nil {
+							MetadataMap := make(map[string]interface{})
+							if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
+								MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+							}
+							if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
+								MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+							}
+							RulesItemMap["metadata"] = MetadataMap
 						}
-						RulesItemMap["metadata"] = MetadataMap
+						if !RulesItem.Prefix.IsNull() && !RulesItem.Prefix.IsUnknown() {
+							RulesItemMap["prefix"] = RulesItem.Prefix.ValueString()
+						}
+						RulesList = append(RulesList, RulesItemMap)
 					}
-					if !RulesItem.Prefix.IsNull() && !RulesItem.Prefix.IsUnknown() {
-						RulesItemMap["prefix"] = RulesItem.Prefix.ValueString()
-					}
-					RulesList = append(RulesList, RulesItemMap)
+					JsInsertionRulesMap["rules"] = RulesList
 				}
-				JsInsertionRulesMap["rules"] = RulesList
 			}
 			CloudfrontMap["js_insertion_rules"] = JsInsertionRulesMap
 		}
@@ -3440,382 +3480,13 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 			MobileSdkConfigMap := make(map[string]interface{})
 			if data.Cloudfront.MobileSdkConfig.MobileIdentifier != nil {
 				MobileIdentifierMap := make(map[string]interface{})
-				if len(data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers) > 0 {
-					var HeadersList []map[string]interface{}
-					for _, HeadersItem := range data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers {
-						HeadersItemMap := make(map[string]interface{})
-						if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
-							HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
-						}
-						if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-							HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-						}
-						if !HeadersItem.Regex.IsNull() && !HeadersItem.Regex.IsUnknown() {
-							HeadersItemMap["regex"] = HeadersItem.Regex.ValueString()
-						}
-						HeadersList = append(HeadersList, HeadersItemMap)
-					}
-					MobileIdentifierMap["headers"] = HeadersList
-				}
-				MobileSdkConfigMap["mobile_identifier"] = MobileIdentifierMap
-			}
-			CloudfrontMap["mobile_sdk_config"] = MobileSdkConfigMap
-		}
-		if len(data.Cloudfront.ProtectedEndpoints) > 0 {
-			var ProtectedEndpointsList []map[string]interface{}
-			for _, ProtectedEndpointsItem := range data.Cloudfront.ProtectedEndpoints {
-				ProtectedEndpointsItemMap := make(map[string]interface{})
-				if ProtectedEndpointsItem.AnyDomain != nil {
-					ProtectedEndpointsItemMap["any_domain"] = map[string]interface{}{}
-				}
-				if ProtectedEndpointsItem.Domain != nil {
-					DomainMap := make(map[string]interface{})
-					if !ProtectedEndpointsItem.Domain.ExactValue.IsNull() && !ProtectedEndpointsItem.Domain.ExactValue.IsUnknown() {
-						DomainMap["exact_value"] = ProtectedEndpointsItem.Domain.ExactValue.ValueString()
-					}
-					if !ProtectedEndpointsItem.Domain.RegexValue.IsNull() && !ProtectedEndpointsItem.Domain.RegexValue.IsUnknown() {
-						DomainMap["regex_value"] = ProtectedEndpointsItem.Domain.RegexValue.ValueString()
-					}
-					if !ProtectedEndpointsItem.Domain.SuffixValue.IsNull() && !ProtectedEndpointsItem.Domain.SuffixValue.IsUnknown() {
-						DomainMap["suffix_value"] = ProtectedEndpointsItem.Domain.SuffixValue.ValueString()
-					}
-					ProtectedEndpointsItemMap["domain"] = DomainMap
-				}
-				if ProtectedEndpointsItem.FlowLabel != nil {
-					FlowLabelMap := make(map[string]interface{})
-					if ProtectedEndpointsItem.FlowLabel.AccountManagement != nil {
-						AccountManagementMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.FlowLabel.AccountManagement.Create != nil {
-							AccountManagementMap["create"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.AccountManagement.PasswordReset != nil {
-							AccountManagementMap["password_reset"] = map[string]interface{}{}
-						}
-						FlowLabelMap["account_management"] = AccountManagementMap
-					}
-					if ProtectedEndpointsItem.FlowLabel.Authentication != nil {
-						AuthenticationMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.FlowLabel.Authentication.Login != nil {
-							LoginMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.FlowLabel.Authentication.Login.DisableTransactionResult != nil {
-								LoginMap["disable_transaction_result"] = map[string]interface{}{}
-							}
-							if ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult != nil {
-								TransactionResultMap := make(map[string]interface{})
-								if len(ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.FailureConditions) > 0 {
-									var FailureConditionsList []map[string]interface{}
-									for _, FailureConditionsItem := range ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.FailureConditions {
-										FailureConditionsItemMap := make(map[string]interface{})
-										if !FailureConditionsItem.Name.IsNull() && !FailureConditionsItem.Name.IsUnknown() {
-											FailureConditionsItemMap["name"] = FailureConditionsItem.Name.ValueString()
-										}
-										if !FailureConditionsItem.RegexValues.IsNull() && !FailureConditionsItem.RegexValues.IsUnknown() {
-											var RegexValuesItems []string
-											diags := FailureConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-											if !diags.HasError() {
-												FailureConditionsItemMap["regex_values"] = RegexValuesItems
-											}
-										}
-										if !FailureConditionsItem.Status.IsNull() && !FailureConditionsItem.Status.IsUnknown() {
-											FailureConditionsItemMap["status"] = FailureConditionsItem.Status.ValueString()
-										}
-										FailureConditionsList = append(FailureConditionsList, FailureConditionsItemMap)
-									}
-									TransactionResultMap["failure_conditions"] = FailureConditionsList
-								}
-								if len(ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.SuccessConditions) > 0 {
-									var SuccessConditionsList []map[string]interface{}
-									for _, SuccessConditionsItem := range ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.SuccessConditions {
-										SuccessConditionsItemMap := make(map[string]interface{})
-										if !SuccessConditionsItem.Name.IsNull() && !SuccessConditionsItem.Name.IsUnknown() {
-											SuccessConditionsItemMap["name"] = SuccessConditionsItem.Name.ValueString()
-										}
-										if !SuccessConditionsItem.RegexValues.IsNull() && !SuccessConditionsItem.RegexValues.IsUnknown() {
-											var RegexValuesItems []string
-											diags := SuccessConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-											if !diags.HasError() {
-												SuccessConditionsItemMap["regex_values"] = RegexValuesItems
-											}
-										}
-										if !SuccessConditionsItem.Status.IsNull() && !SuccessConditionsItem.Status.IsUnknown() {
-											SuccessConditionsItemMap["status"] = SuccessConditionsItem.Status.ValueString()
-										}
-										SuccessConditionsList = append(SuccessConditionsList, SuccessConditionsItemMap)
-									}
-									TransactionResultMap["success_conditions"] = SuccessConditionsList
-								}
-								LoginMap["transaction_result"] = TransactionResultMap
-							}
-							AuthenticationMap["login"] = LoginMap
-						}
-						if ProtectedEndpointsItem.FlowLabel.Authentication.LoginMFA != nil {
-							AuthenticationMap["login_mfa"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.Authentication.LoginPartner != nil {
-							AuthenticationMap["login_partner"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.Authentication.Logout != nil {
-							AuthenticationMap["logout"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.Authentication.TokenRefresh != nil {
-							AuthenticationMap["token_refresh"] = map[string]interface{}{}
-						}
-						FlowLabelMap["authentication"] = AuthenticationMap
-					}
-					if ProtectedEndpointsItem.FlowLabel.FinancialServices != nil {
-						FinancialServicesMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.FlowLabel.FinancialServices.Apply != nil {
-							FinancialServicesMap["apply"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.FinancialServices.MoneyTransfer != nil {
-							FinancialServicesMap["money_transfer"] = map[string]interface{}{}
-						}
-						FlowLabelMap["financial_services"] = FinancialServicesMap
-					}
-					if ProtectedEndpointsItem.FlowLabel.Flight != nil {
-						FlightMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.FlowLabel.Flight.Checking != nil {
-							FlightMap["checking"] = map[string]interface{}{}
-						}
-						FlowLabelMap["flight"] = FlightMap
-					}
-					if ProtectedEndpointsItem.FlowLabel.ProfileManagement != nil {
-						ProfileManagementMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.FlowLabel.ProfileManagement.Create != nil {
-							ProfileManagementMap["create"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ProfileManagement.Update != nil {
-							ProfileManagementMap["update"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ProfileManagement.View != nil {
-							ProfileManagementMap["view"] = map[string]interface{}{}
-						}
-						FlowLabelMap["profile_management"] = ProfileManagementMap
-					}
-					if ProtectedEndpointsItem.FlowLabel.Search != nil {
-						SearchMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.FlowLabel.Search.FlightSearch != nil {
-							SearchMap["flight_search"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.Search.ProductSearch != nil {
-							SearchMap["product_search"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.Search.ReservationSearch != nil {
-							SearchMap["reservation_search"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.Search.RoomSearch != nil {
-							SearchMap["room_search"] = map[string]interface{}{}
-						}
-						FlowLabelMap["search"] = SearchMap
-					}
-					if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards != nil {
-						ShoppingGiftCardsMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard != nil {
-							ShoppingGiftCardsMap["gift_card_make_purchase_with_gift_card"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardValidation != nil {
-							ShoppingGiftCardsMap["gift_card_validation"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopAddToCart != nil {
-							ShoppingGiftCardsMap["shop_add_to_cart"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopCheckout != nil {
-							ShoppingGiftCardsMap["shop_checkout"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopChooseSeat != nil {
-							ShoppingGiftCardsMap["shop_choose_seat"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission != nil {
-							ShoppingGiftCardsMap["shop_enter_drawing_submission"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopMakePayment != nil {
-							ShoppingGiftCardsMap["shop_make_payment"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopOrder != nil {
-							ShoppingGiftCardsMap["shop_order"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPriceInquiry != nil {
-							ShoppingGiftCardsMap["shop_price_inquiry"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation != nil {
-							ShoppingGiftCardsMap["shop_promo_code_validation"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard != nil {
-							ShoppingGiftCardsMap["shop_purchase_gift_card"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopUpdateQuantity != nil {
-							ShoppingGiftCardsMap["shop_update_quantity"] = map[string]interface{}{}
-						}
-						FlowLabelMap["shopping_gift_cards"] = ShoppingGiftCardsMap
-					}
-					ProtectedEndpointsItemMap["flow_label"] = FlowLabelMap
-				}
-				if !ProtectedEndpointsItem.HTTPMethods.IsNull() && !ProtectedEndpointsItem.HTTPMethods.IsUnknown() {
-					var HTTPMethodsItems []string
-					diags := ProtectedEndpointsItem.HTTPMethods.ElementsAs(ctx, &HTTPMethodsItems, false)
-					if !diags.HasError() {
-						ProtectedEndpointsItemMap["http_methods"] = HTTPMethodsItems
-					}
-				}
-				if ProtectedEndpointsItem.Metadata != nil {
-					MetadataMap := make(map[string]interface{})
-					if !ProtectedEndpointsItem.Metadata.DescriptionSpec.IsNull() && !ProtectedEndpointsItem.Metadata.DescriptionSpec.IsUnknown() {
-						MetadataMap["description"] = ProtectedEndpointsItem.Metadata.DescriptionSpec.ValueString()
-					}
-					if !ProtectedEndpointsItem.Metadata.Name.IsNull() && !ProtectedEndpointsItem.Metadata.Name.IsUnknown() {
-						MetadataMap["name"] = ProtectedEndpointsItem.Metadata.Name.ValueString()
-					}
-					ProtectedEndpointsItemMap["metadata"] = MetadataMap
-				}
-				if ProtectedEndpointsItem.MobileClient != nil {
-					MobileClientMap := make(map[string]interface{})
-					if ProtectedEndpointsItem.MobileClient.Block != nil {
-						BlockMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.MobileClient.Block.Body.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.Body.IsUnknown() {
-							BlockMap["body"] = ProtectedEndpointsItem.MobileClient.Block.Body.ValueString()
-						}
-						if !ProtectedEndpointsItem.MobileClient.Block.ContentType.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.ContentType.IsUnknown() {
-							BlockMap["content_type"] = ProtectedEndpointsItem.MobileClient.Block.ContentType.ValueString()
-						}
-						if !ProtectedEndpointsItem.MobileClient.Block.Status.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.Status.IsUnknown() {
-							BlockMap["status"] = ProtectedEndpointsItem.MobileClient.Block.Status.ValueString()
-						}
-						MobileClientMap["block"] = BlockMap
-					}
-					if ProtectedEndpointsItem.MobileClient.Continue != nil {
-						ContinueMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.MobileClient.Continue.AddHeader != nil {
-							ContinueMap["add_header"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.MobileClient.Continue.NoHeader != nil {
-							ContinueMap["no_header"] = map[string]interface{}{}
-						}
-						MobileClientMap["continue"] = ContinueMap
-					}
-					ProtectedEndpointsItemMap["mobile_client"] = MobileClientMap
-				}
-				if !ProtectedEndpointsItem.Path.IsNull() && !ProtectedEndpointsItem.Path.IsUnknown() {
-					ProtectedEndpointsItemMap["path"] = ProtectedEndpointsItem.Path.ValueString()
-				}
-				if !ProtectedEndpointsItem.Query.IsNull() && !ProtectedEndpointsItem.Query.IsUnknown() {
-					ProtectedEndpointsItemMap["query"] = ProtectedEndpointsItem.Query.ValueString()
-				}
-				if ProtectedEndpointsItem.UndefinedFlowLabel != nil {
-					ProtectedEndpointsItemMap["undefined_flow_label"] = map[string]interface{}{}
-				}
-				if ProtectedEndpointsItem.WebClient != nil {
-					WebClientMap := make(map[string]interface{})
-					if ProtectedEndpointsItem.WebClient.Block != nil {
-						BlockMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.WebClient.Block.Body.IsNull() && !ProtectedEndpointsItem.WebClient.Block.Body.IsUnknown() {
-							BlockMap["body"] = ProtectedEndpointsItem.WebClient.Block.Body.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebClient.Block.ContentType.IsNull() && !ProtectedEndpointsItem.WebClient.Block.ContentType.IsUnknown() {
-							BlockMap["content_type"] = ProtectedEndpointsItem.WebClient.Block.ContentType.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebClient.Block.Status.IsNull() && !ProtectedEndpointsItem.WebClient.Block.Status.IsUnknown() {
-							BlockMap["status"] = ProtectedEndpointsItem.WebClient.Block.Status.ValueString()
-						}
-						WebClientMap["block"] = BlockMap
-					}
-					if ProtectedEndpointsItem.WebClient.Continue != nil {
-						ContinueMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.WebClient.Continue.AddHeader != nil {
-							ContinueMap["add_header"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.WebClient.Continue.NoHeader != nil {
-							ContinueMap["no_header"] = map[string]interface{}{}
-						}
-						WebClientMap["continue"] = ContinueMap
-					}
-					if ProtectedEndpointsItem.WebClient.Redirect != nil {
-						RedirectMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.WebClient.Redirect.Location.IsNull() && !ProtectedEndpointsItem.WebClient.Redirect.Location.IsUnknown() {
-							RedirectMap["location"] = ProtectedEndpointsItem.WebClient.Redirect.Location.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebClient.Redirect.Status.IsNull() && !ProtectedEndpointsItem.WebClient.Redirect.Status.IsUnknown() {
-							RedirectMap["status"] = ProtectedEndpointsItem.WebClient.Redirect.Status.ValueString()
-						}
-						WebClientMap["redirect"] = RedirectMap
-					}
-					ProtectedEndpointsItemMap["web_client"] = WebClientMap
-				}
-				if ProtectedEndpointsItem.WebMobileClient != nil {
-					WebMobileClientMap := make(map[string]interface{})
-					if ProtectedEndpointsItem.WebMobileClient.BlockMobile != nil {
-						BlockMobileMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.IsUnknown() {
-							BlockMobileMap["body"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.IsUnknown() {
-							BlockMobileMap["content_type"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.IsUnknown() {
-							BlockMobileMap["status"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.ValueString()
-						}
-						WebMobileClientMap["block_mobile"] = BlockMobileMap
-					}
-					if ProtectedEndpointsItem.WebMobileClient.BlockWeb != nil {
-						BlockWebMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.IsUnknown() {
-							BlockWebMap["body"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.IsUnknown() {
-							BlockWebMap["content_type"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.IsUnknown() {
-							BlockWebMap["status"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.ValueString()
-						}
-						WebMobileClientMap["block_web"] = BlockWebMap
-					}
-					if ProtectedEndpointsItem.WebMobileClient.ContinueMobile != nil {
-						ContinueMobileMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.AddHeader != nil {
-							ContinueMobileMap["add_header"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.NoHeader != nil {
-							ContinueMobileMap["no_header"] = map[string]interface{}{}
-						}
-						WebMobileClientMap["continue_mobile"] = ContinueMobileMap
-					}
-					if ProtectedEndpointsItem.WebMobileClient.ContinueWeb != nil {
-						ContinueWebMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.AddHeader != nil {
-							ContinueWebMap["add_header"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.NoHeader != nil {
-							ContinueWebMap["no_header"] = map[string]interface{}{}
-						}
-						WebMobileClientMap["continue_web"] = ContinueWebMap
-					}
-					if ProtectedEndpointsItem.WebMobileClient.RedirectWeb != nil {
-						RedirectWebMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.IsNull() && !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.IsUnknown() {
-							RedirectWebMap["location"] = ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.IsUnknown() {
-							RedirectWebMap["status"] = ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.ValueString()
-						}
-						WebMobileClientMap["redirect_web"] = RedirectWebMap
-					}
-					ProtectedEndpointsItemMap["web_mobile_client"] = WebMobileClientMap
-				}
-				ProtectedEndpointsList = append(ProtectedEndpointsList, ProtectedEndpointsItemMap)
-			}
-			CloudfrontMap["protected_endpoints"] = ProtectedEndpointsList
-		}
-		if !data.Cloudfront.Timeout.IsNull() && !data.Cloudfront.Timeout.IsUnknown() {
-			CloudfrontMap["timeout"] = data.Cloudfront.Timeout.ValueInt64()
-		}
-		if len(data.Cloudfront.TrustedClients) > 0 {
-			var TrustedClientsList []map[string]interface{}
-			for _, TrustedClientsItem := range data.Cloudfront.TrustedClients {
-				TrustedClientsItemMap := make(map[string]interface{})
-				if TrustedClientsItem.HTTPHeader != nil {
-					HTTPHeaderMap := make(map[string]interface{})
-					if len(TrustedClientsItem.HTTPHeader.Headers) > 0 {
+				if !data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
+					var HeadersElems []ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModel
+					diags := data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
 						var HeadersList []map[string]interface{}
-						for _, HeadersItem := range TrustedClientsItem.HTTPHeader.Headers {
+						for _, HeadersItem := range HeadersElems {
 							HeadersItemMap := make(map[string]interface{})
 							if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
 								HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
@@ -3828,26 +3499,425 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 							}
 							HeadersList = append(HeadersList, HeadersItemMap)
 						}
-						HTTPHeaderMap["headers"] = HeadersList
+						MobileIdentifierMap["headers"] = HeadersList
 					}
-					TrustedClientsItemMap["http_header"] = HTTPHeaderMap
 				}
-				if !TrustedClientsItem.IPPrefix.IsNull() && !TrustedClientsItem.IPPrefix.IsUnknown() {
-					TrustedClientsItemMap["ip_prefix"] = TrustedClientsItem.IPPrefix.ValueString()
-				}
-				if TrustedClientsItem.Metadata != nil {
-					MetadataMap := make(map[string]interface{})
-					if !TrustedClientsItem.Metadata.DescriptionSpec.IsNull() && !TrustedClientsItem.Metadata.DescriptionSpec.IsUnknown() {
-						MetadataMap["description"] = TrustedClientsItem.Metadata.DescriptionSpec.ValueString()
-					}
-					if !TrustedClientsItem.Metadata.Name.IsNull() && !TrustedClientsItem.Metadata.Name.IsUnknown() {
-						MetadataMap["name"] = TrustedClientsItem.Metadata.Name.ValueString()
-					}
-					TrustedClientsItemMap["metadata"] = MetadataMap
-				}
-				TrustedClientsList = append(TrustedClientsList, TrustedClientsItemMap)
+				MobileSdkConfigMap["mobile_identifier"] = MobileIdentifierMap
 			}
-			CloudfrontMap["trusted_clients"] = TrustedClientsList
+			CloudfrontMap["mobile_sdk_config"] = MobileSdkConfigMap
+		}
+		if !data.Cloudfront.ProtectedEndpoints.IsNull() && !data.Cloudfront.ProtectedEndpoints.IsUnknown() {
+			var ProtectedEndpointsElems []ProtectedApplicationCloudfrontProtectedEndpointsModel
+			diags := data.Cloudfront.ProtectedEndpoints.ElementsAs(ctx, &ProtectedEndpointsElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(ProtectedEndpointsElems) > 0 {
+				var ProtectedEndpointsList []map[string]interface{}
+				for _, ProtectedEndpointsItem := range ProtectedEndpointsElems {
+					ProtectedEndpointsItemMap := make(map[string]interface{})
+					if ProtectedEndpointsItem.AnyDomain != nil {
+						ProtectedEndpointsItemMap["any_domain"] = map[string]interface{}{}
+					}
+					if ProtectedEndpointsItem.Domain != nil {
+						DomainMap := make(map[string]interface{})
+						if !ProtectedEndpointsItem.Domain.ExactValue.IsNull() && !ProtectedEndpointsItem.Domain.ExactValue.IsUnknown() {
+							DomainMap["exact_value"] = ProtectedEndpointsItem.Domain.ExactValue.ValueString()
+						}
+						if !ProtectedEndpointsItem.Domain.RegexValue.IsNull() && !ProtectedEndpointsItem.Domain.RegexValue.IsUnknown() {
+							DomainMap["regex_value"] = ProtectedEndpointsItem.Domain.RegexValue.ValueString()
+						}
+						if !ProtectedEndpointsItem.Domain.SuffixValue.IsNull() && !ProtectedEndpointsItem.Domain.SuffixValue.IsUnknown() {
+							DomainMap["suffix_value"] = ProtectedEndpointsItem.Domain.SuffixValue.ValueString()
+						}
+						ProtectedEndpointsItemMap["domain"] = DomainMap
+					}
+					if ProtectedEndpointsItem.FlowLabel != nil {
+						FlowLabelMap := make(map[string]interface{})
+						if ProtectedEndpointsItem.FlowLabel.AccountManagement != nil {
+							AccountManagementMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.FlowLabel.AccountManagement.Create != nil {
+								AccountManagementMap["create"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.AccountManagement.PasswordReset != nil {
+								AccountManagementMap["password_reset"] = map[string]interface{}{}
+							}
+							FlowLabelMap["account_management"] = AccountManagementMap
+						}
+						if ProtectedEndpointsItem.FlowLabel.Authentication != nil {
+							AuthenticationMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.FlowLabel.Authentication.Login != nil {
+								LoginMap := make(map[string]interface{})
+								if ProtectedEndpointsItem.FlowLabel.Authentication.Login.DisableTransactionResult != nil {
+									LoginMap["disable_transaction_result"] = map[string]interface{}{}
+								}
+								if ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult != nil {
+									TransactionResultMap := make(map[string]interface{})
+									if !ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsNull() && !ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsUnknown() {
+										var FailureConditionsElems []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel
+										diags := ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.FailureConditions.ElementsAs(ctx, &FailureConditionsElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(FailureConditionsElems) > 0 {
+											var FailureConditionsList []map[string]interface{}
+											for _, FailureConditionsItem := range FailureConditionsElems {
+												FailureConditionsItemMap := make(map[string]interface{})
+												if !FailureConditionsItem.Name.IsNull() && !FailureConditionsItem.Name.IsUnknown() {
+													FailureConditionsItemMap["name"] = FailureConditionsItem.Name.ValueString()
+												}
+												if !FailureConditionsItem.RegexValues.IsNull() && !FailureConditionsItem.RegexValues.IsUnknown() {
+													var RegexValuesItems []string
+													diags := FailureConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+													if !diags.HasError() {
+														FailureConditionsItemMap["regex_values"] = RegexValuesItems
+													}
+												}
+												if !FailureConditionsItem.Status.IsNull() && !FailureConditionsItem.Status.IsUnknown() {
+													FailureConditionsItemMap["status"] = FailureConditionsItem.Status.ValueString()
+												}
+												FailureConditionsList = append(FailureConditionsList, FailureConditionsItemMap)
+											}
+											TransactionResultMap["failure_conditions"] = FailureConditionsList
+										}
+									}
+									if !ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsNull() && !ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsUnknown() {
+										var SuccessConditionsElems []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel
+										diags := ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.ElementsAs(ctx, &SuccessConditionsElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(SuccessConditionsElems) > 0 {
+											var SuccessConditionsList []map[string]interface{}
+											for _, SuccessConditionsItem := range SuccessConditionsElems {
+												SuccessConditionsItemMap := make(map[string]interface{})
+												if !SuccessConditionsItem.Name.IsNull() && !SuccessConditionsItem.Name.IsUnknown() {
+													SuccessConditionsItemMap["name"] = SuccessConditionsItem.Name.ValueString()
+												}
+												if !SuccessConditionsItem.RegexValues.IsNull() && !SuccessConditionsItem.RegexValues.IsUnknown() {
+													var RegexValuesItems []string
+													diags := SuccessConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+													if !diags.HasError() {
+														SuccessConditionsItemMap["regex_values"] = RegexValuesItems
+													}
+												}
+												if !SuccessConditionsItem.Status.IsNull() && !SuccessConditionsItem.Status.IsUnknown() {
+													SuccessConditionsItemMap["status"] = SuccessConditionsItem.Status.ValueString()
+												}
+												SuccessConditionsList = append(SuccessConditionsList, SuccessConditionsItemMap)
+											}
+											TransactionResultMap["success_conditions"] = SuccessConditionsList
+										}
+									}
+									LoginMap["transaction_result"] = TransactionResultMap
+								}
+								AuthenticationMap["login"] = LoginMap
+							}
+							if ProtectedEndpointsItem.FlowLabel.Authentication.LoginMFA != nil {
+								AuthenticationMap["login_mfa"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.Authentication.LoginPartner != nil {
+								AuthenticationMap["login_partner"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.Authentication.Logout != nil {
+								AuthenticationMap["logout"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.Authentication.TokenRefresh != nil {
+								AuthenticationMap["token_refresh"] = map[string]interface{}{}
+							}
+							FlowLabelMap["authentication"] = AuthenticationMap
+						}
+						if ProtectedEndpointsItem.FlowLabel.FinancialServices != nil {
+							FinancialServicesMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.FlowLabel.FinancialServices.Apply != nil {
+								FinancialServicesMap["apply"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.FinancialServices.MoneyTransfer != nil {
+								FinancialServicesMap["money_transfer"] = map[string]interface{}{}
+							}
+							FlowLabelMap["financial_services"] = FinancialServicesMap
+						}
+						if ProtectedEndpointsItem.FlowLabel.Flight != nil {
+							FlightMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.FlowLabel.Flight.Checking != nil {
+								FlightMap["checking"] = map[string]interface{}{}
+							}
+							FlowLabelMap["flight"] = FlightMap
+						}
+						if ProtectedEndpointsItem.FlowLabel.ProfileManagement != nil {
+							ProfileManagementMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.FlowLabel.ProfileManagement.Create != nil {
+								ProfileManagementMap["create"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ProfileManagement.Update != nil {
+								ProfileManagementMap["update"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ProfileManagement.View != nil {
+								ProfileManagementMap["view"] = map[string]interface{}{}
+							}
+							FlowLabelMap["profile_management"] = ProfileManagementMap
+						}
+						if ProtectedEndpointsItem.FlowLabel.Search != nil {
+							SearchMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.FlowLabel.Search.FlightSearch != nil {
+								SearchMap["flight_search"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.Search.ProductSearch != nil {
+								SearchMap["product_search"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.Search.ReservationSearch != nil {
+								SearchMap["reservation_search"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.Search.RoomSearch != nil {
+								SearchMap["room_search"] = map[string]interface{}{}
+							}
+							FlowLabelMap["search"] = SearchMap
+						}
+						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards != nil {
+							ShoppingGiftCardsMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard != nil {
+								ShoppingGiftCardsMap["gift_card_make_purchase_with_gift_card"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardValidation != nil {
+								ShoppingGiftCardsMap["gift_card_validation"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopAddToCart != nil {
+								ShoppingGiftCardsMap["shop_add_to_cart"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopCheckout != nil {
+								ShoppingGiftCardsMap["shop_checkout"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopChooseSeat != nil {
+								ShoppingGiftCardsMap["shop_choose_seat"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission != nil {
+								ShoppingGiftCardsMap["shop_enter_drawing_submission"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopMakePayment != nil {
+								ShoppingGiftCardsMap["shop_make_payment"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopOrder != nil {
+								ShoppingGiftCardsMap["shop_order"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPriceInquiry != nil {
+								ShoppingGiftCardsMap["shop_price_inquiry"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation != nil {
+								ShoppingGiftCardsMap["shop_promo_code_validation"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard != nil {
+								ShoppingGiftCardsMap["shop_purchase_gift_card"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopUpdateQuantity != nil {
+								ShoppingGiftCardsMap["shop_update_quantity"] = map[string]interface{}{}
+							}
+							FlowLabelMap["shopping_gift_cards"] = ShoppingGiftCardsMap
+						}
+						ProtectedEndpointsItemMap["flow_label"] = FlowLabelMap
+					}
+					if !ProtectedEndpointsItem.HTTPMethods.IsNull() && !ProtectedEndpointsItem.HTTPMethods.IsUnknown() {
+						var HTTPMethodsItems []string
+						diags := ProtectedEndpointsItem.HTTPMethods.ElementsAs(ctx, &HTTPMethodsItems, false)
+						if !diags.HasError() {
+							ProtectedEndpointsItemMap["http_methods"] = HTTPMethodsItems
+						}
+					}
+					if ProtectedEndpointsItem.Metadata != nil {
+						MetadataMap := make(map[string]interface{})
+						if !ProtectedEndpointsItem.Metadata.DescriptionSpec.IsNull() && !ProtectedEndpointsItem.Metadata.DescriptionSpec.IsUnknown() {
+							MetadataMap["description"] = ProtectedEndpointsItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !ProtectedEndpointsItem.Metadata.Name.IsNull() && !ProtectedEndpointsItem.Metadata.Name.IsUnknown() {
+							MetadataMap["name"] = ProtectedEndpointsItem.Metadata.Name.ValueString()
+						}
+						ProtectedEndpointsItemMap["metadata"] = MetadataMap
+					}
+					if ProtectedEndpointsItem.MobileClient != nil {
+						MobileClientMap := make(map[string]interface{})
+						if ProtectedEndpointsItem.MobileClient.Block != nil {
+							BlockMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.MobileClient.Block.Body.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.Body.IsUnknown() {
+								BlockMap["body"] = ProtectedEndpointsItem.MobileClient.Block.Body.ValueString()
+							}
+							if !ProtectedEndpointsItem.MobileClient.Block.ContentType.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.ContentType.IsUnknown() {
+								BlockMap["content_type"] = ProtectedEndpointsItem.MobileClient.Block.ContentType.ValueString()
+							}
+							if !ProtectedEndpointsItem.MobileClient.Block.Status.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.Status.IsUnknown() {
+								BlockMap["status"] = ProtectedEndpointsItem.MobileClient.Block.Status.ValueString()
+							}
+							MobileClientMap["block"] = BlockMap
+						}
+						if ProtectedEndpointsItem.MobileClient.Continue != nil {
+							ContinueMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.MobileClient.Continue.AddHeader != nil {
+								ContinueMap["add_header"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.MobileClient.Continue.NoHeader != nil {
+								ContinueMap["no_header"] = map[string]interface{}{}
+							}
+							MobileClientMap["continue"] = ContinueMap
+						}
+						ProtectedEndpointsItemMap["mobile_client"] = MobileClientMap
+					}
+					if !ProtectedEndpointsItem.Path.IsNull() && !ProtectedEndpointsItem.Path.IsUnknown() {
+						ProtectedEndpointsItemMap["path"] = ProtectedEndpointsItem.Path.ValueString()
+					}
+					if !ProtectedEndpointsItem.Query.IsNull() && !ProtectedEndpointsItem.Query.IsUnknown() {
+						ProtectedEndpointsItemMap["query"] = ProtectedEndpointsItem.Query.ValueString()
+					}
+					if ProtectedEndpointsItem.UndefinedFlowLabel != nil {
+						ProtectedEndpointsItemMap["undefined_flow_label"] = map[string]interface{}{}
+					}
+					if ProtectedEndpointsItem.WebClient != nil {
+						WebClientMap := make(map[string]interface{})
+						if ProtectedEndpointsItem.WebClient.Block != nil {
+							BlockMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.WebClient.Block.Body.IsNull() && !ProtectedEndpointsItem.WebClient.Block.Body.IsUnknown() {
+								BlockMap["body"] = ProtectedEndpointsItem.WebClient.Block.Body.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebClient.Block.ContentType.IsNull() && !ProtectedEndpointsItem.WebClient.Block.ContentType.IsUnknown() {
+								BlockMap["content_type"] = ProtectedEndpointsItem.WebClient.Block.ContentType.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebClient.Block.Status.IsNull() && !ProtectedEndpointsItem.WebClient.Block.Status.IsUnknown() {
+								BlockMap["status"] = ProtectedEndpointsItem.WebClient.Block.Status.ValueString()
+							}
+							WebClientMap["block"] = BlockMap
+						}
+						if ProtectedEndpointsItem.WebClient.Continue != nil {
+							ContinueMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.WebClient.Continue.AddHeader != nil {
+								ContinueMap["add_header"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.WebClient.Continue.NoHeader != nil {
+								ContinueMap["no_header"] = map[string]interface{}{}
+							}
+							WebClientMap["continue"] = ContinueMap
+						}
+						if ProtectedEndpointsItem.WebClient.Redirect != nil {
+							RedirectMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.WebClient.Redirect.Location.IsNull() && !ProtectedEndpointsItem.WebClient.Redirect.Location.IsUnknown() {
+								RedirectMap["location"] = ProtectedEndpointsItem.WebClient.Redirect.Location.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebClient.Redirect.Status.IsNull() && !ProtectedEndpointsItem.WebClient.Redirect.Status.IsUnknown() {
+								RedirectMap["status"] = ProtectedEndpointsItem.WebClient.Redirect.Status.ValueString()
+							}
+							WebClientMap["redirect"] = RedirectMap
+						}
+						ProtectedEndpointsItemMap["web_client"] = WebClientMap
+					}
+					if ProtectedEndpointsItem.WebMobileClient != nil {
+						WebMobileClientMap := make(map[string]interface{})
+						if ProtectedEndpointsItem.WebMobileClient.BlockMobile != nil {
+							BlockMobileMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.IsUnknown() {
+								BlockMobileMap["body"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.IsUnknown() {
+								BlockMobileMap["content_type"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.IsUnknown() {
+								BlockMobileMap["status"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.ValueString()
+							}
+							WebMobileClientMap["block_mobile"] = BlockMobileMap
+						}
+						if ProtectedEndpointsItem.WebMobileClient.BlockWeb != nil {
+							BlockWebMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.IsUnknown() {
+								BlockWebMap["body"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.IsUnknown() {
+								BlockWebMap["content_type"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.IsUnknown() {
+								BlockWebMap["status"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.ValueString()
+							}
+							WebMobileClientMap["block_web"] = BlockWebMap
+						}
+						if ProtectedEndpointsItem.WebMobileClient.ContinueMobile != nil {
+							ContinueMobileMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.AddHeader != nil {
+								ContinueMobileMap["add_header"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.NoHeader != nil {
+								ContinueMobileMap["no_header"] = map[string]interface{}{}
+							}
+							WebMobileClientMap["continue_mobile"] = ContinueMobileMap
+						}
+						if ProtectedEndpointsItem.WebMobileClient.ContinueWeb != nil {
+							ContinueWebMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.AddHeader != nil {
+								ContinueWebMap["add_header"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.NoHeader != nil {
+								ContinueWebMap["no_header"] = map[string]interface{}{}
+							}
+							WebMobileClientMap["continue_web"] = ContinueWebMap
+						}
+						if ProtectedEndpointsItem.WebMobileClient.RedirectWeb != nil {
+							RedirectWebMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.IsNull() && !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.IsUnknown() {
+								RedirectWebMap["location"] = ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.IsUnknown() {
+								RedirectWebMap["status"] = ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.ValueString()
+							}
+							WebMobileClientMap["redirect_web"] = RedirectWebMap
+						}
+						ProtectedEndpointsItemMap["web_mobile_client"] = WebMobileClientMap
+					}
+					ProtectedEndpointsList = append(ProtectedEndpointsList, ProtectedEndpointsItemMap)
+				}
+				CloudfrontMap["protected_endpoints"] = ProtectedEndpointsList
+			}
+		}
+		if !data.Cloudfront.Timeout.IsNull() && !data.Cloudfront.Timeout.IsUnknown() {
+			CloudfrontMap["timeout"] = data.Cloudfront.Timeout.ValueInt64()
+		}
+		if !data.Cloudfront.TrustedClients.IsNull() && !data.Cloudfront.TrustedClients.IsUnknown() {
+			var TrustedClientsElems []ProtectedApplicationCloudfrontTrustedClientsModel
+			diags := data.Cloudfront.TrustedClients.ElementsAs(ctx, &TrustedClientsElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(TrustedClientsElems) > 0 {
+				var TrustedClientsList []map[string]interface{}
+				for _, TrustedClientsItem := range TrustedClientsElems {
+					TrustedClientsItemMap := make(map[string]interface{})
+					if TrustedClientsItem.HTTPHeader != nil {
+						HTTPHeaderMap := make(map[string]interface{})
+						if !TrustedClientsItem.HTTPHeader.Headers.IsNull() && !TrustedClientsItem.HTTPHeader.Headers.IsUnknown() {
+							var HeadersElems []ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModel
+							diags := TrustedClientsItem.HTTPHeader.Headers.ElementsAs(ctx, &HeadersElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+								var HeadersList []map[string]interface{}
+								for _, HeadersItem := range HeadersElems {
+									HeadersItemMap := make(map[string]interface{})
+									if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
+										HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
+									}
+									if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+										HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+									}
+									if !HeadersItem.Regex.IsNull() && !HeadersItem.Regex.IsUnknown() {
+										HeadersItemMap["regex"] = HeadersItem.Regex.ValueString()
+									}
+									HeadersList = append(HeadersList, HeadersItemMap)
+								}
+								HTTPHeaderMap["headers"] = HeadersList
+							}
+						}
+						TrustedClientsItemMap["http_header"] = HTTPHeaderMap
+					}
+					if !TrustedClientsItem.IPPrefix.IsNull() && !TrustedClientsItem.IPPrefix.IsUnknown() {
+						TrustedClientsItemMap["ip_prefix"] = TrustedClientsItem.IPPrefix.ValueString()
+					}
+					if TrustedClientsItem.Metadata != nil {
+						MetadataMap := make(map[string]interface{})
+						if !TrustedClientsItem.Metadata.DescriptionSpec.IsNull() && !TrustedClientsItem.Metadata.DescriptionSpec.IsUnknown() {
+							MetadataMap["description"] = TrustedClientsItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !TrustedClientsItem.Metadata.Name.IsNull() && !TrustedClientsItem.Metadata.Name.IsUnknown() {
+							MetadataMap["name"] = TrustedClientsItem.Metadata.Name.ValueString()
+						}
+						TrustedClientsItemMap["metadata"] = MetadataMap
+					}
+					TrustedClientsList = append(TrustedClientsList, TrustedClientsItemMap)
+				}
+				CloudfrontMap["trusted_clients"] = TrustedClientsList
+			}
 		}
 		createReq.Spec["cloudfront"] = CloudfrontMap
 	}
@@ -3914,7 +3984,7 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 				}
 				if JsInsertionRulesData, ok := blockData["js_insertion_rules"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudflareJsInsertionRulesModel{
-						ExcludeList: func() []ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel {
+						ExcludeList: func() types.List {
 							if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeListResult []ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel
 								for _, ExcludeListItem := range rawList {
@@ -3998,9 +4068,10 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 										})
 									}
 								}
-								return ExcludeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudflareJsInsertionRulesExcludeListModelAttrTypes}, ExcludeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareJsInsertionRulesExcludeListModelAttrTypes})
 						}(),
 						JavascriptLocation: func() types.String {
 							if v, ok := JsInsertionRulesData["javascript_location"].(string); ok && v != "" {
@@ -4014,7 +4085,7 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 							}
 							return types.StringNull()
 						}(),
-						Rules: func() []ProtectedApplicationCloudflareJsInsertionRulesRulesModel {
+						Rules: func() types.List {
 							if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 								var RulesResult []ProtectedApplicationCloudflareJsInsertionRulesRulesModel
 								for _, RulesItem := range rawList {
@@ -4091,9 +4162,10 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 										})
 									}
 								}
-								return RulesResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudflareJsInsertionRulesRulesModelAttrTypes}, RulesResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareJsInsertionRulesRulesModelAttrTypes})
 						}(),
 					}
 				}
@@ -4130,7 +4202,7 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 						MobileIdentifier: func() *ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierModel {
 							if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
 								return &ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierModel{
-									Headers: func() []ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModel {
+									Headers: func() types.List {
 										if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
 											var HeadersResult []ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModel
 											for _, HeadersItem := range rawList {
@@ -4157,9 +4229,10 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 													})
 												}
 											}
-											return HeadersResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModelAttrTypes}, HeadersResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
 									}(),
 								}
 							}
@@ -4169,9 +4242,9 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 				}
 				return nil
 			}(),
-			ProtectedEndpoints: func() []ProtectedApplicationCloudflareProtectedEndpointsModel {
-				if !isImport && data.Cloudflare != nil && len(data.Cloudflare.ProtectedEndpoints) == 0 {
-					return nil
+			ProtectedEndpoints: func() types.List {
+				if !isImport && data.Cloudflare != nil && (data.Cloudflare.ProtectedEndpoints.IsNull() || len(data.Cloudflare.ProtectedEndpoints.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareProtectedEndpointsModelAttrTypes})
 				}
 				if rawList, ok := blockData["protected_endpoints"].([]interface{}); ok && len(rawList) > 0 {
 					var ProtectedEndpointsResult []ProtectedApplicationCloudflareProtectedEndpointsModel
@@ -4504,9 +4577,10 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 							})
 						}
 					}
-					return ProtectedEndpointsResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudflareProtectedEndpointsModelAttrTypes}, ProtectedEndpointsResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareProtectedEndpointsModelAttrTypes})
 			}(),
 			Timeout: func() types.Int64 {
 				if !isImport && data.Cloudflare != nil && !data.Cloudflare.Timeout.IsUnknown() {
@@ -4517,9 +4591,9 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 				}
 				return types.Int64Null()
 			}(),
-			TrustedClients: func() []ProtectedApplicationCloudflareTrustedClientsModel {
-				if !isImport && data.Cloudflare != nil && len(data.Cloudflare.TrustedClients) == 0 {
-					return nil
+			TrustedClients: func() types.List {
+				if !isImport && data.Cloudflare != nil && (data.Cloudflare.TrustedClients.IsNull() || len(data.Cloudflare.TrustedClients.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareTrustedClientsModelAttrTypes})
 				}
 				if rawList, ok := blockData["trusted_clients"].([]interface{}); ok && len(rawList) > 0 {
 					var TrustedClientsResult []ProtectedApplicationCloudflareTrustedClientsModel
@@ -4529,7 +4603,7 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 								HTTPHeader: func() *ProtectedApplicationCloudflareTrustedClientsHTTPHeaderModel {
 									if HTTPHeaderData, ok := TrustedClientsItemMap["http_header"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudflareTrustedClientsHTTPHeaderModel{
-											Headers: func() []ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModel {
+											Headers: func() types.List {
 												if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModel
 													for _, HeadersItem := range rawList {
@@ -4556,9 +4630,10 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 															})
 														}
 													}
-													return HeadersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModelAttrTypes}, HeadersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModelAttrTypes})
 											}(),
 										}
 									}
@@ -4592,9 +4667,10 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 							})
 						}
 					}
-					return TrustedClientsResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudflareTrustedClientsModelAttrTypes}, TrustedClientsResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareTrustedClientsModelAttrTypes})
 			}(),
 		}
 	}
@@ -4687,7 +4763,7 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 				}
 				if JsInsertionRulesData, ok := blockData["js_insertion_rules"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudfrontJsInsertionRulesModel{
-						ExcludeList: func() []ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel {
+						ExcludeList: func() types.List {
 							if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeListResult []ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel
 								for _, ExcludeListItem := range rawList {
@@ -4771,9 +4847,10 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 										})
 									}
 								}
-								return ExcludeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModelAttrTypes}, ExcludeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModelAttrTypes})
 						}(),
 						JavascriptLocation: func() types.String {
 							if v, ok := JsInsertionRulesData["javascript_location"].(string); ok && v != "" {
@@ -4793,7 +4870,7 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 							}
 							return types.StringNull()
 						}(),
-						Rules: func() []ProtectedApplicationCloudfrontJsInsertionRulesRulesModel {
+						Rules: func() types.List {
 							if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 								var RulesResult []ProtectedApplicationCloudfrontJsInsertionRulesRulesModel
 								for _, RulesItem := range rawList {
@@ -4870,9 +4947,10 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 										})
 									}
 								}
-								return RulesResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontJsInsertionRulesRulesModelAttrTypes}, RulesResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontJsInsertionRulesRulesModelAttrTypes})
 						}(),
 					}
 				}
@@ -4915,7 +4993,7 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 						MobileIdentifier: func() *ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierModel {
 							if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
 								return &ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierModel{
-									Headers: func() []ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModel {
+									Headers: func() types.List {
 										if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
 											var HeadersResult []ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModel
 											for _, HeadersItem := range rawList {
@@ -4942,9 +5020,10 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 													})
 												}
 											}
-											return HeadersResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModelAttrTypes}, HeadersResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
 									}(),
 								}
 							}
@@ -4954,9 +5033,9 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 				}
 				return nil
 			}(),
-			ProtectedEndpoints: func() []ProtectedApplicationCloudfrontProtectedEndpointsModel {
-				if !isImport && data.Cloudfront != nil && len(data.Cloudfront.ProtectedEndpoints) == 0 {
-					return nil
+			ProtectedEndpoints: func() types.List {
+				if !isImport && data.Cloudfront != nil && (data.Cloudfront.ProtectedEndpoints.IsNull() || len(data.Cloudfront.ProtectedEndpoints.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsModelAttrTypes})
 				}
 				if rawList, ok := blockData["protected_endpoints"].([]interface{}); ok && len(rawList) > 0 {
 					var ProtectedEndpointsResult []ProtectedApplicationCloudfrontProtectedEndpointsModel
@@ -5031,7 +5110,7 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 																	TransactionResult: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultModel {
 																		if TransactionResultData, ok := LoginData["transaction_result"].(map[string]interface{}); ok {
 																			return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultModel{
-																				FailureConditions: func() []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel {
+																				FailureConditions: func() types.List {
 																					if rawList, ok := TransactionResultData["failure_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																						var FailureConditionsResult []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel
 																						for _, FailureConditionsItem := range rawList {
@@ -5065,11 +5144,12 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 																								})
 																							}
 																						}
-																						return FailureConditionsResult
+																						listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes}, FailureConditionsResult)
+																						return listVal
 																					}
-																					return nil
+																					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes})
 																				}(),
-																				SuccessConditions: func() []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel {
+																				SuccessConditions: func() types.List {
 																					if rawList, ok := TransactionResultData["success_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																						var SuccessConditionsResult []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel
 																						for _, SuccessConditionsItem := range rawList {
@@ -5103,9 +5183,10 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 																								})
 																							}
 																						}
-																						return SuccessConditionsResult
+																						listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModelAttrTypes}, SuccessConditionsResult)
+																						return listVal
 																					}
-																					return nil
+																					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModelAttrTypes})
 																				}(),
 																			}
 																		}
@@ -5602,9 +5683,10 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 							})
 						}
 					}
-					return ProtectedEndpointsResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsModelAttrTypes}, ProtectedEndpointsResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsModelAttrTypes})
 			}(),
 			Timeout: func() types.Int64 {
 				if !isImport && data.Cloudfront != nil && !data.Cloudfront.Timeout.IsUnknown() {
@@ -5615,9 +5697,9 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 				}
 				return types.Int64Null()
 			}(),
-			TrustedClients: func() []ProtectedApplicationCloudfrontTrustedClientsModel {
-				if !isImport && data.Cloudfront != nil && len(data.Cloudfront.TrustedClients) == 0 {
-					return nil
+			TrustedClients: func() types.List {
+				if !isImport && data.Cloudfront != nil && (data.Cloudfront.TrustedClients.IsNull() || len(data.Cloudfront.TrustedClients.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontTrustedClientsModelAttrTypes})
 				}
 				if rawList, ok := blockData["trusted_clients"].([]interface{}); ok && len(rawList) > 0 {
 					var TrustedClientsResult []ProtectedApplicationCloudfrontTrustedClientsModel
@@ -5627,7 +5709,7 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 								HTTPHeader: func() *ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderModel {
 									if HTTPHeaderData, ok := TrustedClientsItemMap["http_header"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderModel{
-											Headers: func() []ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModel {
+											Headers: func() types.List {
 												if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModel
 													for _, HeadersItem := range rawList {
@@ -5654,9 +5736,10 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 															})
 														}
 													}
-													return HeadersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModelAttrTypes}, HeadersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModelAttrTypes})
 											}(),
 										}
 									}
@@ -5690,9 +5773,10 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 							})
 						}
 					}
-					return TrustedClientsResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontTrustedClientsModelAttrTypes}, TrustedClientsResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontTrustedClientsModelAttrTypes})
 			}(),
 		}
 	}
@@ -5841,7 +5925,7 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 				}
 				if JsInsertionRulesData, ok := blockData["js_insertion_rules"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudflareJsInsertionRulesModel{
-						ExcludeList: func() []ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel {
+						ExcludeList: func() types.List {
 							if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeListResult []ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel
 								for _, ExcludeListItem := range rawList {
@@ -5925,9 +6009,10 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 										})
 									}
 								}
-								return ExcludeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudflareJsInsertionRulesExcludeListModelAttrTypes}, ExcludeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareJsInsertionRulesExcludeListModelAttrTypes})
 						}(),
 						JavascriptLocation: func() types.String {
 							if v, ok := JsInsertionRulesData["javascript_location"].(string); ok && v != "" {
@@ -5941,7 +6026,7 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 							}
 							return types.StringNull()
 						}(),
-						Rules: func() []ProtectedApplicationCloudflareJsInsertionRulesRulesModel {
+						Rules: func() types.List {
 							if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 								var RulesResult []ProtectedApplicationCloudflareJsInsertionRulesRulesModel
 								for _, RulesItem := range rawList {
@@ -6018,9 +6103,10 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 										})
 									}
 								}
-								return RulesResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudflareJsInsertionRulesRulesModelAttrTypes}, RulesResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareJsInsertionRulesRulesModelAttrTypes})
 						}(),
 					}
 				}
@@ -6057,7 +6143,7 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 						MobileIdentifier: func() *ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierModel {
 							if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
 								return &ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierModel{
-									Headers: func() []ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModel {
+									Headers: func() types.List {
 										if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
 											var HeadersResult []ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModel
 											for _, HeadersItem := range rawList {
@@ -6084,9 +6170,10 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 													})
 												}
 											}
-											return HeadersResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModelAttrTypes}, HeadersResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
 									}(),
 								}
 							}
@@ -6096,9 +6183,9 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 				}
 				return nil
 			}(),
-			ProtectedEndpoints: func() []ProtectedApplicationCloudflareProtectedEndpointsModel {
-				if !isImport && data.Cloudflare != nil && len(data.Cloudflare.ProtectedEndpoints) == 0 {
-					return nil
+			ProtectedEndpoints: func() types.List {
+				if !isImport && data.Cloudflare != nil && (data.Cloudflare.ProtectedEndpoints.IsNull() || len(data.Cloudflare.ProtectedEndpoints.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareProtectedEndpointsModelAttrTypes})
 				}
 				if rawList, ok := blockData["protected_endpoints"].([]interface{}); ok && len(rawList) > 0 {
 					var ProtectedEndpointsResult []ProtectedApplicationCloudflareProtectedEndpointsModel
@@ -6431,9 +6518,10 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 							})
 						}
 					}
-					return ProtectedEndpointsResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudflareProtectedEndpointsModelAttrTypes}, ProtectedEndpointsResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareProtectedEndpointsModelAttrTypes})
 			}(),
 			Timeout: func() types.Int64 {
 				if !isImport && data.Cloudflare != nil && !data.Cloudflare.Timeout.IsUnknown() {
@@ -6444,9 +6532,9 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 				}
 				return types.Int64Null()
 			}(),
-			TrustedClients: func() []ProtectedApplicationCloudflareTrustedClientsModel {
-				if !isImport && data.Cloudflare != nil && len(data.Cloudflare.TrustedClients) == 0 {
-					return nil
+			TrustedClients: func() types.List {
+				if !isImport && data.Cloudflare != nil && (data.Cloudflare.TrustedClients.IsNull() || len(data.Cloudflare.TrustedClients.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareTrustedClientsModelAttrTypes})
 				}
 				if rawList, ok := blockData["trusted_clients"].([]interface{}); ok && len(rawList) > 0 {
 					var TrustedClientsResult []ProtectedApplicationCloudflareTrustedClientsModel
@@ -6456,7 +6544,7 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 								HTTPHeader: func() *ProtectedApplicationCloudflareTrustedClientsHTTPHeaderModel {
 									if HTTPHeaderData, ok := TrustedClientsItemMap["http_header"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudflareTrustedClientsHTTPHeaderModel{
-											Headers: func() []ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModel {
+											Headers: func() types.List {
 												if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModel
 													for _, HeadersItem := range rawList {
@@ -6483,9 +6571,10 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 															})
 														}
 													}
-													return HeadersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModelAttrTypes}, HeadersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModelAttrTypes})
 											}(),
 										}
 									}
@@ -6519,9 +6608,10 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 							})
 						}
 					}
-					return TrustedClientsResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudflareTrustedClientsModelAttrTypes}, TrustedClientsResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareTrustedClientsModelAttrTypes})
 			}(),
 		}
 	}
@@ -6614,7 +6704,7 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 				}
 				if JsInsertionRulesData, ok := blockData["js_insertion_rules"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudfrontJsInsertionRulesModel{
-						ExcludeList: func() []ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel {
+						ExcludeList: func() types.List {
 							if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeListResult []ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel
 								for _, ExcludeListItem := range rawList {
@@ -6698,9 +6788,10 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 										})
 									}
 								}
-								return ExcludeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModelAttrTypes}, ExcludeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModelAttrTypes})
 						}(),
 						JavascriptLocation: func() types.String {
 							if v, ok := JsInsertionRulesData["javascript_location"].(string); ok && v != "" {
@@ -6720,7 +6811,7 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 							}
 							return types.StringNull()
 						}(),
-						Rules: func() []ProtectedApplicationCloudfrontJsInsertionRulesRulesModel {
+						Rules: func() types.List {
 							if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 								var RulesResult []ProtectedApplicationCloudfrontJsInsertionRulesRulesModel
 								for _, RulesItem := range rawList {
@@ -6797,9 +6888,10 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 										})
 									}
 								}
-								return RulesResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontJsInsertionRulesRulesModelAttrTypes}, RulesResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontJsInsertionRulesRulesModelAttrTypes})
 						}(),
 					}
 				}
@@ -6842,7 +6934,7 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 						MobileIdentifier: func() *ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierModel {
 							if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
 								return &ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierModel{
-									Headers: func() []ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModel {
+									Headers: func() types.List {
 										if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
 											var HeadersResult []ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModel
 											for _, HeadersItem := range rawList {
@@ -6869,9 +6961,10 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 													})
 												}
 											}
-											return HeadersResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModelAttrTypes}, HeadersResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
 									}(),
 								}
 							}
@@ -6881,9 +6974,9 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 				}
 				return nil
 			}(),
-			ProtectedEndpoints: func() []ProtectedApplicationCloudfrontProtectedEndpointsModel {
-				if !isImport && data.Cloudfront != nil && len(data.Cloudfront.ProtectedEndpoints) == 0 {
-					return nil
+			ProtectedEndpoints: func() types.List {
+				if !isImport && data.Cloudfront != nil && (data.Cloudfront.ProtectedEndpoints.IsNull() || len(data.Cloudfront.ProtectedEndpoints.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsModelAttrTypes})
 				}
 				if rawList, ok := blockData["protected_endpoints"].([]interface{}); ok && len(rawList) > 0 {
 					var ProtectedEndpointsResult []ProtectedApplicationCloudfrontProtectedEndpointsModel
@@ -6958,7 +7051,7 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 																	TransactionResult: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultModel {
 																		if TransactionResultData, ok := LoginData["transaction_result"].(map[string]interface{}); ok {
 																			return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultModel{
-																				FailureConditions: func() []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel {
+																				FailureConditions: func() types.List {
 																					if rawList, ok := TransactionResultData["failure_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																						var FailureConditionsResult []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel
 																						for _, FailureConditionsItem := range rawList {
@@ -6992,11 +7085,12 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 																								})
 																							}
 																						}
-																						return FailureConditionsResult
+																						listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes}, FailureConditionsResult)
+																						return listVal
 																					}
-																					return nil
+																					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes})
 																				}(),
-																				SuccessConditions: func() []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel {
+																				SuccessConditions: func() types.List {
 																					if rawList, ok := TransactionResultData["success_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																						var SuccessConditionsResult []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel
 																						for _, SuccessConditionsItem := range rawList {
@@ -7030,9 +7124,10 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 																								})
 																							}
 																						}
-																						return SuccessConditionsResult
+																						listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModelAttrTypes}, SuccessConditionsResult)
+																						return listVal
 																					}
-																					return nil
+																					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModelAttrTypes})
 																				}(),
 																			}
 																		}
@@ -7529,9 +7624,10 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 							})
 						}
 					}
-					return ProtectedEndpointsResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsModelAttrTypes}, ProtectedEndpointsResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsModelAttrTypes})
 			}(),
 			Timeout: func() types.Int64 {
 				if !isImport && data.Cloudfront != nil && !data.Cloudfront.Timeout.IsUnknown() {
@@ -7542,9 +7638,9 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 				}
 				return types.Int64Null()
 			}(),
-			TrustedClients: func() []ProtectedApplicationCloudfrontTrustedClientsModel {
-				if !isImport && data.Cloudfront != nil && len(data.Cloudfront.TrustedClients) == 0 {
-					return nil
+			TrustedClients: func() types.List {
+				if !isImport && data.Cloudfront != nil && (data.Cloudfront.TrustedClients.IsNull() || len(data.Cloudfront.TrustedClients.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontTrustedClientsModelAttrTypes})
 				}
 				if rawList, ok := blockData["trusted_clients"].([]interface{}); ok && len(rawList) > 0 {
 					var TrustedClientsResult []ProtectedApplicationCloudfrontTrustedClientsModel
@@ -7554,7 +7650,7 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 								HTTPHeader: func() *ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderModel {
 									if HTTPHeaderData, ok := TrustedClientsItemMap["http_header"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderModel{
-											Headers: func() []ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModel {
+											Headers: func() types.List {
 												if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModel
 													for _, HeadersItem := range rawList {
@@ -7581,9 +7677,10 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 															})
 														}
 													}
-													return HeadersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModelAttrTypes}, HeadersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModelAttrTypes})
 											}(),
 										}
 									}
@@ -7617,9 +7714,10 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 							})
 						}
 					}
-					return TrustedClientsResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontTrustedClientsModelAttrTypes}, TrustedClientsResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontTrustedClientsModelAttrTypes})
 			}(),
 		}
 	}
@@ -7715,52 +7813,57 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 		}
 		if data.Cloudflare.JsInsertionRules != nil {
 			JsInsertionRulesMap := make(map[string]interface{})
-			if len(data.Cloudflare.JsInsertionRules.ExcludeList) > 0 {
-				var ExcludeListList []map[string]interface{}
-				for _, ExcludeListItem := range data.Cloudflare.JsInsertionRules.ExcludeList {
-					ExcludeListItemMap := make(map[string]interface{})
-					if ExcludeListItem.AnyDomain != nil {
-						ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+			if !data.Cloudflare.JsInsertionRules.ExcludeList.IsNull() && !data.Cloudflare.JsInsertionRules.ExcludeList.IsUnknown() {
+				var ExcludeListElems []ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel
+				diags := data.Cloudflare.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
+					var ExcludeListList []map[string]interface{}
+					for _, ExcludeListItem := range ExcludeListElems {
+						ExcludeListItemMap := make(map[string]interface{})
+						if ExcludeListItem.AnyDomain != nil {
+							ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+						}
+						if ExcludeListItem.Domain != nil {
+							DomainMap := make(map[string]interface{})
+							if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
+								DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
+							}
+							if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
+								DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
+							}
+							if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
+								DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
+							}
+							ExcludeListItemMap["domain"] = DomainMap
+						}
+						if ExcludeListItem.Metadata != nil {
+							MetadataMap := make(map[string]interface{})
+							if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
+								MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
+							}
+							if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
+								MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
+							}
+							ExcludeListItemMap["metadata"] = MetadataMap
+						}
+						if ExcludeListItem.Path != nil {
+							PathMap := make(map[string]interface{})
+							if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
+								PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
+							}
+							if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
+								PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
+							}
+							if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
+								PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
+							}
+							ExcludeListItemMap["path"] = PathMap
+						}
+						ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
 					}
-					if ExcludeListItem.Domain != nil {
-						DomainMap := make(map[string]interface{})
-						if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
-							DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
-						}
-						if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
-							DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
-						}
-						if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
-							DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
-						}
-						ExcludeListItemMap["domain"] = DomainMap
-					}
-					if ExcludeListItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
-						if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
-						}
-						if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
-						}
-						ExcludeListItemMap["metadata"] = MetadataMap
-					}
-					if ExcludeListItem.Path != nil {
-						PathMap := make(map[string]interface{})
-						if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
-							PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
-						}
-						if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
-							PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
-						}
-						if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
-							PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
-						}
-						ExcludeListItemMap["path"] = PathMap
-					}
-					ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
+					JsInsertionRulesMap["exclude_list"] = ExcludeListList
 				}
-				JsInsertionRulesMap["exclude_list"] = ExcludeListList
 			}
 			if !data.Cloudflare.JsInsertionRules.JavascriptLocation.IsNull() && !data.Cloudflare.JsInsertionRules.JavascriptLocation.IsUnknown() {
 				JsInsertionRulesMap["javascript_location"] = data.Cloudflare.JsInsertionRules.JavascriptLocation.ValueString()
@@ -7768,48 +7871,53 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 			if !data.Cloudflare.JsInsertionRules.JsDownloadPath.IsNull() && !data.Cloudflare.JsInsertionRules.JsDownloadPath.IsUnknown() {
 				JsInsertionRulesMap["js_download_path"] = data.Cloudflare.JsInsertionRules.JsDownloadPath.ValueString()
 			}
-			if len(data.Cloudflare.JsInsertionRules.Rules) > 0 {
-				var RulesList []map[string]interface{}
-				for _, RulesItem := range data.Cloudflare.JsInsertionRules.Rules {
-					RulesItemMap := make(map[string]interface{})
-					if RulesItem.AnyDomain != nil {
-						RulesItemMap["any_domain"] = map[string]interface{}{}
-					}
-					if RulesItem.Domain != nil {
-						DomainMap := make(map[string]interface{})
-						if !RulesItem.Domain.ExactValue.IsNull() && !RulesItem.Domain.ExactValue.IsUnknown() {
-							DomainMap["exact_value"] = RulesItem.Domain.ExactValue.ValueString()
+			if !data.Cloudflare.JsInsertionRules.Rules.IsNull() && !data.Cloudflare.JsInsertionRules.Rules.IsUnknown() {
+				var RulesElems []ProtectedApplicationCloudflareJsInsertionRulesRulesModel
+				diags := data.Cloudflare.JsInsertionRules.Rules.ElementsAs(ctx, &RulesElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
+					var RulesList []map[string]interface{}
+					for _, RulesItem := range RulesElems {
+						RulesItemMap := make(map[string]interface{})
+						if RulesItem.AnyDomain != nil {
+							RulesItemMap["any_domain"] = map[string]interface{}{}
 						}
-						if !RulesItem.Domain.RegexValue.IsNull() && !RulesItem.Domain.RegexValue.IsUnknown() {
-							DomainMap["regex_value"] = RulesItem.Domain.RegexValue.ValueString()
+						if RulesItem.Domain != nil {
+							DomainMap := make(map[string]interface{})
+							if !RulesItem.Domain.ExactValue.IsNull() && !RulesItem.Domain.ExactValue.IsUnknown() {
+								DomainMap["exact_value"] = RulesItem.Domain.ExactValue.ValueString()
+							}
+							if !RulesItem.Domain.RegexValue.IsNull() && !RulesItem.Domain.RegexValue.IsUnknown() {
+								DomainMap["regex_value"] = RulesItem.Domain.RegexValue.ValueString()
+							}
+							if !RulesItem.Domain.SuffixValue.IsNull() && !RulesItem.Domain.SuffixValue.IsUnknown() {
+								DomainMap["suffix_value"] = RulesItem.Domain.SuffixValue.ValueString()
+							}
+							RulesItemMap["domain"] = DomainMap
 						}
-						if !RulesItem.Domain.SuffixValue.IsNull() && !RulesItem.Domain.SuffixValue.IsUnknown() {
-							DomainMap["suffix_value"] = RulesItem.Domain.SuffixValue.ValueString()
+						if !RulesItem.ExactPath.IsNull() && !RulesItem.ExactPath.IsUnknown() {
+							RulesItemMap["exact_path"] = RulesItem.ExactPath.ValueString()
 						}
-						RulesItemMap["domain"] = DomainMap
-					}
-					if !RulesItem.ExactPath.IsNull() && !RulesItem.ExactPath.IsUnknown() {
-						RulesItemMap["exact_path"] = RulesItem.ExactPath.ValueString()
-					}
-					if !RulesItem.Glob.IsNull() && !RulesItem.Glob.IsUnknown() {
-						RulesItemMap["glob"] = RulesItem.Glob.ValueString()
-					}
-					if RulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
-						if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+						if !RulesItem.Glob.IsNull() && !RulesItem.Glob.IsUnknown() {
+							RulesItemMap["glob"] = RulesItem.Glob.ValueString()
 						}
-						if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+						if RulesItem.Metadata != nil {
+							MetadataMap := make(map[string]interface{})
+							if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
+								MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+							}
+							if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
+								MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+							}
+							RulesItemMap["metadata"] = MetadataMap
 						}
-						RulesItemMap["metadata"] = MetadataMap
+						if !RulesItem.Prefix.IsNull() && !RulesItem.Prefix.IsUnknown() {
+							RulesItemMap["prefix"] = RulesItem.Prefix.ValueString()
+						}
+						RulesList = append(RulesList, RulesItemMap)
 					}
-					if !RulesItem.Prefix.IsNull() && !RulesItem.Prefix.IsUnknown() {
-						RulesItemMap["prefix"] = RulesItem.Prefix.ValueString()
-					}
-					RulesList = append(RulesList, RulesItemMap)
+					JsInsertionRulesMap["rules"] = RulesList
 				}
-				JsInsertionRulesMap["rules"] = RulesList
 			}
 			CloudflareMap["js_insertion_rules"] = JsInsertionRulesMap
 		}
@@ -7827,217 +7935,13 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 			MobileSdkConfigMap := make(map[string]interface{})
 			if data.Cloudflare.MobileSdkConfig.MobileIdentifier != nil {
 				MobileIdentifierMap := make(map[string]interface{})
-				if len(data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers) > 0 {
-					var HeadersList []map[string]interface{}
-					for _, HeadersItem := range data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers {
-						HeadersItemMap := make(map[string]interface{})
-						if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
-							HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
-						}
-						if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-							HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-						}
-						if !HeadersItem.Regex.IsNull() && !HeadersItem.Regex.IsUnknown() {
-							HeadersItemMap["regex"] = HeadersItem.Regex.ValueString()
-						}
-						HeadersList = append(HeadersList, HeadersItemMap)
-					}
-					MobileIdentifierMap["headers"] = HeadersList
-				}
-				MobileSdkConfigMap["mobile_identifier"] = MobileIdentifierMap
-			}
-			CloudflareMap["mobile_sdk_config"] = MobileSdkConfigMap
-		}
-		if len(data.Cloudflare.ProtectedEndpoints) > 0 {
-			var ProtectedEndpointsList []map[string]interface{}
-			for _, ProtectedEndpointsItem := range data.Cloudflare.ProtectedEndpoints {
-				ProtectedEndpointsItemMap := make(map[string]interface{})
-				if ProtectedEndpointsItem.AnyDomain != nil {
-					ProtectedEndpointsItemMap["any_domain"] = map[string]interface{}{}
-				}
-				if ProtectedEndpointsItem.Domain != nil {
-					DomainMap := make(map[string]interface{})
-					if !ProtectedEndpointsItem.Domain.ExactValue.IsNull() && !ProtectedEndpointsItem.Domain.ExactValue.IsUnknown() {
-						DomainMap["exact_value"] = ProtectedEndpointsItem.Domain.ExactValue.ValueString()
-					}
-					if !ProtectedEndpointsItem.Domain.RegexValue.IsNull() && !ProtectedEndpointsItem.Domain.RegexValue.IsUnknown() {
-						DomainMap["regex_value"] = ProtectedEndpointsItem.Domain.RegexValue.ValueString()
-					}
-					if !ProtectedEndpointsItem.Domain.SuffixValue.IsNull() && !ProtectedEndpointsItem.Domain.SuffixValue.IsUnknown() {
-						DomainMap["suffix_value"] = ProtectedEndpointsItem.Domain.SuffixValue.ValueString()
-					}
-					ProtectedEndpointsItemMap["domain"] = DomainMap
-				}
-				if !ProtectedEndpointsItem.HTTPMethods.IsNull() && !ProtectedEndpointsItem.HTTPMethods.IsUnknown() {
-					var HTTPMethodsItems []string
-					diags := ProtectedEndpointsItem.HTTPMethods.ElementsAs(ctx, &HTTPMethodsItems, false)
-					if !diags.HasError() {
-						ProtectedEndpointsItemMap["http_methods"] = HTTPMethodsItems
-					}
-				}
-				if ProtectedEndpointsItem.Metadata != nil {
-					MetadataMap := make(map[string]interface{})
-					if !ProtectedEndpointsItem.Metadata.DescriptionSpec.IsNull() && !ProtectedEndpointsItem.Metadata.DescriptionSpec.IsUnknown() {
-						MetadataMap["description"] = ProtectedEndpointsItem.Metadata.DescriptionSpec.ValueString()
-					}
-					if !ProtectedEndpointsItem.Metadata.Name.IsNull() && !ProtectedEndpointsItem.Metadata.Name.IsUnknown() {
-						MetadataMap["name"] = ProtectedEndpointsItem.Metadata.Name.ValueString()
-					}
-					ProtectedEndpointsItemMap["metadata"] = MetadataMap
-				}
-				if ProtectedEndpointsItem.MobileClient != nil {
-					MobileClientMap := make(map[string]interface{})
-					if ProtectedEndpointsItem.MobileClient.Block != nil {
-						BlockMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.MobileClient.Block.Body.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.Body.IsUnknown() {
-							BlockMap["body"] = ProtectedEndpointsItem.MobileClient.Block.Body.ValueString()
-						}
-						if !ProtectedEndpointsItem.MobileClient.Block.ContentType.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.ContentType.IsUnknown() {
-							BlockMap["content_type"] = ProtectedEndpointsItem.MobileClient.Block.ContentType.ValueString()
-						}
-						if !ProtectedEndpointsItem.MobileClient.Block.Status.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.Status.IsUnknown() {
-							BlockMap["status"] = ProtectedEndpointsItem.MobileClient.Block.Status.ValueString()
-						}
-						MobileClientMap["block"] = BlockMap
-					}
-					if ProtectedEndpointsItem.MobileClient.Continue != nil {
-						ContinueMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.MobileClient.Continue.AddHeader != nil {
-							ContinueMap["add_header"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.MobileClient.Continue.NoHeader != nil {
-							ContinueMap["no_header"] = map[string]interface{}{}
-						}
-						MobileClientMap["continue"] = ContinueMap
-					}
-					ProtectedEndpointsItemMap["mobile_client"] = MobileClientMap
-				}
-				if ProtectedEndpointsItem.Path != nil {
-					PathMap := make(map[string]interface{})
-					if !ProtectedEndpointsItem.Path.Caseinsensitive.IsNull() && !ProtectedEndpointsItem.Path.Caseinsensitive.IsUnknown() {
-						PathMap["caseinsensitive"] = ProtectedEndpointsItem.Path.Caseinsensitive.ValueBool()
-					}
-					if !ProtectedEndpointsItem.Path.Path.IsNull() && !ProtectedEndpointsItem.Path.Path.IsUnknown() {
-						PathMap["path"] = ProtectedEndpointsItem.Path.Path.ValueString()
-					}
-					ProtectedEndpointsItemMap["path"] = PathMap
-				}
-				if !ProtectedEndpointsItem.Query.IsNull() && !ProtectedEndpointsItem.Query.IsUnknown() {
-					ProtectedEndpointsItemMap["query"] = ProtectedEndpointsItem.Query.ValueString()
-				}
-				if ProtectedEndpointsItem.WebClient != nil {
-					WebClientMap := make(map[string]interface{})
-					if ProtectedEndpointsItem.WebClient.Block != nil {
-						BlockMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.WebClient.Block.Body.IsNull() && !ProtectedEndpointsItem.WebClient.Block.Body.IsUnknown() {
-							BlockMap["body"] = ProtectedEndpointsItem.WebClient.Block.Body.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebClient.Block.ContentType.IsNull() && !ProtectedEndpointsItem.WebClient.Block.ContentType.IsUnknown() {
-							BlockMap["content_type"] = ProtectedEndpointsItem.WebClient.Block.ContentType.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebClient.Block.Status.IsNull() && !ProtectedEndpointsItem.WebClient.Block.Status.IsUnknown() {
-							BlockMap["status"] = ProtectedEndpointsItem.WebClient.Block.Status.ValueString()
-						}
-						WebClientMap["block"] = BlockMap
-					}
-					if ProtectedEndpointsItem.WebClient.Continue != nil {
-						ContinueMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.WebClient.Continue.AddHeader != nil {
-							ContinueMap["add_header"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.WebClient.Continue.NoHeader != nil {
-							ContinueMap["no_header"] = map[string]interface{}{}
-						}
-						WebClientMap["continue"] = ContinueMap
-					}
-					if ProtectedEndpointsItem.WebClient.Redirect != nil {
-						RedirectMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.WebClient.Redirect.Location.IsNull() && !ProtectedEndpointsItem.WebClient.Redirect.Location.IsUnknown() {
-							RedirectMap["location"] = ProtectedEndpointsItem.WebClient.Redirect.Location.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebClient.Redirect.Status.IsNull() && !ProtectedEndpointsItem.WebClient.Redirect.Status.IsUnknown() {
-							RedirectMap["status"] = ProtectedEndpointsItem.WebClient.Redirect.Status.ValueString()
-						}
-						WebClientMap["redirect"] = RedirectMap
-					}
-					ProtectedEndpointsItemMap["web_client"] = WebClientMap
-				}
-				if ProtectedEndpointsItem.WebMobileClient != nil {
-					WebMobileClientMap := make(map[string]interface{})
-					if ProtectedEndpointsItem.WebMobileClient.BlockMobile != nil {
-						BlockMobileMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.IsUnknown() {
-							BlockMobileMap["body"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.IsUnknown() {
-							BlockMobileMap["content_type"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.IsUnknown() {
-							BlockMobileMap["status"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.ValueString()
-						}
-						WebMobileClientMap["block_mobile"] = BlockMobileMap
-					}
-					if ProtectedEndpointsItem.WebMobileClient.BlockWeb != nil {
-						BlockWebMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.IsUnknown() {
-							BlockWebMap["body"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.IsUnknown() {
-							BlockWebMap["content_type"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.IsUnknown() {
-							BlockWebMap["status"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.ValueString()
-						}
-						WebMobileClientMap["block_web"] = BlockWebMap
-					}
-					if ProtectedEndpointsItem.WebMobileClient.ContinueMobile != nil {
-						ContinueMobileMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.AddHeader != nil {
-							ContinueMobileMap["add_header"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.NoHeader != nil {
-							ContinueMobileMap["no_header"] = map[string]interface{}{}
-						}
-						WebMobileClientMap["continue_mobile"] = ContinueMobileMap
-					}
-					if ProtectedEndpointsItem.WebMobileClient.ContinueWeb != nil {
-						ContinueWebMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.AddHeader != nil {
-							ContinueWebMap["add_header"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.NoHeader != nil {
-							ContinueWebMap["no_header"] = map[string]interface{}{}
-						}
-						WebMobileClientMap["continue_web"] = ContinueWebMap
-					}
-					if ProtectedEndpointsItem.WebMobileClient.RedirectWeb != nil {
-						RedirectWebMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.IsNull() && !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.IsUnknown() {
-							RedirectWebMap["location"] = ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.IsUnknown() {
-							RedirectWebMap["status"] = ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.ValueString()
-						}
-						WebMobileClientMap["redirect_web"] = RedirectWebMap
-					}
-					ProtectedEndpointsItemMap["web_mobile_client"] = WebMobileClientMap
-				}
-				ProtectedEndpointsList = append(ProtectedEndpointsList, ProtectedEndpointsItemMap)
-			}
-			CloudflareMap["protected_endpoints"] = ProtectedEndpointsList
-		}
-		if !data.Cloudflare.Timeout.IsNull() && !data.Cloudflare.Timeout.IsUnknown() {
-			CloudflareMap["timeout"] = data.Cloudflare.Timeout.ValueInt64()
-		}
-		if len(data.Cloudflare.TrustedClients) > 0 {
-			var TrustedClientsList []map[string]interface{}
-			for _, TrustedClientsItem := range data.Cloudflare.TrustedClients {
-				TrustedClientsItemMap := make(map[string]interface{})
-				if TrustedClientsItem.HTTPHeader != nil {
-					HTTPHeaderMap := make(map[string]interface{})
-					if len(TrustedClientsItem.HTTPHeader.Headers) > 0 {
+				if !data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
+					var HeadersElems []ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModel
+					diags := data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
 						var HeadersList []map[string]interface{}
-						for _, HeadersItem := range TrustedClientsItem.HTTPHeader.Headers {
+						for _, HeadersItem := range HeadersElems {
 							HeadersItemMap := make(map[string]interface{})
 							if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
 								HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
@@ -8050,26 +7954,250 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 							}
 							HeadersList = append(HeadersList, HeadersItemMap)
 						}
-						HTTPHeaderMap["headers"] = HeadersList
+						MobileIdentifierMap["headers"] = HeadersList
 					}
-					TrustedClientsItemMap["http_header"] = HTTPHeaderMap
 				}
-				if !TrustedClientsItem.IPPrefix.IsNull() && !TrustedClientsItem.IPPrefix.IsUnknown() {
-					TrustedClientsItemMap["ip_prefix"] = TrustedClientsItem.IPPrefix.ValueString()
-				}
-				if TrustedClientsItem.Metadata != nil {
-					MetadataMap := make(map[string]interface{})
-					if !TrustedClientsItem.Metadata.DescriptionSpec.IsNull() && !TrustedClientsItem.Metadata.DescriptionSpec.IsUnknown() {
-						MetadataMap["description"] = TrustedClientsItem.Metadata.DescriptionSpec.ValueString()
-					}
-					if !TrustedClientsItem.Metadata.Name.IsNull() && !TrustedClientsItem.Metadata.Name.IsUnknown() {
-						MetadataMap["name"] = TrustedClientsItem.Metadata.Name.ValueString()
-					}
-					TrustedClientsItemMap["metadata"] = MetadataMap
-				}
-				TrustedClientsList = append(TrustedClientsList, TrustedClientsItemMap)
+				MobileSdkConfigMap["mobile_identifier"] = MobileIdentifierMap
 			}
-			CloudflareMap["trusted_clients"] = TrustedClientsList
+			CloudflareMap["mobile_sdk_config"] = MobileSdkConfigMap
+		}
+		if !data.Cloudflare.ProtectedEndpoints.IsNull() && !data.Cloudflare.ProtectedEndpoints.IsUnknown() {
+			var ProtectedEndpointsElems []ProtectedApplicationCloudflareProtectedEndpointsModel
+			diags := data.Cloudflare.ProtectedEndpoints.ElementsAs(ctx, &ProtectedEndpointsElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(ProtectedEndpointsElems) > 0 {
+				var ProtectedEndpointsList []map[string]interface{}
+				for _, ProtectedEndpointsItem := range ProtectedEndpointsElems {
+					ProtectedEndpointsItemMap := make(map[string]interface{})
+					if ProtectedEndpointsItem.AnyDomain != nil {
+						ProtectedEndpointsItemMap["any_domain"] = map[string]interface{}{}
+					}
+					if ProtectedEndpointsItem.Domain != nil {
+						DomainMap := make(map[string]interface{})
+						if !ProtectedEndpointsItem.Domain.ExactValue.IsNull() && !ProtectedEndpointsItem.Domain.ExactValue.IsUnknown() {
+							DomainMap["exact_value"] = ProtectedEndpointsItem.Domain.ExactValue.ValueString()
+						}
+						if !ProtectedEndpointsItem.Domain.RegexValue.IsNull() && !ProtectedEndpointsItem.Domain.RegexValue.IsUnknown() {
+							DomainMap["regex_value"] = ProtectedEndpointsItem.Domain.RegexValue.ValueString()
+						}
+						if !ProtectedEndpointsItem.Domain.SuffixValue.IsNull() && !ProtectedEndpointsItem.Domain.SuffixValue.IsUnknown() {
+							DomainMap["suffix_value"] = ProtectedEndpointsItem.Domain.SuffixValue.ValueString()
+						}
+						ProtectedEndpointsItemMap["domain"] = DomainMap
+					}
+					if !ProtectedEndpointsItem.HTTPMethods.IsNull() && !ProtectedEndpointsItem.HTTPMethods.IsUnknown() {
+						var HTTPMethodsItems []string
+						diags := ProtectedEndpointsItem.HTTPMethods.ElementsAs(ctx, &HTTPMethodsItems, false)
+						if !diags.HasError() {
+							ProtectedEndpointsItemMap["http_methods"] = HTTPMethodsItems
+						}
+					}
+					if ProtectedEndpointsItem.Metadata != nil {
+						MetadataMap := make(map[string]interface{})
+						if !ProtectedEndpointsItem.Metadata.DescriptionSpec.IsNull() && !ProtectedEndpointsItem.Metadata.DescriptionSpec.IsUnknown() {
+							MetadataMap["description"] = ProtectedEndpointsItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !ProtectedEndpointsItem.Metadata.Name.IsNull() && !ProtectedEndpointsItem.Metadata.Name.IsUnknown() {
+							MetadataMap["name"] = ProtectedEndpointsItem.Metadata.Name.ValueString()
+						}
+						ProtectedEndpointsItemMap["metadata"] = MetadataMap
+					}
+					if ProtectedEndpointsItem.MobileClient != nil {
+						MobileClientMap := make(map[string]interface{})
+						if ProtectedEndpointsItem.MobileClient.Block != nil {
+							BlockMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.MobileClient.Block.Body.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.Body.IsUnknown() {
+								BlockMap["body"] = ProtectedEndpointsItem.MobileClient.Block.Body.ValueString()
+							}
+							if !ProtectedEndpointsItem.MobileClient.Block.ContentType.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.ContentType.IsUnknown() {
+								BlockMap["content_type"] = ProtectedEndpointsItem.MobileClient.Block.ContentType.ValueString()
+							}
+							if !ProtectedEndpointsItem.MobileClient.Block.Status.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.Status.IsUnknown() {
+								BlockMap["status"] = ProtectedEndpointsItem.MobileClient.Block.Status.ValueString()
+							}
+							MobileClientMap["block"] = BlockMap
+						}
+						if ProtectedEndpointsItem.MobileClient.Continue != nil {
+							ContinueMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.MobileClient.Continue.AddHeader != nil {
+								ContinueMap["add_header"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.MobileClient.Continue.NoHeader != nil {
+								ContinueMap["no_header"] = map[string]interface{}{}
+							}
+							MobileClientMap["continue"] = ContinueMap
+						}
+						ProtectedEndpointsItemMap["mobile_client"] = MobileClientMap
+					}
+					if ProtectedEndpointsItem.Path != nil {
+						PathMap := make(map[string]interface{})
+						if !ProtectedEndpointsItem.Path.Caseinsensitive.IsNull() && !ProtectedEndpointsItem.Path.Caseinsensitive.IsUnknown() {
+							PathMap["caseinsensitive"] = ProtectedEndpointsItem.Path.Caseinsensitive.ValueBool()
+						}
+						if !ProtectedEndpointsItem.Path.Path.IsNull() && !ProtectedEndpointsItem.Path.Path.IsUnknown() {
+							PathMap["path"] = ProtectedEndpointsItem.Path.Path.ValueString()
+						}
+						ProtectedEndpointsItemMap["path"] = PathMap
+					}
+					if !ProtectedEndpointsItem.Query.IsNull() && !ProtectedEndpointsItem.Query.IsUnknown() {
+						ProtectedEndpointsItemMap["query"] = ProtectedEndpointsItem.Query.ValueString()
+					}
+					if ProtectedEndpointsItem.WebClient != nil {
+						WebClientMap := make(map[string]interface{})
+						if ProtectedEndpointsItem.WebClient.Block != nil {
+							BlockMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.WebClient.Block.Body.IsNull() && !ProtectedEndpointsItem.WebClient.Block.Body.IsUnknown() {
+								BlockMap["body"] = ProtectedEndpointsItem.WebClient.Block.Body.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebClient.Block.ContentType.IsNull() && !ProtectedEndpointsItem.WebClient.Block.ContentType.IsUnknown() {
+								BlockMap["content_type"] = ProtectedEndpointsItem.WebClient.Block.ContentType.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebClient.Block.Status.IsNull() && !ProtectedEndpointsItem.WebClient.Block.Status.IsUnknown() {
+								BlockMap["status"] = ProtectedEndpointsItem.WebClient.Block.Status.ValueString()
+							}
+							WebClientMap["block"] = BlockMap
+						}
+						if ProtectedEndpointsItem.WebClient.Continue != nil {
+							ContinueMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.WebClient.Continue.AddHeader != nil {
+								ContinueMap["add_header"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.WebClient.Continue.NoHeader != nil {
+								ContinueMap["no_header"] = map[string]interface{}{}
+							}
+							WebClientMap["continue"] = ContinueMap
+						}
+						if ProtectedEndpointsItem.WebClient.Redirect != nil {
+							RedirectMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.WebClient.Redirect.Location.IsNull() && !ProtectedEndpointsItem.WebClient.Redirect.Location.IsUnknown() {
+								RedirectMap["location"] = ProtectedEndpointsItem.WebClient.Redirect.Location.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebClient.Redirect.Status.IsNull() && !ProtectedEndpointsItem.WebClient.Redirect.Status.IsUnknown() {
+								RedirectMap["status"] = ProtectedEndpointsItem.WebClient.Redirect.Status.ValueString()
+							}
+							WebClientMap["redirect"] = RedirectMap
+						}
+						ProtectedEndpointsItemMap["web_client"] = WebClientMap
+					}
+					if ProtectedEndpointsItem.WebMobileClient != nil {
+						WebMobileClientMap := make(map[string]interface{})
+						if ProtectedEndpointsItem.WebMobileClient.BlockMobile != nil {
+							BlockMobileMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.IsUnknown() {
+								BlockMobileMap["body"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.IsUnknown() {
+								BlockMobileMap["content_type"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.IsUnknown() {
+								BlockMobileMap["status"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.ValueString()
+							}
+							WebMobileClientMap["block_mobile"] = BlockMobileMap
+						}
+						if ProtectedEndpointsItem.WebMobileClient.BlockWeb != nil {
+							BlockWebMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.IsUnknown() {
+								BlockWebMap["body"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.IsUnknown() {
+								BlockWebMap["content_type"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.IsUnknown() {
+								BlockWebMap["status"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.ValueString()
+							}
+							WebMobileClientMap["block_web"] = BlockWebMap
+						}
+						if ProtectedEndpointsItem.WebMobileClient.ContinueMobile != nil {
+							ContinueMobileMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.AddHeader != nil {
+								ContinueMobileMap["add_header"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.NoHeader != nil {
+								ContinueMobileMap["no_header"] = map[string]interface{}{}
+							}
+							WebMobileClientMap["continue_mobile"] = ContinueMobileMap
+						}
+						if ProtectedEndpointsItem.WebMobileClient.ContinueWeb != nil {
+							ContinueWebMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.AddHeader != nil {
+								ContinueWebMap["add_header"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.NoHeader != nil {
+								ContinueWebMap["no_header"] = map[string]interface{}{}
+							}
+							WebMobileClientMap["continue_web"] = ContinueWebMap
+						}
+						if ProtectedEndpointsItem.WebMobileClient.RedirectWeb != nil {
+							RedirectWebMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.IsNull() && !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.IsUnknown() {
+								RedirectWebMap["location"] = ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.IsUnknown() {
+								RedirectWebMap["status"] = ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.ValueString()
+							}
+							WebMobileClientMap["redirect_web"] = RedirectWebMap
+						}
+						ProtectedEndpointsItemMap["web_mobile_client"] = WebMobileClientMap
+					}
+					ProtectedEndpointsList = append(ProtectedEndpointsList, ProtectedEndpointsItemMap)
+				}
+				CloudflareMap["protected_endpoints"] = ProtectedEndpointsList
+			}
+		}
+		if !data.Cloudflare.Timeout.IsNull() && !data.Cloudflare.Timeout.IsUnknown() {
+			CloudflareMap["timeout"] = data.Cloudflare.Timeout.ValueInt64()
+		}
+		if !data.Cloudflare.TrustedClients.IsNull() && !data.Cloudflare.TrustedClients.IsUnknown() {
+			var TrustedClientsElems []ProtectedApplicationCloudflareTrustedClientsModel
+			diags := data.Cloudflare.TrustedClients.ElementsAs(ctx, &TrustedClientsElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(TrustedClientsElems) > 0 {
+				var TrustedClientsList []map[string]interface{}
+				for _, TrustedClientsItem := range TrustedClientsElems {
+					TrustedClientsItemMap := make(map[string]interface{})
+					if TrustedClientsItem.HTTPHeader != nil {
+						HTTPHeaderMap := make(map[string]interface{})
+						if !TrustedClientsItem.HTTPHeader.Headers.IsNull() && !TrustedClientsItem.HTTPHeader.Headers.IsUnknown() {
+							var HeadersElems []ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModel
+							diags := TrustedClientsItem.HTTPHeader.Headers.ElementsAs(ctx, &HeadersElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+								var HeadersList []map[string]interface{}
+								for _, HeadersItem := range HeadersElems {
+									HeadersItemMap := make(map[string]interface{})
+									if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
+										HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
+									}
+									if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+										HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+									}
+									if !HeadersItem.Regex.IsNull() && !HeadersItem.Regex.IsUnknown() {
+										HeadersItemMap["regex"] = HeadersItem.Regex.ValueString()
+									}
+									HeadersList = append(HeadersList, HeadersItemMap)
+								}
+								HTTPHeaderMap["headers"] = HeadersList
+							}
+						}
+						TrustedClientsItemMap["http_header"] = HTTPHeaderMap
+					}
+					if !TrustedClientsItem.IPPrefix.IsNull() && !TrustedClientsItem.IPPrefix.IsUnknown() {
+						TrustedClientsItemMap["ip_prefix"] = TrustedClientsItem.IPPrefix.ValueString()
+					}
+					if TrustedClientsItem.Metadata != nil {
+						MetadataMap := make(map[string]interface{})
+						if !TrustedClientsItem.Metadata.DescriptionSpec.IsNull() && !TrustedClientsItem.Metadata.DescriptionSpec.IsUnknown() {
+							MetadataMap["description"] = TrustedClientsItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !TrustedClientsItem.Metadata.Name.IsNull() && !TrustedClientsItem.Metadata.Name.IsUnknown() {
+							MetadataMap["name"] = TrustedClientsItem.Metadata.Name.ValueString()
+						}
+						TrustedClientsItemMap["metadata"] = MetadataMap
+					}
+					TrustedClientsList = append(TrustedClientsList, TrustedClientsItemMap)
+				}
+				CloudflareMap["trusted_clients"] = TrustedClientsList
+			}
 		}
 		apiResource.Spec["cloudflare"] = CloudflareMap
 	}
@@ -8110,52 +8238,57 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 		}
 		if data.Cloudfront.JsInsertionRules != nil {
 			JsInsertionRulesMap := make(map[string]interface{})
-			if len(data.Cloudfront.JsInsertionRules.ExcludeList) > 0 {
-				var ExcludeListList []map[string]interface{}
-				for _, ExcludeListItem := range data.Cloudfront.JsInsertionRules.ExcludeList {
-					ExcludeListItemMap := make(map[string]interface{})
-					if ExcludeListItem.AnyDomain != nil {
-						ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+			if !data.Cloudfront.JsInsertionRules.ExcludeList.IsNull() && !data.Cloudfront.JsInsertionRules.ExcludeList.IsUnknown() {
+				var ExcludeListElems []ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel
+				diags := data.Cloudfront.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
+					var ExcludeListList []map[string]interface{}
+					for _, ExcludeListItem := range ExcludeListElems {
+						ExcludeListItemMap := make(map[string]interface{})
+						if ExcludeListItem.AnyDomain != nil {
+							ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+						}
+						if ExcludeListItem.Domain != nil {
+							DomainMap := make(map[string]interface{})
+							if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
+								DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
+							}
+							if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
+								DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
+							}
+							if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
+								DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
+							}
+							ExcludeListItemMap["domain"] = DomainMap
+						}
+						if ExcludeListItem.Metadata != nil {
+							MetadataMap := make(map[string]interface{})
+							if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
+								MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
+							}
+							if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
+								MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
+							}
+							ExcludeListItemMap["metadata"] = MetadataMap
+						}
+						if ExcludeListItem.Path != nil {
+							PathMap := make(map[string]interface{})
+							if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
+								PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
+							}
+							if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
+								PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
+							}
+							if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
+								PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
+							}
+							ExcludeListItemMap["path"] = PathMap
+						}
+						ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
 					}
-					if ExcludeListItem.Domain != nil {
-						DomainMap := make(map[string]interface{})
-						if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
-							DomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
-						}
-						if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
-							DomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
-						}
-						if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
-							DomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
-						}
-						ExcludeListItemMap["domain"] = DomainMap
-					}
-					if ExcludeListItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
-						if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
-						}
-						if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
-						}
-						ExcludeListItemMap["metadata"] = MetadataMap
-					}
-					if ExcludeListItem.Path != nil {
-						PathMap := make(map[string]interface{})
-						if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
-							PathMap["path"] = ExcludeListItem.Path.Path.ValueString()
-						}
-						if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
-							PathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
-						}
-						if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
-							PathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
-						}
-						ExcludeListItemMap["path"] = PathMap
-					}
-					ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
+					JsInsertionRulesMap["exclude_list"] = ExcludeListList
 				}
-				JsInsertionRulesMap["exclude_list"] = ExcludeListList
 			}
 			if !data.Cloudfront.JsInsertionRules.JavascriptLocation.IsNull() && !data.Cloudfront.JsInsertionRules.JavascriptLocation.IsUnknown() {
 				JsInsertionRulesMap["javascript_location"] = data.Cloudfront.JsInsertionRules.JavascriptLocation.ValueString()
@@ -8166,48 +8299,53 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 			if !data.Cloudfront.JsInsertionRules.JsDownloadPath.IsNull() && !data.Cloudfront.JsInsertionRules.JsDownloadPath.IsUnknown() {
 				JsInsertionRulesMap["js_download_path"] = data.Cloudfront.JsInsertionRules.JsDownloadPath.ValueString()
 			}
-			if len(data.Cloudfront.JsInsertionRules.Rules) > 0 {
-				var RulesList []map[string]interface{}
-				for _, RulesItem := range data.Cloudfront.JsInsertionRules.Rules {
-					RulesItemMap := make(map[string]interface{})
-					if RulesItem.AnyDomain != nil {
-						RulesItemMap["any_domain"] = map[string]interface{}{}
-					}
-					if RulesItem.Domain != nil {
-						DomainMap := make(map[string]interface{})
-						if !RulesItem.Domain.ExactValue.IsNull() && !RulesItem.Domain.ExactValue.IsUnknown() {
-							DomainMap["exact_value"] = RulesItem.Domain.ExactValue.ValueString()
+			if !data.Cloudfront.JsInsertionRules.Rules.IsNull() && !data.Cloudfront.JsInsertionRules.Rules.IsUnknown() {
+				var RulesElems []ProtectedApplicationCloudfrontJsInsertionRulesRulesModel
+				diags := data.Cloudfront.JsInsertionRules.Rules.ElementsAs(ctx, &RulesElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
+					var RulesList []map[string]interface{}
+					for _, RulesItem := range RulesElems {
+						RulesItemMap := make(map[string]interface{})
+						if RulesItem.AnyDomain != nil {
+							RulesItemMap["any_domain"] = map[string]interface{}{}
 						}
-						if !RulesItem.Domain.RegexValue.IsNull() && !RulesItem.Domain.RegexValue.IsUnknown() {
-							DomainMap["regex_value"] = RulesItem.Domain.RegexValue.ValueString()
+						if RulesItem.Domain != nil {
+							DomainMap := make(map[string]interface{})
+							if !RulesItem.Domain.ExactValue.IsNull() && !RulesItem.Domain.ExactValue.IsUnknown() {
+								DomainMap["exact_value"] = RulesItem.Domain.ExactValue.ValueString()
+							}
+							if !RulesItem.Domain.RegexValue.IsNull() && !RulesItem.Domain.RegexValue.IsUnknown() {
+								DomainMap["regex_value"] = RulesItem.Domain.RegexValue.ValueString()
+							}
+							if !RulesItem.Domain.SuffixValue.IsNull() && !RulesItem.Domain.SuffixValue.IsUnknown() {
+								DomainMap["suffix_value"] = RulesItem.Domain.SuffixValue.ValueString()
+							}
+							RulesItemMap["domain"] = DomainMap
 						}
-						if !RulesItem.Domain.SuffixValue.IsNull() && !RulesItem.Domain.SuffixValue.IsUnknown() {
-							DomainMap["suffix_value"] = RulesItem.Domain.SuffixValue.ValueString()
+						if !RulesItem.ExactPath.IsNull() && !RulesItem.ExactPath.IsUnknown() {
+							RulesItemMap["exact_path"] = RulesItem.ExactPath.ValueString()
 						}
-						RulesItemMap["domain"] = DomainMap
-					}
-					if !RulesItem.ExactPath.IsNull() && !RulesItem.ExactPath.IsUnknown() {
-						RulesItemMap["exact_path"] = RulesItem.ExactPath.ValueString()
-					}
-					if !RulesItem.Glob.IsNull() && !RulesItem.Glob.IsUnknown() {
-						RulesItemMap["glob"] = RulesItem.Glob.ValueString()
-					}
-					if RulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
-						if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+						if !RulesItem.Glob.IsNull() && !RulesItem.Glob.IsUnknown() {
+							RulesItemMap["glob"] = RulesItem.Glob.ValueString()
 						}
-						if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+						if RulesItem.Metadata != nil {
+							MetadataMap := make(map[string]interface{})
+							if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
+								MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+							}
+							if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
+								MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+							}
+							RulesItemMap["metadata"] = MetadataMap
 						}
-						RulesItemMap["metadata"] = MetadataMap
+						if !RulesItem.Prefix.IsNull() && !RulesItem.Prefix.IsUnknown() {
+							RulesItemMap["prefix"] = RulesItem.Prefix.ValueString()
+						}
+						RulesList = append(RulesList, RulesItemMap)
 					}
-					if !RulesItem.Prefix.IsNull() && !RulesItem.Prefix.IsUnknown() {
-						RulesItemMap["prefix"] = RulesItem.Prefix.ValueString()
-					}
-					RulesList = append(RulesList, RulesItemMap)
+					JsInsertionRulesMap["rules"] = RulesList
 				}
-				JsInsertionRulesMap["rules"] = RulesList
 			}
 			CloudfrontMap["js_insertion_rules"] = JsInsertionRulesMap
 		}
@@ -8228,382 +8366,13 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 			MobileSdkConfigMap := make(map[string]interface{})
 			if data.Cloudfront.MobileSdkConfig.MobileIdentifier != nil {
 				MobileIdentifierMap := make(map[string]interface{})
-				if len(data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers) > 0 {
-					var HeadersList []map[string]interface{}
-					for _, HeadersItem := range data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers {
-						HeadersItemMap := make(map[string]interface{})
-						if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
-							HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
-						}
-						if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-							HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-						}
-						if !HeadersItem.Regex.IsNull() && !HeadersItem.Regex.IsUnknown() {
-							HeadersItemMap["regex"] = HeadersItem.Regex.ValueString()
-						}
-						HeadersList = append(HeadersList, HeadersItemMap)
-					}
-					MobileIdentifierMap["headers"] = HeadersList
-				}
-				MobileSdkConfigMap["mobile_identifier"] = MobileIdentifierMap
-			}
-			CloudfrontMap["mobile_sdk_config"] = MobileSdkConfigMap
-		}
-		if len(data.Cloudfront.ProtectedEndpoints) > 0 {
-			var ProtectedEndpointsList []map[string]interface{}
-			for _, ProtectedEndpointsItem := range data.Cloudfront.ProtectedEndpoints {
-				ProtectedEndpointsItemMap := make(map[string]interface{})
-				if ProtectedEndpointsItem.AnyDomain != nil {
-					ProtectedEndpointsItemMap["any_domain"] = map[string]interface{}{}
-				}
-				if ProtectedEndpointsItem.Domain != nil {
-					DomainMap := make(map[string]interface{})
-					if !ProtectedEndpointsItem.Domain.ExactValue.IsNull() && !ProtectedEndpointsItem.Domain.ExactValue.IsUnknown() {
-						DomainMap["exact_value"] = ProtectedEndpointsItem.Domain.ExactValue.ValueString()
-					}
-					if !ProtectedEndpointsItem.Domain.RegexValue.IsNull() && !ProtectedEndpointsItem.Domain.RegexValue.IsUnknown() {
-						DomainMap["regex_value"] = ProtectedEndpointsItem.Domain.RegexValue.ValueString()
-					}
-					if !ProtectedEndpointsItem.Domain.SuffixValue.IsNull() && !ProtectedEndpointsItem.Domain.SuffixValue.IsUnknown() {
-						DomainMap["suffix_value"] = ProtectedEndpointsItem.Domain.SuffixValue.ValueString()
-					}
-					ProtectedEndpointsItemMap["domain"] = DomainMap
-				}
-				if ProtectedEndpointsItem.FlowLabel != nil {
-					FlowLabelMap := make(map[string]interface{})
-					if ProtectedEndpointsItem.FlowLabel.AccountManagement != nil {
-						AccountManagementMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.FlowLabel.AccountManagement.Create != nil {
-							AccountManagementMap["create"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.AccountManagement.PasswordReset != nil {
-							AccountManagementMap["password_reset"] = map[string]interface{}{}
-						}
-						FlowLabelMap["account_management"] = AccountManagementMap
-					}
-					if ProtectedEndpointsItem.FlowLabel.Authentication != nil {
-						AuthenticationMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.FlowLabel.Authentication.Login != nil {
-							LoginMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.FlowLabel.Authentication.Login.DisableTransactionResult != nil {
-								LoginMap["disable_transaction_result"] = map[string]interface{}{}
-							}
-							if ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult != nil {
-								TransactionResultMap := make(map[string]interface{})
-								if len(ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.FailureConditions) > 0 {
-									var FailureConditionsList []map[string]interface{}
-									for _, FailureConditionsItem := range ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.FailureConditions {
-										FailureConditionsItemMap := make(map[string]interface{})
-										if !FailureConditionsItem.Name.IsNull() && !FailureConditionsItem.Name.IsUnknown() {
-											FailureConditionsItemMap["name"] = FailureConditionsItem.Name.ValueString()
-										}
-										if !FailureConditionsItem.RegexValues.IsNull() && !FailureConditionsItem.RegexValues.IsUnknown() {
-											var RegexValuesItems []string
-											diags := FailureConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-											if !diags.HasError() {
-												FailureConditionsItemMap["regex_values"] = RegexValuesItems
-											}
-										}
-										if !FailureConditionsItem.Status.IsNull() && !FailureConditionsItem.Status.IsUnknown() {
-											FailureConditionsItemMap["status"] = FailureConditionsItem.Status.ValueString()
-										}
-										FailureConditionsList = append(FailureConditionsList, FailureConditionsItemMap)
-									}
-									TransactionResultMap["failure_conditions"] = FailureConditionsList
-								}
-								if len(ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.SuccessConditions) > 0 {
-									var SuccessConditionsList []map[string]interface{}
-									for _, SuccessConditionsItem := range ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.SuccessConditions {
-										SuccessConditionsItemMap := make(map[string]interface{})
-										if !SuccessConditionsItem.Name.IsNull() && !SuccessConditionsItem.Name.IsUnknown() {
-											SuccessConditionsItemMap["name"] = SuccessConditionsItem.Name.ValueString()
-										}
-										if !SuccessConditionsItem.RegexValues.IsNull() && !SuccessConditionsItem.RegexValues.IsUnknown() {
-											var RegexValuesItems []string
-											diags := SuccessConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-											if !diags.HasError() {
-												SuccessConditionsItemMap["regex_values"] = RegexValuesItems
-											}
-										}
-										if !SuccessConditionsItem.Status.IsNull() && !SuccessConditionsItem.Status.IsUnknown() {
-											SuccessConditionsItemMap["status"] = SuccessConditionsItem.Status.ValueString()
-										}
-										SuccessConditionsList = append(SuccessConditionsList, SuccessConditionsItemMap)
-									}
-									TransactionResultMap["success_conditions"] = SuccessConditionsList
-								}
-								LoginMap["transaction_result"] = TransactionResultMap
-							}
-							AuthenticationMap["login"] = LoginMap
-						}
-						if ProtectedEndpointsItem.FlowLabel.Authentication.LoginMFA != nil {
-							AuthenticationMap["login_mfa"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.Authentication.LoginPartner != nil {
-							AuthenticationMap["login_partner"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.Authentication.Logout != nil {
-							AuthenticationMap["logout"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.Authentication.TokenRefresh != nil {
-							AuthenticationMap["token_refresh"] = map[string]interface{}{}
-						}
-						FlowLabelMap["authentication"] = AuthenticationMap
-					}
-					if ProtectedEndpointsItem.FlowLabel.FinancialServices != nil {
-						FinancialServicesMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.FlowLabel.FinancialServices.Apply != nil {
-							FinancialServicesMap["apply"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.FinancialServices.MoneyTransfer != nil {
-							FinancialServicesMap["money_transfer"] = map[string]interface{}{}
-						}
-						FlowLabelMap["financial_services"] = FinancialServicesMap
-					}
-					if ProtectedEndpointsItem.FlowLabel.Flight != nil {
-						FlightMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.FlowLabel.Flight.Checking != nil {
-							FlightMap["checking"] = map[string]interface{}{}
-						}
-						FlowLabelMap["flight"] = FlightMap
-					}
-					if ProtectedEndpointsItem.FlowLabel.ProfileManagement != nil {
-						ProfileManagementMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.FlowLabel.ProfileManagement.Create != nil {
-							ProfileManagementMap["create"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ProfileManagement.Update != nil {
-							ProfileManagementMap["update"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ProfileManagement.View != nil {
-							ProfileManagementMap["view"] = map[string]interface{}{}
-						}
-						FlowLabelMap["profile_management"] = ProfileManagementMap
-					}
-					if ProtectedEndpointsItem.FlowLabel.Search != nil {
-						SearchMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.FlowLabel.Search.FlightSearch != nil {
-							SearchMap["flight_search"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.Search.ProductSearch != nil {
-							SearchMap["product_search"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.Search.ReservationSearch != nil {
-							SearchMap["reservation_search"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.Search.RoomSearch != nil {
-							SearchMap["room_search"] = map[string]interface{}{}
-						}
-						FlowLabelMap["search"] = SearchMap
-					}
-					if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards != nil {
-						ShoppingGiftCardsMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard != nil {
-							ShoppingGiftCardsMap["gift_card_make_purchase_with_gift_card"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardValidation != nil {
-							ShoppingGiftCardsMap["gift_card_validation"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopAddToCart != nil {
-							ShoppingGiftCardsMap["shop_add_to_cart"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopCheckout != nil {
-							ShoppingGiftCardsMap["shop_checkout"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopChooseSeat != nil {
-							ShoppingGiftCardsMap["shop_choose_seat"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission != nil {
-							ShoppingGiftCardsMap["shop_enter_drawing_submission"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopMakePayment != nil {
-							ShoppingGiftCardsMap["shop_make_payment"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopOrder != nil {
-							ShoppingGiftCardsMap["shop_order"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPriceInquiry != nil {
-							ShoppingGiftCardsMap["shop_price_inquiry"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation != nil {
-							ShoppingGiftCardsMap["shop_promo_code_validation"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard != nil {
-							ShoppingGiftCardsMap["shop_purchase_gift_card"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopUpdateQuantity != nil {
-							ShoppingGiftCardsMap["shop_update_quantity"] = map[string]interface{}{}
-						}
-						FlowLabelMap["shopping_gift_cards"] = ShoppingGiftCardsMap
-					}
-					ProtectedEndpointsItemMap["flow_label"] = FlowLabelMap
-				}
-				if !ProtectedEndpointsItem.HTTPMethods.IsNull() && !ProtectedEndpointsItem.HTTPMethods.IsUnknown() {
-					var HTTPMethodsItems []string
-					diags := ProtectedEndpointsItem.HTTPMethods.ElementsAs(ctx, &HTTPMethodsItems, false)
-					if !diags.HasError() {
-						ProtectedEndpointsItemMap["http_methods"] = HTTPMethodsItems
-					}
-				}
-				if ProtectedEndpointsItem.Metadata != nil {
-					MetadataMap := make(map[string]interface{})
-					if !ProtectedEndpointsItem.Metadata.DescriptionSpec.IsNull() && !ProtectedEndpointsItem.Metadata.DescriptionSpec.IsUnknown() {
-						MetadataMap["description"] = ProtectedEndpointsItem.Metadata.DescriptionSpec.ValueString()
-					}
-					if !ProtectedEndpointsItem.Metadata.Name.IsNull() && !ProtectedEndpointsItem.Metadata.Name.IsUnknown() {
-						MetadataMap["name"] = ProtectedEndpointsItem.Metadata.Name.ValueString()
-					}
-					ProtectedEndpointsItemMap["metadata"] = MetadataMap
-				}
-				if ProtectedEndpointsItem.MobileClient != nil {
-					MobileClientMap := make(map[string]interface{})
-					if ProtectedEndpointsItem.MobileClient.Block != nil {
-						BlockMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.MobileClient.Block.Body.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.Body.IsUnknown() {
-							BlockMap["body"] = ProtectedEndpointsItem.MobileClient.Block.Body.ValueString()
-						}
-						if !ProtectedEndpointsItem.MobileClient.Block.ContentType.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.ContentType.IsUnknown() {
-							BlockMap["content_type"] = ProtectedEndpointsItem.MobileClient.Block.ContentType.ValueString()
-						}
-						if !ProtectedEndpointsItem.MobileClient.Block.Status.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.Status.IsUnknown() {
-							BlockMap["status"] = ProtectedEndpointsItem.MobileClient.Block.Status.ValueString()
-						}
-						MobileClientMap["block"] = BlockMap
-					}
-					if ProtectedEndpointsItem.MobileClient.Continue != nil {
-						ContinueMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.MobileClient.Continue.AddHeader != nil {
-							ContinueMap["add_header"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.MobileClient.Continue.NoHeader != nil {
-							ContinueMap["no_header"] = map[string]interface{}{}
-						}
-						MobileClientMap["continue"] = ContinueMap
-					}
-					ProtectedEndpointsItemMap["mobile_client"] = MobileClientMap
-				}
-				if !ProtectedEndpointsItem.Path.IsNull() && !ProtectedEndpointsItem.Path.IsUnknown() {
-					ProtectedEndpointsItemMap["path"] = ProtectedEndpointsItem.Path.ValueString()
-				}
-				if !ProtectedEndpointsItem.Query.IsNull() && !ProtectedEndpointsItem.Query.IsUnknown() {
-					ProtectedEndpointsItemMap["query"] = ProtectedEndpointsItem.Query.ValueString()
-				}
-				if ProtectedEndpointsItem.UndefinedFlowLabel != nil {
-					ProtectedEndpointsItemMap["undefined_flow_label"] = map[string]interface{}{}
-				}
-				if ProtectedEndpointsItem.WebClient != nil {
-					WebClientMap := make(map[string]interface{})
-					if ProtectedEndpointsItem.WebClient.Block != nil {
-						BlockMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.WebClient.Block.Body.IsNull() && !ProtectedEndpointsItem.WebClient.Block.Body.IsUnknown() {
-							BlockMap["body"] = ProtectedEndpointsItem.WebClient.Block.Body.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebClient.Block.ContentType.IsNull() && !ProtectedEndpointsItem.WebClient.Block.ContentType.IsUnknown() {
-							BlockMap["content_type"] = ProtectedEndpointsItem.WebClient.Block.ContentType.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebClient.Block.Status.IsNull() && !ProtectedEndpointsItem.WebClient.Block.Status.IsUnknown() {
-							BlockMap["status"] = ProtectedEndpointsItem.WebClient.Block.Status.ValueString()
-						}
-						WebClientMap["block"] = BlockMap
-					}
-					if ProtectedEndpointsItem.WebClient.Continue != nil {
-						ContinueMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.WebClient.Continue.AddHeader != nil {
-							ContinueMap["add_header"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.WebClient.Continue.NoHeader != nil {
-							ContinueMap["no_header"] = map[string]interface{}{}
-						}
-						WebClientMap["continue"] = ContinueMap
-					}
-					if ProtectedEndpointsItem.WebClient.Redirect != nil {
-						RedirectMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.WebClient.Redirect.Location.IsNull() && !ProtectedEndpointsItem.WebClient.Redirect.Location.IsUnknown() {
-							RedirectMap["location"] = ProtectedEndpointsItem.WebClient.Redirect.Location.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebClient.Redirect.Status.IsNull() && !ProtectedEndpointsItem.WebClient.Redirect.Status.IsUnknown() {
-							RedirectMap["status"] = ProtectedEndpointsItem.WebClient.Redirect.Status.ValueString()
-						}
-						WebClientMap["redirect"] = RedirectMap
-					}
-					ProtectedEndpointsItemMap["web_client"] = WebClientMap
-				}
-				if ProtectedEndpointsItem.WebMobileClient != nil {
-					WebMobileClientMap := make(map[string]interface{})
-					if ProtectedEndpointsItem.WebMobileClient.BlockMobile != nil {
-						BlockMobileMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.IsUnknown() {
-							BlockMobileMap["body"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.IsUnknown() {
-							BlockMobileMap["content_type"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.IsUnknown() {
-							BlockMobileMap["status"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.ValueString()
-						}
-						WebMobileClientMap["block_mobile"] = BlockMobileMap
-					}
-					if ProtectedEndpointsItem.WebMobileClient.BlockWeb != nil {
-						BlockWebMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.IsUnknown() {
-							BlockWebMap["body"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.IsUnknown() {
-							BlockWebMap["content_type"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.IsUnknown() {
-							BlockWebMap["status"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.ValueString()
-						}
-						WebMobileClientMap["block_web"] = BlockWebMap
-					}
-					if ProtectedEndpointsItem.WebMobileClient.ContinueMobile != nil {
-						ContinueMobileMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.AddHeader != nil {
-							ContinueMobileMap["add_header"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.NoHeader != nil {
-							ContinueMobileMap["no_header"] = map[string]interface{}{}
-						}
-						WebMobileClientMap["continue_mobile"] = ContinueMobileMap
-					}
-					if ProtectedEndpointsItem.WebMobileClient.ContinueWeb != nil {
-						ContinueWebMap := make(map[string]interface{})
-						if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.AddHeader != nil {
-							ContinueWebMap["add_header"] = map[string]interface{}{}
-						}
-						if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.NoHeader != nil {
-							ContinueWebMap["no_header"] = map[string]interface{}{}
-						}
-						WebMobileClientMap["continue_web"] = ContinueWebMap
-					}
-					if ProtectedEndpointsItem.WebMobileClient.RedirectWeb != nil {
-						RedirectWebMap := make(map[string]interface{})
-						if !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.IsNull() && !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.IsUnknown() {
-							RedirectWebMap["location"] = ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.ValueString()
-						}
-						if !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.IsUnknown() {
-							RedirectWebMap["status"] = ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.ValueString()
-						}
-						WebMobileClientMap["redirect_web"] = RedirectWebMap
-					}
-					ProtectedEndpointsItemMap["web_mobile_client"] = WebMobileClientMap
-				}
-				ProtectedEndpointsList = append(ProtectedEndpointsList, ProtectedEndpointsItemMap)
-			}
-			CloudfrontMap["protected_endpoints"] = ProtectedEndpointsList
-		}
-		if !data.Cloudfront.Timeout.IsNull() && !data.Cloudfront.Timeout.IsUnknown() {
-			CloudfrontMap["timeout"] = data.Cloudfront.Timeout.ValueInt64()
-		}
-		if len(data.Cloudfront.TrustedClients) > 0 {
-			var TrustedClientsList []map[string]interface{}
-			for _, TrustedClientsItem := range data.Cloudfront.TrustedClients {
-				TrustedClientsItemMap := make(map[string]interface{})
-				if TrustedClientsItem.HTTPHeader != nil {
-					HTTPHeaderMap := make(map[string]interface{})
-					if len(TrustedClientsItem.HTTPHeader.Headers) > 0 {
+				if !data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
+					var HeadersElems []ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModel
+					diags := data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
 						var HeadersList []map[string]interface{}
-						for _, HeadersItem := range TrustedClientsItem.HTTPHeader.Headers {
+						for _, HeadersItem := range HeadersElems {
 							HeadersItemMap := make(map[string]interface{})
 							if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
 								HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
@@ -8616,26 +8385,425 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 							}
 							HeadersList = append(HeadersList, HeadersItemMap)
 						}
-						HTTPHeaderMap["headers"] = HeadersList
+						MobileIdentifierMap["headers"] = HeadersList
 					}
-					TrustedClientsItemMap["http_header"] = HTTPHeaderMap
 				}
-				if !TrustedClientsItem.IPPrefix.IsNull() && !TrustedClientsItem.IPPrefix.IsUnknown() {
-					TrustedClientsItemMap["ip_prefix"] = TrustedClientsItem.IPPrefix.ValueString()
-				}
-				if TrustedClientsItem.Metadata != nil {
-					MetadataMap := make(map[string]interface{})
-					if !TrustedClientsItem.Metadata.DescriptionSpec.IsNull() && !TrustedClientsItem.Metadata.DescriptionSpec.IsUnknown() {
-						MetadataMap["description"] = TrustedClientsItem.Metadata.DescriptionSpec.ValueString()
-					}
-					if !TrustedClientsItem.Metadata.Name.IsNull() && !TrustedClientsItem.Metadata.Name.IsUnknown() {
-						MetadataMap["name"] = TrustedClientsItem.Metadata.Name.ValueString()
-					}
-					TrustedClientsItemMap["metadata"] = MetadataMap
-				}
-				TrustedClientsList = append(TrustedClientsList, TrustedClientsItemMap)
+				MobileSdkConfigMap["mobile_identifier"] = MobileIdentifierMap
 			}
-			CloudfrontMap["trusted_clients"] = TrustedClientsList
+			CloudfrontMap["mobile_sdk_config"] = MobileSdkConfigMap
+		}
+		if !data.Cloudfront.ProtectedEndpoints.IsNull() && !data.Cloudfront.ProtectedEndpoints.IsUnknown() {
+			var ProtectedEndpointsElems []ProtectedApplicationCloudfrontProtectedEndpointsModel
+			diags := data.Cloudfront.ProtectedEndpoints.ElementsAs(ctx, &ProtectedEndpointsElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(ProtectedEndpointsElems) > 0 {
+				var ProtectedEndpointsList []map[string]interface{}
+				for _, ProtectedEndpointsItem := range ProtectedEndpointsElems {
+					ProtectedEndpointsItemMap := make(map[string]interface{})
+					if ProtectedEndpointsItem.AnyDomain != nil {
+						ProtectedEndpointsItemMap["any_domain"] = map[string]interface{}{}
+					}
+					if ProtectedEndpointsItem.Domain != nil {
+						DomainMap := make(map[string]interface{})
+						if !ProtectedEndpointsItem.Domain.ExactValue.IsNull() && !ProtectedEndpointsItem.Domain.ExactValue.IsUnknown() {
+							DomainMap["exact_value"] = ProtectedEndpointsItem.Domain.ExactValue.ValueString()
+						}
+						if !ProtectedEndpointsItem.Domain.RegexValue.IsNull() && !ProtectedEndpointsItem.Domain.RegexValue.IsUnknown() {
+							DomainMap["regex_value"] = ProtectedEndpointsItem.Domain.RegexValue.ValueString()
+						}
+						if !ProtectedEndpointsItem.Domain.SuffixValue.IsNull() && !ProtectedEndpointsItem.Domain.SuffixValue.IsUnknown() {
+							DomainMap["suffix_value"] = ProtectedEndpointsItem.Domain.SuffixValue.ValueString()
+						}
+						ProtectedEndpointsItemMap["domain"] = DomainMap
+					}
+					if ProtectedEndpointsItem.FlowLabel != nil {
+						FlowLabelMap := make(map[string]interface{})
+						if ProtectedEndpointsItem.FlowLabel.AccountManagement != nil {
+							AccountManagementMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.FlowLabel.AccountManagement.Create != nil {
+								AccountManagementMap["create"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.AccountManagement.PasswordReset != nil {
+								AccountManagementMap["password_reset"] = map[string]interface{}{}
+							}
+							FlowLabelMap["account_management"] = AccountManagementMap
+						}
+						if ProtectedEndpointsItem.FlowLabel.Authentication != nil {
+							AuthenticationMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.FlowLabel.Authentication.Login != nil {
+								LoginMap := make(map[string]interface{})
+								if ProtectedEndpointsItem.FlowLabel.Authentication.Login.DisableTransactionResult != nil {
+									LoginMap["disable_transaction_result"] = map[string]interface{}{}
+								}
+								if ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult != nil {
+									TransactionResultMap := make(map[string]interface{})
+									if !ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsNull() && !ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsUnknown() {
+										var FailureConditionsElems []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel
+										diags := ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.FailureConditions.ElementsAs(ctx, &FailureConditionsElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(FailureConditionsElems) > 0 {
+											var FailureConditionsList []map[string]interface{}
+											for _, FailureConditionsItem := range FailureConditionsElems {
+												FailureConditionsItemMap := make(map[string]interface{})
+												if !FailureConditionsItem.Name.IsNull() && !FailureConditionsItem.Name.IsUnknown() {
+													FailureConditionsItemMap["name"] = FailureConditionsItem.Name.ValueString()
+												}
+												if !FailureConditionsItem.RegexValues.IsNull() && !FailureConditionsItem.RegexValues.IsUnknown() {
+													var RegexValuesItems []string
+													diags := FailureConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+													if !diags.HasError() {
+														FailureConditionsItemMap["regex_values"] = RegexValuesItems
+													}
+												}
+												if !FailureConditionsItem.Status.IsNull() && !FailureConditionsItem.Status.IsUnknown() {
+													FailureConditionsItemMap["status"] = FailureConditionsItem.Status.ValueString()
+												}
+												FailureConditionsList = append(FailureConditionsList, FailureConditionsItemMap)
+											}
+											TransactionResultMap["failure_conditions"] = FailureConditionsList
+										}
+									}
+									if !ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsNull() && !ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsUnknown() {
+										var SuccessConditionsElems []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel
+										diags := ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.ElementsAs(ctx, &SuccessConditionsElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(SuccessConditionsElems) > 0 {
+											var SuccessConditionsList []map[string]interface{}
+											for _, SuccessConditionsItem := range SuccessConditionsElems {
+												SuccessConditionsItemMap := make(map[string]interface{})
+												if !SuccessConditionsItem.Name.IsNull() && !SuccessConditionsItem.Name.IsUnknown() {
+													SuccessConditionsItemMap["name"] = SuccessConditionsItem.Name.ValueString()
+												}
+												if !SuccessConditionsItem.RegexValues.IsNull() && !SuccessConditionsItem.RegexValues.IsUnknown() {
+													var RegexValuesItems []string
+													diags := SuccessConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+													if !diags.HasError() {
+														SuccessConditionsItemMap["regex_values"] = RegexValuesItems
+													}
+												}
+												if !SuccessConditionsItem.Status.IsNull() && !SuccessConditionsItem.Status.IsUnknown() {
+													SuccessConditionsItemMap["status"] = SuccessConditionsItem.Status.ValueString()
+												}
+												SuccessConditionsList = append(SuccessConditionsList, SuccessConditionsItemMap)
+											}
+											TransactionResultMap["success_conditions"] = SuccessConditionsList
+										}
+									}
+									LoginMap["transaction_result"] = TransactionResultMap
+								}
+								AuthenticationMap["login"] = LoginMap
+							}
+							if ProtectedEndpointsItem.FlowLabel.Authentication.LoginMFA != nil {
+								AuthenticationMap["login_mfa"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.Authentication.LoginPartner != nil {
+								AuthenticationMap["login_partner"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.Authentication.Logout != nil {
+								AuthenticationMap["logout"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.Authentication.TokenRefresh != nil {
+								AuthenticationMap["token_refresh"] = map[string]interface{}{}
+							}
+							FlowLabelMap["authentication"] = AuthenticationMap
+						}
+						if ProtectedEndpointsItem.FlowLabel.FinancialServices != nil {
+							FinancialServicesMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.FlowLabel.FinancialServices.Apply != nil {
+								FinancialServicesMap["apply"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.FinancialServices.MoneyTransfer != nil {
+								FinancialServicesMap["money_transfer"] = map[string]interface{}{}
+							}
+							FlowLabelMap["financial_services"] = FinancialServicesMap
+						}
+						if ProtectedEndpointsItem.FlowLabel.Flight != nil {
+							FlightMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.FlowLabel.Flight.Checking != nil {
+								FlightMap["checking"] = map[string]interface{}{}
+							}
+							FlowLabelMap["flight"] = FlightMap
+						}
+						if ProtectedEndpointsItem.FlowLabel.ProfileManagement != nil {
+							ProfileManagementMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.FlowLabel.ProfileManagement.Create != nil {
+								ProfileManagementMap["create"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ProfileManagement.Update != nil {
+								ProfileManagementMap["update"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ProfileManagement.View != nil {
+								ProfileManagementMap["view"] = map[string]interface{}{}
+							}
+							FlowLabelMap["profile_management"] = ProfileManagementMap
+						}
+						if ProtectedEndpointsItem.FlowLabel.Search != nil {
+							SearchMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.FlowLabel.Search.FlightSearch != nil {
+								SearchMap["flight_search"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.Search.ProductSearch != nil {
+								SearchMap["product_search"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.Search.ReservationSearch != nil {
+								SearchMap["reservation_search"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.Search.RoomSearch != nil {
+								SearchMap["room_search"] = map[string]interface{}{}
+							}
+							FlowLabelMap["search"] = SearchMap
+						}
+						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards != nil {
+							ShoppingGiftCardsMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard != nil {
+								ShoppingGiftCardsMap["gift_card_make_purchase_with_gift_card"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardValidation != nil {
+								ShoppingGiftCardsMap["gift_card_validation"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopAddToCart != nil {
+								ShoppingGiftCardsMap["shop_add_to_cart"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopCheckout != nil {
+								ShoppingGiftCardsMap["shop_checkout"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopChooseSeat != nil {
+								ShoppingGiftCardsMap["shop_choose_seat"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission != nil {
+								ShoppingGiftCardsMap["shop_enter_drawing_submission"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopMakePayment != nil {
+								ShoppingGiftCardsMap["shop_make_payment"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopOrder != nil {
+								ShoppingGiftCardsMap["shop_order"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPriceInquiry != nil {
+								ShoppingGiftCardsMap["shop_price_inquiry"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation != nil {
+								ShoppingGiftCardsMap["shop_promo_code_validation"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard != nil {
+								ShoppingGiftCardsMap["shop_purchase_gift_card"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopUpdateQuantity != nil {
+								ShoppingGiftCardsMap["shop_update_quantity"] = map[string]interface{}{}
+							}
+							FlowLabelMap["shopping_gift_cards"] = ShoppingGiftCardsMap
+						}
+						ProtectedEndpointsItemMap["flow_label"] = FlowLabelMap
+					}
+					if !ProtectedEndpointsItem.HTTPMethods.IsNull() && !ProtectedEndpointsItem.HTTPMethods.IsUnknown() {
+						var HTTPMethodsItems []string
+						diags := ProtectedEndpointsItem.HTTPMethods.ElementsAs(ctx, &HTTPMethodsItems, false)
+						if !diags.HasError() {
+							ProtectedEndpointsItemMap["http_methods"] = HTTPMethodsItems
+						}
+					}
+					if ProtectedEndpointsItem.Metadata != nil {
+						MetadataMap := make(map[string]interface{})
+						if !ProtectedEndpointsItem.Metadata.DescriptionSpec.IsNull() && !ProtectedEndpointsItem.Metadata.DescriptionSpec.IsUnknown() {
+							MetadataMap["description"] = ProtectedEndpointsItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !ProtectedEndpointsItem.Metadata.Name.IsNull() && !ProtectedEndpointsItem.Metadata.Name.IsUnknown() {
+							MetadataMap["name"] = ProtectedEndpointsItem.Metadata.Name.ValueString()
+						}
+						ProtectedEndpointsItemMap["metadata"] = MetadataMap
+					}
+					if ProtectedEndpointsItem.MobileClient != nil {
+						MobileClientMap := make(map[string]interface{})
+						if ProtectedEndpointsItem.MobileClient.Block != nil {
+							BlockMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.MobileClient.Block.Body.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.Body.IsUnknown() {
+								BlockMap["body"] = ProtectedEndpointsItem.MobileClient.Block.Body.ValueString()
+							}
+							if !ProtectedEndpointsItem.MobileClient.Block.ContentType.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.ContentType.IsUnknown() {
+								BlockMap["content_type"] = ProtectedEndpointsItem.MobileClient.Block.ContentType.ValueString()
+							}
+							if !ProtectedEndpointsItem.MobileClient.Block.Status.IsNull() && !ProtectedEndpointsItem.MobileClient.Block.Status.IsUnknown() {
+								BlockMap["status"] = ProtectedEndpointsItem.MobileClient.Block.Status.ValueString()
+							}
+							MobileClientMap["block"] = BlockMap
+						}
+						if ProtectedEndpointsItem.MobileClient.Continue != nil {
+							ContinueMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.MobileClient.Continue.AddHeader != nil {
+								ContinueMap["add_header"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.MobileClient.Continue.NoHeader != nil {
+								ContinueMap["no_header"] = map[string]interface{}{}
+							}
+							MobileClientMap["continue"] = ContinueMap
+						}
+						ProtectedEndpointsItemMap["mobile_client"] = MobileClientMap
+					}
+					if !ProtectedEndpointsItem.Path.IsNull() && !ProtectedEndpointsItem.Path.IsUnknown() {
+						ProtectedEndpointsItemMap["path"] = ProtectedEndpointsItem.Path.ValueString()
+					}
+					if !ProtectedEndpointsItem.Query.IsNull() && !ProtectedEndpointsItem.Query.IsUnknown() {
+						ProtectedEndpointsItemMap["query"] = ProtectedEndpointsItem.Query.ValueString()
+					}
+					if ProtectedEndpointsItem.UndefinedFlowLabel != nil {
+						ProtectedEndpointsItemMap["undefined_flow_label"] = map[string]interface{}{}
+					}
+					if ProtectedEndpointsItem.WebClient != nil {
+						WebClientMap := make(map[string]interface{})
+						if ProtectedEndpointsItem.WebClient.Block != nil {
+							BlockMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.WebClient.Block.Body.IsNull() && !ProtectedEndpointsItem.WebClient.Block.Body.IsUnknown() {
+								BlockMap["body"] = ProtectedEndpointsItem.WebClient.Block.Body.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebClient.Block.ContentType.IsNull() && !ProtectedEndpointsItem.WebClient.Block.ContentType.IsUnknown() {
+								BlockMap["content_type"] = ProtectedEndpointsItem.WebClient.Block.ContentType.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebClient.Block.Status.IsNull() && !ProtectedEndpointsItem.WebClient.Block.Status.IsUnknown() {
+								BlockMap["status"] = ProtectedEndpointsItem.WebClient.Block.Status.ValueString()
+							}
+							WebClientMap["block"] = BlockMap
+						}
+						if ProtectedEndpointsItem.WebClient.Continue != nil {
+							ContinueMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.WebClient.Continue.AddHeader != nil {
+								ContinueMap["add_header"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.WebClient.Continue.NoHeader != nil {
+								ContinueMap["no_header"] = map[string]interface{}{}
+							}
+							WebClientMap["continue"] = ContinueMap
+						}
+						if ProtectedEndpointsItem.WebClient.Redirect != nil {
+							RedirectMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.WebClient.Redirect.Location.IsNull() && !ProtectedEndpointsItem.WebClient.Redirect.Location.IsUnknown() {
+								RedirectMap["location"] = ProtectedEndpointsItem.WebClient.Redirect.Location.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebClient.Redirect.Status.IsNull() && !ProtectedEndpointsItem.WebClient.Redirect.Status.IsUnknown() {
+								RedirectMap["status"] = ProtectedEndpointsItem.WebClient.Redirect.Status.ValueString()
+							}
+							WebClientMap["redirect"] = RedirectMap
+						}
+						ProtectedEndpointsItemMap["web_client"] = WebClientMap
+					}
+					if ProtectedEndpointsItem.WebMobileClient != nil {
+						WebMobileClientMap := make(map[string]interface{})
+						if ProtectedEndpointsItem.WebMobileClient.BlockMobile != nil {
+							BlockMobileMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.IsUnknown() {
+								BlockMobileMap["body"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.Body.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.IsUnknown() {
+								BlockMobileMap["content_type"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.ContentType.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.IsUnknown() {
+								BlockMobileMap["status"] = ProtectedEndpointsItem.WebMobileClient.BlockMobile.Status.ValueString()
+							}
+							WebMobileClientMap["block_mobile"] = BlockMobileMap
+						}
+						if ProtectedEndpointsItem.WebMobileClient.BlockWeb != nil {
+							BlockWebMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.IsUnknown() {
+								BlockWebMap["body"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.Body.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.IsUnknown() {
+								BlockWebMap["content_type"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.ContentType.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.IsUnknown() {
+								BlockWebMap["status"] = ProtectedEndpointsItem.WebMobileClient.BlockWeb.Status.ValueString()
+							}
+							WebMobileClientMap["block_web"] = BlockWebMap
+						}
+						if ProtectedEndpointsItem.WebMobileClient.ContinueMobile != nil {
+							ContinueMobileMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.AddHeader != nil {
+								ContinueMobileMap["add_header"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.NoHeader != nil {
+								ContinueMobileMap["no_header"] = map[string]interface{}{}
+							}
+							WebMobileClientMap["continue_mobile"] = ContinueMobileMap
+						}
+						if ProtectedEndpointsItem.WebMobileClient.ContinueWeb != nil {
+							ContinueWebMap := make(map[string]interface{})
+							if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.AddHeader != nil {
+								ContinueWebMap["add_header"] = map[string]interface{}{}
+							}
+							if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.NoHeader != nil {
+								ContinueWebMap["no_header"] = map[string]interface{}{}
+							}
+							WebMobileClientMap["continue_web"] = ContinueWebMap
+						}
+						if ProtectedEndpointsItem.WebMobileClient.RedirectWeb != nil {
+							RedirectWebMap := make(map[string]interface{})
+							if !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.IsNull() && !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.IsUnknown() {
+								RedirectWebMap["location"] = ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Location.ValueString()
+							}
+							if !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.IsNull() && !ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.IsUnknown() {
+								RedirectWebMap["status"] = ProtectedEndpointsItem.WebMobileClient.RedirectWeb.Status.ValueString()
+							}
+							WebMobileClientMap["redirect_web"] = RedirectWebMap
+						}
+						ProtectedEndpointsItemMap["web_mobile_client"] = WebMobileClientMap
+					}
+					ProtectedEndpointsList = append(ProtectedEndpointsList, ProtectedEndpointsItemMap)
+				}
+				CloudfrontMap["protected_endpoints"] = ProtectedEndpointsList
+			}
+		}
+		if !data.Cloudfront.Timeout.IsNull() && !data.Cloudfront.Timeout.IsUnknown() {
+			CloudfrontMap["timeout"] = data.Cloudfront.Timeout.ValueInt64()
+		}
+		if !data.Cloudfront.TrustedClients.IsNull() && !data.Cloudfront.TrustedClients.IsUnknown() {
+			var TrustedClientsElems []ProtectedApplicationCloudfrontTrustedClientsModel
+			diags := data.Cloudfront.TrustedClients.ElementsAs(ctx, &TrustedClientsElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(TrustedClientsElems) > 0 {
+				var TrustedClientsList []map[string]interface{}
+				for _, TrustedClientsItem := range TrustedClientsElems {
+					TrustedClientsItemMap := make(map[string]interface{})
+					if TrustedClientsItem.HTTPHeader != nil {
+						HTTPHeaderMap := make(map[string]interface{})
+						if !TrustedClientsItem.HTTPHeader.Headers.IsNull() && !TrustedClientsItem.HTTPHeader.Headers.IsUnknown() {
+							var HeadersElems []ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModel
+							diags := TrustedClientsItem.HTTPHeader.Headers.ElementsAs(ctx, &HeadersElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+								var HeadersList []map[string]interface{}
+								for _, HeadersItem := range HeadersElems {
+									HeadersItemMap := make(map[string]interface{})
+									if !HeadersItem.Exact.IsNull() && !HeadersItem.Exact.IsUnknown() {
+										HeadersItemMap["exact"] = HeadersItem.Exact.ValueString()
+									}
+									if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+										HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+									}
+									if !HeadersItem.Regex.IsNull() && !HeadersItem.Regex.IsUnknown() {
+										HeadersItemMap["regex"] = HeadersItem.Regex.ValueString()
+									}
+									HeadersList = append(HeadersList, HeadersItemMap)
+								}
+								HTTPHeaderMap["headers"] = HeadersList
+							}
+						}
+						TrustedClientsItemMap["http_header"] = HTTPHeaderMap
+					}
+					if !TrustedClientsItem.IPPrefix.IsNull() && !TrustedClientsItem.IPPrefix.IsUnknown() {
+						TrustedClientsItemMap["ip_prefix"] = TrustedClientsItem.IPPrefix.ValueString()
+					}
+					if TrustedClientsItem.Metadata != nil {
+						MetadataMap := make(map[string]interface{})
+						if !TrustedClientsItem.Metadata.DescriptionSpec.IsNull() && !TrustedClientsItem.Metadata.DescriptionSpec.IsUnknown() {
+							MetadataMap["description"] = TrustedClientsItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !TrustedClientsItem.Metadata.Name.IsNull() && !TrustedClientsItem.Metadata.Name.IsUnknown() {
+							MetadataMap["name"] = TrustedClientsItem.Metadata.Name.ValueString()
+						}
+						TrustedClientsItemMap["metadata"] = MetadataMap
+					}
+					TrustedClientsList = append(TrustedClientsList, TrustedClientsItemMap)
+				}
+				CloudfrontMap["trusted_clients"] = TrustedClientsList
+			}
 		}
 		apiResource.Spec["cloudfront"] = CloudfrontMap
 	}
@@ -8713,7 +8881,7 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 				}
 				if JsInsertionRulesData, ok := blockData["js_insertion_rules"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudflareJsInsertionRulesModel{
-						ExcludeList: func() []ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel {
+						ExcludeList: func() types.List {
 							if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeListResult []ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel
 								for _, ExcludeListItem := range rawList {
@@ -8797,9 +8965,10 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 										})
 									}
 								}
-								return ExcludeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudflareJsInsertionRulesExcludeListModelAttrTypes}, ExcludeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareJsInsertionRulesExcludeListModelAttrTypes})
 						}(),
 						JavascriptLocation: func() types.String {
 							if v, ok := JsInsertionRulesData["javascript_location"].(string); ok && v != "" {
@@ -8813,7 +8982,7 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 							}
 							return types.StringNull()
 						}(),
-						Rules: func() []ProtectedApplicationCloudflareJsInsertionRulesRulesModel {
+						Rules: func() types.List {
 							if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 								var RulesResult []ProtectedApplicationCloudflareJsInsertionRulesRulesModel
 								for _, RulesItem := range rawList {
@@ -8890,9 +9059,10 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 										})
 									}
 								}
-								return RulesResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudflareJsInsertionRulesRulesModelAttrTypes}, RulesResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareJsInsertionRulesRulesModelAttrTypes})
 						}(),
 					}
 				}
@@ -8929,7 +9099,7 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 						MobileIdentifier: func() *ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierModel {
 							if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
 								return &ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierModel{
-									Headers: func() []ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModel {
+									Headers: func() types.List {
 										if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
 											var HeadersResult []ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModel
 											for _, HeadersItem := range rawList {
@@ -8956,9 +9126,10 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 													})
 												}
 											}
-											return HeadersResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModelAttrTypes}, HeadersResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
 									}(),
 								}
 							}
@@ -8968,9 +9139,9 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 				}
 				return nil
 			}(),
-			ProtectedEndpoints: func() []ProtectedApplicationCloudflareProtectedEndpointsModel {
-				if !isImport && data.Cloudflare != nil && len(data.Cloudflare.ProtectedEndpoints) == 0 {
-					return nil
+			ProtectedEndpoints: func() types.List {
+				if !isImport && data.Cloudflare != nil && (data.Cloudflare.ProtectedEndpoints.IsNull() || len(data.Cloudflare.ProtectedEndpoints.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareProtectedEndpointsModelAttrTypes})
 				}
 				if rawList, ok := blockData["protected_endpoints"].([]interface{}); ok && len(rawList) > 0 {
 					var ProtectedEndpointsResult []ProtectedApplicationCloudflareProtectedEndpointsModel
@@ -9303,9 +9474,10 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 							})
 						}
 					}
-					return ProtectedEndpointsResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudflareProtectedEndpointsModelAttrTypes}, ProtectedEndpointsResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareProtectedEndpointsModelAttrTypes})
 			}(),
 			Timeout: func() types.Int64 {
 				if !isImport && data.Cloudflare != nil && !data.Cloudflare.Timeout.IsUnknown() {
@@ -9316,9 +9488,9 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 				}
 				return types.Int64Null()
 			}(),
-			TrustedClients: func() []ProtectedApplicationCloudflareTrustedClientsModel {
-				if !isImport && data.Cloudflare != nil && len(data.Cloudflare.TrustedClients) == 0 {
-					return nil
+			TrustedClients: func() types.List {
+				if !isImport && data.Cloudflare != nil && (data.Cloudflare.TrustedClients.IsNull() || len(data.Cloudflare.TrustedClients.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareTrustedClientsModelAttrTypes})
 				}
 				if rawList, ok := blockData["trusted_clients"].([]interface{}); ok && len(rawList) > 0 {
 					var TrustedClientsResult []ProtectedApplicationCloudflareTrustedClientsModel
@@ -9328,7 +9500,7 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 								HTTPHeader: func() *ProtectedApplicationCloudflareTrustedClientsHTTPHeaderModel {
 									if HTTPHeaderData, ok := TrustedClientsItemMap["http_header"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudflareTrustedClientsHTTPHeaderModel{
-											Headers: func() []ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModel {
+											Headers: func() types.List {
 												if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModel
 													for _, HeadersItem := range rawList {
@@ -9355,9 +9527,10 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 															})
 														}
 													}
-													return HeadersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModelAttrTypes}, HeadersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModelAttrTypes})
 											}(),
 										}
 									}
@@ -9391,9 +9564,10 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 							})
 						}
 					}
-					return TrustedClientsResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudflareTrustedClientsModelAttrTypes}, TrustedClientsResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareTrustedClientsModelAttrTypes})
 			}(),
 		}
 	}
@@ -9486,7 +9660,7 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 				}
 				if JsInsertionRulesData, ok := blockData["js_insertion_rules"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudfrontJsInsertionRulesModel{
-						ExcludeList: func() []ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel {
+						ExcludeList: func() types.List {
 							if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeListResult []ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel
 								for _, ExcludeListItem := range rawList {
@@ -9570,9 +9744,10 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 										})
 									}
 								}
-								return ExcludeListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModelAttrTypes}, ExcludeListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModelAttrTypes})
 						}(),
 						JavascriptLocation: func() types.String {
 							if v, ok := JsInsertionRulesData["javascript_location"].(string); ok && v != "" {
@@ -9592,7 +9767,7 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 							}
 							return types.StringNull()
 						}(),
-						Rules: func() []ProtectedApplicationCloudfrontJsInsertionRulesRulesModel {
+						Rules: func() types.List {
 							if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 								var RulesResult []ProtectedApplicationCloudfrontJsInsertionRulesRulesModel
 								for _, RulesItem := range rawList {
@@ -9669,9 +9844,10 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 										})
 									}
 								}
-								return RulesResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontJsInsertionRulesRulesModelAttrTypes}, RulesResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontJsInsertionRulesRulesModelAttrTypes})
 						}(),
 					}
 				}
@@ -9714,7 +9890,7 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 						MobileIdentifier: func() *ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierModel {
 							if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
 								return &ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierModel{
-									Headers: func() []ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModel {
+									Headers: func() types.List {
 										if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
 											var HeadersResult []ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModel
 											for _, HeadersItem := range rawList {
@@ -9741,9 +9917,10 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 													})
 												}
 											}
-											return HeadersResult
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModelAttrTypes}, HeadersResult)
+											return listVal
 										}
-										return nil
+										return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
 									}(),
 								}
 							}
@@ -9753,9 +9930,9 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 				}
 				return nil
 			}(),
-			ProtectedEndpoints: func() []ProtectedApplicationCloudfrontProtectedEndpointsModel {
-				if !isImport && data.Cloudfront != nil && len(data.Cloudfront.ProtectedEndpoints) == 0 {
-					return nil
+			ProtectedEndpoints: func() types.List {
+				if !isImport && data.Cloudfront != nil && (data.Cloudfront.ProtectedEndpoints.IsNull() || len(data.Cloudfront.ProtectedEndpoints.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsModelAttrTypes})
 				}
 				if rawList, ok := blockData["protected_endpoints"].([]interface{}); ok && len(rawList) > 0 {
 					var ProtectedEndpointsResult []ProtectedApplicationCloudfrontProtectedEndpointsModel
@@ -9830,7 +10007,7 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 																	TransactionResult: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultModel {
 																		if TransactionResultData, ok := LoginData["transaction_result"].(map[string]interface{}); ok {
 																			return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultModel{
-																				FailureConditions: func() []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel {
+																				FailureConditions: func() types.List {
 																					if rawList, ok := TransactionResultData["failure_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																						var FailureConditionsResult []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel
 																						for _, FailureConditionsItem := range rawList {
@@ -9864,11 +10041,12 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 																								})
 																							}
 																						}
-																						return FailureConditionsResult
+																						listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes}, FailureConditionsResult)
+																						return listVal
 																					}
-																					return nil
+																					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes})
 																				}(),
-																				SuccessConditions: func() []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel {
+																				SuccessConditions: func() types.List {
 																					if rawList, ok := TransactionResultData["success_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																						var SuccessConditionsResult []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel
 																						for _, SuccessConditionsItem := range rawList {
@@ -9902,9 +10080,10 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 																								})
 																							}
 																						}
-																						return SuccessConditionsResult
+																						listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModelAttrTypes}, SuccessConditionsResult)
+																						return listVal
 																					}
-																					return nil
+																					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModelAttrTypes})
 																				}(),
 																			}
 																		}
@@ -10401,9 +10580,10 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 							})
 						}
 					}
-					return ProtectedEndpointsResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsModelAttrTypes}, ProtectedEndpointsResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsModelAttrTypes})
 			}(),
 			Timeout: func() types.Int64 {
 				if !isImport && data.Cloudfront != nil && !data.Cloudfront.Timeout.IsUnknown() {
@@ -10414,9 +10594,9 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 				}
 				return types.Int64Null()
 			}(),
-			TrustedClients: func() []ProtectedApplicationCloudfrontTrustedClientsModel {
-				if !isImport && data.Cloudfront != nil && len(data.Cloudfront.TrustedClients) == 0 {
-					return nil
+			TrustedClients: func() types.List {
+				if !isImport && data.Cloudfront != nil && (data.Cloudfront.TrustedClients.IsNull() || len(data.Cloudfront.TrustedClients.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontTrustedClientsModelAttrTypes})
 				}
 				if rawList, ok := blockData["trusted_clients"].([]interface{}); ok && len(rawList) > 0 {
 					var TrustedClientsResult []ProtectedApplicationCloudfrontTrustedClientsModel
@@ -10426,7 +10606,7 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 								HTTPHeader: func() *ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderModel {
 									if HTTPHeaderData, ok := TrustedClientsItemMap["http_header"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderModel{
-											Headers: func() []ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModel {
+											Headers: func() types.List {
 												if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModel
 													for _, HeadersItem := range rawList {
@@ -10453,9 +10633,10 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 															})
 														}
 													}
-													return HeadersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModelAttrTypes}, HeadersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModelAttrTypes})
 											}(),
 										}
 									}
@@ -10489,9 +10670,10 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 							})
 						}
 					}
-					return TrustedClientsResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontTrustedClientsModelAttrTypes}, TrustedClientsResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontTrustedClientsModelAttrTypes})
 			}(),
 		}
 	}

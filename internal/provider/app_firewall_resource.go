@@ -88,7 +88,7 @@ var AppFirewallBotProtectionSettingModelAttrTypes = map[string]attr.Type{
 
 // AppFirewallCustomAnonymizationModel represents custom_anonymization block
 type AppFirewallCustomAnonymizationModel struct {
-	AnonymizationConfig []AppFirewallCustomAnonymizationAnonymizationConfigModel `tfsdk:"anonymization_config"`
+	AnonymizationConfig types.List `tfsdk:"anonymization_config"`
 }
 
 // AppFirewallCustomAnonymizationModelAttrTypes defines the attribute types for AppFirewallCustomAnonymizationModel
@@ -154,7 +154,7 @@ type AppFirewallDetectionSettingsModel struct {
 	StageNewAndUpdatedSignatures *AppFirewallDetectionSettingsStageNewAndUpdatedSignaturesModel `tfsdk:"stage_new_and_updated_signatures"`
 	StageNewSignatures           *AppFirewallDetectionSettingsStageNewSignaturesModel           `tfsdk:"stage_new_signatures"`
 	ViolationSettings            *AppFirewallDetectionSettingsViolationSettingsModel            `tfsdk:"violation_settings"`
-	ViolationsView               []AppFirewallDetectionSettingsViolationsViewModel              `tfsdk:"violations_view"`
+	ViolationsView               types.List                                                     `tfsdk:"violations_view"`
 }
 
 // AppFirewallDetectionSettingsModelAttrTypes defines the attribute types for AppFirewallDetectionSettingsModel
@@ -798,34 +798,39 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 	}
 	if data.CustomAnonymization != nil {
 		CustomAnonymizationMap := make(map[string]interface{})
-		if len(data.CustomAnonymization.AnonymizationConfig) > 0 {
-			var AnonymizationConfigList []map[string]interface{}
-			for _, AnonymizationConfigItem := range data.CustomAnonymization.AnonymizationConfig {
-				AnonymizationConfigItemMap := make(map[string]interface{})
-				if AnonymizationConfigItem.Cookie != nil {
-					CookieMap := make(map[string]interface{})
-					if !AnonymizationConfigItem.Cookie.CookieName.IsNull() && !AnonymizationConfigItem.Cookie.CookieName.IsUnknown() {
-						CookieMap["cookie_name"] = AnonymizationConfigItem.Cookie.CookieName.ValueString()
+		if !data.CustomAnonymization.AnonymizationConfig.IsNull() && !data.CustomAnonymization.AnonymizationConfig.IsUnknown() {
+			var AnonymizationConfigElems []AppFirewallCustomAnonymizationAnonymizationConfigModel
+			diags := data.CustomAnonymization.AnonymizationConfig.ElementsAs(ctx, &AnonymizationConfigElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(AnonymizationConfigElems) > 0 {
+				var AnonymizationConfigList []map[string]interface{}
+				for _, AnonymizationConfigItem := range AnonymizationConfigElems {
+					AnonymizationConfigItemMap := make(map[string]interface{})
+					if AnonymizationConfigItem.Cookie != nil {
+						CookieMap := make(map[string]interface{})
+						if !AnonymizationConfigItem.Cookie.CookieName.IsNull() && !AnonymizationConfigItem.Cookie.CookieName.IsUnknown() {
+							CookieMap["cookie_name"] = AnonymizationConfigItem.Cookie.CookieName.ValueString()
+						}
+						AnonymizationConfigItemMap["cookie"] = CookieMap
 					}
-					AnonymizationConfigItemMap["cookie"] = CookieMap
-				}
-				if AnonymizationConfigItem.HTTPHeader != nil {
-					HTTPHeaderMap := make(map[string]interface{})
-					if !AnonymizationConfigItem.HTTPHeader.HeaderName.IsNull() && !AnonymizationConfigItem.HTTPHeader.HeaderName.IsUnknown() {
-						HTTPHeaderMap["header_name"] = AnonymizationConfigItem.HTTPHeader.HeaderName.ValueString()
+					if AnonymizationConfigItem.HTTPHeader != nil {
+						HTTPHeaderMap := make(map[string]interface{})
+						if !AnonymizationConfigItem.HTTPHeader.HeaderName.IsNull() && !AnonymizationConfigItem.HTTPHeader.HeaderName.IsUnknown() {
+							HTTPHeaderMap["header_name"] = AnonymizationConfigItem.HTTPHeader.HeaderName.ValueString()
+						}
+						AnonymizationConfigItemMap["http_header"] = HTTPHeaderMap
 					}
-					AnonymizationConfigItemMap["http_header"] = HTTPHeaderMap
-				}
-				if AnonymizationConfigItem.QueryParameter != nil {
-					QueryParameterMap := make(map[string]interface{})
-					if !AnonymizationConfigItem.QueryParameter.QueryParamName.IsNull() && !AnonymizationConfigItem.QueryParameter.QueryParamName.IsUnknown() {
-						QueryParameterMap["query_param_name"] = AnonymizationConfigItem.QueryParameter.QueryParamName.ValueString()
+					if AnonymizationConfigItem.QueryParameter != nil {
+						QueryParameterMap := make(map[string]interface{})
+						if !AnonymizationConfigItem.QueryParameter.QueryParamName.IsNull() && !AnonymizationConfigItem.QueryParameter.QueryParamName.IsUnknown() {
+							QueryParameterMap["query_param_name"] = AnonymizationConfigItem.QueryParameter.QueryParamName.ValueString()
+						}
+						AnonymizationConfigItemMap["query_parameter"] = QueryParameterMap
 					}
-					AnonymizationConfigItemMap["query_parameter"] = QueryParameterMap
+					AnonymizationConfigList = append(AnonymizationConfigList, AnonymizationConfigItemMap)
 				}
-				AnonymizationConfigList = append(AnonymizationConfigList, AnonymizationConfigItemMap)
+				CustomAnonymizationMap["anonymization_config"] = AnonymizationConfigList
 			}
-			CustomAnonymizationMap["anonymization_config"] = AnonymizationConfigList
 		}
 		createReq.Spec["custom_anonymization"] = CustomAnonymizationMap
 	}
@@ -917,28 +922,33 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 			}
 			DetectionSettingsMap["violation_settings"] = ViolationSettingsMap
 		}
-		if len(data.DetectionSettings.ViolationsView) > 0 {
-			var ViolationsViewList []map[string]interface{}
-			for _, ViolationsViewItem := range data.DetectionSettings.ViolationsView {
-				ViolationsViewItemMap := make(map[string]interface{})
-				if !ViolationsViewItem.DescriptionSpec.IsNull() && !ViolationsViewItem.DescriptionSpec.IsUnknown() {
-					ViolationsViewItemMap["description"] = ViolationsViewItem.DescriptionSpec.ValueString()
+		if !data.DetectionSettings.ViolationsView.IsNull() && !data.DetectionSettings.ViolationsView.IsUnknown() {
+			var ViolationsViewElems []AppFirewallDetectionSettingsViolationsViewModel
+			diags := data.DetectionSettings.ViolationsView.ElementsAs(ctx, &ViolationsViewElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(ViolationsViewElems) > 0 {
+				var ViolationsViewList []map[string]interface{}
+				for _, ViolationsViewItem := range ViolationsViewElems {
+					ViolationsViewItemMap := make(map[string]interface{})
+					if !ViolationsViewItem.DescriptionSpec.IsNull() && !ViolationsViewItem.DescriptionSpec.IsUnknown() {
+						ViolationsViewItemMap["description"] = ViolationsViewItem.DescriptionSpec.ValueString()
+					}
+					if !ViolationsViewItem.Enabled.IsNull() && !ViolationsViewItem.Enabled.IsUnknown() {
+						ViolationsViewItemMap["enabled"] = ViolationsViewItem.Enabled.ValueBool()
+					}
+					if !ViolationsViewItem.EnabledByDefault.IsNull() && !ViolationsViewItem.EnabledByDefault.IsUnknown() {
+						ViolationsViewItemMap["enabled_by_default"] = ViolationsViewItem.EnabledByDefault.ValueString()
+					}
+					if !ViolationsViewItem.Name.IsNull() && !ViolationsViewItem.Name.IsUnknown() {
+						ViolationsViewItemMap["name"] = ViolationsViewItem.Name.ValueString()
+					}
+					if !ViolationsViewItem.Title.IsNull() && !ViolationsViewItem.Title.IsUnknown() {
+						ViolationsViewItemMap["title"] = ViolationsViewItem.Title.ValueString()
+					}
+					ViolationsViewList = append(ViolationsViewList, ViolationsViewItemMap)
 				}
-				if !ViolationsViewItem.Enabled.IsNull() && !ViolationsViewItem.Enabled.IsUnknown() {
-					ViolationsViewItemMap["enabled"] = ViolationsViewItem.Enabled.ValueBool()
-				}
-				if !ViolationsViewItem.EnabledByDefault.IsNull() && !ViolationsViewItem.EnabledByDefault.IsUnknown() {
-					ViolationsViewItemMap["enabled_by_default"] = ViolationsViewItem.EnabledByDefault.ValueString()
-				}
-				if !ViolationsViewItem.Name.IsNull() && !ViolationsViewItem.Name.IsUnknown() {
-					ViolationsViewItemMap["name"] = ViolationsViewItem.Name.ValueString()
-				}
-				if !ViolationsViewItem.Title.IsNull() && !ViolationsViewItem.Title.IsUnknown() {
-					ViolationsViewItemMap["title"] = ViolationsViewItem.Title.ValueString()
-				}
-				ViolationsViewList = append(ViolationsViewList, ViolationsViewItemMap)
+				DetectionSettingsMap["violations_view"] = ViolationsViewList
 			}
-			DetectionSettingsMap["violations_view"] = ViolationsViewList
 		}
 		createReq.Spec["detection_settings"] = DetectionSettingsMap
 	}
@@ -1049,9 +1059,9 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 	}
 	if blockData, ok := apiResource.Spec["custom_anonymization"].(map[string]interface{}); ok && (isImport || data.CustomAnonymization != nil) {
 		data.CustomAnonymization = &AppFirewallCustomAnonymizationModel{
-			AnonymizationConfig: func() []AppFirewallCustomAnonymizationAnonymizationConfigModel {
-				if !isImport && data.CustomAnonymization != nil && len(data.CustomAnonymization.AnonymizationConfig) == 0 {
-					return nil
+			AnonymizationConfig: func() types.List {
+				if !isImport && data.CustomAnonymization != nil && (data.CustomAnonymization.AnonymizationConfig.IsNull() || len(data.CustomAnonymization.AnonymizationConfig.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: AppFirewallCustomAnonymizationAnonymizationConfigModelAttrTypes})
 				}
 				if rawList, ok := blockData["anonymization_config"].([]interface{}); ok && len(rawList) > 0 {
 					var AnonymizationConfigResult []AppFirewallCustomAnonymizationAnonymizationConfigModel
@@ -1100,9 +1110,10 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 							})
 						}
 					}
-					return AnonymizationConfigResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppFirewallCustomAnonymizationAnonymizationConfigModelAttrTypes}, AnonymizationConfigResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: AppFirewallCustomAnonymizationAnonymizationConfigModelAttrTypes})
 			}(),
 		}
 	}
@@ -1310,12 +1321,12 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 				}
 				return nil
 			}(),
-			ViolationsView: func() []AppFirewallDetectionSettingsViolationsViewModel {
+			ViolationsView: func() types.List {
 				if isImport {
-					return nil
+					return types.ListNull(types.ObjectType{AttrTypes: AppFirewallDetectionSettingsViolationsViewModelAttrTypes})
 				}
-				if !isImport && data.DetectionSettings != nil && len(data.DetectionSettings.ViolationsView) == 0 {
-					return nil
+				if !isImport && data.DetectionSettings != nil && (data.DetectionSettings.ViolationsView.IsNull() || len(data.DetectionSettings.ViolationsView.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: AppFirewallDetectionSettingsViolationsViewModelAttrTypes})
 				}
 				if rawList, ok := blockData["violations_view"].([]interface{}); ok && len(rawList) > 0 {
 					var ViolationsViewResult []AppFirewallDetectionSettingsViolationsViewModel
@@ -1355,9 +1366,10 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 							})
 						}
 					}
-					return ViolationsViewResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppFirewallDetectionSettingsViolationsViewModelAttrTypes}, ViolationsViewResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: AppFirewallDetectionSettingsViolationsViewModelAttrTypes})
 			}(),
 		}
 	}
@@ -1545,9 +1557,9 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 	}
 	if blockData, ok := apiResource.Spec["custom_anonymization"].(map[string]interface{}); ok && (isImport || data.CustomAnonymization != nil) {
 		data.CustomAnonymization = &AppFirewallCustomAnonymizationModel{
-			AnonymizationConfig: func() []AppFirewallCustomAnonymizationAnonymizationConfigModel {
-				if !isImport && data.CustomAnonymization != nil && len(data.CustomAnonymization.AnonymizationConfig) == 0 {
-					return nil
+			AnonymizationConfig: func() types.List {
+				if !isImport && data.CustomAnonymization != nil && (data.CustomAnonymization.AnonymizationConfig.IsNull() || len(data.CustomAnonymization.AnonymizationConfig.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: AppFirewallCustomAnonymizationAnonymizationConfigModelAttrTypes})
 				}
 				if rawList, ok := blockData["anonymization_config"].([]interface{}); ok && len(rawList) > 0 {
 					var AnonymizationConfigResult []AppFirewallCustomAnonymizationAnonymizationConfigModel
@@ -1596,9 +1608,10 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 							})
 						}
 					}
-					return AnonymizationConfigResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppFirewallCustomAnonymizationAnonymizationConfigModelAttrTypes}, AnonymizationConfigResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: AppFirewallCustomAnonymizationAnonymizationConfigModelAttrTypes})
 			}(),
 		}
 	}
@@ -1806,12 +1819,12 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 				}
 				return nil
 			}(),
-			ViolationsView: func() []AppFirewallDetectionSettingsViolationsViewModel {
+			ViolationsView: func() types.List {
 				if isImport {
-					return nil
+					return types.ListNull(types.ObjectType{AttrTypes: AppFirewallDetectionSettingsViolationsViewModelAttrTypes})
 				}
-				if !isImport && data.DetectionSettings != nil && len(data.DetectionSettings.ViolationsView) == 0 {
-					return nil
+				if !isImport && data.DetectionSettings != nil && (data.DetectionSettings.ViolationsView.IsNull() || len(data.DetectionSettings.ViolationsView.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: AppFirewallDetectionSettingsViolationsViewModelAttrTypes})
 				}
 				if rawList, ok := blockData["violations_view"].([]interface{}); ok && len(rawList) > 0 {
 					var ViolationsViewResult []AppFirewallDetectionSettingsViolationsViewModel
@@ -1851,9 +1864,10 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 							})
 						}
 					}
-					return ViolationsViewResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppFirewallDetectionSettingsViolationsViewModelAttrTypes}, ViolationsViewResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: AppFirewallDetectionSettingsViolationsViewModelAttrTypes})
 			}(),
 		}
 	}
@@ -1986,34 +2000,39 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 	}
 	if data.CustomAnonymization != nil {
 		CustomAnonymizationMap := make(map[string]interface{})
-		if len(data.CustomAnonymization.AnonymizationConfig) > 0 {
-			var AnonymizationConfigList []map[string]interface{}
-			for _, AnonymizationConfigItem := range data.CustomAnonymization.AnonymizationConfig {
-				AnonymizationConfigItemMap := make(map[string]interface{})
-				if AnonymizationConfigItem.Cookie != nil {
-					CookieMap := make(map[string]interface{})
-					if !AnonymizationConfigItem.Cookie.CookieName.IsNull() && !AnonymizationConfigItem.Cookie.CookieName.IsUnknown() {
-						CookieMap["cookie_name"] = AnonymizationConfigItem.Cookie.CookieName.ValueString()
+		if !data.CustomAnonymization.AnonymizationConfig.IsNull() && !data.CustomAnonymization.AnonymizationConfig.IsUnknown() {
+			var AnonymizationConfigElems []AppFirewallCustomAnonymizationAnonymizationConfigModel
+			diags := data.CustomAnonymization.AnonymizationConfig.ElementsAs(ctx, &AnonymizationConfigElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(AnonymizationConfigElems) > 0 {
+				var AnonymizationConfigList []map[string]interface{}
+				for _, AnonymizationConfigItem := range AnonymizationConfigElems {
+					AnonymizationConfigItemMap := make(map[string]interface{})
+					if AnonymizationConfigItem.Cookie != nil {
+						CookieMap := make(map[string]interface{})
+						if !AnonymizationConfigItem.Cookie.CookieName.IsNull() && !AnonymizationConfigItem.Cookie.CookieName.IsUnknown() {
+							CookieMap["cookie_name"] = AnonymizationConfigItem.Cookie.CookieName.ValueString()
+						}
+						AnonymizationConfigItemMap["cookie"] = CookieMap
 					}
-					AnonymizationConfigItemMap["cookie"] = CookieMap
-				}
-				if AnonymizationConfigItem.HTTPHeader != nil {
-					HTTPHeaderMap := make(map[string]interface{})
-					if !AnonymizationConfigItem.HTTPHeader.HeaderName.IsNull() && !AnonymizationConfigItem.HTTPHeader.HeaderName.IsUnknown() {
-						HTTPHeaderMap["header_name"] = AnonymizationConfigItem.HTTPHeader.HeaderName.ValueString()
+					if AnonymizationConfigItem.HTTPHeader != nil {
+						HTTPHeaderMap := make(map[string]interface{})
+						if !AnonymizationConfigItem.HTTPHeader.HeaderName.IsNull() && !AnonymizationConfigItem.HTTPHeader.HeaderName.IsUnknown() {
+							HTTPHeaderMap["header_name"] = AnonymizationConfigItem.HTTPHeader.HeaderName.ValueString()
+						}
+						AnonymizationConfigItemMap["http_header"] = HTTPHeaderMap
 					}
-					AnonymizationConfigItemMap["http_header"] = HTTPHeaderMap
-				}
-				if AnonymizationConfigItem.QueryParameter != nil {
-					QueryParameterMap := make(map[string]interface{})
-					if !AnonymizationConfigItem.QueryParameter.QueryParamName.IsNull() && !AnonymizationConfigItem.QueryParameter.QueryParamName.IsUnknown() {
-						QueryParameterMap["query_param_name"] = AnonymizationConfigItem.QueryParameter.QueryParamName.ValueString()
+					if AnonymizationConfigItem.QueryParameter != nil {
+						QueryParameterMap := make(map[string]interface{})
+						if !AnonymizationConfigItem.QueryParameter.QueryParamName.IsNull() && !AnonymizationConfigItem.QueryParameter.QueryParamName.IsUnknown() {
+							QueryParameterMap["query_param_name"] = AnonymizationConfigItem.QueryParameter.QueryParamName.ValueString()
+						}
+						AnonymizationConfigItemMap["query_parameter"] = QueryParameterMap
 					}
-					AnonymizationConfigItemMap["query_parameter"] = QueryParameterMap
+					AnonymizationConfigList = append(AnonymizationConfigList, AnonymizationConfigItemMap)
 				}
-				AnonymizationConfigList = append(AnonymizationConfigList, AnonymizationConfigItemMap)
+				CustomAnonymizationMap["anonymization_config"] = AnonymizationConfigList
 			}
-			CustomAnonymizationMap["anonymization_config"] = AnonymizationConfigList
 		}
 		apiResource.Spec["custom_anonymization"] = CustomAnonymizationMap
 	}
@@ -2105,28 +2124,33 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 			}
 			DetectionSettingsMap["violation_settings"] = ViolationSettingsMap
 		}
-		if len(data.DetectionSettings.ViolationsView) > 0 {
-			var ViolationsViewList []map[string]interface{}
-			for _, ViolationsViewItem := range data.DetectionSettings.ViolationsView {
-				ViolationsViewItemMap := make(map[string]interface{})
-				if !ViolationsViewItem.DescriptionSpec.IsNull() && !ViolationsViewItem.DescriptionSpec.IsUnknown() {
-					ViolationsViewItemMap["description"] = ViolationsViewItem.DescriptionSpec.ValueString()
+		if !data.DetectionSettings.ViolationsView.IsNull() && !data.DetectionSettings.ViolationsView.IsUnknown() {
+			var ViolationsViewElems []AppFirewallDetectionSettingsViolationsViewModel
+			diags := data.DetectionSettings.ViolationsView.ElementsAs(ctx, &ViolationsViewElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(ViolationsViewElems) > 0 {
+				var ViolationsViewList []map[string]interface{}
+				for _, ViolationsViewItem := range ViolationsViewElems {
+					ViolationsViewItemMap := make(map[string]interface{})
+					if !ViolationsViewItem.DescriptionSpec.IsNull() && !ViolationsViewItem.DescriptionSpec.IsUnknown() {
+						ViolationsViewItemMap["description"] = ViolationsViewItem.DescriptionSpec.ValueString()
+					}
+					if !ViolationsViewItem.Enabled.IsNull() && !ViolationsViewItem.Enabled.IsUnknown() {
+						ViolationsViewItemMap["enabled"] = ViolationsViewItem.Enabled.ValueBool()
+					}
+					if !ViolationsViewItem.EnabledByDefault.IsNull() && !ViolationsViewItem.EnabledByDefault.IsUnknown() {
+						ViolationsViewItemMap["enabled_by_default"] = ViolationsViewItem.EnabledByDefault.ValueString()
+					}
+					if !ViolationsViewItem.Name.IsNull() && !ViolationsViewItem.Name.IsUnknown() {
+						ViolationsViewItemMap["name"] = ViolationsViewItem.Name.ValueString()
+					}
+					if !ViolationsViewItem.Title.IsNull() && !ViolationsViewItem.Title.IsUnknown() {
+						ViolationsViewItemMap["title"] = ViolationsViewItem.Title.ValueString()
+					}
+					ViolationsViewList = append(ViolationsViewList, ViolationsViewItemMap)
 				}
-				if !ViolationsViewItem.Enabled.IsNull() && !ViolationsViewItem.Enabled.IsUnknown() {
-					ViolationsViewItemMap["enabled"] = ViolationsViewItem.Enabled.ValueBool()
-				}
-				if !ViolationsViewItem.EnabledByDefault.IsNull() && !ViolationsViewItem.EnabledByDefault.IsUnknown() {
-					ViolationsViewItemMap["enabled_by_default"] = ViolationsViewItem.EnabledByDefault.ValueString()
-				}
-				if !ViolationsViewItem.Name.IsNull() && !ViolationsViewItem.Name.IsUnknown() {
-					ViolationsViewItemMap["name"] = ViolationsViewItem.Name.ValueString()
-				}
-				if !ViolationsViewItem.Title.IsNull() && !ViolationsViewItem.Title.IsUnknown() {
-					ViolationsViewItemMap["title"] = ViolationsViewItem.Title.ValueString()
-				}
-				ViolationsViewList = append(ViolationsViewList, ViolationsViewItemMap)
+				DetectionSettingsMap["violations_view"] = ViolationsViewList
 			}
-			DetectionSettingsMap["violations_view"] = ViolationsViewList
 		}
 		apiResource.Spec["detection_settings"] = DetectionSettingsMap
 	}
@@ -2248,9 +2272,9 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 	}
 	if blockData, ok := apiResource.Spec["custom_anonymization"].(map[string]interface{}); ok && (isImport || data.CustomAnonymization != nil) {
 		data.CustomAnonymization = &AppFirewallCustomAnonymizationModel{
-			AnonymizationConfig: func() []AppFirewallCustomAnonymizationAnonymizationConfigModel {
-				if !isImport && data.CustomAnonymization != nil && len(data.CustomAnonymization.AnonymizationConfig) == 0 {
-					return nil
+			AnonymizationConfig: func() types.List {
+				if !isImport && data.CustomAnonymization != nil && (data.CustomAnonymization.AnonymizationConfig.IsNull() || len(data.CustomAnonymization.AnonymizationConfig.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: AppFirewallCustomAnonymizationAnonymizationConfigModelAttrTypes})
 				}
 				if rawList, ok := blockData["anonymization_config"].([]interface{}); ok && len(rawList) > 0 {
 					var AnonymizationConfigResult []AppFirewallCustomAnonymizationAnonymizationConfigModel
@@ -2299,9 +2323,10 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 							})
 						}
 					}
-					return AnonymizationConfigResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppFirewallCustomAnonymizationAnonymizationConfigModelAttrTypes}, AnonymizationConfigResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: AppFirewallCustomAnonymizationAnonymizationConfigModelAttrTypes})
 			}(),
 		}
 	}
@@ -2509,12 +2534,12 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 				}
 				return nil
 			}(),
-			ViolationsView: func() []AppFirewallDetectionSettingsViolationsViewModel {
+			ViolationsView: func() types.List {
 				if isImport {
-					return nil
+					return types.ListNull(types.ObjectType{AttrTypes: AppFirewallDetectionSettingsViolationsViewModelAttrTypes})
 				}
-				if !isImport && data.DetectionSettings != nil && len(data.DetectionSettings.ViolationsView) == 0 {
-					return nil
+				if !isImport && data.DetectionSettings != nil && (data.DetectionSettings.ViolationsView.IsNull() || len(data.DetectionSettings.ViolationsView.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: AppFirewallDetectionSettingsViolationsViewModelAttrTypes})
 				}
 				if rawList, ok := blockData["violations_view"].([]interface{}); ok && len(rawList) > 0 {
 					var ViolationsViewResult []AppFirewallDetectionSettingsViolationsViewModel
@@ -2554,9 +2579,10 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 							})
 						}
 					}
-					return ViolationsViewResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppFirewallDetectionSettingsViolationsViewModelAttrTypes}, ViolationsViewResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: AppFirewallDetectionSettingsViolationsViewModelAttrTypes})
 			}(),
 		}
 	}

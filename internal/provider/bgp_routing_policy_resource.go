@@ -118,7 +118,7 @@ var BGPRoutingPolicyRulesMatchCommunityModelAttrTypes = map[string]attr.Type{
 
 // BGPRoutingPolicyRulesMatchIPPrefixesModel represents ip_prefixes block
 type BGPRoutingPolicyRulesMatchIPPrefixesModel struct {
-	Prefixes []BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModel `tfsdk:"prefixes"`
+	Prefixes types.List `tfsdk:"prefixes"`
 }
 
 // BGPRoutingPolicyRulesMatchIPPrefixesModelAttrTypes defines the attribute types for BGPRoutingPolicyRulesMatchIPPrefixesModel
@@ -484,25 +484,30 @@ func (r *BGPRoutingPolicyResource) Create(ctx context.Context, req resource.Crea
 					}
 					if RulesItem.Match.IPPrefixes != nil {
 						IPPrefixesMap := make(map[string]interface{})
-						if len(RulesItem.Match.IPPrefixes.Prefixes) > 0 {
-							var PrefixesList []map[string]interface{}
-							for _, PrefixesItem := range RulesItem.Match.IPPrefixes.Prefixes {
-								PrefixesItemMap := make(map[string]interface{})
-								if PrefixesItem.EqualOrLongerThan != nil {
-									PrefixesItemMap["equal_or_longer_than"] = map[string]interface{}{}
+						if !RulesItem.Match.IPPrefixes.Prefixes.IsNull() && !RulesItem.Match.IPPrefixes.Prefixes.IsUnknown() {
+							var PrefixesElems []BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModel
+							diags := RulesItem.Match.IPPrefixes.Prefixes.ElementsAs(ctx, &PrefixesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(PrefixesElems) > 0 {
+								var PrefixesList []map[string]interface{}
+								for _, PrefixesItem := range PrefixesElems {
+									PrefixesItemMap := make(map[string]interface{})
+									if PrefixesItem.EqualOrLongerThan != nil {
+										PrefixesItemMap["equal_or_longer_than"] = map[string]interface{}{}
+									}
+									if PrefixesItem.ExactMatch != nil {
+										PrefixesItemMap["exact_match"] = map[string]interface{}{}
+									}
+									if !PrefixesItem.IPPrefixes.IsNull() && !PrefixesItem.IPPrefixes.IsUnknown() {
+										PrefixesItemMap["ip_prefixes"] = PrefixesItem.IPPrefixes.ValueString()
+									}
+									if PrefixesItem.LongerThan != nil {
+										PrefixesItemMap["longer_than"] = map[string]interface{}{}
+									}
+									PrefixesList = append(PrefixesList, PrefixesItemMap)
 								}
-								if PrefixesItem.ExactMatch != nil {
-									PrefixesItemMap["exact_match"] = map[string]interface{}{}
-								}
-								if !PrefixesItem.IPPrefixes.IsNull() && !PrefixesItem.IPPrefixes.IsUnknown() {
-									PrefixesItemMap["ip_prefixes"] = PrefixesItem.IPPrefixes.ValueString()
-								}
-								if PrefixesItem.LongerThan != nil {
-									PrefixesItemMap["longer_than"] = map[string]interface{}{}
-								}
-								PrefixesList = append(PrefixesList, PrefixesItemMap)
+								IPPrefixesMap["prefixes"] = PrefixesList
 							}
-							IPPrefixesMap["prefixes"] = PrefixesList
 						}
 						MatchMap["ip_prefixes"] = IPPrefixesMap
 					}
@@ -633,7 +638,7 @@ func (r *BGPRoutingPolicyResource) Create(ctx context.Context, req resource.Crea
 								IPPrefixes: func() *BGPRoutingPolicyRulesMatchIPPrefixesModel {
 									if IPPrefixesData, ok := MatchData["ip_prefixes"].(map[string]interface{}); ok {
 										return &BGPRoutingPolicyRulesMatchIPPrefixesModel{
-											Prefixes: func() []BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModel {
+											Prefixes: func() types.List {
 												if rawList, ok := IPPrefixesData["prefixes"].([]interface{}); ok && len(rawList) > 0 {
 													var PrefixesResult []BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModel
 													for _, PrefixesItem := range rawList {
@@ -666,9 +671,10 @@ func (r *BGPRoutingPolicyResource) Create(ctx context.Context, req resource.Crea
 															})
 														}
 													}
-													return PrefixesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModelAttrTypes}, PrefixesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModelAttrTypes})
 											}(),
 										}
 									}
@@ -889,7 +895,7 @@ func (r *BGPRoutingPolicyResource) Read(ctx context.Context, req resource.ReadRe
 								IPPrefixes: func() *BGPRoutingPolicyRulesMatchIPPrefixesModel {
 									if IPPrefixesData, ok := MatchData["ip_prefixes"].(map[string]interface{}); ok {
 										return &BGPRoutingPolicyRulesMatchIPPrefixesModel{
-											Prefixes: func() []BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModel {
+											Prefixes: func() types.List {
 												if rawList, ok := IPPrefixesData["prefixes"].([]interface{}); ok && len(rawList) > 0 {
 													var PrefixesResult []BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModel
 													for _, PrefixesItem := range rawList {
@@ -922,9 +928,10 @@ func (r *BGPRoutingPolicyResource) Read(ctx context.Context, req resource.ReadRe
 															})
 														}
 													}
-													return PrefixesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModelAttrTypes}, PrefixesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModelAttrTypes})
 											}(),
 										}
 									}
@@ -1063,25 +1070,30 @@ func (r *BGPRoutingPolicyResource) Update(ctx context.Context, req resource.Upda
 					}
 					if RulesItem.Match.IPPrefixes != nil {
 						IPPrefixesMap := make(map[string]interface{})
-						if len(RulesItem.Match.IPPrefixes.Prefixes) > 0 {
-							var PrefixesList []map[string]interface{}
-							for _, PrefixesItem := range RulesItem.Match.IPPrefixes.Prefixes {
-								PrefixesItemMap := make(map[string]interface{})
-								if PrefixesItem.EqualOrLongerThan != nil {
-									PrefixesItemMap["equal_or_longer_than"] = map[string]interface{}{}
+						if !RulesItem.Match.IPPrefixes.Prefixes.IsNull() && !RulesItem.Match.IPPrefixes.Prefixes.IsUnknown() {
+							var PrefixesElems []BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModel
+							diags := RulesItem.Match.IPPrefixes.Prefixes.ElementsAs(ctx, &PrefixesElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(PrefixesElems) > 0 {
+								var PrefixesList []map[string]interface{}
+								for _, PrefixesItem := range PrefixesElems {
+									PrefixesItemMap := make(map[string]interface{})
+									if PrefixesItem.EqualOrLongerThan != nil {
+										PrefixesItemMap["equal_or_longer_than"] = map[string]interface{}{}
+									}
+									if PrefixesItem.ExactMatch != nil {
+										PrefixesItemMap["exact_match"] = map[string]interface{}{}
+									}
+									if !PrefixesItem.IPPrefixes.IsNull() && !PrefixesItem.IPPrefixes.IsUnknown() {
+										PrefixesItemMap["ip_prefixes"] = PrefixesItem.IPPrefixes.ValueString()
+									}
+									if PrefixesItem.LongerThan != nil {
+										PrefixesItemMap["longer_than"] = map[string]interface{}{}
+									}
+									PrefixesList = append(PrefixesList, PrefixesItemMap)
 								}
-								if PrefixesItem.ExactMatch != nil {
-									PrefixesItemMap["exact_match"] = map[string]interface{}{}
-								}
-								if !PrefixesItem.IPPrefixes.IsNull() && !PrefixesItem.IPPrefixes.IsUnknown() {
-									PrefixesItemMap["ip_prefixes"] = PrefixesItem.IPPrefixes.ValueString()
-								}
-								if PrefixesItem.LongerThan != nil {
-									PrefixesItemMap["longer_than"] = map[string]interface{}{}
-								}
-								PrefixesList = append(PrefixesList, PrefixesItemMap)
+								IPPrefixesMap["prefixes"] = PrefixesList
 							}
-							IPPrefixesMap["prefixes"] = PrefixesList
 						}
 						MatchMap["ip_prefixes"] = IPPrefixesMap
 					}
@@ -1223,7 +1235,7 @@ func (r *BGPRoutingPolicyResource) Update(ctx context.Context, req resource.Upda
 								IPPrefixes: func() *BGPRoutingPolicyRulesMatchIPPrefixesModel {
 									if IPPrefixesData, ok := MatchData["ip_prefixes"].(map[string]interface{}); ok {
 										return &BGPRoutingPolicyRulesMatchIPPrefixesModel{
-											Prefixes: func() []BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModel {
+											Prefixes: func() types.List {
 												if rawList, ok := IPPrefixesData["prefixes"].([]interface{}); ok && len(rawList) > 0 {
 													var PrefixesResult []BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModel
 													for _, PrefixesItem := range rawList {
@@ -1256,9 +1268,10 @@ func (r *BGPRoutingPolicyResource) Update(ctx context.Context, req resource.Upda
 															})
 														}
 													}
-													return PrefixesResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModelAttrTypes}, PrefixesResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModelAttrTypes})
 											}(),
 										}
 									}

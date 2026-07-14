@@ -54,7 +54,7 @@ type DNSLBPoolAPoolModel struct {
 	MaxAnswers         types.Int64                     `tfsdk:"max_answers"`
 	DisableHealthCheck *DNSLBPoolEmptyModel            `tfsdk:"disable_health_check"`
 	HealthCheck        *DNSLBPoolAPoolHealthCheckModel `tfsdk:"health_check"`
-	Members            []DNSLBPoolAPoolMembersModel    `tfsdk:"members"`
+	Members            types.List                      `tfsdk:"members"`
 }
 
 // DNSLBPoolAPoolModelAttrTypes defines the attribute types for DNSLBPoolAPoolModel
@@ -99,8 +99,8 @@ var DNSLBPoolAPoolMembersModelAttrTypes = map[string]attr.Type{
 
 // DNSLBPoolAaaaPoolModel represents aaaa_pool block
 type DNSLBPoolAaaaPoolModel struct {
-	MaxAnswers types.Int64                     `tfsdk:"max_answers"`
-	Members    []DNSLBPoolAaaaPoolMembersModel `tfsdk:"members"`
+	MaxAnswers types.Int64 `tfsdk:"max_answers"`
+	Members    types.List  `tfsdk:"members"`
 }
 
 // DNSLBPoolAaaaPoolModelAttrTypes defines the attribute types for DNSLBPoolAaaaPoolModel
@@ -131,7 +131,7 @@ var DNSLBPoolAaaaPoolMembersModelAttrTypes = map[string]attr.Type{
 type DNSLBPoolCnamePoolModel struct {
 	DisableHealthCheck *DNSLBPoolEmptyModel                `tfsdk:"disable_health_check"`
 	HealthCheck        *DNSLBPoolCnamePoolHealthCheckModel `tfsdk:"health_check"`
-	Members            []DNSLBPoolCnamePoolMembersModel    `tfsdk:"members"`
+	Members            types.List                          `tfsdk:"members"`
 }
 
 // DNSLBPoolCnamePoolModelAttrTypes defines the attribute types for DNSLBPoolCnamePoolModel
@@ -173,8 +173,8 @@ var DNSLBPoolCnamePoolMembersModelAttrTypes = map[string]attr.Type{
 
 // DNSLBPoolMxPoolModel represents mx_pool block
 type DNSLBPoolMxPoolModel struct {
-	MaxAnswers types.Int64                   `tfsdk:"max_answers"`
-	Members    []DNSLBPoolMxPoolMembersModel `tfsdk:"members"`
+	MaxAnswers types.Int64 `tfsdk:"max_answers"`
+	Members    types.List  `tfsdk:"members"`
 }
 
 // DNSLBPoolMxPoolModelAttrTypes defines the attribute types for DNSLBPoolMxPoolModel
@@ -201,8 +201,8 @@ var DNSLBPoolMxPoolMembersModelAttrTypes = map[string]attr.Type{
 
 // DNSLBPoolSrvPoolModel represents srv_pool block
 type DNSLBPoolSrvPoolModel struct {
-	MaxAnswers types.Int64                    `tfsdk:"max_answers"`
-	Members    []DNSLBPoolSrvPoolMembersModel `tfsdk:"members"`
+	MaxAnswers types.Int64 `tfsdk:"max_answers"`
+	Members    types.List  `tfsdk:"members"`
 }
 
 // DNSLBPoolSrvPoolModelAttrTypes defines the attribute types for DNSLBPoolSrvPoolModel
@@ -742,28 +742,33 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 		if !data.APool.MaxAnswers.IsNull() && !data.APool.MaxAnswers.IsUnknown() {
 			APoolMap["max_answers"] = data.APool.MaxAnswers.ValueInt64()
 		}
-		if len(data.APool.Members) > 0 {
-			var MembersList []map[string]interface{}
-			for _, MembersItem := range data.APool.Members {
-				MembersItemMap := make(map[string]interface{})
-				if !MembersItem.DisableSpec.IsNull() && !MembersItem.DisableSpec.IsUnknown() {
-					MembersItemMap["disable"] = MembersItem.DisableSpec.ValueBool()
+		if !data.APool.Members.IsNull() && !data.APool.Members.IsUnknown() {
+			var MembersElems []DNSLBPoolAPoolMembersModel
+			diags := data.APool.Members.ElementsAs(ctx, &MembersElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(MembersElems) > 0 {
+				var MembersList []map[string]interface{}
+				for _, MembersItem := range MembersElems {
+					MembersItemMap := make(map[string]interface{})
+					if !MembersItem.DisableSpec.IsNull() && !MembersItem.DisableSpec.IsUnknown() {
+						MembersItemMap["disable"] = MembersItem.DisableSpec.ValueBool()
+					}
+					if !MembersItem.IPEndpoint.IsNull() && !MembersItem.IPEndpoint.IsUnknown() {
+						MembersItemMap["ip_endpoint"] = MembersItem.IPEndpoint.ValueString()
+					}
+					if !MembersItem.Name.IsNull() && !MembersItem.Name.IsUnknown() {
+						MembersItemMap["name"] = MembersItem.Name.ValueString()
+					}
+					if !MembersItem.Priority.IsNull() && !MembersItem.Priority.IsUnknown() {
+						MembersItemMap["priority"] = MembersItem.Priority.ValueInt64()
+					}
+					if !MembersItem.Ratio.IsNull() && !MembersItem.Ratio.IsUnknown() {
+						MembersItemMap["ratio"] = MembersItem.Ratio.ValueInt64()
+					}
+					MembersList = append(MembersList, MembersItemMap)
 				}
-				if !MembersItem.IPEndpoint.IsNull() && !MembersItem.IPEndpoint.IsUnknown() {
-					MembersItemMap["ip_endpoint"] = MembersItem.IPEndpoint.ValueString()
-				}
-				if !MembersItem.Name.IsNull() && !MembersItem.Name.IsUnknown() {
-					MembersItemMap["name"] = MembersItem.Name.ValueString()
-				}
-				if !MembersItem.Priority.IsNull() && !MembersItem.Priority.IsUnknown() {
-					MembersItemMap["priority"] = MembersItem.Priority.ValueInt64()
-				}
-				if !MembersItem.Ratio.IsNull() && !MembersItem.Ratio.IsUnknown() {
-					MembersItemMap["ratio"] = MembersItem.Ratio.ValueInt64()
-				}
-				MembersList = append(MembersList, MembersItemMap)
+				APoolMap["members"] = MembersList
 			}
-			APoolMap["members"] = MembersList
 		}
 		createReq.Spec["a_pool"] = APoolMap
 	}
@@ -772,28 +777,33 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 		if !data.AaaaPool.MaxAnswers.IsNull() && !data.AaaaPool.MaxAnswers.IsUnknown() {
 			AaaaPoolMap["max_answers"] = data.AaaaPool.MaxAnswers.ValueInt64()
 		}
-		if len(data.AaaaPool.Members) > 0 {
-			var MembersList []map[string]interface{}
-			for _, MembersItem := range data.AaaaPool.Members {
-				MembersItemMap := make(map[string]interface{})
-				if !MembersItem.DisableSpec.IsNull() && !MembersItem.DisableSpec.IsUnknown() {
-					MembersItemMap["disable"] = MembersItem.DisableSpec.ValueBool()
+		if !data.AaaaPool.Members.IsNull() && !data.AaaaPool.Members.IsUnknown() {
+			var MembersElems []DNSLBPoolAaaaPoolMembersModel
+			diags := data.AaaaPool.Members.ElementsAs(ctx, &MembersElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(MembersElems) > 0 {
+				var MembersList []map[string]interface{}
+				for _, MembersItem := range MembersElems {
+					MembersItemMap := make(map[string]interface{})
+					if !MembersItem.DisableSpec.IsNull() && !MembersItem.DisableSpec.IsUnknown() {
+						MembersItemMap["disable"] = MembersItem.DisableSpec.ValueBool()
+					}
+					if !MembersItem.IPEndpoint.IsNull() && !MembersItem.IPEndpoint.IsUnknown() {
+						MembersItemMap["ip_endpoint"] = MembersItem.IPEndpoint.ValueString()
+					}
+					if !MembersItem.Name.IsNull() && !MembersItem.Name.IsUnknown() {
+						MembersItemMap["name"] = MembersItem.Name.ValueString()
+					}
+					if !MembersItem.Priority.IsNull() && !MembersItem.Priority.IsUnknown() {
+						MembersItemMap["priority"] = MembersItem.Priority.ValueInt64()
+					}
+					if !MembersItem.Ratio.IsNull() && !MembersItem.Ratio.IsUnknown() {
+						MembersItemMap["ratio"] = MembersItem.Ratio.ValueInt64()
+					}
+					MembersList = append(MembersList, MembersItemMap)
 				}
-				if !MembersItem.IPEndpoint.IsNull() && !MembersItem.IPEndpoint.IsUnknown() {
-					MembersItemMap["ip_endpoint"] = MembersItem.IPEndpoint.ValueString()
-				}
-				if !MembersItem.Name.IsNull() && !MembersItem.Name.IsUnknown() {
-					MembersItemMap["name"] = MembersItem.Name.ValueString()
-				}
-				if !MembersItem.Priority.IsNull() && !MembersItem.Priority.IsUnknown() {
-					MembersItemMap["priority"] = MembersItem.Priority.ValueInt64()
-				}
-				if !MembersItem.Ratio.IsNull() && !MembersItem.Ratio.IsUnknown() {
-					MembersItemMap["ratio"] = MembersItem.Ratio.ValueInt64()
-				}
-				MembersList = append(MembersList, MembersItemMap)
+				AaaaPoolMap["members"] = MembersList
 			}
-			AaaaPoolMap["members"] = MembersList
 		}
 		createReq.Spec["aaaa_pool"] = AaaaPoolMap
 	}
@@ -815,25 +825,30 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 			}
 			CnamePoolMap["health_check"] = HealthCheckMap
 		}
-		if len(data.CnamePool.Members) > 0 {
-			var MembersList []map[string]interface{}
-			for _, MembersItem := range data.CnamePool.Members {
-				MembersItemMap := make(map[string]interface{})
-				if !MembersItem.Domain.IsNull() && !MembersItem.Domain.IsUnknown() {
-					MembersItemMap["domain"] = MembersItem.Domain.ValueString()
+		if !data.CnamePool.Members.IsNull() && !data.CnamePool.Members.IsUnknown() {
+			var MembersElems []DNSLBPoolCnamePoolMembersModel
+			diags := data.CnamePool.Members.ElementsAs(ctx, &MembersElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(MembersElems) > 0 {
+				var MembersList []map[string]interface{}
+				for _, MembersItem := range MembersElems {
+					MembersItemMap := make(map[string]interface{})
+					if !MembersItem.Domain.IsNull() && !MembersItem.Domain.IsUnknown() {
+						MembersItemMap["domain"] = MembersItem.Domain.ValueString()
+					}
+					if !MembersItem.FinalTranslation.IsNull() && !MembersItem.FinalTranslation.IsUnknown() {
+						MembersItemMap["final_translation"] = MembersItem.FinalTranslation.ValueBool()
+					}
+					if !MembersItem.Name.IsNull() && !MembersItem.Name.IsUnknown() {
+						MembersItemMap["name"] = MembersItem.Name.ValueString()
+					}
+					if !MembersItem.Ratio.IsNull() && !MembersItem.Ratio.IsUnknown() {
+						MembersItemMap["ratio"] = MembersItem.Ratio.ValueInt64()
+					}
+					MembersList = append(MembersList, MembersItemMap)
 				}
-				if !MembersItem.FinalTranslation.IsNull() && !MembersItem.FinalTranslation.IsUnknown() {
-					MembersItemMap["final_translation"] = MembersItem.FinalTranslation.ValueBool()
-				}
-				if !MembersItem.Name.IsNull() && !MembersItem.Name.IsUnknown() {
-					MembersItemMap["name"] = MembersItem.Name.ValueString()
-				}
-				if !MembersItem.Ratio.IsNull() && !MembersItem.Ratio.IsUnknown() {
-					MembersItemMap["ratio"] = MembersItem.Ratio.ValueInt64()
-				}
-				MembersList = append(MembersList, MembersItemMap)
+				CnamePoolMap["members"] = MembersList
 			}
-			CnamePoolMap["members"] = MembersList
 		}
 		createReq.Spec["cname_pool"] = CnamePoolMap
 	}
@@ -842,25 +857,30 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 		if !data.MxPool.MaxAnswers.IsNull() && !data.MxPool.MaxAnswers.IsUnknown() {
 			MxPoolMap["max_answers"] = data.MxPool.MaxAnswers.ValueInt64()
 		}
-		if len(data.MxPool.Members) > 0 {
-			var MembersList []map[string]interface{}
-			for _, MembersItem := range data.MxPool.Members {
-				MembersItemMap := make(map[string]interface{})
-				if !MembersItem.Domain.IsNull() && !MembersItem.Domain.IsUnknown() {
-					MembersItemMap["domain"] = MembersItem.Domain.ValueString()
+		if !data.MxPool.Members.IsNull() && !data.MxPool.Members.IsUnknown() {
+			var MembersElems []DNSLBPoolMxPoolMembersModel
+			diags := data.MxPool.Members.ElementsAs(ctx, &MembersElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(MembersElems) > 0 {
+				var MembersList []map[string]interface{}
+				for _, MembersItem := range MembersElems {
+					MembersItemMap := make(map[string]interface{})
+					if !MembersItem.Domain.IsNull() && !MembersItem.Domain.IsUnknown() {
+						MembersItemMap["domain"] = MembersItem.Domain.ValueString()
+					}
+					if !MembersItem.Name.IsNull() && !MembersItem.Name.IsUnknown() {
+						MembersItemMap["name"] = MembersItem.Name.ValueString()
+					}
+					if !MembersItem.Priority.IsNull() && !MembersItem.Priority.IsUnknown() {
+						MembersItemMap["priority"] = MembersItem.Priority.ValueInt64()
+					}
+					if !MembersItem.Ratio.IsNull() && !MembersItem.Ratio.IsUnknown() {
+						MembersItemMap["ratio"] = MembersItem.Ratio.ValueInt64()
+					}
+					MembersList = append(MembersList, MembersItemMap)
 				}
-				if !MembersItem.Name.IsNull() && !MembersItem.Name.IsUnknown() {
-					MembersItemMap["name"] = MembersItem.Name.ValueString()
-				}
-				if !MembersItem.Priority.IsNull() && !MembersItem.Priority.IsUnknown() {
-					MembersItemMap["priority"] = MembersItem.Priority.ValueInt64()
-				}
-				if !MembersItem.Ratio.IsNull() && !MembersItem.Ratio.IsUnknown() {
-					MembersItemMap["ratio"] = MembersItem.Ratio.ValueInt64()
-				}
-				MembersList = append(MembersList, MembersItemMap)
+				MxPoolMap["members"] = MembersList
 			}
-			MxPoolMap["members"] = MembersList
 		}
 		createReq.Spec["mx_pool"] = MxPoolMap
 	}
@@ -869,34 +889,39 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 		if !data.SrvPool.MaxAnswers.IsNull() && !data.SrvPool.MaxAnswers.IsUnknown() {
 			SrvPoolMap["max_answers"] = data.SrvPool.MaxAnswers.ValueInt64()
 		}
-		if len(data.SrvPool.Members) > 0 {
-			var MembersList []map[string]interface{}
-			for _, MembersItem := range data.SrvPool.Members {
-				MembersItemMap := make(map[string]interface{})
-				if !MembersItem.FinalTranslation.IsNull() && !MembersItem.FinalTranslation.IsUnknown() {
-					MembersItemMap["final_translation"] = MembersItem.FinalTranslation.ValueBool()
+		if !data.SrvPool.Members.IsNull() && !data.SrvPool.Members.IsUnknown() {
+			var MembersElems []DNSLBPoolSrvPoolMembersModel
+			diags := data.SrvPool.Members.ElementsAs(ctx, &MembersElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(MembersElems) > 0 {
+				var MembersList []map[string]interface{}
+				for _, MembersItem := range MembersElems {
+					MembersItemMap := make(map[string]interface{})
+					if !MembersItem.FinalTranslation.IsNull() && !MembersItem.FinalTranslation.IsUnknown() {
+						MembersItemMap["final_translation"] = MembersItem.FinalTranslation.ValueBool()
+					}
+					if !MembersItem.Name.IsNull() && !MembersItem.Name.IsUnknown() {
+						MembersItemMap["name"] = MembersItem.Name.ValueString()
+					}
+					if !MembersItem.Port.IsNull() && !MembersItem.Port.IsUnknown() {
+						MembersItemMap["port"] = MembersItem.Port.ValueInt64()
+					}
+					if !MembersItem.Priority.IsNull() && !MembersItem.Priority.IsUnknown() {
+						MembersItemMap["priority"] = MembersItem.Priority.ValueInt64()
+					}
+					if !MembersItem.Ratio.IsNull() && !MembersItem.Ratio.IsUnknown() {
+						MembersItemMap["ratio"] = MembersItem.Ratio.ValueInt64()
+					}
+					if !MembersItem.Target.IsNull() && !MembersItem.Target.IsUnknown() {
+						MembersItemMap["target"] = MembersItem.Target.ValueString()
+					}
+					if !MembersItem.Weight.IsNull() && !MembersItem.Weight.IsUnknown() {
+						MembersItemMap["weight"] = MembersItem.Weight.ValueInt64()
+					}
+					MembersList = append(MembersList, MembersItemMap)
 				}
-				if !MembersItem.Name.IsNull() && !MembersItem.Name.IsUnknown() {
-					MembersItemMap["name"] = MembersItem.Name.ValueString()
-				}
-				if !MembersItem.Port.IsNull() && !MembersItem.Port.IsUnknown() {
-					MembersItemMap["port"] = MembersItem.Port.ValueInt64()
-				}
-				if !MembersItem.Priority.IsNull() && !MembersItem.Priority.IsUnknown() {
-					MembersItemMap["priority"] = MembersItem.Priority.ValueInt64()
-				}
-				if !MembersItem.Ratio.IsNull() && !MembersItem.Ratio.IsUnknown() {
-					MembersItemMap["ratio"] = MembersItem.Ratio.ValueInt64()
-				}
-				if !MembersItem.Target.IsNull() && !MembersItem.Target.IsUnknown() {
-					MembersItemMap["target"] = MembersItem.Target.ValueString()
-				}
-				if !MembersItem.Weight.IsNull() && !MembersItem.Weight.IsUnknown() {
-					MembersItemMap["weight"] = MembersItem.Weight.ValueInt64()
-				}
-				MembersList = append(MembersList, MembersItemMap)
+				SrvPoolMap["members"] = MembersList
 			}
-			SrvPoolMap["members"] = MembersList
 		}
 		createReq.Spec["srv_pool"] = SrvPoolMap
 	}
@@ -967,9 +992,9 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 				}
 				return types.Int64Null()
 			}(),
-			Members: func() []DNSLBPoolAPoolMembersModel {
-				if !isImport && data.APool != nil && len(data.APool.Members) == 0 {
-					return nil
+			Members: func() types.List {
+				if !isImport && data.APool != nil && (data.APool.Members.IsNull() || len(data.APool.Members.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolAPoolMembersModelAttrTypes})
 				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolAPoolMembersModel
@@ -1009,9 +1034,10 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 							})
 						}
 					}
-					return MembersResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSLBPoolAPoolMembersModelAttrTypes}, MembersResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolAPoolMembersModelAttrTypes})
 			}(),
 		}
 	}
@@ -1026,9 +1052,9 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 				}
 				return types.Int64Null()
 			}(),
-			Members: func() []DNSLBPoolAaaaPoolMembersModel {
-				if !isImport && data.AaaaPool != nil && len(data.AaaaPool.Members) == 0 {
-					return nil
+			Members: func() types.List {
+				if !isImport && data.AaaaPool != nil && (data.AaaaPool.Members.IsNull() || len(data.AaaaPool.Members.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolAaaaPoolMembersModelAttrTypes})
 				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolAaaaPoolMembersModel
@@ -1068,9 +1094,10 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 							})
 						}
 					}
-					return MembersResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSLBPoolAaaaPoolMembersModelAttrTypes}, MembersResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolAaaaPoolMembersModelAttrTypes})
 			}(),
 		}
 	}
@@ -1110,9 +1137,9 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 				}
 				return nil
 			}(),
-			Members: func() []DNSLBPoolCnamePoolMembersModel {
-				if !isImport && data.CnamePool != nil && len(data.CnamePool.Members) == 0 {
-					return nil
+			Members: func() types.List {
+				if !isImport && data.CnamePool != nil && (data.CnamePool.Members.IsNull() || len(data.CnamePool.Members.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolCnamePoolMembersModelAttrTypes})
 				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolCnamePoolMembersModel
@@ -1146,9 +1173,10 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 							})
 						}
 					}
-					return MembersResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSLBPoolCnamePoolMembersModelAttrTypes}, MembersResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolCnamePoolMembersModelAttrTypes})
 			}(),
 		}
 	}
@@ -1163,9 +1191,9 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 				}
 				return types.Int64Null()
 			}(),
-			Members: func() []DNSLBPoolMxPoolMembersModel {
-				if !isImport && data.MxPool != nil && len(data.MxPool.Members) == 0 {
-					return nil
+			Members: func() types.List {
+				if !isImport && data.MxPool != nil && (data.MxPool.Members.IsNull() || len(data.MxPool.Members.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolMxPoolMembersModelAttrTypes})
 				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolMxPoolMembersModel
@@ -1199,9 +1227,10 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 							})
 						}
 					}
-					return MembersResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSLBPoolMxPoolMembersModelAttrTypes}, MembersResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolMxPoolMembersModelAttrTypes})
 			}(),
 		}
 	}
@@ -1216,9 +1245,9 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 				}
 				return types.Int64Null()
 			}(),
-			Members: func() []DNSLBPoolSrvPoolMembersModel {
-				if !isImport && data.SrvPool != nil && len(data.SrvPool.Members) == 0 {
-					return nil
+			Members: func() types.List {
+				if !isImport && data.SrvPool != nil && (data.SrvPool.Members.IsNull() || len(data.SrvPool.Members.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolSrvPoolMembersModelAttrTypes})
 				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolSrvPoolMembersModel
@@ -1270,9 +1299,10 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 							})
 						}
 					}
-					return MembersResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSLBPoolSrvPoolMembersModelAttrTypes}, MembersResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolSrvPoolMembersModelAttrTypes})
 			}(),
 		}
 	}
@@ -1427,9 +1457,9 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 				}
 				return types.Int64Null()
 			}(),
-			Members: func() []DNSLBPoolAPoolMembersModel {
-				if !isImport && data.APool != nil && len(data.APool.Members) == 0 {
-					return nil
+			Members: func() types.List {
+				if !isImport && data.APool != nil && (data.APool.Members.IsNull() || len(data.APool.Members.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolAPoolMembersModelAttrTypes})
 				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolAPoolMembersModel
@@ -1469,9 +1499,10 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 							})
 						}
 					}
-					return MembersResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSLBPoolAPoolMembersModelAttrTypes}, MembersResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolAPoolMembersModelAttrTypes})
 			}(),
 		}
 	}
@@ -1486,9 +1517,9 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 				}
 				return types.Int64Null()
 			}(),
-			Members: func() []DNSLBPoolAaaaPoolMembersModel {
-				if !isImport && data.AaaaPool != nil && len(data.AaaaPool.Members) == 0 {
-					return nil
+			Members: func() types.List {
+				if !isImport && data.AaaaPool != nil && (data.AaaaPool.Members.IsNull() || len(data.AaaaPool.Members.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolAaaaPoolMembersModelAttrTypes})
 				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolAaaaPoolMembersModel
@@ -1528,9 +1559,10 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 							})
 						}
 					}
-					return MembersResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSLBPoolAaaaPoolMembersModelAttrTypes}, MembersResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolAaaaPoolMembersModelAttrTypes})
 			}(),
 		}
 	}
@@ -1570,9 +1602,9 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 				}
 				return nil
 			}(),
-			Members: func() []DNSLBPoolCnamePoolMembersModel {
-				if !isImport && data.CnamePool != nil && len(data.CnamePool.Members) == 0 {
-					return nil
+			Members: func() types.List {
+				if !isImport && data.CnamePool != nil && (data.CnamePool.Members.IsNull() || len(data.CnamePool.Members.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolCnamePoolMembersModelAttrTypes})
 				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolCnamePoolMembersModel
@@ -1606,9 +1638,10 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 							})
 						}
 					}
-					return MembersResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSLBPoolCnamePoolMembersModelAttrTypes}, MembersResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolCnamePoolMembersModelAttrTypes})
 			}(),
 		}
 	}
@@ -1623,9 +1656,9 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 				}
 				return types.Int64Null()
 			}(),
-			Members: func() []DNSLBPoolMxPoolMembersModel {
-				if !isImport && data.MxPool != nil && len(data.MxPool.Members) == 0 {
-					return nil
+			Members: func() types.List {
+				if !isImport && data.MxPool != nil && (data.MxPool.Members.IsNull() || len(data.MxPool.Members.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolMxPoolMembersModelAttrTypes})
 				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolMxPoolMembersModel
@@ -1659,9 +1692,10 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 							})
 						}
 					}
-					return MembersResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSLBPoolMxPoolMembersModelAttrTypes}, MembersResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolMxPoolMembersModelAttrTypes})
 			}(),
 		}
 	}
@@ -1676,9 +1710,9 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 				}
 				return types.Int64Null()
 			}(),
-			Members: func() []DNSLBPoolSrvPoolMembersModel {
-				if !isImport && data.SrvPool != nil && len(data.SrvPool.Members) == 0 {
-					return nil
+			Members: func() types.List {
+				if !isImport && data.SrvPool != nil && (data.SrvPool.Members.IsNull() || len(data.SrvPool.Members.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolSrvPoolMembersModelAttrTypes})
 				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolSrvPoolMembersModel
@@ -1730,9 +1764,10 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 							})
 						}
 					}
-					return MembersResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSLBPoolSrvPoolMembersModelAttrTypes}, MembersResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolSrvPoolMembersModelAttrTypes})
 			}(),
 		}
 	}
@@ -1829,28 +1864,33 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 		if !data.APool.MaxAnswers.IsNull() && !data.APool.MaxAnswers.IsUnknown() {
 			APoolMap["max_answers"] = data.APool.MaxAnswers.ValueInt64()
 		}
-		if len(data.APool.Members) > 0 {
-			var MembersList []map[string]interface{}
-			for _, MembersItem := range data.APool.Members {
-				MembersItemMap := make(map[string]interface{})
-				if !MembersItem.DisableSpec.IsNull() && !MembersItem.DisableSpec.IsUnknown() {
-					MembersItemMap["disable"] = MembersItem.DisableSpec.ValueBool()
+		if !data.APool.Members.IsNull() && !data.APool.Members.IsUnknown() {
+			var MembersElems []DNSLBPoolAPoolMembersModel
+			diags := data.APool.Members.ElementsAs(ctx, &MembersElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(MembersElems) > 0 {
+				var MembersList []map[string]interface{}
+				for _, MembersItem := range MembersElems {
+					MembersItemMap := make(map[string]interface{})
+					if !MembersItem.DisableSpec.IsNull() && !MembersItem.DisableSpec.IsUnknown() {
+						MembersItemMap["disable"] = MembersItem.DisableSpec.ValueBool()
+					}
+					if !MembersItem.IPEndpoint.IsNull() && !MembersItem.IPEndpoint.IsUnknown() {
+						MembersItemMap["ip_endpoint"] = MembersItem.IPEndpoint.ValueString()
+					}
+					if !MembersItem.Name.IsNull() && !MembersItem.Name.IsUnknown() {
+						MembersItemMap["name"] = MembersItem.Name.ValueString()
+					}
+					if !MembersItem.Priority.IsNull() && !MembersItem.Priority.IsUnknown() {
+						MembersItemMap["priority"] = MembersItem.Priority.ValueInt64()
+					}
+					if !MembersItem.Ratio.IsNull() && !MembersItem.Ratio.IsUnknown() {
+						MembersItemMap["ratio"] = MembersItem.Ratio.ValueInt64()
+					}
+					MembersList = append(MembersList, MembersItemMap)
 				}
-				if !MembersItem.IPEndpoint.IsNull() && !MembersItem.IPEndpoint.IsUnknown() {
-					MembersItemMap["ip_endpoint"] = MembersItem.IPEndpoint.ValueString()
-				}
-				if !MembersItem.Name.IsNull() && !MembersItem.Name.IsUnknown() {
-					MembersItemMap["name"] = MembersItem.Name.ValueString()
-				}
-				if !MembersItem.Priority.IsNull() && !MembersItem.Priority.IsUnknown() {
-					MembersItemMap["priority"] = MembersItem.Priority.ValueInt64()
-				}
-				if !MembersItem.Ratio.IsNull() && !MembersItem.Ratio.IsUnknown() {
-					MembersItemMap["ratio"] = MembersItem.Ratio.ValueInt64()
-				}
-				MembersList = append(MembersList, MembersItemMap)
+				APoolMap["members"] = MembersList
 			}
-			APoolMap["members"] = MembersList
 		}
 		apiResource.Spec["a_pool"] = APoolMap
 	}
@@ -1859,28 +1899,33 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 		if !data.AaaaPool.MaxAnswers.IsNull() && !data.AaaaPool.MaxAnswers.IsUnknown() {
 			AaaaPoolMap["max_answers"] = data.AaaaPool.MaxAnswers.ValueInt64()
 		}
-		if len(data.AaaaPool.Members) > 0 {
-			var MembersList []map[string]interface{}
-			for _, MembersItem := range data.AaaaPool.Members {
-				MembersItemMap := make(map[string]interface{})
-				if !MembersItem.DisableSpec.IsNull() && !MembersItem.DisableSpec.IsUnknown() {
-					MembersItemMap["disable"] = MembersItem.DisableSpec.ValueBool()
+		if !data.AaaaPool.Members.IsNull() && !data.AaaaPool.Members.IsUnknown() {
+			var MembersElems []DNSLBPoolAaaaPoolMembersModel
+			diags := data.AaaaPool.Members.ElementsAs(ctx, &MembersElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(MembersElems) > 0 {
+				var MembersList []map[string]interface{}
+				for _, MembersItem := range MembersElems {
+					MembersItemMap := make(map[string]interface{})
+					if !MembersItem.DisableSpec.IsNull() && !MembersItem.DisableSpec.IsUnknown() {
+						MembersItemMap["disable"] = MembersItem.DisableSpec.ValueBool()
+					}
+					if !MembersItem.IPEndpoint.IsNull() && !MembersItem.IPEndpoint.IsUnknown() {
+						MembersItemMap["ip_endpoint"] = MembersItem.IPEndpoint.ValueString()
+					}
+					if !MembersItem.Name.IsNull() && !MembersItem.Name.IsUnknown() {
+						MembersItemMap["name"] = MembersItem.Name.ValueString()
+					}
+					if !MembersItem.Priority.IsNull() && !MembersItem.Priority.IsUnknown() {
+						MembersItemMap["priority"] = MembersItem.Priority.ValueInt64()
+					}
+					if !MembersItem.Ratio.IsNull() && !MembersItem.Ratio.IsUnknown() {
+						MembersItemMap["ratio"] = MembersItem.Ratio.ValueInt64()
+					}
+					MembersList = append(MembersList, MembersItemMap)
 				}
-				if !MembersItem.IPEndpoint.IsNull() && !MembersItem.IPEndpoint.IsUnknown() {
-					MembersItemMap["ip_endpoint"] = MembersItem.IPEndpoint.ValueString()
-				}
-				if !MembersItem.Name.IsNull() && !MembersItem.Name.IsUnknown() {
-					MembersItemMap["name"] = MembersItem.Name.ValueString()
-				}
-				if !MembersItem.Priority.IsNull() && !MembersItem.Priority.IsUnknown() {
-					MembersItemMap["priority"] = MembersItem.Priority.ValueInt64()
-				}
-				if !MembersItem.Ratio.IsNull() && !MembersItem.Ratio.IsUnknown() {
-					MembersItemMap["ratio"] = MembersItem.Ratio.ValueInt64()
-				}
-				MembersList = append(MembersList, MembersItemMap)
+				AaaaPoolMap["members"] = MembersList
 			}
-			AaaaPoolMap["members"] = MembersList
 		}
 		apiResource.Spec["aaaa_pool"] = AaaaPoolMap
 	}
@@ -1902,25 +1947,30 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 			}
 			CnamePoolMap["health_check"] = HealthCheckMap
 		}
-		if len(data.CnamePool.Members) > 0 {
-			var MembersList []map[string]interface{}
-			for _, MembersItem := range data.CnamePool.Members {
-				MembersItemMap := make(map[string]interface{})
-				if !MembersItem.Domain.IsNull() && !MembersItem.Domain.IsUnknown() {
-					MembersItemMap["domain"] = MembersItem.Domain.ValueString()
+		if !data.CnamePool.Members.IsNull() && !data.CnamePool.Members.IsUnknown() {
+			var MembersElems []DNSLBPoolCnamePoolMembersModel
+			diags := data.CnamePool.Members.ElementsAs(ctx, &MembersElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(MembersElems) > 0 {
+				var MembersList []map[string]interface{}
+				for _, MembersItem := range MembersElems {
+					MembersItemMap := make(map[string]interface{})
+					if !MembersItem.Domain.IsNull() && !MembersItem.Domain.IsUnknown() {
+						MembersItemMap["domain"] = MembersItem.Domain.ValueString()
+					}
+					if !MembersItem.FinalTranslation.IsNull() && !MembersItem.FinalTranslation.IsUnknown() {
+						MembersItemMap["final_translation"] = MembersItem.FinalTranslation.ValueBool()
+					}
+					if !MembersItem.Name.IsNull() && !MembersItem.Name.IsUnknown() {
+						MembersItemMap["name"] = MembersItem.Name.ValueString()
+					}
+					if !MembersItem.Ratio.IsNull() && !MembersItem.Ratio.IsUnknown() {
+						MembersItemMap["ratio"] = MembersItem.Ratio.ValueInt64()
+					}
+					MembersList = append(MembersList, MembersItemMap)
 				}
-				if !MembersItem.FinalTranslation.IsNull() && !MembersItem.FinalTranslation.IsUnknown() {
-					MembersItemMap["final_translation"] = MembersItem.FinalTranslation.ValueBool()
-				}
-				if !MembersItem.Name.IsNull() && !MembersItem.Name.IsUnknown() {
-					MembersItemMap["name"] = MembersItem.Name.ValueString()
-				}
-				if !MembersItem.Ratio.IsNull() && !MembersItem.Ratio.IsUnknown() {
-					MembersItemMap["ratio"] = MembersItem.Ratio.ValueInt64()
-				}
-				MembersList = append(MembersList, MembersItemMap)
+				CnamePoolMap["members"] = MembersList
 			}
-			CnamePoolMap["members"] = MembersList
 		}
 		apiResource.Spec["cname_pool"] = CnamePoolMap
 	}
@@ -1929,25 +1979,30 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 		if !data.MxPool.MaxAnswers.IsNull() && !data.MxPool.MaxAnswers.IsUnknown() {
 			MxPoolMap["max_answers"] = data.MxPool.MaxAnswers.ValueInt64()
 		}
-		if len(data.MxPool.Members) > 0 {
-			var MembersList []map[string]interface{}
-			for _, MembersItem := range data.MxPool.Members {
-				MembersItemMap := make(map[string]interface{})
-				if !MembersItem.Domain.IsNull() && !MembersItem.Domain.IsUnknown() {
-					MembersItemMap["domain"] = MembersItem.Domain.ValueString()
+		if !data.MxPool.Members.IsNull() && !data.MxPool.Members.IsUnknown() {
+			var MembersElems []DNSLBPoolMxPoolMembersModel
+			diags := data.MxPool.Members.ElementsAs(ctx, &MembersElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(MembersElems) > 0 {
+				var MembersList []map[string]interface{}
+				for _, MembersItem := range MembersElems {
+					MembersItemMap := make(map[string]interface{})
+					if !MembersItem.Domain.IsNull() && !MembersItem.Domain.IsUnknown() {
+						MembersItemMap["domain"] = MembersItem.Domain.ValueString()
+					}
+					if !MembersItem.Name.IsNull() && !MembersItem.Name.IsUnknown() {
+						MembersItemMap["name"] = MembersItem.Name.ValueString()
+					}
+					if !MembersItem.Priority.IsNull() && !MembersItem.Priority.IsUnknown() {
+						MembersItemMap["priority"] = MembersItem.Priority.ValueInt64()
+					}
+					if !MembersItem.Ratio.IsNull() && !MembersItem.Ratio.IsUnknown() {
+						MembersItemMap["ratio"] = MembersItem.Ratio.ValueInt64()
+					}
+					MembersList = append(MembersList, MembersItemMap)
 				}
-				if !MembersItem.Name.IsNull() && !MembersItem.Name.IsUnknown() {
-					MembersItemMap["name"] = MembersItem.Name.ValueString()
-				}
-				if !MembersItem.Priority.IsNull() && !MembersItem.Priority.IsUnknown() {
-					MembersItemMap["priority"] = MembersItem.Priority.ValueInt64()
-				}
-				if !MembersItem.Ratio.IsNull() && !MembersItem.Ratio.IsUnknown() {
-					MembersItemMap["ratio"] = MembersItem.Ratio.ValueInt64()
-				}
-				MembersList = append(MembersList, MembersItemMap)
+				MxPoolMap["members"] = MembersList
 			}
-			MxPoolMap["members"] = MembersList
 		}
 		apiResource.Spec["mx_pool"] = MxPoolMap
 	}
@@ -1956,34 +2011,39 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 		if !data.SrvPool.MaxAnswers.IsNull() && !data.SrvPool.MaxAnswers.IsUnknown() {
 			SrvPoolMap["max_answers"] = data.SrvPool.MaxAnswers.ValueInt64()
 		}
-		if len(data.SrvPool.Members) > 0 {
-			var MembersList []map[string]interface{}
-			for _, MembersItem := range data.SrvPool.Members {
-				MembersItemMap := make(map[string]interface{})
-				if !MembersItem.FinalTranslation.IsNull() && !MembersItem.FinalTranslation.IsUnknown() {
-					MembersItemMap["final_translation"] = MembersItem.FinalTranslation.ValueBool()
+		if !data.SrvPool.Members.IsNull() && !data.SrvPool.Members.IsUnknown() {
+			var MembersElems []DNSLBPoolSrvPoolMembersModel
+			diags := data.SrvPool.Members.ElementsAs(ctx, &MembersElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(MembersElems) > 0 {
+				var MembersList []map[string]interface{}
+				for _, MembersItem := range MembersElems {
+					MembersItemMap := make(map[string]interface{})
+					if !MembersItem.FinalTranslation.IsNull() && !MembersItem.FinalTranslation.IsUnknown() {
+						MembersItemMap["final_translation"] = MembersItem.FinalTranslation.ValueBool()
+					}
+					if !MembersItem.Name.IsNull() && !MembersItem.Name.IsUnknown() {
+						MembersItemMap["name"] = MembersItem.Name.ValueString()
+					}
+					if !MembersItem.Port.IsNull() && !MembersItem.Port.IsUnknown() {
+						MembersItemMap["port"] = MembersItem.Port.ValueInt64()
+					}
+					if !MembersItem.Priority.IsNull() && !MembersItem.Priority.IsUnknown() {
+						MembersItemMap["priority"] = MembersItem.Priority.ValueInt64()
+					}
+					if !MembersItem.Ratio.IsNull() && !MembersItem.Ratio.IsUnknown() {
+						MembersItemMap["ratio"] = MembersItem.Ratio.ValueInt64()
+					}
+					if !MembersItem.Target.IsNull() && !MembersItem.Target.IsUnknown() {
+						MembersItemMap["target"] = MembersItem.Target.ValueString()
+					}
+					if !MembersItem.Weight.IsNull() && !MembersItem.Weight.IsUnknown() {
+						MembersItemMap["weight"] = MembersItem.Weight.ValueInt64()
+					}
+					MembersList = append(MembersList, MembersItemMap)
 				}
-				if !MembersItem.Name.IsNull() && !MembersItem.Name.IsUnknown() {
-					MembersItemMap["name"] = MembersItem.Name.ValueString()
-				}
-				if !MembersItem.Port.IsNull() && !MembersItem.Port.IsUnknown() {
-					MembersItemMap["port"] = MembersItem.Port.ValueInt64()
-				}
-				if !MembersItem.Priority.IsNull() && !MembersItem.Priority.IsUnknown() {
-					MembersItemMap["priority"] = MembersItem.Priority.ValueInt64()
-				}
-				if !MembersItem.Ratio.IsNull() && !MembersItem.Ratio.IsUnknown() {
-					MembersItemMap["ratio"] = MembersItem.Ratio.ValueInt64()
-				}
-				if !MembersItem.Target.IsNull() && !MembersItem.Target.IsUnknown() {
-					MembersItemMap["target"] = MembersItem.Target.ValueString()
-				}
-				if !MembersItem.Weight.IsNull() && !MembersItem.Weight.IsUnknown() {
-					MembersItemMap["weight"] = MembersItem.Weight.ValueInt64()
-				}
-				MembersList = append(MembersList, MembersItemMap)
+				SrvPoolMap["members"] = MembersList
 			}
-			SrvPoolMap["members"] = MembersList
 		}
 		apiResource.Spec["srv_pool"] = SrvPoolMap
 	}
@@ -2072,9 +2132,9 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 				}
 				return types.Int64Null()
 			}(),
-			Members: func() []DNSLBPoolAPoolMembersModel {
-				if !isImport && data.APool != nil && len(data.APool.Members) == 0 {
-					return nil
+			Members: func() types.List {
+				if !isImport && data.APool != nil && (data.APool.Members.IsNull() || len(data.APool.Members.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolAPoolMembersModelAttrTypes})
 				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolAPoolMembersModel
@@ -2114,9 +2174,10 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 							})
 						}
 					}
-					return MembersResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSLBPoolAPoolMembersModelAttrTypes}, MembersResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolAPoolMembersModelAttrTypes})
 			}(),
 		}
 	}
@@ -2131,9 +2192,9 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 				}
 				return types.Int64Null()
 			}(),
-			Members: func() []DNSLBPoolAaaaPoolMembersModel {
-				if !isImport && data.AaaaPool != nil && len(data.AaaaPool.Members) == 0 {
-					return nil
+			Members: func() types.List {
+				if !isImport && data.AaaaPool != nil && (data.AaaaPool.Members.IsNull() || len(data.AaaaPool.Members.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolAaaaPoolMembersModelAttrTypes})
 				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolAaaaPoolMembersModel
@@ -2173,9 +2234,10 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 							})
 						}
 					}
-					return MembersResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSLBPoolAaaaPoolMembersModelAttrTypes}, MembersResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolAaaaPoolMembersModelAttrTypes})
 			}(),
 		}
 	}
@@ -2215,9 +2277,9 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 				}
 				return nil
 			}(),
-			Members: func() []DNSLBPoolCnamePoolMembersModel {
-				if !isImport && data.CnamePool != nil && len(data.CnamePool.Members) == 0 {
-					return nil
+			Members: func() types.List {
+				if !isImport && data.CnamePool != nil && (data.CnamePool.Members.IsNull() || len(data.CnamePool.Members.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolCnamePoolMembersModelAttrTypes})
 				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolCnamePoolMembersModel
@@ -2251,9 +2313,10 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 							})
 						}
 					}
-					return MembersResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSLBPoolCnamePoolMembersModelAttrTypes}, MembersResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolCnamePoolMembersModelAttrTypes})
 			}(),
 		}
 	}
@@ -2268,9 +2331,9 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 				}
 				return types.Int64Null()
 			}(),
-			Members: func() []DNSLBPoolMxPoolMembersModel {
-				if !isImport && data.MxPool != nil && len(data.MxPool.Members) == 0 {
-					return nil
+			Members: func() types.List {
+				if !isImport && data.MxPool != nil && (data.MxPool.Members.IsNull() || len(data.MxPool.Members.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolMxPoolMembersModelAttrTypes})
 				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolMxPoolMembersModel
@@ -2304,9 +2367,10 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 							})
 						}
 					}
-					return MembersResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSLBPoolMxPoolMembersModelAttrTypes}, MembersResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolMxPoolMembersModelAttrTypes})
 			}(),
 		}
 	}
@@ -2321,9 +2385,9 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 				}
 				return types.Int64Null()
 			}(),
-			Members: func() []DNSLBPoolSrvPoolMembersModel {
-				if !isImport && data.SrvPool != nil && len(data.SrvPool.Members) == 0 {
-					return nil
+			Members: func() types.List {
+				if !isImport && data.SrvPool != nil && (data.SrvPool.Members.IsNull() || len(data.SrvPool.Members.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolSrvPoolMembersModelAttrTypes})
 				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolSrvPoolMembersModel
@@ -2375,9 +2439,10 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 							})
 						}
 					}
-					return MembersResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSLBPoolSrvPoolMembersModelAttrTypes}, MembersResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolSrvPoolMembersModelAttrTypes})
 			}(),
 		}
 	}

@@ -245,27 +245,27 @@ type ServicePolicyRuleListRulesSpecModel struct {
 	AnyClient             *ServicePolicyEmptyModel                                  `tfsdk:"any_client"`
 	AnyIP                 *ServicePolicyEmptyModel                                  `tfsdk:"any_ip"`
 	APIGroupMatcher       *ServicePolicyRuleListRulesSpecAPIGroupMatcherModel       `tfsdk:"api_group_matcher"`
-	ArgMatchers           []ServicePolicyRuleListRulesSpecArgMatchersModel          `tfsdk:"arg_matchers"`
+	ArgMatchers           types.List                                                `tfsdk:"arg_matchers"`
 	AsnList               *ServicePolicyRuleListRulesSpecAsnListModel               `tfsdk:"asn_list"`
 	AsnMatcher            *ServicePolicyRuleListRulesSpecAsnMatcherModel            `tfsdk:"asn_matcher"`
 	BodyMatcher           *ServicePolicyRuleListRulesSpecBodyMatcherModel           `tfsdk:"body_matcher"`
 	BotAction             *ServicePolicyRuleListRulesSpecBotActionModel             `tfsdk:"bot_action"`
 	ClientNameMatcher     *ServicePolicyRuleListRulesSpecClientNameMatcherModel     `tfsdk:"client_name_matcher"`
 	ClientSelector        *ServicePolicyRuleListRulesSpecClientSelectorModel        `tfsdk:"client_selector"`
-	CookieMatchers        []ServicePolicyRuleListRulesSpecCookieMatchersModel       `tfsdk:"cookie_matchers"`
+	CookieMatchers        types.List                                                `tfsdk:"cookie_matchers"`
 	DomainMatcher         *ServicePolicyRuleListRulesSpecDomainMatcherModel         `tfsdk:"domain_matcher"`
-	Headers               []ServicePolicyRuleListRulesSpecHeadersModel              `tfsdk:"headers"`
+	Headers               types.List                                                `tfsdk:"headers"`
 	HTTPMethod            *ServicePolicyRuleListRulesSpecHTTPMethodModel            `tfsdk:"http_method"`
 	IPMatcher             *ServicePolicyRuleListRulesSpecIPMatcherModel             `tfsdk:"ip_matcher"`
 	IPPrefixList          *ServicePolicyRuleListRulesSpecIPPrefixListModel          `tfsdk:"ip_prefix_list"`
 	IPThreatCategoryList  *ServicePolicyRuleListRulesSpecIPThreatCategoryListModel  `tfsdk:"ip_threat_category_list"`
 	Ja4TLSFingerprint     *ServicePolicyRuleListRulesSpecJa4TLSFingerprintModel     `tfsdk:"ja4_tls_fingerprint"`
-	JWTClaims             []ServicePolicyRuleListRulesSpecJWTClaimsModel            `tfsdk:"jwt_claims"`
+	JWTClaims             types.List                                                `tfsdk:"jwt_claims"`
 	LabelMatcher          *ServicePolicyRuleListRulesSpecLabelMatcherModel          `tfsdk:"label_matcher"`
 	MumAction             *ServicePolicyRuleListRulesSpecMumActionModel             `tfsdk:"mum_action"`
 	Path                  *ServicePolicyRuleListRulesSpecPathModel                  `tfsdk:"path"`
 	PortMatcher           *ServicePolicyRuleListRulesSpecPortMatcherModel           `tfsdk:"port_matcher"`
-	QueryParams           []ServicePolicyRuleListRulesSpecQueryParamsModel          `tfsdk:"query_params"`
+	QueryParams           types.List                                                `tfsdk:"query_params"`
 	RequestConstraints    *ServicePolicyRuleListRulesSpecRequestConstraintsModel    `tfsdk:"request_constraints"`
 	SegmentPolicy         *ServicePolicyRuleListRulesSpecSegmentPolicyModel         `tfsdk:"segment_policy"`
 	TLSFingerprintMatcher *ServicePolicyRuleListRulesSpecTLSFingerprintMatcherModel `tfsdk:"tls_fingerprint_matcher"`
@@ -880,10 +880,10 @@ var ServicePolicyRuleListRulesSpecWAFActionModelAttrTypes = map[string]attr.Type
 
 // ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlModel represents app_firewall_detection_control block
 type ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlModel struct {
-	ExcludeAttackTypeContexts []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel `tfsdk:"exclude_attack_type_contexts"`
-	ExcludeBotNameContexts    []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel    `tfsdk:"exclude_bot_name_contexts"`
-	ExcludeSignatureContexts  []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel  `tfsdk:"exclude_signature_contexts"`
-	ExcludeViolationContexts  []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModel  `tfsdk:"exclude_violation_contexts"`
+	ExcludeAttackTypeContexts types.List `tfsdk:"exclude_attack_type_contexts"`
+	ExcludeBotNameContexts    types.List `tfsdk:"exclude_bot_name_contexts"`
+	ExcludeSignatureContexts  types.List `tfsdk:"exclude_signature_contexts"`
+	ExcludeViolationContexts  types.List `tfsdk:"exclude_violation_contexts"`
 }
 
 // ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlModelAttrTypes defines the attribute types for ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlModel
@@ -2802,50 +2802,55 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 							}
 							SpecMap["api_group_matcher"] = APIGroupMatcherMap
 						}
-						if len(RulesItem.Spec.ArgMatchers) > 0 {
-							var ArgMatchersList []map[string]interface{}
-							for _, ArgMatchersItem := range RulesItem.Spec.ArgMatchers {
-								ArgMatchersItemMap := make(map[string]interface{})
-								if ArgMatchersItem.CheckNotPresent != nil {
-									ArgMatchersItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if ArgMatchersItem.CheckPresent != nil {
-									ArgMatchersItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !ArgMatchersItem.InvertMatcher.IsNull() && !ArgMatchersItem.InvertMatcher.IsUnknown() {
-									ArgMatchersItemMap["invert_matcher"] = ArgMatchersItem.InvertMatcher.ValueBool()
-								}
-								if ArgMatchersItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !ArgMatchersItem.Item.ExactValues.IsNull() && !ArgMatchersItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := ArgMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !RulesItem.Spec.ArgMatchers.IsNull() && !RulesItem.Spec.ArgMatchers.IsUnknown() {
+							var ArgMatchersElems []ServicePolicyRuleListRulesSpecArgMatchersModel
+							diags := RulesItem.Spec.ArgMatchers.ElementsAs(ctx, &ArgMatchersElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ArgMatchersElems) > 0 {
+								var ArgMatchersList []map[string]interface{}
+								for _, ArgMatchersItem := range ArgMatchersElems {
+									ArgMatchersItemMap := make(map[string]interface{})
+									if ArgMatchersItem.CheckNotPresent != nil {
+										ArgMatchersItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !ArgMatchersItem.Item.RegexValues.IsNull() && !ArgMatchersItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := ArgMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if ArgMatchersItem.CheckPresent != nil {
+										ArgMatchersItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !ArgMatchersItem.Item.Transformers.IsNull() && !ArgMatchersItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := ArgMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !ArgMatchersItem.InvertMatcher.IsNull() && !ArgMatchersItem.InvertMatcher.IsUnknown() {
+										ArgMatchersItemMap["invert_matcher"] = ArgMatchersItem.InvertMatcher.ValueBool()
 									}
-									ArgMatchersItemMap["item"] = ItemMap
+									if ArgMatchersItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !ArgMatchersItem.Item.ExactValues.IsNull() && !ArgMatchersItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := ArgMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !ArgMatchersItem.Item.RegexValues.IsNull() && !ArgMatchersItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := ArgMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !ArgMatchersItem.Item.Transformers.IsNull() && !ArgMatchersItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := ArgMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										ArgMatchersItemMap["item"] = ItemMap
+									}
+									if !ArgMatchersItem.Name.IsNull() && !ArgMatchersItem.Name.IsUnknown() {
+										ArgMatchersItemMap["name"] = ArgMatchersItem.Name.ValueString()
+									}
+									ArgMatchersList = append(ArgMatchersList, ArgMatchersItemMap)
 								}
-								if !ArgMatchersItem.Name.IsNull() && !ArgMatchersItem.Name.IsUnknown() {
-									ArgMatchersItemMap["name"] = ArgMatchersItem.Name.ValueString()
-								}
-								ArgMatchersList = append(ArgMatchersList, ArgMatchersItemMap)
+								SpecMap["arg_matchers"] = ArgMatchersList
 							}
-							SpecMap["arg_matchers"] = ArgMatchersList
 						}
 						if RulesItem.Spec.AsnList != nil {
 							AsnListMap := make(map[string]interface{})
@@ -2964,50 +2969,55 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 							}
 							SpecMap["client_selector"] = ClientSelectorMap
 						}
-						if len(RulesItem.Spec.CookieMatchers) > 0 {
-							var CookieMatchersList []map[string]interface{}
-							for _, CookieMatchersItem := range RulesItem.Spec.CookieMatchers {
-								CookieMatchersItemMap := make(map[string]interface{})
-								if CookieMatchersItem.CheckNotPresent != nil {
-									CookieMatchersItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if CookieMatchersItem.CheckPresent != nil {
-									CookieMatchersItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !CookieMatchersItem.InvertMatcher.IsNull() && !CookieMatchersItem.InvertMatcher.IsUnknown() {
-									CookieMatchersItemMap["invert_matcher"] = CookieMatchersItem.InvertMatcher.ValueBool()
-								}
-								if CookieMatchersItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !RulesItem.Spec.CookieMatchers.IsNull() && !RulesItem.Spec.CookieMatchers.IsUnknown() {
+							var CookieMatchersElems []ServicePolicyRuleListRulesSpecCookieMatchersModel
+							diags := RulesItem.Spec.CookieMatchers.ElementsAs(ctx, &CookieMatchersElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(CookieMatchersElems) > 0 {
+								var CookieMatchersList []map[string]interface{}
+								for _, CookieMatchersItem := range CookieMatchersElems {
+									CookieMatchersItemMap := make(map[string]interface{})
+									if CookieMatchersItem.CheckNotPresent != nil {
+										CookieMatchersItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if CookieMatchersItem.CheckPresent != nil {
+										CookieMatchersItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !CookieMatchersItem.InvertMatcher.IsNull() && !CookieMatchersItem.InvertMatcher.IsUnknown() {
+										CookieMatchersItemMap["invert_matcher"] = CookieMatchersItem.InvertMatcher.ValueBool()
 									}
-									CookieMatchersItemMap["item"] = ItemMap
+									if CookieMatchersItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										CookieMatchersItemMap["item"] = ItemMap
+									}
+									if !CookieMatchersItem.Name.IsNull() && !CookieMatchersItem.Name.IsUnknown() {
+										CookieMatchersItemMap["name"] = CookieMatchersItem.Name.ValueString()
+									}
+									CookieMatchersList = append(CookieMatchersList, CookieMatchersItemMap)
 								}
-								if !CookieMatchersItem.Name.IsNull() && !CookieMatchersItem.Name.IsUnknown() {
-									CookieMatchersItemMap["name"] = CookieMatchersItem.Name.ValueString()
-								}
-								CookieMatchersList = append(CookieMatchersList, CookieMatchersItemMap)
+								SpecMap["cookie_matchers"] = CookieMatchersList
 							}
-							SpecMap["cookie_matchers"] = CookieMatchersList
 						}
 						if RulesItem.Spec.DomainMatcher != nil {
 							DomainMatcherMap := make(map[string]interface{})
@@ -3037,50 +3047,55 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 						if !RulesItem.Spec.ExpirationTimestamp.IsNull() && !RulesItem.Spec.ExpirationTimestamp.IsUnknown() {
 							SpecMap["expiration_timestamp"] = RulesItem.Spec.ExpirationTimestamp.ValueString()
 						}
-						if len(RulesItem.Spec.Headers) > 0 {
-							var HeadersList []map[string]interface{}
-							for _, HeadersItem := range RulesItem.Spec.Headers {
-								HeadersItemMap := make(map[string]interface{})
-								if HeadersItem.CheckNotPresent != nil {
-									HeadersItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if HeadersItem.CheckPresent != nil {
-									HeadersItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
-									HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
-								}
-								if HeadersItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !RulesItem.Spec.Headers.IsNull() && !RulesItem.Spec.Headers.IsUnknown() {
+							var HeadersElems []ServicePolicyRuleListRulesSpecHeadersModel
+							diags := RulesItem.Spec.Headers.ElementsAs(ctx, &HeadersElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+								var HeadersList []map[string]interface{}
+								for _, HeadersItem := range HeadersElems {
+									HeadersItemMap := make(map[string]interface{})
+									if HeadersItem.CheckNotPresent != nil {
+										HeadersItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if HeadersItem.CheckPresent != nil {
+										HeadersItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
+										HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
 									}
-									HeadersItemMap["item"] = ItemMap
+									if HeadersItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										HeadersItemMap["item"] = ItemMap
+									}
+									if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+										HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+									}
+									HeadersList = append(HeadersList, HeadersItemMap)
 								}
-								if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-									HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-								}
-								HeadersList = append(HeadersList, HeadersItemMap)
+								SpecMap["headers"] = HeadersList
 							}
-							SpecMap["headers"] = HeadersList
 						}
 						if RulesItem.Spec.HTTPMethod != nil {
 							HTTPMethodMap := make(map[string]interface{})
@@ -3167,50 +3182,55 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 							}
 							SpecMap["ja4_tls_fingerprint"] = Ja4TLSFingerprintMap
 						}
-						if len(RulesItem.Spec.JWTClaims) > 0 {
-							var JWTClaimsList []map[string]interface{}
-							for _, JWTClaimsItem := range RulesItem.Spec.JWTClaims {
-								JWTClaimsItemMap := make(map[string]interface{})
-								if JWTClaimsItem.CheckNotPresent != nil {
-									JWTClaimsItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if JWTClaimsItem.CheckPresent != nil {
-									JWTClaimsItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !JWTClaimsItem.InvertMatcher.IsNull() && !JWTClaimsItem.InvertMatcher.IsUnknown() {
-									JWTClaimsItemMap["invert_matcher"] = JWTClaimsItem.InvertMatcher.ValueBool()
-								}
-								if JWTClaimsItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !RulesItem.Spec.JWTClaims.IsNull() && !RulesItem.Spec.JWTClaims.IsUnknown() {
+							var JWTClaimsElems []ServicePolicyRuleListRulesSpecJWTClaimsModel
+							diags := RulesItem.Spec.JWTClaims.ElementsAs(ctx, &JWTClaimsElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(JWTClaimsElems) > 0 {
+								var JWTClaimsList []map[string]interface{}
+								for _, JWTClaimsItem := range JWTClaimsElems {
+									JWTClaimsItemMap := make(map[string]interface{})
+									if JWTClaimsItem.CheckNotPresent != nil {
+										JWTClaimsItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if JWTClaimsItem.CheckPresent != nil {
+										JWTClaimsItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !JWTClaimsItem.InvertMatcher.IsNull() && !JWTClaimsItem.InvertMatcher.IsUnknown() {
+										JWTClaimsItemMap["invert_matcher"] = JWTClaimsItem.InvertMatcher.ValueBool()
 									}
-									JWTClaimsItemMap["item"] = ItemMap
+									if JWTClaimsItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										JWTClaimsItemMap["item"] = ItemMap
+									}
+									if !JWTClaimsItem.Name.IsNull() && !JWTClaimsItem.Name.IsUnknown() {
+										JWTClaimsItemMap["name"] = JWTClaimsItem.Name.ValueString()
+									}
+									JWTClaimsList = append(JWTClaimsList, JWTClaimsItemMap)
 								}
-								if !JWTClaimsItem.Name.IsNull() && !JWTClaimsItem.Name.IsUnknown() {
-									JWTClaimsItemMap["name"] = JWTClaimsItem.Name.ValueString()
-								}
-								JWTClaimsList = append(JWTClaimsList, JWTClaimsItemMap)
+								SpecMap["jwt_claims"] = JWTClaimsList
 							}
-							SpecMap["jwt_claims"] = JWTClaimsList
 						}
 						if RulesItem.Spec.LabelMatcher != nil {
 							LabelMatcherMap := make(map[string]interface{})
@@ -3289,50 +3309,55 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 							}
 							SpecMap["port_matcher"] = PortMatcherMap
 						}
-						if len(RulesItem.Spec.QueryParams) > 0 {
-							var QueryParamsList []map[string]interface{}
-							for _, QueryParamsItem := range RulesItem.Spec.QueryParams {
-								QueryParamsItemMap := make(map[string]interface{})
-								if QueryParamsItem.CheckNotPresent != nil {
-									QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if QueryParamsItem.CheckPresent != nil {
-									QueryParamsItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
-									QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
-								}
-								if QueryParamsItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !RulesItem.Spec.QueryParams.IsNull() && !RulesItem.Spec.QueryParams.IsUnknown() {
+							var QueryParamsElems []ServicePolicyRuleListRulesSpecQueryParamsModel
+							diags := RulesItem.Spec.QueryParams.ElementsAs(ctx, &QueryParamsElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(QueryParamsElems) > 0 {
+								var QueryParamsList []map[string]interface{}
+								for _, QueryParamsItem := range QueryParamsElems {
+									QueryParamsItemMap := make(map[string]interface{})
+									if QueryParamsItem.CheckNotPresent != nil {
+										QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if QueryParamsItem.CheckPresent != nil {
+										QueryParamsItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
+										QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
 									}
-									QueryParamsItemMap["item"] = ItemMap
+									if QueryParamsItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										QueryParamsItemMap["item"] = ItemMap
+									}
+									if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
+										QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
+									}
+									QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
 								}
-								if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
-									QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
-								}
-								QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
+								SpecMap["query_params"] = QueryParamsList
 							}
-							SpecMap["query_params"] = QueryParamsList
 						}
 						if RulesItem.Spec.RequestConstraints != nil {
 							RequestConstraintsMap := make(map[string]interface{})
@@ -3528,67 +3553,87 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 							WAFActionMap := make(map[string]interface{})
 							if RulesItem.Spec.WAFAction.AppFirewallDetectionControl != nil {
 								AppFirewallDetectionControlMap := make(map[string]interface{})
-								if len(RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts) > 0 {
-									var ExcludeAttackTypeContextsList []map[string]interface{}
-									for _, ExcludeAttackTypeContextsItem := range RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts {
-										ExcludeAttackTypeContextsItemMap := make(map[string]interface{})
-										if !ExcludeAttackTypeContextsItem.Context.IsNull() && !ExcludeAttackTypeContextsItem.Context.IsUnknown() {
-											ExcludeAttackTypeContextsItemMap["context"] = ExcludeAttackTypeContextsItem.Context.ValueString()
+								if !RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() && !RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsUnknown() {
+									var ExcludeAttackTypeContextsElems []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
+									diags := RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.ElementsAs(ctx, &ExcludeAttackTypeContextsElems, false)
+									resp.Diagnostics.Append(diags...)
+									if !resp.Diagnostics.HasError() && len(ExcludeAttackTypeContextsElems) > 0 {
+										var ExcludeAttackTypeContextsList []map[string]interface{}
+										for _, ExcludeAttackTypeContextsItem := range ExcludeAttackTypeContextsElems {
+											ExcludeAttackTypeContextsItemMap := make(map[string]interface{})
+											if !ExcludeAttackTypeContextsItem.Context.IsNull() && !ExcludeAttackTypeContextsItem.Context.IsUnknown() {
+												ExcludeAttackTypeContextsItemMap["context"] = ExcludeAttackTypeContextsItem.Context.ValueString()
+											}
+											if !ExcludeAttackTypeContextsItem.ContextName.IsNull() && !ExcludeAttackTypeContextsItem.ContextName.IsUnknown() {
+												ExcludeAttackTypeContextsItemMap["context_name"] = ExcludeAttackTypeContextsItem.ContextName.ValueString()
+											}
+											if !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsNull() && !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsUnknown() {
+												ExcludeAttackTypeContextsItemMap["exclude_attack_type"] = ExcludeAttackTypeContextsItem.ExcludeAttackType.ValueString()
+											}
+											ExcludeAttackTypeContextsList = append(ExcludeAttackTypeContextsList, ExcludeAttackTypeContextsItemMap)
 										}
-										if !ExcludeAttackTypeContextsItem.ContextName.IsNull() && !ExcludeAttackTypeContextsItem.ContextName.IsUnknown() {
-											ExcludeAttackTypeContextsItemMap["context_name"] = ExcludeAttackTypeContextsItem.ContextName.ValueString()
-										}
-										if !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsNull() && !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsUnknown() {
-											ExcludeAttackTypeContextsItemMap["exclude_attack_type"] = ExcludeAttackTypeContextsItem.ExcludeAttackType.ValueString()
-										}
-										ExcludeAttackTypeContextsList = append(ExcludeAttackTypeContextsList, ExcludeAttackTypeContextsItemMap)
+										AppFirewallDetectionControlMap["exclude_attack_type_contexts"] = ExcludeAttackTypeContextsList
 									}
-									AppFirewallDetectionControlMap["exclude_attack_type_contexts"] = ExcludeAttackTypeContextsList
 								}
-								if len(RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts) > 0 {
-									var ExcludeBotNameContextsList []map[string]interface{}
-									for _, ExcludeBotNameContextsItem := range RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts {
-										ExcludeBotNameContextsItemMap := make(map[string]interface{})
-										if !ExcludeBotNameContextsItem.BotName.IsNull() && !ExcludeBotNameContextsItem.BotName.IsUnknown() {
-											ExcludeBotNameContextsItemMap["bot_name"] = ExcludeBotNameContextsItem.BotName.ValueString()
+								if !RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() && !RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsUnknown() {
+									var ExcludeBotNameContextsElems []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
+									diags := RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.ElementsAs(ctx, &ExcludeBotNameContextsElems, false)
+									resp.Diagnostics.Append(diags...)
+									if !resp.Diagnostics.HasError() && len(ExcludeBotNameContextsElems) > 0 {
+										var ExcludeBotNameContextsList []map[string]interface{}
+										for _, ExcludeBotNameContextsItem := range ExcludeBotNameContextsElems {
+											ExcludeBotNameContextsItemMap := make(map[string]interface{})
+											if !ExcludeBotNameContextsItem.BotName.IsNull() && !ExcludeBotNameContextsItem.BotName.IsUnknown() {
+												ExcludeBotNameContextsItemMap["bot_name"] = ExcludeBotNameContextsItem.BotName.ValueString()
+											}
+											ExcludeBotNameContextsList = append(ExcludeBotNameContextsList, ExcludeBotNameContextsItemMap)
 										}
-										ExcludeBotNameContextsList = append(ExcludeBotNameContextsList, ExcludeBotNameContextsItemMap)
+										AppFirewallDetectionControlMap["exclude_bot_name_contexts"] = ExcludeBotNameContextsList
 									}
-									AppFirewallDetectionControlMap["exclude_bot_name_contexts"] = ExcludeBotNameContextsList
 								}
-								if len(RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts) > 0 {
-									var ExcludeSignatureContextsList []map[string]interface{}
-									for _, ExcludeSignatureContextsItem := range RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts {
-										ExcludeSignatureContextsItemMap := make(map[string]interface{})
-										if !ExcludeSignatureContextsItem.Context.IsNull() && !ExcludeSignatureContextsItem.Context.IsUnknown() {
-											ExcludeSignatureContextsItemMap["context"] = ExcludeSignatureContextsItem.Context.ValueString()
+								if !RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() && !RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsUnknown() {
+									var ExcludeSignatureContextsElems []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
+									diags := RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.ElementsAs(ctx, &ExcludeSignatureContextsElems, false)
+									resp.Diagnostics.Append(diags...)
+									if !resp.Diagnostics.HasError() && len(ExcludeSignatureContextsElems) > 0 {
+										var ExcludeSignatureContextsList []map[string]interface{}
+										for _, ExcludeSignatureContextsItem := range ExcludeSignatureContextsElems {
+											ExcludeSignatureContextsItemMap := make(map[string]interface{})
+											if !ExcludeSignatureContextsItem.Context.IsNull() && !ExcludeSignatureContextsItem.Context.IsUnknown() {
+												ExcludeSignatureContextsItemMap["context"] = ExcludeSignatureContextsItem.Context.ValueString()
+											}
+											if !ExcludeSignatureContextsItem.ContextName.IsNull() && !ExcludeSignatureContextsItem.ContextName.IsUnknown() {
+												ExcludeSignatureContextsItemMap["context_name"] = ExcludeSignatureContextsItem.ContextName.ValueString()
+											}
+											if !ExcludeSignatureContextsItem.SignatureID.IsNull() && !ExcludeSignatureContextsItem.SignatureID.IsUnknown() {
+												ExcludeSignatureContextsItemMap["signature_id"] = ExcludeSignatureContextsItem.SignatureID.ValueInt64()
+											}
+											ExcludeSignatureContextsList = append(ExcludeSignatureContextsList, ExcludeSignatureContextsItemMap)
 										}
-										if !ExcludeSignatureContextsItem.ContextName.IsNull() && !ExcludeSignatureContextsItem.ContextName.IsUnknown() {
-											ExcludeSignatureContextsItemMap["context_name"] = ExcludeSignatureContextsItem.ContextName.ValueString()
-										}
-										if !ExcludeSignatureContextsItem.SignatureID.IsNull() && !ExcludeSignatureContextsItem.SignatureID.IsUnknown() {
-											ExcludeSignatureContextsItemMap["signature_id"] = ExcludeSignatureContextsItem.SignatureID.ValueInt64()
-										}
-										ExcludeSignatureContextsList = append(ExcludeSignatureContextsList, ExcludeSignatureContextsItemMap)
+										AppFirewallDetectionControlMap["exclude_signature_contexts"] = ExcludeSignatureContextsList
 									}
-									AppFirewallDetectionControlMap["exclude_signature_contexts"] = ExcludeSignatureContextsList
 								}
-								if len(RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts) > 0 {
-									var ExcludeViolationContextsList []map[string]interface{}
-									for _, ExcludeViolationContextsItem := range RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts {
-										ExcludeViolationContextsItemMap := make(map[string]interface{})
-										if !ExcludeViolationContextsItem.Context.IsNull() && !ExcludeViolationContextsItem.Context.IsUnknown() {
-											ExcludeViolationContextsItemMap["context"] = ExcludeViolationContextsItem.Context.ValueString()
+								if !RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() && !RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsUnknown() {
+									var ExcludeViolationContextsElems []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
+									diags := RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.ElementsAs(ctx, &ExcludeViolationContextsElems, false)
+									resp.Diagnostics.Append(diags...)
+									if !resp.Diagnostics.HasError() && len(ExcludeViolationContextsElems) > 0 {
+										var ExcludeViolationContextsList []map[string]interface{}
+										for _, ExcludeViolationContextsItem := range ExcludeViolationContextsElems {
+											ExcludeViolationContextsItemMap := make(map[string]interface{})
+											if !ExcludeViolationContextsItem.Context.IsNull() && !ExcludeViolationContextsItem.Context.IsUnknown() {
+												ExcludeViolationContextsItemMap["context"] = ExcludeViolationContextsItem.Context.ValueString()
+											}
+											if !ExcludeViolationContextsItem.ContextName.IsNull() && !ExcludeViolationContextsItem.ContextName.IsUnknown() {
+												ExcludeViolationContextsItemMap["context_name"] = ExcludeViolationContextsItem.ContextName.ValueString()
+											}
+											if !ExcludeViolationContextsItem.ExcludeViolation.IsNull() && !ExcludeViolationContextsItem.ExcludeViolation.IsUnknown() {
+												ExcludeViolationContextsItemMap["exclude_violation"] = ExcludeViolationContextsItem.ExcludeViolation.ValueString()
+											}
+											ExcludeViolationContextsList = append(ExcludeViolationContextsList, ExcludeViolationContextsItemMap)
 										}
-										if !ExcludeViolationContextsItem.ContextName.IsNull() && !ExcludeViolationContextsItem.ContextName.IsUnknown() {
-											ExcludeViolationContextsItemMap["context_name"] = ExcludeViolationContextsItem.ContextName.ValueString()
-										}
-										if !ExcludeViolationContextsItem.ExcludeViolation.IsNull() && !ExcludeViolationContextsItem.ExcludeViolation.IsUnknown() {
-											ExcludeViolationContextsItemMap["exclude_violation"] = ExcludeViolationContextsItem.ExcludeViolation.ValueString()
-										}
-										ExcludeViolationContextsList = append(ExcludeViolationContextsList, ExcludeViolationContextsItemMap)
+										AppFirewallDetectionControlMap["exclude_violation_contexts"] = ExcludeViolationContextsList
 									}
-									AppFirewallDetectionControlMap["exclude_violation_contexts"] = ExcludeViolationContextsList
 								}
 								WAFActionMap["app_firewall_detection_control"] = AppFirewallDetectionControlMap
 							}
@@ -4118,7 +4163,7 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												}
 												return nil
 											}(),
-											ArgMatchers: func() []ServicePolicyRuleListRulesSpecArgMatchersModel {
+											ArgMatchers: func() types.List {
 												if rawList, ok := SpecData["arg_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var ArgMatchersResult []ServicePolicyRuleListRulesSpecArgMatchersModel
 													for _, ArgMatchersItem := range rawList {
@@ -4197,9 +4242,10 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															})
 														}
 													}
-													return ArgMatchersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecArgMatchersModelAttrTypes}, ArgMatchersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecArgMatchersModelAttrTypes})
 											}(),
 											AsnList: func() *ServicePolicyRuleListRulesSpecAsnListModel {
 												if AsnListData, ok := SpecData["asn_list"].(map[string]interface{}); ok {
@@ -4409,7 +4455,7 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												}
 												return nil
 											}(),
-											CookieMatchers: func() []ServicePolicyRuleListRulesSpecCookieMatchersModel {
+											CookieMatchers: func() types.List {
 												if rawList, ok := SpecData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var CookieMatchersResult []ServicePolicyRuleListRulesSpecCookieMatchersModel
 													for _, CookieMatchersItem := range rawList {
@@ -4488,9 +4534,10 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															})
 														}
 													}
-													return CookieMatchersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecCookieMatchersModelAttrTypes}, CookieMatchersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecCookieMatchersModelAttrTypes})
 											}(),
 											DomainMatcher: func() *ServicePolicyRuleListRulesSpecDomainMatcherModel {
 												if DomainMatcherData, ok := SpecData["domain_matcher"].(map[string]interface{}); ok {
@@ -4544,7 +4591,7 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												}
 												return types.StringNull()
 											}(),
-											Headers: func() []ServicePolicyRuleListRulesSpecHeadersModel {
+											Headers: func() types.List {
 												if rawList, ok := SpecData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []ServicePolicyRuleListRulesSpecHeadersModel
 													for _, HeadersItem := range rawList {
@@ -4623,9 +4670,10 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															})
 														}
 													}
-													return HeadersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecHeadersModelAttrTypes}, HeadersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecHeadersModelAttrTypes})
 											}(),
 											HTTPMethod: func() *ServicePolicyRuleListRulesSpecHTTPMethodModel {
 												if HTTPMethodData, ok := SpecData["http_method"].(map[string]interface{}); ok {
@@ -4776,7 +4824,7 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												}
 												return nil
 											}(),
-											JWTClaims: func() []ServicePolicyRuleListRulesSpecJWTClaimsModel {
+											JWTClaims: func() types.List {
 												if rawList, ok := SpecData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 													var JWTClaimsResult []ServicePolicyRuleListRulesSpecJWTClaimsModel
 													for _, JWTClaimsItem := range rawList {
@@ -4855,9 +4903,10 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															})
 														}
 													}
-													return JWTClaimsResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecJWTClaimsModelAttrTypes}, JWTClaimsResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecJWTClaimsModelAttrTypes})
 											}(),
 											LabelMatcher: func() *ServicePolicyRuleListRulesSpecLabelMatcherModel {
 												if LabelMatcherData, ok := SpecData["label_matcher"].(map[string]interface{}); ok {
@@ -5002,7 +5051,7 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												}
 												return nil
 											}(),
-											QueryParams: func() []ServicePolicyRuleListRulesSpecQueryParamsModel {
+											QueryParams: func() types.List {
 												if rawList, ok := SpecData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 													var QueryParamsResult []ServicePolicyRuleListRulesSpecQueryParamsModel
 													for _, QueryParamsItem := range rawList {
@@ -5081,9 +5130,10 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															})
 														}
 													}
-													return QueryParamsResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecQueryParamsModelAttrTypes}, QueryParamsResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecQueryParamsModelAttrTypes})
 											}(),
 											RequestConstraints: func() *ServicePolicyRuleListRulesSpecRequestConstraintsModel {
 												if RequestConstraintsData, ok := SpecData["request_constraints"].(map[string]interface{}); ok {
@@ -5436,7 +5486,7 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 														AppFirewallDetectionControl: func() *ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlModel {
 															if AppFirewallDetectionControlData, ok := WAFActionData["app_firewall_detection_control"].(map[string]interface{}); ok {
 																return &ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlModel{
-																	ExcludeAttackTypeContexts: func() []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel {
+																	ExcludeAttackTypeContexts: func() types.List {
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_attack_type_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeAttackTypeContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
 																			for _, ExcludeAttackTypeContextsItem := range rawList {
@@ -5463,11 +5513,12 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 																					})
 																				}
 																			}
-																			return ExcludeAttackTypeContextsResult
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes}, ExcludeAttackTypeContextsResult)
+																			return listVal
 																		}
-																		return nil
+																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
 																	}(),
-																	ExcludeBotNameContexts: func() []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel {
+																	ExcludeBotNameContexts: func() types.List {
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_bot_name_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeBotNameContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
 																			for _, ExcludeBotNameContextsItem := range rawList {
@@ -5482,11 +5533,12 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 																					})
 																				}
 																			}
-																			return ExcludeBotNameContextsResult
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes}, ExcludeBotNameContextsResult)
+																			return listVal
 																		}
-																		return nil
+																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
 																	}(),
-																	ExcludeSignatureContexts: func() []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel {
+																	ExcludeSignatureContexts: func() types.List {
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_signature_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeSignatureContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
 																			for _, ExcludeSignatureContextsItem := range rawList {
@@ -5513,11 +5565,12 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 																					})
 																				}
 																			}
-																			return ExcludeSignatureContextsResult
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes}, ExcludeSignatureContextsResult)
+																			return listVal
 																		}
-																		return nil
+																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
 																	}(),
-																	ExcludeViolationContexts: func() []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModel {
+																	ExcludeViolationContexts: func() types.List {
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_violation_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeViolationContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
 																			for _, ExcludeViolationContextsItem := range rawList {
@@ -5544,9 +5597,10 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 																					})
 																				}
 																			}
-																			return ExcludeViolationContextsResult
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes}, ExcludeViolationContextsResult)
+																			return listVal
 																		}
-																		return nil
+																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes})
 																	}(),
 																}
 															}
@@ -6191,7 +6245,7 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												}
 												return nil
 											}(),
-											ArgMatchers: func() []ServicePolicyRuleListRulesSpecArgMatchersModel {
+											ArgMatchers: func() types.List {
 												if rawList, ok := SpecData["arg_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var ArgMatchersResult []ServicePolicyRuleListRulesSpecArgMatchersModel
 													for _, ArgMatchersItem := range rawList {
@@ -6270,9 +6324,10 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															})
 														}
 													}
-													return ArgMatchersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecArgMatchersModelAttrTypes}, ArgMatchersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecArgMatchersModelAttrTypes})
 											}(),
 											AsnList: func() *ServicePolicyRuleListRulesSpecAsnListModel {
 												if AsnListData, ok := SpecData["asn_list"].(map[string]interface{}); ok {
@@ -6482,7 +6537,7 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												}
 												return nil
 											}(),
-											CookieMatchers: func() []ServicePolicyRuleListRulesSpecCookieMatchersModel {
+											CookieMatchers: func() types.List {
 												if rawList, ok := SpecData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var CookieMatchersResult []ServicePolicyRuleListRulesSpecCookieMatchersModel
 													for _, CookieMatchersItem := range rawList {
@@ -6561,9 +6616,10 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															})
 														}
 													}
-													return CookieMatchersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecCookieMatchersModelAttrTypes}, CookieMatchersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecCookieMatchersModelAttrTypes})
 											}(),
 											DomainMatcher: func() *ServicePolicyRuleListRulesSpecDomainMatcherModel {
 												if DomainMatcherData, ok := SpecData["domain_matcher"].(map[string]interface{}); ok {
@@ -6617,7 +6673,7 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												}
 												return types.StringNull()
 											}(),
-											Headers: func() []ServicePolicyRuleListRulesSpecHeadersModel {
+											Headers: func() types.List {
 												if rawList, ok := SpecData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []ServicePolicyRuleListRulesSpecHeadersModel
 													for _, HeadersItem := range rawList {
@@ -6696,9 +6752,10 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															})
 														}
 													}
-													return HeadersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecHeadersModelAttrTypes}, HeadersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecHeadersModelAttrTypes})
 											}(),
 											HTTPMethod: func() *ServicePolicyRuleListRulesSpecHTTPMethodModel {
 												if HTTPMethodData, ok := SpecData["http_method"].(map[string]interface{}); ok {
@@ -6849,7 +6906,7 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												}
 												return nil
 											}(),
-											JWTClaims: func() []ServicePolicyRuleListRulesSpecJWTClaimsModel {
+											JWTClaims: func() types.List {
 												if rawList, ok := SpecData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 													var JWTClaimsResult []ServicePolicyRuleListRulesSpecJWTClaimsModel
 													for _, JWTClaimsItem := range rawList {
@@ -6928,9 +6985,10 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															})
 														}
 													}
-													return JWTClaimsResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecJWTClaimsModelAttrTypes}, JWTClaimsResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecJWTClaimsModelAttrTypes})
 											}(),
 											LabelMatcher: func() *ServicePolicyRuleListRulesSpecLabelMatcherModel {
 												if LabelMatcherData, ok := SpecData["label_matcher"].(map[string]interface{}); ok {
@@ -7075,7 +7133,7 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												}
 												return nil
 											}(),
-											QueryParams: func() []ServicePolicyRuleListRulesSpecQueryParamsModel {
+											QueryParams: func() types.List {
 												if rawList, ok := SpecData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 													var QueryParamsResult []ServicePolicyRuleListRulesSpecQueryParamsModel
 													for _, QueryParamsItem := range rawList {
@@ -7154,9 +7212,10 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															})
 														}
 													}
-													return QueryParamsResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecQueryParamsModelAttrTypes}, QueryParamsResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecQueryParamsModelAttrTypes})
 											}(),
 											RequestConstraints: func() *ServicePolicyRuleListRulesSpecRequestConstraintsModel {
 												if RequestConstraintsData, ok := SpecData["request_constraints"].(map[string]interface{}); ok {
@@ -7509,7 +7568,7 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 														AppFirewallDetectionControl: func() *ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlModel {
 															if AppFirewallDetectionControlData, ok := WAFActionData["app_firewall_detection_control"].(map[string]interface{}); ok {
 																return &ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlModel{
-																	ExcludeAttackTypeContexts: func() []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel {
+																	ExcludeAttackTypeContexts: func() types.List {
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_attack_type_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeAttackTypeContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
 																			for _, ExcludeAttackTypeContextsItem := range rawList {
@@ -7536,11 +7595,12 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 																					})
 																				}
 																			}
-																			return ExcludeAttackTypeContextsResult
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes}, ExcludeAttackTypeContextsResult)
+																			return listVal
 																		}
-																		return nil
+																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
 																	}(),
-																	ExcludeBotNameContexts: func() []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel {
+																	ExcludeBotNameContexts: func() types.List {
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_bot_name_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeBotNameContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
 																			for _, ExcludeBotNameContextsItem := range rawList {
@@ -7555,11 +7615,12 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 																					})
 																				}
 																			}
-																			return ExcludeBotNameContextsResult
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes}, ExcludeBotNameContextsResult)
+																			return listVal
 																		}
-																		return nil
+																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
 																	}(),
-																	ExcludeSignatureContexts: func() []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel {
+																	ExcludeSignatureContexts: func() types.List {
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_signature_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeSignatureContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
 																			for _, ExcludeSignatureContextsItem := range rawList {
@@ -7586,11 +7647,12 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 																					})
 																				}
 																			}
-																			return ExcludeSignatureContextsResult
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes}, ExcludeSignatureContextsResult)
+																			return listVal
 																		}
-																		return nil
+																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
 																	}(),
-																	ExcludeViolationContexts: func() []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModel {
+																	ExcludeViolationContexts: func() types.List {
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_violation_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeViolationContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
 																			for _, ExcludeViolationContextsItem := range rawList {
@@ -7617,9 +7679,10 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 																					})
 																				}
 																			}
-																			return ExcludeViolationContextsResult
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes}, ExcludeViolationContextsResult)
+																			return listVal
 																		}
-																		return nil
+																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes})
 																	}(),
 																}
 															}
@@ -8023,50 +8086,55 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							SpecMap["api_group_matcher"] = APIGroupMatcherMap
 						}
-						if len(RulesItem.Spec.ArgMatchers) > 0 {
-							var ArgMatchersList []map[string]interface{}
-							for _, ArgMatchersItem := range RulesItem.Spec.ArgMatchers {
-								ArgMatchersItemMap := make(map[string]interface{})
-								if ArgMatchersItem.CheckNotPresent != nil {
-									ArgMatchersItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if ArgMatchersItem.CheckPresent != nil {
-									ArgMatchersItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !ArgMatchersItem.InvertMatcher.IsNull() && !ArgMatchersItem.InvertMatcher.IsUnknown() {
-									ArgMatchersItemMap["invert_matcher"] = ArgMatchersItem.InvertMatcher.ValueBool()
-								}
-								if ArgMatchersItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !ArgMatchersItem.Item.ExactValues.IsNull() && !ArgMatchersItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := ArgMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !RulesItem.Spec.ArgMatchers.IsNull() && !RulesItem.Spec.ArgMatchers.IsUnknown() {
+							var ArgMatchersElems []ServicePolicyRuleListRulesSpecArgMatchersModel
+							diags := RulesItem.Spec.ArgMatchers.ElementsAs(ctx, &ArgMatchersElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(ArgMatchersElems) > 0 {
+								var ArgMatchersList []map[string]interface{}
+								for _, ArgMatchersItem := range ArgMatchersElems {
+									ArgMatchersItemMap := make(map[string]interface{})
+									if ArgMatchersItem.CheckNotPresent != nil {
+										ArgMatchersItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !ArgMatchersItem.Item.RegexValues.IsNull() && !ArgMatchersItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := ArgMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if ArgMatchersItem.CheckPresent != nil {
+										ArgMatchersItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !ArgMatchersItem.Item.Transformers.IsNull() && !ArgMatchersItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := ArgMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !ArgMatchersItem.InvertMatcher.IsNull() && !ArgMatchersItem.InvertMatcher.IsUnknown() {
+										ArgMatchersItemMap["invert_matcher"] = ArgMatchersItem.InvertMatcher.ValueBool()
 									}
-									ArgMatchersItemMap["item"] = ItemMap
+									if ArgMatchersItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !ArgMatchersItem.Item.ExactValues.IsNull() && !ArgMatchersItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := ArgMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !ArgMatchersItem.Item.RegexValues.IsNull() && !ArgMatchersItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := ArgMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !ArgMatchersItem.Item.Transformers.IsNull() && !ArgMatchersItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := ArgMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										ArgMatchersItemMap["item"] = ItemMap
+									}
+									if !ArgMatchersItem.Name.IsNull() && !ArgMatchersItem.Name.IsUnknown() {
+										ArgMatchersItemMap["name"] = ArgMatchersItem.Name.ValueString()
+									}
+									ArgMatchersList = append(ArgMatchersList, ArgMatchersItemMap)
 								}
-								if !ArgMatchersItem.Name.IsNull() && !ArgMatchersItem.Name.IsUnknown() {
-									ArgMatchersItemMap["name"] = ArgMatchersItem.Name.ValueString()
-								}
-								ArgMatchersList = append(ArgMatchersList, ArgMatchersItemMap)
+								SpecMap["arg_matchers"] = ArgMatchersList
 							}
-							SpecMap["arg_matchers"] = ArgMatchersList
 						}
 						if RulesItem.Spec.AsnList != nil {
 							AsnListMap := make(map[string]interface{})
@@ -8185,50 +8253,55 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							SpecMap["client_selector"] = ClientSelectorMap
 						}
-						if len(RulesItem.Spec.CookieMatchers) > 0 {
-							var CookieMatchersList []map[string]interface{}
-							for _, CookieMatchersItem := range RulesItem.Spec.CookieMatchers {
-								CookieMatchersItemMap := make(map[string]interface{})
-								if CookieMatchersItem.CheckNotPresent != nil {
-									CookieMatchersItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if CookieMatchersItem.CheckPresent != nil {
-									CookieMatchersItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !CookieMatchersItem.InvertMatcher.IsNull() && !CookieMatchersItem.InvertMatcher.IsUnknown() {
-									CookieMatchersItemMap["invert_matcher"] = CookieMatchersItem.InvertMatcher.ValueBool()
-								}
-								if CookieMatchersItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !RulesItem.Spec.CookieMatchers.IsNull() && !RulesItem.Spec.CookieMatchers.IsUnknown() {
+							var CookieMatchersElems []ServicePolicyRuleListRulesSpecCookieMatchersModel
+							diags := RulesItem.Spec.CookieMatchers.ElementsAs(ctx, &CookieMatchersElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(CookieMatchersElems) > 0 {
+								var CookieMatchersList []map[string]interface{}
+								for _, CookieMatchersItem := range CookieMatchersElems {
+									CookieMatchersItemMap := make(map[string]interface{})
+									if CookieMatchersItem.CheckNotPresent != nil {
+										CookieMatchersItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if CookieMatchersItem.CheckPresent != nil {
+										CookieMatchersItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !CookieMatchersItem.InvertMatcher.IsNull() && !CookieMatchersItem.InvertMatcher.IsUnknown() {
+										CookieMatchersItemMap["invert_matcher"] = CookieMatchersItem.InvertMatcher.ValueBool()
 									}
-									CookieMatchersItemMap["item"] = ItemMap
+									if CookieMatchersItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										CookieMatchersItemMap["item"] = ItemMap
+									}
+									if !CookieMatchersItem.Name.IsNull() && !CookieMatchersItem.Name.IsUnknown() {
+										CookieMatchersItemMap["name"] = CookieMatchersItem.Name.ValueString()
+									}
+									CookieMatchersList = append(CookieMatchersList, CookieMatchersItemMap)
 								}
-								if !CookieMatchersItem.Name.IsNull() && !CookieMatchersItem.Name.IsUnknown() {
-									CookieMatchersItemMap["name"] = CookieMatchersItem.Name.ValueString()
-								}
-								CookieMatchersList = append(CookieMatchersList, CookieMatchersItemMap)
+								SpecMap["cookie_matchers"] = CookieMatchersList
 							}
-							SpecMap["cookie_matchers"] = CookieMatchersList
 						}
 						if RulesItem.Spec.DomainMatcher != nil {
 							DomainMatcherMap := make(map[string]interface{})
@@ -8258,50 +8331,55 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 						if !RulesItem.Spec.ExpirationTimestamp.IsNull() && !RulesItem.Spec.ExpirationTimestamp.IsUnknown() {
 							SpecMap["expiration_timestamp"] = RulesItem.Spec.ExpirationTimestamp.ValueString()
 						}
-						if len(RulesItem.Spec.Headers) > 0 {
-							var HeadersList []map[string]interface{}
-							for _, HeadersItem := range RulesItem.Spec.Headers {
-								HeadersItemMap := make(map[string]interface{})
-								if HeadersItem.CheckNotPresent != nil {
-									HeadersItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if HeadersItem.CheckPresent != nil {
-									HeadersItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
-									HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
-								}
-								if HeadersItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !RulesItem.Spec.Headers.IsNull() && !RulesItem.Spec.Headers.IsUnknown() {
+							var HeadersElems []ServicePolicyRuleListRulesSpecHeadersModel
+							diags := RulesItem.Spec.Headers.ElementsAs(ctx, &HeadersElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+								var HeadersList []map[string]interface{}
+								for _, HeadersItem := range HeadersElems {
+									HeadersItemMap := make(map[string]interface{})
+									if HeadersItem.CheckNotPresent != nil {
+										HeadersItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if HeadersItem.CheckPresent != nil {
+										HeadersItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
+										HeadersItemMap["invert_matcher"] = HeadersItem.InvertMatcher.ValueBool()
 									}
-									HeadersItemMap["item"] = ItemMap
+									if HeadersItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										HeadersItemMap["item"] = ItemMap
+									}
+									if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+										HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+									}
+									HeadersList = append(HeadersList, HeadersItemMap)
 								}
-								if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-									HeadersItemMap["name"] = HeadersItem.Name.ValueString()
-								}
-								HeadersList = append(HeadersList, HeadersItemMap)
+								SpecMap["headers"] = HeadersList
 							}
-							SpecMap["headers"] = HeadersList
 						}
 						if RulesItem.Spec.HTTPMethod != nil {
 							HTTPMethodMap := make(map[string]interface{})
@@ -8388,50 +8466,55 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							SpecMap["ja4_tls_fingerprint"] = Ja4TLSFingerprintMap
 						}
-						if len(RulesItem.Spec.JWTClaims) > 0 {
-							var JWTClaimsList []map[string]interface{}
-							for _, JWTClaimsItem := range RulesItem.Spec.JWTClaims {
-								JWTClaimsItemMap := make(map[string]interface{})
-								if JWTClaimsItem.CheckNotPresent != nil {
-									JWTClaimsItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if JWTClaimsItem.CheckPresent != nil {
-									JWTClaimsItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !JWTClaimsItem.InvertMatcher.IsNull() && !JWTClaimsItem.InvertMatcher.IsUnknown() {
-									JWTClaimsItemMap["invert_matcher"] = JWTClaimsItem.InvertMatcher.ValueBool()
-								}
-								if JWTClaimsItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !RulesItem.Spec.JWTClaims.IsNull() && !RulesItem.Spec.JWTClaims.IsUnknown() {
+							var JWTClaimsElems []ServicePolicyRuleListRulesSpecJWTClaimsModel
+							diags := RulesItem.Spec.JWTClaims.ElementsAs(ctx, &JWTClaimsElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(JWTClaimsElems) > 0 {
+								var JWTClaimsList []map[string]interface{}
+								for _, JWTClaimsItem := range JWTClaimsElems {
+									JWTClaimsItemMap := make(map[string]interface{})
+									if JWTClaimsItem.CheckNotPresent != nil {
+										JWTClaimsItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if JWTClaimsItem.CheckPresent != nil {
+										JWTClaimsItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !JWTClaimsItem.InvertMatcher.IsNull() && !JWTClaimsItem.InvertMatcher.IsUnknown() {
+										JWTClaimsItemMap["invert_matcher"] = JWTClaimsItem.InvertMatcher.ValueBool()
 									}
-									JWTClaimsItemMap["item"] = ItemMap
+									if JWTClaimsItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										JWTClaimsItemMap["item"] = ItemMap
+									}
+									if !JWTClaimsItem.Name.IsNull() && !JWTClaimsItem.Name.IsUnknown() {
+										JWTClaimsItemMap["name"] = JWTClaimsItem.Name.ValueString()
+									}
+									JWTClaimsList = append(JWTClaimsList, JWTClaimsItemMap)
 								}
-								if !JWTClaimsItem.Name.IsNull() && !JWTClaimsItem.Name.IsUnknown() {
-									JWTClaimsItemMap["name"] = JWTClaimsItem.Name.ValueString()
-								}
-								JWTClaimsList = append(JWTClaimsList, JWTClaimsItemMap)
+								SpecMap["jwt_claims"] = JWTClaimsList
 							}
-							SpecMap["jwt_claims"] = JWTClaimsList
 						}
 						if RulesItem.Spec.LabelMatcher != nil {
 							LabelMatcherMap := make(map[string]interface{})
@@ -8510,50 +8593,55 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							SpecMap["port_matcher"] = PortMatcherMap
 						}
-						if len(RulesItem.Spec.QueryParams) > 0 {
-							var QueryParamsList []map[string]interface{}
-							for _, QueryParamsItem := range RulesItem.Spec.QueryParams {
-								QueryParamsItemMap := make(map[string]interface{})
-								if QueryParamsItem.CheckNotPresent != nil {
-									QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
-								}
-								if QueryParamsItem.CheckPresent != nil {
-									QueryParamsItemMap["check_present"] = map[string]interface{}{}
-								}
-								if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
-									QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
-								}
-								if QueryParamsItem.Item != nil {
-									ItemMap := make(map[string]interface{})
-									if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
-										var ExactValuesItems []string
-										diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["exact_values"] = ExactValuesItems
-										}
+						if !RulesItem.Spec.QueryParams.IsNull() && !RulesItem.Spec.QueryParams.IsUnknown() {
+							var QueryParamsElems []ServicePolicyRuleListRulesSpecQueryParamsModel
+							diags := RulesItem.Spec.QueryParams.ElementsAs(ctx, &QueryParamsElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(QueryParamsElems) > 0 {
+								var QueryParamsList []map[string]interface{}
+								for _, QueryParamsItem := range QueryParamsElems {
+									QueryParamsItemMap := make(map[string]interface{})
+									if QueryParamsItem.CheckNotPresent != nil {
+										QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
-										var RegexValuesItems []string
-										diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-										if !diags.HasError() {
-											ItemMap["regex_values"] = RegexValuesItems
-										}
+									if QueryParamsItem.CheckPresent != nil {
+										QueryParamsItemMap["check_present"] = map[string]interface{}{}
 									}
-									if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
-										var TransformersItems []string
-										diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-										if !diags.HasError() {
-											ItemMap["transformers"] = TransformersItems
-										}
+									if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
+										QueryParamsItemMap["invert_matcher"] = QueryParamsItem.InvertMatcher.ValueBool()
 									}
-									QueryParamsItemMap["item"] = ItemMap
+									if QueryParamsItem.Item != nil {
+										ItemMap := make(map[string]interface{})
+										if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
+											var ExactValuesItems []string
+											diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["exact_values"] = ExactValuesItems
+											}
+										}
+										if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
+											var RegexValuesItems []string
+											diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											if !diags.HasError() {
+												ItemMap["regex_values"] = RegexValuesItems
+											}
+										}
+										if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
+											var TransformersItems []string
+											diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											if !diags.HasError() {
+												ItemMap["transformers"] = TransformersItems
+											}
+										}
+										QueryParamsItemMap["item"] = ItemMap
+									}
+									if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
+										QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
+									}
+									QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
 								}
-								if !QueryParamsItem.Key.IsNull() && !QueryParamsItem.Key.IsUnknown() {
-									QueryParamsItemMap["key"] = QueryParamsItem.Key.ValueString()
-								}
-								QueryParamsList = append(QueryParamsList, QueryParamsItemMap)
+								SpecMap["query_params"] = QueryParamsList
 							}
-							SpecMap["query_params"] = QueryParamsList
 						}
 						if RulesItem.Spec.RequestConstraints != nil {
 							RequestConstraintsMap := make(map[string]interface{})
@@ -8749,67 +8837,87 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 							WAFActionMap := make(map[string]interface{})
 							if RulesItem.Spec.WAFAction.AppFirewallDetectionControl != nil {
 								AppFirewallDetectionControlMap := make(map[string]interface{})
-								if len(RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts) > 0 {
-									var ExcludeAttackTypeContextsList []map[string]interface{}
-									for _, ExcludeAttackTypeContextsItem := range RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts {
-										ExcludeAttackTypeContextsItemMap := make(map[string]interface{})
-										if !ExcludeAttackTypeContextsItem.Context.IsNull() && !ExcludeAttackTypeContextsItem.Context.IsUnknown() {
-											ExcludeAttackTypeContextsItemMap["context"] = ExcludeAttackTypeContextsItem.Context.ValueString()
+								if !RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() && !RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsUnknown() {
+									var ExcludeAttackTypeContextsElems []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
+									diags := RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.ElementsAs(ctx, &ExcludeAttackTypeContextsElems, false)
+									resp.Diagnostics.Append(diags...)
+									if !resp.Diagnostics.HasError() && len(ExcludeAttackTypeContextsElems) > 0 {
+										var ExcludeAttackTypeContextsList []map[string]interface{}
+										for _, ExcludeAttackTypeContextsItem := range ExcludeAttackTypeContextsElems {
+											ExcludeAttackTypeContextsItemMap := make(map[string]interface{})
+											if !ExcludeAttackTypeContextsItem.Context.IsNull() && !ExcludeAttackTypeContextsItem.Context.IsUnknown() {
+												ExcludeAttackTypeContextsItemMap["context"] = ExcludeAttackTypeContextsItem.Context.ValueString()
+											}
+											if !ExcludeAttackTypeContextsItem.ContextName.IsNull() && !ExcludeAttackTypeContextsItem.ContextName.IsUnknown() {
+												ExcludeAttackTypeContextsItemMap["context_name"] = ExcludeAttackTypeContextsItem.ContextName.ValueString()
+											}
+											if !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsNull() && !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsUnknown() {
+												ExcludeAttackTypeContextsItemMap["exclude_attack_type"] = ExcludeAttackTypeContextsItem.ExcludeAttackType.ValueString()
+											}
+											ExcludeAttackTypeContextsList = append(ExcludeAttackTypeContextsList, ExcludeAttackTypeContextsItemMap)
 										}
-										if !ExcludeAttackTypeContextsItem.ContextName.IsNull() && !ExcludeAttackTypeContextsItem.ContextName.IsUnknown() {
-											ExcludeAttackTypeContextsItemMap["context_name"] = ExcludeAttackTypeContextsItem.ContextName.ValueString()
-										}
-										if !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsNull() && !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsUnknown() {
-											ExcludeAttackTypeContextsItemMap["exclude_attack_type"] = ExcludeAttackTypeContextsItem.ExcludeAttackType.ValueString()
-										}
-										ExcludeAttackTypeContextsList = append(ExcludeAttackTypeContextsList, ExcludeAttackTypeContextsItemMap)
+										AppFirewallDetectionControlMap["exclude_attack_type_contexts"] = ExcludeAttackTypeContextsList
 									}
-									AppFirewallDetectionControlMap["exclude_attack_type_contexts"] = ExcludeAttackTypeContextsList
 								}
-								if len(RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts) > 0 {
-									var ExcludeBotNameContextsList []map[string]interface{}
-									for _, ExcludeBotNameContextsItem := range RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts {
-										ExcludeBotNameContextsItemMap := make(map[string]interface{})
-										if !ExcludeBotNameContextsItem.BotName.IsNull() && !ExcludeBotNameContextsItem.BotName.IsUnknown() {
-											ExcludeBotNameContextsItemMap["bot_name"] = ExcludeBotNameContextsItem.BotName.ValueString()
+								if !RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() && !RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsUnknown() {
+									var ExcludeBotNameContextsElems []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
+									diags := RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.ElementsAs(ctx, &ExcludeBotNameContextsElems, false)
+									resp.Diagnostics.Append(diags...)
+									if !resp.Diagnostics.HasError() && len(ExcludeBotNameContextsElems) > 0 {
+										var ExcludeBotNameContextsList []map[string]interface{}
+										for _, ExcludeBotNameContextsItem := range ExcludeBotNameContextsElems {
+											ExcludeBotNameContextsItemMap := make(map[string]interface{})
+											if !ExcludeBotNameContextsItem.BotName.IsNull() && !ExcludeBotNameContextsItem.BotName.IsUnknown() {
+												ExcludeBotNameContextsItemMap["bot_name"] = ExcludeBotNameContextsItem.BotName.ValueString()
+											}
+											ExcludeBotNameContextsList = append(ExcludeBotNameContextsList, ExcludeBotNameContextsItemMap)
 										}
-										ExcludeBotNameContextsList = append(ExcludeBotNameContextsList, ExcludeBotNameContextsItemMap)
+										AppFirewallDetectionControlMap["exclude_bot_name_contexts"] = ExcludeBotNameContextsList
 									}
-									AppFirewallDetectionControlMap["exclude_bot_name_contexts"] = ExcludeBotNameContextsList
 								}
-								if len(RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts) > 0 {
-									var ExcludeSignatureContextsList []map[string]interface{}
-									for _, ExcludeSignatureContextsItem := range RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts {
-										ExcludeSignatureContextsItemMap := make(map[string]interface{})
-										if !ExcludeSignatureContextsItem.Context.IsNull() && !ExcludeSignatureContextsItem.Context.IsUnknown() {
-											ExcludeSignatureContextsItemMap["context"] = ExcludeSignatureContextsItem.Context.ValueString()
+								if !RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() && !RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsUnknown() {
+									var ExcludeSignatureContextsElems []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
+									diags := RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.ElementsAs(ctx, &ExcludeSignatureContextsElems, false)
+									resp.Diagnostics.Append(diags...)
+									if !resp.Diagnostics.HasError() && len(ExcludeSignatureContextsElems) > 0 {
+										var ExcludeSignatureContextsList []map[string]interface{}
+										for _, ExcludeSignatureContextsItem := range ExcludeSignatureContextsElems {
+											ExcludeSignatureContextsItemMap := make(map[string]interface{})
+											if !ExcludeSignatureContextsItem.Context.IsNull() && !ExcludeSignatureContextsItem.Context.IsUnknown() {
+												ExcludeSignatureContextsItemMap["context"] = ExcludeSignatureContextsItem.Context.ValueString()
+											}
+											if !ExcludeSignatureContextsItem.ContextName.IsNull() && !ExcludeSignatureContextsItem.ContextName.IsUnknown() {
+												ExcludeSignatureContextsItemMap["context_name"] = ExcludeSignatureContextsItem.ContextName.ValueString()
+											}
+											if !ExcludeSignatureContextsItem.SignatureID.IsNull() && !ExcludeSignatureContextsItem.SignatureID.IsUnknown() {
+												ExcludeSignatureContextsItemMap["signature_id"] = ExcludeSignatureContextsItem.SignatureID.ValueInt64()
+											}
+											ExcludeSignatureContextsList = append(ExcludeSignatureContextsList, ExcludeSignatureContextsItemMap)
 										}
-										if !ExcludeSignatureContextsItem.ContextName.IsNull() && !ExcludeSignatureContextsItem.ContextName.IsUnknown() {
-											ExcludeSignatureContextsItemMap["context_name"] = ExcludeSignatureContextsItem.ContextName.ValueString()
-										}
-										if !ExcludeSignatureContextsItem.SignatureID.IsNull() && !ExcludeSignatureContextsItem.SignatureID.IsUnknown() {
-											ExcludeSignatureContextsItemMap["signature_id"] = ExcludeSignatureContextsItem.SignatureID.ValueInt64()
-										}
-										ExcludeSignatureContextsList = append(ExcludeSignatureContextsList, ExcludeSignatureContextsItemMap)
+										AppFirewallDetectionControlMap["exclude_signature_contexts"] = ExcludeSignatureContextsList
 									}
-									AppFirewallDetectionControlMap["exclude_signature_contexts"] = ExcludeSignatureContextsList
 								}
-								if len(RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts) > 0 {
-									var ExcludeViolationContextsList []map[string]interface{}
-									for _, ExcludeViolationContextsItem := range RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts {
-										ExcludeViolationContextsItemMap := make(map[string]interface{})
-										if !ExcludeViolationContextsItem.Context.IsNull() && !ExcludeViolationContextsItem.Context.IsUnknown() {
-											ExcludeViolationContextsItemMap["context"] = ExcludeViolationContextsItem.Context.ValueString()
+								if !RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() && !RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsUnknown() {
+									var ExcludeViolationContextsElems []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
+									diags := RulesItem.Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.ElementsAs(ctx, &ExcludeViolationContextsElems, false)
+									resp.Diagnostics.Append(diags...)
+									if !resp.Diagnostics.HasError() && len(ExcludeViolationContextsElems) > 0 {
+										var ExcludeViolationContextsList []map[string]interface{}
+										for _, ExcludeViolationContextsItem := range ExcludeViolationContextsElems {
+											ExcludeViolationContextsItemMap := make(map[string]interface{})
+											if !ExcludeViolationContextsItem.Context.IsNull() && !ExcludeViolationContextsItem.Context.IsUnknown() {
+												ExcludeViolationContextsItemMap["context"] = ExcludeViolationContextsItem.Context.ValueString()
+											}
+											if !ExcludeViolationContextsItem.ContextName.IsNull() && !ExcludeViolationContextsItem.ContextName.IsUnknown() {
+												ExcludeViolationContextsItemMap["context_name"] = ExcludeViolationContextsItem.ContextName.ValueString()
+											}
+											if !ExcludeViolationContextsItem.ExcludeViolation.IsNull() && !ExcludeViolationContextsItem.ExcludeViolation.IsUnknown() {
+												ExcludeViolationContextsItemMap["exclude_violation"] = ExcludeViolationContextsItem.ExcludeViolation.ValueString()
+											}
+											ExcludeViolationContextsList = append(ExcludeViolationContextsList, ExcludeViolationContextsItemMap)
 										}
-										if !ExcludeViolationContextsItem.ContextName.IsNull() && !ExcludeViolationContextsItem.ContextName.IsUnknown() {
-											ExcludeViolationContextsItemMap["context_name"] = ExcludeViolationContextsItem.ContextName.ValueString()
-										}
-										if !ExcludeViolationContextsItem.ExcludeViolation.IsNull() && !ExcludeViolationContextsItem.ExcludeViolation.IsUnknown() {
-											ExcludeViolationContextsItemMap["exclude_violation"] = ExcludeViolationContextsItem.ExcludeViolation.ValueString()
-										}
-										ExcludeViolationContextsList = append(ExcludeViolationContextsList, ExcludeViolationContextsItemMap)
+										AppFirewallDetectionControlMap["exclude_violation_contexts"] = ExcludeViolationContextsList
 									}
-									AppFirewallDetectionControlMap["exclude_violation_contexts"] = ExcludeViolationContextsList
 								}
 								WAFActionMap["app_firewall_detection_control"] = AppFirewallDetectionControlMap
 							}
@@ -9357,7 +9465,7 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												}
 												return nil
 											}(),
-											ArgMatchers: func() []ServicePolicyRuleListRulesSpecArgMatchersModel {
+											ArgMatchers: func() types.List {
 												if rawList, ok := SpecData["arg_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var ArgMatchersResult []ServicePolicyRuleListRulesSpecArgMatchersModel
 													for _, ArgMatchersItem := range rawList {
@@ -9436,9 +9544,10 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															})
 														}
 													}
-													return ArgMatchersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecArgMatchersModelAttrTypes}, ArgMatchersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecArgMatchersModelAttrTypes})
 											}(),
 											AsnList: func() *ServicePolicyRuleListRulesSpecAsnListModel {
 												if AsnListData, ok := SpecData["asn_list"].(map[string]interface{}); ok {
@@ -9648,7 +9757,7 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												}
 												return nil
 											}(),
-											CookieMatchers: func() []ServicePolicyRuleListRulesSpecCookieMatchersModel {
+											CookieMatchers: func() types.List {
 												if rawList, ok := SpecData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var CookieMatchersResult []ServicePolicyRuleListRulesSpecCookieMatchersModel
 													for _, CookieMatchersItem := range rawList {
@@ -9727,9 +9836,10 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															})
 														}
 													}
-													return CookieMatchersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecCookieMatchersModelAttrTypes}, CookieMatchersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecCookieMatchersModelAttrTypes})
 											}(),
 											DomainMatcher: func() *ServicePolicyRuleListRulesSpecDomainMatcherModel {
 												if DomainMatcherData, ok := SpecData["domain_matcher"].(map[string]interface{}); ok {
@@ -9783,7 +9893,7 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												}
 												return types.StringNull()
 											}(),
-											Headers: func() []ServicePolicyRuleListRulesSpecHeadersModel {
+											Headers: func() types.List {
 												if rawList, ok := SpecData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []ServicePolicyRuleListRulesSpecHeadersModel
 													for _, HeadersItem := range rawList {
@@ -9862,9 +9972,10 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															})
 														}
 													}
-													return HeadersResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecHeadersModelAttrTypes}, HeadersResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecHeadersModelAttrTypes})
 											}(),
 											HTTPMethod: func() *ServicePolicyRuleListRulesSpecHTTPMethodModel {
 												if HTTPMethodData, ok := SpecData["http_method"].(map[string]interface{}); ok {
@@ -10015,7 +10126,7 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												}
 												return nil
 											}(),
-											JWTClaims: func() []ServicePolicyRuleListRulesSpecJWTClaimsModel {
+											JWTClaims: func() types.List {
 												if rawList, ok := SpecData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 													var JWTClaimsResult []ServicePolicyRuleListRulesSpecJWTClaimsModel
 													for _, JWTClaimsItem := range rawList {
@@ -10094,9 +10205,10 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															})
 														}
 													}
-													return JWTClaimsResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecJWTClaimsModelAttrTypes}, JWTClaimsResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecJWTClaimsModelAttrTypes})
 											}(),
 											LabelMatcher: func() *ServicePolicyRuleListRulesSpecLabelMatcherModel {
 												if LabelMatcherData, ok := SpecData["label_matcher"].(map[string]interface{}); ok {
@@ -10241,7 +10353,7 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												}
 												return nil
 											}(),
-											QueryParams: func() []ServicePolicyRuleListRulesSpecQueryParamsModel {
+											QueryParams: func() types.List {
 												if rawList, ok := SpecData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 													var QueryParamsResult []ServicePolicyRuleListRulesSpecQueryParamsModel
 													for _, QueryParamsItem := range rawList {
@@ -10320,9 +10432,10 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															})
 														}
 													}
-													return QueryParamsResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecQueryParamsModelAttrTypes}, QueryParamsResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecQueryParamsModelAttrTypes})
 											}(),
 											RequestConstraints: func() *ServicePolicyRuleListRulesSpecRequestConstraintsModel {
 												if RequestConstraintsData, ok := SpecData["request_constraints"].(map[string]interface{}); ok {
@@ -10675,7 +10788,7 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 														AppFirewallDetectionControl: func() *ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlModel {
 															if AppFirewallDetectionControlData, ok := WAFActionData["app_firewall_detection_control"].(map[string]interface{}); ok {
 																return &ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlModel{
-																	ExcludeAttackTypeContexts: func() []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel {
+																	ExcludeAttackTypeContexts: func() types.List {
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_attack_type_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeAttackTypeContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
 																			for _, ExcludeAttackTypeContextsItem := range rawList {
@@ -10702,11 +10815,12 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 																					})
 																				}
 																			}
-																			return ExcludeAttackTypeContextsResult
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes}, ExcludeAttackTypeContextsResult)
+																			return listVal
 																		}
-																		return nil
+																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
 																	}(),
-																	ExcludeBotNameContexts: func() []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel {
+																	ExcludeBotNameContexts: func() types.List {
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_bot_name_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeBotNameContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
 																			for _, ExcludeBotNameContextsItem := range rawList {
@@ -10721,11 +10835,12 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 																					})
 																				}
 																			}
-																			return ExcludeBotNameContextsResult
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes}, ExcludeBotNameContextsResult)
+																			return listVal
 																		}
-																		return nil
+																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
 																	}(),
-																	ExcludeSignatureContexts: func() []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel {
+																	ExcludeSignatureContexts: func() types.List {
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_signature_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeSignatureContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
 																			for _, ExcludeSignatureContextsItem := range rawList {
@@ -10752,11 +10867,12 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 																					})
 																				}
 																			}
-																			return ExcludeSignatureContextsResult
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes}, ExcludeSignatureContextsResult)
+																			return listVal
 																		}
-																		return nil
+																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
 																	}(),
-																	ExcludeViolationContexts: func() []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModel {
+																	ExcludeViolationContexts: func() types.List {
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_violation_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeViolationContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
 																			for _, ExcludeViolationContextsItem := range rawList {
@@ -10783,9 +10899,10 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 																					})
 																				}
 																			}
-																			return ExcludeViolationContextsResult
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes}, ExcludeViolationContextsResult)
+																			return listVal
 																		}
-																		return nil
+																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes})
 																	}(),
 																}
 															}

@@ -85,7 +85,7 @@ type FastACLREACLFastACLRulesModel struct {
 	Action      *FastACLREACLFastACLRulesActionModel      `tfsdk:"action"`
 	IPPrefixSet *FastACLREACLFastACLRulesIPPrefixSetModel `tfsdk:"ip_prefix_set"`
 	Metadata    *FastACLREACLFastACLRulesMetadataModel    `tfsdk:"metadata"`
-	Port        []FastACLREACLFastACLRulesPortModel       `tfsdk:"port"`
+	Port        types.List                                `tfsdk:"port"`
 	Prefix      *FastACLREACLFastACLRulesPrefixModel      `tfsdk:"prefix"`
 }
 
@@ -283,7 +283,7 @@ type FastACLSiteACLFastACLRulesModel struct {
 	Action      *FastACLSiteACLFastACLRulesActionModel      `tfsdk:"action"`
 	IPPrefixSet *FastACLSiteACLFastACLRulesIPPrefixSetModel `tfsdk:"ip_prefix_set"`
 	Metadata    *FastACLSiteACLFastACLRulesMetadataModel    `tfsdk:"metadata"`
-	Port        []FastACLSiteACLFastACLRulesPortModel       `tfsdk:"port"`
+	Port        types.List                                  `tfsdk:"port"`
 	Prefix      *FastACLSiteACLFastACLRulesPrefixModel      `tfsdk:"prefix"`
 }
 
@@ -1275,22 +1275,27 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 						}
 						FastACLRulesItemMap["metadata"] = MetadataMap
 					}
-					if len(FastACLRulesItem.Port) > 0 {
-						var PortList []map[string]interface{}
-						for _, PortItem := range FastACLRulesItem.Port {
-							PortItemMap := make(map[string]interface{})
-							if PortItem.All != nil {
-								PortItemMap["all"] = map[string]interface{}{}
+					if !FastACLRulesItem.Port.IsNull() && !FastACLRulesItem.Port.IsUnknown() {
+						var PortElems []FastACLREACLFastACLRulesPortModel
+						diags := FastACLRulesItem.Port.ElementsAs(ctx, &PortElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(PortElems) > 0 {
+							var PortList []map[string]interface{}
+							for _, PortItem := range PortElems {
+								PortItemMap := make(map[string]interface{})
+								if PortItem.All != nil {
+									PortItemMap["all"] = map[string]interface{}{}
+								}
+								if PortItem.DNS != nil {
+									PortItemMap["dns"] = map[string]interface{}{}
+								}
+								if !PortItem.UserDefined.IsNull() && !PortItem.UserDefined.IsUnknown() {
+									PortItemMap["user_defined"] = PortItem.UserDefined.ValueInt64()
+								}
+								PortList = append(PortList, PortItemMap)
 							}
-							if PortItem.DNS != nil {
-								PortItemMap["dns"] = map[string]interface{}{}
-							}
-							if !PortItem.UserDefined.IsNull() && !PortItem.UserDefined.IsUnknown() {
-								PortItemMap["user_defined"] = PortItem.UserDefined.ValueInt64()
-							}
-							PortList = append(PortList, PortItemMap)
+							FastACLRulesItemMap["port"] = PortList
 						}
-						FastACLRulesItemMap["port"] = PortList
 					}
 					if FastACLRulesItem.Prefix != nil {
 						PrefixMap := make(map[string]interface{})
@@ -1465,22 +1470,27 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 						}
 						FastACLRulesItemMap["metadata"] = MetadataMap
 					}
-					if len(FastACLRulesItem.Port) > 0 {
-						var PortList []map[string]interface{}
-						for _, PortItem := range FastACLRulesItem.Port {
-							PortItemMap := make(map[string]interface{})
-							if PortItem.All != nil {
-								PortItemMap["all"] = map[string]interface{}{}
+					if !FastACLRulesItem.Port.IsNull() && !FastACLRulesItem.Port.IsUnknown() {
+						var PortElems []FastACLSiteACLFastACLRulesPortModel
+						diags := FastACLRulesItem.Port.ElementsAs(ctx, &PortElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(PortElems) > 0 {
+							var PortList []map[string]interface{}
+							for _, PortItem := range PortElems {
+								PortItemMap := make(map[string]interface{})
+								if PortItem.All != nil {
+									PortItemMap["all"] = map[string]interface{}{}
+								}
+								if PortItem.DNS != nil {
+									PortItemMap["dns"] = map[string]interface{}{}
+								}
+								if !PortItem.UserDefined.IsNull() && !PortItem.UserDefined.IsUnknown() {
+									PortItemMap["user_defined"] = PortItem.UserDefined.ValueInt64()
+								}
+								PortList = append(PortList, PortItemMap)
 							}
-							if PortItem.DNS != nil {
-								PortItemMap["dns"] = map[string]interface{}{}
-							}
-							if !PortItem.UserDefined.IsNull() && !PortItem.UserDefined.IsUnknown() {
-								PortItemMap["user_defined"] = PortItem.UserDefined.ValueInt64()
-							}
-							PortList = append(PortList, PortItemMap)
+							FastACLRulesItemMap["port"] = PortList
 						}
-						FastACLRulesItemMap["port"] = PortList
 					}
 					if FastACLRulesItem.Prefix != nil {
 						PrefixMap := make(map[string]interface{})
@@ -1761,7 +1771,7 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 									}
 									return nil
 								}(),
-								Port: func() []FastACLREACLFastACLRulesPortModel {
+								Port: func() types.List {
 									if rawList, ok := FastACLRulesItemMap["port"].([]interface{}); ok && len(rawList) > 0 {
 										var PortResult []FastACLREACLFastACLRulesPortModel
 										for _, PortItem := range rawList {
@@ -1788,9 +1798,10 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 												})
 											}
 										}
-										return PortResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLREACLFastACLRulesPortModelAttrTypes}, PortResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesPortModelAttrTypes})
 								}(),
 								Prefix: func() *FastACLREACLFastACLRulesPrefixModel {
 									if PrefixData, ok := FastACLRulesItemMap["prefix"].(map[string]interface{}); ok {
@@ -2075,7 +2086,7 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 									}
 									return nil
 								}(),
-								Port: func() []FastACLSiteACLFastACLRulesPortModel {
+								Port: func() types.List {
 									if rawList, ok := FastACLRulesItemMap["port"].([]interface{}); ok && len(rawList) > 0 {
 										var PortResult []FastACLSiteACLFastACLRulesPortModel
 										for _, PortItem := range rawList {
@@ -2102,9 +2113,10 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 												})
 											}
 										}
-										return PortResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesPortModelAttrTypes}, PortResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesPortModelAttrTypes})
 								}(),
 								Prefix: func() *FastACLSiteACLFastACLRulesPrefixModel {
 									if PrefixData, ok := FastACLRulesItemMap["prefix"].(map[string]interface{}); ok {
@@ -2501,7 +2513,7 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 									}
 									return nil
 								}(),
-								Port: func() []FastACLREACLFastACLRulesPortModel {
+								Port: func() types.List {
 									if rawList, ok := FastACLRulesItemMap["port"].([]interface{}); ok && len(rawList) > 0 {
 										var PortResult []FastACLREACLFastACLRulesPortModel
 										for _, PortItem := range rawList {
@@ -2528,9 +2540,10 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 												})
 											}
 										}
-										return PortResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLREACLFastACLRulesPortModelAttrTypes}, PortResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesPortModelAttrTypes})
 								}(),
 								Prefix: func() *FastACLREACLFastACLRulesPrefixModel {
 									if PrefixData, ok := FastACLRulesItemMap["prefix"].(map[string]interface{}); ok {
@@ -2815,7 +2828,7 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 									}
 									return nil
 								}(),
-								Port: func() []FastACLSiteACLFastACLRulesPortModel {
+								Port: func() types.List {
 									if rawList, ok := FastACLRulesItemMap["port"].([]interface{}); ok && len(rawList) > 0 {
 										var PortResult []FastACLSiteACLFastACLRulesPortModel
 										for _, PortItem := range rawList {
@@ -2842,9 +2855,10 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 												})
 											}
 										}
-										return PortResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesPortModelAttrTypes}, PortResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesPortModelAttrTypes})
 								}(),
 								Prefix: func() *FastACLSiteACLFastACLRulesPrefixModel {
 									if PrefixData, ok := FastACLRulesItemMap["prefix"].(map[string]interface{}); ok {
@@ -3113,22 +3127,27 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 						}
 						FastACLRulesItemMap["metadata"] = MetadataMap
 					}
-					if len(FastACLRulesItem.Port) > 0 {
-						var PortList []map[string]interface{}
-						for _, PortItem := range FastACLRulesItem.Port {
-							PortItemMap := make(map[string]interface{})
-							if PortItem.All != nil {
-								PortItemMap["all"] = map[string]interface{}{}
+					if !FastACLRulesItem.Port.IsNull() && !FastACLRulesItem.Port.IsUnknown() {
+						var PortElems []FastACLREACLFastACLRulesPortModel
+						diags := FastACLRulesItem.Port.ElementsAs(ctx, &PortElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(PortElems) > 0 {
+							var PortList []map[string]interface{}
+							for _, PortItem := range PortElems {
+								PortItemMap := make(map[string]interface{})
+								if PortItem.All != nil {
+									PortItemMap["all"] = map[string]interface{}{}
+								}
+								if PortItem.DNS != nil {
+									PortItemMap["dns"] = map[string]interface{}{}
+								}
+								if !PortItem.UserDefined.IsNull() && !PortItem.UserDefined.IsUnknown() {
+									PortItemMap["user_defined"] = PortItem.UserDefined.ValueInt64()
+								}
+								PortList = append(PortList, PortItemMap)
 							}
-							if PortItem.DNS != nil {
-								PortItemMap["dns"] = map[string]interface{}{}
-							}
-							if !PortItem.UserDefined.IsNull() && !PortItem.UserDefined.IsUnknown() {
-								PortItemMap["user_defined"] = PortItem.UserDefined.ValueInt64()
-							}
-							PortList = append(PortList, PortItemMap)
+							FastACLRulesItemMap["port"] = PortList
 						}
-						FastACLRulesItemMap["port"] = PortList
 					}
 					if FastACLRulesItem.Prefix != nil {
 						PrefixMap := make(map[string]interface{})
@@ -3303,22 +3322,27 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 						}
 						FastACLRulesItemMap["metadata"] = MetadataMap
 					}
-					if len(FastACLRulesItem.Port) > 0 {
-						var PortList []map[string]interface{}
-						for _, PortItem := range FastACLRulesItem.Port {
-							PortItemMap := make(map[string]interface{})
-							if PortItem.All != nil {
-								PortItemMap["all"] = map[string]interface{}{}
+					if !FastACLRulesItem.Port.IsNull() && !FastACLRulesItem.Port.IsUnknown() {
+						var PortElems []FastACLSiteACLFastACLRulesPortModel
+						diags := FastACLRulesItem.Port.ElementsAs(ctx, &PortElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(PortElems) > 0 {
+							var PortList []map[string]interface{}
+							for _, PortItem := range PortElems {
+								PortItemMap := make(map[string]interface{})
+								if PortItem.All != nil {
+									PortItemMap["all"] = map[string]interface{}{}
+								}
+								if PortItem.DNS != nil {
+									PortItemMap["dns"] = map[string]interface{}{}
+								}
+								if !PortItem.UserDefined.IsNull() && !PortItem.UserDefined.IsUnknown() {
+									PortItemMap["user_defined"] = PortItem.UserDefined.ValueInt64()
+								}
+								PortList = append(PortList, PortItemMap)
 							}
-							if PortItem.DNS != nil {
-								PortItemMap["dns"] = map[string]interface{}{}
-							}
-							if !PortItem.UserDefined.IsNull() && !PortItem.UserDefined.IsUnknown() {
-								PortItemMap["user_defined"] = PortItem.UserDefined.ValueInt64()
-							}
-							PortList = append(PortList, PortItemMap)
+							FastACLRulesItemMap["port"] = PortList
 						}
-						FastACLRulesItemMap["port"] = PortList
 					}
 					if FastACLRulesItem.Prefix != nil {
 						PrefixMap := make(map[string]interface{})
@@ -3610,7 +3634,7 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 									}
 									return nil
 								}(),
-								Port: func() []FastACLREACLFastACLRulesPortModel {
+								Port: func() types.List {
 									if rawList, ok := FastACLRulesItemMap["port"].([]interface{}); ok && len(rawList) > 0 {
 										var PortResult []FastACLREACLFastACLRulesPortModel
 										for _, PortItem := range rawList {
@@ -3637,9 +3661,10 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 												})
 											}
 										}
-										return PortResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLREACLFastACLRulesPortModelAttrTypes}, PortResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesPortModelAttrTypes})
 								}(),
 								Prefix: func() *FastACLREACLFastACLRulesPrefixModel {
 									if PrefixData, ok := FastACLRulesItemMap["prefix"].(map[string]interface{}); ok {
@@ -3924,7 +3949,7 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 									}
 									return nil
 								}(),
-								Port: func() []FastACLSiteACLFastACLRulesPortModel {
+								Port: func() types.List {
 									if rawList, ok := FastACLRulesItemMap["port"].([]interface{}); ok && len(rawList) > 0 {
 										var PortResult []FastACLSiteACLFastACLRulesPortModel
 										for _, PortItem := range rawList {
@@ -3951,9 +3976,10 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 												})
 											}
 										}
-										return PortResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesPortModelAttrTypes}, PortResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesPortModelAttrTypes})
 								}(),
 								Prefix: func() *FastACLSiteACLFastACLRulesPrefixModel {
 									if PrefixData, ok := FastACLRulesItemMap["prefix"].(map[string]interface{}); ok {

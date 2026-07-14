@@ -155,7 +155,7 @@ var AWSVPCSiteAWSCredModelAttrTypes = map[string]attr.Type{
 
 // AWSVPCSiteBlockedServicesModel represents blocked_services block
 type AWSVPCSiteBlockedServicesModel struct {
-	BlockedService []AWSVPCSiteBlockedServicesBlockedServiceModel `tfsdk:"blocked_service"`
+	BlockedService types.List `tfsdk:"blocked_service"`
 }
 
 // AWSVPCSiteBlockedServicesModelAttrTypes defines the attribute types for AWSVPCSiteBlockedServicesModel
@@ -235,7 +235,7 @@ var AWSVPCSiteDirectConnectEnabledModelAttrTypes = map[string]attr.Type{
 type AWSVPCSiteDirectConnectEnabledHostedVifsModel struct {
 	SiteRegistrationOverDirectConnect *AWSVPCSiteDirectConnectEnabledHostedVifsSiteRegistrationOverDirectConnectModel `tfsdk:"site_registration_over_direct_connect"`
 	SiteRegistrationOverInternet      *AWSVPCSiteEmptyModel                                                           `tfsdk:"site_registration_over_internet"`
-	VifList                           []AWSVPCSiteDirectConnectEnabledHostedVifsVifListModel                          `tfsdk:"vif_list"`
+	VifList                           types.List                                                                      `tfsdk:"vif_list"`
 }
 
 // AWSVPCSiteDirectConnectEnabledHostedVifsModelAttrTypes defines the attribute types for AWSVPCSiteDirectConnectEnabledHostedVifsModel
@@ -307,7 +307,7 @@ type AWSVPCSiteIngressEgressGwModel struct {
 	ActiveNetworkPolicies          *AWSVPCSiteIngressEgressGwActiveNetworkPoliciesModel          `tfsdk:"active_network_policies"`
 	AllowedVIPPort                 *AWSVPCSiteIngressEgressGwAllowedVIPPortModel                 `tfsdk:"allowed_vip_port"`
 	AllowedVIPPortSLI              *AWSVPCSiteIngressEgressGwAllowedVIPPortSLIModel              `tfsdk:"allowed_vip_port_sli"`
-	AzNodes                        []AWSVPCSiteIngressEgressGwAzNodesModel                       `tfsdk:"az_nodes"`
+	AzNodes                        types.List                                                    `tfsdk:"az_nodes"`
 	DcClusterGroupInsideVn         *AWSVPCSiteIngressEgressGwDcClusterGroupInsideVnModel         `tfsdk:"dc_cluster_group_inside_vn"`
 	DcClusterGroupOutsideVn        *AWSVPCSiteIngressEgressGwDcClusterGroupOutsideVnModel        `tfsdk:"dc_cluster_group_outside_vn"`
 	ForwardProxyAllowAll           *AWSVPCSiteEmptyModel                                         `tfsdk:"forward_proxy_allow_all"`
@@ -685,10 +685,10 @@ var AWSVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListModelAttrTypes = m
 
 // AWSVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteModel represents custom_static_route block
 type AWSVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteModel struct {
-	Attrs   types.List                                                                                `tfsdk:"attrs"`
-	Labels  *AWSVPCSiteEmptyModel                                                                     `tfsdk:"labels"`
-	Nexthop *AWSVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel  `tfsdk:"nexthop"`
-	Subnets []AWSVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel `tfsdk:"subnets"`
+	Attrs   types.List                                                                               `tfsdk:"attrs"`
+	Labels  *AWSVPCSiteEmptyModel                                                                    `tfsdk:"labels"`
+	Nexthop *AWSVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel `tfsdk:"nexthop"`
+	Subnets types.List                                                                               `tfsdk:"subnets"`
 }
 
 // AWSVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes defines the attribute types for AWSVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteModel
@@ -823,10 +823,10 @@ var AWSVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListModelAttrTypes = 
 
 // AWSVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteModel represents custom_static_route block
 type AWSVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteModel struct {
-	Attrs   types.List                                                                                 `tfsdk:"attrs"`
-	Labels  *AWSVPCSiteEmptyModel                                                                      `tfsdk:"labels"`
-	Nexthop *AWSVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel  `tfsdk:"nexthop"`
-	Subnets []AWSVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel `tfsdk:"subnets"`
+	Attrs   types.List                                                                                `tfsdk:"attrs"`
+	Labels  *AWSVPCSiteEmptyModel                                                                     `tfsdk:"labels"`
+	Nexthop *AWSVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel `tfsdk:"nexthop"`
+	Subnets types.List                                                                                `tfsdk:"subnets"`
 }
 
 // AWSVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes defines the attribute types for AWSVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteModel
@@ -965,7 +965,7 @@ var AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModelAt
 type AWSVPCSiteIngressGwModel struct {
 	AWSCertifiedHw             types.String                                        `tfsdk:"aws_certified_hw"`
 	AllowedVIPPort             *AWSVPCSiteIngressGwAllowedVIPPortModel             `tfsdk:"allowed_vip_port"`
-	AzNodes                    []AWSVPCSiteIngressGwAzNodesModel                   `tfsdk:"az_nodes"`
+	AzNodes                    types.List                                          `tfsdk:"az_nodes"`
 	PerformanceEnhancementMode *AWSVPCSiteIngressGwPerformanceEnhancementModeModel `tfsdk:"performance_enhancement_mode"`
 }
 
@@ -1176,7 +1176,7 @@ type AWSVPCSiteVoltstackClusterModel struct {
 	ActiveForwardProxyPolicies     *AWSVPCSiteVoltstackClusterActiveForwardProxyPoliciesModel     `tfsdk:"active_forward_proxy_policies"`
 	ActiveNetworkPolicies          *AWSVPCSiteVoltstackClusterActiveNetworkPoliciesModel          `tfsdk:"active_network_policies"`
 	AllowedVIPPort                 *AWSVPCSiteVoltstackClusterAllowedVIPPortModel                 `tfsdk:"allowed_vip_port"`
-	AzNodes                        []AWSVPCSiteVoltstackClusterAzNodesModel                       `tfsdk:"az_nodes"`
+	AzNodes                        types.List                                                     `tfsdk:"az_nodes"`
 	DcClusterGroup                 *AWSVPCSiteVoltstackClusterDcClusterGroupModel                 `tfsdk:"dc_cluster_group"`
 	DefaultStorage                 *AWSVPCSiteEmptyModel                                          `tfsdk:"default_storage"`
 	ForwardProxyAllowAll           *AWSVPCSiteEmptyModel                                          `tfsdk:"forward_proxy_allow_all"`
@@ -1475,10 +1475,10 @@ var AWSVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListModelAttrTypes =
 
 // AWSVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteModel represents custom_static_route block
 type AWSVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteModel struct {
-	Attrs   types.List                                                                                  `tfsdk:"attrs"`
-	Labels  *AWSVPCSiteEmptyModel                                                                       `tfsdk:"labels"`
-	Nexthop *AWSVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel  `tfsdk:"nexthop"`
-	Subnets []AWSVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel `tfsdk:"subnets"`
+	Attrs   types.List                                                                                 `tfsdk:"attrs"`
+	Labels  *AWSVPCSiteEmptyModel                                                                      `tfsdk:"labels"`
+	Nexthop *AWSVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel `tfsdk:"nexthop"`
+	Subnets types.List                                                                                 `tfsdk:"subnets"`
 }
 
 // AWSVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes defines the attribute types for AWSVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteModel
@@ -1591,7 +1591,7 @@ var AWSVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRout
 
 // AWSVPCSiteVoltstackClusterStorageClassListModel represents storage_class_list block
 type AWSVPCSiteVoltstackClusterStorageClassListModel struct {
-	StorageClasses []AWSVPCSiteVoltstackClusterStorageClassListStorageClassesModel `tfsdk:"storage_classes"`
+	StorageClasses types.List `tfsdk:"storage_classes"`
 }
 
 // AWSVPCSiteVoltstackClusterStorageClassListModelAttrTypes defines the attribute types for AWSVPCSiteVoltstackClusterStorageClassListModel
@@ -3988,25 +3988,30 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	}
 	if data.BlockedServices != nil {
 		BlockedServicesMap := make(map[string]interface{})
-		if len(data.BlockedServices.BlockedService) > 0 {
-			var BlockedServiceList []map[string]interface{}
-			for _, BlockedServiceItem := range data.BlockedServices.BlockedService {
-				BlockedServiceItemMap := make(map[string]interface{})
-				if BlockedServiceItem.DNS != nil {
-					BlockedServiceItemMap["dns"] = map[string]interface{}{}
+		if !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
+			var BlockedServiceElems []AWSVPCSiteBlockedServicesBlockedServiceModel
+			diags := data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(BlockedServiceElems) > 0 {
+				var BlockedServiceList []map[string]interface{}
+				for _, BlockedServiceItem := range BlockedServiceElems {
+					BlockedServiceItemMap := make(map[string]interface{})
+					if BlockedServiceItem.DNS != nil {
+						BlockedServiceItemMap["dns"] = map[string]interface{}{}
+					}
+					if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
+						BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
+					}
+					if BlockedServiceItem.SSH != nil {
+						BlockedServiceItemMap["ssh"] = map[string]interface{}{}
+					}
+					if BlockedServiceItem.WebUserInterface != nil {
+						BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
+					}
+					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
 				}
-				if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
-					BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
-				}
-				if BlockedServiceItem.SSH != nil {
-					BlockedServiceItemMap["ssh"] = map[string]interface{}{}
-				}
-				if BlockedServiceItem.WebUserInterface != nil {
-					BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
-				}
-				BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
+				BlockedServicesMap["blocked_service"] = BlockedServiceList
 			}
-			BlockedServicesMap["blocked_service"] = BlockedServiceList
 		}
 		createReq.Spec["blocked_services"] = BlockedServicesMap
 	}
@@ -4066,22 +4071,27 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			if data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet != nil {
 				HostedVifsMap["site_registration_over_internet"] = map[string]interface{}{}
 			}
-			if len(data.DirectConnectEnabled.HostedVifs.VifList) > 0 {
-				var VifListList []map[string]interface{}
-				for _, VifListItem := range data.DirectConnectEnabled.HostedVifs.VifList {
-					VifListItemMap := make(map[string]interface{})
-					if !VifListItem.OtherRegion.IsNull() && !VifListItem.OtherRegion.IsUnknown() {
-						VifListItemMap["other_region"] = VifListItem.OtherRegion.ValueString()
+			if !data.DirectConnectEnabled.HostedVifs.VifList.IsNull() && !data.DirectConnectEnabled.HostedVifs.VifList.IsUnknown() {
+				var VifListElems []AWSVPCSiteDirectConnectEnabledHostedVifsVifListModel
+				diags := data.DirectConnectEnabled.HostedVifs.VifList.ElementsAs(ctx, &VifListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(VifListElems) > 0 {
+					var VifListList []map[string]interface{}
+					for _, VifListItem := range VifListElems {
+						VifListItemMap := make(map[string]interface{})
+						if !VifListItem.OtherRegion.IsNull() && !VifListItem.OtherRegion.IsUnknown() {
+							VifListItemMap["other_region"] = VifListItem.OtherRegion.ValueString()
+						}
+						if VifListItem.SameAsSiteRegion != nil {
+							VifListItemMap["same_as_site_region"] = map[string]interface{}{}
+						}
+						if !VifListItem.VifID.IsNull() && !VifListItem.VifID.IsUnknown() {
+							VifListItemMap["vif_id"] = VifListItem.VifID.ValueString()
+						}
+						VifListList = append(VifListList, VifListItemMap)
 					}
-					if VifListItem.SameAsSiteRegion != nil {
-						VifListItemMap["same_as_site_region"] = map[string]interface{}{}
-					}
-					if !VifListItem.VifID.IsNull() && !VifListItem.VifID.IsUnknown() {
-						VifListItemMap["vif_id"] = VifListItem.VifID.ValueString()
-					}
-					VifListList = append(VifListList, VifListItemMap)
+					HostedVifsMap["vif_list"] = VifListList
 				}
-				HostedVifsMap["vif_list"] = VifListList
 			}
 			DirectConnectEnabledMap["hosted_vifs"] = HostedVifsMap
 		}
@@ -4258,61 +4268,66 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		if !data.IngressEgressGw.AWSCertifiedHw.IsNull() && !data.IngressEgressGw.AWSCertifiedHw.IsUnknown() {
 			IngressEgressGwMap["aws_certified_hw"] = data.IngressEgressGw.AWSCertifiedHw.ValueString()
 		}
-		if len(data.IngressEgressGw.AzNodes) > 0 {
-			var AzNodesList []map[string]interface{}
-			for _, AzNodesItem := range data.IngressEgressGw.AzNodes {
-				AzNodesItemMap := make(map[string]interface{})
-				if !AzNodesItem.AWSAzName.IsNull() && !AzNodesItem.AWSAzName.IsUnknown() {
-					AzNodesItemMap["aws_az_name"] = AzNodesItem.AWSAzName.ValueString()
-				}
-				if AzNodesItem.InsideSubnet != nil {
-					InsideSubnetMap := make(map[string]interface{})
-					if !AzNodesItem.InsideSubnet.ExistingSubnetID.IsNull() && !AzNodesItem.InsideSubnet.ExistingSubnetID.IsUnknown() {
-						InsideSubnetMap["existing_subnet_id"] = AzNodesItem.InsideSubnet.ExistingSubnetID.ValueString()
+		if !data.IngressEgressGw.AzNodes.IsNull() && !data.IngressEgressGw.AzNodes.IsUnknown() {
+			var AzNodesElems []AWSVPCSiteIngressEgressGwAzNodesModel
+			diags := data.IngressEgressGw.AzNodes.ElementsAs(ctx, &AzNodesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(AzNodesElems) > 0 {
+				var AzNodesList []map[string]interface{}
+				for _, AzNodesItem := range AzNodesElems {
+					AzNodesItemMap := make(map[string]interface{})
+					if !AzNodesItem.AWSAzName.IsNull() && !AzNodesItem.AWSAzName.IsUnknown() {
+						AzNodesItemMap["aws_az_name"] = AzNodesItem.AWSAzName.ValueString()
 					}
-					if AzNodesItem.InsideSubnet.SubnetParam != nil {
-						SubnetParamMap := make(map[string]interface{})
-						if !AzNodesItem.InsideSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.InsideSubnet.SubnetParam.Ipv4.IsUnknown() {
-							SubnetParamMap["ipv4"] = AzNodesItem.InsideSubnet.SubnetParam.Ipv4.ValueString()
+					if AzNodesItem.InsideSubnet != nil {
+						InsideSubnetMap := make(map[string]interface{})
+						if !AzNodesItem.InsideSubnet.ExistingSubnetID.IsNull() && !AzNodesItem.InsideSubnet.ExistingSubnetID.IsUnknown() {
+							InsideSubnetMap["existing_subnet_id"] = AzNodesItem.InsideSubnet.ExistingSubnetID.ValueString()
 						}
-						InsideSubnetMap["subnet_param"] = SubnetParamMap
-					}
-					AzNodesItemMap["inside_subnet"] = InsideSubnetMap
-				}
-				if AzNodesItem.OutsideSubnet != nil {
-					OutsideSubnetMap := make(map[string]interface{})
-					if !AzNodesItem.OutsideSubnet.ExistingSubnetID.IsNull() && !AzNodesItem.OutsideSubnet.ExistingSubnetID.IsUnknown() {
-						OutsideSubnetMap["existing_subnet_id"] = AzNodesItem.OutsideSubnet.ExistingSubnetID.ValueString()
-					}
-					if AzNodesItem.OutsideSubnet.SubnetParam != nil {
-						SubnetParamMap := make(map[string]interface{})
-						if !AzNodesItem.OutsideSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.OutsideSubnet.SubnetParam.Ipv4.IsUnknown() {
-							SubnetParamMap["ipv4"] = AzNodesItem.OutsideSubnet.SubnetParam.Ipv4.ValueString()
+						if AzNodesItem.InsideSubnet.SubnetParam != nil {
+							SubnetParamMap := make(map[string]interface{})
+							if !AzNodesItem.InsideSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.InsideSubnet.SubnetParam.Ipv4.IsUnknown() {
+								SubnetParamMap["ipv4"] = AzNodesItem.InsideSubnet.SubnetParam.Ipv4.ValueString()
+							}
+							InsideSubnetMap["subnet_param"] = SubnetParamMap
 						}
-						OutsideSubnetMap["subnet_param"] = SubnetParamMap
+						AzNodesItemMap["inside_subnet"] = InsideSubnetMap
 					}
-					AzNodesItemMap["outside_subnet"] = OutsideSubnetMap
-				}
-				if AzNodesItem.ReservedInsideSubnet != nil {
-					AzNodesItemMap["reserved_inside_subnet"] = map[string]interface{}{}
-				}
-				if AzNodesItem.WorkloadSubnet != nil {
-					WorkloadSubnetMap := make(map[string]interface{})
-					if !AzNodesItem.WorkloadSubnet.ExistingSubnetID.IsNull() && !AzNodesItem.WorkloadSubnet.ExistingSubnetID.IsUnknown() {
-						WorkloadSubnetMap["existing_subnet_id"] = AzNodesItem.WorkloadSubnet.ExistingSubnetID.ValueString()
-					}
-					if AzNodesItem.WorkloadSubnet.SubnetParam != nil {
-						SubnetParamMap := make(map[string]interface{})
-						if !AzNodesItem.WorkloadSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.WorkloadSubnet.SubnetParam.Ipv4.IsUnknown() {
-							SubnetParamMap["ipv4"] = AzNodesItem.WorkloadSubnet.SubnetParam.Ipv4.ValueString()
+					if AzNodesItem.OutsideSubnet != nil {
+						OutsideSubnetMap := make(map[string]interface{})
+						if !AzNodesItem.OutsideSubnet.ExistingSubnetID.IsNull() && !AzNodesItem.OutsideSubnet.ExistingSubnetID.IsUnknown() {
+							OutsideSubnetMap["existing_subnet_id"] = AzNodesItem.OutsideSubnet.ExistingSubnetID.ValueString()
 						}
-						WorkloadSubnetMap["subnet_param"] = SubnetParamMap
+						if AzNodesItem.OutsideSubnet.SubnetParam != nil {
+							SubnetParamMap := make(map[string]interface{})
+							if !AzNodesItem.OutsideSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.OutsideSubnet.SubnetParam.Ipv4.IsUnknown() {
+								SubnetParamMap["ipv4"] = AzNodesItem.OutsideSubnet.SubnetParam.Ipv4.ValueString()
+							}
+							OutsideSubnetMap["subnet_param"] = SubnetParamMap
+						}
+						AzNodesItemMap["outside_subnet"] = OutsideSubnetMap
 					}
-					AzNodesItemMap["workload_subnet"] = WorkloadSubnetMap
+					if AzNodesItem.ReservedInsideSubnet != nil {
+						AzNodesItemMap["reserved_inside_subnet"] = map[string]interface{}{}
+					}
+					if AzNodesItem.WorkloadSubnet != nil {
+						WorkloadSubnetMap := make(map[string]interface{})
+						if !AzNodesItem.WorkloadSubnet.ExistingSubnetID.IsNull() && !AzNodesItem.WorkloadSubnet.ExistingSubnetID.IsUnknown() {
+							WorkloadSubnetMap["existing_subnet_id"] = AzNodesItem.WorkloadSubnet.ExistingSubnetID.ValueString()
+						}
+						if AzNodesItem.WorkloadSubnet.SubnetParam != nil {
+							SubnetParamMap := make(map[string]interface{})
+							if !AzNodesItem.WorkloadSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.WorkloadSubnet.SubnetParam.Ipv4.IsUnknown() {
+								SubnetParamMap["ipv4"] = AzNodesItem.WorkloadSubnet.SubnetParam.Ipv4.ValueString()
+							}
+							WorkloadSubnetMap["subnet_param"] = SubnetParamMap
+						}
+						AzNodesItemMap["workload_subnet"] = WorkloadSubnetMap
+					}
+					AzNodesList = append(AzNodesList, AzNodesItemMap)
 				}
-				AzNodesList = append(AzNodesList, AzNodesItemMap)
+				IngressEgressGwMap["az_nodes"] = AzNodesList
 			}
-			IngressEgressGwMap["az_nodes"] = AzNodesList
 		}
 		if data.IngressEgressGw.DcClusterGroupInsideVn != nil {
 			DcClusterGroupInsideVnMap := make(map[string]interface{})
@@ -4469,33 +4484,38 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 								}
 								CustomStaticRouteMap["nexthop"] = NexthopMap
 							}
-							if len(StaticRouteListItem.CustomStaticRoute.Subnets) > 0 {
-								var SubnetsList []map[string]interface{}
-								for _, SubnetsItem := range StaticRouteListItem.CustomStaticRoute.Subnets {
-									SubnetsItemMap := make(map[string]interface{})
-									if SubnetsItem.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-											Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
+								var SubnetsElems []AWSVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
+								diags := StaticRouteListItem.CustomStaticRoute.Subnets.ElementsAs(ctx, &SubnetsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(SubnetsElems) > 0 {
+									var SubnetsList []map[string]interface{}
+									for _, SubnetsItem := range SubnetsElems {
+										SubnetsItemMap := make(map[string]interface{})
+										if SubnetsItem.Ipv4 != nil {
+											Ipv4Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
+												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
+												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv4"] = Ipv4Map
 										}
-										if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-											Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+										if SubnetsItem.Ipv6 != nil {
+											Ipv6Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
+												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
+												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv6"] = Ipv6Map
 										}
-										SubnetsItemMap["ipv4"] = Ipv4Map
+										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									if SubnetsItem.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-											Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
-										}
-										if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-											Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
-										}
-										SubnetsItemMap["ipv6"] = Ipv6Map
-									}
-									SubnetsList = append(SubnetsList, SubnetsItemMap)
+									CustomStaticRouteMap["subnets"] = SubnetsList
 								}
-								CustomStaticRouteMap["subnets"] = SubnetsList
 							}
 							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
 						}
@@ -4602,33 +4622,38 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 								}
 								CustomStaticRouteMap["nexthop"] = NexthopMap
 							}
-							if len(StaticRouteListItem.CustomStaticRoute.Subnets) > 0 {
-								var SubnetsList []map[string]interface{}
-								for _, SubnetsItem := range StaticRouteListItem.CustomStaticRoute.Subnets {
-									SubnetsItemMap := make(map[string]interface{})
-									if SubnetsItem.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-											Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
+								var SubnetsElems []AWSVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
+								diags := StaticRouteListItem.CustomStaticRoute.Subnets.ElementsAs(ctx, &SubnetsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(SubnetsElems) > 0 {
+									var SubnetsList []map[string]interface{}
+									for _, SubnetsItem := range SubnetsElems {
+										SubnetsItemMap := make(map[string]interface{})
+										if SubnetsItem.Ipv4 != nil {
+											Ipv4Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
+												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
+												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv4"] = Ipv4Map
 										}
-										if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-											Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+										if SubnetsItem.Ipv6 != nil {
+											Ipv6Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
+												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
+												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv6"] = Ipv6Map
 										}
-										SubnetsItemMap["ipv4"] = Ipv4Map
+										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									if SubnetsItem.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-											Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
-										}
-										if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-											Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
-										}
-										SubnetsItemMap["ipv6"] = Ipv6Map
-									}
-									SubnetsList = append(SubnetsList, SubnetsItemMap)
+									CustomStaticRouteMap["subnets"] = SubnetsList
 								}
-								CustomStaticRouteMap["subnets"] = SubnetsList
 							}
 							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
 						}
@@ -4695,30 +4720,35 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		if !data.IngressGw.AWSCertifiedHw.IsNull() && !data.IngressGw.AWSCertifiedHw.IsUnknown() {
 			IngressGwMap["aws_certified_hw"] = data.IngressGw.AWSCertifiedHw.ValueString()
 		}
-		if len(data.IngressGw.AzNodes) > 0 {
-			var AzNodesList []map[string]interface{}
-			for _, AzNodesItem := range data.IngressGw.AzNodes {
-				AzNodesItemMap := make(map[string]interface{})
-				if !AzNodesItem.AWSAzName.IsNull() && !AzNodesItem.AWSAzName.IsUnknown() {
-					AzNodesItemMap["aws_az_name"] = AzNodesItem.AWSAzName.ValueString()
-				}
-				if AzNodesItem.LocalSubnet != nil {
-					LocalSubnetMap := make(map[string]interface{})
-					if !AzNodesItem.LocalSubnet.ExistingSubnetID.IsNull() && !AzNodesItem.LocalSubnet.ExistingSubnetID.IsUnknown() {
-						LocalSubnetMap["existing_subnet_id"] = AzNodesItem.LocalSubnet.ExistingSubnetID.ValueString()
+		if !data.IngressGw.AzNodes.IsNull() && !data.IngressGw.AzNodes.IsUnknown() {
+			var AzNodesElems []AWSVPCSiteIngressGwAzNodesModel
+			diags := data.IngressGw.AzNodes.ElementsAs(ctx, &AzNodesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(AzNodesElems) > 0 {
+				var AzNodesList []map[string]interface{}
+				for _, AzNodesItem := range AzNodesElems {
+					AzNodesItemMap := make(map[string]interface{})
+					if !AzNodesItem.AWSAzName.IsNull() && !AzNodesItem.AWSAzName.IsUnknown() {
+						AzNodesItemMap["aws_az_name"] = AzNodesItem.AWSAzName.ValueString()
 					}
-					if AzNodesItem.LocalSubnet.SubnetParam != nil {
-						SubnetParamMap := make(map[string]interface{})
-						if !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsUnknown() {
-							SubnetParamMap["ipv4"] = AzNodesItem.LocalSubnet.SubnetParam.Ipv4.ValueString()
+					if AzNodesItem.LocalSubnet != nil {
+						LocalSubnetMap := make(map[string]interface{})
+						if !AzNodesItem.LocalSubnet.ExistingSubnetID.IsNull() && !AzNodesItem.LocalSubnet.ExistingSubnetID.IsUnknown() {
+							LocalSubnetMap["existing_subnet_id"] = AzNodesItem.LocalSubnet.ExistingSubnetID.ValueString()
 						}
-						LocalSubnetMap["subnet_param"] = SubnetParamMap
+						if AzNodesItem.LocalSubnet.SubnetParam != nil {
+							SubnetParamMap := make(map[string]interface{})
+							if !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsUnknown() {
+								SubnetParamMap["ipv4"] = AzNodesItem.LocalSubnet.SubnetParam.Ipv4.ValueString()
+							}
+							LocalSubnetMap["subnet_param"] = SubnetParamMap
+						}
+						AzNodesItemMap["local_subnet"] = LocalSubnetMap
 					}
-					AzNodesItemMap["local_subnet"] = LocalSubnetMap
+					AzNodesList = append(AzNodesList, AzNodesItemMap)
 				}
-				AzNodesList = append(AzNodesList, AzNodesItemMap)
+				IngressGwMap["az_nodes"] = AzNodesList
 			}
-			IngressGwMap["az_nodes"] = AzNodesList
 		}
 		if data.IngressGw.PerformanceEnhancementMode != nil {
 			PerformanceEnhancementModeMap := make(map[string]interface{})
@@ -4946,30 +4976,35 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		if !data.VoltstackCluster.AWSCertifiedHw.IsNull() && !data.VoltstackCluster.AWSCertifiedHw.IsUnknown() {
 			VoltstackClusterMap["aws_certified_hw"] = data.VoltstackCluster.AWSCertifiedHw.ValueString()
 		}
-		if len(data.VoltstackCluster.AzNodes) > 0 {
-			var AzNodesList []map[string]interface{}
-			for _, AzNodesItem := range data.VoltstackCluster.AzNodes {
-				AzNodesItemMap := make(map[string]interface{})
-				if !AzNodesItem.AWSAzName.IsNull() && !AzNodesItem.AWSAzName.IsUnknown() {
-					AzNodesItemMap["aws_az_name"] = AzNodesItem.AWSAzName.ValueString()
-				}
-				if AzNodesItem.LocalSubnet != nil {
-					LocalSubnetMap := make(map[string]interface{})
-					if !AzNodesItem.LocalSubnet.ExistingSubnetID.IsNull() && !AzNodesItem.LocalSubnet.ExistingSubnetID.IsUnknown() {
-						LocalSubnetMap["existing_subnet_id"] = AzNodesItem.LocalSubnet.ExistingSubnetID.ValueString()
+		if !data.VoltstackCluster.AzNodes.IsNull() && !data.VoltstackCluster.AzNodes.IsUnknown() {
+			var AzNodesElems []AWSVPCSiteVoltstackClusterAzNodesModel
+			diags := data.VoltstackCluster.AzNodes.ElementsAs(ctx, &AzNodesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(AzNodesElems) > 0 {
+				var AzNodesList []map[string]interface{}
+				for _, AzNodesItem := range AzNodesElems {
+					AzNodesItemMap := make(map[string]interface{})
+					if !AzNodesItem.AWSAzName.IsNull() && !AzNodesItem.AWSAzName.IsUnknown() {
+						AzNodesItemMap["aws_az_name"] = AzNodesItem.AWSAzName.ValueString()
 					}
-					if AzNodesItem.LocalSubnet.SubnetParam != nil {
-						SubnetParamMap := make(map[string]interface{})
-						if !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsUnknown() {
-							SubnetParamMap["ipv4"] = AzNodesItem.LocalSubnet.SubnetParam.Ipv4.ValueString()
+					if AzNodesItem.LocalSubnet != nil {
+						LocalSubnetMap := make(map[string]interface{})
+						if !AzNodesItem.LocalSubnet.ExistingSubnetID.IsNull() && !AzNodesItem.LocalSubnet.ExistingSubnetID.IsUnknown() {
+							LocalSubnetMap["existing_subnet_id"] = AzNodesItem.LocalSubnet.ExistingSubnetID.ValueString()
 						}
-						LocalSubnetMap["subnet_param"] = SubnetParamMap
+						if AzNodesItem.LocalSubnet.SubnetParam != nil {
+							SubnetParamMap := make(map[string]interface{})
+							if !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsUnknown() {
+								SubnetParamMap["ipv4"] = AzNodesItem.LocalSubnet.SubnetParam.Ipv4.ValueString()
+							}
+							LocalSubnetMap["subnet_param"] = SubnetParamMap
+						}
+						AzNodesItemMap["local_subnet"] = LocalSubnetMap
 					}
-					AzNodesItemMap["local_subnet"] = LocalSubnetMap
+					AzNodesList = append(AzNodesList, AzNodesItemMap)
 				}
-				AzNodesList = append(AzNodesList, AzNodesItemMap)
+				VoltstackClusterMap["az_nodes"] = AzNodesList
 			}
-			VoltstackClusterMap["az_nodes"] = AzNodesList
 		}
 		if data.VoltstackCluster.DcClusterGroup != nil {
 			DcClusterGroupMap := make(map[string]interface{})
@@ -5147,33 +5182,38 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 								}
 								CustomStaticRouteMap["nexthop"] = NexthopMap
 							}
-							if len(StaticRouteListItem.CustomStaticRoute.Subnets) > 0 {
-								var SubnetsList []map[string]interface{}
-								for _, SubnetsItem := range StaticRouteListItem.CustomStaticRoute.Subnets {
-									SubnetsItemMap := make(map[string]interface{})
-									if SubnetsItem.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-											Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
+								var SubnetsElems []AWSVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
+								diags := StaticRouteListItem.CustomStaticRoute.Subnets.ElementsAs(ctx, &SubnetsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(SubnetsElems) > 0 {
+									var SubnetsList []map[string]interface{}
+									for _, SubnetsItem := range SubnetsElems {
+										SubnetsItemMap := make(map[string]interface{})
+										if SubnetsItem.Ipv4 != nil {
+											Ipv4Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
+												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
+												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv4"] = Ipv4Map
 										}
-										if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-											Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+										if SubnetsItem.Ipv6 != nil {
+											Ipv6Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
+												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
+												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv6"] = Ipv6Map
 										}
-										SubnetsItemMap["ipv4"] = Ipv4Map
+										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									if SubnetsItem.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-											Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
-										}
-										if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-											Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
-										}
-										SubnetsItemMap["ipv6"] = Ipv6Map
-									}
-									SubnetsList = append(SubnetsList, SubnetsItemMap)
+									CustomStaticRouteMap["subnets"] = SubnetsList
 								}
-								CustomStaticRouteMap["subnets"] = SubnetsList
 							}
 							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
 						}
@@ -5195,19 +5235,24 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		if data.VoltstackCluster.StorageClassList != nil {
 			StorageClassListMap := make(map[string]interface{})
-			if len(data.VoltstackCluster.StorageClassList.StorageClasses) > 0 {
-				var StorageClassesList []map[string]interface{}
-				for _, StorageClassesItem := range data.VoltstackCluster.StorageClassList.StorageClasses {
-					StorageClassesItemMap := make(map[string]interface{})
-					if !StorageClassesItem.DefaultStorageClass.IsNull() && !StorageClassesItem.DefaultStorageClass.IsUnknown() {
-						StorageClassesItemMap["default_storage_class"] = StorageClassesItem.DefaultStorageClass.ValueBool()
+			if !data.VoltstackCluster.StorageClassList.StorageClasses.IsNull() && !data.VoltstackCluster.StorageClassList.StorageClasses.IsUnknown() {
+				var StorageClassesElems []AWSVPCSiteVoltstackClusterStorageClassListStorageClassesModel
+				diags := data.VoltstackCluster.StorageClassList.StorageClasses.ElementsAs(ctx, &StorageClassesElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(StorageClassesElems) > 0 {
+					var StorageClassesList []map[string]interface{}
+					for _, StorageClassesItem := range StorageClassesElems {
+						StorageClassesItemMap := make(map[string]interface{})
+						if !StorageClassesItem.DefaultStorageClass.IsNull() && !StorageClassesItem.DefaultStorageClass.IsUnknown() {
+							StorageClassesItemMap["default_storage_class"] = StorageClassesItem.DefaultStorageClass.ValueBool()
+						}
+						if !StorageClassesItem.StorageClassName.IsNull() && !StorageClassesItem.StorageClassName.IsUnknown() {
+							StorageClassesItemMap["storage_class_name"] = StorageClassesItem.StorageClassName.ValueString()
+						}
+						StorageClassesList = append(StorageClassesList, StorageClassesItemMap)
 					}
-					if !StorageClassesItem.StorageClassName.IsNull() && !StorageClassesItem.StorageClassName.IsUnknown() {
-						StorageClassesItemMap["storage_class_name"] = StorageClassesItem.StorageClassName.ValueString()
-					}
-					StorageClassesList = append(StorageClassesList, StorageClassesItemMap)
+					StorageClassListMap["storage_classes"] = StorageClassesList
 				}
-				StorageClassListMap["storage_classes"] = StorageClassesList
 			}
 			VoltstackClusterMap["storage_class_list"] = StorageClassListMap
 		}
@@ -5447,9 +5492,9 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &AWSVPCSiteBlockedServicesModel{
-			BlockedService: func() []AWSVPCSiteBlockedServicesBlockedServiceModel {
-				if !isImport && data.BlockedServices != nil && len(data.BlockedServices.BlockedService) == 0 {
-					return nil
+			BlockedService: func() types.List {
+				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteBlockedServicesBlockedServiceModelAttrTypes})
 				}
 				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []AWSVPCSiteBlockedServicesBlockedServiceModel
@@ -5483,9 +5528,10 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							})
 						}
 					}
-					return BlockedServiceResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteBlockedServicesBlockedServiceModelAttrTypes}, BlockedServiceResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteBlockedServicesBlockedServiceModelAttrTypes})
 			}(),
 		}
 	}
@@ -5594,7 +5640,7 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return nil
 						}(),
-						VifList: func() []AWSVPCSiteDirectConnectEnabledHostedVifsVifListModel {
+						VifList: func() types.List {
 							if rawList, ok := HostedVifsData["vif_list"].([]interface{}); ok && len(rawList) > 0 {
 								var VifListResult []AWSVPCSiteDirectConnectEnabledHostedVifsVifListModel
 								for _, VifListItem := range rawList {
@@ -5621,9 +5667,10 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 										})
 									}
 								}
-								return VifListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteDirectConnectEnabledHostedVifsVifListModelAttrTypes}, VifListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteDirectConnectEnabledHostedVifsVifListModelAttrTypes})
 						}(),
 					}
 				}
@@ -5916,9 +5963,9 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return types.StringNull()
 			}(),
-			AzNodes: func() []AWSVPCSiteIngressEgressGwAzNodesModel {
-				if !isImport && data.IngressEgressGw != nil && len(data.IngressEgressGw.AzNodes) == 0 {
-					return nil
+			AzNodes: func() types.List {
+				if !isImport && data.IngressEgressGw != nil && (data.IngressEgressGw.AzNodes.IsNull() || len(data.IngressEgressGw.AzNodes.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwAzNodesModelAttrTypes})
 				}
 				if rawList, ok := blockData["az_nodes"].([]interface{}); ok && len(rawList) > 0 {
 					var AzNodesResult []AWSVPCSiteIngressEgressGwAzNodesModel
@@ -6018,9 +6065,10 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							})
 						}
 					}
-					return AzNodesResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwAzNodesModelAttrTypes}, AzNodesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwAzNodesModelAttrTypes})
 			}(),
 			DcClusterGroupInsideVn: func() *AWSVPCSiteIngressEgressGwDcClusterGroupInsideVnModel {
 				if DcClusterGroupInsideVnData, ok := blockData["dc_cluster_group_inside_vn"].(map[string]interface{}); ok {
@@ -6293,7 +6341,7 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 															}
 															return nil
 														}(),
-														Subnets: func() []AWSVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel {
+														Subnets: func() types.List {
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []AWSVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
 																for _, SubnetsItem := range rawList {
@@ -6340,9 +6388,10 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																		})
 																	}
 																}
-																return SubnetsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}, SubnetsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
 														}(),
 													}
 												}
@@ -6544,7 +6593,7 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 															}
 															return nil
 														}(),
-														Subnets: func() []AWSVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel {
+														Subnets: func() types.List {
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []AWSVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
 																for _, SubnetsItem := range rawList {
@@ -6591,9 +6640,10 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																		})
 																	}
 																}
-																return SubnetsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}, SubnetsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
 														}(),
 													}
 												}
@@ -6727,9 +6777,9 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return types.StringNull()
 			}(),
-			AzNodes: func() []AWSVPCSiteIngressGwAzNodesModel {
-				if !isImport && data.IngressGw != nil && len(data.IngressGw.AzNodes) == 0 {
-					return nil
+			AzNodes: func() types.List {
+				if !isImport && data.IngressGw != nil && (data.IngressGw.AzNodes.IsNull() || len(data.IngressGw.AzNodes.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteIngressGwAzNodesModelAttrTypes})
 				}
 				if rawList, ok := blockData["az_nodes"].([]interface{}); ok && len(rawList) > 0 {
 					var AzNodesResult []AWSVPCSiteIngressGwAzNodesModel
@@ -6771,9 +6821,10 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							})
 						}
 					}
-					return AzNodesResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteIngressGwAzNodesModelAttrTypes}, AzNodesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteIngressGwAzNodesModelAttrTypes})
 			}(),
 			PerformanceEnhancementMode: func() *AWSVPCSiteIngressGwPerformanceEnhancementModeModel {
 				if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil {
@@ -7181,9 +7232,9 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return types.StringNull()
 			}(),
-			AzNodes: func() []AWSVPCSiteVoltstackClusterAzNodesModel {
-				if !isImport && data.VoltstackCluster != nil && len(data.VoltstackCluster.AzNodes) == 0 {
-					return nil
+			AzNodes: func() types.List {
+				if !isImport && data.VoltstackCluster != nil && (data.VoltstackCluster.AzNodes.IsNull() || len(data.VoltstackCluster.AzNodes.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterAzNodesModelAttrTypes})
 				}
 				if rawList, ok := blockData["az_nodes"].([]interface{}); ok && len(rawList) > 0 {
 					var AzNodesResult []AWSVPCSiteVoltstackClusterAzNodesModel
@@ -7225,9 +7276,10 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							})
 						}
 					}
-					return AzNodesResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterAzNodesModelAttrTypes}, AzNodesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterAzNodesModelAttrTypes})
 			}(),
 			DcClusterGroup: func() *AWSVPCSiteVoltstackClusterDcClusterGroupModel {
 				if DcClusterGroupData, ok := blockData["dc_cluster_group"].(map[string]interface{}); ok {
@@ -7563,7 +7615,7 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 															}
 															return nil
 														}(),
-														Subnets: func() []AWSVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel {
+														Subnets: func() types.List {
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []AWSVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
 																for _, SubnetsItem := range rawList {
@@ -7610,9 +7662,10 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																		})
 																	}
 																}
-																return SubnetsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}, SubnetsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
 														}(),
 													}
 												}
@@ -7660,7 +7713,7 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				if StorageClassListData, ok := blockData["storage_class_list"].(map[string]interface{}); ok {
 					return &AWSVPCSiteVoltstackClusterStorageClassListModel{
-						StorageClasses: func() []AWSVPCSiteVoltstackClusterStorageClassListStorageClassesModel {
+						StorageClasses: func() types.List {
 							if rawList, ok := StorageClassListData["storage_classes"].([]interface{}); ok && len(rawList) > 0 {
 								var StorageClassesResult []AWSVPCSiteVoltstackClusterStorageClassListStorageClassesModel
 								for _, StorageClassesItem := range rawList {
@@ -7681,9 +7734,10 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 										})
 									}
 								}
-								return StorageClassesResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterStorageClassListStorageClassesModelAttrTypes}, StorageClassesResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterStorageClassListStorageClassesModelAttrTypes})
 						}(),
 					}
 				}
@@ -8034,9 +8088,9 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &AWSVPCSiteBlockedServicesModel{
-			BlockedService: func() []AWSVPCSiteBlockedServicesBlockedServiceModel {
-				if !isImport && data.BlockedServices != nil && len(data.BlockedServices.BlockedService) == 0 {
-					return nil
+			BlockedService: func() types.List {
+				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteBlockedServicesBlockedServiceModelAttrTypes})
 				}
 				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []AWSVPCSiteBlockedServicesBlockedServiceModel
@@ -8070,9 +8124,10 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							})
 						}
 					}
-					return BlockedServiceResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteBlockedServicesBlockedServiceModelAttrTypes}, BlockedServiceResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteBlockedServicesBlockedServiceModelAttrTypes})
 			}(),
 		}
 	}
@@ -8181,7 +8236,7 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return nil
 						}(),
-						VifList: func() []AWSVPCSiteDirectConnectEnabledHostedVifsVifListModel {
+						VifList: func() types.List {
 							if rawList, ok := HostedVifsData["vif_list"].([]interface{}); ok && len(rawList) > 0 {
 								var VifListResult []AWSVPCSiteDirectConnectEnabledHostedVifsVifListModel
 								for _, VifListItem := range rawList {
@@ -8208,9 +8263,10 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 										})
 									}
 								}
-								return VifListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteDirectConnectEnabledHostedVifsVifListModelAttrTypes}, VifListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteDirectConnectEnabledHostedVifsVifListModelAttrTypes})
 						}(),
 					}
 				}
@@ -8503,9 +8559,9 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return types.StringNull()
 			}(),
-			AzNodes: func() []AWSVPCSiteIngressEgressGwAzNodesModel {
-				if !isImport && data.IngressEgressGw != nil && len(data.IngressEgressGw.AzNodes) == 0 {
-					return nil
+			AzNodes: func() types.List {
+				if !isImport && data.IngressEgressGw != nil && (data.IngressEgressGw.AzNodes.IsNull() || len(data.IngressEgressGw.AzNodes.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwAzNodesModelAttrTypes})
 				}
 				if rawList, ok := blockData["az_nodes"].([]interface{}); ok && len(rawList) > 0 {
 					var AzNodesResult []AWSVPCSiteIngressEgressGwAzNodesModel
@@ -8605,9 +8661,10 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							})
 						}
 					}
-					return AzNodesResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwAzNodesModelAttrTypes}, AzNodesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwAzNodesModelAttrTypes})
 			}(),
 			DcClusterGroupInsideVn: func() *AWSVPCSiteIngressEgressGwDcClusterGroupInsideVnModel {
 				if DcClusterGroupInsideVnData, ok := blockData["dc_cluster_group_inside_vn"].(map[string]interface{}); ok {
@@ -8880,7 +8937,7 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 															}
 															return nil
 														}(),
-														Subnets: func() []AWSVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel {
+														Subnets: func() types.List {
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []AWSVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
 																for _, SubnetsItem := range rawList {
@@ -8927,9 +8984,10 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																		})
 																	}
 																}
-																return SubnetsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}, SubnetsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
 														}(),
 													}
 												}
@@ -9131,7 +9189,7 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 															}
 															return nil
 														}(),
-														Subnets: func() []AWSVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel {
+														Subnets: func() types.List {
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []AWSVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
 																for _, SubnetsItem := range rawList {
@@ -9178,9 +9236,10 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																		})
 																	}
 																}
-																return SubnetsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}, SubnetsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
 														}(),
 													}
 												}
@@ -9314,9 +9373,9 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return types.StringNull()
 			}(),
-			AzNodes: func() []AWSVPCSiteIngressGwAzNodesModel {
-				if !isImport && data.IngressGw != nil && len(data.IngressGw.AzNodes) == 0 {
-					return nil
+			AzNodes: func() types.List {
+				if !isImport && data.IngressGw != nil && (data.IngressGw.AzNodes.IsNull() || len(data.IngressGw.AzNodes.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteIngressGwAzNodesModelAttrTypes})
 				}
 				if rawList, ok := blockData["az_nodes"].([]interface{}); ok && len(rawList) > 0 {
 					var AzNodesResult []AWSVPCSiteIngressGwAzNodesModel
@@ -9358,9 +9417,10 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							})
 						}
 					}
-					return AzNodesResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteIngressGwAzNodesModelAttrTypes}, AzNodesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteIngressGwAzNodesModelAttrTypes})
 			}(),
 			PerformanceEnhancementMode: func() *AWSVPCSiteIngressGwPerformanceEnhancementModeModel {
 				if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil {
@@ -9768,9 +9828,9 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return types.StringNull()
 			}(),
-			AzNodes: func() []AWSVPCSiteVoltstackClusterAzNodesModel {
-				if !isImport && data.VoltstackCluster != nil && len(data.VoltstackCluster.AzNodes) == 0 {
-					return nil
+			AzNodes: func() types.List {
+				if !isImport && data.VoltstackCluster != nil && (data.VoltstackCluster.AzNodes.IsNull() || len(data.VoltstackCluster.AzNodes.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterAzNodesModelAttrTypes})
 				}
 				if rawList, ok := blockData["az_nodes"].([]interface{}); ok && len(rawList) > 0 {
 					var AzNodesResult []AWSVPCSiteVoltstackClusterAzNodesModel
@@ -9812,9 +9872,10 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							})
 						}
 					}
-					return AzNodesResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterAzNodesModelAttrTypes}, AzNodesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterAzNodesModelAttrTypes})
 			}(),
 			DcClusterGroup: func() *AWSVPCSiteVoltstackClusterDcClusterGroupModel {
 				if DcClusterGroupData, ok := blockData["dc_cluster_group"].(map[string]interface{}); ok {
@@ -10150,7 +10211,7 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 															}
 															return nil
 														}(),
-														Subnets: func() []AWSVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel {
+														Subnets: func() types.List {
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []AWSVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
 																for _, SubnetsItem := range rawList {
@@ -10197,9 +10258,10 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																		})
 																	}
 																}
-																return SubnetsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}, SubnetsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
 														}(),
 													}
 												}
@@ -10247,7 +10309,7 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				if StorageClassListData, ok := blockData["storage_class_list"].(map[string]interface{}); ok {
 					return &AWSVPCSiteVoltstackClusterStorageClassListModel{
-						StorageClasses: func() []AWSVPCSiteVoltstackClusterStorageClassListStorageClassesModel {
+						StorageClasses: func() types.List {
 							if rawList, ok := StorageClassListData["storage_classes"].([]interface{}); ok && len(rawList) > 0 {
 								var StorageClassesResult []AWSVPCSiteVoltstackClusterStorageClassListStorageClassesModel
 								for _, StorageClassesItem := range rawList {
@@ -10268,9 +10330,10 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 										})
 									}
 								}
-								return StorageClassesResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterStorageClassListStorageClassesModelAttrTypes}, StorageClassesResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterStorageClassListStorageClassesModelAttrTypes})
 						}(),
 					}
 				}
@@ -10497,25 +10560,30 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	}
 	if data.BlockedServices != nil {
 		BlockedServicesMap := make(map[string]interface{})
-		if len(data.BlockedServices.BlockedService) > 0 {
-			var BlockedServiceList []map[string]interface{}
-			for _, BlockedServiceItem := range data.BlockedServices.BlockedService {
-				BlockedServiceItemMap := make(map[string]interface{})
-				if BlockedServiceItem.DNS != nil {
-					BlockedServiceItemMap["dns"] = map[string]interface{}{}
+		if !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
+			var BlockedServiceElems []AWSVPCSiteBlockedServicesBlockedServiceModel
+			diags := data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(BlockedServiceElems) > 0 {
+				var BlockedServiceList []map[string]interface{}
+				for _, BlockedServiceItem := range BlockedServiceElems {
+					BlockedServiceItemMap := make(map[string]interface{})
+					if BlockedServiceItem.DNS != nil {
+						BlockedServiceItemMap["dns"] = map[string]interface{}{}
+					}
+					if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
+						BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
+					}
+					if BlockedServiceItem.SSH != nil {
+						BlockedServiceItemMap["ssh"] = map[string]interface{}{}
+					}
+					if BlockedServiceItem.WebUserInterface != nil {
+						BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
+					}
+					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
 				}
-				if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
-					BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
-				}
-				if BlockedServiceItem.SSH != nil {
-					BlockedServiceItemMap["ssh"] = map[string]interface{}{}
-				}
-				if BlockedServiceItem.WebUserInterface != nil {
-					BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
-				}
-				BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
+				BlockedServicesMap["blocked_service"] = BlockedServiceList
 			}
-			BlockedServicesMap["blocked_service"] = BlockedServiceList
 		}
 		apiResource.Spec["blocked_services"] = BlockedServicesMap
 	}
@@ -10575,22 +10643,27 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			if data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet != nil {
 				HostedVifsMap["site_registration_over_internet"] = map[string]interface{}{}
 			}
-			if len(data.DirectConnectEnabled.HostedVifs.VifList) > 0 {
-				var VifListList []map[string]interface{}
-				for _, VifListItem := range data.DirectConnectEnabled.HostedVifs.VifList {
-					VifListItemMap := make(map[string]interface{})
-					if !VifListItem.OtherRegion.IsNull() && !VifListItem.OtherRegion.IsUnknown() {
-						VifListItemMap["other_region"] = VifListItem.OtherRegion.ValueString()
+			if !data.DirectConnectEnabled.HostedVifs.VifList.IsNull() && !data.DirectConnectEnabled.HostedVifs.VifList.IsUnknown() {
+				var VifListElems []AWSVPCSiteDirectConnectEnabledHostedVifsVifListModel
+				diags := data.DirectConnectEnabled.HostedVifs.VifList.ElementsAs(ctx, &VifListElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(VifListElems) > 0 {
+					var VifListList []map[string]interface{}
+					for _, VifListItem := range VifListElems {
+						VifListItemMap := make(map[string]interface{})
+						if !VifListItem.OtherRegion.IsNull() && !VifListItem.OtherRegion.IsUnknown() {
+							VifListItemMap["other_region"] = VifListItem.OtherRegion.ValueString()
+						}
+						if VifListItem.SameAsSiteRegion != nil {
+							VifListItemMap["same_as_site_region"] = map[string]interface{}{}
+						}
+						if !VifListItem.VifID.IsNull() && !VifListItem.VifID.IsUnknown() {
+							VifListItemMap["vif_id"] = VifListItem.VifID.ValueString()
+						}
+						VifListList = append(VifListList, VifListItemMap)
 					}
-					if VifListItem.SameAsSiteRegion != nil {
-						VifListItemMap["same_as_site_region"] = map[string]interface{}{}
-					}
-					if !VifListItem.VifID.IsNull() && !VifListItem.VifID.IsUnknown() {
-						VifListItemMap["vif_id"] = VifListItem.VifID.ValueString()
-					}
-					VifListList = append(VifListList, VifListItemMap)
+					HostedVifsMap["vif_list"] = VifListList
 				}
-				HostedVifsMap["vif_list"] = VifListList
 			}
 			DirectConnectEnabledMap["hosted_vifs"] = HostedVifsMap
 		}
@@ -10767,61 +10840,66 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		if !data.IngressEgressGw.AWSCertifiedHw.IsNull() && !data.IngressEgressGw.AWSCertifiedHw.IsUnknown() {
 			IngressEgressGwMap["aws_certified_hw"] = data.IngressEgressGw.AWSCertifiedHw.ValueString()
 		}
-		if len(data.IngressEgressGw.AzNodes) > 0 {
-			var AzNodesList []map[string]interface{}
-			for _, AzNodesItem := range data.IngressEgressGw.AzNodes {
-				AzNodesItemMap := make(map[string]interface{})
-				if !AzNodesItem.AWSAzName.IsNull() && !AzNodesItem.AWSAzName.IsUnknown() {
-					AzNodesItemMap["aws_az_name"] = AzNodesItem.AWSAzName.ValueString()
-				}
-				if AzNodesItem.InsideSubnet != nil {
-					InsideSubnetMap := make(map[string]interface{})
-					if !AzNodesItem.InsideSubnet.ExistingSubnetID.IsNull() && !AzNodesItem.InsideSubnet.ExistingSubnetID.IsUnknown() {
-						InsideSubnetMap["existing_subnet_id"] = AzNodesItem.InsideSubnet.ExistingSubnetID.ValueString()
+		if !data.IngressEgressGw.AzNodes.IsNull() && !data.IngressEgressGw.AzNodes.IsUnknown() {
+			var AzNodesElems []AWSVPCSiteIngressEgressGwAzNodesModel
+			diags := data.IngressEgressGw.AzNodes.ElementsAs(ctx, &AzNodesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(AzNodesElems) > 0 {
+				var AzNodesList []map[string]interface{}
+				for _, AzNodesItem := range AzNodesElems {
+					AzNodesItemMap := make(map[string]interface{})
+					if !AzNodesItem.AWSAzName.IsNull() && !AzNodesItem.AWSAzName.IsUnknown() {
+						AzNodesItemMap["aws_az_name"] = AzNodesItem.AWSAzName.ValueString()
 					}
-					if AzNodesItem.InsideSubnet.SubnetParam != nil {
-						SubnetParamMap := make(map[string]interface{})
-						if !AzNodesItem.InsideSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.InsideSubnet.SubnetParam.Ipv4.IsUnknown() {
-							SubnetParamMap["ipv4"] = AzNodesItem.InsideSubnet.SubnetParam.Ipv4.ValueString()
+					if AzNodesItem.InsideSubnet != nil {
+						InsideSubnetMap := make(map[string]interface{})
+						if !AzNodesItem.InsideSubnet.ExistingSubnetID.IsNull() && !AzNodesItem.InsideSubnet.ExistingSubnetID.IsUnknown() {
+							InsideSubnetMap["existing_subnet_id"] = AzNodesItem.InsideSubnet.ExistingSubnetID.ValueString()
 						}
-						InsideSubnetMap["subnet_param"] = SubnetParamMap
-					}
-					AzNodesItemMap["inside_subnet"] = InsideSubnetMap
-				}
-				if AzNodesItem.OutsideSubnet != nil {
-					OutsideSubnetMap := make(map[string]interface{})
-					if !AzNodesItem.OutsideSubnet.ExistingSubnetID.IsNull() && !AzNodesItem.OutsideSubnet.ExistingSubnetID.IsUnknown() {
-						OutsideSubnetMap["existing_subnet_id"] = AzNodesItem.OutsideSubnet.ExistingSubnetID.ValueString()
-					}
-					if AzNodesItem.OutsideSubnet.SubnetParam != nil {
-						SubnetParamMap := make(map[string]interface{})
-						if !AzNodesItem.OutsideSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.OutsideSubnet.SubnetParam.Ipv4.IsUnknown() {
-							SubnetParamMap["ipv4"] = AzNodesItem.OutsideSubnet.SubnetParam.Ipv4.ValueString()
+						if AzNodesItem.InsideSubnet.SubnetParam != nil {
+							SubnetParamMap := make(map[string]interface{})
+							if !AzNodesItem.InsideSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.InsideSubnet.SubnetParam.Ipv4.IsUnknown() {
+								SubnetParamMap["ipv4"] = AzNodesItem.InsideSubnet.SubnetParam.Ipv4.ValueString()
+							}
+							InsideSubnetMap["subnet_param"] = SubnetParamMap
 						}
-						OutsideSubnetMap["subnet_param"] = SubnetParamMap
+						AzNodesItemMap["inside_subnet"] = InsideSubnetMap
 					}
-					AzNodesItemMap["outside_subnet"] = OutsideSubnetMap
-				}
-				if AzNodesItem.ReservedInsideSubnet != nil {
-					AzNodesItemMap["reserved_inside_subnet"] = map[string]interface{}{}
-				}
-				if AzNodesItem.WorkloadSubnet != nil {
-					WorkloadSubnetMap := make(map[string]interface{})
-					if !AzNodesItem.WorkloadSubnet.ExistingSubnetID.IsNull() && !AzNodesItem.WorkloadSubnet.ExistingSubnetID.IsUnknown() {
-						WorkloadSubnetMap["existing_subnet_id"] = AzNodesItem.WorkloadSubnet.ExistingSubnetID.ValueString()
-					}
-					if AzNodesItem.WorkloadSubnet.SubnetParam != nil {
-						SubnetParamMap := make(map[string]interface{})
-						if !AzNodesItem.WorkloadSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.WorkloadSubnet.SubnetParam.Ipv4.IsUnknown() {
-							SubnetParamMap["ipv4"] = AzNodesItem.WorkloadSubnet.SubnetParam.Ipv4.ValueString()
+					if AzNodesItem.OutsideSubnet != nil {
+						OutsideSubnetMap := make(map[string]interface{})
+						if !AzNodesItem.OutsideSubnet.ExistingSubnetID.IsNull() && !AzNodesItem.OutsideSubnet.ExistingSubnetID.IsUnknown() {
+							OutsideSubnetMap["existing_subnet_id"] = AzNodesItem.OutsideSubnet.ExistingSubnetID.ValueString()
 						}
-						WorkloadSubnetMap["subnet_param"] = SubnetParamMap
+						if AzNodesItem.OutsideSubnet.SubnetParam != nil {
+							SubnetParamMap := make(map[string]interface{})
+							if !AzNodesItem.OutsideSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.OutsideSubnet.SubnetParam.Ipv4.IsUnknown() {
+								SubnetParamMap["ipv4"] = AzNodesItem.OutsideSubnet.SubnetParam.Ipv4.ValueString()
+							}
+							OutsideSubnetMap["subnet_param"] = SubnetParamMap
+						}
+						AzNodesItemMap["outside_subnet"] = OutsideSubnetMap
 					}
-					AzNodesItemMap["workload_subnet"] = WorkloadSubnetMap
+					if AzNodesItem.ReservedInsideSubnet != nil {
+						AzNodesItemMap["reserved_inside_subnet"] = map[string]interface{}{}
+					}
+					if AzNodesItem.WorkloadSubnet != nil {
+						WorkloadSubnetMap := make(map[string]interface{})
+						if !AzNodesItem.WorkloadSubnet.ExistingSubnetID.IsNull() && !AzNodesItem.WorkloadSubnet.ExistingSubnetID.IsUnknown() {
+							WorkloadSubnetMap["existing_subnet_id"] = AzNodesItem.WorkloadSubnet.ExistingSubnetID.ValueString()
+						}
+						if AzNodesItem.WorkloadSubnet.SubnetParam != nil {
+							SubnetParamMap := make(map[string]interface{})
+							if !AzNodesItem.WorkloadSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.WorkloadSubnet.SubnetParam.Ipv4.IsUnknown() {
+								SubnetParamMap["ipv4"] = AzNodesItem.WorkloadSubnet.SubnetParam.Ipv4.ValueString()
+							}
+							WorkloadSubnetMap["subnet_param"] = SubnetParamMap
+						}
+						AzNodesItemMap["workload_subnet"] = WorkloadSubnetMap
+					}
+					AzNodesList = append(AzNodesList, AzNodesItemMap)
 				}
-				AzNodesList = append(AzNodesList, AzNodesItemMap)
+				IngressEgressGwMap["az_nodes"] = AzNodesList
 			}
-			IngressEgressGwMap["az_nodes"] = AzNodesList
 		}
 		if data.IngressEgressGw.DcClusterGroupInsideVn != nil {
 			DcClusterGroupInsideVnMap := make(map[string]interface{})
@@ -10978,33 +11056,38 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 								}
 								CustomStaticRouteMap["nexthop"] = NexthopMap
 							}
-							if len(StaticRouteListItem.CustomStaticRoute.Subnets) > 0 {
-								var SubnetsList []map[string]interface{}
-								for _, SubnetsItem := range StaticRouteListItem.CustomStaticRoute.Subnets {
-									SubnetsItemMap := make(map[string]interface{})
-									if SubnetsItem.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-											Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
+								var SubnetsElems []AWSVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
+								diags := StaticRouteListItem.CustomStaticRoute.Subnets.ElementsAs(ctx, &SubnetsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(SubnetsElems) > 0 {
+									var SubnetsList []map[string]interface{}
+									for _, SubnetsItem := range SubnetsElems {
+										SubnetsItemMap := make(map[string]interface{})
+										if SubnetsItem.Ipv4 != nil {
+											Ipv4Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
+												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
+												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv4"] = Ipv4Map
 										}
-										if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-											Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+										if SubnetsItem.Ipv6 != nil {
+											Ipv6Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
+												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
+												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv6"] = Ipv6Map
 										}
-										SubnetsItemMap["ipv4"] = Ipv4Map
+										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									if SubnetsItem.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-											Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
-										}
-										if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-											Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
-										}
-										SubnetsItemMap["ipv6"] = Ipv6Map
-									}
-									SubnetsList = append(SubnetsList, SubnetsItemMap)
+									CustomStaticRouteMap["subnets"] = SubnetsList
 								}
-								CustomStaticRouteMap["subnets"] = SubnetsList
 							}
 							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
 						}
@@ -11111,33 +11194,38 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 								}
 								CustomStaticRouteMap["nexthop"] = NexthopMap
 							}
-							if len(StaticRouteListItem.CustomStaticRoute.Subnets) > 0 {
-								var SubnetsList []map[string]interface{}
-								for _, SubnetsItem := range StaticRouteListItem.CustomStaticRoute.Subnets {
-									SubnetsItemMap := make(map[string]interface{})
-									if SubnetsItem.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-											Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
+								var SubnetsElems []AWSVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
+								diags := StaticRouteListItem.CustomStaticRoute.Subnets.ElementsAs(ctx, &SubnetsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(SubnetsElems) > 0 {
+									var SubnetsList []map[string]interface{}
+									for _, SubnetsItem := range SubnetsElems {
+										SubnetsItemMap := make(map[string]interface{})
+										if SubnetsItem.Ipv4 != nil {
+											Ipv4Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
+												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
+												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv4"] = Ipv4Map
 										}
-										if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-											Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+										if SubnetsItem.Ipv6 != nil {
+											Ipv6Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
+												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
+												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv6"] = Ipv6Map
 										}
-										SubnetsItemMap["ipv4"] = Ipv4Map
+										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									if SubnetsItem.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-											Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
-										}
-										if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-											Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
-										}
-										SubnetsItemMap["ipv6"] = Ipv6Map
-									}
-									SubnetsList = append(SubnetsList, SubnetsItemMap)
+									CustomStaticRouteMap["subnets"] = SubnetsList
 								}
-								CustomStaticRouteMap["subnets"] = SubnetsList
 							}
 							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
 						}
@@ -11204,30 +11292,35 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		if !data.IngressGw.AWSCertifiedHw.IsNull() && !data.IngressGw.AWSCertifiedHw.IsUnknown() {
 			IngressGwMap["aws_certified_hw"] = data.IngressGw.AWSCertifiedHw.ValueString()
 		}
-		if len(data.IngressGw.AzNodes) > 0 {
-			var AzNodesList []map[string]interface{}
-			for _, AzNodesItem := range data.IngressGw.AzNodes {
-				AzNodesItemMap := make(map[string]interface{})
-				if !AzNodesItem.AWSAzName.IsNull() && !AzNodesItem.AWSAzName.IsUnknown() {
-					AzNodesItemMap["aws_az_name"] = AzNodesItem.AWSAzName.ValueString()
-				}
-				if AzNodesItem.LocalSubnet != nil {
-					LocalSubnetMap := make(map[string]interface{})
-					if !AzNodesItem.LocalSubnet.ExistingSubnetID.IsNull() && !AzNodesItem.LocalSubnet.ExistingSubnetID.IsUnknown() {
-						LocalSubnetMap["existing_subnet_id"] = AzNodesItem.LocalSubnet.ExistingSubnetID.ValueString()
+		if !data.IngressGw.AzNodes.IsNull() && !data.IngressGw.AzNodes.IsUnknown() {
+			var AzNodesElems []AWSVPCSiteIngressGwAzNodesModel
+			diags := data.IngressGw.AzNodes.ElementsAs(ctx, &AzNodesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(AzNodesElems) > 0 {
+				var AzNodesList []map[string]interface{}
+				for _, AzNodesItem := range AzNodesElems {
+					AzNodesItemMap := make(map[string]interface{})
+					if !AzNodesItem.AWSAzName.IsNull() && !AzNodesItem.AWSAzName.IsUnknown() {
+						AzNodesItemMap["aws_az_name"] = AzNodesItem.AWSAzName.ValueString()
 					}
-					if AzNodesItem.LocalSubnet.SubnetParam != nil {
-						SubnetParamMap := make(map[string]interface{})
-						if !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsUnknown() {
-							SubnetParamMap["ipv4"] = AzNodesItem.LocalSubnet.SubnetParam.Ipv4.ValueString()
+					if AzNodesItem.LocalSubnet != nil {
+						LocalSubnetMap := make(map[string]interface{})
+						if !AzNodesItem.LocalSubnet.ExistingSubnetID.IsNull() && !AzNodesItem.LocalSubnet.ExistingSubnetID.IsUnknown() {
+							LocalSubnetMap["existing_subnet_id"] = AzNodesItem.LocalSubnet.ExistingSubnetID.ValueString()
 						}
-						LocalSubnetMap["subnet_param"] = SubnetParamMap
+						if AzNodesItem.LocalSubnet.SubnetParam != nil {
+							SubnetParamMap := make(map[string]interface{})
+							if !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsUnknown() {
+								SubnetParamMap["ipv4"] = AzNodesItem.LocalSubnet.SubnetParam.Ipv4.ValueString()
+							}
+							LocalSubnetMap["subnet_param"] = SubnetParamMap
+						}
+						AzNodesItemMap["local_subnet"] = LocalSubnetMap
 					}
-					AzNodesItemMap["local_subnet"] = LocalSubnetMap
+					AzNodesList = append(AzNodesList, AzNodesItemMap)
 				}
-				AzNodesList = append(AzNodesList, AzNodesItemMap)
+				IngressGwMap["az_nodes"] = AzNodesList
 			}
-			IngressGwMap["az_nodes"] = AzNodesList
 		}
 		if data.IngressGw.PerformanceEnhancementMode != nil {
 			PerformanceEnhancementModeMap := make(map[string]interface{})
@@ -11455,30 +11548,35 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		if !data.VoltstackCluster.AWSCertifiedHw.IsNull() && !data.VoltstackCluster.AWSCertifiedHw.IsUnknown() {
 			VoltstackClusterMap["aws_certified_hw"] = data.VoltstackCluster.AWSCertifiedHw.ValueString()
 		}
-		if len(data.VoltstackCluster.AzNodes) > 0 {
-			var AzNodesList []map[string]interface{}
-			for _, AzNodesItem := range data.VoltstackCluster.AzNodes {
-				AzNodesItemMap := make(map[string]interface{})
-				if !AzNodesItem.AWSAzName.IsNull() && !AzNodesItem.AWSAzName.IsUnknown() {
-					AzNodesItemMap["aws_az_name"] = AzNodesItem.AWSAzName.ValueString()
-				}
-				if AzNodesItem.LocalSubnet != nil {
-					LocalSubnetMap := make(map[string]interface{})
-					if !AzNodesItem.LocalSubnet.ExistingSubnetID.IsNull() && !AzNodesItem.LocalSubnet.ExistingSubnetID.IsUnknown() {
-						LocalSubnetMap["existing_subnet_id"] = AzNodesItem.LocalSubnet.ExistingSubnetID.ValueString()
+		if !data.VoltstackCluster.AzNodes.IsNull() && !data.VoltstackCluster.AzNodes.IsUnknown() {
+			var AzNodesElems []AWSVPCSiteVoltstackClusterAzNodesModel
+			diags := data.VoltstackCluster.AzNodes.ElementsAs(ctx, &AzNodesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(AzNodesElems) > 0 {
+				var AzNodesList []map[string]interface{}
+				for _, AzNodesItem := range AzNodesElems {
+					AzNodesItemMap := make(map[string]interface{})
+					if !AzNodesItem.AWSAzName.IsNull() && !AzNodesItem.AWSAzName.IsUnknown() {
+						AzNodesItemMap["aws_az_name"] = AzNodesItem.AWSAzName.ValueString()
 					}
-					if AzNodesItem.LocalSubnet.SubnetParam != nil {
-						SubnetParamMap := make(map[string]interface{})
-						if !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsUnknown() {
-							SubnetParamMap["ipv4"] = AzNodesItem.LocalSubnet.SubnetParam.Ipv4.ValueString()
+					if AzNodesItem.LocalSubnet != nil {
+						LocalSubnetMap := make(map[string]interface{})
+						if !AzNodesItem.LocalSubnet.ExistingSubnetID.IsNull() && !AzNodesItem.LocalSubnet.ExistingSubnetID.IsUnknown() {
+							LocalSubnetMap["existing_subnet_id"] = AzNodesItem.LocalSubnet.ExistingSubnetID.ValueString()
 						}
-						LocalSubnetMap["subnet_param"] = SubnetParamMap
+						if AzNodesItem.LocalSubnet.SubnetParam != nil {
+							SubnetParamMap := make(map[string]interface{})
+							if !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsUnknown() {
+								SubnetParamMap["ipv4"] = AzNodesItem.LocalSubnet.SubnetParam.Ipv4.ValueString()
+							}
+							LocalSubnetMap["subnet_param"] = SubnetParamMap
+						}
+						AzNodesItemMap["local_subnet"] = LocalSubnetMap
 					}
-					AzNodesItemMap["local_subnet"] = LocalSubnetMap
+					AzNodesList = append(AzNodesList, AzNodesItemMap)
 				}
-				AzNodesList = append(AzNodesList, AzNodesItemMap)
+				VoltstackClusterMap["az_nodes"] = AzNodesList
 			}
-			VoltstackClusterMap["az_nodes"] = AzNodesList
 		}
 		if data.VoltstackCluster.DcClusterGroup != nil {
 			DcClusterGroupMap := make(map[string]interface{})
@@ -11656,33 +11754,38 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 								}
 								CustomStaticRouteMap["nexthop"] = NexthopMap
 							}
-							if len(StaticRouteListItem.CustomStaticRoute.Subnets) > 0 {
-								var SubnetsList []map[string]interface{}
-								for _, SubnetsItem := range StaticRouteListItem.CustomStaticRoute.Subnets {
-									SubnetsItemMap := make(map[string]interface{})
-									if SubnetsItem.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-											Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
+								var SubnetsElems []AWSVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
+								diags := StaticRouteListItem.CustomStaticRoute.Subnets.ElementsAs(ctx, &SubnetsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(SubnetsElems) > 0 {
+									var SubnetsList []map[string]interface{}
+									for _, SubnetsItem := range SubnetsElems {
+										SubnetsItemMap := make(map[string]interface{})
+										if SubnetsItem.Ipv4 != nil {
+											Ipv4Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
+												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
+												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv4"] = Ipv4Map
 										}
-										if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-											Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+										if SubnetsItem.Ipv6 != nil {
+											Ipv6Map := make(map[string]interface{})
+											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
+												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+											}
+											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
+												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+											}
+											SubnetsItemMap["ipv6"] = Ipv6Map
 										}
-										SubnetsItemMap["ipv4"] = Ipv4Map
+										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									if SubnetsItem.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
-										if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-											Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
-										}
-										if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-											Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
-										}
-										SubnetsItemMap["ipv6"] = Ipv6Map
-									}
-									SubnetsList = append(SubnetsList, SubnetsItemMap)
+									CustomStaticRouteMap["subnets"] = SubnetsList
 								}
-								CustomStaticRouteMap["subnets"] = SubnetsList
 							}
 							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
 						}
@@ -11704,19 +11807,24 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		if data.VoltstackCluster.StorageClassList != nil {
 			StorageClassListMap := make(map[string]interface{})
-			if len(data.VoltstackCluster.StorageClassList.StorageClasses) > 0 {
-				var StorageClassesList []map[string]interface{}
-				for _, StorageClassesItem := range data.VoltstackCluster.StorageClassList.StorageClasses {
-					StorageClassesItemMap := make(map[string]interface{})
-					if !StorageClassesItem.DefaultStorageClass.IsNull() && !StorageClassesItem.DefaultStorageClass.IsUnknown() {
-						StorageClassesItemMap["default_storage_class"] = StorageClassesItem.DefaultStorageClass.ValueBool()
+			if !data.VoltstackCluster.StorageClassList.StorageClasses.IsNull() && !data.VoltstackCluster.StorageClassList.StorageClasses.IsUnknown() {
+				var StorageClassesElems []AWSVPCSiteVoltstackClusterStorageClassListStorageClassesModel
+				diags := data.VoltstackCluster.StorageClassList.StorageClasses.ElementsAs(ctx, &StorageClassesElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(StorageClassesElems) > 0 {
+					var StorageClassesList []map[string]interface{}
+					for _, StorageClassesItem := range StorageClassesElems {
+						StorageClassesItemMap := make(map[string]interface{})
+						if !StorageClassesItem.DefaultStorageClass.IsNull() && !StorageClassesItem.DefaultStorageClass.IsUnknown() {
+							StorageClassesItemMap["default_storage_class"] = StorageClassesItem.DefaultStorageClass.ValueBool()
+						}
+						if !StorageClassesItem.StorageClassName.IsNull() && !StorageClassesItem.StorageClassName.IsUnknown() {
+							StorageClassesItemMap["storage_class_name"] = StorageClassesItem.StorageClassName.ValueString()
+						}
+						StorageClassesList = append(StorageClassesList, StorageClassesItemMap)
 					}
-					if !StorageClassesItem.StorageClassName.IsNull() && !StorageClassesItem.StorageClassName.IsUnknown() {
-						StorageClassesItemMap["storage_class_name"] = StorageClassesItem.StorageClassName.ValueString()
-					}
-					StorageClassesList = append(StorageClassesList, StorageClassesItemMap)
+					StorageClassListMap["storage_classes"] = StorageClassesList
 				}
-				StorageClassListMap["storage_classes"] = StorageClassesList
 			}
 			VoltstackClusterMap["storage_class_list"] = StorageClassListMap
 		}
@@ -11981,9 +12089,9 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &AWSVPCSiteBlockedServicesModel{
-			BlockedService: func() []AWSVPCSiteBlockedServicesBlockedServiceModel {
-				if !isImport && data.BlockedServices != nil && len(data.BlockedServices.BlockedService) == 0 {
-					return nil
+			BlockedService: func() types.List {
+				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteBlockedServicesBlockedServiceModelAttrTypes})
 				}
 				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []AWSVPCSiteBlockedServicesBlockedServiceModel
@@ -12017,9 +12125,10 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							})
 						}
 					}
-					return BlockedServiceResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteBlockedServicesBlockedServiceModelAttrTypes}, BlockedServiceResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteBlockedServicesBlockedServiceModelAttrTypes})
 			}(),
 		}
 	}
@@ -12128,7 +12237,7 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return nil
 						}(),
-						VifList: func() []AWSVPCSiteDirectConnectEnabledHostedVifsVifListModel {
+						VifList: func() types.List {
 							if rawList, ok := HostedVifsData["vif_list"].([]interface{}); ok && len(rawList) > 0 {
 								var VifListResult []AWSVPCSiteDirectConnectEnabledHostedVifsVifListModel
 								for _, VifListItem := range rawList {
@@ -12155,9 +12264,10 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 										})
 									}
 								}
-								return VifListResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteDirectConnectEnabledHostedVifsVifListModelAttrTypes}, VifListResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteDirectConnectEnabledHostedVifsVifListModelAttrTypes})
 						}(),
 					}
 				}
@@ -12450,9 +12560,9 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return types.StringNull()
 			}(),
-			AzNodes: func() []AWSVPCSiteIngressEgressGwAzNodesModel {
-				if !isImport && data.IngressEgressGw != nil && len(data.IngressEgressGw.AzNodes) == 0 {
-					return nil
+			AzNodes: func() types.List {
+				if !isImport && data.IngressEgressGw != nil && (data.IngressEgressGw.AzNodes.IsNull() || len(data.IngressEgressGw.AzNodes.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwAzNodesModelAttrTypes})
 				}
 				if rawList, ok := blockData["az_nodes"].([]interface{}); ok && len(rawList) > 0 {
 					var AzNodesResult []AWSVPCSiteIngressEgressGwAzNodesModel
@@ -12552,9 +12662,10 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							})
 						}
 					}
-					return AzNodesResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwAzNodesModelAttrTypes}, AzNodesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwAzNodesModelAttrTypes})
 			}(),
 			DcClusterGroupInsideVn: func() *AWSVPCSiteIngressEgressGwDcClusterGroupInsideVnModel {
 				if DcClusterGroupInsideVnData, ok := blockData["dc_cluster_group_inside_vn"].(map[string]interface{}); ok {
@@ -12827,7 +12938,7 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 															}
 															return nil
 														}(),
-														Subnets: func() []AWSVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel {
+														Subnets: func() types.List {
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []AWSVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
 																for _, SubnetsItem := range rawList {
@@ -12874,9 +12985,10 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																		})
 																	}
 																}
-																return SubnetsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}, SubnetsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
 														}(),
 													}
 												}
@@ -13078,7 +13190,7 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 															}
 															return nil
 														}(),
-														Subnets: func() []AWSVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel {
+														Subnets: func() types.List {
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []AWSVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
 																for _, SubnetsItem := range rawList {
@@ -13125,9 +13237,10 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																		})
 																	}
 																}
-																return SubnetsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}, SubnetsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
 														}(),
 													}
 												}
@@ -13261,9 +13374,9 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return types.StringNull()
 			}(),
-			AzNodes: func() []AWSVPCSiteIngressGwAzNodesModel {
-				if !isImport && data.IngressGw != nil && len(data.IngressGw.AzNodes) == 0 {
-					return nil
+			AzNodes: func() types.List {
+				if !isImport && data.IngressGw != nil && (data.IngressGw.AzNodes.IsNull() || len(data.IngressGw.AzNodes.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteIngressGwAzNodesModelAttrTypes})
 				}
 				if rawList, ok := blockData["az_nodes"].([]interface{}); ok && len(rawList) > 0 {
 					var AzNodesResult []AWSVPCSiteIngressGwAzNodesModel
@@ -13305,9 +13418,10 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							})
 						}
 					}
-					return AzNodesResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteIngressGwAzNodesModelAttrTypes}, AzNodesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteIngressGwAzNodesModelAttrTypes})
 			}(),
 			PerformanceEnhancementMode: func() *AWSVPCSiteIngressGwPerformanceEnhancementModeModel {
 				if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil {
@@ -13715,9 +13829,9 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return types.StringNull()
 			}(),
-			AzNodes: func() []AWSVPCSiteVoltstackClusterAzNodesModel {
-				if !isImport && data.VoltstackCluster != nil && len(data.VoltstackCluster.AzNodes) == 0 {
-					return nil
+			AzNodes: func() types.List {
+				if !isImport && data.VoltstackCluster != nil && (data.VoltstackCluster.AzNodes.IsNull() || len(data.VoltstackCluster.AzNodes.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterAzNodesModelAttrTypes})
 				}
 				if rawList, ok := blockData["az_nodes"].([]interface{}); ok && len(rawList) > 0 {
 					var AzNodesResult []AWSVPCSiteVoltstackClusterAzNodesModel
@@ -13759,9 +13873,10 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							})
 						}
 					}
-					return AzNodesResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterAzNodesModelAttrTypes}, AzNodesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterAzNodesModelAttrTypes})
 			}(),
 			DcClusterGroup: func() *AWSVPCSiteVoltstackClusterDcClusterGroupModel {
 				if DcClusterGroupData, ok := blockData["dc_cluster_group"].(map[string]interface{}); ok {
@@ -14097,7 +14212,7 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 															}
 															return nil
 														}(),
-														Subnets: func() []AWSVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel {
+														Subnets: func() types.List {
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []AWSVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
 																for _, SubnetsItem := range rawList {
@@ -14144,9 +14259,10 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																		})
 																	}
 																}
-																return SubnetsResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}, SubnetsResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
 														}(),
 													}
 												}
@@ -14194,7 +14310,7 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				if StorageClassListData, ok := blockData["storage_class_list"].(map[string]interface{}); ok {
 					return &AWSVPCSiteVoltstackClusterStorageClassListModel{
-						StorageClasses: func() []AWSVPCSiteVoltstackClusterStorageClassListStorageClassesModel {
+						StorageClasses: func() types.List {
 							if rawList, ok := StorageClassListData["storage_classes"].([]interface{}); ok && len(rawList) > 0 {
 								var StorageClassesResult []AWSVPCSiteVoltstackClusterStorageClassListStorageClassesModel
 								for _, StorageClassesItem := range rawList {
@@ -14215,9 +14331,10 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 										})
 									}
 								}
-								return StorageClassesResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterStorageClassListStorageClassesModelAttrTypes}, StorageClassesResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterStorageClassListStorageClassesModelAttrTypes})
 						}(),
 					}
 				}

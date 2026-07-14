@@ -49,9 +49,9 @@ type APITestingEmptyModel struct {
 
 // APITestingDomainsModel represents domains block
 type APITestingDomainsModel struct {
-	AllowDestructiveMethods types.Bool                          `tfsdk:"allow_destructive_methods"`
-	Domain                  types.String                        `tfsdk:"domain"`
-	Credentials             []APITestingDomainsCredentialsModel `tfsdk:"credentials"`
+	AllowDestructiveMethods types.Bool   `tfsdk:"allow_destructive_methods"`
+	Domain                  types.String `tfsdk:"domain"`
+	Credentials             types.List   `tfsdk:"credentials"`
 }
 
 // APITestingDomainsModelAttrTypes defines the attribute types for APITestingDomainsModel
@@ -764,161 +764,166 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 				if !DomainsItem.AllowDestructiveMethods.IsNull() && !DomainsItem.AllowDestructiveMethods.IsUnknown() {
 					DomainsItemMap["allow_destructive_methods"] = DomainsItem.AllowDestructiveMethods.ValueBool()
 				}
-				if len(DomainsItem.Credentials) > 0 {
-					var CredentialsList []map[string]interface{}
-					for _, CredentialsItem := range DomainsItem.Credentials {
-						CredentialsItemMap := make(map[string]interface{})
-						if CredentialsItem.Admin != nil {
-							CredentialsItemMap["admin"] = map[string]interface{}{}
+				if !DomainsItem.Credentials.IsNull() && !DomainsItem.Credentials.IsUnknown() {
+					var CredentialsElems []APITestingDomainsCredentialsModel
+					diags := DomainsItem.Credentials.ElementsAs(ctx, &CredentialsElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(CredentialsElems) > 0 {
+						var CredentialsList []map[string]interface{}
+						for _, CredentialsItem := range CredentialsElems {
+							CredentialsItemMap := make(map[string]interface{})
+							if CredentialsItem.Admin != nil {
+								CredentialsItemMap["admin"] = map[string]interface{}{}
+							}
+							if CredentialsItem.APIKey != nil {
+								APIKeyMap := make(map[string]interface{})
+								if !CredentialsItem.APIKey.Key.IsNull() && !CredentialsItem.APIKey.Key.IsUnknown() {
+									APIKeyMap["key"] = CredentialsItem.APIKey.Key.ValueString()
+								}
+								if CredentialsItem.APIKey.Value != nil {
+									ValueMap := make(map[string]interface{})
+									if CredentialsItem.APIKey.Value.BlindfoldSecretInfo != nil {
+										BlindfoldSecretInfoMap := make(map[string]interface{})
+										if !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.APIKey.Value.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+										}
+										if !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.Location.IsUnknown() {
+											BlindfoldSecretInfoMap["location"] = CredentialsItem.APIKey.Value.BlindfoldSecretInfo.Location.ValueString()
+										}
+										if !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.APIKey.Value.BlindfoldSecretInfo.StoreProvider.ValueString()
+										}
+										ValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									}
+									if CredentialsItem.APIKey.Value.ClearSecretInfo != nil {
+										ClearSecretInfoMap := make(map[string]interface{})
+										if !CredentialsItem.APIKey.Value.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.APIKey.Value.ClearSecretInfo.Provider.IsUnknown() {
+											ClearSecretInfoMap["provider"] = CredentialsItem.APIKey.Value.ClearSecretInfo.Provider.ValueString()
+										}
+										if !CredentialsItem.APIKey.Value.ClearSecretInfo.URL.IsNull() && !CredentialsItem.APIKey.Value.ClearSecretInfo.URL.IsUnknown() {
+											ClearSecretInfoMap["url"] = CredentialsItem.APIKey.Value.ClearSecretInfo.URL.ValueString()
+										}
+										ValueMap["clear_secret_info"] = ClearSecretInfoMap
+									}
+									APIKeyMap["value"] = ValueMap
+								}
+								CredentialsItemMap["api_key"] = APIKeyMap
+							}
+							if CredentialsItem.BasicAuth != nil {
+								BasicAuthMap := make(map[string]interface{})
+								if CredentialsItem.BasicAuth.Password != nil {
+									PasswordMap := make(map[string]interface{})
+									if CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo != nil {
+										BlindfoldSecretInfoMap := make(map[string]interface{})
+										if !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+										}
+										if !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+											BlindfoldSecretInfoMap["location"] = CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.Location.ValueString()
+										}
+										if !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+										}
+										PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									}
+									if CredentialsItem.BasicAuth.Password.ClearSecretInfo != nil {
+										ClearSecretInfoMap := make(map[string]interface{})
+										if !CredentialsItem.BasicAuth.Password.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.BasicAuth.Password.ClearSecretInfo.Provider.IsUnknown() {
+											ClearSecretInfoMap["provider"] = CredentialsItem.BasicAuth.Password.ClearSecretInfo.Provider.ValueString()
+										}
+										if !CredentialsItem.BasicAuth.Password.ClearSecretInfo.URL.IsNull() && !CredentialsItem.BasicAuth.Password.ClearSecretInfo.URL.IsUnknown() {
+											ClearSecretInfoMap["url"] = CredentialsItem.BasicAuth.Password.ClearSecretInfo.URL.ValueString()
+										}
+										PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+									}
+									BasicAuthMap["password"] = PasswordMap
+								}
+								if !CredentialsItem.BasicAuth.User.IsNull() && !CredentialsItem.BasicAuth.User.IsUnknown() {
+									BasicAuthMap["user"] = CredentialsItem.BasicAuth.User.ValueString()
+								}
+								CredentialsItemMap["basic_auth"] = BasicAuthMap
+							}
+							if CredentialsItem.BearerToken != nil {
+								BearerTokenMap := make(map[string]interface{})
+								if CredentialsItem.BearerToken.Token != nil {
+									TokenMap := make(map[string]interface{})
+									if CredentialsItem.BearerToken.Token.BlindfoldSecretInfo != nil {
+										BlindfoldSecretInfoMap := make(map[string]interface{})
+										if !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+										}
+										if !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.Location.IsUnknown() {
+											BlindfoldSecretInfoMap["location"] = CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.Location.ValueString()
+										}
+										if !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.StoreProvider.ValueString()
+										}
+										TokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									}
+									if CredentialsItem.BearerToken.Token.ClearSecretInfo != nil {
+										ClearSecretInfoMap := make(map[string]interface{})
+										if !CredentialsItem.BearerToken.Token.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.BearerToken.Token.ClearSecretInfo.Provider.IsUnknown() {
+											ClearSecretInfoMap["provider"] = CredentialsItem.BearerToken.Token.ClearSecretInfo.Provider.ValueString()
+										}
+										if !CredentialsItem.BearerToken.Token.ClearSecretInfo.URL.IsNull() && !CredentialsItem.BearerToken.Token.ClearSecretInfo.URL.IsUnknown() {
+											ClearSecretInfoMap["url"] = CredentialsItem.BearerToken.Token.ClearSecretInfo.URL.ValueString()
+										}
+										TokenMap["clear_secret_info"] = ClearSecretInfoMap
+									}
+									BearerTokenMap["token"] = TokenMap
+								}
+								CredentialsItemMap["bearer_token"] = BearerTokenMap
+							}
+							if !CredentialsItem.CredentialName.IsNull() && !CredentialsItem.CredentialName.IsUnknown() {
+								CredentialsItemMap["credential_name"] = CredentialsItem.CredentialName.ValueString()
+							}
+							if CredentialsItem.LoginEndpoint != nil {
+								LoginEndpointMap := make(map[string]interface{})
+								if CredentialsItem.LoginEndpoint.JSONPayload != nil {
+									JSONPayloadMap := make(map[string]interface{})
+									if CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo != nil {
+										BlindfoldSecretInfoMap := make(map[string]interface{})
+										if !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+										}
+										if !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.Location.IsUnknown() {
+											BlindfoldSecretInfoMap["location"] = CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.Location.ValueString()
+										}
+										if !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.StoreProvider.ValueString()
+										}
+										JSONPayloadMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									}
+									if CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo != nil {
+										ClearSecretInfoMap := make(map[string]interface{})
+										if !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.Provider.IsUnknown() {
+											ClearSecretInfoMap["provider"] = CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.Provider.ValueString()
+										}
+										if !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.URL.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.URL.IsUnknown() {
+											ClearSecretInfoMap["url"] = CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.URL.ValueString()
+										}
+										JSONPayloadMap["clear_secret_info"] = ClearSecretInfoMap
+									}
+									LoginEndpointMap["json_payload"] = JSONPayloadMap
+								}
+								if !CredentialsItem.LoginEndpoint.Method.IsNull() && !CredentialsItem.LoginEndpoint.Method.IsUnknown() {
+									LoginEndpointMap["method"] = CredentialsItem.LoginEndpoint.Method.ValueString()
+								}
+								if !CredentialsItem.LoginEndpoint.Path.IsNull() && !CredentialsItem.LoginEndpoint.Path.IsUnknown() {
+									LoginEndpointMap["path"] = CredentialsItem.LoginEndpoint.Path.ValueString()
+								}
+								if !CredentialsItem.LoginEndpoint.TokenResponseKey.IsNull() && !CredentialsItem.LoginEndpoint.TokenResponseKey.IsUnknown() {
+									LoginEndpointMap["token_response_key"] = CredentialsItem.LoginEndpoint.TokenResponseKey.ValueString()
+								}
+								CredentialsItemMap["login_endpoint"] = LoginEndpointMap
+							}
+							if CredentialsItem.Standard != nil {
+								CredentialsItemMap["standard"] = map[string]interface{}{}
+							}
+							CredentialsList = append(CredentialsList, CredentialsItemMap)
 						}
-						if CredentialsItem.APIKey != nil {
-							APIKeyMap := make(map[string]interface{})
-							if !CredentialsItem.APIKey.Key.IsNull() && !CredentialsItem.APIKey.Key.IsUnknown() {
-								APIKeyMap["key"] = CredentialsItem.APIKey.Key.ValueString()
-							}
-							if CredentialsItem.APIKey.Value != nil {
-								ValueMap := make(map[string]interface{})
-								if CredentialsItem.APIKey.Value.BlindfoldSecretInfo != nil {
-									BlindfoldSecretInfoMap := make(map[string]interface{})
-									if !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.APIKey.Value.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-									}
-									if !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.Location.IsUnknown() {
-										BlindfoldSecretInfoMap["location"] = CredentialsItem.APIKey.Value.BlindfoldSecretInfo.Location.ValueString()
-									}
-									if !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.APIKey.Value.BlindfoldSecretInfo.StoreProvider.ValueString()
-									}
-									ValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
-								}
-								if CredentialsItem.APIKey.Value.ClearSecretInfo != nil {
-									ClearSecretInfoMap := make(map[string]interface{})
-									if !CredentialsItem.APIKey.Value.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.APIKey.Value.ClearSecretInfo.Provider.IsUnknown() {
-										ClearSecretInfoMap["provider"] = CredentialsItem.APIKey.Value.ClearSecretInfo.Provider.ValueString()
-									}
-									if !CredentialsItem.APIKey.Value.ClearSecretInfo.URL.IsNull() && !CredentialsItem.APIKey.Value.ClearSecretInfo.URL.IsUnknown() {
-										ClearSecretInfoMap["url"] = CredentialsItem.APIKey.Value.ClearSecretInfo.URL.ValueString()
-									}
-									ValueMap["clear_secret_info"] = ClearSecretInfoMap
-								}
-								APIKeyMap["value"] = ValueMap
-							}
-							CredentialsItemMap["api_key"] = APIKeyMap
-						}
-						if CredentialsItem.BasicAuth != nil {
-							BasicAuthMap := make(map[string]interface{})
-							if CredentialsItem.BasicAuth.Password != nil {
-								PasswordMap := make(map[string]interface{})
-								if CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo != nil {
-									BlindfoldSecretInfoMap := make(map[string]interface{})
-									if !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-									}
-									if !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-										BlindfoldSecretInfoMap["location"] = CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.Location.ValueString()
-									}
-									if !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
-									}
-									PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
-								}
-								if CredentialsItem.BasicAuth.Password.ClearSecretInfo != nil {
-									ClearSecretInfoMap := make(map[string]interface{})
-									if !CredentialsItem.BasicAuth.Password.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.BasicAuth.Password.ClearSecretInfo.Provider.IsUnknown() {
-										ClearSecretInfoMap["provider"] = CredentialsItem.BasicAuth.Password.ClearSecretInfo.Provider.ValueString()
-									}
-									if !CredentialsItem.BasicAuth.Password.ClearSecretInfo.URL.IsNull() && !CredentialsItem.BasicAuth.Password.ClearSecretInfo.URL.IsUnknown() {
-										ClearSecretInfoMap["url"] = CredentialsItem.BasicAuth.Password.ClearSecretInfo.URL.ValueString()
-									}
-									PasswordMap["clear_secret_info"] = ClearSecretInfoMap
-								}
-								BasicAuthMap["password"] = PasswordMap
-							}
-							if !CredentialsItem.BasicAuth.User.IsNull() && !CredentialsItem.BasicAuth.User.IsUnknown() {
-								BasicAuthMap["user"] = CredentialsItem.BasicAuth.User.ValueString()
-							}
-							CredentialsItemMap["basic_auth"] = BasicAuthMap
-						}
-						if CredentialsItem.BearerToken != nil {
-							BearerTokenMap := make(map[string]interface{})
-							if CredentialsItem.BearerToken.Token != nil {
-								TokenMap := make(map[string]interface{})
-								if CredentialsItem.BearerToken.Token.BlindfoldSecretInfo != nil {
-									BlindfoldSecretInfoMap := make(map[string]interface{})
-									if !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-									}
-									if !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.Location.IsUnknown() {
-										BlindfoldSecretInfoMap["location"] = CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.Location.ValueString()
-									}
-									if !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.StoreProvider.ValueString()
-									}
-									TokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
-								}
-								if CredentialsItem.BearerToken.Token.ClearSecretInfo != nil {
-									ClearSecretInfoMap := make(map[string]interface{})
-									if !CredentialsItem.BearerToken.Token.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.BearerToken.Token.ClearSecretInfo.Provider.IsUnknown() {
-										ClearSecretInfoMap["provider"] = CredentialsItem.BearerToken.Token.ClearSecretInfo.Provider.ValueString()
-									}
-									if !CredentialsItem.BearerToken.Token.ClearSecretInfo.URL.IsNull() && !CredentialsItem.BearerToken.Token.ClearSecretInfo.URL.IsUnknown() {
-										ClearSecretInfoMap["url"] = CredentialsItem.BearerToken.Token.ClearSecretInfo.URL.ValueString()
-									}
-									TokenMap["clear_secret_info"] = ClearSecretInfoMap
-								}
-								BearerTokenMap["token"] = TokenMap
-							}
-							CredentialsItemMap["bearer_token"] = BearerTokenMap
-						}
-						if !CredentialsItem.CredentialName.IsNull() && !CredentialsItem.CredentialName.IsUnknown() {
-							CredentialsItemMap["credential_name"] = CredentialsItem.CredentialName.ValueString()
-						}
-						if CredentialsItem.LoginEndpoint != nil {
-							LoginEndpointMap := make(map[string]interface{})
-							if CredentialsItem.LoginEndpoint.JSONPayload != nil {
-								JSONPayloadMap := make(map[string]interface{})
-								if CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo != nil {
-									BlindfoldSecretInfoMap := make(map[string]interface{})
-									if !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-									}
-									if !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.Location.IsUnknown() {
-										BlindfoldSecretInfoMap["location"] = CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.Location.ValueString()
-									}
-									if !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.StoreProvider.ValueString()
-									}
-									JSONPayloadMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
-								}
-								if CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo != nil {
-									ClearSecretInfoMap := make(map[string]interface{})
-									if !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.Provider.IsUnknown() {
-										ClearSecretInfoMap["provider"] = CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.Provider.ValueString()
-									}
-									if !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.URL.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.URL.IsUnknown() {
-										ClearSecretInfoMap["url"] = CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.URL.ValueString()
-									}
-									JSONPayloadMap["clear_secret_info"] = ClearSecretInfoMap
-								}
-								LoginEndpointMap["json_payload"] = JSONPayloadMap
-							}
-							if !CredentialsItem.LoginEndpoint.Method.IsNull() && !CredentialsItem.LoginEndpoint.Method.IsUnknown() {
-								LoginEndpointMap["method"] = CredentialsItem.LoginEndpoint.Method.ValueString()
-							}
-							if !CredentialsItem.LoginEndpoint.Path.IsNull() && !CredentialsItem.LoginEndpoint.Path.IsUnknown() {
-								LoginEndpointMap["path"] = CredentialsItem.LoginEndpoint.Path.ValueString()
-							}
-							if !CredentialsItem.LoginEndpoint.TokenResponseKey.IsNull() && !CredentialsItem.LoginEndpoint.TokenResponseKey.IsUnknown() {
-								LoginEndpointMap["token_response_key"] = CredentialsItem.LoginEndpoint.TokenResponseKey.ValueString()
-							}
-							CredentialsItemMap["login_endpoint"] = LoginEndpointMap
-						}
-						if CredentialsItem.Standard != nil {
-							CredentialsItemMap["standard"] = map[string]interface{}{}
-						}
-						CredentialsList = append(CredentialsList, CredentialsItemMap)
+						DomainsItemMap["credentials"] = CredentialsList
 					}
-					DomainsItemMap["credentials"] = CredentialsList
 				}
 				if !DomainsItem.Domain.IsNull() && !DomainsItem.Domain.IsUnknown() {
 					DomainsItemMap["domain"] = DomainsItem.Domain.ValueString()
@@ -971,7 +976,7 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 						}
 						return types.BoolNull()
 					}(),
-					Credentials: func() []APITestingDomainsCredentialsModel {
+					Credentials: func() types.List {
 						if rawList, ok := itemMap["credentials"].([]interface{}); ok && len(rawList) > 0 {
 							var CredentialsResult []APITestingDomainsCredentialsModel
 							for _, CredentialsItem := range rawList {
@@ -1260,9 +1265,10 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 									})
 								}
 							}
-							return CredentialsResult
+							listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APITestingDomainsCredentialsModelAttrTypes}, CredentialsResult)
+							return listVal
 						}
-						return nil
+						return types.ListNull(types.ObjectType{AttrTypes: APITestingDomainsCredentialsModelAttrTypes})
 					}(),
 					Domain: func() types.String {
 						if v, ok := itemMap["domain"].(string); ok && v != "" {
@@ -1403,7 +1409,7 @@ func (r *APITestingResource) Read(ctx context.Context, req resource.ReadRequest,
 						}
 						return types.BoolNull()
 					}(),
-					Credentials: func() []APITestingDomainsCredentialsModel {
+					Credentials: func() types.List {
 						if rawList, ok := itemMap["credentials"].([]interface{}); ok && len(rawList) > 0 {
 							var CredentialsResult []APITestingDomainsCredentialsModel
 							for _, CredentialsItem := range rawList {
@@ -1692,9 +1698,10 @@ func (r *APITestingResource) Read(ctx context.Context, req resource.ReadRequest,
 									})
 								}
 							}
-							return CredentialsResult
+							listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APITestingDomainsCredentialsModelAttrTypes}, CredentialsResult)
+							return listVal
 						}
-						return nil
+						return types.ListNull(types.ObjectType{AttrTypes: APITestingDomainsCredentialsModelAttrTypes})
 					}(),
 					Domain: func() types.String {
 						if v, ok := itemMap["domain"].(string); ok && v != "" {
@@ -1794,161 +1801,166 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 				if !DomainsItem.AllowDestructiveMethods.IsNull() && !DomainsItem.AllowDestructiveMethods.IsUnknown() {
 					DomainsItemMap["allow_destructive_methods"] = DomainsItem.AllowDestructiveMethods.ValueBool()
 				}
-				if len(DomainsItem.Credentials) > 0 {
-					var CredentialsList []map[string]interface{}
-					for _, CredentialsItem := range DomainsItem.Credentials {
-						CredentialsItemMap := make(map[string]interface{})
-						if CredentialsItem.Admin != nil {
-							CredentialsItemMap["admin"] = map[string]interface{}{}
+				if !DomainsItem.Credentials.IsNull() && !DomainsItem.Credentials.IsUnknown() {
+					var CredentialsElems []APITestingDomainsCredentialsModel
+					diags := DomainsItem.Credentials.ElementsAs(ctx, &CredentialsElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(CredentialsElems) > 0 {
+						var CredentialsList []map[string]interface{}
+						for _, CredentialsItem := range CredentialsElems {
+							CredentialsItemMap := make(map[string]interface{})
+							if CredentialsItem.Admin != nil {
+								CredentialsItemMap["admin"] = map[string]interface{}{}
+							}
+							if CredentialsItem.APIKey != nil {
+								APIKeyMap := make(map[string]interface{})
+								if !CredentialsItem.APIKey.Key.IsNull() && !CredentialsItem.APIKey.Key.IsUnknown() {
+									APIKeyMap["key"] = CredentialsItem.APIKey.Key.ValueString()
+								}
+								if CredentialsItem.APIKey.Value != nil {
+									ValueMap := make(map[string]interface{})
+									if CredentialsItem.APIKey.Value.BlindfoldSecretInfo != nil {
+										BlindfoldSecretInfoMap := make(map[string]interface{})
+										if !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.APIKey.Value.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+										}
+										if !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.Location.IsUnknown() {
+											BlindfoldSecretInfoMap["location"] = CredentialsItem.APIKey.Value.BlindfoldSecretInfo.Location.ValueString()
+										}
+										if !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.APIKey.Value.BlindfoldSecretInfo.StoreProvider.ValueString()
+										}
+										ValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									}
+									if CredentialsItem.APIKey.Value.ClearSecretInfo != nil {
+										ClearSecretInfoMap := make(map[string]interface{})
+										if !CredentialsItem.APIKey.Value.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.APIKey.Value.ClearSecretInfo.Provider.IsUnknown() {
+											ClearSecretInfoMap["provider"] = CredentialsItem.APIKey.Value.ClearSecretInfo.Provider.ValueString()
+										}
+										if !CredentialsItem.APIKey.Value.ClearSecretInfo.URL.IsNull() && !CredentialsItem.APIKey.Value.ClearSecretInfo.URL.IsUnknown() {
+											ClearSecretInfoMap["url"] = CredentialsItem.APIKey.Value.ClearSecretInfo.URL.ValueString()
+										}
+										ValueMap["clear_secret_info"] = ClearSecretInfoMap
+									}
+									APIKeyMap["value"] = ValueMap
+								}
+								CredentialsItemMap["api_key"] = APIKeyMap
+							}
+							if CredentialsItem.BasicAuth != nil {
+								BasicAuthMap := make(map[string]interface{})
+								if CredentialsItem.BasicAuth.Password != nil {
+									PasswordMap := make(map[string]interface{})
+									if CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo != nil {
+										BlindfoldSecretInfoMap := make(map[string]interface{})
+										if !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+										}
+										if !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+											BlindfoldSecretInfoMap["location"] = CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.Location.ValueString()
+										}
+										if !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+										}
+										PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									}
+									if CredentialsItem.BasicAuth.Password.ClearSecretInfo != nil {
+										ClearSecretInfoMap := make(map[string]interface{})
+										if !CredentialsItem.BasicAuth.Password.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.BasicAuth.Password.ClearSecretInfo.Provider.IsUnknown() {
+											ClearSecretInfoMap["provider"] = CredentialsItem.BasicAuth.Password.ClearSecretInfo.Provider.ValueString()
+										}
+										if !CredentialsItem.BasicAuth.Password.ClearSecretInfo.URL.IsNull() && !CredentialsItem.BasicAuth.Password.ClearSecretInfo.URL.IsUnknown() {
+											ClearSecretInfoMap["url"] = CredentialsItem.BasicAuth.Password.ClearSecretInfo.URL.ValueString()
+										}
+										PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+									}
+									BasicAuthMap["password"] = PasswordMap
+								}
+								if !CredentialsItem.BasicAuth.User.IsNull() && !CredentialsItem.BasicAuth.User.IsUnknown() {
+									BasicAuthMap["user"] = CredentialsItem.BasicAuth.User.ValueString()
+								}
+								CredentialsItemMap["basic_auth"] = BasicAuthMap
+							}
+							if CredentialsItem.BearerToken != nil {
+								BearerTokenMap := make(map[string]interface{})
+								if CredentialsItem.BearerToken.Token != nil {
+									TokenMap := make(map[string]interface{})
+									if CredentialsItem.BearerToken.Token.BlindfoldSecretInfo != nil {
+										BlindfoldSecretInfoMap := make(map[string]interface{})
+										if !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+										}
+										if !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.Location.IsUnknown() {
+											BlindfoldSecretInfoMap["location"] = CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.Location.ValueString()
+										}
+										if !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.StoreProvider.ValueString()
+										}
+										TokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									}
+									if CredentialsItem.BearerToken.Token.ClearSecretInfo != nil {
+										ClearSecretInfoMap := make(map[string]interface{})
+										if !CredentialsItem.BearerToken.Token.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.BearerToken.Token.ClearSecretInfo.Provider.IsUnknown() {
+											ClearSecretInfoMap["provider"] = CredentialsItem.BearerToken.Token.ClearSecretInfo.Provider.ValueString()
+										}
+										if !CredentialsItem.BearerToken.Token.ClearSecretInfo.URL.IsNull() && !CredentialsItem.BearerToken.Token.ClearSecretInfo.URL.IsUnknown() {
+											ClearSecretInfoMap["url"] = CredentialsItem.BearerToken.Token.ClearSecretInfo.URL.ValueString()
+										}
+										TokenMap["clear_secret_info"] = ClearSecretInfoMap
+									}
+									BearerTokenMap["token"] = TokenMap
+								}
+								CredentialsItemMap["bearer_token"] = BearerTokenMap
+							}
+							if !CredentialsItem.CredentialName.IsNull() && !CredentialsItem.CredentialName.IsUnknown() {
+								CredentialsItemMap["credential_name"] = CredentialsItem.CredentialName.ValueString()
+							}
+							if CredentialsItem.LoginEndpoint != nil {
+								LoginEndpointMap := make(map[string]interface{})
+								if CredentialsItem.LoginEndpoint.JSONPayload != nil {
+									JSONPayloadMap := make(map[string]interface{})
+									if CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo != nil {
+										BlindfoldSecretInfoMap := make(map[string]interface{})
+										if !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+										}
+										if !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.Location.IsUnknown() {
+											BlindfoldSecretInfoMap["location"] = CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.Location.ValueString()
+										}
+										if !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.StoreProvider.ValueString()
+										}
+										JSONPayloadMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									}
+									if CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo != nil {
+										ClearSecretInfoMap := make(map[string]interface{})
+										if !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.Provider.IsUnknown() {
+											ClearSecretInfoMap["provider"] = CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.Provider.ValueString()
+										}
+										if !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.URL.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.URL.IsUnknown() {
+											ClearSecretInfoMap["url"] = CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.URL.ValueString()
+										}
+										JSONPayloadMap["clear_secret_info"] = ClearSecretInfoMap
+									}
+									LoginEndpointMap["json_payload"] = JSONPayloadMap
+								}
+								if !CredentialsItem.LoginEndpoint.Method.IsNull() && !CredentialsItem.LoginEndpoint.Method.IsUnknown() {
+									LoginEndpointMap["method"] = CredentialsItem.LoginEndpoint.Method.ValueString()
+								}
+								if !CredentialsItem.LoginEndpoint.Path.IsNull() && !CredentialsItem.LoginEndpoint.Path.IsUnknown() {
+									LoginEndpointMap["path"] = CredentialsItem.LoginEndpoint.Path.ValueString()
+								}
+								if !CredentialsItem.LoginEndpoint.TokenResponseKey.IsNull() && !CredentialsItem.LoginEndpoint.TokenResponseKey.IsUnknown() {
+									LoginEndpointMap["token_response_key"] = CredentialsItem.LoginEndpoint.TokenResponseKey.ValueString()
+								}
+								CredentialsItemMap["login_endpoint"] = LoginEndpointMap
+							}
+							if CredentialsItem.Standard != nil {
+								CredentialsItemMap["standard"] = map[string]interface{}{}
+							}
+							CredentialsList = append(CredentialsList, CredentialsItemMap)
 						}
-						if CredentialsItem.APIKey != nil {
-							APIKeyMap := make(map[string]interface{})
-							if !CredentialsItem.APIKey.Key.IsNull() && !CredentialsItem.APIKey.Key.IsUnknown() {
-								APIKeyMap["key"] = CredentialsItem.APIKey.Key.ValueString()
-							}
-							if CredentialsItem.APIKey.Value != nil {
-								ValueMap := make(map[string]interface{})
-								if CredentialsItem.APIKey.Value.BlindfoldSecretInfo != nil {
-									BlindfoldSecretInfoMap := make(map[string]interface{})
-									if !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.APIKey.Value.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-									}
-									if !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.Location.IsUnknown() {
-										BlindfoldSecretInfoMap["location"] = CredentialsItem.APIKey.Value.BlindfoldSecretInfo.Location.ValueString()
-									}
-									if !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.APIKey.Value.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.APIKey.Value.BlindfoldSecretInfo.StoreProvider.ValueString()
-									}
-									ValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
-								}
-								if CredentialsItem.APIKey.Value.ClearSecretInfo != nil {
-									ClearSecretInfoMap := make(map[string]interface{})
-									if !CredentialsItem.APIKey.Value.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.APIKey.Value.ClearSecretInfo.Provider.IsUnknown() {
-										ClearSecretInfoMap["provider"] = CredentialsItem.APIKey.Value.ClearSecretInfo.Provider.ValueString()
-									}
-									if !CredentialsItem.APIKey.Value.ClearSecretInfo.URL.IsNull() && !CredentialsItem.APIKey.Value.ClearSecretInfo.URL.IsUnknown() {
-										ClearSecretInfoMap["url"] = CredentialsItem.APIKey.Value.ClearSecretInfo.URL.ValueString()
-									}
-									ValueMap["clear_secret_info"] = ClearSecretInfoMap
-								}
-								APIKeyMap["value"] = ValueMap
-							}
-							CredentialsItemMap["api_key"] = APIKeyMap
-						}
-						if CredentialsItem.BasicAuth != nil {
-							BasicAuthMap := make(map[string]interface{})
-							if CredentialsItem.BasicAuth.Password != nil {
-								PasswordMap := make(map[string]interface{})
-								if CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo != nil {
-									BlindfoldSecretInfoMap := make(map[string]interface{})
-									if !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-									}
-									if !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-										BlindfoldSecretInfoMap["location"] = CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.Location.ValueString()
-									}
-									if !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
-									}
-									PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
-								}
-								if CredentialsItem.BasicAuth.Password.ClearSecretInfo != nil {
-									ClearSecretInfoMap := make(map[string]interface{})
-									if !CredentialsItem.BasicAuth.Password.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.BasicAuth.Password.ClearSecretInfo.Provider.IsUnknown() {
-										ClearSecretInfoMap["provider"] = CredentialsItem.BasicAuth.Password.ClearSecretInfo.Provider.ValueString()
-									}
-									if !CredentialsItem.BasicAuth.Password.ClearSecretInfo.URL.IsNull() && !CredentialsItem.BasicAuth.Password.ClearSecretInfo.URL.IsUnknown() {
-										ClearSecretInfoMap["url"] = CredentialsItem.BasicAuth.Password.ClearSecretInfo.URL.ValueString()
-									}
-									PasswordMap["clear_secret_info"] = ClearSecretInfoMap
-								}
-								BasicAuthMap["password"] = PasswordMap
-							}
-							if !CredentialsItem.BasicAuth.User.IsNull() && !CredentialsItem.BasicAuth.User.IsUnknown() {
-								BasicAuthMap["user"] = CredentialsItem.BasicAuth.User.ValueString()
-							}
-							CredentialsItemMap["basic_auth"] = BasicAuthMap
-						}
-						if CredentialsItem.BearerToken != nil {
-							BearerTokenMap := make(map[string]interface{})
-							if CredentialsItem.BearerToken.Token != nil {
-								TokenMap := make(map[string]interface{})
-								if CredentialsItem.BearerToken.Token.BlindfoldSecretInfo != nil {
-									BlindfoldSecretInfoMap := make(map[string]interface{})
-									if !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-									}
-									if !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.Location.IsUnknown() {
-										BlindfoldSecretInfoMap["location"] = CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.Location.ValueString()
-									}
-									if !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.BearerToken.Token.BlindfoldSecretInfo.StoreProvider.ValueString()
-									}
-									TokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
-								}
-								if CredentialsItem.BearerToken.Token.ClearSecretInfo != nil {
-									ClearSecretInfoMap := make(map[string]interface{})
-									if !CredentialsItem.BearerToken.Token.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.BearerToken.Token.ClearSecretInfo.Provider.IsUnknown() {
-										ClearSecretInfoMap["provider"] = CredentialsItem.BearerToken.Token.ClearSecretInfo.Provider.ValueString()
-									}
-									if !CredentialsItem.BearerToken.Token.ClearSecretInfo.URL.IsNull() && !CredentialsItem.BearerToken.Token.ClearSecretInfo.URL.IsUnknown() {
-										ClearSecretInfoMap["url"] = CredentialsItem.BearerToken.Token.ClearSecretInfo.URL.ValueString()
-									}
-									TokenMap["clear_secret_info"] = ClearSecretInfoMap
-								}
-								BearerTokenMap["token"] = TokenMap
-							}
-							CredentialsItemMap["bearer_token"] = BearerTokenMap
-						}
-						if !CredentialsItem.CredentialName.IsNull() && !CredentialsItem.CredentialName.IsUnknown() {
-							CredentialsItemMap["credential_name"] = CredentialsItem.CredentialName.ValueString()
-						}
-						if CredentialsItem.LoginEndpoint != nil {
-							LoginEndpointMap := make(map[string]interface{})
-							if CredentialsItem.LoginEndpoint.JSONPayload != nil {
-								JSONPayloadMap := make(map[string]interface{})
-								if CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo != nil {
-									BlindfoldSecretInfoMap := make(map[string]interface{})
-									if !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["decryption_provider"] = CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-									}
-									if !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.Location.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.Location.IsUnknown() {
-										BlindfoldSecretInfoMap["location"] = CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.Location.ValueString()
-									}
-									if !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.StoreProvider.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["store_provider"] = CredentialsItem.LoginEndpoint.JSONPayload.BlindfoldSecretInfo.StoreProvider.ValueString()
-									}
-									JSONPayloadMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
-								}
-								if CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo != nil {
-									ClearSecretInfoMap := make(map[string]interface{})
-									if !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.Provider.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.Provider.IsUnknown() {
-										ClearSecretInfoMap["provider"] = CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.Provider.ValueString()
-									}
-									if !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.URL.IsNull() && !CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.URL.IsUnknown() {
-										ClearSecretInfoMap["url"] = CredentialsItem.LoginEndpoint.JSONPayload.ClearSecretInfo.URL.ValueString()
-									}
-									JSONPayloadMap["clear_secret_info"] = ClearSecretInfoMap
-								}
-								LoginEndpointMap["json_payload"] = JSONPayloadMap
-							}
-							if !CredentialsItem.LoginEndpoint.Method.IsNull() && !CredentialsItem.LoginEndpoint.Method.IsUnknown() {
-								LoginEndpointMap["method"] = CredentialsItem.LoginEndpoint.Method.ValueString()
-							}
-							if !CredentialsItem.LoginEndpoint.Path.IsNull() && !CredentialsItem.LoginEndpoint.Path.IsUnknown() {
-								LoginEndpointMap["path"] = CredentialsItem.LoginEndpoint.Path.ValueString()
-							}
-							if !CredentialsItem.LoginEndpoint.TokenResponseKey.IsNull() && !CredentialsItem.LoginEndpoint.TokenResponseKey.IsUnknown() {
-								LoginEndpointMap["token_response_key"] = CredentialsItem.LoginEndpoint.TokenResponseKey.ValueString()
-							}
-							CredentialsItemMap["login_endpoint"] = LoginEndpointMap
-						}
-						if CredentialsItem.Standard != nil {
-							CredentialsItemMap["standard"] = map[string]interface{}{}
-						}
-						CredentialsList = append(CredentialsList, CredentialsItemMap)
+						DomainsItemMap["credentials"] = CredentialsList
 					}
-					DomainsItemMap["credentials"] = CredentialsList
 				}
 				if !DomainsItem.Domain.IsNull() && !DomainsItem.Domain.IsUnknown() {
 					DomainsItemMap["domain"] = DomainsItem.Domain.ValueString()
@@ -2012,7 +2024,7 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 						}
 						return types.BoolNull()
 					}(),
-					Credentials: func() []APITestingDomainsCredentialsModel {
+					Credentials: func() types.List {
 						if rawList, ok := itemMap["credentials"].([]interface{}); ok && len(rawList) > 0 {
 							var CredentialsResult []APITestingDomainsCredentialsModel
 							for _, CredentialsItem := range rawList {
@@ -2301,9 +2313,10 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 									})
 								}
 							}
-							return CredentialsResult
+							listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APITestingDomainsCredentialsModelAttrTypes}, CredentialsResult)
+							return listVal
 						}
-						return nil
+						return types.ListNull(types.ObjectType{AttrTypes: APITestingDomainsCredentialsModelAttrTypes})
 					}(),
 					Domain: func() types.String {
 						if v, ok := itemMap["domain"].(string); ok && v != "" {

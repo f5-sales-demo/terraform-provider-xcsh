@@ -97,7 +97,7 @@ var AppSettingAppTypeSettingsBusinessLogicMarkupSettingModelAttrTypes = map[stri
 
 // AppSettingAppTypeSettingsTimeseriesAnalysesSettingModel represents timeseries_analyses_setting block
 type AppSettingAppTypeSettingsTimeseriesAnalysesSettingModel struct {
-	MetricSelectors []AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModel `tfsdk:"metric_selectors"`
+	MetricSelectors types.List `tfsdk:"metric_selectors"`
 }
 
 // AppSettingAppTypeSettingsTimeseriesAnalysesSettingModelAttrTypes defines the attribute types for AppSettingAppTypeSettingsTimeseriesAnalysesSettingModel
@@ -639,23 +639,28 @@ func (r *AppSettingResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				if AppTypeSettingsItem.TimeseriesAnalysesSetting != nil {
 					TimeseriesAnalysesSettingMap := make(map[string]interface{})
-					if len(AppTypeSettingsItem.TimeseriesAnalysesSetting.MetricSelectors) > 0 {
-						var MetricSelectorsList []map[string]interface{}
-						for _, MetricSelectorsItem := range AppTypeSettingsItem.TimeseriesAnalysesSetting.MetricSelectors {
-							MetricSelectorsItemMap := make(map[string]interface{})
-							if !MetricSelectorsItem.Metric.IsNull() && !MetricSelectorsItem.Metric.IsUnknown() {
-								var MetricItems []string
-								diags := MetricSelectorsItem.Metric.ElementsAs(ctx, &MetricItems, false)
-								if !diags.HasError() {
-									MetricSelectorsItemMap["metric"] = MetricItems
+					if !AppTypeSettingsItem.TimeseriesAnalysesSetting.MetricSelectors.IsNull() && !AppTypeSettingsItem.TimeseriesAnalysesSetting.MetricSelectors.IsUnknown() {
+						var MetricSelectorsElems []AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModel
+						diags := AppTypeSettingsItem.TimeseriesAnalysesSetting.MetricSelectors.ElementsAs(ctx, &MetricSelectorsElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(MetricSelectorsElems) > 0 {
+							var MetricSelectorsList []map[string]interface{}
+							for _, MetricSelectorsItem := range MetricSelectorsElems {
+								MetricSelectorsItemMap := make(map[string]interface{})
+								if !MetricSelectorsItem.Metric.IsNull() && !MetricSelectorsItem.Metric.IsUnknown() {
+									var MetricItems []string
+									diags := MetricSelectorsItem.Metric.ElementsAs(ctx, &MetricItems, false)
+									if !diags.HasError() {
+										MetricSelectorsItemMap["metric"] = MetricItems
+									}
 								}
+								if !MetricSelectorsItem.MetricsSource.IsNull() && !MetricSelectorsItem.MetricsSource.IsUnknown() {
+									MetricSelectorsItemMap["metrics_source"] = MetricSelectorsItem.MetricsSource.ValueString()
+								}
+								MetricSelectorsList = append(MetricSelectorsList, MetricSelectorsItemMap)
 							}
-							if !MetricSelectorsItem.MetricsSource.IsNull() && !MetricSelectorsItem.MetricsSource.IsUnknown() {
-								MetricSelectorsItemMap["metrics_source"] = MetricSelectorsItem.MetricsSource.ValueString()
-							}
-							MetricSelectorsList = append(MetricSelectorsList, MetricSelectorsItemMap)
+							TimeseriesAnalysesSettingMap["metric_selectors"] = MetricSelectorsList
 						}
-						TimeseriesAnalysesSettingMap["metric_selectors"] = MetricSelectorsList
 					}
 					AppTypeSettingsItemMap["timeseries_analyses_setting"] = TimeseriesAnalysesSettingMap
 				}
@@ -848,7 +853,7 @@ func (r *AppSettingResource) Create(ctx context.Context, req resource.CreateRequ
 					TimeseriesAnalysesSetting: func() *AppSettingAppTypeSettingsTimeseriesAnalysesSettingModel {
 						if TimeseriesAnalysesSettingData, ok := itemMap["timeseries_analyses_setting"].(map[string]interface{}); ok {
 							return &AppSettingAppTypeSettingsTimeseriesAnalysesSettingModel{
-								MetricSelectors: func() []AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModel {
+								MetricSelectors: func() types.List {
 									if rawList, ok := TimeseriesAnalysesSettingData["metric_selectors"].([]interface{}); ok && len(rawList) > 0 {
 										var MetricSelectorsResult []AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModel
 										for _, MetricSelectorsItem := range rawList {
@@ -876,9 +881,10 @@ func (r *AppSettingResource) Create(ctx context.Context, req resource.CreateRequ
 												})
 											}
 										}
-										return MetricSelectorsResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModelAttrTypes}, MetricSelectorsResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModelAttrTypes})
 								}(),
 							}
 						}
@@ -1246,7 +1252,7 @@ func (r *AppSettingResource) Read(ctx context.Context, req resource.ReadRequest,
 					TimeseriesAnalysesSetting: func() *AppSettingAppTypeSettingsTimeseriesAnalysesSettingModel {
 						if TimeseriesAnalysesSettingData, ok := itemMap["timeseries_analyses_setting"].(map[string]interface{}); ok {
 							return &AppSettingAppTypeSettingsTimeseriesAnalysesSettingModel{
-								MetricSelectors: func() []AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModel {
+								MetricSelectors: func() types.List {
 									if rawList, ok := TimeseriesAnalysesSettingData["metric_selectors"].([]interface{}); ok && len(rawList) > 0 {
 										var MetricSelectorsResult []AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModel
 										for _, MetricSelectorsItem := range rawList {
@@ -1274,9 +1280,10 @@ func (r *AppSettingResource) Read(ctx context.Context, req resource.ReadRequest,
 												})
 											}
 										}
-										return MetricSelectorsResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModelAttrTypes}, MetricSelectorsResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModelAttrTypes})
 								}(),
 							}
 						}
@@ -1580,23 +1587,28 @@ func (r *AppSettingResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				if AppTypeSettingsItem.TimeseriesAnalysesSetting != nil {
 					TimeseriesAnalysesSettingMap := make(map[string]interface{})
-					if len(AppTypeSettingsItem.TimeseriesAnalysesSetting.MetricSelectors) > 0 {
-						var MetricSelectorsList []map[string]interface{}
-						for _, MetricSelectorsItem := range AppTypeSettingsItem.TimeseriesAnalysesSetting.MetricSelectors {
-							MetricSelectorsItemMap := make(map[string]interface{})
-							if !MetricSelectorsItem.Metric.IsNull() && !MetricSelectorsItem.Metric.IsUnknown() {
-								var MetricItems []string
-								diags := MetricSelectorsItem.Metric.ElementsAs(ctx, &MetricItems, false)
-								if !diags.HasError() {
-									MetricSelectorsItemMap["metric"] = MetricItems
+					if !AppTypeSettingsItem.TimeseriesAnalysesSetting.MetricSelectors.IsNull() && !AppTypeSettingsItem.TimeseriesAnalysesSetting.MetricSelectors.IsUnknown() {
+						var MetricSelectorsElems []AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModel
+						diags := AppTypeSettingsItem.TimeseriesAnalysesSetting.MetricSelectors.ElementsAs(ctx, &MetricSelectorsElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(MetricSelectorsElems) > 0 {
+							var MetricSelectorsList []map[string]interface{}
+							for _, MetricSelectorsItem := range MetricSelectorsElems {
+								MetricSelectorsItemMap := make(map[string]interface{})
+								if !MetricSelectorsItem.Metric.IsNull() && !MetricSelectorsItem.Metric.IsUnknown() {
+									var MetricItems []string
+									diags := MetricSelectorsItem.Metric.ElementsAs(ctx, &MetricItems, false)
+									if !diags.HasError() {
+										MetricSelectorsItemMap["metric"] = MetricItems
+									}
 								}
+								if !MetricSelectorsItem.MetricsSource.IsNull() && !MetricSelectorsItem.MetricsSource.IsUnknown() {
+									MetricSelectorsItemMap["metrics_source"] = MetricSelectorsItem.MetricsSource.ValueString()
+								}
+								MetricSelectorsList = append(MetricSelectorsList, MetricSelectorsItemMap)
 							}
-							if !MetricSelectorsItem.MetricsSource.IsNull() && !MetricSelectorsItem.MetricsSource.IsUnknown() {
-								MetricSelectorsItemMap["metrics_source"] = MetricSelectorsItem.MetricsSource.ValueString()
-							}
-							MetricSelectorsList = append(MetricSelectorsList, MetricSelectorsItemMap)
+							TimeseriesAnalysesSettingMap["metric_selectors"] = MetricSelectorsList
 						}
-						TimeseriesAnalysesSettingMap["metric_selectors"] = MetricSelectorsList
 					}
 					AppTypeSettingsItemMap["timeseries_analyses_setting"] = TimeseriesAnalysesSettingMap
 				}
@@ -1800,7 +1812,7 @@ func (r *AppSettingResource) Update(ctx context.Context, req resource.UpdateRequ
 					TimeseriesAnalysesSetting: func() *AppSettingAppTypeSettingsTimeseriesAnalysesSettingModel {
 						if TimeseriesAnalysesSettingData, ok := itemMap["timeseries_analyses_setting"].(map[string]interface{}); ok {
 							return &AppSettingAppTypeSettingsTimeseriesAnalysesSettingModel{
-								MetricSelectors: func() []AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModel {
+								MetricSelectors: func() types.List {
 									if rawList, ok := TimeseriesAnalysesSettingData["metric_selectors"].([]interface{}); ok && len(rawList) > 0 {
 										var MetricSelectorsResult []AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModel
 										for _, MetricSelectorsItem := range rawList {
@@ -1828,9 +1840,10 @@ func (r *AppSettingResource) Update(ctx context.Context, req resource.UpdateRequ
 												})
 											}
 										}
-										return MetricSelectorsResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModelAttrTypes}, MetricSelectorsResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModelAttrTypes})
 								}(),
 							}
 						}

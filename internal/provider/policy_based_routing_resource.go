@@ -116,7 +116,7 @@ var PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesForwardingClassListMode
 
 // PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListModel represents http_list block
 type PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListModel struct {
-	HTTPList []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModel `tfsdk:"http_list"`
+	HTTPList types.List `tfsdk:"http_list"`
 }
 
 // PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListModelAttrTypes defines the attribute types for PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListModel
@@ -194,7 +194,7 @@ var PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesPrefixListModelAttrType
 
 // PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListModel represents tls_list block
 type PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListModel struct {
-	TLSList []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModel `tfsdk:"tls_list"`
+	TLSList types.List `tfsdk:"tls_list"`
 }
 
 // PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListModelAttrTypes defines the attribute types for PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListModel
@@ -1063,34 +1063,39 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 					}
 					if ForwardProxyPbrRulesItem.HTTPList != nil {
 						HTTPListMap := make(map[string]interface{})
-						if len(ForwardProxyPbrRulesItem.HTTPList.HTTPList) > 0 {
-							var HTTPListList []map[string]interface{}
-							for _, HTTPListItem := range ForwardProxyPbrRulesItem.HTTPList.HTTPList {
-								HTTPListItemMap := make(map[string]interface{})
-								if HTTPListItem.AnyPath != nil {
-									HTTPListItemMap["any_path"] = map[string]interface{}{}
+						if !ForwardProxyPbrRulesItem.HTTPList.HTTPList.IsNull() && !ForwardProxyPbrRulesItem.HTTPList.HTTPList.IsUnknown() {
+							var HTTPListElems []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModel
+							diags := ForwardProxyPbrRulesItem.HTTPList.HTTPList.ElementsAs(ctx, &HTTPListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(HTTPListElems) > 0 {
+								var HTTPListList []map[string]interface{}
+								for _, HTTPListItem := range HTTPListElems {
+									HTTPListItemMap := make(map[string]interface{})
+									if HTTPListItem.AnyPath != nil {
+										HTTPListItemMap["any_path"] = map[string]interface{}{}
+									}
+									if !HTTPListItem.ExactValue.IsNull() && !HTTPListItem.ExactValue.IsUnknown() {
+										HTTPListItemMap["exact_value"] = HTTPListItem.ExactValue.ValueString()
+									}
+									if !HTTPListItem.PathExactValue.IsNull() && !HTTPListItem.PathExactValue.IsUnknown() {
+										HTTPListItemMap["path_exact_value"] = HTTPListItem.PathExactValue.ValueString()
+									}
+									if !HTTPListItem.PathPrefixValue.IsNull() && !HTTPListItem.PathPrefixValue.IsUnknown() {
+										HTTPListItemMap["path_prefix_value"] = HTTPListItem.PathPrefixValue.ValueString()
+									}
+									if !HTTPListItem.PathRegexValue.IsNull() && !HTTPListItem.PathRegexValue.IsUnknown() {
+										HTTPListItemMap["path_regex_value"] = HTTPListItem.PathRegexValue.ValueString()
+									}
+									if !HTTPListItem.RegexValue.IsNull() && !HTTPListItem.RegexValue.IsUnknown() {
+										HTTPListItemMap["regex_value"] = HTTPListItem.RegexValue.ValueString()
+									}
+									if !HTTPListItem.SuffixValue.IsNull() && !HTTPListItem.SuffixValue.IsUnknown() {
+										HTTPListItemMap["suffix_value"] = HTTPListItem.SuffixValue.ValueString()
+									}
+									HTTPListList = append(HTTPListList, HTTPListItemMap)
 								}
-								if !HTTPListItem.ExactValue.IsNull() && !HTTPListItem.ExactValue.IsUnknown() {
-									HTTPListItemMap["exact_value"] = HTTPListItem.ExactValue.ValueString()
-								}
-								if !HTTPListItem.PathExactValue.IsNull() && !HTTPListItem.PathExactValue.IsUnknown() {
-									HTTPListItemMap["path_exact_value"] = HTTPListItem.PathExactValue.ValueString()
-								}
-								if !HTTPListItem.PathPrefixValue.IsNull() && !HTTPListItem.PathPrefixValue.IsUnknown() {
-									HTTPListItemMap["path_prefix_value"] = HTTPListItem.PathPrefixValue.ValueString()
-								}
-								if !HTTPListItem.PathRegexValue.IsNull() && !HTTPListItem.PathRegexValue.IsUnknown() {
-									HTTPListItemMap["path_regex_value"] = HTTPListItem.PathRegexValue.ValueString()
-								}
-								if !HTTPListItem.RegexValue.IsNull() && !HTTPListItem.RegexValue.IsUnknown() {
-									HTTPListItemMap["regex_value"] = HTTPListItem.RegexValue.ValueString()
-								}
-								if !HTTPListItem.SuffixValue.IsNull() && !HTTPListItem.SuffixValue.IsUnknown() {
-									HTTPListItemMap["suffix_value"] = HTTPListItem.SuffixValue.ValueString()
-								}
-								HTTPListList = append(HTTPListList, HTTPListItemMap)
+								HTTPListMap["http_list"] = HTTPListList
 							}
-							HTTPListMap["http_list"] = HTTPListList
 						}
 						ForwardProxyPbrRulesItemMap["http_list"] = HTTPListMap
 					}
@@ -1141,22 +1146,27 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 					}
 					if ForwardProxyPbrRulesItem.TLSList != nil {
 						TLSListMap := make(map[string]interface{})
-						if len(ForwardProxyPbrRulesItem.TLSList.TLSList) > 0 {
-							var TLSListList []map[string]interface{}
-							for _, TLSListItem := range ForwardProxyPbrRulesItem.TLSList.TLSList {
-								TLSListItemMap := make(map[string]interface{})
-								if !TLSListItem.ExactValue.IsNull() && !TLSListItem.ExactValue.IsUnknown() {
-									TLSListItemMap["exact_value"] = TLSListItem.ExactValue.ValueString()
+						if !ForwardProxyPbrRulesItem.TLSList.TLSList.IsNull() && !ForwardProxyPbrRulesItem.TLSList.TLSList.IsUnknown() {
+							var TLSListElems []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModel
+							diags := ForwardProxyPbrRulesItem.TLSList.TLSList.ElementsAs(ctx, &TLSListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(TLSListElems) > 0 {
+								var TLSListList []map[string]interface{}
+								for _, TLSListItem := range TLSListElems {
+									TLSListItemMap := make(map[string]interface{})
+									if !TLSListItem.ExactValue.IsNull() && !TLSListItem.ExactValue.IsUnknown() {
+										TLSListItemMap["exact_value"] = TLSListItem.ExactValue.ValueString()
+									}
+									if !TLSListItem.RegexValue.IsNull() && !TLSListItem.RegexValue.IsUnknown() {
+										TLSListItemMap["regex_value"] = TLSListItem.RegexValue.ValueString()
+									}
+									if !TLSListItem.SuffixValue.IsNull() && !TLSListItem.SuffixValue.IsUnknown() {
+										TLSListItemMap["suffix_value"] = TLSListItem.SuffixValue.ValueString()
+									}
+									TLSListList = append(TLSListList, TLSListItemMap)
 								}
-								if !TLSListItem.RegexValue.IsNull() && !TLSListItem.RegexValue.IsUnknown() {
-									TLSListItemMap["regex_value"] = TLSListItem.RegexValue.ValueString()
-								}
-								if !TLSListItem.SuffixValue.IsNull() && !TLSListItem.SuffixValue.IsUnknown() {
-									TLSListItemMap["suffix_value"] = TLSListItem.SuffixValue.ValueString()
-								}
-								TLSListList = append(TLSListList, TLSListItemMap)
+								TLSListMap["tls_list"] = TLSListList
 							}
-							TLSListMap["tls_list"] = TLSListList
 						}
 						ForwardProxyPbrRulesItemMap["tls_list"] = TLSListMap
 					}
@@ -1436,7 +1446,7 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 								HTTPList: func() *PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListModel {
 									if HTTPListData, ok := ForwardProxyPbrRulesItemMap["http_list"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListModel{
-											HTTPList: func() []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModel {
+											HTTPList: func() types.List {
 												if rawList, ok := HTTPListData["http_list"].([]interface{}); ok && len(rawList) > 0 {
 													var HTTPListResult []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModel
 													for _, HTTPListItem := range rawList {
@@ -1487,9 +1497,10 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 															})
 														}
 													}
-													return HTTPListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModelAttrTypes}, HTTPListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModelAttrTypes})
 											}(),
 										}
 									}
@@ -1582,7 +1593,7 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 								TLSList: func() *PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListModel {
 									if TLSListData, ok := ForwardProxyPbrRulesItemMap["tls_list"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListModel{
-											TLSList: func() []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModel {
+											TLSList: func() types.List {
 												if rawList, ok := TLSListData["tls_list"].([]interface{}); ok && len(rawList) > 0 {
 													var TLSListResult []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModel
 													for _, TLSListItem := range rawList {
@@ -1609,9 +1620,10 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 															})
 														}
 													}
-													return TLSListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModelAttrTypes}, TLSListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModelAttrTypes})
 											}(),
 										}
 									}
@@ -2093,7 +2105,7 @@ func (r *PolicyBasedRoutingResource) Read(ctx context.Context, req resource.Read
 								HTTPList: func() *PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListModel {
 									if HTTPListData, ok := ForwardProxyPbrRulesItemMap["http_list"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListModel{
-											HTTPList: func() []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModel {
+											HTTPList: func() types.List {
 												if rawList, ok := HTTPListData["http_list"].([]interface{}); ok && len(rawList) > 0 {
 													var HTTPListResult []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModel
 													for _, HTTPListItem := range rawList {
@@ -2144,9 +2156,10 @@ func (r *PolicyBasedRoutingResource) Read(ctx context.Context, req resource.Read
 															})
 														}
 													}
-													return HTTPListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModelAttrTypes}, HTTPListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModelAttrTypes})
 											}(),
 										}
 									}
@@ -2239,7 +2252,7 @@ func (r *PolicyBasedRoutingResource) Read(ctx context.Context, req resource.Read
 								TLSList: func() *PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListModel {
 									if TLSListData, ok := ForwardProxyPbrRulesItemMap["tls_list"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListModel{
-											TLSList: func() []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModel {
+											TLSList: func() types.List {
 												if rawList, ok := TLSListData["tls_list"].([]interface{}); ok && len(rawList) > 0 {
 													var TLSListResult []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModel
 													for _, TLSListItem := range rawList {
@@ -2266,9 +2279,10 @@ func (r *PolicyBasedRoutingResource) Read(ctx context.Context, req resource.Read
 															})
 														}
 													}
-													return TLSListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModelAttrTypes}, TLSListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModelAttrTypes})
 											}(),
 										}
 									}
@@ -2679,34 +2693,39 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 					}
 					if ForwardProxyPbrRulesItem.HTTPList != nil {
 						HTTPListMap := make(map[string]interface{})
-						if len(ForwardProxyPbrRulesItem.HTTPList.HTTPList) > 0 {
-							var HTTPListList []map[string]interface{}
-							for _, HTTPListItem := range ForwardProxyPbrRulesItem.HTTPList.HTTPList {
-								HTTPListItemMap := make(map[string]interface{})
-								if HTTPListItem.AnyPath != nil {
-									HTTPListItemMap["any_path"] = map[string]interface{}{}
+						if !ForwardProxyPbrRulesItem.HTTPList.HTTPList.IsNull() && !ForwardProxyPbrRulesItem.HTTPList.HTTPList.IsUnknown() {
+							var HTTPListElems []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModel
+							diags := ForwardProxyPbrRulesItem.HTTPList.HTTPList.ElementsAs(ctx, &HTTPListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(HTTPListElems) > 0 {
+								var HTTPListList []map[string]interface{}
+								for _, HTTPListItem := range HTTPListElems {
+									HTTPListItemMap := make(map[string]interface{})
+									if HTTPListItem.AnyPath != nil {
+										HTTPListItemMap["any_path"] = map[string]interface{}{}
+									}
+									if !HTTPListItem.ExactValue.IsNull() && !HTTPListItem.ExactValue.IsUnknown() {
+										HTTPListItemMap["exact_value"] = HTTPListItem.ExactValue.ValueString()
+									}
+									if !HTTPListItem.PathExactValue.IsNull() && !HTTPListItem.PathExactValue.IsUnknown() {
+										HTTPListItemMap["path_exact_value"] = HTTPListItem.PathExactValue.ValueString()
+									}
+									if !HTTPListItem.PathPrefixValue.IsNull() && !HTTPListItem.PathPrefixValue.IsUnknown() {
+										HTTPListItemMap["path_prefix_value"] = HTTPListItem.PathPrefixValue.ValueString()
+									}
+									if !HTTPListItem.PathRegexValue.IsNull() && !HTTPListItem.PathRegexValue.IsUnknown() {
+										HTTPListItemMap["path_regex_value"] = HTTPListItem.PathRegexValue.ValueString()
+									}
+									if !HTTPListItem.RegexValue.IsNull() && !HTTPListItem.RegexValue.IsUnknown() {
+										HTTPListItemMap["regex_value"] = HTTPListItem.RegexValue.ValueString()
+									}
+									if !HTTPListItem.SuffixValue.IsNull() && !HTTPListItem.SuffixValue.IsUnknown() {
+										HTTPListItemMap["suffix_value"] = HTTPListItem.SuffixValue.ValueString()
+									}
+									HTTPListList = append(HTTPListList, HTTPListItemMap)
 								}
-								if !HTTPListItem.ExactValue.IsNull() && !HTTPListItem.ExactValue.IsUnknown() {
-									HTTPListItemMap["exact_value"] = HTTPListItem.ExactValue.ValueString()
-								}
-								if !HTTPListItem.PathExactValue.IsNull() && !HTTPListItem.PathExactValue.IsUnknown() {
-									HTTPListItemMap["path_exact_value"] = HTTPListItem.PathExactValue.ValueString()
-								}
-								if !HTTPListItem.PathPrefixValue.IsNull() && !HTTPListItem.PathPrefixValue.IsUnknown() {
-									HTTPListItemMap["path_prefix_value"] = HTTPListItem.PathPrefixValue.ValueString()
-								}
-								if !HTTPListItem.PathRegexValue.IsNull() && !HTTPListItem.PathRegexValue.IsUnknown() {
-									HTTPListItemMap["path_regex_value"] = HTTPListItem.PathRegexValue.ValueString()
-								}
-								if !HTTPListItem.RegexValue.IsNull() && !HTTPListItem.RegexValue.IsUnknown() {
-									HTTPListItemMap["regex_value"] = HTTPListItem.RegexValue.ValueString()
-								}
-								if !HTTPListItem.SuffixValue.IsNull() && !HTTPListItem.SuffixValue.IsUnknown() {
-									HTTPListItemMap["suffix_value"] = HTTPListItem.SuffixValue.ValueString()
-								}
-								HTTPListList = append(HTTPListList, HTTPListItemMap)
+								HTTPListMap["http_list"] = HTTPListList
 							}
-							HTTPListMap["http_list"] = HTTPListList
 						}
 						ForwardProxyPbrRulesItemMap["http_list"] = HTTPListMap
 					}
@@ -2757,22 +2776,27 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 					}
 					if ForwardProxyPbrRulesItem.TLSList != nil {
 						TLSListMap := make(map[string]interface{})
-						if len(ForwardProxyPbrRulesItem.TLSList.TLSList) > 0 {
-							var TLSListList []map[string]interface{}
-							for _, TLSListItem := range ForwardProxyPbrRulesItem.TLSList.TLSList {
-								TLSListItemMap := make(map[string]interface{})
-								if !TLSListItem.ExactValue.IsNull() && !TLSListItem.ExactValue.IsUnknown() {
-									TLSListItemMap["exact_value"] = TLSListItem.ExactValue.ValueString()
+						if !ForwardProxyPbrRulesItem.TLSList.TLSList.IsNull() && !ForwardProxyPbrRulesItem.TLSList.TLSList.IsUnknown() {
+							var TLSListElems []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModel
+							diags := ForwardProxyPbrRulesItem.TLSList.TLSList.ElementsAs(ctx, &TLSListElems, false)
+							resp.Diagnostics.Append(diags...)
+							if !resp.Diagnostics.HasError() && len(TLSListElems) > 0 {
+								var TLSListList []map[string]interface{}
+								for _, TLSListItem := range TLSListElems {
+									TLSListItemMap := make(map[string]interface{})
+									if !TLSListItem.ExactValue.IsNull() && !TLSListItem.ExactValue.IsUnknown() {
+										TLSListItemMap["exact_value"] = TLSListItem.ExactValue.ValueString()
+									}
+									if !TLSListItem.RegexValue.IsNull() && !TLSListItem.RegexValue.IsUnknown() {
+										TLSListItemMap["regex_value"] = TLSListItem.RegexValue.ValueString()
+									}
+									if !TLSListItem.SuffixValue.IsNull() && !TLSListItem.SuffixValue.IsUnknown() {
+										TLSListItemMap["suffix_value"] = TLSListItem.SuffixValue.ValueString()
+									}
+									TLSListList = append(TLSListList, TLSListItemMap)
 								}
-								if !TLSListItem.RegexValue.IsNull() && !TLSListItem.RegexValue.IsUnknown() {
-									TLSListItemMap["regex_value"] = TLSListItem.RegexValue.ValueString()
-								}
-								if !TLSListItem.SuffixValue.IsNull() && !TLSListItem.SuffixValue.IsUnknown() {
-									TLSListItemMap["suffix_value"] = TLSListItem.SuffixValue.ValueString()
-								}
-								TLSListList = append(TLSListList, TLSListItemMap)
+								TLSListMap["tls_list"] = TLSListList
 							}
-							TLSListMap["tls_list"] = TLSListList
 						}
 						ForwardProxyPbrRulesItemMap["tls_list"] = TLSListMap
 					}
@@ -3063,7 +3087,7 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 								HTTPList: func() *PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListModel {
 									if HTTPListData, ok := ForwardProxyPbrRulesItemMap["http_list"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListModel{
-											HTTPList: func() []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModel {
+											HTTPList: func() types.List {
 												if rawList, ok := HTTPListData["http_list"].([]interface{}); ok && len(rawList) > 0 {
 													var HTTPListResult []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModel
 													for _, HTTPListItem := range rawList {
@@ -3114,9 +3138,10 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 															})
 														}
 													}
-													return HTTPListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModelAttrTypes}, HTTPListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModelAttrTypes})
 											}(),
 										}
 									}
@@ -3209,7 +3234,7 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 								TLSList: func() *PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListModel {
 									if TLSListData, ok := ForwardProxyPbrRulesItemMap["tls_list"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListModel{
-											TLSList: func() []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModel {
+											TLSList: func() types.List {
 												if rawList, ok := TLSListData["tls_list"].([]interface{}); ok && len(rawList) > 0 {
 													var TLSListResult []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModel
 													for _, TLSListItem := range rawList {
@@ -3236,9 +3261,10 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 															})
 														}
 													}
-													return TLSListResult
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModelAttrTypes}, TLSListResult)
+													return listVal
 												}
-												return nil
+												return types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModelAttrTypes})
 											}(),
 										}
 									}

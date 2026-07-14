@@ -92,7 +92,7 @@ var FleetBlockedServicesModelAttrTypes = map[string]attr.Type{
 
 // FleetBondDeviceListModel represents bond_device_list block
 type FleetBondDeviceListModel struct {
-	BondDevices []FleetBondDeviceListBondDevicesModel `tfsdk:"bond_devices"`
+	BondDevices types.List `tfsdk:"bond_devices"`
 }
 
 // FleetBondDeviceListModelAttrTypes defines the attribute types for FleetBondDeviceListModel
@@ -366,7 +366,7 @@ var FleetOutsideVirtualNetworkModelAttrTypes = map[string]attr.Type{
 
 // FleetSriovInterfacesModel represents sriov_interfaces block
 type FleetSriovInterfacesModel struct {
-	SriovInterface []FleetSriovInterfacesSriovInterfaceModel `tfsdk:"sriov_interface"`
+	SriovInterface types.List `tfsdk:"sriov_interface"`
 }
 
 // FleetSriovInterfacesModelAttrTypes defines the attribute types for FleetSriovInterfacesModel
@@ -390,7 +390,7 @@ var FleetSriovInterfacesSriovInterfaceModelAttrTypes = map[string]attr.Type{
 
 // FleetStorageClassListModel represents storage_class_list block
 type FleetStorageClassListModel struct {
-	StorageClasses []FleetStorageClassListStorageClassesModel `tfsdk:"storage_classes"`
+	StorageClasses types.List `tfsdk:"storage_classes"`
 }
 
 // FleetStorageClassListModelAttrTypes defines the attribute types for FleetStorageClassListModel
@@ -506,7 +506,7 @@ var FleetStorageClassListStorageClassesPureServiceOrchestratorModelAttrTypes = m
 
 // FleetStorageDeviceListModel represents storage_device_list block
 type FleetStorageDeviceListModel struct {
-	StorageDevices []FleetStorageDeviceListStorageDevicesModel `tfsdk:"storage_devices"`
+	StorageDevices types.List `tfsdk:"storage_devices"`
 }
 
 // FleetStorageDeviceListModelAttrTypes defines the attribute types for FleetStorageDeviceListModel
@@ -666,7 +666,7 @@ type FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasModel
 	ClientPrivateKey     *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel `tfsdk:"client_private_key"`
 	Labels               *FleetEmptyModel                                                                             `tfsdk:"labels"`
 	Password             *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModel         `tfsdk:"password"`
-	Storage              []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel         `tfsdk:"storage"`
+	Storage              types.List                                                                                   `tfsdk:"storage"`
 	VolumeDefaults       *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModel   `tfsdk:"volume_defaults"`
 }
 
@@ -884,7 +884,7 @@ type FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel
 	Labels               *FleetEmptyModel                                                                             `tfsdk:"labels"`
 	NoChap               *FleetEmptyModel                                                                             `tfsdk:"no_chap"`
 	Password             *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel         `tfsdk:"password"`
-	Storage              []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel         `tfsdk:"storage"`
+	Storage              types.List                                                                                   `tfsdk:"storage"`
 	UseChap              *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapModel          `tfsdk:"use_chap"`
 	VolumeDefaults       *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModel   `tfsdk:"volume_defaults"`
 }
@@ -1194,13 +1194,13 @@ var FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysModelAttrTy
 
 // FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayModel represents flash_array block
 type FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayModel struct {
-	DefaultFsOpt              types.String                                                                                  `tfsdk:"default_fs_opt"`
-	DefaultFsType             types.String                                                                                  `tfsdk:"default_fs_type"`
-	DefaultMountOpts          types.List                                                                                    `tfsdk:"default_mount_opts"`
-	DisablePreemptAttachments types.Bool                                                                                    `tfsdk:"disable_preempt_attachments"`
-	IscsiLoginTimeout         types.Int64                                                                                   `tfsdk:"iscsi_login_timeout"`
-	SanType                   types.String                                                                                  `tfsdk:"san_type"`
-	FlashArrays               []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel `tfsdk:"flash_arrays"`
+	DefaultFsOpt              types.String `tfsdk:"default_fs_opt"`
+	DefaultFsType             types.String `tfsdk:"default_fs_type"`
+	DefaultMountOpts          types.List   `tfsdk:"default_mount_opts"`
+	DisablePreemptAttachments types.Bool   `tfsdk:"disable_preempt_attachments"`
+	IscsiLoginTimeout         types.Int64  `tfsdk:"iscsi_login_timeout"`
+	SanType                   types.String `tfsdk:"san_type"`
+	FlashArrays               types.List   `tfsdk:"flash_arrays"`
 }
 
 // FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayModelAttrTypes defines the attribute types for FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayModel
@@ -1270,9 +1270,9 @@ var FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayF
 
 // FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeModel represents flash_blade block
 type FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeModel struct {
-	EnableSnapshotDirectory types.Bool                                                                                    `tfsdk:"enable_snapshot_directory"`
-	ExportRules             types.String                                                                                  `tfsdk:"export_rules"`
-	FlashBlades             []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel `tfsdk:"flash_blades"`
+	EnableSnapshotDirectory types.Bool   `tfsdk:"enable_snapshot_directory"`
+	ExportRules             types.String `tfsdk:"export_rules"`
+	FlashBlades             types.List   `tfsdk:"flash_blades"`
 }
 
 // FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeModelAttrTypes defines the attribute types for FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeModel
@@ -1376,10 +1376,10 @@ var FleetStorageStaticRoutesModelAttrTypes = map[string]attr.Type{
 
 // FleetStorageStaticRoutesStorageRoutesModel represents storage_routes block
 type FleetStorageStaticRoutesStorageRoutesModel struct {
-	Attrs   types.List                                          `tfsdk:"attrs"`
-	Labels  *FleetEmptyModel                                    `tfsdk:"labels"`
-	Nexthop *FleetStorageStaticRoutesStorageRoutesNexthopModel  `tfsdk:"nexthop"`
-	Subnets []FleetStorageStaticRoutesStorageRoutesSubnetsModel `tfsdk:"subnets"`
+	Attrs   types.List                                         `tfsdk:"attrs"`
+	Labels  *FleetEmptyModel                                   `tfsdk:"labels"`
+	Nexthop *FleetStorageStaticRoutesStorageRoutesNexthopModel `tfsdk:"nexthop"`
+	Subnets types.List                                         `tfsdk:"subnets"`
 }
 
 // FleetStorageStaticRoutesStorageRoutesModelAttrTypes defines the attribute types for FleetStorageStaticRoutesStorageRoutesModel
@@ -3954,39 +3954,44 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 	}
 	if data.BondDeviceList != nil {
 		BondDeviceListMap := make(map[string]interface{})
-		if len(data.BondDeviceList.BondDevices) > 0 {
-			var BondDevicesList []map[string]interface{}
-			for _, BondDevicesItem := range data.BondDeviceList.BondDevices {
-				BondDevicesItemMap := make(map[string]interface{})
-				if BondDevicesItem.ActiveBackup != nil {
-					BondDevicesItemMap["active_backup"] = map[string]interface{}{}
-				}
-				if !BondDevicesItem.Devices.IsNull() && !BondDevicesItem.Devices.IsUnknown() {
-					var DevicesItems []string
-					diags := BondDevicesItem.Devices.ElementsAs(ctx, &DevicesItems, false)
-					if !diags.HasError() {
-						BondDevicesItemMap["devices"] = DevicesItems
+		if !data.BondDeviceList.BondDevices.IsNull() && !data.BondDeviceList.BondDevices.IsUnknown() {
+			var BondDevicesElems []FleetBondDeviceListBondDevicesModel
+			diags := data.BondDeviceList.BondDevices.ElementsAs(ctx, &BondDevicesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(BondDevicesElems) > 0 {
+				var BondDevicesList []map[string]interface{}
+				for _, BondDevicesItem := range BondDevicesElems {
+					BondDevicesItemMap := make(map[string]interface{})
+					if BondDevicesItem.ActiveBackup != nil {
+						BondDevicesItemMap["active_backup"] = map[string]interface{}{}
 					}
-				}
-				if BondDevicesItem.Lacp != nil {
-					LacpMap := make(map[string]interface{})
-					if !BondDevicesItem.Lacp.Rate.IsNull() && !BondDevicesItem.Lacp.Rate.IsUnknown() {
-						LacpMap["rate"] = BondDevicesItem.Lacp.Rate.ValueInt64()
+					if !BondDevicesItem.Devices.IsNull() && !BondDevicesItem.Devices.IsUnknown() {
+						var DevicesItems []string
+						diags := BondDevicesItem.Devices.ElementsAs(ctx, &DevicesItems, false)
+						if !diags.HasError() {
+							BondDevicesItemMap["devices"] = DevicesItems
+						}
 					}
-					BondDevicesItemMap["lacp"] = LacpMap
+					if BondDevicesItem.Lacp != nil {
+						LacpMap := make(map[string]interface{})
+						if !BondDevicesItem.Lacp.Rate.IsNull() && !BondDevicesItem.Lacp.Rate.IsUnknown() {
+							LacpMap["rate"] = BondDevicesItem.Lacp.Rate.ValueInt64()
+						}
+						BondDevicesItemMap["lacp"] = LacpMap
+					}
+					if !BondDevicesItem.LinkPollingInterval.IsNull() && !BondDevicesItem.LinkPollingInterval.IsUnknown() {
+						BondDevicesItemMap["link_polling_interval"] = BondDevicesItem.LinkPollingInterval.ValueInt64()
+					}
+					if !BondDevicesItem.LinkUpDelay.IsNull() && !BondDevicesItem.LinkUpDelay.IsUnknown() {
+						BondDevicesItemMap["link_up_delay"] = BondDevicesItem.LinkUpDelay.ValueInt64()
+					}
+					if !BondDevicesItem.Name.IsNull() && !BondDevicesItem.Name.IsUnknown() {
+						BondDevicesItemMap["name"] = BondDevicesItem.Name.ValueString()
+					}
+					BondDevicesList = append(BondDevicesList, BondDevicesItemMap)
 				}
-				if !BondDevicesItem.LinkPollingInterval.IsNull() && !BondDevicesItem.LinkPollingInterval.IsUnknown() {
-					BondDevicesItemMap["link_polling_interval"] = BondDevicesItem.LinkPollingInterval.ValueInt64()
-				}
-				if !BondDevicesItem.LinkUpDelay.IsNull() && !BondDevicesItem.LinkUpDelay.IsUnknown() {
-					BondDevicesItemMap["link_up_delay"] = BondDevicesItem.LinkUpDelay.ValueInt64()
-				}
-				if !BondDevicesItem.Name.IsNull() && !BondDevicesItem.Name.IsUnknown() {
-					BondDevicesItemMap["name"] = BondDevicesItem.Name.ValueString()
-				}
-				BondDevicesList = append(BondDevicesList, BondDevicesItemMap)
+				BondDeviceListMap["bond_devices"] = BondDevicesList
 			}
-			BondDeviceListMap["bond_devices"] = BondDevicesList
 		}
 		createReq.Spec["bond_device_list"] = BondDeviceListMap
 	}
@@ -4305,872 +4310,907 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 	}
 	if data.SriovInterfaces != nil {
 		SriovInterfacesMap := make(map[string]interface{})
-		if len(data.SriovInterfaces.SriovInterface) > 0 {
-			var SriovInterfaceList []map[string]interface{}
-			for _, SriovInterfaceItem := range data.SriovInterfaces.SriovInterface {
-				SriovInterfaceItemMap := make(map[string]interface{})
-				if !SriovInterfaceItem.InterfaceName.IsNull() && !SriovInterfaceItem.InterfaceName.IsUnknown() {
-					SriovInterfaceItemMap["interface_name"] = SriovInterfaceItem.InterfaceName.ValueString()
+		if !data.SriovInterfaces.SriovInterface.IsNull() && !data.SriovInterfaces.SriovInterface.IsUnknown() {
+			var SriovInterfaceElems []FleetSriovInterfacesSriovInterfaceModel
+			diags := data.SriovInterfaces.SriovInterface.ElementsAs(ctx, &SriovInterfaceElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(SriovInterfaceElems) > 0 {
+				var SriovInterfaceList []map[string]interface{}
+				for _, SriovInterfaceItem := range SriovInterfaceElems {
+					SriovInterfaceItemMap := make(map[string]interface{})
+					if !SriovInterfaceItem.InterfaceName.IsNull() && !SriovInterfaceItem.InterfaceName.IsUnknown() {
+						SriovInterfaceItemMap["interface_name"] = SriovInterfaceItem.InterfaceName.ValueString()
+					}
+					if !SriovInterfaceItem.NumberOfVfioVfs.IsNull() && !SriovInterfaceItem.NumberOfVfioVfs.IsUnknown() {
+						SriovInterfaceItemMap["number_of_vfio_vfs"] = SriovInterfaceItem.NumberOfVfioVfs.ValueInt64()
+					}
+					if !SriovInterfaceItem.NumberOfVfs.IsNull() && !SriovInterfaceItem.NumberOfVfs.IsUnknown() {
+						SriovInterfaceItemMap["number_of_vfs"] = SriovInterfaceItem.NumberOfVfs.ValueInt64()
+					}
+					SriovInterfaceList = append(SriovInterfaceList, SriovInterfaceItemMap)
 				}
-				if !SriovInterfaceItem.NumberOfVfioVfs.IsNull() && !SriovInterfaceItem.NumberOfVfioVfs.IsUnknown() {
-					SriovInterfaceItemMap["number_of_vfio_vfs"] = SriovInterfaceItem.NumberOfVfioVfs.ValueInt64()
-				}
-				if !SriovInterfaceItem.NumberOfVfs.IsNull() && !SriovInterfaceItem.NumberOfVfs.IsUnknown() {
-					SriovInterfaceItemMap["number_of_vfs"] = SriovInterfaceItem.NumberOfVfs.ValueInt64()
-				}
-				SriovInterfaceList = append(SriovInterfaceList, SriovInterfaceItemMap)
+				SriovInterfacesMap["sriov_interface"] = SriovInterfaceList
 			}
-			SriovInterfacesMap["sriov_interface"] = SriovInterfaceList
 		}
 		createReq.Spec["sriov_interfaces"] = SriovInterfacesMap
 	}
 	if data.StorageClassList != nil {
 		StorageClassListMap := make(map[string]interface{})
-		if len(data.StorageClassList.StorageClasses) > 0 {
-			var StorageClassesList []map[string]interface{}
-			for _, StorageClassesItem := range data.StorageClassList.StorageClasses {
-				StorageClassesItemMap := make(map[string]interface{})
-				if StorageClassesItem.AdvancedStorageParameters != nil {
-					StorageClassesItemMap["advanced_storage_parameters"] = map[string]interface{}{}
+		if !data.StorageClassList.StorageClasses.IsNull() && !data.StorageClassList.StorageClasses.IsUnknown() {
+			var StorageClassesElems []FleetStorageClassListStorageClassesModel
+			diags := data.StorageClassList.StorageClasses.ElementsAs(ctx, &StorageClassesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(StorageClassesElems) > 0 {
+				var StorageClassesList []map[string]interface{}
+				for _, StorageClassesItem := range StorageClassesElems {
+					StorageClassesItemMap := make(map[string]interface{})
+					if StorageClassesItem.AdvancedStorageParameters != nil {
+						StorageClassesItemMap["advanced_storage_parameters"] = map[string]interface{}{}
+					}
+					if !StorageClassesItem.AllowVolumeExpansion.IsNull() && !StorageClassesItem.AllowVolumeExpansion.IsUnknown() {
+						StorageClassesItemMap["allow_volume_expansion"] = StorageClassesItem.AllowVolumeExpansion.ValueBool()
+					}
+					if StorageClassesItem.CustomStorage != nil {
+						CustomStorageMap := make(map[string]interface{})
+						if !StorageClassesItem.CustomStorage.Yaml.IsNull() && !StorageClassesItem.CustomStorage.Yaml.IsUnknown() {
+							CustomStorageMap["yaml"] = StorageClassesItem.CustomStorage.Yaml.ValueString()
+						}
+						StorageClassesItemMap["custom_storage"] = CustomStorageMap
+					}
+					if !StorageClassesItem.DefaultStorageClass.IsNull() && !StorageClassesItem.DefaultStorageClass.IsUnknown() {
+						StorageClassesItemMap["default_storage_class"] = StorageClassesItem.DefaultStorageClass.ValueBool()
+					}
+					if !StorageClassesItem.DescriptionSpec.IsNull() && !StorageClassesItem.DescriptionSpec.IsUnknown() {
+						StorageClassesItemMap["description"] = StorageClassesItem.DescriptionSpec.ValueString()
+					}
+					if StorageClassesItem.HpeStorage != nil {
+						HpeStorageMap := make(map[string]interface{})
+						if !StorageClassesItem.HpeStorage.AllowMutations.IsNull() && !StorageClassesItem.HpeStorage.AllowMutations.IsUnknown() {
+							HpeStorageMap["allow_mutations"] = StorageClassesItem.HpeStorage.AllowMutations.ValueString()
+						}
+						if !StorageClassesItem.HpeStorage.AllowOverrides.IsNull() && !StorageClassesItem.HpeStorage.AllowOverrides.IsUnknown() {
+							HpeStorageMap["allow_overrides"] = StorageClassesItem.HpeStorage.AllowOverrides.ValueString()
+						}
+						if !StorageClassesItem.HpeStorage.DedupeEnabled.IsNull() && !StorageClassesItem.HpeStorage.DedupeEnabled.IsUnknown() {
+							HpeStorageMap["dedupe_enabled"] = StorageClassesItem.HpeStorage.DedupeEnabled.ValueBool()
+						}
+						if !StorageClassesItem.HpeStorage.DescriptionSpec.IsNull() && !StorageClassesItem.HpeStorage.DescriptionSpec.IsUnknown() {
+							HpeStorageMap["description"] = StorageClassesItem.HpeStorage.DescriptionSpec.ValueString()
+						}
+						if !StorageClassesItem.HpeStorage.DestroyOnDelete.IsNull() && !StorageClassesItem.HpeStorage.DestroyOnDelete.IsUnknown() {
+							HpeStorageMap["destroy_on_delete"] = StorageClassesItem.HpeStorage.DestroyOnDelete.ValueBool()
+						}
+						if !StorageClassesItem.HpeStorage.Encrypted.IsNull() && !StorageClassesItem.HpeStorage.Encrypted.IsUnknown() {
+							HpeStorageMap["encrypted"] = StorageClassesItem.HpeStorage.Encrypted.ValueBool()
+						}
+						if !StorageClassesItem.HpeStorage.Folder.IsNull() && !StorageClassesItem.HpeStorage.Folder.IsUnknown() {
+							HpeStorageMap["folder"] = StorageClassesItem.HpeStorage.Folder.ValueString()
+						}
+						if !StorageClassesItem.HpeStorage.LimitIops.IsNull() && !StorageClassesItem.HpeStorage.LimitIops.IsUnknown() {
+							HpeStorageMap["limit_iops"] = StorageClassesItem.HpeStorage.LimitIops.ValueString()
+						}
+						if !StorageClassesItem.HpeStorage.LimitMbps.IsNull() && !StorageClassesItem.HpeStorage.LimitMbps.IsUnknown() {
+							HpeStorageMap["limit_mbps"] = StorageClassesItem.HpeStorage.LimitMbps.ValueString()
+						}
+						if !StorageClassesItem.HpeStorage.PerformancePolicy.IsNull() && !StorageClassesItem.HpeStorage.PerformancePolicy.IsUnknown() {
+							HpeStorageMap["performance_policy"] = StorageClassesItem.HpeStorage.PerformancePolicy.ValueString()
+						}
+						if !StorageClassesItem.HpeStorage.Pool.IsNull() && !StorageClassesItem.HpeStorage.Pool.IsUnknown() {
+							HpeStorageMap["pool"] = StorageClassesItem.HpeStorage.Pool.ValueString()
+						}
+						if !StorageClassesItem.HpeStorage.ProtectionTemplate.IsNull() && !StorageClassesItem.HpeStorage.ProtectionTemplate.IsUnknown() {
+							HpeStorageMap["protection_template"] = StorageClassesItem.HpeStorage.ProtectionTemplate.ValueString()
+						}
+						if !StorageClassesItem.HpeStorage.SecretName.IsNull() && !StorageClassesItem.HpeStorage.SecretName.IsUnknown() {
+							HpeStorageMap["secret_name"] = StorageClassesItem.HpeStorage.SecretName.ValueString()
+						}
+						if !StorageClassesItem.HpeStorage.SecretNamespace.IsNull() && !StorageClassesItem.HpeStorage.SecretNamespace.IsUnknown() {
+							HpeStorageMap["secret_namespace"] = StorageClassesItem.HpeStorage.SecretNamespace.ValueString()
+						}
+						if !StorageClassesItem.HpeStorage.SyncOnDetach.IsNull() && !StorageClassesItem.HpeStorage.SyncOnDetach.IsUnknown() {
+							HpeStorageMap["sync_on_detach"] = StorageClassesItem.HpeStorage.SyncOnDetach.ValueBool()
+						}
+						if !StorageClassesItem.HpeStorage.Thick.IsNull() && !StorageClassesItem.HpeStorage.Thick.IsUnknown() {
+							HpeStorageMap["thick"] = StorageClassesItem.HpeStorage.Thick.ValueBool()
+						}
+						StorageClassesItemMap["hpe_storage"] = HpeStorageMap
+					}
+					if StorageClassesItem.NetappTrident != nil {
+						NetappTridentMap := make(map[string]interface{})
+						if StorageClassesItem.NetappTrident.Selector != nil {
+							NetappTridentMap["selector"] = map[string]interface{}{}
+						}
+						if !StorageClassesItem.NetappTrident.StoragePools.IsNull() && !StorageClassesItem.NetappTrident.StoragePools.IsUnknown() {
+							NetappTridentMap["storage_pools"] = StorageClassesItem.NetappTrident.StoragePools.ValueString()
+						}
+						StorageClassesItemMap["netapp_trident"] = NetappTridentMap
+					}
+					if StorageClassesItem.PureServiceOrchestrator != nil {
+						PureServiceOrchestratorMap := make(map[string]interface{})
+						if !StorageClassesItem.PureServiceOrchestrator.Backend.IsNull() && !StorageClassesItem.PureServiceOrchestrator.Backend.IsUnknown() {
+							PureServiceOrchestratorMap["backend"] = StorageClassesItem.PureServiceOrchestrator.Backend.ValueString()
+						}
+						if !StorageClassesItem.PureServiceOrchestrator.BandwidthLimit.IsNull() && !StorageClassesItem.PureServiceOrchestrator.BandwidthLimit.IsUnknown() {
+							PureServiceOrchestratorMap["bandwidth_limit"] = StorageClassesItem.PureServiceOrchestrator.BandwidthLimit.ValueString()
+						}
+						if !StorageClassesItem.PureServiceOrchestrator.IopsLimit.IsNull() && !StorageClassesItem.PureServiceOrchestrator.IopsLimit.IsUnknown() {
+							PureServiceOrchestratorMap["iops_limit"] = StorageClassesItem.PureServiceOrchestrator.IopsLimit.ValueInt64()
+						}
+						StorageClassesItemMap["pure_service_orchestrator"] = PureServiceOrchestratorMap
+					}
+					if !StorageClassesItem.ReclaimPolicy.IsNull() && !StorageClassesItem.ReclaimPolicy.IsUnknown() {
+						StorageClassesItemMap["reclaim_policy"] = StorageClassesItem.ReclaimPolicy.ValueString()
+					}
+					if !StorageClassesItem.StorageClassName.IsNull() && !StorageClassesItem.StorageClassName.IsUnknown() {
+						StorageClassesItemMap["storage_class_name"] = StorageClassesItem.StorageClassName.ValueString()
+					}
+					if !StorageClassesItem.StorageDevice.IsNull() && !StorageClassesItem.StorageDevice.IsUnknown() {
+						StorageClassesItemMap["storage_device"] = StorageClassesItem.StorageDevice.ValueString()
+					}
+					StorageClassesList = append(StorageClassesList, StorageClassesItemMap)
 				}
-				if !StorageClassesItem.AllowVolumeExpansion.IsNull() && !StorageClassesItem.AllowVolumeExpansion.IsUnknown() {
-					StorageClassesItemMap["allow_volume_expansion"] = StorageClassesItem.AllowVolumeExpansion.ValueBool()
-				}
-				if StorageClassesItem.CustomStorage != nil {
-					CustomStorageMap := make(map[string]interface{})
-					if !StorageClassesItem.CustomStorage.Yaml.IsNull() && !StorageClassesItem.CustomStorage.Yaml.IsUnknown() {
-						CustomStorageMap["yaml"] = StorageClassesItem.CustomStorage.Yaml.ValueString()
-					}
-					StorageClassesItemMap["custom_storage"] = CustomStorageMap
-				}
-				if !StorageClassesItem.DefaultStorageClass.IsNull() && !StorageClassesItem.DefaultStorageClass.IsUnknown() {
-					StorageClassesItemMap["default_storage_class"] = StorageClassesItem.DefaultStorageClass.ValueBool()
-				}
-				if !StorageClassesItem.DescriptionSpec.IsNull() && !StorageClassesItem.DescriptionSpec.IsUnknown() {
-					StorageClassesItemMap["description"] = StorageClassesItem.DescriptionSpec.ValueString()
-				}
-				if StorageClassesItem.HpeStorage != nil {
-					HpeStorageMap := make(map[string]interface{})
-					if !StorageClassesItem.HpeStorage.AllowMutations.IsNull() && !StorageClassesItem.HpeStorage.AllowMutations.IsUnknown() {
-						HpeStorageMap["allow_mutations"] = StorageClassesItem.HpeStorage.AllowMutations.ValueString()
-					}
-					if !StorageClassesItem.HpeStorage.AllowOverrides.IsNull() && !StorageClassesItem.HpeStorage.AllowOverrides.IsUnknown() {
-						HpeStorageMap["allow_overrides"] = StorageClassesItem.HpeStorage.AllowOverrides.ValueString()
-					}
-					if !StorageClassesItem.HpeStorage.DedupeEnabled.IsNull() && !StorageClassesItem.HpeStorage.DedupeEnabled.IsUnknown() {
-						HpeStorageMap["dedupe_enabled"] = StorageClassesItem.HpeStorage.DedupeEnabled.ValueBool()
-					}
-					if !StorageClassesItem.HpeStorage.DescriptionSpec.IsNull() && !StorageClassesItem.HpeStorage.DescriptionSpec.IsUnknown() {
-						HpeStorageMap["description"] = StorageClassesItem.HpeStorage.DescriptionSpec.ValueString()
-					}
-					if !StorageClassesItem.HpeStorage.DestroyOnDelete.IsNull() && !StorageClassesItem.HpeStorage.DestroyOnDelete.IsUnknown() {
-						HpeStorageMap["destroy_on_delete"] = StorageClassesItem.HpeStorage.DestroyOnDelete.ValueBool()
-					}
-					if !StorageClassesItem.HpeStorage.Encrypted.IsNull() && !StorageClassesItem.HpeStorage.Encrypted.IsUnknown() {
-						HpeStorageMap["encrypted"] = StorageClassesItem.HpeStorage.Encrypted.ValueBool()
-					}
-					if !StorageClassesItem.HpeStorage.Folder.IsNull() && !StorageClassesItem.HpeStorage.Folder.IsUnknown() {
-						HpeStorageMap["folder"] = StorageClassesItem.HpeStorage.Folder.ValueString()
-					}
-					if !StorageClassesItem.HpeStorage.LimitIops.IsNull() && !StorageClassesItem.HpeStorage.LimitIops.IsUnknown() {
-						HpeStorageMap["limit_iops"] = StorageClassesItem.HpeStorage.LimitIops.ValueString()
-					}
-					if !StorageClassesItem.HpeStorage.LimitMbps.IsNull() && !StorageClassesItem.HpeStorage.LimitMbps.IsUnknown() {
-						HpeStorageMap["limit_mbps"] = StorageClassesItem.HpeStorage.LimitMbps.ValueString()
-					}
-					if !StorageClassesItem.HpeStorage.PerformancePolicy.IsNull() && !StorageClassesItem.HpeStorage.PerformancePolicy.IsUnknown() {
-						HpeStorageMap["performance_policy"] = StorageClassesItem.HpeStorage.PerformancePolicy.ValueString()
-					}
-					if !StorageClassesItem.HpeStorage.Pool.IsNull() && !StorageClassesItem.HpeStorage.Pool.IsUnknown() {
-						HpeStorageMap["pool"] = StorageClassesItem.HpeStorage.Pool.ValueString()
-					}
-					if !StorageClassesItem.HpeStorage.ProtectionTemplate.IsNull() && !StorageClassesItem.HpeStorage.ProtectionTemplate.IsUnknown() {
-						HpeStorageMap["protection_template"] = StorageClassesItem.HpeStorage.ProtectionTemplate.ValueString()
-					}
-					if !StorageClassesItem.HpeStorage.SecretName.IsNull() && !StorageClassesItem.HpeStorage.SecretName.IsUnknown() {
-						HpeStorageMap["secret_name"] = StorageClassesItem.HpeStorage.SecretName.ValueString()
-					}
-					if !StorageClassesItem.HpeStorage.SecretNamespace.IsNull() && !StorageClassesItem.HpeStorage.SecretNamespace.IsUnknown() {
-						HpeStorageMap["secret_namespace"] = StorageClassesItem.HpeStorage.SecretNamespace.ValueString()
-					}
-					if !StorageClassesItem.HpeStorage.SyncOnDetach.IsNull() && !StorageClassesItem.HpeStorage.SyncOnDetach.IsUnknown() {
-						HpeStorageMap["sync_on_detach"] = StorageClassesItem.HpeStorage.SyncOnDetach.ValueBool()
-					}
-					if !StorageClassesItem.HpeStorage.Thick.IsNull() && !StorageClassesItem.HpeStorage.Thick.IsUnknown() {
-						HpeStorageMap["thick"] = StorageClassesItem.HpeStorage.Thick.ValueBool()
-					}
-					StorageClassesItemMap["hpe_storage"] = HpeStorageMap
-				}
-				if StorageClassesItem.NetappTrident != nil {
-					NetappTridentMap := make(map[string]interface{})
-					if StorageClassesItem.NetappTrident.Selector != nil {
-						NetappTridentMap["selector"] = map[string]interface{}{}
-					}
-					if !StorageClassesItem.NetappTrident.StoragePools.IsNull() && !StorageClassesItem.NetappTrident.StoragePools.IsUnknown() {
-						NetappTridentMap["storage_pools"] = StorageClassesItem.NetappTrident.StoragePools.ValueString()
-					}
-					StorageClassesItemMap["netapp_trident"] = NetappTridentMap
-				}
-				if StorageClassesItem.PureServiceOrchestrator != nil {
-					PureServiceOrchestratorMap := make(map[string]interface{})
-					if !StorageClassesItem.PureServiceOrchestrator.Backend.IsNull() && !StorageClassesItem.PureServiceOrchestrator.Backend.IsUnknown() {
-						PureServiceOrchestratorMap["backend"] = StorageClassesItem.PureServiceOrchestrator.Backend.ValueString()
-					}
-					if !StorageClassesItem.PureServiceOrchestrator.BandwidthLimit.IsNull() && !StorageClassesItem.PureServiceOrchestrator.BandwidthLimit.IsUnknown() {
-						PureServiceOrchestratorMap["bandwidth_limit"] = StorageClassesItem.PureServiceOrchestrator.BandwidthLimit.ValueString()
-					}
-					if !StorageClassesItem.PureServiceOrchestrator.IopsLimit.IsNull() && !StorageClassesItem.PureServiceOrchestrator.IopsLimit.IsUnknown() {
-						PureServiceOrchestratorMap["iops_limit"] = StorageClassesItem.PureServiceOrchestrator.IopsLimit.ValueInt64()
-					}
-					StorageClassesItemMap["pure_service_orchestrator"] = PureServiceOrchestratorMap
-				}
-				if !StorageClassesItem.ReclaimPolicy.IsNull() && !StorageClassesItem.ReclaimPolicy.IsUnknown() {
-					StorageClassesItemMap["reclaim_policy"] = StorageClassesItem.ReclaimPolicy.ValueString()
-				}
-				if !StorageClassesItem.StorageClassName.IsNull() && !StorageClassesItem.StorageClassName.IsUnknown() {
-					StorageClassesItemMap["storage_class_name"] = StorageClassesItem.StorageClassName.ValueString()
-				}
-				if !StorageClassesItem.StorageDevice.IsNull() && !StorageClassesItem.StorageDevice.IsUnknown() {
-					StorageClassesItemMap["storage_device"] = StorageClassesItem.StorageDevice.ValueString()
-				}
-				StorageClassesList = append(StorageClassesList, StorageClassesItemMap)
+				StorageClassListMap["storage_classes"] = StorageClassesList
 			}
-			StorageClassListMap["storage_classes"] = StorageClassesList
 		}
 		createReq.Spec["storage_class_list"] = StorageClassListMap
 	}
 	if data.StorageDeviceList != nil {
 		StorageDeviceListMap := make(map[string]interface{})
-		if len(data.StorageDeviceList.StorageDevices) > 0 {
-			var StorageDevicesList []map[string]interface{}
-			for _, StorageDevicesItem := range data.StorageDeviceList.StorageDevices {
-				StorageDevicesItemMap := make(map[string]interface{})
-				if StorageDevicesItem.AdvancedAdvancedParameters != nil {
-					StorageDevicesItemMap["advanced_advanced_parameters"] = map[string]interface{}{}
-				}
-				if StorageDevicesItem.CustomStorage != nil {
-					StorageDevicesItemMap["custom_storage"] = map[string]interface{}{}
-				}
-				if StorageDevicesItem.HpeStorage != nil {
-					HpeStorageMap := make(map[string]interface{})
-					if !StorageDevicesItem.HpeStorage.APIServerPort.IsNull() && !StorageDevicesItem.HpeStorage.APIServerPort.IsUnknown() {
-						HpeStorageMap["api_server_port"] = StorageDevicesItem.HpeStorage.APIServerPort.ValueInt64()
+		if !data.StorageDeviceList.StorageDevices.IsNull() && !data.StorageDeviceList.StorageDevices.IsUnknown() {
+			var StorageDevicesElems []FleetStorageDeviceListStorageDevicesModel
+			diags := data.StorageDeviceList.StorageDevices.ElementsAs(ctx, &StorageDevicesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(StorageDevicesElems) > 0 {
+				var StorageDevicesList []map[string]interface{}
+				for _, StorageDevicesItem := range StorageDevicesElems {
+					StorageDevicesItemMap := make(map[string]interface{})
+					if StorageDevicesItem.AdvancedAdvancedParameters != nil {
+						StorageDevicesItemMap["advanced_advanced_parameters"] = map[string]interface{}{}
 					}
-					if StorageDevicesItem.HpeStorage.IscsiChapPassword != nil {
-						IscsiChapPasswordMap := make(map[string]interface{})
-						if StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo != nil {
-							BlindfoldSecretInfoMap := make(map[string]interface{})
-							if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-							}
-							if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.Location.IsUnknown() {
-								BlindfoldSecretInfoMap["location"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.Location.ValueString()
-							}
-							if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
-							}
-							IscsiChapPasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
-						}
-						if StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo != nil {
-							ClearSecretInfoMap := make(map[string]interface{})
-							if !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.Provider.IsUnknown() {
-								ClearSecretInfoMap["provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.Provider.ValueString()
-							}
-							if !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.URL.IsUnknown() {
-								ClearSecretInfoMap["url"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.URL.ValueString()
-							}
-							IscsiChapPasswordMap["clear_secret_info"] = ClearSecretInfoMap
-						}
-						HpeStorageMap["iscsi_chap_password"] = IscsiChapPasswordMap
+					if StorageDevicesItem.CustomStorage != nil {
+						StorageDevicesItemMap["custom_storage"] = map[string]interface{}{}
 					}
-					if !StorageDevicesItem.HpeStorage.IscsiChapUser.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapUser.IsUnknown() {
-						HpeStorageMap["iscsi_chap_user"] = StorageDevicesItem.HpeStorage.IscsiChapUser.ValueString()
-					}
-					if StorageDevicesItem.HpeStorage.Password != nil {
-						PasswordMap := make(map[string]interface{})
-						if StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo != nil {
-							BlindfoldSecretInfoMap := make(map[string]interface{})
-							if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-							}
-							if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-								BlindfoldSecretInfoMap["location"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.Location.ValueString()
-							}
-							if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
-							}
-							PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					if StorageDevicesItem.HpeStorage != nil {
+						HpeStorageMap := make(map[string]interface{})
+						if !StorageDevicesItem.HpeStorage.APIServerPort.IsNull() && !StorageDevicesItem.HpeStorage.APIServerPort.IsUnknown() {
+							HpeStorageMap["api_server_port"] = StorageDevicesItem.HpeStorage.APIServerPort.ValueInt64()
 						}
-						if StorageDevicesItem.HpeStorage.Password.ClearSecretInfo != nil {
-							ClearSecretInfoMap := make(map[string]interface{})
-							if !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.Provider.IsUnknown() {
-								ClearSecretInfoMap["provider"] = StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.Provider.ValueString()
-							}
-							if !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.URL.IsUnknown() {
-								ClearSecretInfoMap["url"] = StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.URL.ValueString()
-							}
-							PasswordMap["clear_secret_info"] = ClearSecretInfoMap
-						}
-						HpeStorageMap["password"] = PasswordMap
-					}
-					if !StorageDevicesItem.HpeStorage.StorageServerIPAddress.IsNull() && !StorageDevicesItem.HpeStorage.StorageServerIPAddress.IsUnknown() {
-						HpeStorageMap["storage_server_ip_address"] = StorageDevicesItem.HpeStorage.StorageServerIPAddress.ValueString()
-					}
-					if !StorageDevicesItem.HpeStorage.StorageServerName.IsNull() && !StorageDevicesItem.HpeStorage.StorageServerName.IsUnknown() {
-						HpeStorageMap["storage_server_name"] = StorageDevicesItem.HpeStorage.StorageServerName.ValueString()
-					}
-					if !StorageDevicesItem.HpeStorage.Username.IsNull() && !StorageDevicesItem.HpeStorage.Username.IsUnknown() {
-						HpeStorageMap["username"] = StorageDevicesItem.HpeStorage.Username.ValueString()
-					}
-					StorageDevicesItemMap["hpe_storage"] = HpeStorageMap
-				}
-				if StorageDevicesItem.NetappTrident != nil {
-					NetappTridentMap := make(map[string]interface{})
-					if StorageDevicesItem.NetappTrident.NetappBackendOntapNas != nil {
-						NetappBackendOntapNasMap := make(map[string]interface{})
-						if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs != nil {
-							AutoExportCidrsMap := make(map[string]interface{})
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.IsUnknown() {
-								var PrefixesItems []string
-								diags := StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
-								if !diags.HasError() {
-									AutoExportCidrsMap["prefixes"] = PrefixesItems
-								}
-							}
-							NetappBackendOntapNasMap["auto_export_cidrs"] = AutoExportCidrsMap
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportPolicy.IsUnknown() {
-							NetappBackendOntapNasMap["auto_export_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportPolicy.ValueBool()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.BackendName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.BackendName.IsUnknown() {
-							NetappBackendOntapNasMap["backend_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.BackendName.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientCertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientCertificate.IsUnknown() {
-							NetappBackendOntapNasMap["client_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientCertificate.ValueString()
-						}
-						if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil {
-							ClientPrivateKeyMap := make(map[string]interface{})
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo != nil {
+						if StorageDevicesItem.HpeStorage.IscsiChapPassword != nil {
+							IscsiChapPasswordMap := make(map[string]interface{})
+							if StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo != nil {
 								BlindfoldSecretInfoMap := make(map[string]interface{})
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.Location.ValueString()
+								if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.Location.ValueString()
 								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+								if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
 								}
-								ClientPrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								IscsiChapPasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
 							}
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo != nil {
+							if StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo != nil {
 								ClearSecretInfoMap := make(map[string]interface{})
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.Provider.ValueString()
+								if !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.Provider.ValueString()
 								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.URL.ValueString()
+								if !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.URL.ValueString()
 								}
-								ClientPrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								IscsiChapPasswordMap["clear_secret_info"] = ClearSecretInfoMap
 							}
-							NetappBackendOntapNasMap["client_private_key"] = ClientPrivateKeyMap
+							HpeStorageMap["iscsi_chap_password"] = IscsiChapPasswordMap
 						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifDNSName.IsUnknown() {
-							NetappBackendOntapNasMap["data_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifDNSName.ValueString()
+						if !StorageDevicesItem.HpeStorage.IscsiChapUser.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapUser.IsUnknown() {
+							HpeStorageMap["iscsi_chap_user"] = StorageDevicesItem.HpeStorage.IscsiChapUser.ValueString()
 						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.IsUnknown() {
-							NetappBackendOntapNasMap["data_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.ValueString()
-						}
-						if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Labels != nil {
-							NetappBackendOntapNasMap["labels"] = map[string]interface{}{}
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.IsUnknown() {
-							NetappBackendOntapNasMap["limit_aggregate_usage"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitVolumeSize.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitVolumeSize.IsUnknown() {
-							NetappBackendOntapNasMap["limit_volume_size"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitVolumeSize.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifDNSName.IsUnknown() {
-							NetappBackendOntapNasMap["management_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifDNSName.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifIP.IsUnknown() {
-							NetappBackendOntapNasMap["management_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifIP.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.NfsMountOptions.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.NfsMountOptions.IsUnknown() {
-							NetappBackendOntapNasMap["nfs_mount_options"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.NfsMountOptions.ValueString()
-						}
-						if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password != nil {
+						if StorageDevicesItem.HpeStorage.Password != nil {
 							PasswordMap := make(map[string]interface{})
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo != nil {
+							if StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo != nil {
 								BlindfoldSecretInfoMap := make(map[string]interface{})
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.Location.ValueString()
+								if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.Location.ValueString()
 								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+								if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
 								}
 								PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
 							}
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo != nil {
+							if StorageDevicesItem.HpeStorage.Password.ClearSecretInfo != nil {
 								ClearSecretInfoMap := make(map[string]interface{})
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.Provider.ValueString()
+								if !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.Provider.ValueString()
 								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.URL.ValueString()
+								if !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.URL.ValueString()
 								}
 								PasswordMap["clear_secret_info"] = ClearSecretInfoMap
 							}
-							NetappBackendOntapNasMap["password"] = PasswordMap
+							HpeStorageMap["password"] = PasswordMap
 						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Region.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Region.IsUnknown() {
-							NetappBackendOntapNasMap["region"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Region.ValueString()
+						if !StorageDevicesItem.HpeStorage.StorageServerIPAddress.IsNull() && !StorageDevicesItem.HpeStorage.StorageServerIPAddress.IsUnknown() {
+							HpeStorageMap["storage_server_ip_address"] = StorageDevicesItem.HpeStorage.StorageServerIPAddress.ValueString()
 						}
-						if len(StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Storage) > 0 {
-							var StorageList []map[string]interface{}
-							for _, StorageItem := range StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Storage {
-								StorageItemMap := make(map[string]interface{})
-								if StorageItem.Labels != nil {
-									StorageItemMap["labels"] = map[string]interface{}{}
-								}
-								if StorageItem.VolumeDefaults != nil {
-									VolumeDefaultsMap := make(map[string]interface{})
-									if !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
-										VolumeDefaultsMap["adaptive_qos_policy"] = StorageItem.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.Encryption.IsNull() && !StorageItem.VolumeDefaults.Encryption.IsUnknown() {
-										VolumeDefaultsMap["encryption"] = StorageItem.VolumeDefaults.Encryption.ValueBool()
-									}
-									if !StorageItem.VolumeDefaults.ExportPolicy.IsNull() && !StorageItem.VolumeDefaults.ExportPolicy.IsUnknown() {
-										VolumeDefaultsMap["export_policy"] = StorageItem.VolumeDefaults.ExportPolicy.ValueString()
-									}
-									if StorageItem.VolumeDefaults.NoQOS != nil {
-										VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
-									}
-									if !StorageItem.VolumeDefaults.QOSPolicy.IsNull() && !StorageItem.VolumeDefaults.QOSPolicy.IsUnknown() {
-										VolumeDefaultsMap["qos_policy"] = StorageItem.VolumeDefaults.QOSPolicy.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.SecurityStyle.IsNull() && !StorageItem.VolumeDefaults.SecurityStyle.IsUnknown() {
-										VolumeDefaultsMap["security_style"] = StorageItem.VolumeDefaults.SecurityStyle.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.SnapshotDir.IsNull() && !StorageItem.VolumeDefaults.SnapshotDir.IsUnknown() {
-										VolumeDefaultsMap["snapshot_dir"] = StorageItem.VolumeDefaults.SnapshotDir.ValueBool()
-									}
-									if !StorageItem.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageItem.VolumeDefaults.SnapshotPolicy.IsUnknown() {
-										VolumeDefaultsMap["snapshot_policy"] = StorageItem.VolumeDefaults.SnapshotPolicy.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.SnapshotReserve.IsNull() && !StorageItem.VolumeDefaults.SnapshotReserve.IsUnknown() {
-										VolumeDefaultsMap["snapshot_reserve"] = StorageItem.VolumeDefaults.SnapshotReserve.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.SpaceReserve.IsNull() && !StorageItem.VolumeDefaults.SpaceReserve.IsUnknown() {
-										VolumeDefaultsMap["space_reserve"] = StorageItem.VolumeDefaults.SpaceReserve.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.SplitOnClone.IsNull() && !StorageItem.VolumeDefaults.SplitOnClone.IsUnknown() {
-										VolumeDefaultsMap["split_on_clone"] = StorageItem.VolumeDefaults.SplitOnClone.ValueBool()
-									}
-									if !StorageItem.VolumeDefaults.TieringPolicy.IsNull() && !StorageItem.VolumeDefaults.TieringPolicy.IsUnknown() {
-										VolumeDefaultsMap["tiering_policy"] = StorageItem.VolumeDefaults.TieringPolicy.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.UnixPermissions.IsNull() && !StorageItem.VolumeDefaults.UnixPermissions.IsUnknown() {
-										VolumeDefaultsMap["unix_permissions"] = StorageItem.VolumeDefaults.UnixPermissions.ValueInt64()
-									}
-									StorageItemMap["volume_defaults"] = VolumeDefaultsMap
-								}
-								if !StorageItem.Zone.IsNull() && !StorageItem.Zone.IsUnknown() {
-									StorageItemMap["zone"] = StorageItem.Zone.ValueString()
-								}
-								StorageList = append(StorageList, StorageItemMap)
-							}
-							NetappBackendOntapNasMap["storage"] = StorageList
+						if !StorageDevicesItem.HpeStorage.StorageServerName.IsNull() && !StorageDevicesItem.HpeStorage.StorageServerName.IsUnknown() {
+							HpeStorageMap["storage_server_name"] = StorageDevicesItem.HpeStorage.StorageServerName.ValueString()
 						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StorageDriverName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StorageDriverName.IsUnknown() {
-							NetappBackendOntapNasMap["storage_driver_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StorageDriverName.ValueString()
+						if !StorageDevicesItem.HpeStorage.Username.IsNull() && !StorageDevicesItem.HpeStorage.Username.IsUnknown() {
+							HpeStorageMap["username"] = StorageDevicesItem.HpeStorage.Username.ValueString()
 						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StoragePrefix.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StoragePrefix.IsUnknown() {
-							NetappBackendOntapNasMap["storage_prefix"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StoragePrefix.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Svm.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Svm.IsUnknown() {
-							NetappBackendOntapNasMap["svm"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Svm.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.TrustedCACertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.TrustedCACertificate.IsUnknown() {
-							NetappBackendOntapNasMap["trusted_ca_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.TrustedCACertificate.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Username.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Username.IsUnknown() {
-							NetappBackendOntapNasMap["username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Username.ValueString()
-						}
-						if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil {
-							VolumeDefaultsMap := make(map[string]interface{})
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
-								VolumeDefaultsMap["adaptive_qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.IsUnknown() {
-								VolumeDefaultsMap["encryption"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.ValueBool()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.IsUnknown() {
-								VolumeDefaultsMap["export_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.ValueString()
-							}
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS != nil {
-								VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.QOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.QOSPolicy.IsUnknown() {
-								VolumeDefaultsMap["qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.QOSPolicy.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SecurityStyle.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SecurityStyle.IsUnknown() {
-								VolumeDefaultsMap["security_style"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SecurityStyle.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.IsUnknown() {
-								VolumeDefaultsMap["snapshot_dir"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.ValueBool()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotPolicy.IsUnknown() {
-								VolumeDefaultsMap["snapshot_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotPolicy.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotReserve.IsUnknown() {
-								VolumeDefaultsMap["snapshot_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotReserve.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SpaceReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SpaceReserve.IsUnknown() {
-								VolumeDefaultsMap["space_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SpaceReserve.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.IsUnknown() {
-								VolumeDefaultsMap["split_on_clone"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.ValueBool()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.TieringPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.TieringPolicy.IsUnknown() {
-								VolumeDefaultsMap["tiering_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.TieringPolicy.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.IsUnknown() {
-								VolumeDefaultsMap["unix_permissions"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.ValueInt64()
-							}
-							NetappBackendOntapNasMap["volume_defaults"] = VolumeDefaultsMap
-						}
-						NetappTridentMap["netapp_backend_ontap_nas"] = NetappBackendOntapNasMap
+						StorageDevicesItemMap["hpe_storage"] = HpeStorageMap
 					}
-					if StorageDevicesItem.NetappTrident.NetappBackendOntapSan != nil {
-						NetappBackendOntapSanMap := make(map[string]interface{})
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientCertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientCertificate.IsUnknown() {
-							NetappBackendOntapSanMap["client_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientCertificate.ValueString()
-						}
-						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil {
-							ClientPrivateKeyMap := make(map[string]interface{})
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					if StorageDevicesItem.NetappTrident != nil {
+						NetappTridentMap := make(map[string]interface{})
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapNas != nil {
+							NetappBackendOntapNasMap := make(map[string]interface{})
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs != nil {
+								AutoExportCidrsMap := make(map[string]interface{})
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.IsUnknown() {
+									var PrefixesItems []string
+									diags := StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+									if !diags.HasError() {
+										AutoExportCidrsMap["prefixes"] = PrefixesItems
+									}
 								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.Location.ValueString()
-								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
-								}
-								ClientPrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								NetappBackendOntapNasMap["auto_export_cidrs"] = AutoExportCidrsMap
 							}
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.Provider.ValueString()
-								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.URL.ValueString()
-								}
-								ClientPrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportPolicy.IsUnknown() {
+								NetappBackendOntapNasMap["auto_export_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportPolicy.ValueBool()
 							}
-							NetappBackendOntapSanMap["client_private_key"] = ClientPrivateKeyMap
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifDNSName.IsUnknown() {
-							NetappBackendOntapSanMap["data_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifDNSName.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifIP.IsUnknown() {
-							NetappBackendOntapSanMap["data_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifIP.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.IsUnknown() {
-							NetappBackendOntapSanMap["igroup_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.ValueString()
-						}
-						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Labels != nil {
-							NetappBackendOntapSanMap["labels"] = map[string]interface{}{}
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsUnknown() {
-							NetappBackendOntapSanMap["limit_aggregate_usage"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.ValueInt64()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitVolumeSize.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitVolumeSize.IsUnknown() {
-							NetappBackendOntapSanMap["limit_volume_size"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitVolumeSize.ValueInt64()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifDNSName.IsUnknown() {
-							NetappBackendOntapSanMap["management_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifDNSName.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.IsUnknown() {
-							NetappBackendOntapSanMap["management_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.ValueString()
-						}
-						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.NoChap != nil {
-							NetappBackendOntapSanMap["no_chap"] = map[string]interface{}{}
-						}
-						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password != nil {
-							PasswordMap := make(map[string]interface{})
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.Location.ValueString()
-								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
-								}
-								PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.BackendName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.BackendName.IsUnknown() {
+								NetappBackendOntapNasMap["backend_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.BackendName.ValueString()
 							}
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.Provider.ValueString()
-								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.URL.ValueString()
-								}
-								PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientCertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientCertificate.IsUnknown() {
+								NetappBackendOntapNasMap["client_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientCertificate.ValueString()
 							}
-							NetappBackendOntapSanMap["password"] = PasswordMap
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Region.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Region.IsUnknown() {
-							NetappBackendOntapSanMap["region"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Region.ValueString()
-						}
-						if len(StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Storage) > 0 {
-							var StorageList []map[string]interface{}
-							for _, StorageItem := range StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Storage {
-								StorageItemMap := make(map[string]interface{})
-								if StorageItem.Labels != nil {
-									StorageItemMap["labels"] = map[string]interface{}{}
-								}
-								if StorageItem.VolumeDefaults != nil {
-									VolumeDefaultsMap := make(map[string]interface{})
-									if !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
-										VolumeDefaultsMap["adaptive_qos_policy"] = StorageItem.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.Encryption.IsNull() && !StorageItem.VolumeDefaults.Encryption.IsUnknown() {
-										VolumeDefaultsMap["encryption"] = StorageItem.VolumeDefaults.Encryption.ValueBool()
-									}
-									if !StorageItem.VolumeDefaults.ExportPolicy.IsNull() && !StorageItem.VolumeDefaults.ExportPolicy.IsUnknown() {
-										VolumeDefaultsMap["export_policy"] = StorageItem.VolumeDefaults.ExportPolicy.ValueString()
-									}
-									if StorageItem.VolumeDefaults.NoQOS != nil {
-										VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
-									}
-									if !StorageItem.VolumeDefaults.QOSPolicy.IsNull() && !StorageItem.VolumeDefaults.QOSPolicy.IsUnknown() {
-										VolumeDefaultsMap["qos_policy"] = StorageItem.VolumeDefaults.QOSPolicy.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.SecurityStyle.IsNull() && !StorageItem.VolumeDefaults.SecurityStyle.IsUnknown() {
-										VolumeDefaultsMap["security_style"] = StorageItem.VolumeDefaults.SecurityStyle.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.SnapshotDir.IsNull() && !StorageItem.VolumeDefaults.SnapshotDir.IsUnknown() {
-										VolumeDefaultsMap["snapshot_dir"] = StorageItem.VolumeDefaults.SnapshotDir.ValueBool()
-									}
-									if !StorageItem.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageItem.VolumeDefaults.SnapshotPolicy.IsUnknown() {
-										VolumeDefaultsMap["snapshot_policy"] = StorageItem.VolumeDefaults.SnapshotPolicy.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.SnapshotReserve.IsNull() && !StorageItem.VolumeDefaults.SnapshotReserve.IsUnknown() {
-										VolumeDefaultsMap["snapshot_reserve"] = StorageItem.VolumeDefaults.SnapshotReserve.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.SpaceReserve.IsNull() && !StorageItem.VolumeDefaults.SpaceReserve.IsUnknown() {
-										VolumeDefaultsMap["space_reserve"] = StorageItem.VolumeDefaults.SpaceReserve.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.SplitOnClone.IsNull() && !StorageItem.VolumeDefaults.SplitOnClone.IsUnknown() {
-										VolumeDefaultsMap["split_on_clone"] = StorageItem.VolumeDefaults.SplitOnClone.ValueBool()
-									}
-									if !StorageItem.VolumeDefaults.TieringPolicy.IsNull() && !StorageItem.VolumeDefaults.TieringPolicy.IsUnknown() {
-										VolumeDefaultsMap["tiering_policy"] = StorageItem.VolumeDefaults.TieringPolicy.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.UnixPermissions.IsNull() && !StorageItem.VolumeDefaults.UnixPermissions.IsUnknown() {
-										VolumeDefaultsMap["unix_permissions"] = StorageItem.VolumeDefaults.UnixPermissions.ValueInt64()
-									}
-									StorageItemMap["volume_defaults"] = VolumeDefaultsMap
-								}
-								if !StorageItem.Zone.IsNull() && !StorageItem.Zone.IsUnknown() {
-									StorageItemMap["zone"] = StorageItem.Zone.ValueString()
-								}
-								StorageList = append(StorageList, StorageItemMap)
-							}
-							NetappBackendOntapSanMap["storage"] = StorageList
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StorageDriverName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StorageDriverName.IsUnknown() {
-							NetappBackendOntapSanMap["storage_driver_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StorageDriverName.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StoragePrefix.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StoragePrefix.IsUnknown() {
-							NetappBackendOntapSanMap["storage_prefix"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StoragePrefix.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Svm.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Svm.IsUnknown() {
-							NetappBackendOntapSanMap["svm"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Svm.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.TrustedCACertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.TrustedCACertificate.IsUnknown() {
-							NetappBackendOntapSanMap["trusted_ca_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.TrustedCACertificate.ValueString()
-						}
-						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap != nil {
-							UseChapMap := make(map[string]interface{})
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil {
-								ChapInitiatorSecretMap := make(map[string]interface{})
-								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo != nil {
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil {
+								ClientPrivateKeyMap := make(map[string]interface{})
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo != nil {
 									BlindfoldSecretInfoMap := make(map[string]interface{})
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 									}
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.Location.IsUnknown() {
-										BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.Location.ValueString()
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.Location.ValueString()
 									}
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 									}
-									ChapInitiatorSecretMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									ClientPrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
 								}
-								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo != nil {
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo != nil {
 									ClearSecretInfoMap := make(map[string]interface{})
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.Provider.IsUnknown() {
-										ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.Provider.ValueString()
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.Provider.ValueString()
 									}
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.URL.IsUnknown() {
-										ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.URL.ValueString()
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.URL.ValueString()
 									}
-									ChapInitiatorSecretMap["clear_secret_info"] = ClearSecretInfoMap
+									ClientPrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
 								}
-								UseChapMap["chap_initiator_secret"] = ChapInitiatorSecretMap
+								NetappBackendOntapNasMap["client_private_key"] = ClientPrivateKeyMap
 							}
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil {
-								ChapTargetInitiatorSecretMap := make(map[string]interface{})
-								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo != nil {
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifDNSName.IsUnknown() {
+								NetappBackendOntapNasMap["data_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifDNSName.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.IsUnknown() {
+								NetappBackendOntapNasMap["data_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.ValueString()
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Labels != nil {
+								NetappBackendOntapNasMap["labels"] = map[string]interface{}{}
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.IsUnknown() {
+								NetappBackendOntapNasMap["limit_aggregate_usage"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitVolumeSize.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitVolumeSize.IsUnknown() {
+								NetappBackendOntapNasMap["limit_volume_size"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitVolumeSize.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifDNSName.IsUnknown() {
+								NetappBackendOntapNasMap["management_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifDNSName.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifIP.IsUnknown() {
+								NetappBackendOntapNasMap["management_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifIP.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.NfsMountOptions.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.NfsMountOptions.IsUnknown() {
+								NetappBackendOntapNasMap["nfs_mount_options"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.NfsMountOptions.ValueString()
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password != nil {
+								PasswordMap := make(map[string]interface{})
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo != nil {
 									BlindfoldSecretInfoMap := make(map[string]interface{})
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 									}
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.Location.IsUnknown() {
-										BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.Location.ValueString()
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.Location.ValueString()
 									}
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
 									}
-									ChapTargetInitiatorSecretMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
 								}
-								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo != nil {
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo != nil {
 									ClearSecretInfoMap := make(map[string]interface{})
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.Provider.IsUnknown() {
-										ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.Provider.ValueString()
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.Provider.ValueString()
 									}
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.URL.IsUnknown() {
-										ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.URL.ValueString()
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.URL.ValueString()
 									}
-									ChapTargetInitiatorSecretMap["clear_secret_info"] = ClearSecretInfoMap
+									PasswordMap["clear_secret_info"] = ClearSecretInfoMap
 								}
-								UseChapMap["chap_target_initiator_secret"] = ChapTargetInitiatorSecretMap
+								NetappBackendOntapNasMap["password"] = PasswordMap
 							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetUsername.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetUsername.IsUnknown() {
-								UseChapMap["chap_target_username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetUsername.ValueString()
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Region.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Region.IsUnknown() {
+								NetappBackendOntapNasMap["region"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Region.ValueString()
 							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapUsername.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapUsername.IsUnknown() {
-								UseChapMap["chap_username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapUsername.ValueString()
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Storage.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Storage.IsUnknown() {
+								var StorageElems []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel
+								diags := StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Storage.ElementsAs(ctx, &StorageElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(StorageElems) > 0 {
+									var StorageList []map[string]interface{}
+									for _, StorageItem := range StorageElems {
+										StorageItemMap := make(map[string]interface{})
+										if StorageItem.Labels != nil {
+											StorageItemMap["labels"] = map[string]interface{}{}
+										}
+										if StorageItem.VolumeDefaults != nil {
+											VolumeDefaultsMap := make(map[string]interface{})
+											if !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
+												VolumeDefaultsMap["adaptive_qos_policy"] = StorageItem.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.Encryption.IsNull() && !StorageItem.VolumeDefaults.Encryption.IsUnknown() {
+												VolumeDefaultsMap["encryption"] = StorageItem.VolumeDefaults.Encryption.ValueBool()
+											}
+											if !StorageItem.VolumeDefaults.ExportPolicy.IsNull() && !StorageItem.VolumeDefaults.ExportPolicy.IsUnknown() {
+												VolumeDefaultsMap["export_policy"] = StorageItem.VolumeDefaults.ExportPolicy.ValueString()
+											}
+											if StorageItem.VolumeDefaults.NoQOS != nil {
+												VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
+											}
+											if !StorageItem.VolumeDefaults.QOSPolicy.IsNull() && !StorageItem.VolumeDefaults.QOSPolicy.IsUnknown() {
+												VolumeDefaultsMap["qos_policy"] = StorageItem.VolumeDefaults.QOSPolicy.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.SecurityStyle.IsNull() && !StorageItem.VolumeDefaults.SecurityStyle.IsUnknown() {
+												VolumeDefaultsMap["security_style"] = StorageItem.VolumeDefaults.SecurityStyle.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.SnapshotDir.IsNull() && !StorageItem.VolumeDefaults.SnapshotDir.IsUnknown() {
+												VolumeDefaultsMap["snapshot_dir"] = StorageItem.VolumeDefaults.SnapshotDir.ValueBool()
+											}
+											if !StorageItem.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageItem.VolumeDefaults.SnapshotPolicy.IsUnknown() {
+												VolumeDefaultsMap["snapshot_policy"] = StorageItem.VolumeDefaults.SnapshotPolicy.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.SnapshotReserve.IsNull() && !StorageItem.VolumeDefaults.SnapshotReserve.IsUnknown() {
+												VolumeDefaultsMap["snapshot_reserve"] = StorageItem.VolumeDefaults.SnapshotReserve.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.SpaceReserve.IsNull() && !StorageItem.VolumeDefaults.SpaceReserve.IsUnknown() {
+												VolumeDefaultsMap["space_reserve"] = StorageItem.VolumeDefaults.SpaceReserve.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.SplitOnClone.IsNull() && !StorageItem.VolumeDefaults.SplitOnClone.IsUnknown() {
+												VolumeDefaultsMap["split_on_clone"] = StorageItem.VolumeDefaults.SplitOnClone.ValueBool()
+											}
+											if !StorageItem.VolumeDefaults.TieringPolicy.IsNull() && !StorageItem.VolumeDefaults.TieringPolicy.IsUnknown() {
+												VolumeDefaultsMap["tiering_policy"] = StorageItem.VolumeDefaults.TieringPolicy.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.UnixPermissions.IsNull() && !StorageItem.VolumeDefaults.UnixPermissions.IsUnknown() {
+												VolumeDefaultsMap["unix_permissions"] = StorageItem.VolumeDefaults.UnixPermissions.ValueInt64()
+											}
+											StorageItemMap["volume_defaults"] = VolumeDefaultsMap
+										}
+										if !StorageItem.Zone.IsNull() && !StorageItem.Zone.IsUnknown() {
+											StorageItemMap["zone"] = StorageItem.Zone.ValueString()
+										}
+										StorageList = append(StorageList, StorageItemMap)
+									}
+									NetappBackendOntapNasMap["storage"] = StorageList
+								}
 							}
-							NetappBackendOntapSanMap["use_chap"] = UseChapMap
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StorageDriverName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StorageDriverName.IsUnknown() {
+								NetappBackendOntapNasMap["storage_driver_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StorageDriverName.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StoragePrefix.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StoragePrefix.IsUnknown() {
+								NetappBackendOntapNasMap["storage_prefix"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StoragePrefix.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Svm.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Svm.IsUnknown() {
+								NetappBackendOntapNasMap["svm"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Svm.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.TrustedCACertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.TrustedCACertificate.IsUnknown() {
+								NetappBackendOntapNasMap["trusted_ca_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.TrustedCACertificate.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Username.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Username.IsUnknown() {
+								NetappBackendOntapNasMap["username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Username.ValueString()
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil {
+								VolumeDefaultsMap := make(map[string]interface{})
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
+									VolumeDefaultsMap["adaptive_qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.IsUnknown() {
+									VolumeDefaultsMap["encryption"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.ValueBool()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.IsUnknown() {
+									VolumeDefaultsMap["export_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.ValueString()
+								}
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS != nil {
+									VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.QOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.QOSPolicy.IsUnknown() {
+									VolumeDefaultsMap["qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.QOSPolicy.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SecurityStyle.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SecurityStyle.IsUnknown() {
+									VolumeDefaultsMap["security_style"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SecurityStyle.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.IsUnknown() {
+									VolumeDefaultsMap["snapshot_dir"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.ValueBool()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotPolicy.IsUnknown() {
+									VolumeDefaultsMap["snapshot_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotPolicy.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotReserve.IsUnknown() {
+									VolumeDefaultsMap["snapshot_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotReserve.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SpaceReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SpaceReserve.IsUnknown() {
+									VolumeDefaultsMap["space_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SpaceReserve.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.IsUnknown() {
+									VolumeDefaultsMap["split_on_clone"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.ValueBool()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.TieringPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.TieringPolicy.IsUnknown() {
+									VolumeDefaultsMap["tiering_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.TieringPolicy.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.IsUnknown() {
+									VolumeDefaultsMap["unix_permissions"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.ValueInt64()
+								}
+								NetappBackendOntapNasMap["volume_defaults"] = VolumeDefaultsMap
+							}
+							NetappTridentMap["netapp_backend_ontap_nas"] = NetappBackendOntapNasMap
 						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Username.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Username.IsUnknown() {
-							NetappBackendOntapSanMap["username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Username.ValueString()
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan != nil {
+							NetappBackendOntapSanMap := make(map[string]interface{})
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientCertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientCertificate.IsUnknown() {
+								NetappBackendOntapSanMap["client_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientCertificate.ValueString()
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil {
+								ClientPrivateKeyMap := make(map[string]interface{})
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									ClientPrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.Provider.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.URL.ValueString()
+									}
+									ClientPrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								NetappBackendOntapSanMap["client_private_key"] = ClientPrivateKeyMap
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifDNSName.IsUnknown() {
+								NetappBackendOntapSanMap["data_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifDNSName.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifIP.IsUnknown() {
+								NetappBackendOntapSanMap["data_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifIP.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.IsUnknown() {
+								NetappBackendOntapSanMap["igroup_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.ValueString()
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Labels != nil {
+								NetappBackendOntapSanMap["labels"] = map[string]interface{}{}
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsUnknown() {
+								NetappBackendOntapSanMap["limit_aggregate_usage"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.ValueInt64()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitVolumeSize.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitVolumeSize.IsUnknown() {
+								NetappBackendOntapSanMap["limit_volume_size"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitVolumeSize.ValueInt64()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifDNSName.IsUnknown() {
+								NetappBackendOntapSanMap["management_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifDNSName.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.IsUnknown() {
+								NetappBackendOntapSanMap["management_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.ValueString()
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.NoChap != nil {
+								NetappBackendOntapSanMap["no_chap"] = map[string]interface{}{}
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password != nil {
+								PasswordMap := make(map[string]interface{})
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.Provider.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.URL.ValueString()
+									}
+									PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								NetappBackendOntapSanMap["password"] = PasswordMap
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Region.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Region.IsUnknown() {
+								NetappBackendOntapSanMap["region"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Region.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Storage.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Storage.IsUnknown() {
+								var StorageElems []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel
+								diags := StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Storage.ElementsAs(ctx, &StorageElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(StorageElems) > 0 {
+									var StorageList []map[string]interface{}
+									for _, StorageItem := range StorageElems {
+										StorageItemMap := make(map[string]interface{})
+										if StorageItem.Labels != nil {
+											StorageItemMap["labels"] = map[string]interface{}{}
+										}
+										if StorageItem.VolumeDefaults != nil {
+											VolumeDefaultsMap := make(map[string]interface{})
+											if !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
+												VolumeDefaultsMap["adaptive_qos_policy"] = StorageItem.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.Encryption.IsNull() && !StorageItem.VolumeDefaults.Encryption.IsUnknown() {
+												VolumeDefaultsMap["encryption"] = StorageItem.VolumeDefaults.Encryption.ValueBool()
+											}
+											if !StorageItem.VolumeDefaults.ExportPolicy.IsNull() && !StorageItem.VolumeDefaults.ExportPolicy.IsUnknown() {
+												VolumeDefaultsMap["export_policy"] = StorageItem.VolumeDefaults.ExportPolicy.ValueString()
+											}
+											if StorageItem.VolumeDefaults.NoQOS != nil {
+												VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
+											}
+											if !StorageItem.VolumeDefaults.QOSPolicy.IsNull() && !StorageItem.VolumeDefaults.QOSPolicy.IsUnknown() {
+												VolumeDefaultsMap["qos_policy"] = StorageItem.VolumeDefaults.QOSPolicy.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.SecurityStyle.IsNull() && !StorageItem.VolumeDefaults.SecurityStyle.IsUnknown() {
+												VolumeDefaultsMap["security_style"] = StorageItem.VolumeDefaults.SecurityStyle.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.SnapshotDir.IsNull() && !StorageItem.VolumeDefaults.SnapshotDir.IsUnknown() {
+												VolumeDefaultsMap["snapshot_dir"] = StorageItem.VolumeDefaults.SnapshotDir.ValueBool()
+											}
+											if !StorageItem.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageItem.VolumeDefaults.SnapshotPolicy.IsUnknown() {
+												VolumeDefaultsMap["snapshot_policy"] = StorageItem.VolumeDefaults.SnapshotPolicy.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.SnapshotReserve.IsNull() && !StorageItem.VolumeDefaults.SnapshotReserve.IsUnknown() {
+												VolumeDefaultsMap["snapshot_reserve"] = StorageItem.VolumeDefaults.SnapshotReserve.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.SpaceReserve.IsNull() && !StorageItem.VolumeDefaults.SpaceReserve.IsUnknown() {
+												VolumeDefaultsMap["space_reserve"] = StorageItem.VolumeDefaults.SpaceReserve.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.SplitOnClone.IsNull() && !StorageItem.VolumeDefaults.SplitOnClone.IsUnknown() {
+												VolumeDefaultsMap["split_on_clone"] = StorageItem.VolumeDefaults.SplitOnClone.ValueBool()
+											}
+											if !StorageItem.VolumeDefaults.TieringPolicy.IsNull() && !StorageItem.VolumeDefaults.TieringPolicy.IsUnknown() {
+												VolumeDefaultsMap["tiering_policy"] = StorageItem.VolumeDefaults.TieringPolicy.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.UnixPermissions.IsNull() && !StorageItem.VolumeDefaults.UnixPermissions.IsUnknown() {
+												VolumeDefaultsMap["unix_permissions"] = StorageItem.VolumeDefaults.UnixPermissions.ValueInt64()
+											}
+											StorageItemMap["volume_defaults"] = VolumeDefaultsMap
+										}
+										if !StorageItem.Zone.IsNull() && !StorageItem.Zone.IsUnknown() {
+											StorageItemMap["zone"] = StorageItem.Zone.ValueString()
+										}
+										StorageList = append(StorageList, StorageItemMap)
+									}
+									NetappBackendOntapSanMap["storage"] = StorageList
+								}
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StorageDriverName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StorageDriverName.IsUnknown() {
+								NetappBackendOntapSanMap["storage_driver_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StorageDriverName.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StoragePrefix.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StoragePrefix.IsUnknown() {
+								NetappBackendOntapSanMap["storage_prefix"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StoragePrefix.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Svm.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Svm.IsUnknown() {
+								NetappBackendOntapSanMap["svm"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Svm.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.TrustedCACertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.TrustedCACertificate.IsUnknown() {
+								NetappBackendOntapSanMap["trusted_ca_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.TrustedCACertificate.ValueString()
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap != nil {
+								UseChapMap := make(map[string]interface{})
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil {
+									ChapInitiatorSecretMap := make(map[string]interface{})
+									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo != nil {
+										BlindfoldSecretInfoMap := make(map[string]interface{})
+										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+										}
+										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.Location.IsUnknown() {
+											BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.Location.ValueString()
+										}
+										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
+										}
+										ChapInitiatorSecretMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									}
+									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo != nil {
+										ClearSecretInfoMap := make(map[string]interface{})
+										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.Provider.IsUnknown() {
+											ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.Provider.ValueString()
+										}
+										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.URL.IsUnknown() {
+											ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.URL.ValueString()
+										}
+										ChapInitiatorSecretMap["clear_secret_info"] = ClearSecretInfoMap
+									}
+									UseChapMap["chap_initiator_secret"] = ChapInitiatorSecretMap
+								}
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil {
+									ChapTargetInitiatorSecretMap := make(map[string]interface{})
+									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo != nil {
+										BlindfoldSecretInfoMap := make(map[string]interface{})
+										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+										}
+										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.Location.IsUnknown() {
+											BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.Location.ValueString()
+										}
+										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
+										}
+										ChapTargetInitiatorSecretMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									}
+									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo != nil {
+										ClearSecretInfoMap := make(map[string]interface{})
+										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.Provider.IsUnknown() {
+											ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.Provider.ValueString()
+										}
+										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.URL.IsUnknown() {
+											ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.URL.ValueString()
+										}
+										ChapTargetInitiatorSecretMap["clear_secret_info"] = ClearSecretInfoMap
+									}
+									UseChapMap["chap_target_initiator_secret"] = ChapTargetInitiatorSecretMap
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetUsername.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetUsername.IsUnknown() {
+									UseChapMap["chap_target_username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetUsername.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapUsername.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapUsername.IsUnknown() {
+									UseChapMap["chap_username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapUsername.ValueString()
+								}
+								NetappBackendOntapSanMap["use_chap"] = UseChapMap
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Username.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Username.IsUnknown() {
+								NetappBackendOntapSanMap["username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Username.ValueString()
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil {
+								VolumeDefaultsMap := make(map[string]interface{})
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
+									VolumeDefaultsMap["adaptive_qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.IsUnknown() {
+									VolumeDefaultsMap["encryption"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.ValueBool()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.IsUnknown() {
+									VolumeDefaultsMap["export_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.ValueString()
+								}
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS != nil {
+									VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.QOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.QOSPolicy.IsUnknown() {
+									VolumeDefaultsMap["qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.QOSPolicy.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SecurityStyle.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SecurityStyle.IsUnknown() {
+									VolumeDefaultsMap["security_style"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SecurityStyle.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.IsUnknown() {
+									VolumeDefaultsMap["snapshot_dir"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.ValueBool()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotPolicy.IsUnknown() {
+									VolumeDefaultsMap["snapshot_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotPolicy.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotReserve.IsUnknown() {
+									VolumeDefaultsMap["snapshot_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotReserve.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SpaceReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SpaceReserve.IsUnknown() {
+									VolumeDefaultsMap["space_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SpaceReserve.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.IsUnknown() {
+									VolumeDefaultsMap["split_on_clone"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.ValueBool()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.TieringPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.TieringPolicy.IsUnknown() {
+									VolumeDefaultsMap["tiering_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.TieringPolicy.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.IsUnknown() {
+									VolumeDefaultsMap["unix_permissions"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.ValueInt64()
+								}
+								NetappBackendOntapSanMap["volume_defaults"] = VolumeDefaultsMap
+							}
+							NetappTridentMap["netapp_backend_ontap_san"] = NetappBackendOntapSanMap
 						}
-						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil {
-							VolumeDefaultsMap := make(map[string]interface{})
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
-								VolumeDefaultsMap["adaptive_qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.IsUnknown() {
-								VolumeDefaultsMap["encryption"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.ValueBool()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.IsUnknown() {
-								VolumeDefaultsMap["export_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.ValueString()
-							}
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS != nil {
-								VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.QOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.QOSPolicy.IsUnknown() {
-								VolumeDefaultsMap["qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.QOSPolicy.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SecurityStyle.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SecurityStyle.IsUnknown() {
-								VolumeDefaultsMap["security_style"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SecurityStyle.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.IsUnknown() {
-								VolumeDefaultsMap["snapshot_dir"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.ValueBool()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotPolicy.IsUnknown() {
-								VolumeDefaultsMap["snapshot_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotPolicy.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotReserve.IsUnknown() {
-								VolumeDefaultsMap["snapshot_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotReserve.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SpaceReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SpaceReserve.IsUnknown() {
-								VolumeDefaultsMap["space_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SpaceReserve.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.IsUnknown() {
-								VolumeDefaultsMap["split_on_clone"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.ValueBool()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.TieringPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.TieringPolicy.IsUnknown() {
-								VolumeDefaultsMap["tiering_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.TieringPolicy.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.IsUnknown() {
-								VolumeDefaultsMap["unix_permissions"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.ValueInt64()
-							}
-							NetappBackendOntapSanMap["volume_defaults"] = VolumeDefaultsMap
-						}
-						NetappTridentMap["netapp_backend_ontap_san"] = NetappBackendOntapSanMap
+						StorageDevicesItemMap["netapp_trident"] = NetappTridentMap
 					}
-					StorageDevicesItemMap["netapp_trident"] = NetappTridentMap
+					if StorageDevicesItem.PureServiceOrchestrator != nil {
+						PureServiceOrchestratorMap := make(map[string]interface{})
+						if StorageDevicesItem.PureServiceOrchestrator.Arrays != nil {
+							ArraysMap := make(map[string]interface{})
+							if StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray != nil {
+								FlashArrayMap := make(map[string]interface{})
+								if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsOpt.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsOpt.IsUnknown() {
+									FlashArrayMap["default_fs_opt"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsOpt.ValueString()
+								}
+								if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsType.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsType.IsUnknown() {
+									FlashArrayMap["default_fs_type"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsType.ValueString()
+								}
+								if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.IsUnknown() {
+									var DefaultMountOptsItems []string
+									diags := StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.ElementsAs(ctx, &DefaultMountOptsItems, false)
+									if !diags.HasError() {
+										FlashArrayMap["default_mount_opts"] = DefaultMountOptsItems
+									}
+								}
+								if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.IsUnknown() {
+									FlashArrayMap["disable_preempt_attachments"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.ValueBool()
+								}
+								if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.IsUnknown() {
+									var FlashArraysElems []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel
+									diags := StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.ElementsAs(ctx, &FlashArraysElems, false)
+									resp.Diagnostics.Append(diags...)
+									if !resp.Diagnostics.HasError() && len(FlashArraysElems) > 0 {
+										var FlashArraysList []map[string]interface{}
+										for _, FlashArraysItem := range FlashArraysElems {
+											FlashArraysItemMap := make(map[string]interface{})
+											if FlashArraysItem.APIToken != nil {
+												APITokenMap := make(map[string]interface{})
+												if FlashArraysItem.APIToken.BlindfoldSecretInfo != nil {
+													BlindfoldSecretInfoMap := make(map[string]interface{})
+													if !FlashArraysItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+														BlindfoldSecretInfoMap["decryption_provider"] = FlashArraysItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+													}
+													if !FlashArraysItem.APIToken.BlindfoldSecretInfo.Location.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfo.Location.IsUnknown() {
+														BlindfoldSecretInfoMap["location"] = FlashArraysItem.APIToken.BlindfoldSecretInfo.Location.ValueString()
+													}
+													if !FlashArraysItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+														BlindfoldSecretInfoMap["store_provider"] = FlashArraysItem.APIToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+													}
+													APITokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+												}
+												if FlashArraysItem.APIToken.ClearSecretInfo != nil {
+													ClearSecretInfoMap := make(map[string]interface{})
+													if !FlashArraysItem.APIToken.ClearSecretInfo.Provider.IsNull() && !FlashArraysItem.APIToken.ClearSecretInfo.Provider.IsUnknown() {
+														ClearSecretInfoMap["provider"] = FlashArraysItem.APIToken.ClearSecretInfo.Provider.ValueString()
+													}
+													if !FlashArraysItem.APIToken.ClearSecretInfo.URL.IsNull() && !FlashArraysItem.APIToken.ClearSecretInfo.URL.IsUnknown() {
+														ClearSecretInfoMap["url"] = FlashArraysItem.APIToken.ClearSecretInfo.URL.ValueString()
+													}
+													APITokenMap["clear_secret_info"] = ClearSecretInfoMap
+												}
+												FlashArraysItemMap["api_token"] = APITokenMap
+											}
+											if FlashArraysItem.Labels != nil {
+												FlashArraysItemMap["labels"] = map[string]interface{}{}
+											}
+											if !FlashArraysItem.MgmtDNSName.IsNull() && !FlashArraysItem.MgmtDNSName.IsUnknown() {
+												FlashArraysItemMap["mgmt_dns_name"] = FlashArraysItem.MgmtDNSName.ValueString()
+											}
+											if !FlashArraysItem.MgmtIP.IsNull() && !FlashArraysItem.MgmtIP.IsUnknown() {
+												FlashArraysItemMap["mgmt_ip"] = FlashArraysItem.MgmtIP.ValueString()
+											}
+											FlashArraysList = append(FlashArraysList, FlashArraysItemMap)
+										}
+										FlashArrayMap["flash_arrays"] = FlashArraysList
+									}
+								}
+								if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.IsUnknown() {
+									FlashArrayMap["iscsi_login_timeout"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.ValueInt64()
+								}
+								if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.SanType.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.SanType.IsUnknown() {
+									FlashArrayMap["san_type"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.SanType.ValueString()
+								}
+								ArraysMap["flash_array"] = FlashArrayMap
+							}
+							if StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade != nil {
+								FlashBladeMap := make(map[string]interface{})
+								if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.IsUnknown() {
+									FlashBladeMap["enable_snapshot_directory"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.ValueBool()
+								}
+								if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.ExportRules.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.ExportRules.IsUnknown() {
+									FlashBladeMap["export_rules"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.ExportRules.ValueString()
+								}
+								if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.IsUnknown() {
+									var FlashBladesElems []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel
+									diags := StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.ElementsAs(ctx, &FlashBladesElems, false)
+									resp.Diagnostics.Append(diags...)
+									if !resp.Diagnostics.HasError() && len(FlashBladesElems) > 0 {
+										var FlashBladesList []map[string]interface{}
+										for _, FlashBladesItem := range FlashBladesElems {
+											FlashBladesItemMap := make(map[string]interface{})
+											if FlashBladesItem.APIToken != nil {
+												APITokenMap := make(map[string]interface{})
+												if FlashBladesItem.APIToken.BlindfoldSecretInfo != nil {
+													BlindfoldSecretInfoMap := make(map[string]interface{})
+													if !FlashBladesItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+														BlindfoldSecretInfoMap["decryption_provider"] = FlashBladesItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+													}
+													if !FlashBladesItem.APIToken.BlindfoldSecretInfo.Location.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfo.Location.IsUnknown() {
+														BlindfoldSecretInfoMap["location"] = FlashBladesItem.APIToken.BlindfoldSecretInfo.Location.ValueString()
+													}
+													if !FlashBladesItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+														BlindfoldSecretInfoMap["store_provider"] = FlashBladesItem.APIToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+													}
+													APITokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+												}
+												if FlashBladesItem.APIToken.ClearSecretInfo != nil {
+													ClearSecretInfoMap := make(map[string]interface{})
+													if !FlashBladesItem.APIToken.ClearSecretInfo.Provider.IsNull() && !FlashBladesItem.APIToken.ClearSecretInfo.Provider.IsUnknown() {
+														ClearSecretInfoMap["provider"] = FlashBladesItem.APIToken.ClearSecretInfo.Provider.ValueString()
+													}
+													if !FlashBladesItem.APIToken.ClearSecretInfo.URL.IsNull() && !FlashBladesItem.APIToken.ClearSecretInfo.URL.IsUnknown() {
+														ClearSecretInfoMap["url"] = FlashBladesItem.APIToken.ClearSecretInfo.URL.ValueString()
+													}
+													APITokenMap["clear_secret_info"] = ClearSecretInfoMap
+												}
+												FlashBladesItemMap["api_token"] = APITokenMap
+											}
+											if FlashBladesItem.Labels != nil {
+												FlashBladesItemMap["labels"] = map[string]interface{}{}
+											}
+											if !FlashBladesItem.MgmtDNSName.IsNull() && !FlashBladesItem.MgmtDNSName.IsUnknown() {
+												FlashBladesItemMap["mgmt_dns_name"] = FlashBladesItem.MgmtDNSName.ValueString()
+											}
+											if !FlashBladesItem.MgmtIP.IsNull() && !FlashBladesItem.MgmtIP.IsUnknown() {
+												FlashBladesItemMap["mgmt_ip"] = FlashBladesItem.MgmtIP.ValueString()
+											}
+											if !FlashBladesItem.NfsEndpointDNSName.IsNull() && !FlashBladesItem.NfsEndpointDNSName.IsUnknown() {
+												FlashBladesItemMap["nfs_endpoint_dns_name"] = FlashBladesItem.NfsEndpointDNSName.ValueString()
+											}
+											if !FlashBladesItem.NfsEndpointIP.IsNull() && !FlashBladesItem.NfsEndpointIP.IsUnknown() {
+												FlashBladesItemMap["nfs_endpoint_ip"] = FlashBladesItem.NfsEndpointIP.ValueString()
+											}
+											FlashBladesList = append(FlashBladesList, FlashBladesItemMap)
+										}
+										FlashBladeMap["flash_blades"] = FlashBladesList
+									}
+								}
+								ArraysMap["flash_blade"] = FlashBladeMap
+							}
+							PureServiceOrchestratorMap["arrays"] = ArraysMap
+						}
+						if !StorageDevicesItem.PureServiceOrchestrator.ClusterID.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.ClusterID.IsUnknown() {
+							PureServiceOrchestratorMap["cluster_id"] = StorageDevicesItem.PureServiceOrchestrator.ClusterID.ValueString()
+						}
+						if !StorageDevicesItem.PureServiceOrchestrator.EnableStorageTopology.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.EnableStorageTopology.IsUnknown() {
+							PureServiceOrchestratorMap["enable_storage_topology"] = StorageDevicesItem.PureServiceOrchestrator.EnableStorageTopology.ValueBool()
+						}
+						if !StorageDevicesItem.PureServiceOrchestrator.EnableStrictTopology.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.EnableStrictTopology.IsUnknown() {
+							PureServiceOrchestratorMap["enable_strict_topology"] = StorageDevicesItem.PureServiceOrchestrator.EnableStrictTopology.ValueBool()
+						}
+						StorageDevicesItemMap["pure_service_orchestrator"] = PureServiceOrchestratorMap
+					}
+					if !StorageDevicesItem.StorageDevice.IsNull() && !StorageDevicesItem.StorageDevice.IsUnknown() {
+						StorageDevicesItemMap["storage_device"] = StorageDevicesItem.StorageDevice.ValueString()
+					}
+					StorageDevicesList = append(StorageDevicesList, StorageDevicesItemMap)
 				}
-				if StorageDevicesItem.PureServiceOrchestrator != nil {
-					PureServiceOrchestratorMap := make(map[string]interface{})
-					if StorageDevicesItem.PureServiceOrchestrator.Arrays != nil {
-						ArraysMap := make(map[string]interface{})
-						if StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray != nil {
-							FlashArrayMap := make(map[string]interface{})
-							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsOpt.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsOpt.IsUnknown() {
-								FlashArrayMap["default_fs_opt"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsOpt.ValueString()
-							}
-							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsType.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsType.IsUnknown() {
-								FlashArrayMap["default_fs_type"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsType.ValueString()
-							}
-							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.IsUnknown() {
-								var DefaultMountOptsItems []string
-								diags := StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.ElementsAs(ctx, &DefaultMountOptsItems, false)
-								if !diags.HasError() {
-									FlashArrayMap["default_mount_opts"] = DefaultMountOptsItems
-								}
-							}
-							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.IsUnknown() {
-								FlashArrayMap["disable_preempt_attachments"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.ValueBool()
-							}
-							if len(StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.FlashArrays) > 0 {
-								var FlashArraysList []map[string]interface{}
-								for _, FlashArraysItem := range StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.FlashArrays {
-									FlashArraysItemMap := make(map[string]interface{})
-									if FlashArraysItem.APIToken != nil {
-										APITokenMap := make(map[string]interface{})
-										if FlashArraysItem.APIToken.BlindfoldSecretInfo != nil {
-											BlindfoldSecretInfoMap := make(map[string]interface{})
-											if !FlashArraysItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-												BlindfoldSecretInfoMap["decryption_provider"] = FlashArraysItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-											}
-											if !FlashArraysItem.APIToken.BlindfoldSecretInfo.Location.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfo.Location.IsUnknown() {
-												BlindfoldSecretInfoMap["location"] = FlashArraysItem.APIToken.BlindfoldSecretInfo.Location.ValueString()
-											}
-											if !FlashArraysItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-												BlindfoldSecretInfoMap["store_provider"] = FlashArraysItem.APIToken.BlindfoldSecretInfo.StoreProvider.ValueString()
-											}
-											APITokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
-										}
-										if FlashArraysItem.APIToken.ClearSecretInfo != nil {
-											ClearSecretInfoMap := make(map[string]interface{})
-											if !FlashArraysItem.APIToken.ClearSecretInfo.Provider.IsNull() && !FlashArraysItem.APIToken.ClearSecretInfo.Provider.IsUnknown() {
-												ClearSecretInfoMap["provider"] = FlashArraysItem.APIToken.ClearSecretInfo.Provider.ValueString()
-											}
-											if !FlashArraysItem.APIToken.ClearSecretInfo.URL.IsNull() && !FlashArraysItem.APIToken.ClearSecretInfo.URL.IsUnknown() {
-												ClearSecretInfoMap["url"] = FlashArraysItem.APIToken.ClearSecretInfo.URL.ValueString()
-											}
-											APITokenMap["clear_secret_info"] = ClearSecretInfoMap
-										}
-										FlashArraysItemMap["api_token"] = APITokenMap
-									}
-									if FlashArraysItem.Labels != nil {
-										FlashArraysItemMap["labels"] = map[string]interface{}{}
-									}
-									if !FlashArraysItem.MgmtDNSName.IsNull() && !FlashArraysItem.MgmtDNSName.IsUnknown() {
-										FlashArraysItemMap["mgmt_dns_name"] = FlashArraysItem.MgmtDNSName.ValueString()
-									}
-									if !FlashArraysItem.MgmtIP.IsNull() && !FlashArraysItem.MgmtIP.IsUnknown() {
-										FlashArraysItemMap["mgmt_ip"] = FlashArraysItem.MgmtIP.ValueString()
-									}
-									FlashArraysList = append(FlashArraysList, FlashArraysItemMap)
-								}
-								FlashArrayMap["flash_arrays"] = FlashArraysList
-							}
-							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.IsUnknown() {
-								FlashArrayMap["iscsi_login_timeout"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.ValueInt64()
-							}
-							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.SanType.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.SanType.IsUnknown() {
-								FlashArrayMap["san_type"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.SanType.ValueString()
-							}
-							ArraysMap["flash_array"] = FlashArrayMap
-						}
-						if StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade != nil {
-							FlashBladeMap := make(map[string]interface{})
-							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.IsUnknown() {
-								FlashBladeMap["enable_snapshot_directory"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.ValueBool()
-							}
-							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.ExportRules.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.ExportRules.IsUnknown() {
-								FlashBladeMap["export_rules"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.ExportRules.ValueString()
-							}
-							if len(StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades) > 0 {
-								var FlashBladesList []map[string]interface{}
-								for _, FlashBladesItem := range StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades {
-									FlashBladesItemMap := make(map[string]interface{})
-									if FlashBladesItem.APIToken != nil {
-										APITokenMap := make(map[string]interface{})
-										if FlashBladesItem.APIToken.BlindfoldSecretInfo != nil {
-											BlindfoldSecretInfoMap := make(map[string]interface{})
-											if !FlashBladesItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-												BlindfoldSecretInfoMap["decryption_provider"] = FlashBladesItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-											}
-											if !FlashBladesItem.APIToken.BlindfoldSecretInfo.Location.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfo.Location.IsUnknown() {
-												BlindfoldSecretInfoMap["location"] = FlashBladesItem.APIToken.BlindfoldSecretInfo.Location.ValueString()
-											}
-											if !FlashBladesItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-												BlindfoldSecretInfoMap["store_provider"] = FlashBladesItem.APIToken.BlindfoldSecretInfo.StoreProvider.ValueString()
-											}
-											APITokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
-										}
-										if FlashBladesItem.APIToken.ClearSecretInfo != nil {
-											ClearSecretInfoMap := make(map[string]interface{})
-											if !FlashBladesItem.APIToken.ClearSecretInfo.Provider.IsNull() && !FlashBladesItem.APIToken.ClearSecretInfo.Provider.IsUnknown() {
-												ClearSecretInfoMap["provider"] = FlashBladesItem.APIToken.ClearSecretInfo.Provider.ValueString()
-											}
-											if !FlashBladesItem.APIToken.ClearSecretInfo.URL.IsNull() && !FlashBladesItem.APIToken.ClearSecretInfo.URL.IsUnknown() {
-												ClearSecretInfoMap["url"] = FlashBladesItem.APIToken.ClearSecretInfo.URL.ValueString()
-											}
-											APITokenMap["clear_secret_info"] = ClearSecretInfoMap
-										}
-										FlashBladesItemMap["api_token"] = APITokenMap
-									}
-									if FlashBladesItem.Labels != nil {
-										FlashBladesItemMap["labels"] = map[string]interface{}{}
-									}
-									if !FlashBladesItem.MgmtDNSName.IsNull() && !FlashBladesItem.MgmtDNSName.IsUnknown() {
-										FlashBladesItemMap["mgmt_dns_name"] = FlashBladesItem.MgmtDNSName.ValueString()
-									}
-									if !FlashBladesItem.MgmtIP.IsNull() && !FlashBladesItem.MgmtIP.IsUnknown() {
-										FlashBladesItemMap["mgmt_ip"] = FlashBladesItem.MgmtIP.ValueString()
-									}
-									if !FlashBladesItem.NfsEndpointDNSName.IsNull() && !FlashBladesItem.NfsEndpointDNSName.IsUnknown() {
-										FlashBladesItemMap["nfs_endpoint_dns_name"] = FlashBladesItem.NfsEndpointDNSName.ValueString()
-									}
-									if !FlashBladesItem.NfsEndpointIP.IsNull() && !FlashBladesItem.NfsEndpointIP.IsUnknown() {
-										FlashBladesItemMap["nfs_endpoint_ip"] = FlashBladesItem.NfsEndpointIP.ValueString()
-									}
-									FlashBladesList = append(FlashBladesList, FlashBladesItemMap)
-								}
-								FlashBladeMap["flash_blades"] = FlashBladesList
-							}
-							ArraysMap["flash_blade"] = FlashBladeMap
-						}
-						PureServiceOrchestratorMap["arrays"] = ArraysMap
-					}
-					if !StorageDevicesItem.PureServiceOrchestrator.ClusterID.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.ClusterID.IsUnknown() {
-						PureServiceOrchestratorMap["cluster_id"] = StorageDevicesItem.PureServiceOrchestrator.ClusterID.ValueString()
-					}
-					if !StorageDevicesItem.PureServiceOrchestrator.EnableStorageTopology.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.EnableStorageTopology.IsUnknown() {
-						PureServiceOrchestratorMap["enable_storage_topology"] = StorageDevicesItem.PureServiceOrchestrator.EnableStorageTopology.ValueBool()
-					}
-					if !StorageDevicesItem.PureServiceOrchestrator.EnableStrictTopology.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.EnableStrictTopology.IsUnknown() {
-						PureServiceOrchestratorMap["enable_strict_topology"] = StorageDevicesItem.PureServiceOrchestrator.EnableStrictTopology.ValueBool()
-					}
-					StorageDevicesItemMap["pure_service_orchestrator"] = PureServiceOrchestratorMap
-				}
-				if !StorageDevicesItem.StorageDevice.IsNull() && !StorageDevicesItem.StorageDevice.IsUnknown() {
-					StorageDevicesItemMap["storage_device"] = StorageDevicesItem.StorageDevice.ValueString()
-				}
-				StorageDevicesList = append(StorageDevicesList, StorageDevicesItemMap)
+				StorageDeviceListMap["storage_devices"] = StorageDevicesList
 			}
-			StorageDeviceListMap["storage_devices"] = StorageDevicesList
 		}
 		createReq.Spec["storage_device_list"] = StorageDeviceListMap
 	}
@@ -5273,33 +5313,38 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 						}
 						StorageRoutesItemMap["nexthop"] = NexthopMap
 					}
-					if len(StorageRoutesItem.Subnets) > 0 {
-						var SubnetsList []map[string]interface{}
-						for _, SubnetsItem := range StorageRoutesItem.Subnets {
-							SubnetsItemMap := make(map[string]interface{})
-							if SubnetsItem.Ipv4 != nil {
-								Ipv4Map := make(map[string]interface{})
-								if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-									Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+					if !StorageRoutesItem.Subnets.IsNull() && !StorageRoutesItem.Subnets.IsUnknown() {
+						var SubnetsElems []FleetStorageStaticRoutesStorageRoutesSubnetsModel
+						diags := StorageRoutesItem.Subnets.ElementsAs(ctx, &SubnetsElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(SubnetsElems) > 0 {
+							var SubnetsList []map[string]interface{}
+							for _, SubnetsItem := range SubnetsElems {
+								SubnetsItemMap := make(map[string]interface{})
+								if SubnetsItem.Ipv4 != nil {
+									Ipv4Map := make(map[string]interface{})
+									if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
+										Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+									}
+									if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
+										Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+									}
+									SubnetsItemMap["ipv4"] = Ipv4Map
 								}
-								if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-									Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+								if SubnetsItem.Ipv6 != nil {
+									Ipv6Map := make(map[string]interface{})
+									if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
+										Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+									}
+									if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
+										Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+									}
+									SubnetsItemMap["ipv6"] = Ipv6Map
 								}
-								SubnetsItemMap["ipv4"] = Ipv4Map
+								SubnetsList = append(SubnetsList, SubnetsItemMap)
 							}
-							if SubnetsItem.Ipv6 != nil {
-								Ipv6Map := make(map[string]interface{})
-								if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-									Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
-								}
-								if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-									Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
-								}
-								SubnetsItemMap["ipv6"] = Ipv6Map
-							}
-							SubnetsList = append(SubnetsList, SubnetsItemMap)
+							StorageRoutesItemMap["subnets"] = SubnetsList
 						}
-						StorageRoutesItemMap["subnets"] = SubnetsList
 					}
 					StorageRoutesList = append(StorageRoutesList, StorageRoutesItemMap)
 				}
@@ -5444,9 +5489,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 	}
 	if blockData, ok := apiResource.Spec["bond_device_list"].(map[string]interface{}); ok && (isImport || data.BondDeviceList != nil) {
 		data.BondDeviceList = &FleetBondDeviceListModel{
-			BondDevices: func() []FleetBondDeviceListBondDevicesModel {
-				if !isImport && data.BondDeviceList != nil && len(data.BondDeviceList.BondDevices) == 0 {
-					return nil
+			BondDevices: func() types.List {
+				if !isImport && data.BondDeviceList != nil && (data.BondDeviceList.BondDevices.IsNull() || len(data.BondDeviceList.BondDevices.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetBondDeviceListBondDevicesModelAttrTypes})
 				}
 				if rawList, ok := blockData["bond_devices"].([]interface{}); ok && len(rawList) > 0 {
 					var BondDevicesResult []FleetBondDeviceListBondDevicesModel
@@ -5506,9 +5551,10 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 							})
 						}
 					}
-					return BondDevicesResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetBondDeviceListBondDevicesModelAttrTypes}, BondDevicesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FleetBondDeviceListBondDevicesModelAttrTypes})
 			}(),
 		}
 	}
@@ -6035,9 +6081,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 	}
 	if blockData, ok := apiResource.Spec["sriov_interfaces"].(map[string]interface{}); ok && (isImport || data.SriovInterfaces != nil) {
 		data.SriovInterfaces = &FleetSriovInterfacesModel{
-			SriovInterface: func() []FleetSriovInterfacesSriovInterfaceModel {
-				if !isImport && data.SriovInterfaces != nil && len(data.SriovInterfaces.SriovInterface) == 0 {
-					return nil
+			SriovInterface: func() types.List {
+				if !isImport && data.SriovInterfaces != nil && (data.SriovInterfaces.SriovInterface.IsNull() || len(data.SriovInterfaces.SriovInterface.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetSriovInterfacesSriovInterfaceModelAttrTypes})
 				}
 				if rawList, ok := blockData["sriov_interface"].([]interface{}); ok && len(rawList) > 0 {
 					var SriovInterfaceResult []FleetSriovInterfacesSriovInterfaceModel
@@ -6065,17 +6111,18 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 							})
 						}
 					}
-					return SriovInterfaceResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetSriovInterfacesSriovInterfaceModelAttrTypes}, SriovInterfaceResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FleetSriovInterfacesSriovInterfaceModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["storage_class_list"].(map[string]interface{}); ok && (isImport || data.StorageClassList != nil) {
 		data.StorageClassList = &FleetStorageClassListModel{
-			StorageClasses: func() []FleetStorageClassListStorageClassesModel {
-				if !isImport && data.StorageClassList != nil && len(data.StorageClassList.StorageClasses) == 0 {
-					return nil
+			StorageClasses: func() types.List {
+				if !isImport && data.StorageClassList != nil && (data.StorageClassList.StorageClasses.IsNull() || len(data.StorageClassList.StorageClasses.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageClassListStorageClassesModelAttrTypes})
 				}
 				if rawList, ok := blockData["storage_classes"].([]interface{}); ok && len(rawList) > 0 {
 					var StorageClassesResult []FleetStorageClassListStorageClassesModel
@@ -6287,17 +6334,18 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 							})
 						}
 					}
-					return StorageClassesResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageClassListStorageClassesModelAttrTypes}, StorageClassesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FleetStorageClassListStorageClassesModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["storage_device_list"].(map[string]interface{}); ok && (isImport || data.StorageDeviceList != nil) {
 		data.StorageDeviceList = &FleetStorageDeviceListModel{
-			StorageDevices: func() []FleetStorageDeviceListStorageDevicesModel {
-				if !isImport && data.StorageDeviceList != nil && len(data.StorageDeviceList.StorageDevices) == 0 {
-					return nil
+			StorageDevices: func() types.List {
+				if !isImport && data.StorageDeviceList != nil && (data.StorageDeviceList.StorageDevices.IsNull() || len(data.StorageDeviceList.StorageDevices.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesModelAttrTypes})
 				}
 				if rawList, ok := blockData["storage_devices"].([]interface{}); ok && len(rawList) > 0 {
 					var StorageDevicesResult []FleetStorageDeviceListStorageDevicesModel
@@ -6655,7 +6703,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														Storage: func() []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel {
+														Storage: func() types.List {
 															if rawList, ok := NetappBackendOntapNasData["storage"].([]interface{}); ok && len(rawList) > 0 {
 																var StorageResult []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel
 																for _, StorageItem := range rawList {
@@ -6761,9 +6809,10 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		})
 																	}
 																}
-																return StorageResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModelAttrTypes}, StorageResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModelAttrTypes})
 														}(),
 														StorageDriverName: func() types.String {
 															if v, ok := NetappBackendOntapNasData["storage_driver_name"].(string); ok && v != "" {
@@ -7055,7 +7104,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														Storage: func() []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel {
+														Storage: func() types.List {
 															if rawList, ok := NetappBackendOntapSanData["storage"].([]interface{}); ok && len(rawList) > 0 {
 																var StorageResult []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel
 																for _, StorageItem := range rawList {
@@ -7161,9 +7210,10 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		})
 																	}
 																}
-																return StorageResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModelAttrTypes}, StorageResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModelAttrTypes})
 														}(),
 														StorageDriverName: func() types.String {
 															if v, ok := NetappBackendOntapSanData["storage_driver_name"].(string); ok && v != "" {
@@ -7449,7 +7499,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		}
 																		return types.BoolNull()
 																	}(),
-																	FlashArrays: func() []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel {
+																	FlashArrays: func() types.List {
 																		if rawList, ok := FlashArrayData["flash_arrays"].([]interface{}); ok && len(rawList) > 0 {
 																			var FlashArraysResult []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel
 																			for _, FlashArraysItem := range rawList {
@@ -7527,9 +7577,10 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																					})
 																				}
 																			}
-																			return FlashArraysResult
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModelAttrTypes}, FlashArraysResult)
+																			return listVal
 																		}
-																		return nil
+																		return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModelAttrTypes})
 																	}(),
 																	IscsiLoginTimeout: func() types.Int64 {
 																		if v, ok := FlashArrayData["iscsi_login_timeout"].(float64); ok && v != 0 {
@@ -7562,7 +7613,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		}
 																		return types.StringNull()
 																	}(),
-																	FlashBlades: func() []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel {
+																	FlashBlades: func() types.List {
 																		if rawList, ok := FlashBladeData["flash_blades"].([]interface{}); ok && len(rawList) > 0 {
 																			var FlashBladesResult []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel
 																			for _, FlashBladesItem := range rawList {
@@ -7652,9 +7703,10 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																					})
 																				}
 																			}
-																			return FlashBladesResult
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModelAttrTypes}, FlashBladesResult)
+																			return listVal
 																		}
-																		return nil
+																		return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModelAttrTypes})
 																	}(),
 																}
 															}
@@ -7695,9 +7747,10 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 							})
 						}
 					}
-					return StorageDevicesResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesModelAttrTypes}, StorageDevicesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesModelAttrTypes})
 			}(),
 		}
 	}
@@ -7860,7 +7913,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									}
 									return nil
 								}(),
-								Subnets: func() []FleetStorageStaticRoutesStorageRoutesSubnetsModel {
+								Subnets: func() types.List {
 									if rawList, ok := StorageRoutesItemMap["subnets"].([]interface{}); ok && len(rawList) > 0 {
 										var SubnetsResult []FleetStorageStaticRoutesStorageRoutesSubnetsModel
 										for _, SubnetsItem := range rawList {
@@ -7907,9 +7960,10 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 												})
 											}
 										}
-										return SubnetsResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesSubnetsModelAttrTypes}, SubnetsResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesSubnetsModelAttrTypes})
 								}(),
 							})
 						}
@@ -8152,9 +8206,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 	}
 	if blockData, ok := apiResource.Spec["bond_device_list"].(map[string]interface{}); ok && (isImport || data.BondDeviceList != nil) {
 		data.BondDeviceList = &FleetBondDeviceListModel{
-			BondDevices: func() []FleetBondDeviceListBondDevicesModel {
-				if !isImport && data.BondDeviceList != nil && len(data.BondDeviceList.BondDevices) == 0 {
-					return nil
+			BondDevices: func() types.List {
+				if !isImport && data.BondDeviceList != nil && (data.BondDeviceList.BondDevices.IsNull() || len(data.BondDeviceList.BondDevices.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetBondDeviceListBondDevicesModelAttrTypes})
 				}
 				if rawList, ok := blockData["bond_devices"].([]interface{}); ok && len(rawList) > 0 {
 					var BondDevicesResult []FleetBondDeviceListBondDevicesModel
@@ -8214,9 +8268,10 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							})
 						}
 					}
-					return BondDevicesResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetBondDeviceListBondDevicesModelAttrTypes}, BondDevicesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FleetBondDeviceListBondDevicesModelAttrTypes})
 			}(),
 		}
 	}
@@ -8743,9 +8798,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 	}
 	if blockData, ok := apiResource.Spec["sriov_interfaces"].(map[string]interface{}); ok && (isImport || data.SriovInterfaces != nil) {
 		data.SriovInterfaces = &FleetSriovInterfacesModel{
-			SriovInterface: func() []FleetSriovInterfacesSriovInterfaceModel {
-				if !isImport && data.SriovInterfaces != nil && len(data.SriovInterfaces.SriovInterface) == 0 {
-					return nil
+			SriovInterface: func() types.List {
+				if !isImport && data.SriovInterfaces != nil && (data.SriovInterfaces.SriovInterface.IsNull() || len(data.SriovInterfaces.SriovInterface.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetSriovInterfacesSriovInterfaceModelAttrTypes})
 				}
 				if rawList, ok := blockData["sriov_interface"].([]interface{}); ok && len(rawList) > 0 {
 					var SriovInterfaceResult []FleetSriovInterfacesSriovInterfaceModel
@@ -8773,17 +8828,18 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							})
 						}
 					}
-					return SriovInterfaceResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetSriovInterfacesSriovInterfaceModelAttrTypes}, SriovInterfaceResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FleetSriovInterfacesSriovInterfaceModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["storage_class_list"].(map[string]interface{}); ok && (isImport || data.StorageClassList != nil) {
 		data.StorageClassList = &FleetStorageClassListModel{
-			StorageClasses: func() []FleetStorageClassListStorageClassesModel {
-				if !isImport && data.StorageClassList != nil && len(data.StorageClassList.StorageClasses) == 0 {
-					return nil
+			StorageClasses: func() types.List {
+				if !isImport && data.StorageClassList != nil && (data.StorageClassList.StorageClasses.IsNull() || len(data.StorageClassList.StorageClasses.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageClassListStorageClassesModelAttrTypes})
 				}
 				if rawList, ok := blockData["storage_classes"].([]interface{}); ok && len(rawList) > 0 {
 					var StorageClassesResult []FleetStorageClassListStorageClassesModel
@@ -8995,17 +9051,18 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							})
 						}
 					}
-					return StorageClassesResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageClassListStorageClassesModelAttrTypes}, StorageClassesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FleetStorageClassListStorageClassesModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["storage_device_list"].(map[string]interface{}); ok && (isImport || data.StorageDeviceList != nil) {
 		data.StorageDeviceList = &FleetStorageDeviceListModel{
-			StorageDevices: func() []FleetStorageDeviceListStorageDevicesModel {
-				if !isImport && data.StorageDeviceList != nil && len(data.StorageDeviceList.StorageDevices) == 0 {
-					return nil
+			StorageDevices: func() types.List {
+				if !isImport && data.StorageDeviceList != nil && (data.StorageDeviceList.StorageDevices.IsNull() || len(data.StorageDeviceList.StorageDevices.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesModelAttrTypes})
 				}
 				if rawList, ok := blockData["storage_devices"].([]interface{}); ok && len(rawList) > 0 {
 					var StorageDevicesResult []FleetStorageDeviceListStorageDevicesModel
@@ -9363,7 +9420,7 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															}
 															return types.StringNull()
 														}(),
-														Storage: func() []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel {
+														Storage: func() types.List {
 															if rawList, ok := NetappBackendOntapNasData["storage"].([]interface{}); ok && len(rawList) > 0 {
 																var StorageResult []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel
 																for _, StorageItem := range rawList {
@@ -9469,9 +9526,10 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		})
 																	}
 																}
-																return StorageResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModelAttrTypes}, StorageResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModelAttrTypes})
 														}(),
 														StorageDriverName: func() types.String {
 															if v, ok := NetappBackendOntapNasData["storage_driver_name"].(string); ok && v != "" {
@@ -9763,7 +9821,7 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															}
 															return types.StringNull()
 														}(),
-														Storage: func() []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel {
+														Storage: func() types.List {
 															if rawList, ok := NetappBackendOntapSanData["storage"].([]interface{}); ok && len(rawList) > 0 {
 																var StorageResult []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel
 																for _, StorageItem := range rawList {
@@ -9869,9 +9927,10 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		})
 																	}
 																}
-																return StorageResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModelAttrTypes}, StorageResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModelAttrTypes})
 														}(),
 														StorageDriverName: func() types.String {
 															if v, ok := NetappBackendOntapSanData["storage_driver_name"].(string); ok && v != "" {
@@ -10157,7 +10216,7 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		}
 																		return types.BoolNull()
 																	}(),
-																	FlashArrays: func() []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel {
+																	FlashArrays: func() types.List {
 																		if rawList, ok := FlashArrayData["flash_arrays"].([]interface{}); ok && len(rawList) > 0 {
 																			var FlashArraysResult []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel
 																			for _, FlashArraysItem := range rawList {
@@ -10235,9 +10294,10 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																					})
 																				}
 																			}
-																			return FlashArraysResult
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModelAttrTypes}, FlashArraysResult)
+																			return listVal
 																		}
-																		return nil
+																		return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModelAttrTypes})
 																	}(),
 																	IscsiLoginTimeout: func() types.Int64 {
 																		if v, ok := FlashArrayData["iscsi_login_timeout"].(float64); ok && v != 0 {
@@ -10270,7 +10330,7 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		}
 																		return types.StringNull()
 																	}(),
-																	FlashBlades: func() []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel {
+																	FlashBlades: func() types.List {
 																		if rawList, ok := FlashBladeData["flash_blades"].([]interface{}); ok && len(rawList) > 0 {
 																			var FlashBladesResult []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel
 																			for _, FlashBladesItem := range rawList {
@@ -10360,9 +10420,10 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																					})
 																				}
 																			}
-																			return FlashBladesResult
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModelAttrTypes}, FlashBladesResult)
+																			return listVal
 																		}
-																		return nil
+																		return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModelAttrTypes})
 																	}(),
 																}
 															}
@@ -10403,9 +10464,10 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							})
 						}
 					}
-					return StorageDevicesResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesModelAttrTypes}, StorageDevicesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesModelAttrTypes})
 			}(),
 		}
 	}
@@ -10568,7 +10630,7 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									}
 									return nil
 								}(),
-								Subnets: func() []FleetStorageStaticRoutesStorageRoutesSubnetsModel {
+								Subnets: func() types.List {
 									if rawList, ok := StorageRoutesItemMap["subnets"].([]interface{}); ok && len(rawList) > 0 {
 										var SubnetsResult []FleetStorageStaticRoutesStorageRoutesSubnetsModel
 										for _, SubnetsItem := range rawList {
@@ -10615,9 +10677,10 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												})
 											}
 										}
-										return SubnetsResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesSubnetsModelAttrTypes}, SubnetsResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesSubnetsModelAttrTypes})
 								}(),
 							})
 						}
@@ -10775,39 +10838,44 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	}
 	if data.BondDeviceList != nil {
 		BondDeviceListMap := make(map[string]interface{})
-		if len(data.BondDeviceList.BondDevices) > 0 {
-			var BondDevicesList []map[string]interface{}
-			for _, BondDevicesItem := range data.BondDeviceList.BondDevices {
-				BondDevicesItemMap := make(map[string]interface{})
-				if BondDevicesItem.ActiveBackup != nil {
-					BondDevicesItemMap["active_backup"] = map[string]interface{}{}
-				}
-				if !BondDevicesItem.Devices.IsNull() && !BondDevicesItem.Devices.IsUnknown() {
-					var DevicesItems []string
-					diags := BondDevicesItem.Devices.ElementsAs(ctx, &DevicesItems, false)
-					if !diags.HasError() {
-						BondDevicesItemMap["devices"] = DevicesItems
+		if !data.BondDeviceList.BondDevices.IsNull() && !data.BondDeviceList.BondDevices.IsUnknown() {
+			var BondDevicesElems []FleetBondDeviceListBondDevicesModel
+			diags := data.BondDeviceList.BondDevices.ElementsAs(ctx, &BondDevicesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(BondDevicesElems) > 0 {
+				var BondDevicesList []map[string]interface{}
+				for _, BondDevicesItem := range BondDevicesElems {
+					BondDevicesItemMap := make(map[string]interface{})
+					if BondDevicesItem.ActiveBackup != nil {
+						BondDevicesItemMap["active_backup"] = map[string]interface{}{}
 					}
-				}
-				if BondDevicesItem.Lacp != nil {
-					LacpMap := make(map[string]interface{})
-					if !BondDevicesItem.Lacp.Rate.IsNull() && !BondDevicesItem.Lacp.Rate.IsUnknown() {
-						LacpMap["rate"] = BondDevicesItem.Lacp.Rate.ValueInt64()
+					if !BondDevicesItem.Devices.IsNull() && !BondDevicesItem.Devices.IsUnknown() {
+						var DevicesItems []string
+						diags := BondDevicesItem.Devices.ElementsAs(ctx, &DevicesItems, false)
+						if !diags.HasError() {
+							BondDevicesItemMap["devices"] = DevicesItems
+						}
 					}
-					BondDevicesItemMap["lacp"] = LacpMap
+					if BondDevicesItem.Lacp != nil {
+						LacpMap := make(map[string]interface{})
+						if !BondDevicesItem.Lacp.Rate.IsNull() && !BondDevicesItem.Lacp.Rate.IsUnknown() {
+							LacpMap["rate"] = BondDevicesItem.Lacp.Rate.ValueInt64()
+						}
+						BondDevicesItemMap["lacp"] = LacpMap
+					}
+					if !BondDevicesItem.LinkPollingInterval.IsNull() && !BondDevicesItem.LinkPollingInterval.IsUnknown() {
+						BondDevicesItemMap["link_polling_interval"] = BondDevicesItem.LinkPollingInterval.ValueInt64()
+					}
+					if !BondDevicesItem.LinkUpDelay.IsNull() && !BondDevicesItem.LinkUpDelay.IsUnknown() {
+						BondDevicesItemMap["link_up_delay"] = BondDevicesItem.LinkUpDelay.ValueInt64()
+					}
+					if !BondDevicesItem.Name.IsNull() && !BondDevicesItem.Name.IsUnknown() {
+						BondDevicesItemMap["name"] = BondDevicesItem.Name.ValueString()
+					}
+					BondDevicesList = append(BondDevicesList, BondDevicesItemMap)
 				}
-				if !BondDevicesItem.LinkPollingInterval.IsNull() && !BondDevicesItem.LinkPollingInterval.IsUnknown() {
-					BondDevicesItemMap["link_polling_interval"] = BondDevicesItem.LinkPollingInterval.ValueInt64()
-				}
-				if !BondDevicesItem.LinkUpDelay.IsNull() && !BondDevicesItem.LinkUpDelay.IsUnknown() {
-					BondDevicesItemMap["link_up_delay"] = BondDevicesItem.LinkUpDelay.ValueInt64()
-				}
-				if !BondDevicesItem.Name.IsNull() && !BondDevicesItem.Name.IsUnknown() {
-					BondDevicesItemMap["name"] = BondDevicesItem.Name.ValueString()
-				}
-				BondDevicesList = append(BondDevicesList, BondDevicesItemMap)
+				BondDeviceListMap["bond_devices"] = BondDevicesList
 			}
-			BondDeviceListMap["bond_devices"] = BondDevicesList
 		}
 		apiResource.Spec["bond_device_list"] = BondDeviceListMap
 	}
@@ -11126,872 +11194,907 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	}
 	if data.SriovInterfaces != nil {
 		SriovInterfacesMap := make(map[string]interface{})
-		if len(data.SriovInterfaces.SriovInterface) > 0 {
-			var SriovInterfaceList []map[string]interface{}
-			for _, SriovInterfaceItem := range data.SriovInterfaces.SriovInterface {
-				SriovInterfaceItemMap := make(map[string]interface{})
-				if !SriovInterfaceItem.InterfaceName.IsNull() && !SriovInterfaceItem.InterfaceName.IsUnknown() {
-					SriovInterfaceItemMap["interface_name"] = SriovInterfaceItem.InterfaceName.ValueString()
+		if !data.SriovInterfaces.SriovInterface.IsNull() && !data.SriovInterfaces.SriovInterface.IsUnknown() {
+			var SriovInterfaceElems []FleetSriovInterfacesSriovInterfaceModel
+			diags := data.SriovInterfaces.SriovInterface.ElementsAs(ctx, &SriovInterfaceElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(SriovInterfaceElems) > 0 {
+				var SriovInterfaceList []map[string]interface{}
+				for _, SriovInterfaceItem := range SriovInterfaceElems {
+					SriovInterfaceItemMap := make(map[string]interface{})
+					if !SriovInterfaceItem.InterfaceName.IsNull() && !SriovInterfaceItem.InterfaceName.IsUnknown() {
+						SriovInterfaceItemMap["interface_name"] = SriovInterfaceItem.InterfaceName.ValueString()
+					}
+					if !SriovInterfaceItem.NumberOfVfioVfs.IsNull() && !SriovInterfaceItem.NumberOfVfioVfs.IsUnknown() {
+						SriovInterfaceItemMap["number_of_vfio_vfs"] = SriovInterfaceItem.NumberOfVfioVfs.ValueInt64()
+					}
+					if !SriovInterfaceItem.NumberOfVfs.IsNull() && !SriovInterfaceItem.NumberOfVfs.IsUnknown() {
+						SriovInterfaceItemMap["number_of_vfs"] = SriovInterfaceItem.NumberOfVfs.ValueInt64()
+					}
+					SriovInterfaceList = append(SriovInterfaceList, SriovInterfaceItemMap)
 				}
-				if !SriovInterfaceItem.NumberOfVfioVfs.IsNull() && !SriovInterfaceItem.NumberOfVfioVfs.IsUnknown() {
-					SriovInterfaceItemMap["number_of_vfio_vfs"] = SriovInterfaceItem.NumberOfVfioVfs.ValueInt64()
-				}
-				if !SriovInterfaceItem.NumberOfVfs.IsNull() && !SriovInterfaceItem.NumberOfVfs.IsUnknown() {
-					SriovInterfaceItemMap["number_of_vfs"] = SriovInterfaceItem.NumberOfVfs.ValueInt64()
-				}
-				SriovInterfaceList = append(SriovInterfaceList, SriovInterfaceItemMap)
+				SriovInterfacesMap["sriov_interface"] = SriovInterfaceList
 			}
-			SriovInterfacesMap["sriov_interface"] = SriovInterfaceList
 		}
 		apiResource.Spec["sriov_interfaces"] = SriovInterfacesMap
 	}
 	if data.StorageClassList != nil {
 		StorageClassListMap := make(map[string]interface{})
-		if len(data.StorageClassList.StorageClasses) > 0 {
-			var StorageClassesList []map[string]interface{}
-			for _, StorageClassesItem := range data.StorageClassList.StorageClasses {
-				StorageClassesItemMap := make(map[string]interface{})
-				if StorageClassesItem.AdvancedStorageParameters != nil {
-					StorageClassesItemMap["advanced_storage_parameters"] = map[string]interface{}{}
+		if !data.StorageClassList.StorageClasses.IsNull() && !data.StorageClassList.StorageClasses.IsUnknown() {
+			var StorageClassesElems []FleetStorageClassListStorageClassesModel
+			diags := data.StorageClassList.StorageClasses.ElementsAs(ctx, &StorageClassesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(StorageClassesElems) > 0 {
+				var StorageClassesList []map[string]interface{}
+				for _, StorageClassesItem := range StorageClassesElems {
+					StorageClassesItemMap := make(map[string]interface{})
+					if StorageClassesItem.AdvancedStorageParameters != nil {
+						StorageClassesItemMap["advanced_storage_parameters"] = map[string]interface{}{}
+					}
+					if !StorageClassesItem.AllowVolumeExpansion.IsNull() && !StorageClassesItem.AllowVolumeExpansion.IsUnknown() {
+						StorageClassesItemMap["allow_volume_expansion"] = StorageClassesItem.AllowVolumeExpansion.ValueBool()
+					}
+					if StorageClassesItem.CustomStorage != nil {
+						CustomStorageMap := make(map[string]interface{})
+						if !StorageClassesItem.CustomStorage.Yaml.IsNull() && !StorageClassesItem.CustomStorage.Yaml.IsUnknown() {
+							CustomStorageMap["yaml"] = StorageClassesItem.CustomStorage.Yaml.ValueString()
+						}
+						StorageClassesItemMap["custom_storage"] = CustomStorageMap
+					}
+					if !StorageClassesItem.DefaultStorageClass.IsNull() && !StorageClassesItem.DefaultStorageClass.IsUnknown() {
+						StorageClassesItemMap["default_storage_class"] = StorageClassesItem.DefaultStorageClass.ValueBool()
+					}
+					if !StorageClassesItem.DescriptionSpec.IsNull() && !StorageClassesItem.DescriptionSpec.IsUnknown() {
+						StorageClassesItemMap["description"] = StorageClassesItem.DescriptionSpec.ValueString()
+					}
+					if StorageClassesItem.HpeStorage != nil {
+						HpeStorageMap := make(map[string]interface{})
+						if !StorageClassesItem.HpeStorage.AllowMutations.IsNull() && !StorageClassesItem.HpeStorage.AllowMutations.IsUnknown() {
+							HpeStorageMap["allow_mutations"] = StorageClassesItem.HpeStorage.AllowMutations.ValueString()
+						}
+						if !StorageClassesItem.HpeStorage.AllowOverrides.IsNull() && !StorageClassesItem.HpeStorage.AllowOverrides.IsUnknown() {
+							HpeStorageMap["allow_overrides"] = StorageClassesItem.HpeStorage.AllowOverrides.ValueString()
+						}
+						if !StorageClassesItem.HpeStorage.DedupeEnabled.IsNull() && !StorageClassesItem.HpeStorage.DedupeEnabled.IsUnknown() {
+							HpeStorageMap["dedupe_enabled"] = StorageClassesItem.HpeStorage.DedupeEnabled.ValueBool()
+						}
+						if !StorageClassesItem.HpeStorage.DescriptionSpec.IsNull() && !StorageClassesItem.HpeStorage.DescriptionSpec.IsUnknown() {
+							HpeStorageMap["description"] = StorageClassesItem.HpeStorage.DescriptionSpec.ValueString()
+						}
+						if !StorageClassesItem.HpeStorage.DestroyOnDelete.IsNull() && !StorageClassesItem.HpeStorage.DestroyOnDelete.IsUnknown() {
+							HpeStorageMap["destroy_on_delete"] = StorageClassesItem.HpeStorage.DestroyOnDelete.ValueBool()
+						}
+						if !StorageClassesItem.HpeStorage.Encrypted.IsNull() && !StorageClassesItem.HpeStorage.Encrypted.IsUnknown() {
+							HpeStorageMap["encrypted"] = StorageClassesItem.HpeStorage.Encrypted.ValueBool()
+						}
+						if !StorageClassesItem.HpeStorage.Folder.IsNull() && !StorageClassesItem.HpeStorage.Folder.IsUnknown() {
+							HpeStorageMap["folder"] = StorageClassesItem.HpeStorage.Folder.ValueString()
+						}
+						if !StorageClassesItem.HpeStorage.LimitIops.IsNull() && !StorageClassesItem.HpeStorage.LimitIops.IsUnknown() {
+							HpeStorageMap["limit_iops"] = StorageClassesItem.HpeStorage.LimitIops.ValueString()
+						}
+						if !StorageClassesItem.HpeStorage.LimitMbps.IsNull() && !StorageClassesItem.HpeStorage.LimitMbps.IsUnknown() {
+							HpeStorageMap["limit_mbps"] = StorageClassesItem.HpeStorage.LimitMbps.ValueString()
+						}
+						if !StorageClassesItem.HpeStorage.PerformancePolicy.IsNull() && !StorageClassesItem.HpeStorage.PerformancePolicy.IsUnknown() {
+							HpeStorageMap["performance_policy"] = StorageClassesItem.HpeStorage.PerformancePolicy.ValueString()
+						}
+						if !StorageClassesItem.HpeStorage.Pool.IsNull() && !StorageClassesItem.HpeStorage.Pool.IsUnknown() {
+							HpeStorageMap["pool"] = StorageClassesItem.HpeStorage.Pool.ValueString()
+						}
+						if !StorageClassesItem.HpeStorage.ProtectionTemplate.IsNull() && !StorageClassesItem.HpeStorage.ProtectionTemplate.IsUnknown() {
+							HpeStorageMap["protection_template"] = StorageClassesItem.HpeStorage.ProtectionTemplate.ValueString()
+						}
+						if !StorageClassesItem.HpeStorage.SecretName.IsNull() && !StorageClassesItem.HpeStorage.SecretName.IsUnknown() {
+							HpeStorageMap["secret_name"] = StorageClassesItem.HpeStorage.SecretName.ValueString()
+						}
+						if !StorageClassesItem.HpeStorage.SecretNamespace.IsNull() && !StorageClassesItem.HpeStorage.SecretNamespace.IsUnknown() {
+							HpeStorageMap["secret_namespace"] = StorageClassesItem.HpeStorage.SecretNamespace.ValueString()
+						}
+						if !StorageClassesItem.HpeStorage.SyncOnDetach.IsNull() && !StorageClassesItem.HpeStorage.SyncOnDetach.IsUnknown() {
+							HpeStorageMap["sync_on_detach"] = StorageClassesItem.HpeStorage.SyncOnDetach.ValueBool()
+						}
+						if !StorageClassesItem.HpeStorage.Thick.IsNull() && !StorageClassesItem.HpeStorage.Thick.IsUnknown() {
+							HpeStorageMap["thick"] = StorageClassesItem.HpeStorage.Thick.ValueBool()
+						}
+						StorageClassesItemMap["hpe_storage"] = HpeStorageMap
+					}
+					if StorageClassesItem.NetappTrident != nil {
+						NetappTridentMap := make(map[string]interface{})
+						if StorageClassesItem.NetappTrident.Selector != nil {
+							NetappTridentMap["selector"] = map[string]interface{}{}
+						}
+						if !StorageClassesItem.NetappTrident.StoragePools.IsNull() && !StorageClassesItem.NetappTrident.StoragePools.IsUnknown() {
+							NetappTridentMap["storage_pools"] = StorageClassesItem.NetappTrident.StoragePools.ValueString()
+						}
+						StorageClassesItemMap["netapp_trident"] = NetappTridentMap
+					}
+					if StorageClassesItem.PureServiceOrchestrator != nil {
+						PureServiceOrchestratorMap := make(map[string]interface{})
+						if !StorageClassesItem.PureServiceOrchestrator.Backend.IsNull() && !StorageClassesItem.PureServiceOrchestrator.Backend.IsUnknown() {
+							PureServiceOrchestratorMap["backend"] = StorageClassesItem.PureServiceOrchestrator.Backend.ValueString()
+						}
+						if !StorageClassesItem.PureServiceOrchestrator.BandwidthLimit.IsNull() && !StorageClassesItem.PureServiceOrchestrator.BandwidthLimit.IsUnknown() {
+							PureServiceOrchestratorMap["bandwidth_limit"] = StorageClassesItem.PureServiceOrchestrator.BandwidthLimit.ValueString()
+						}
+						if !StorageClassesItem.PureServiceOrchestrator.IopsLimit.IsNull() && !StorageClassesItem.PureServiceOrchestrator.IopsLimit.IsUnknown() {
+							PureServiceOrchestratorMap["iops_limit"] = StorageClassesItem.PureServiceOrchestrator.IopsLimit.ValueInt64()
+						}
+						StorageClassesItemMap["pure_service_orchestrator"] = PureServiceOrchestratorMap
+					}
+					if !StorageClassesItem.ReclaimPolicy.IsNull() && !StorageClassesItem.ReclaimPolicy.IsUnknown() {
+						StorageClassesItemMap["reclaim_policy"] = StorageClassesItem.ReclaimPolicy.ValueString()
+					}
+					if !StorageClassesItem.StorageClassName.IsNull() && !StorageClassesItem.StorageClassName.IsUnknown() {
+						StorageClassesItemMap["storage_class_name"] = StorageClassesItem.StorageClassName.ValueString()
+					}
+					if !StorageClassesItem.StorageDevice.IsNull() && !StorageClassesItem.StorageDevice.IsUnknown() {
+						StorageClassesItemMap["storage_device"] = StorageClassesItem.StorageDevice.ValueString()
+					}
+					StorageClassesList = append(StorageClassesList, StorageClassesItemMap)
 				}
-				if !StorageClassesItem.AllowVolumeExpansion.IsNull() && !StorageClassesItem.AllowVolumeExpansion.IsUnknown() {
-					StorageClassesItemMap["allow_volume_expansion"] = StorageClassesItem.AllowVolumeExpansion.ValueBool()
-				}
-				if StorageClassesItem.CustomStorage != nil {
-					CustomStorageMap := make(map[string]interface{})
-					if !StorageClassesItem.CustomStorage.Yaml.IsNull() && !StorageClassesItem.CustomStorage.Yaml.IsUnknown() {
-						CustomStorageMap["yaml"] = StorageClassesItem.CustomStorage.Yaml.ValueString()
-					}
-					StorageClassesItemMap["custom_storage"] = CustomStorageMap
-				}
-				if !StorageClassesItem.DefaultStorageClass.IsNull() && !StorageClassesItem.DefaultStorageClass.IsUnknown() {
-					StorageClassesItemMap["default_storage_class"] = StorageClassesItem.DefaultStorageClass.ValueBool()
-				}
-				if !StorageClassesItem.DescriptionSpec.IsNull() && !StorageClassesItem.DescriptionSpec.IsUnknown() {
-					StorageClassesItemMap["description"] = StorageClassesItem.DescriptionSpec.ValueString()
-				}
-				if StorageClassesItem.HpeStorage != nil {
-					HpeStorageMap := make(map[string]interface{})
-					if !StorageClassesItem.HpeStorage.AllowMutations.IsNull() && !StorageClassesItem.HpeStorage.AllowMutations.IsUnknown() {
-						HpeStorageMap["allow_mutations"] = StorageClassesItem.HpeStorage.AllowMutations.ValueString()
-					}
-					if !StorageClassesItem.HpeStorage.AllowOverrides.IsNull() && !StorageClassesItem.HpeStorage.AllowOverrides.IsUnknown() {
-						HpeStorageMap["allow_overrides"] = StorageClassesItem.HpeStorage.AllowOverrides.ValueString()
-					}
-					if !StorageClassesItem.HpeStorage.DedupeEnabled.IsNull() && !StorageClassesItem.HpeStorage.DedupeEnabled.IsUnknown() {
-						HpeStorageMap["dedupe_enabled"] = StorageClassesItem.HpeStorage.DedupeEnabled.ValueBool()
-					}
-					if !StorageClassesItem.HpeStorage.DescriptionSpec.IsNull() && !StorageClassesItem.HpeStorage.DescriptionSpec.IsUnknown() {
-						HpeStorageMap["description"] = StorageClassesItem.HpeStorage.DescriptionSpec.ValueString()
-					}
-					if !StorageClassesItem.HpeStorage.DestroyOnDelete.IsNull() && !StorageClassesItem.HpeStorage.DestroyOnDelete.IsUnknown() {
-						HpeStorageMap["destroy_on_delete"] = StorageClassesItem.HpeStorage.DestroyOnDelete.ValueBool()
-					}
-					if !StorageClassesItem.HpeStorage.Encrypted.IsNull() && !StorageClassesItem.HpeStorage.Encrypted.IsUnknown() {
-						HpeStorageMap["encrypted"] = StorageClassesItem.HpeStorage.Encrypted.ValueBool()
-					}
-					if !StorageClassesItem.HpeStorage.Folder.IsNull() && !StorageClassesItem.HpeStorage.Folder.IsUnknown() {
-						HpeStorageMap["folder"] = StorageClassesItem.HpeStorage.Folder.ValueString()
-					}
-					if !StorageClassesItem.HpeStorage.LimitIops.IsNull() && !StorageClassesItem.HpeStorage.LimitIops.IsUnknown() {
-						HpeStorageMap["limit_iops"] = StorageClassesItem.HpeStorage.LimitIops.ValueString()
-					}
-					if !StorageClassesItem.HpeStorage.LimitMbps.IsNull() && !StorageClassesItem.HpeStorage.LimitMbps.IsUnknown() {
-						HpeStorageMap["limit_mbps"] = StorageClassesItem.HpeStorage.LimitMbps.ValueString()
-					}
-					if !StorageClassesItem.HpeStorage.PerformancePolicy.IsNull() && !StorageClassesItem.HpeStorage.PerformancePolicy.IsUnknown() {
-						HpeStorageMap["performance_policy"] = StorageClassesItem.HpeStorage.PerformancePolicy.ValueString()
-					}
-					if !StorageClassesItem.HpeStorage.Pool.IsNull() && !StorageClassesItem.HpeStorage.Pool.IsUnknown() {
-						HpeStorageMap["pool"] = StorageClassesItem.HpeStorage.Pool.ValueString()
-					}
-					if !StorageClassesItem.HpeStorage.ProtectionTemplate.IsNull() && !StorageClassesItem.HpeStorage.ProtectionTemplate.IsUnknown() {
-						HpeStorageMap["protection_template"] = StorageClassesItem.HpeStorage.ProtectionTemplate.ValueString()
-					}
-					if !StorageClassesItem.HpeStorage.SecretName.IsNull() && !StorageClassesItem.HpeStorage.SecretName.IsUnknown() {
-						HpeStorageMap["secret_name"] = StorageClassesItem.HpeStorage.SecretName.ValueString()
-					}
-					if !StorageClassesItem.HpeStorage.SecretNamespace.IsNull() && !StorageClassesItem.HpeStorage.SecretNamespace.IsUnknown() {
-						HpeStorageMap["secret_namespace"] = StorageClassesItem.HpeStorage.SecretNamespace.ValueString()
-					}
-					if !StorageClassesItem.HpeStorage.SyncOnDetach.IsNull() && !StorageClassesItem.HpeStorage.SyncOnDetach.IsUnknown() {
-						HpeStorageMap["sync_on_detach"] = StorageClassesItem.HpeStorage.SyncOnDetach.ValueBool()
-					}
-					if !StorageClassesItem.HpeStorage.Thick.IsNull() && !StorageClassesItem.HpeStorage.Thick.IsUnknown() {
-						HpeStorageMap["thick"] = StorageClassesItem.HpeStorage.Thick.ValueBool()
-					}
-					StorageClassesItemMap["hpe_storage"] = HpeStorageMap
-				}
-				if StorageClassesItem.NetappTrident != nil {
-					NetappTridentMap := make(map[string]interface{})
-					if StorageClassesItem.NetappTrident.Selector != nil {
-						NetappTridentMap["selector"] = map[string]interface{}{}
-					}
-					if !StorageClassesItem.NetappTrident.StoragePools.IsNull() && !StorageClassesItem.NetappTrident.StoragePools.IsUnknown() {
-						NetappTridentMap["storage_pools"] = StorageClassesItem.NetappTrident.StoragePools.ValueString()
-					}
-					StorageClassesItemMap["netapp_trident"] = NetappTridentMap
-				}
-				if StorageClassesItem.PureServiceOrchestrator != nil {
-					PureServiceOrchestratorMap := make(map[string]interface{})
-					if !StorageClassesItem.PureServiceOrchestrator.Backend.IsNull() && !StorageClassesItem.PureServiceOrchestrator.Backend.IsUnknown() {
-						PureServiceOrchestratorMap["backend"] = StorageClassesItem.PureServiceOrchestrator.Backend.ValueString()
-					}
-					if !StorageClassesItem.PureServiceOrchestrator.BandwidthLimit.IsNull() && !StorageClassesItem.PureServiceOrchestrator.BandwidthLimit.IsUnknown() {
-						PureServiceOrchestratorMap["bandwidth_limit"] = StorageClassesItem.PureServiceOrchestrator.BandwidthLimit.ValueString()
-					}
-					if !StorageClassesItem.PureServiceOrchestrator.IopsLimit.IsNull() && !StorageClassesItem.PureServiceOrchestrator.IopsLimit.IsUnknown() {
-						PureServiceOrchestratorMap["iops_limit"] = StorageClassesItem.PureServiceOrchestrator.IopsLimit.ValueInt64()
-					}
-					StorageClassesItemMap["pure_service_orchestrator"] = PureServiceOrchestratorMap
-				}
-				if !StorageClassesItem.ReclaimPolicy.IsNull() && !StorageClassesItem.ReclaimPolicy.IsUnknown() {
-					StorageClassesItemMap["reclaim_policy"] = StorageClassesItem.ReclaimPolicy.ValueString()
-				}
-				if !StorageClassesItem.StorageClassName.IsNull() && !StorageClassesItem.StorageClassName.IsUnknown() {
-					StorageClassesItemMap["storage_class_name"] = StorageClassesItem.StorageClassName.ValueString()
-				}
-				if !StorageClassesItem.StorageDevice.IsNull() && !StorageClassesItem.StorageDevice.IsUnknown() {
-					StorageClassesItemMap["storage_device"] = StorageClassesItem.StorageDevice.ValueString()
-				}
-				StorageClassesList = append(StorageClassesList, StorageClassesItemMap)
+				StorageClassListMap["storage_classes"] = StorageClassesList
 			}
-			StorageClassListMap["storage_classes"] = StorageClassesList
 		}
 		apiResource.Spec["storage_class_list"] = StorageClassListMap
 	}
 	if data.StorageDeviceList != nil {
 		StorageDeviceListMap := make(map[string]interface{})
-		if len(data.StorageDeviceList.StorageDevices) > 0 {
-			var StorageDevicesList []map[string]interface{}
-			for _, StorageDevicesItem := range data.StorageDeviceList.StorageDevices {
-				StorageDevicesItemMap := make(map[string]interface{})
-				if StorageDevicesItem.AdvancedAdvancedParameters != nil {
-					StorageDevicesItemMap["advanced_advanced_parameters"] = map[string]interface{}{}
-				}
-				if StorageDevicesItem.CustomStorage != nil {
-					StorageDevicesItemMap["custom_storage"] = map[string]interface{}{}
-				}
-				if StorageDevicesItem.HpeStorage != nil {
-					HpeStorageMap := make(map[string]interface{})
-					if !StorageDevicesItem.HpeStorage.APIServerPort.IsNull() && !StorageDevicesItem.HpeStorage.APIServerPort.IsUnknown() {
-						HpeStorageMap["api_server_port"] = StorageDevicesItem.HpeStorage.APIServerPort.ValueInt64()
+		if !data.StorageDeviceList.StorageDevices.IsNull() && !data.StorageDeviceList.StorageDevices.IsUnknown() {
+			var StorageDevicesElems []FleetStorageDeviceListStorageDevicesModel
+			diags := data.StorageDeviceList.StorageDevices.ElementsAs(ctx, &StorageDevicesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(StorageDevicesElems) > 0 {
+				var StorageDevicesList []map[string]interface{}
+				for _, StorageDevicesItem := range StorageDevicesElems {
+					StorageDevicesItemMap := make(map[string]interface{})
+					if StorageDevicesItem.AdvancedAdvancedParameters != nil {
+						StorageDevicesItemMap["advanced_advanced_parameters"] = map[string]interface{}{}
 					}
-					if StorageDevicesItem.HpeStorage.IscsiChapPassword != nil {
-						IscsiChapPasswordMap := make(map[string]interface{})
-						if StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo != nil {
-							BlindfoldSecretInfoMap := make(map[string]interface{})
-							if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-							}
-							if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.Location.IsUnknown() {
-								BlindfoldSecretInfoMap["location"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.Location.ValueString()
-							}
-							if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
-							}
-							IscsiChapPasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
-						}
-						if StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo != nil {
-							ClearSecretInfoMap := make(map[string]interface{})
-							if !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.Provider.IsUnknown() {
-								ClearSecretInfoMap["provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.Provider.ValueString()
-							}
-							if !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.URL.IsUnknown() {
-								ClearSecretInfoMap["url"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.URL.ValueString()
-							}
-							IscsiChapPasswordMap["clear_secret_info"] = ClearSecretInfoMap
-						}
-						HpeStorageMap["iscsi_chap_password"] = IscsiChapPasswordMap
+					if StorageDevicesItem.CustomStorage != nil {
+						StorageDevicesItemMap["custom_storage"] = map[string]interface{}{}
 					}
-					if !StorageDevicesItem.HpeStorage.IscsiChapUser.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapUser.IsUnknown() {
-						HpeStorageMap["iscsi_chap_user"] = StorageDevicesItem.HpeStorage.IscsiChapUser.ValueString()
-					}
-					if StorageDevicesItem.HpeStorage.Password != nil {
-						PasswordMap := make(map[string]interface{})
-						if StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo != nil {
-							BlindfoldSecretInfoMap := make(map[string]interface{})
-							if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-							}
-							if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-								BlindfoldSecretInfoMap["location"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.Location.ValueString()
-							}
-							if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
-							}
-							PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					if StorageDevicesItem.HpeStorage != nil {
+						HpeStorageMap := make(map[string]interface{})
+						if !StorageDevicesItem.HpeStorage.APIServerPort.IsNull() && !StorageDevicesItem.HpeStorage.APIServerPort.IsUnknown() {
+							HpeStorageMap["api_server_port"] = StorageDevicesItem.HpeStorage.APIServerPort.ValueInt64()
 						}
-						if StorageDevicesItem.HpeStorage.Password.ClearSecretInfo != nil {
-							ClearSecretInfoMap := make(map[string]interface{})
-							if !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.Provider.IsUnknown() {
-								ClearSecretInfoMap["provider"] = StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.Provider.ValueString()
-							}
-							if !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.URL.IsUnknown() {
-								ClearSecretInfoMap["url"] = StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.URL.ValueString()
-							}
-							PasswordMap["clear_secret_info"] = ClearSecretInfoMap
-						}
-						HpeStorageMap["password"] = PasswordMap
-					}
-					if !StorageDevicesItem.HpeStorage.StorageServerIPAddress.IsNull() && !StorageDevicesItem.HpeStorage.StorageServerIPAddress.IsUnknown() {
-						HpeStorageMap["storage_server_ip_address"] = StorageDevicesItem.HpeStorage.StorageServerIPAddress.ValueString()
-					}
-					if !StorageDevicesItem.HpeStorage.StorageServerName.IsNull() && !StorageDevicesItem.HpeStorage.StorageServerName.IsUnknown() {
-						HpeStorageMap["storage_server_name"] = StorageDevicesItem.HpeStorage.StorageServerName.ValueString()
-					}
-					if !StorageDevicesItem.HpeStorage.Username.IsNull() && !StorageDevicesItem.HpeStorage.Username.IsUnknown() {
-						HpeStorageMap["username"] = StorageDevicesItem.HpeStorage.Username.ValueString()
-					}
-					StorageDevicesItemMap["hpe_storage"] = HpeStorageMap
-				}
-				if StorageDevicesItem.NetappTrident != nil {
-					NetappTridentMap := make(map[string]interface{})
-					if StorageDevicesItem.NetappTrident.NetappBackendOntapNas != nil {
-						NetappBackendOntapNasMap := make(map[string]interface{})
-						if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs != nil {
-							AutoExportCidrsMap := make(map[string]interface{})
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.IsUnknown() {
-								var PrefixesItems []string
-								diags := StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
-								if !diags.HasError() {
-									AutoExportCidrsMap["prefixes"] = PrefixesItems
-								}
-							}
-							NetappBackendOntapNasMap["auto_export_cidrs"] = AutoExportCidrsMap
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportPolicy.IsUnknown() {
-							NetappBackendOntapNasMap["auto_export_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportPolicy.ValueBool()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.BackendName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.BackendName.IsUnknown() {
-							NetappBackendOntapNasMap["backend_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.BackendName.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientCertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientCertificate.IsUnknown() {
-							NetappBackendOntapNasMap["client_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientCertificate.ValueString()
-						}
-						if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil {
-							ClientPrivateKeyMap := make(map[string]interface{})
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo != nil {
+						if StorageDevicesItem.HpeStorage.IscsiChapPassword != nil {
+							IscsiChapPasswordMap := make(map[string]interface{})
+							if StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo != nil {
 								BlindfoldSecretInfoMap := make(map[string]interface{})
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.Location.ValueString()
+								if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.Location.ValueString()
 								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+								if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
 								}
-								ClientPrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								IscsiChapPasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
 							}
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo != nil {
+							if StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo != nil {
 								ClearSecretInfoMap := make(map[string]interface{})
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.Provider.ValueString()
+								if !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.Provider.ValueString()
 								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.URL.ValueString()
+								if !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.URL.ValueString()
 								}
-								ClientPrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								IscsiChapPasswordMap["clear_secret_info"] = ClearSecretInfoMap
 							}
-							NetappBackendOntapNasMap["client_private_key"] = ClientPrivateKeyMap
+							HpeStorageMap["iscsi_chap_password"] = IscsiChapPasswordMap
 						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifDNSName.IsUnknown() {
-							NetappBackendOntapNasMap["data_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifDNSName.ValueString()
+						if !StorageDevicesItem.HpeStorage.IscsiChapUser.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapUser.IsUnknown() {
+							HpeStorageMap["iscsi_chap_user"] = StorageDevicesItem.HpeStorage.IscsiChapUser.ValueString()
 						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.IsUnknown() {
-							NetappBackendOntapNasMap["data_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.ValueString()
-						}
-						if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Labels != nil {
-							NetappBackendOntapNasMap["labels"] = map[string]interface{}{}
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.IsUnknown() {
-							NetappBackendOntapNasMap["limit_aggregate_usage"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitVolumeSize.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitVolumeSize.IsUnknown() {
-							NetappBackendOntapNasMap["limit_volume_size"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitVolumeSize.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifDNSName.IsUnknown() {
-							NetappBackendOntapNasMap["management_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifDNSName.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifIP.IsUnknown() {
-							NetappBackendOntapNasMap["management_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifIP.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.NfsMountOptions.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.NfsMountOptions.IsUnknown() {
-							NetappBackendOntapNasMap["nfs_mount_options"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.NfsMountOptions.ValueString()
-						}
-						if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password != nil {
+						if StorageDevicesItem.HpeStorage.Password != nil {
 							PasswordMap := make(map[string]interface{})
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo != nil {
+							if StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo != nil {
 								BlindfoldSecretInfoMap := make(map[string]interface{})
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.Location.ValueString()
+								if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+									BlindfoldSecretInfoMap["location"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.Location.ValueString()
 								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+								if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+									BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
 								}
 								PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
 							}
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo != nil {
+							if StorageDevicesItem.HpeStorage.Password.ClearSecretInfo != nil {
 								ClearSecretInfoMap := make(map[string]interface{})
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.Provider.ValueString()
+								if !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.Provider.IsUnknown() {
+									ClearSecretInfoMap["provider"] = StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.Provider.ValueString()
 								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.URL.ValueString()
+								if !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.URL.IsUnknown() {
+									ClearSecretInfoMap["url"] = StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.URL.ValueString()
 								}
 								PasswordMap["clear_secret_info"] = ClearSecretInfoMap
 							}
-							NetappBackendOntapNasMap["password"] = PasswordMap
+							HpeStorageMap["password"] = PasswordMap
 						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Region.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Region.IsUnknown() {
-							NetappBackendOntapNasMap["region"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Region.ValueString()
+						if !StorageDevicesItem.HpeStorage.StorageServerIPAddress.IsNull() && !StorageDevicesItem.HpeStorage.StorageServerIPAddress.IsUnknown() {
+							HpeStorageMap["storage_server_ip_address"] = StorageDevicesItem.HpeStorage.StorageServerIPAddress.ValueString()
 						}
-						if len(StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Storage) > 0 {
-							var StorageList []map[string]interface{}
-							for _, StorageItem := range StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Storage {
-								StorageItemMap := make(map[string]interface{})
-								if StorageItem.Labels != nil {
-									StorageItemMap["labels"] = map[string]interface{}{}
-								}
-								if StorageItem.VolumeDefaults != nil {
-									VolumeDefaultsMap := make(map[string]interface{})
-									if !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
-										VolumeDefaultsMap["adaptive_qos_policy"] = StorageItem.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.Encryption.IsNull() && !StorageItem.VolumeDefaults.Encryption.IsUnknown() {
-										VolumeDefaultsMap["encryption"] = StorageItem.VolumeDefaults.Encryption.ValueBool()
-									}
-									if !StorageItem.VolumeDefaults.ExportPolicy.IsNull() && !StorageItem.VolumeDefaults.ExportPolicy.IsUnknown() {
-										VolumeDefaultsMap["export_policy"] = StorageItem.VolumeDefaults.ExportPolicy.ValueString()
-									}
-									if StorageItem.VolumeDefaults.NoQOS != nil {
-										VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
-									}
-									if !StorageItem.VolumeDefaults.QOSPolicy.IsNull() && !StorageItem.VolumeDefaults.QOSPolicy.IsUnknown() {
-										VolumeDefaultsMap["qos_policy"] = StorageItem.VolumeDefaults.QOSPolicy.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.SecurityStyle.IsNull() && !StorageItem.VolumeDefaults.SecurityStyle.IsUnknown() {
-										VolumeDefaultsMap["security_style"] = StorageItem.VolumeDefaults.SecurityStyle.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.SnapshotDir.IsNull() && !StorageItem.VolumeDefaults.SnapshotDir.IsUnknown() {
-										VolumeDefaultsMap["snapshot_dir"] = StorageItem.VolumeDefaults.SnapshotDir.ValueBool()
-									}
-									if !StorageItem.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageItem.VolumeDefaults.SnapshotPolicy.IsUnknown() {
-										VolumeDefaultsMap["snapshot_policy"] = StorageItem.VolumeDefaults.SnapshotPolicy.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.SnapshotReserve.IsNull() && !StorageItem.VolumeDefaults.SnapshotReserve.IsUnknown() {
-										VolumeDefaultsMap["snapshot_reserve"] = StorageItem.VolumeDefaults.SnapshotReserve.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.SpaceReserve.IsNull() && !StorageItem.VolumeDefaults.SpaceReserve.IsUnknown() {
-										VolumeDefaultsMap["space_reserve"] = StorageItem.VolumeDefaults.SpaceReserve.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.SplitOnClone.IsNull() && !StorageItem.VolumeDefaults.SplitOnClone.IsUnknown() {
-										VolumeDefaultsMap["split_on_clone"] = StorageItem.VolumeDefaults.SplitOnClone.ValueBool()
-									}
-									if !StorageItem.VolumeDefaults.TieringPolicy.IsNull() && !StorageItem.VolumeDefaults.TieringPolicy.IsUnknown() {
-										VolumeDefaultsMap["tiering_policy"] = StorageItem.VolumeDefaults.TieringPolicy.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.UnixPermissions.IsNull() && !StorageItem.VolumeDefaults.UnixPermissions.IsUnknown() {
-										VolumeDefaultsMap["unix_permissions"] = StorageItem.VolumeDefaults.UnixPermissions.ValueInt64()
-									}
-									StorageItemMap["volume_defaults"] = VolumeDefaultsMap
-								}
-								if !StorageItem.Zone.IsNull() && !StorageItem.Zone.IsUnknown() {
-									StorageItemMap["zone"] = StorageItem.Zone.ValueString()
-								}
-								StorageList = append(StorageList, StorageItemMap)
-							}
-							NetappBackendOntapNasMap["storage"] = StorageList
+						if !StorageDevicesItem.HpeStorage.StorageServerName.IsNull() && !StorageDevicesItem.HpeStorage.StorageServerName.IsUnknown() {
+							HpeStorageMap["storage_server_name"] = StorageDevicesItem.HpeStorage.StorageServerName.ValueString()
 						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StorageDriverName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StorageDriverName.IsUnknown() {
-							NetappBackendOntapNasMap["storage_driver_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StorageDriverName.ValueString()
+						if !StorageDevicesItem.HpeStorage.Username.IsNull() && !StorageDevicesItem.HpeStorage.Username.IsUnknown() {
+							HpeStorageMap["username"] = StorageDevicesItem.HpeStorage.Username.ValueString()
 						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StoragePrefix.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StoragePrefix.IsUnknown() {
-							NetappBackendOntapNasMap["storage_prefix"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StoragePrefix.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Svm.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Svm.IsUnknown() {
-							NetappBackendOntapNasMap["svm"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Svm.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.TrustedCACertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.TrustedCACertificate.IsUnknown() {
-							NetappBackendOntapNasMap["trusted_ca_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.TrustedCACertificate.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Username.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Username.IsUnknown() {
-							NetappBackendOntapNasMap["username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Username.ValueString()
-						}
-						if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil {
-							VolumeDefaultsMap := make(map[string]interface{})
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
-								VolumeDefaultsMap["adaptive_qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.IsUnknown() {
-								VolumeDefaultsMap["encryption"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.ValueBool()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.IsUnknown() {
-								VolumeDefaultsMap["export_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.ValueString()
-							}
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS != nil {
-								VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.QOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.QOSPolicy.IsUnknown() {
-								VolumeDefaultsMap["qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.QOSPolicy.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SecurityStyle.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SecurityStyle.IsUnknown() {
-								VolumeDefaultsMap["security_style"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SecurityStyle.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.IsUnknown() {
-								VolumeDefaultsMap["snapshot_dir"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.ValueBool()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotPolicy.IsUnknown() {
-								VolumeDefaultsMap["snapshot_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotPolicy.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotReserve.IsUnknown() {
-								VolumeDefaultsMap["snapshot_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotReserve.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SpaceReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SpaceReserve.IsUnknown() {
-								VolumeDefaultsMap["space_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SpaceReserve.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.IsUnknown() {
-								VolumeDefaultsMap["split_on_clone"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.ValueBool()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.TieringPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.TieringPolicy.IsUnknown() {
-								VolumeDefaultsMap["tiering_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.TieringPolicy.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.IsUnknown() {
-								VolumeDefaultsMap["unix_permissions"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.ValueInt64()
-							}
-							NetappBackendOntapNasMap["volume_defaults"] = VolumeDefaultsMap
-						}
-						NetappTridentMap["netapp_backend_ontap_nas"] = NetappBackendOntapNasMap
+						StorageDevicesItemMap["hpe_storage"] = HpeStorageMap
 					}
-					if StorageDevicesItem.NetappTrident.NetappBackendOntapSan != nil {
-						NetappBackendOntapSanMap := make(map[string]interface{})
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientCertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientCertificate.IsUnknown() {
-							NetappBackendOntapSanMap["client_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientCertificate.ValueString()
-						}
-						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil {
-							ClientPrivateKeyMap := make(map[string]interface{})
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					if StorageDevicesItem.NetappTrident != nil {
+						NetappTridentMap := make(map[string]interface{})
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapNas != nil {
+							NetappBackendOntapNasMap := make(map[string]interface{})
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs != nil {
+								AutoExportCidrsMap := make(map[string]interface{})
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.IsUnknown() {
+									var PrefixesItems []string
+									diags := StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+									if !diags.HasError() {
+										AutoExportCidrsMap["prefixes"] = PrefixesItems
+									}
 								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.Location.ValueString()
-								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
-								}
-								ClientPrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								NetappBackendOntapNasMap["auto_export_cidrs"] = AutoExportCidrsMap
 							}
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.Provider.ValueString()
-								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.URL.ValueString()
-								}
-								ClientPrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportPolicy.IsUnknown() {
+								NetappBackendOntapNasMap["auto_export_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportPolicy.ValueBool()
 							}
-							NetappBackendOntapSanMap["client_private_key"] = ClientPrivateKeyMap
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifDNSName.IsUnknown() {
-							NetappBackendOntapSanMap["data_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifDNSName.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifIP.IsUnknown() {
-							NetappBackendOntapSanMap["data_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifIP.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.IsUnknown() {
-							NetappBackendOntapSanMap["igroup_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.ValueString()
-						}
-						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Labels != nil {
-							NetappBackendOntapSanMap["labels"] = map[string]interface{}{}
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsUnknown() {
-							NetappBackendOntapSanMap["limit_aggregate_usage"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.ValueInt64()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitVolumeSize.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitVolumeSize.IsUnknown() {
-							NetappBackendOntapSanMap["limit_volume_size"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitVolumeSize.ValueInt64()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifDNSName.IsUnknown() {
-							NetappBackendOntapSanMap["management_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifDNSName.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.IsUnknown() {
-							NetappBackendOntapSanMap["management_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.ValueString()
-						}
-						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.NoChap != nil {
-							NetappBackendOntapSanMap["no_chap"] = map[string]interface{}{}
-						}
-						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password != nil {
-							PasswordMap := make(map[string]interface{})
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.Location.ValueString()
-								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
-								}
-								PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.BackendName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.BackendName.IsUnknown() {
+								NetappBackendOntapNasMap["backend_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.BackendName.ValueString()
 							}
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.Provider.ValueString()
-								}
-								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.URL.ValueString()
-								}
-								PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientCertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientCertificate.IsUnknown() {
+								NetappBackendOntapNasMap["client_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientCertificate.ValueString()
 							}
-							NetappBackendOntapSanMap["password"] = PasswordMap
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Region.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Region.IsUnknown() {
-							NetappBackendOntapSanMap["region"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Region.ValueString()
-						}
-						if len(StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Storage) > 0 {
-							var StorageList []map[string]interface{}
-							for _, StorageItem := range StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Storage {
-								StorageItemMap := make(map[string]interface{})
-								if StorageItem.Labels != nil {
-									StorageItemMap["labels"] = map[string]interface{}{}
-								}
-								if StorageItem.VolumeDefaults != nil {
-									VolumeDefaultsMap := make(map[string]interface{})
-									if !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
-										VolumeDefaultsMap["adaptive_qos_policy"] = StorageItem.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.Encryption.IsNull() && !StorageItem.VolumeDefaults.Encryption.IsUnknown() {
-										VolumeDefaultsMap["encryption"] = StorageItem.VolumeDefaults.Encryption.ValueBool()
-									}
-									if !StorageItem.VolumeDefaults.ExportPolicy.IsNull() && !StorageItem.VolumeDefaults.ExportPolicy.IsUnknown() {
-										VolumeDefaultsMap["export_policy"] = StorageItem.VolumeDefaults.ExportPolicy.ValueString()
-									}
-									if StorageItem.VolumeDefaults.NoQOS != nil {
-										VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
-									}
-									if !StorageItem.VolumeDefaults.QOSPolicy.IsNull() && !StorageItem.VolumeDefaults.QOSPolicy.IsUnknown() {
-										VolumeDefaultsMap["qos_policy"] = StorageItem.VolumeDefaults.QOSPolicy.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.SecurityStyle.IsNull() && !StorageItem.VolumeDefaults.SecurityStyle.IsUnknown() {
-										VolumeDefaultsMap["security_style"] = StorageItem.VolumeDefaults.SecurityStyle.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.SnapshotDir.IsNull() && !StorageItem.VolumeDefaults.SnapshotDir.IsUnknown() {
-										VolumeDefaultsMap["snapshot_dir"] = StorageItem.VolumeDefaults.SnapshotDir.ValueBool()
-									}
-									if !StorageItem.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageItem.VolumeDefaults.SnapshotPolicy.IsUnknown() {
-										VolumeDefaultsMap["snapshot_policy"] = StorageItem.VolumeDefaults.SnapshotPolicy.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.SnapshotReserve.IsNull() && !StorageItem.VolumeDefaults.SnapshotReserve.IsUnknown() {
-										VolumeDefaultsMap["snapshot_reserve"] = StorageItem.VolumeDefaults.SnapshotReserve.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.SpaceReserve.IsNull() && !StorageItem.VolumeDefaults.SpaceReserve.IsUnknown() {
-										VolumeDefaultsMap["space_reserve"] = StorageItem.VolumeDefaults.SpaceReserve.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.SplitOnClone.IsNull() && !StorageItem.VolumeDefaults.SplitOnClone.IsUnknown() {
-										VolumeDefaultsMap["split_on_clone"] = StorageItem.VolumeDefaults.SplitOnClone.ValueBool()
-									}
-									if !StorageItem.VolumeDefaults.TieringPolicy.IsNull() && !StorageItem.VolumeDefaults.TieringPolicy.IsUnknown() {
-										VolumeDefaultsMap["tiering_policy"] = StorageItem.VolumeDefaults.TieringPolicy.ValueString()
-									}
-									if !StorageItem.VolumeDefaults.UnixPermissions.IsNull() && !StorageItem.VolumeDefaults.UnixPermissions.IsUnknown() {
-										VolumeDefaultsMap["unix_permissions"] = StorageItem.VolumeDefaults.UnixPermissions.ValueInt64()
-									}
-									StorageItemMap["volume_defaults"] = VolumeDefaultsMap
-								}
-								if !StorageItem.Zone.IsNull() && !StorageItem.Zone.IsUnknown() {
-									StorageItemMap["zone"] = StorageItem.Zone.ValueString()
-								}
-								StorageList = append(StorageList, StorageItemMap)
-							}
-							NetappBackendOntapSanMap["storage"] = StorageList
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StorageDriverName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StorageDriverName.IsUnknown() {
-							NetappBackendOntapSanMap["storage_driver_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StorageDriverName.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StoragePrefix.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StoragePrefix.IsUnknown() {
-							NetappBackendOntapSanMap["storage_prefix"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StoragePrefix.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Svm.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Svm.IsUnknown() {
-							NetappBackendOntapSanMap["svm"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Svm.ValueString()
-						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.TrustedCACertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.TrustedCACertificate.IsUnknown() {
-							NetappBackendOntapSanMap["trusted_ca_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.TrustedCACertificate.ValueString()
-						}
-						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap != nil {
-							UseChapMap := make(map[string]interface{})
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil {
-								ChapInitiatorSecretMap := make(map[string]interface{})
-								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo != nil {
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil {
+								ClientPrivateKeyMap := make(map[string]interface{})
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo != nil {
 									BlindfoldSecretInfoMap := make(map[string]interface{})
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 									}
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.Location.IsUnknown() {
-										BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.Location.ValueString()
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.Location.ValueString()
 									}
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 									}
-									ChapInitiatorSecretMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									ClientPrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
 								}
-								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo != nil {
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo != nil {
 									ClearSecretInfoMap := make(map[string]interface{})
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.Provider.IsUnknown() {
-										ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.Provider.ValueString()
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.Provider.ValueString()
 									}
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.URL.IsUnknown() {
-										ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.URL.ValueString()
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.URL.ValueString()
 									}
-									ChapInitiatorSecretMap["clear_secret_info"] = ClearSecretInfoMap
+									ClientPrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
 								}
-								UseChapMap["chap_initiator_secret"] = ChapInitiatorSecretMap
+								NetappBackendOntapNasMap["client_private_key"] = ClientPrivateKeyMap
 							}
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil {
-								ChapTargetInitiatorSecretMap := make(map[string]interface{})
-								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo != nil {
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifDNSName.IsUnknown() {
+								NetappBackendOntapNasMap["data_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifDNSName.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.IsUnknown() {
+								NetappBackendOntapNasMap["data_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.ValueString()
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Labels != nil {
+								NetappBackendOntapNasMap["labels"] = map[string]interface{}{}
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.IsUnknown() {
+								NetappBackendOntapNasMap["limit_aggregate_usage"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitVolumeSize.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitVolumeSize.IsUnknown() {
+								NetappBackendOntapNasMap["limit_volume_size"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitVolumeSize.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifDNSName.IsUnknown() {
+								NetappBackendOntapNasMap["management_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifDNSName.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifIP.IsUnknown() {
+								NetappBackendOntapNasMap["management_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ManagementLifIP.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.NfsMountOptions.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.NfsMountOptions.IsUnknown() {
+								NetappBackendOntapNasMap["nfs_mount_options"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.NfsMountOptions.ValueString()
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password != nil {
+								PasswordMap := make(map[string]interface{})
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo != nil {
 									BlindfoldSecretInfoMap := make(map[string]interface{})
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 									}
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.Location.IsUnknown() {
-										BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.Location.ValueString()
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.Location.ValueString()
 									}
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
 									}
-									ChapTargetInitiatorSecretMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
 								}
-								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo != nil {
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo != nil {
 									ClearSecretInfoMap := make(map[string]interface{})
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.Provider.IsUnknown() {
-										ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.Provider.ValueString()
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.Provider.ValueString()
 									}
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.URL.IsUnknown() {
-										ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.URL.ValueString()
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.URL.ValueString()
 									}
-									ChapTargetInitiatorSecretMap["clear_secret_info"] = ClearSecretInfoMap
+									PasswordMap["clear_secret_info"] = ClearSecretInfoMap
 								}
-								UseChapMap["chap_target_initiator_secret"] = ChapTargetInitiatorSecretMap
+								NetappBackendOntapNasMap["password"] = PasswordMap
 							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetUsername.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetUsername.IsUnknown() {
-								UseChapMap["chap_target_username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetUsername.ValueString()
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Region.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Region.IsUnknown() {
+								NetappBackendOntapNasMap["region"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Region.ValueString()
 							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapUsername.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapUsername.IsUnknown() {
-								UseChapMap["chap_username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapUsername.ValueString()
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Storage.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Storage.IsUnknown() {
+								var StorageElems []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel
+								diags := StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Storage.ElementsAs(ctx, &StorageElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(StorageElems) > 0 {
+									var StorageList []map[string]interface{}
+									for _, StorageItem := range StorageElems {
+										StorageItemMap := make(map[string]interface{})
+										if StorageItem.Labels != nil {
+											StorageItemMap["labels"] = map[string]interface{}{}
+										}
+										if StorageItem.VolumeDefaults != nil {
+											VolumeDefaultsMap := make(map[string]interface{})
+											if !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
+												VolumeDefaultsMap["adaptive_qos_policy"] = StorageItem.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.Encryption.IsNull() && !StorageItem.VolumeDefaults.Encryption.IsUnknown() {
+												VolumeDefaultsMap["encryption"] = StorageItem.VolumeDefaults.Encryption.ValueBool()
+											}
+											if !StorageItem.VolumeDefaults.ExportPolicy.IsNull() && !StorageItem.VolumeDefaults.ExportPolicy.IsUnknown() {
+												VolumeDefaultsMap["export_policy"] = StorageItem.VolumeDefaults.ExportPolicy.ValueString()
+											}
+											if StorageItem.VolumeDefaults.NoQOS != nil {
+												VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
+											}
+											if !StorageItem.VolumeDefaults.QOSPolicy.IsNull() && !StorageItem.VolumeDefaults.QOSPolicy.IsUnknown() {
+												VolumeDefaultsMap["qos_policy"] = StorageItem.VolumeDefaults.QOSPolicy.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.SecurityStyle.IsNull() && !StorageItem.VolumeDefaults.SecurityStyle.IsUnknown() {
+												VolumeDefaultsMap["security_style"] = StorageItem.VolumeDefaults.SecurityStyle.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.SnapshotDir.IsNull() && !StorageItem.VolumeDefaults.SnapshotDir.IsUnknown() {
+												VolumeDefaultsMap["snapshot_dir"] = StorageItem.VolumeDefaults.SnapshotDir.ValueBool()
+											}
+											if !StorageItem.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageItem.VolumeDefaults.SnapshotPolicy.IsUnknown() {
+												VolumeDefaultsMap["snapshot_policy"] = StorageItem.VolumeDefaults.SnapshotPolicy.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.SnapshotReserve.IsNull() && !StorageItem.VolumeDefaults.SnapshotReserve.IsUnknown() {
+												VolumeDefaultsMap["snapshot_reserve"] = StorageItem.VolumeDefaults.SnapshotReserve.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.SpaceReserve.IsNull() && !StorageItem.VolumeDefaults.SpaceReserve.IsUnknown() {
+												VolumeDefaultsMap["space_reserve"] = StorageItem.VolumeDefaults.SpaceReserve.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.SplitOnClone.IsNull() && !StorageItem.VolumeDefaults.SplitOnClone.IsUnknown() {
+												VolumeDefaultsMap["split_on_clone"] = StorageItem.VolumeDefaults.SplitOnClone.ValueBool()
+											}
+											if !StorageItem.VolumeDefaults.TieringPolicy.IsNull() && !StorageItem.VolumeDefaults.TieringPolicy.IsUnknown() {
+												VolumeDefaultsMap["tiering_policy"] = StorageItem.VolumeDefaults.TieringPolicy.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.UnixPermissions.IsNull() && !StorageItem.VolumeDefaults.UnixPermissions.IsUnknown() {
+												VolumeDefaultsMap["unix_permissions"] = StorageItem.VolumeDefaults.UnixPermissions.ValueInt64()
+											}
+											StorageItemMap["volume_defaults"] = VolumeDefaultsMap
+										}
+										if !StorageItem.Zone.IsNull() && !StorageItem.Zone.IsUnknown() {
+											StorageItemMap["zone"] = StorageItem.Zone.ValueString()
+										}
+										StorageList = append(StorageList, StorageItemMap)
+									}
+									NetappBackendOntapNasMap["storage"] = StorageList
+								}
 							}
-							NetappBackendOntapSanMap["use_chap"] = UseChapMap
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StorageDriverName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StorageDriverName.IsUnknown() {
+								NetappBackendOntapNasMap["storage_driver_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StorageDriverName.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StoragePrefix.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StoragePrefix.IsUnknown() {
+								NetappBackendOntapNasMap["storage_prefix"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.StoragePrefix.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Svm.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Svm.IsUnknown() {
+								NetappBackendOntapNasMap["svm"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Svm.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.TrustedCACertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.TrustedCACertificate.IsUnknown() {
+								NetappBackendOntapNasMap["trusted_ca_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.TrustedCACertificate.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Username.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Username.IsUnknown() {
+								NetappBackendOntapNasMap["username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Username.ValueString()
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil {
+								VolumeDefaultsMap := make(map[string]interface{})
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
+									VolumeDefaultsMap["adaptive_qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.IsUnknown() {
+									VolumeDefaultsMap["encryption"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.ValueBool()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.IsUnknown() {
+									VolumeDefaultsMap["export_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.ValueString()
+								}
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS != nil {
+									VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.QOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.QOSPolicy.IsUnknown() {
+									VolumeDefaultsMap["qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.QOSPolicy.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SecurityStyle.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SecurityStyle.IsUnknown() {
+									VolumeDefaultsMap["security_style"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SecurityStyle.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.IsUnknown() {
+									VolumeDefaultsMap["snapshot_dir"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.ValueBool()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotPolicy.IsUnknown() {
+									VolumeDefaultsMap["snapshot_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotPolicy.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotReserve.IsUnknown() {
+									VolumeDefaultsMap["snapshot_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotReserve.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SpaceReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SpaceReserve.IsUnknown() {
+									VolumeDefaultsMap["space_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SpaceReserve.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.IsUnknown() {
+									VolumeDefaultsMap["split_on_clone"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.ValueBool()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.TieringPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.TieringPolicy.IsUnknown() {
+									VolumeDefaultsMap["tiering_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.TieringPolicy.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.IsUnknown() {
+									VolumeDefaultsMap["unix_permissions"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.ValueInt64()
+								}
+								NetappBackendOntapNasMap["volume_defaults"] = VolumeDefaultsMap
+							}
+							NetappTridentMap["netapp_backend_ontap_nas"] = NetappBackendOntapNasMap
 						}
-						if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Username.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Username.IsUnknown() {
-							NetappBackendOntapSanMap["username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Username.ValueString()
+						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan != nil {
+							NetappBackendOntapSanMap := make(map[string]interface{})
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientCertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientCertificate.IsUnknown() {
+								NetappBackendOntapSanMap["client_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientCertificate.ValueString()
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil {
+								ClientPrivateKeyMap := make(map[string]interface{})
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									ClientPrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.Provider.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.URL.ValueString()
+									}
+									ClientPrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								NetappBackendOntapSanMap["client_private_key"] = ClientPrivateKeyMap
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifDNSName.IsUnknown() {
+								NetappBackendOntapSanMap["data_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifDNSName.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifIP.IsUnknown() {
+								NetappBackendOntapSanMap["data_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.DataLifIP.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.IsUnknown() {
+								NetappBackendOntapSanMap["igroup_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.ValueString()
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Labels != nil {
+								NetappBackendOntapSanMap["labels"] = map[string]interface{}{}
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsUnknown() {
+								NetappBackendOntapSanMap["limit_aggregate_usage"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.ValueInt64()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitVolumeSize.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitVolumeSize.IsUnknown() {
+								NetappBackendOntapSanMap["limit_volume_size"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitVolumeSize.ValueInt64()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifDNSName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifDNSName.IsUnknown() {
+								NetappBackendOntapSanMap["management_lif_dns_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifDNSName.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.IsUnknown() {
+								NetappBackendOntapSanMap["management_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.ValueString()
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.NoChap != nil {
+								NetappBackendOntapSanMap["no_chap"] = map[string]interface{}{}
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password != nil {
+								PasswordMap := make(map[string]interface{})
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo != nil {
+									BlindfoldSecretInfoMap := make(map[string]interface{})
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.Location.IsUnknown() {
+										BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.Location.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+										BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+									}
+									PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								}
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo != nil {
+									ClearSecretInfoMap := make(map[string]interface{})
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.Provider.IsUnknown() {
+										ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.Provider.ValueString()
+									}
+									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.URL.IsUnknown() {
+										ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.URL.ValueString()
+									}
+									PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+								}
+								NetappBackendOntapSanMap["password"] = PasswordMap
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Region.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Region.IsUnknown() {
+								NetappBackendOntapSanMap["region"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Region.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Storage.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Storage.IsUnknown() {
+								var StorageElems []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel
+								diags := StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Storage.ElementsAs(ctx, &StorageElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(StorageElems) > 0 {
+									var StorageList []map[string]interface{}
+									for _, StorageItem := range StorageElems {
+										StorageItemMap := make(map[string]interface{})
+										if StorageItem.Labels != nil {
+											StorageItemMap["labels"] = map[string]interface{}{}
+										}
+										if StorageItem.VolumeDefaults != nil {
+											VolumeDefaultsMap := make(map[string]interface{})
+											if !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageItem.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
+												VolumeDefaultsMap["adaptive_qos_policy"] = StorageItem.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.Encryption.IsNull() && !StorageItem.VolumeDefaults.Encryption.IsUnknown() {
+												VolumeDefaultsMap["encryption"] = StorageItem.VolumeDefaults.Encryption.ValueBool()
+											}
+											if !StorageItem.VolumeDefaults.ExportPolicy.IsNull() && !StorageItem.VolumeDefaults.ExportPolicy.IsUnknown() {
+												VolumeDefaultsMap["export_policy"] = StorageItem.VolumeDefaults.ExportPolicy.ValueString()
+											}
+											if StorageItem.VolumeDefaults.NoQOS != nil {
+												VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
+											}
+											if !StorageItem.VolumeDefaults.QOSPolicy.IsNull() && !StorageItem.VolumeDefaults.QOSPolicy.IsUnknown() {
+												VolumeDefaultsMap["qos_policy"] = StorageItem.VolumeDefaults.QOSPolicy.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.SecurityStyle.IsNull() && !StorageItem.VolumeDefaults.SecurityStyle.IsUnknown() {
+												VolumeDefaultsMap["security_style"] = StorageItem.VolumeDefaults.SecurityStyle.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.SnapshotDir.IsNull() && !StorageItem.VolumeDefaults.SnapshotDir.IsUnknown() {
+												VolumeDefaultsMap["snapshot_dir"] = StorageItem.VolumeDefaults.SnapshotDir.ValueBool()
+											}
+											if !StorageItem.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageItem.VolumeDefaults.SnapshotPolicy.IsUnknown() {
+												VolumeDefaultsMap["snapshot_policy"] = StorageItem.VolumeDefaults.SnapshotPolicy.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.SnapshotReserve.IsNull() && !StorageItem.VolumeDefaults.SnapshotReserve.IsUnknown() {
+												VolumeDefaultsMap["snapshot_reserve"] = StorageItem.VolumeDefaults.SnapshotReserve.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.SpaceReserve.IsNull() && !StorageItem.VolumeDefaults.SpaceReserve.IsUnknown() {
+												VolumeDefaultsMap["space_reserve"] = StorageItem.VolumeDefaults.SpaceReserve.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.SplitOnClone.IsNull() && !StorageItem.VolumeDefaults.SplitOnClone.IsUnknown() {
+												VolumeDefaultsMap["split_on_clone"] = StorageItem.VolumeDefaults.SplitOnClone.ValueBool()
+											}
+											if !StorageItem.VolumeDefaults.TieringPolicy.IsNull() && !StorageItem.VolumeDefaults.TieringPolicy.IsUnknown() {
+												VolumeDefaultsMap["tiering_policy"] = StorageItem.VolumeDefaults.TieringPolicy.ValueString()
+											}
+											if !StorageItem.VolumeDefaults.UnixPermissions.IsNull() && !StorageItem.VolumeDefaults.UnixPermissions.IsUnknown() {
+												VolumeDefaultsMap["unix_permissions"] = StorageItem.VolumeDefaults.UnixPermissions.ValueInt64()
+											}
+											StorageItemMap["volume_defaults"] = VolumeDefaultsMap
+										}
+										if !StorageItem.Zone.IsNull() && !StorageItem.Zone.IsUnknown() {
+											StorageItemMap["zone"] = StorageItem.Zone.ValueString()
+										}
+										StorageList = append(StorageList, StorageItemMap)
+									}
+									NetappBackendOntapSanMap["storage"] = StorageList
+								}
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StorageDriverName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StorageDriverName.IsUnknown() {
+								NetappBackendOntapSanMap["storage_driver_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StorageDriverName.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StoragePrefix.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StoragePrefix.IsUnknown() {
+								NetappBackendOntapSanMap["storage_prefix"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.StoragePrefix.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Svm.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Svm.IsUnknown() {
+								NetappBackendOntapSanMap["svm"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Svm.ValueString()
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.TrustedCACertificate.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.TrustedCACertificate.IsUnknown() {
+								NetappBackendOntapSanMap["trusted_ca_certificate"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.TrustedCACertificate.ValueString()
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap != nil {
+								UseChapMap := make(map[string]interface{})
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil {
+									ChapInitiatorSecretMap := make(map[string]interface{})
+									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo != nil {
+										BlindfoldSecretInfoMap := make(map[string]interface{})
+										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+										}
+										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.Location.IsUnknown() {
+											BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.Location.ValueString()
+										}
+										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
+										}
+										ChapInitiatorSecretMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									}
+									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo != nil {
+										ClearSecretInfoMap := make(map[string]interface{})
+										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.Provider.IsUnknown() {
+											ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.Provider.ValueString()
+										}
+										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.URL.IsUnknown() {
+											ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.URL.ValueString()
+										}
+										ChapInitiatorSecretMap["clear_secret_info"] = ClearSecretInfoMap
+									}
+									UseChapMap["chap_initiator_secret"] = ChapInitiatorSecretMap
+								}
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil {
+									ChapTargetInitiatorSecretMap := make(map[string]interface{})
+									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo != nil {
+										BlindfoldSecretInfoMap := make(map[string]interface{})
+										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+										}
+										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.Location.IsUnknown() {
+											BlindfoldSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.Location.ValueString()
+										}
+										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+											BlindfoldSecretInfoMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
+										}
+										ChapTargetInitiatorSecretMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									}
+									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo != nil {
+										ClearSecretInfoMap := make(map[string]interface{})
+										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.Provider.IsUnknown() {
+											ClearSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.Provider.ValueString()
+										}
+										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.URL.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.URL.IsUnknown() {
+											ClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.URL.ValueString()
+										}
+										ChapTargetInitiatorSecretMap["clear_secret_info"] = ClearSecretInfoMap
+									}
+									UseChapMap["chap_target_initiator_secret"] = ChapTargetInitiatorSecretMap
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetUsername.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetUsername.IsUnknown() {
+									UseChapMap["chap_target_username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetUsername.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapUsername.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapUsername.IsUnknown() {
+									UseChapMap["chap_username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapUsername.ValueString()
+								}
+								NetappBackendOntapSanMap["use_chap"] = UseChapMap
+							}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Username.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Username.IsUnknown() {
+								NetappBackendOntapSanMap["username"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Username.ValueString()
+							}
+							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil {
+								VolumeDefaultsMap := make(map[string]interface{})
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
+									VolumeDefaultsMap["adaptive_qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.IsUnknown() {
+									VolumeDefaultsMap["encryption"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.ValueBool()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.IsUnknown() {
+									VolumeDefaultsMap["export_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.ValueString()
+								}
+								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS != nil {
+									VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.QOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.QOSPolicy.IsUnknown() {
+									VolumeDefaultsMap["qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.QOSPolicy.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SecurityStyle.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SecurityStyle.IsUnknown() {
+									VolumeDefaultsMap["security_style"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SecurityStyle.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.IsUnknown() {
+									VolumeDefaultsMap["snapshot_dir"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.ValueBool()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotPolicy.IsUnknown() {
+									VolumeDefaultsMap["snapshot_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotPolicy.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotReserve.IsUnknown() {
+									VolumeDefaultsMap["snapshot_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotReserve.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SpaceReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SpaceReserve.IsUnknown() {
+									VolumeDefaultsMap["space_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SpaceReserve.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.IsUnknown() {
+									VolumeDefaultsMap["split_on_clone"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.ValueBool()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.TieringPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.TieringPolicy.IsUnknown() {
+									VolumeDefaultsMap["tiering_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.TieringPolicy.ValueString()
+								}
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.IsUnknown() {
+									VolumeDefaultsMap["unix_permissions"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.ValueInt64()
+								}
+								NetappBackendOntapSanMap["volume_defaults"] = VolumeDefaultsMap
+							}
+							NetappTridentMap["netapp_backend_ontap_san"] = NetappBackendOntapSanMap
 						}
-						if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil {
-							VolumeDefaultsMap := make(map[string]interface{})
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.AdaptiveQOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.AdaptiveQOSPolicy.IsUnknown() {
-								VolumeDefaultsMap["adaptive_qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.AdaptiveQOSPolicy.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.IsUnknown() {
-								VolumeDefaultsMap["encryption"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.ValueBool()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.IsUnknown() {
-								VolumeDefaultsMap["export_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.ValueString()
-							}
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS != nil {
-								VolumeDefaultsMap["no_qos"] = map[string]interface{}{}
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.QOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.QOSPolicy.IsUnknown() {
-								VolumeDefaultsMap["qos_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.QOSPolicy.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SecurityStyle.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SecurityStyle.IsUnknown() {
-								VolumeDefaultsMap["security_style"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SecurityStyle.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.IsUnknown() {
-								VolumeDefaultsMap["snapshot_dir"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.ValueBool()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotPolicy.IsUnknown() {
-								VolumeDefaultsMap["snapshot_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotPolicy.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotReserve.IsUnknown() {
-								VolumeDefaultsMap["snapshot_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotReserve.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SpaceReserve.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SpaceReserve.IsUnknown() {
-								VolumeDefaultsMap["space_reserve"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SpaceReserve.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.IsUnknown() {
-								VolumeDefaultsMap["split_on_clone"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.ValueBool()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.TieringPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.TieringPolicy.IsUnknown() {
-								VolumeDefaultsMap["tiering_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.TieringPolicy.ValueString()
-							}
-							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.IsUnknown() {
-								VolumeDefaultsMap["unix_permissions"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.ValueInt64()
-							}
-							NetappBackendOntapSanMap["volume_defaults"] = VolumeDefaultsMap
-						}
-						NetappTridentMap["netapp_backend_ontap_san"] = NetappBackendOntapSanMap
+						StorageDevicesItemMap["netapp_trident"] = NetappTridentMap
 					}
-					StorageDevicesItemMap["netapp_trident"] = NetappTridentMap
+					if StorageDevicesItem.PureServiceOrchestrator != nil {
+						PureServiceOrchestratorMap := make(map[string]interface{})
+						if StorageDevicesItem.PureServiceOrchestrator.Arrays != nil {
+							ArraysMap := make(map[string]interface{})
+							if StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray != nil {
+								FlashArrayMap := make(map[string]interface{})
+								if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsOpt.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsOpt.IsUnknown() {
+									FlashArrayMap["default_fs_opt"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsOpt.ValueString()
+								}
+								if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsType.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsType.IsUnknown() {
+									FlashArrayMap["default_fs_type"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsType.ValueString()
+								}
+								if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.IsUnknown() {
+									var DefaultMountOptsItems []string
+									diags := StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.ElementsAs(ctx, &DefaultMountOptsItems, false)
+									if !diags.HasError() {
+										FlashArrayMap["default_mount_opts"] = DefaultMountOptsItems
+									}
+								}
+								if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.IsUnknown() {
+									FlashArrayMap["disable_preempt_attachments"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.ValueBool()
+								}
+								if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.IsUnknown() {
+									var FlashArraysElems []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel
+									diags := StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.ElementsAs(ctx, &FlashArraysElems, false)
+									resp.Diagnostics.Append(diags...)
+									if !resp.Diagnostics.HasError() && len(FlashArraysElems) > 0 {
+										var FlashArraysList []map[string]interface{}
+										for _, FlashArraysItem := range FlashArraysElems {
+											FlashArraysItemMap := make(map[string]interface{})
+											if FlashArraysItem.APIToken != nil {
+												APITokenMap := make(map[string]interface{})
+												if FlashArraysItem.APIToken.BlindfoldSecretInfo != nil {
+													BlindfoldSecretInfoMap := make(map[string]interface{})
+													if !FlashArraysItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+														BlindfoldSecretInfoMap["decryption_provider"] = FlashArraysItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+													}
+													if !FlashArraysItem.APIToken.BlindfoldSecretInfo.Location.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfo.Location.IsUnknown() {
+														BlindfoldSecretInfoMap["location"] = FlashArraysItem.APIToken.BlindfoldSecretInfo.Location.ValueString()
+													}
+													if !FlashArraysItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+														BlindfoldSecretInfoMap["store_provider"] = FlashArraysItem.APIToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+													}
+													APITokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+												}
+												if FlashArraysItem.APIToken.ClearSecretInfo != nil {
+													ClearSecretInfoMap := make(map[string]interface{})
+													if !FlashArraysItem.APIToken.ClearSecretInfo.Provider.IsNull() && !FlashArraysItem.APIToken.ClearSecretInfo.Provider.IsUnknown() {
+														ClearSecretInfoMap["provider"] = FlashArraysItem.APIToken.ClearSecretInfo.Provider.ValueString()
+													}
+													if !FlashArraysItem.APIToken.ClearSecretInfo.URL.IsNull() && !FlashArraysItem.APIToken.ClearSecretInfo.URL.IsUnknown() {
+														ClearSecretInfoMap["url"] = FlashArraysItem.APIToken.ClearSecretInfo.URL.ValueString()
+													}
+													APITokenMap["clear_secret_info"] = ClearSecretInfoMap
+												}
+												FlashArraysItemMap["api_token"] = APITokenMap
+											}
+											if FlashArraysItem.Labels != nil {
+												FlashArraysItemMap["labels"] = map[string]interface{}{}
+											}
+											if !FlashArraysItem.MgmtDNSName.IsNull() && !FlashArraysItem.MgmtDNSName.IsUnknown() {
+												FlashArraysItemMap["mgmt_dns_name"] = FlashArraysItem.MgmtDNSName.ValueString()
+											}
+											if !FlashArraysItem.MgmtIP.IsNull() && !FlashArraysItem.MgmtIP.IsUnknown() {
+												FlashArraysItemMap["mgmt_ip"] = FlashArraysItem.MgmtIP.ValueString()
+											}
+											FlashArraysList = append(FlashArraysList, FlashArraysItemMap)
+										}
+										FlashArrayMap["flash_arrays"] = FlashArraysList
+									}
+								}
+								if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.IsUnknown() {
+									FlashArrayMap["iscsi_login_timeout"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.ValueInt64()
+								}
+								if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.SanType.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.SanType.IsUnknown() {
+									FlashArrayMap["san_type"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.SanType.ValueString()
+								}
+								ArraysMap["flash_array"] = FlashArrayMap
+							}
+							if StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade != nil {
+								FlashBladeMap := make(map[string]interface{})
+								if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.IsUnknown() {
+									FlashBladeMap["enable_snapshot_directory"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.ValueBool()
+								}
+								if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.ExportRules.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.ExportRules.IsUnknown() {
+									FlashBladeMap["export_rules"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.ExportRules.ValueString()
+								}
+								if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.IsUnknown() {
+									var FlashBladesElems []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel
+									diags := StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.ElementsAs(ctx, &FlashBladesElems, false)
+									resp.Diagnostics.Append(diags...)
+									if !resp.Diagnostics.HasError() && len(FlashBladesElems) > 0 {
+										var FlashBladesList []map[string]interface{}
+										for _, FlashBladesItem := range FlashBladesElems {
+											FlashBladesItemMap := make(map[string]interface{})
+											if FlashBladesItem.APIToken != nil {
+												APITokenMap := make(map[string]interface{})
+												if FlashBladesItem.APIToken.BlindfoldSecretInfo != nil {
+													BlindfoldSecretInfoMap := make(map[string]interface{})
+													if !FlashBladesItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
+														BlindfoldSecretInfoMap["decryption_provider"] = FlashBladesItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+													}
+													if !FlashBladesItem.APIToken.BlindfoldSecretInfo.Location.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfo.Location.IsUnknown() {
+														BlindfoldSecretInfoMap["location"] = FlashBladesItem.APIToken.BlindfoldSecretInfo.Location.ValueString()
+													}
+													if !FlashBladesItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
+														BlindfoldSecretInfoMap["store_provider"] = FlashBladesItem.APIToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+													}
+													APITokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+												}
+												if FlashBladesItem.APIToken.ClearSecretInfo != nil {
+													ClearSecretInfoMap := make(map[string]interface{})
+													if !FlashBladesItem.APIToken.ClearSecretInfo.Provider.IsNull() && !FlashBladesItem.APIToken.ClearSecretInfo.Provider.IsUnknown() {
+														ClearSecretInfoMap["provider"] = FlashBladesItem.APIToken.ClearSecretInfo.Provider.ValueString()
+													}
+													if !FlashBladesItem.APIToken.ClearSecretInfo.URL.IsNull() && !FlashBladesItem.APIToken.ClearSecretInfo.URL.IsUnknown() {
+														ClearSecretInfoMap["url"] = FlashBladesItem.APIToken.ClearSecretInfo.URL.ValueString()
+													}
+													APITokenMap["clear_secret_info"] = ClearSecretInfoMap
+												}
+												FlashBladesItemMap["api_token"] = APITokenMap
+											}
+											if FlashBladesItem.Labels != nil {
+												FlashBladesItemMap["labels"] = map[string]interface{}{}
+											}
+											if !FlashBladesItem.MgmtDNSName.IsNull() && !FlashBladesItem.MgmtDNSName.IsUnknown() {
+												FlashBladesItemMap["mgmt_dns_name"] = FlashBladesItem.MgmtDNSName.ValueString()
+											}
+											if !FlashBladesItem.MgmtIP.IsNull() && !FlashBladesItem.MgmtIP.IsUnknown() {
+												FlashBladesItemMap["mgmt_ip"] = FlashBladesItem.MgmtIP.ValueString()
+											}
+											if !FlashBladesItem.NfsEndpointDNSName.IsNull() && !FlashBladesItem.NfsEndpointDNSName.IsUnknown() {
+												FlashBladesItemMap["nfs_endpoint_dns_name"] = FlashBladesItem.NfsEndpointDNSName.ValueString()
+											}
+											if !FlashBladesItem.NfsEndpointIP.IsNull() && !FlashBladesItem.NfsEndpointIP.IsUnknown() {
+												FlashBladesItemMap["nfs_endpoint_ip"] = FlashBladesItem.NfsEndpointIP.ValueString()
+											}
+											FlashBladesList = append(FlashBladesList, FlashBladesItemMap)
+										}
+										FlashBladeMap["flash_blades"] = FlashBladesList
+									}
+								}
+								ArraysMap["flash_blade"] = FlashBladeMap
+							}
+							PureServiceOrchestratorMap["arrays"] = ArraysMap
+						}
+						if !StorageDevicesItem.PureServiceOrchestrator.ClusterID.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.ClusterID.IsUnknown() {
+							PureServiceOrchestratorMap["cluster_id"] = StorageDevicesItem.PureServiceOrchestrator.ClusterID.ValueString()
+						}
+						if !StorageDevicesItem.PureServiceOrchestrator.EnableStorageTopology.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.EnableStorageTopology.IsUnknown() {
+							PureServiceOrchestratorMap["enable_storage_topology"] = StorageDevicesItem.PureServiceOrchestrator.EnableStorageTopology.ValueBool()
+						}
+						if !StorageDevicesItem.PureServiceOrchestrator.EnableStrictTopology.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.EnableStrictTopology.IsUnknown() {
+							PureServiceOrchestratorMap["enable_strict_topology"] = StorageDevicesItem.PureServiceOrchestrator.EnableStrictTopology.ValueBool()
+						}
+						StorageDevicesItemMap["pure_service_orchestrator"] = PureServiceOrchestratorMap
+					}
+					if !StorageDevicesItem.StorageDevice.IsNull() && !StorageDevicesItem.StorageDevice.IsUnknown() {
+						StorageDevicesItemMap["storage_device"] = StorageDevicesItem.StorageDevice.ValueString()
+					}
+					StorageDevicesList = append(StorageDevicesList, StorageDevicesItemMap)
 				}
-				if StorageDevicesItem.PureServiceOrchestrator != nil {
-					PureServiceOrchestratorMap := make(map[string]interface{})
-					if StorageDevicesItem.PureServiceOrchestrator.Arrays != nil {
-						ArraysMap := make(map[string]interface{})
-						if StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray != nil {
-							FlashArrayMap := make(map[string]interface{})
-							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsOpt.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsOpt.IsUnknown() {
-								FlashArrayMap["default_fs_opt"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsOpt.ValueString()
-							}
-							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsType.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsType.IsUnknown() {
-								FlashArrayMap["default_fs_type"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultFsType.ValueString()
-							}
-							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.IsUnknown() {
-								var DefaultMountOptsItems []string
-								diags := StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.ElementsAs(ctx, &DefaultMountOptsItems, false)
-								if !diags.HasError() {
-									FlashArrayMap["default_mount_opts"] = DefaultMountOptsItems
-								}
-							}
-							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.IsUnknown() {
-								FlashArrayMap["disable_preempt_attachments"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.ValueBool()
-							}
-							if len(StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.FlashArrays) > 0 {
-								var FlashArraysList []map[string]interface{}
-								for _, FlashArraysItem := range StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.FlashArrays {
-									FlashArraysItemMap := make(map[string]interface{})
-									if FlashArraysItem.APIToken != nil {
-										APITokenMap := make(map[string]interface{})
-										if FlashArraysItem.APIToken.BlindfoldSecretInfo != nil {
-											BlindfoldSecretInfoMap := make(map[string]interface{})
-											if !FlashArraysItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-												BlindfoldSecretInfoMap["decryption_provider"] = FlashArraysItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-											}
-											if !FlashArraysItem.APIToken.BlindfoldSecretInfo.Location.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfo.Location.IsUnknown() {
-												BlindfoldSecretInfoMap["location"] = FlashArraysItem.APIToken.BlindfoldSecretInfo.Location.ValueString()
-											}
-											if !FlashArraysItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-												BlindfoldSecretInfoMap["store_provider"] = FlashArraysItem.APIToken.BlindfoldSecretInfo.StoreProvider.ValueString()
-											}
-											APITokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
-										}
-										if FlashArraysItem.APIToken.ClearSecretInfo != nil {
-											ClearSecretInfoMap := make(map[string]interface{})
-											if !FlashArraysItem.APIToken.ClearSecretInfo.Provider.IsNull() && !FlashArraysItem.APIToken.ClearSecretInfo.Provider.IsUnknown() {
-												ClearSecretInfoMap["provider"] = FlashArraysItem.APIToken.ClearSecretInfo.Provider.ValueString()
-											}
-											if !FlashArraysItem.APIToken.ClearSecretInfo.URL.IsNull() && !FlashArraysItem.APIToken.ClearSecretInfo.URL.IsUnknown() {
-												ClearSecretInfoMap["url"] = FlashArraysItem.APIToken.ClearSecretInfo.URL.ValueString()
-											}
-											APITokenMap["clear_secret_info"] = ClearSecretInfoMap
-										}
-										FlashArraysItemMap["api_token"] = APITokenMap
-									}
-									if FlashArraysItem.Labels != nil {
-										FlashArraysItemMap["labels"] = map[string]interface{}{}
-									}
-									if !FlashArraysItem.MgmtDNSName.IsNull() && !FlashArraysItem.MgmtDNSName.IsUnknown() {
-										FlashArraysItemMap["mgmt_dns_name"] = FlashArraysItem.MgmtDNSName.ValueString()
-									}
-									if !FlashArraysItem.MgmtIP.IsNull() && !FlashArraysItem.MgmtIP.IsUnknown() {
-										FlashArraysItemMap["mgmt_ip"] = FlashArraysItem.MgmtIP.ValueString()
-									}
-									FlashArraysList = append(FlashArraysList, FlashArraysItemMap)
-								}
-								FlashArrayMap["flash_arrays"] = FlashArraysList
-							}
-							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.IsUnknown() {
-								FlashArrayMap["iscsi_login_timeout"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.ValueInt64()
-							}
-							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.SanType.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.SanType.IsUnknown() {
-								FlashArrayMap["san_type"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.SanType.ValueString()
-							}
-							ArraysMap["flash_array"] = FlashArrayMap
-						}
-						if StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade != nil {
-							FlashBladeMap := make(map[string]interface{})
-							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.IsUnknown() {
-								FlashBladeMap["enable_snapshot_directory"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.ValueBool()
-							}
-							if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.ExportRules.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.ExportRules.IsUnknown() {
-								FlashBladeMap["export_rules"] = StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.ExportRules.ValueString()
-							}
-							if len(StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades) > 0 {
-								var FlashBladesList []map[string]interface{}
-								for _, FlashBladesItem := range StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades {
-									FlashBladesItemMap := make(map[string]interface{})
-									if FlashBladesItem.APIToken != nil {
-										APITokenMap := make(map[string]interface{})
-										if FlashBladesItem.APIToken.BlindfoldSecretInfo != nil {
-											BlindfoldSecretInfoMap := make(map[string]interface{})
-											if !FlashBladesItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-												BlindfoldSecretInfoMap["decryption_provider"] = FlashBladesItem.APIToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
-											}
-											if !FlashBladesItem.APIToken.BlindfoldSecretInfo.Location.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfo.Location.IsUnknown() {
-												BlindfoldSecretInfoMap["location"] = FlashBladesItem.APIToken.BlindfoldSecretInfo.Location.ValueString()
-											}
-											if !FlashBladesItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-												BlindfoldSecretInfoMap["store_provider"] = FlashBladesItem.APIToken.BlindfoldSecretInfo.StoreProvider.ValueString()
-											}
-											APITokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
-										}
-										if FlashBladesItem.APIToken.ClearSecretInfo != nil {
-											ClearSecretInfoMap := make(map[string]interface{})
-											if !FlashBladesItem.APIToken.ClearSecretInfo.Provider.IsNull() && !FlashBladesItem.APIToken.ClearSecretInfo.Provider.IsUnknown() {
-												ClearSecretInfoMap["provider"] = FlashBladesItem.APIToken.ClearSecretInfo.Provider.ValueString()
-											}
-											if !FlashBladesItem.APIToken.ClearSecretInfo.URL.IsNull() && !FlashBladesItem.APIToken.ClearSecretInfo.URL.IsUnknown() {
-												ClearSecretInfoMap["url"] = FlashBladesItem.APIToken.ClearSecretInfo.URL.ValueString()
-											}
-											APITokenMap["clear_secret_info"] = ClearSecretInfoMap
-										}
-										FlashBladesItemMap["api_token"] = APITokenMap
-									}
-									if FlashBladesItem.Labels != nil {
-										FlashBladesItemMap["labels"] = map[string]interface{}{}
-									}
-									if !FlashBladesItem.MgmtDNSName.IsNull() && !FlashBladesItem.MgmtDNSName.IsUnknown() {
-										FlashBladesItemMap["mgmt_dns_name"] = FlashBladesItem.MgmtDNSName.ValueString()
-									}
-									if !FlashBladesItem.MgmtIP.IsNull() && !FlashBladesItem.MgmtIP.IsUnknown() {
-										FlashBladesItemMap["mgmt_ip"] = FlashBladesItem.MgmtIP.ValueString()
-									}
-									if !FlashBladesItem.NfsEndpointDNSName.IsNull() && !FlashBladesItem.NfsEndpointDNSName.IsUnknown() {
-										FlashBladesItemMap["nfs_endpoint_dns_name"] = FlashBladesItem.NfsEndpointDNSName.ValueString()
-									}
-									if !FlashBladesItem.NfsEndpointIP.IsNull() && !FlashBladesItem.NfsEndpointIP.IsUnknown() {
-										FlashBladesItemMap["nfs_endpoint_ip"] = FlashBladesItem.NfsEndpointIP.ValueString()
-									}
-									FlashBladesList = append(FlashBladesList, FlashBladesItemMap)
-								}
-								FlashBladeMap["flash_blades"] = FlashBladesList
-							}
-							ArraysMap["flash_blade"] = FlashBladeMap
-						}
-						PureServiceOrchestratorMap["arrays"] = ArraysMap
-					}
-					if !StorageDevicesItem.PureServiceOrchestrator.ClusterID.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.ClusterID.IsUnknown() {
-						PureServiceOrchestratorMap["cluster_id"] = StorageDevicesItem.PureServiceOrchestrator.ClusterID.ValueString()
-					}
-					if !StorageDevicesItem.PureServiceOrchestrator.EnableStorageTopology.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.EnableStorageTopology.IsUnknown() {
-						PureServiceOrchestratorMap["enable_storage_topology"] = StorageDevicesItem.PureServiceOrchestrator.EnableStorageTopology.ValueBool()
-					}
-					if !StorageDevicesItem.PureServiceOrchestrator.EnableStrictTopology.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.EnableStrictTopology.IsUnknown() {
-						PureServiceOrchestratorMap["enable_strict_topology"] = StorageDevicesItem.PureServiceOrchestrator.EnableStrictTopology.ValueBool()
-					}
-					StorageDevicesItemMap["pure_service_orchestrator"] = PureServiceOrchestratorMap
-				}
-				if !StorageDevicesItem.StorageDevice.IsNull() && !StorageDevicesItem.StorageDevice.IsUnknown() {
-					StorageDevicesItemMap["storage_device"] = StorageDevicesItem.StorageDevice.ValueString()
-				}
-				StorageDevicesList = append(StorageDevicesList, StorageDevicesItemMap)
+				StorageDeviceListMap["storage_devices"] = StorageDevicesList
 			}
-			StorageDeviceListMap["storage_devices"] = StorageDevicesList
 		}
 		apiResource.Spec["storage_device_list"] = StorageDeviceListMap
 	}
@@ -12094,33 +12197,38 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						}
 						StorageRoutesItemMap["nexthop"] = NexthopMap
 					}
-					if len(StorageRoutesItem.Subnets) > 0 {
-						var SubnetsList []map[string]interface{}
-						for _, SubnetsItem := range StorageRoutesItem.Subnets {
-							SubnetsItemMap := make(map[string]interface{})
-							if SubnetsItem.Ipv4 != nil {
-								Ipv4Map := make(map[string]interface{})
-								if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-									Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+					if !StorageRoutesItem.Subnets.IsNull() && !StorageRoutesItem.Subnets.IsUnknown() {
+						var SubnetsElems []FleetStorageStaticRoutesStorageRoutesSubnetsModel
+						diags := StorageRoutesItem.Subnets.ElementsAs(ctx, &SubnetsElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(SubnetsElems) > 0 {
+							var SubnetsList []map[string]interface{}
+							for _, SubnetsItem := range SubnetsElems {
+								SubnetsItemMap := make(map[string]interface{})
+								if SubnetsItem.Ipv4 != nil {
+									Ipv4Map := make(map[string]interface{})
+									if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
+										Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+									}
+									if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
+										Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+									}
+									SubnetsItemMap["ipv4"] = Ipv4Map
 								}
-								if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-									Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+								if SubnetsItem.Ipv6 != nil {
+									Ipv6Map := make(map[string]interface{})
+									if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
+										Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+									}
+									if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
+										Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+									}
+									SubnetsItemMap["ipv6"] = Ipv6Map
 								}
-								SubnetsItemMap["ipv4"] = Ipv4Map
+								SubnetsList = append(SubnetsList, SubnetsItemMap)
 							}
-							if SubnetsItem.Ipv6 != nil {
-								Ipv6Map := make(map[string]interface{})
-								if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-									Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
-								}
-								if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-									Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
-								}
-								SubnetsItemMap["ipv6"] = Ipv6Map
-							}
-							SubnetsList = append(SubnetsList, SubnetsItemMap)
+							StorageRoutesItemMap["subnets"] = SubnetsList
 						}
-						StorageRoutesItemMap["subnets"] = SubnetsList
 					}
 					StorageRoutesList = append(StorageRoutesList, StorageRoutesItemMap)
 				}
@@ -12276,9 +12384,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	}
 	if blockData, ok := apiResource.Spec["bond_device_list"].(map[string]interface{}); ok && (isImport || data.BondDeviceList != nil) {
 		data.BondDeviceList = &FleetBondDeviceListModel{
-			BondDevices: func() []FleetBondDeviceListBondDevicesModel {
-				if !isImport && data.BondDeviceList != nil && len(data.BondDeviceList.BondDevices) == 0 {
-					return nil
+			BondDevices: func() types.List {
+				if !isImport && data.BondDeviceList != nil && (data.BondDeviceList.BondDevices.IsNull() || len(data.BondDeviceList.BondDevices.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetBondDeviceListBondDevicesModelAttrTypes})
 				}
 				if rawList, ok := blockData["bond_devices"].([]interface{}); ok && len(rawList) > 0 {
 					var BondDevicesResult []FleetBondDeviceListBondDevicesModel
@@ -12338,9 +12446,10 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							})
 						}
 					}
-					return BondDevicesResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetBondDeviceListBondDevicesModelAttrTypes}, BondDevicesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FleetBondDeviceListBondDevicesModelAttrTypes})
 			}(),
 		}
 	}
@@ -12867,9 +12976,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	}
 	if blockData, ok := apiResource.Spec["sriov_interfaces"].(map[string]interface{}); ok && (isImport || data.SriovInterfaces != nil) {
 		data.SriovInterfaces = &FleetSriovInterfacesModel{
-			SriovInterface: func() []FleetSriovInterfacesSriovInterfaceModel {
-				if !isImport && data.SriovInterfaces != nil && len(data.SriovInterfaces.SriovInterface) == 0 {
-					return nil
+			SriovInterface: func() types.List {
+				if !isImport && data.SriovInterfaces != nil && (data.SriovInterfaces.SriovInterface.IsNull() || len(data.SriovInterfaces.SriovInterface.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetSriovInterfacesSriovInterfaceModelAttrTypes})
 				}
 				if rawList, ok := blockData["sriov_interface"].([]interface{}); ok && len(rawList) > 0 {
 					var SriovInterfaceResult []FleetSriovInterfacesSriovInterfaceModel
@@ -12897,17 +13006,18 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							})
 						}
 					}
-					return SriovInterfaceResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetSriovInterfacesSriovInterfaceModelAttrTypes}, SriovInterfaceResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FleetSriovInterfacesSriovInterfaceModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["storage_class_list"].(map[string]interface{}); ok && (isImport || data.StorageClassList != nil) {
 		data.StorageClassList = &FleetStorageClassListModel{
-			StorageClasses: func() []FleetStorageClassListStorageClassesModel {
-				if !isImport && data.StorageClassList != nil && len(data.StorageClassList.StorageClasses) == 0 {
-					return nil
+			StorageClasses: func() types.List {
+				if !isImport && data.StorageClassList != nil && (data.StorageClassList.StorageClasses.IsNull() || len(data.StorageClassList.StorageClasses.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageClassListStorageClassesModelAttrTypes})
 				}
 				if rawList, ok := blockData["storage_classes"].([]interface{}); ok && len(rawList) > 0 {
 					var StorageClassesResult []FleetStorageClassListStorageClassesModel
@@ -13119,17 +13229,18 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							})
 						}
 					}
-					return StorageClassesResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageClassListStorageClassesModelAttrTypes}, StorageClassesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FleetStorageClassListStorageClassesModelAttrTypes})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["storage_device_list"].(map[string]interface{}); ok && (isImport || data.StorageDeviceList != nil) {
 		data.StorageDeviceList = &FleetStorageDeviceListModel{
-			StorageDevices: func() []FleetStorageDeviceListStorageDevicesModel {
-				if !isImport && data.StorageDeviceList != nil && len(data.StorageDeviceList.StorageDevices) == 0 {
-					return nil
+			StorageDevices: func() types.List {
+				if !isImport && data.StorageDeviceList != nil && (data.StorageDeviceList.StorageDevices.IsNull() || len(data.StorageDeviceList.StorageDevices.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesModelAttrTypes})
 				}
 				if rawList, ok := blockData["storage_devices"].([]interface{}); ok && len(rawList) > 0 {
 					var StorageDevicesResult []FleetStorageDeviceListStorageDevicesModel
@@ -13487,7 +13598,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														Storage: func() []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel {
+														Storage: func() types.List {
 															if rawList, ok := NetappBackendOntapNasData["storage"].([]interface{}); ok && len(rawList) > 0 {
 																var StorageResult []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel
 																for _, StorageItem := range rawList {
@@ -13593,9 +13704,10 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		})
 																	}
 																}
-																return StorageResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModelAttrTypes}, StorageResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModelAttrTypes})
 														}(),
 														StorageDriverName: func() types.String {
 															if v, ok := NetappBackendOntapNasData["storage_driver_name"].(string); ok && v != "" {
@@ -13887,7 +13999,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														Storage: func() []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel {
+														Storage: func() types.List {
 															if rawList, ok := NetappBackendOntapSanData["storage"].([]interface{}); ok && len(rawList) > 0 {
 																var StorageResult []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel
 																for _, StorageItem := range rawList {
@@ -13993,9 +14105,10 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		})
 																	}
 																}
-																return StorageResult
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModelAttrTypes}, StorageResult)
+																return listVal
 															}
-															return nil
+															return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModelAttrTypes})
 														}(),
 														StorageDriverName: func() types.String {
 															if v, ok := NetappBackendOntapSanData["storage_driver_name"].(string); ok && v != "" {
@@ -14281,7 +14394,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		}
 																		return types.BoolNull()
 																	}(),
-																	FlashArrays: func() []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel {
+																	FlashArrays: func() types.List {
 																		if rawList, ok := FlashArrayData["flash_arrays"].([]interface{}); ok && len(rawList) > 0 {
 																			var FlashArraysResult []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel
 																			for _, FlashArraysItem := range rawList {
@@ -14359,9 +14472,10 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																					})
 																				}
 																			}
-																			return FlashArraysResult
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModelAttrTypes}, FlashArraysResult)
+																			return listVal
 																		}
-																		return nil
+																		return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModelAttrTypes})
 																	}(),
 																	IscsiLoginTimeout: func() types.Int64 {
 																		if v, ok := FlashArrayData["iscsi_login_timeout"].(float64); ok && v != 0 {
@@ -14394,7 +14508,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		}
 																		return types.StringNull()
 																	}(),
-																	FlashBlades: func() []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel {
+																	FlashBlades: func() types.List {
 																		if rawList, ok := FlashBladeData["flash_blades"].([]interface{}); ok && len(rawList) > 0 {
 																			var FlashBladesResult []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel
 																			for _, FlashBladesItem := range rawList {
@@ -14484,9 +14598,10 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																					})
 																				}
 																			}
-																			return FlashBladesResult
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModelAttrTypes}, FlashBladesResult)
+																			return listVal
 																		}
-																		return nil
+																		return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModelAttrTypes})
 																	}(),
 																}
 															}
@@ -14527,9 +14642,10 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							})
 						}
 					}
-					return StorageDevicesResult
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesModelAttrTypes}, StorageDevicesResult)
+					return listVal
 				}
-				return nil
+				return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesModelAttrTypes})
 			}(),
 		}
 	}
@@ -14692,7 +14808,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									}
 									return nil
 								}(),
-								Subnets: func() []FleetStorageStaticRoutesStorageRoutesSubnetsModel {
+								Subnets: func() types.List {
 									if rawList, ok := StorageRoutesItemMap["subnets"].([]interface{}); ok && len(rawList) > 0 {
 										var SubnetsResult []FleetStorageStaticRoutesStorageRoutesSubnetsModel
 										for _, SubnetsItem := range rawList {
@@ -14739,9 +14855,10 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												})
 											}
 										}
-										return SubnetsResult
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesSubnetsModelAttrTypes}, SubnetsResult)
+										return listVal
 									}
-									return nil
+									return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesSubnetsModelAttrTypes})
 								}(),
 							})
 						}

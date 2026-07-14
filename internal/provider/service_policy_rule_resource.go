@@ -592,10 +592,10 @@ var ServicePolicyRuleWAFActionModelAttrTypes = map[string]attr.Type{
 
 // ServicePolicyRuleWAFActionAppFirewallDetectionControlModel represents app_firewall_detection_control block
 type ServicePolicyRuleWAFActionAppFirewallDetectionControlModel struct {
-	ExcludeAttackTypeContexts []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel `tfsdk:"exclude_attack_type_contexts"`
-	ExcludeBotNameContexts    []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel    `tfsdk:"exclude_bot_name_contexts"`
-	ExcludeSignatureContexts  []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel  `tfsdk:"exclude_signature_contexts"`
-	ExcludeViolationContexts  []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModel  `tfsdk:"exclude_violation_contexts"`
+	ExcludeAttackTypeContexts types.List `tfsdk:"exclude_attack_type_contexts"`
+	ExcludeBotNameContexts    types.List `tfsdk:"exclude_bot_name_contexts"`
+	ExcludeSignatureContexts  types.List `tfsdk:"exclude_signature_contexts"`
+	ExcludeViolationContexts  types.List `tfsdk:"exclude_violation_contexts"`
 }
 
 // ServicePolicyRuleWAFActionAppFirewallDetectionControlModelAttrTypes defines the attribute types for ServicePolicyRuleWAFActionAppFirewallDetectionControlModel
@@ -2616,67 +2616,87 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		WAFActionMap := make(map[string]interface{})
 		if data.WAFAction.AppFirewallDetectionControl != nil {
 			AppFirewallDetectionControlMap := make(map[string]interface{})
-			if len(data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts) > 0 {
-				var ExcludeAttackTypeContextsList []map[string]interface{}
-				for _, ExcludeAttackTypeContextsItem := range data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts {
-					ExcludeAttackTypeContextsItemMap := make(map[string]interface{})
-					if !ExcludeAttackTypeContextsItem.Context.IsNull() && !ExcludeAttackTypeContextsItem.Context.IsUnknown() {
-						ExcludeAttackTypeContextsItemMap["context"] = ExcludeAttackTypeContextsItem.Context.ValueString()
+			if !data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() && !data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsUnknown() {
+				var ExcludeAttackTypeContextsElems []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
+				diags := data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.ElementsAs(ctx, &ExcludeAttackTypeContextsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ExcludeAttackTypeContextsElems) > 0 {
+					var ExcludeAttackTypeContextsList []map[string]interface{}
+					for _, ExcludeAttackTypeContextsItem := range ExcludeAttackTypeContextsElems {
+						ExcludeAttackTypeContextsItemMap := make(map[string]interface{})
+						if !ExcludeAttackTypeContextsItem.Context.IsNull() && !ExcludeAttackTypeContextsItem.Context.IsUnknown() {
+							ExcludeAttackTypeContextsItemMap["context"] = ExcludeAttackTypeContextsItem.Context.ValueString()
+						}
+						if !ExcludeAttackTypeContextsItem.ContextName.IsNull() && !ExcludeAttackTypeContextsItem.ContextName.IsUnknown() {
+							ExcludeAttackTypeContextsItemMap["context_name"] = ExcludeAttackTypeContextsItem.ContextName.ValueString()
+						}
+						if !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsNull() && !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsUnknown() {
+							ExcludeAttackTypeContextsItemMap["exclude_attack_type"] = ExcludeAttackTypeContextsItem.ExcludeAttackType.ValueString()
+						}
+						ExcludeAttackTypeContextsList = append(ExcludeAttackTypeContextsList, ExcludeAttackTypeContextsItemMap)
 					}
-					if !ExcludeAttackTypeContextsItem.ContextName.IsNull() && !ExcludeAttackTypeContextsItem.ContextName.IsUnknown() {
-						ExcludeAttackTypeContextsItemMap["context_name"] = ExcludeAttackTypeContextsItem.ContextName.ValueString()
-					}
-					if !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsNull() && !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsUnknown() {
-						ExcludeAttackTypeContextsItemMap["exclude_attack_type"] = ExcludeAttackTypeContextsItem.ExcludeAttackType.ValueString()
-					}
-					ExcludeAttackTypeContextsList = append(ExcludeAttackTypeContextsList, ExcludeAttackTypeContextsItemMap)
+					AppFirewallDetectionControlMap["exclude_attack_type_contexts"] = ExcludeAttackTypeContextsList
 				}
-				AppFirewallDetectionControlMap["exclude_attack_type_contexts"] = ExcludeAttackTypeContextsList
 			}
-			if len(data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts) > 0 {
-				var ExcludeBotNameContextsList []map[string]interface{}
-				for _, ExcludeBotNameContextsItem := range data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts {
-					ExcludeBotNameContextsItemMap := make(map[string]interface{})
-					if !ExcludeBotNameContextsItem.BotName.IsNull() && !ExcludeBotNameContextsItem.BotName.IsUnknown() {
-						ExcludeBotNameContextsItemMap["bot_name"] = ExcludeBotNameContextsItem.BotName.ValueString()
+			if !data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() && !data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsUnknown() {
+				var ExcludeBotNameContextsElems []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
+				diags := data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.ElementsAs(ctx, &ExcludeBotNameContextsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ExcludeBotNameContextsElems) > 0 {
+					var ExcludeBotNameContextsList []map[string]interface{}
+					for _, ExcludeBotNameContextsItem := range ExcludeBotNameContextsElems {
+						ExcludeBotNameContextsItemMap := make(map[string]interface{})
+						if !ExcludeBotNameContextsItem.BotName.IsNull() && !ExcludeBotNameContextsItem.BotName.IsUnknown() {
+							ExcludeBotNameContextsItemMap["bot_name"] = ExcludeBotNameContextsItem.BotName.ValueString()
+						}
+						ExcludeBotNameContextsList = append(ExcludeBotNameContextsList, ExcludeBotNameContextsItemMap)
 					}
-					ExcludeBotNameContextsList = append(ExcludeBotNameContextsList, ExcludeBotNameContextsItemMap)
+					AppFirewallDetectionControlMap["exclude_bot_name_contexts"] = ExcludeBotNameContextsList
 				}
-				AppFirewallDetectionControlMap["exclude_bot_name_contexts"] = ExcludeBotNameContextsList
 			}
-			if len(data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts) > 0 {
-				var ExcludeSignatureContextsList []map[string]interface{}
-				for _, ExcludeSignatureContextsItem := range data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts {
-					ExcludeSignatureContextsItemMap := make(map[string]interface{})
-					if !ExcludeSignatureContextsItem.Context.IsNull() && !ExcludeSignatureContextsItem.Context.IsUnknown() {
-						ExcludeSignatureContextsItemMap["context"] = ExcludeSignatureContextsItem.Context.ValueString()
+			if !data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() && !data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsUnknown() {
+				var ExcludeSignatureContextsElems []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
+				diags := data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.ElementsAs(ctx, &ExcludeSignatureContextsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ExcludeSignatureContextsElems) > 0 {
+					var ExcludeSignatureContextsList []map[string]interface{}
+					for _, ExcludeSignatureContextsItem := range ExcludeSignatureContextsElems {
+						ExcludeSignatureContextsItemMap := make(map[string]interface{})
+						if !ExcludeSignatureContextsItem.Context.IsNull() && !ExcludeSignatureContextsItem.Context.IsUnknown() {
+							ExcludeSignatureContextsItemMap["context"] = ExcludeSignatureContextsItem.Context.ValueString()
+						}
+						if !ExcludeSignatureContextsItem.ContextName.IsNull() && !ExcludeSignatureContextsItem.ContextName.IsUnknown() {
+							ExcludeSignatureContextsItemMap["context_name"] = ExcludeSignatureContextsItem.ContextName.ValueString()
+						}
+						if !ExcludeSignatureContextsItem.SignatureID.IsNull() && !ExcludeSignatureContextsItem.SignatureID.IsUnknown() {
+							ExcludeSignatureContextsItemMap["signature_id"] = ExcludeSignatureContextsItem.SignatureID.ValueInt64()
+						}
+						ExcludeSignatureContextsList = append(ExcludeSignatureContextsList, ExcludeSignatureContextsItemMap)
 					}
-					if !ExcludeSignatureContextsItem.ContextName.IsNull() && !ExcludeSignatureContextsItem.ContextName.IsUnknown() {
-						ExcludeSignatureContextsItemMap["context_name"] = ExcludeSignatureContextsItem.ContextName.ValueString()
-					}
-					if !ExcludeSignatureContextsItem.SignatureID.IsNull() && !ExcludeSignatureContextsItem.SignatureID.IsUnknown() {
-						ExcludeSignatureContextsItemMap["signature_id"] = ExcludeSignatureContextsItem.SignatureID.ValueInt64()
-					}
-					ExcludeSignatureContextsList = append(ExcludeSignatureContextsList, ExcludeSignatureContextsItemMap)
+					AppFirewallDetectionControlMap["exclude_signature_contexts"] = ExcludeSignatureContextsList
 				}
-				AppFirewallDetectionControlMap["exclude_signature_contexts"] = ExcludeSignatureContextsList
 			}
-			if len(data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts) > 0 {
-				var ExcludeViolationContextsList []map[string]interface{}
-				for _, ExcludeViolationContextsItem := range data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts {
-					ExcludeViolationContextsItemMap := make(map[string]interface{})
-					if !ExcludeViolationContextsItem.Context.IsNull() && !ExcludeViolationContextsItem.Context.IsUnknown() {
-						ExcludeViolationContextsItemMap["context"] = ExcludeViolationContextsItem.Context.ValueString()
+			if !data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() && !data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsUnknown() {
+				var ExcludeViolationContextsElems []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
+				diags := data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.ElementsAs(ctx, &ExcludeViolationContextsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ExcludeViolationContextsElems) > 0 {
+					var ExcludeViolationContextsList []map[string]interface{}
+					for _, ExcludeViolationContextsItem := range ExcludeViolationContextsElems {
+						ExcludeViolationContextsItemMap := make(map[string]interface{})
+						if !ExcludeViolationContextsItem.Context.IsNull() && !ExcludeViolationContextsItem.Context.IsUnknown() {
+							ExcludeViolationContextsItemMap["context"] = ExcludeViolationContextsItem.Context.ValueString()
+						}
+						if !ExcludeViolationContextsItem.ContextName.IsNull() && !ExcludeViolationContextsItem.ContextName.IsUnknown() {
+							ExcludeViolationContextsItemMap["context_name"] = ExcludeViolationContextsItem.ContextName.ValueString()
+						}
+						if !ExcludeViolationContextsItem.ExcludeViolation.IsNull() && !ExcludeViolationContextsItem.ExcludeViolation.IsUnknown() {
+							ExcludeViolationContextsItemMap["exclude_violation"] = ExcludeViolationContextsItem.ExcludeViolation.ValueString()
+						}
+						ExcludeViolationContextsList = append(ExcludeViolationContextsList, ExcludeViolationContextsItemMap)
 					}
-					if !ExcludeViolationContextsItem.ContextName.IsNull() && !ExcludeViolationContextsItem.ContextName.IsUnknown() {
-						ExcludeViolationContextsItemMap["context_name"] = ExcludeViolationContextsItem.ContextName.ValueString()
-					}
-					if !ExcludeViolationContextsItem.ExcludeViolation.IsNull() && !ExcludeViolationContextsItem.ExcludeViolation.IsUnknown() {
-						ExcludeViolationContextsItemMap["exclude_violation"] = ExcludeViolationContextsItem.ExcludeViolation.ValueString()
-					}
-					ExcludeViolationContextsList = append(ExcludeViolationContextsList, ExcludeViolationContextsItemMap)
+					AppFirewallDetectionControlMap["exclude_violation_contexts"] = ExcludeViolationContextsList
 				}
-				AppFirewallDetectionControlMap["exclude_violation_contexts"] = ExcludeViolationContextsList
 			}
 			WAFActionMap["app_firewall_detection_control"] = AppFirewallDetectionControlMap
 		}
@@ -4131,7 +4151,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				}
 				if AppFirewallDetectionControlData, ok := blockData["app_firewall_detection_control"].(map[string]interface{}); ok {
 					return &ServicePolicyRuleWAFActionAppFirewallDetectionControlModel{
-						ExcludeAttackTypeContexts: func() []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel {
+						ExcludeAttackTypeContexts: func() types.List {
 							if rawList, ok := AppFirewallDetectionControlData["exclude_attack_type_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeAttackTypeContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
 								for _, ExcludeAttackTypeContextsItem := range rawList {
@@ -4158,11 +4178,12 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 										})
 									}
 								}
-								return ExcludeAttackTypeContextsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes}, ExcludeAttackTypeContextsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
 						}(),
-						ExcludeBotNameContexts: func() []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel {
+						ExcludeBotNameContexts: func() types.List {
 							if rawList, ok := AppFirewallDetectionControlData["exclude_bot_name_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeBotNameContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
 								for _, ExcludeBotNameContextsItem := range rawList {
@@ -4177,11 +4198,12 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 										})
 									}
 								}
-								return ExcludeBotNameContextsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes}, ExcludeBotNameContextsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
 						}(),
-						ExcludeSignatureContexts: func() []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel {
+						ExcludeSignatureContexts: func() types.List {
 							if rawList, ok := AppFirewallDetectionControlData["exclude_signature_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeSignatureContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
 								for _, ExcludeSignatureContextsItem := range rawList {
@@ -4208,11 +4230,12 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 										})
 									}
 								}
-								return ExcludeSignatureContextsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes}, ExcludeSignatureContextsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
 						}(),
-						ExcludeViolationContexts: func() []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModel {
+						ExcludeViolationContexts: func() types.List {
 							if rawList, ok := AppFirewallDetectionControlData["exclude_violation_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeViolationContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
 								for _, ExcludeViolationContextsItem := range rawList {
@@ -4239,9 +4262,10 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 										})
 									}
 								}
-								return ExcludeViolationContextsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes}, ExcludeViolationContextsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes})
 						}(),
 					}
 				}
@@ -5808,7 +5832,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				}
 				if AppFirewallDetectionControlData, ok := blockData["app_firewall_detection_control"].(map[string]interface{}); ok {
 					return &ServicePolicyRuleWAFActionAppFirewallDetectionControlModel{
-						ExcludeAttackTypeContexts: func() []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel {
+						ExcludeAttackTypeContexts: func() types.List {
 							if rawList, ok := AppFirewallDetectionControlData["exclude_attack_type_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeAttackTypeContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
 								for _, ExcludeAttackTypeContextsItem := range rawList {
@@ -5835,11 +5859,12 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 										})
 									}
 								}
-								return ExcludeAttackTypeContextsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes}, ExcludeAttackTypeContextsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
 						}(),
-						ExcludeBotNameContexts: func() []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel {
+						ExcludeBotNameContexts: func() types.List {
 							if rawList, ok := AppFirewallDetectionControlData["exclude_bot_name_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeBotNameContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
 								for _, ExcludeBotNameContextsItem := range rawList {
@@ -5854,11 +5879,12 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 										})
 									}
 								}
-								return ExcludeBotNameContextsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes}, ExcludeBotNameContextsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
 						}(),
-						ExcludeSignatureContexts: func() []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel {
+						ExcludeSignatureContexts: func() types.List {
 							if rawList, ok := AppFirewallDetectionControlData["exclude_signature_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeSignatureContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
 								for _, ExcludeSignatureContextsItem := range rawList {
@@ -5885,11 +5911,12 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 										})
 									}
 								}
-								return ExcludeSignatureContextsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes}, ExcludeSignatureContextsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
 						}(),
-						ExcludeViolationContexts: func() []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModel {
+						ExcludeViolationContexts: func() types.List {
 							if rawList, ok := AppFirewallDetectionControlData["exclude_violation_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeViolationContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
 								for _, ExcludeViolationContextsItem := range rawList {
@@ -5916,9 +5943,10 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 										})
 									}
 								}
-								return ExcludeViolationContextsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes}, ExcludeViolationContextsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes})
 						}(),
 					}
 				}
@@ -6766,67 +6794,87 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		WAFActionMap := make(map[string]interface{})
 		if data.WAFAction.AppFirewallDetectionControl != nil {
 			AppFirewallDetectionControlMap := make(map[string]interface{})
-			if len(data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts) > 0 {
-				var ExcludeAttackTypeContextsList []map[string]interface{}
-				for _, ExcludeAttackTypeContextsItem := range data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts {
-					ExcludeAttackTypeContextsItemMap := make(map[string]interface{})
-					if !ExcludeAttackTypeContextsItem.Context.IsNull() && !ExcludeAttackTypeContextsItem.Context.IsUnknown() {
-						ExcludeAttackTypeContextsItemMap["context"] = ExcludeAttackTypeContextsItem.Context.ValueString()
+			if !data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() && !data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsUnknown() {
+				var ExcludeAttackTypeContextsElems []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
+				diags := data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.ElementsAs(ctx, &ExcludeAttackTypeContextsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ExcludeAttackTypeContextsElems) > 0 {
+					var ExcludeAttackTypeContextsList []map[string]interface{}
+					for _, ExcludeAttackTypeContextsItem := range ExcludeAttackTypeContextsElems {
+						ExcludeAttackTypeContextsItemMap := make(map[string]interface{})
+						if !ExcludeAttackTypeContextsItem.Context.IsNull() && !ExcludeAttackTypeContextsItem.Context.IsUnknown() {
+							ExcludeAttackTypeContextsItemMap["context"] = ExcludeAttackTypeContextsItem.Context.ValueString()
+						}
+						if !ExcludeAttackTypeContextsItem.ContextName.IsNull() && !ExcludeAttackTypeContextsItem.ContextName.IsUnknown() {
+							ExcludeAttackTypeContextsItemMap["context_name"] = ExcludeAttackTypeContextsItem.ContextName.ValueString()
+						}
+						if !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsNull() && !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsUnknown() {
+							ExcludeAttackTypeContextsItemMap["exclude_attack_type"] = ExcludeAttackTypeContextsItem.ExcludeAttackType.ValueString()
+						}
+						ExcludeAttackTypeContextsList = append(ExcludeAttackTypeContextsList, ExcludeAttackTypeContextsItemMap)
 					}
-					if !ExcludeAttackTypeContextsItem.ContextName.IsNull() && !ExcludeAttackTypeContextsItem.ContextName.IsUnknown() {
-						ExcludeAttackTypeContextsItemMap["context_name"] = ExcludeAttackTypeContextsItem.ContextName.ValueString()
-					}
-					if !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsNull() && !ExcludeAttackTypeContextsItem.ExcludeAttackType.IsUnknown() {
-						ExcludeAttackTypeContextsItemMap["exclude_attack_type"] = ExcludeAttackTypeContextsItem.ExcludeAttackType.ValueString()
-					}
-					ExcludeAttackTypeContextsList = append(ExcludeAttackTypeContextsList, ExcludeAttackTypeContextsItemMap)
+					AppFirewallDetectionControlMap["exclude_attack_type_contexts"] = ExcludeAttackTypeContextsList
 				}
-				AppFirewallDetectionControlMap["exclude_attack_type_contexts"] = ExcludeAttackTypeContextsList
 			}
-			if len(data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts) > 0 {
-				var ExcludeBotNameContextsList []map[string]interface{}
-				for _, ExcludeBotNameContextsItem := range data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts {
-					ExcludeBotNameContextsItemMap := make(map[string]interface{})
-					if !ExcludeBotNameContextsItem.BotName.IsNull() && !ExcludeBotNameContextsItem.BotName.IsUnknown() {
-						ExcludeBotNameContextsItemMap["bot_name"] = ExcludeBotNameContextsItem.BotName.ValueString()
+			if !data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() && !data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsUnknown() {
+				var ExcludeBotNameContextsElems []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
+				diags := data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.ElementsAs(ctx, &ExcludeBotNameContextsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ExcludeBotNameContextsElems) > 0 {
+					var ExcludeBotNameContextsList []map[string]interface{}
+					for _, ExcludeBotNameContextsItem := range ExcludeBotNameContextsElems {
+						ExcludeBotNameContextsItemMap := make(map[string]interface{})
+						if !ExcludeBotNameContextsItem.BotName.IsNull() && !ExcludeBotNameContextsItem.BotName.IsUnknown() {
+							ExcludeBotNameContextsItemMap["bot_name"] = ExcludeBotNameContextsItem.BotName.ValueString()
+						}
+						ExcludeBotNameContextsList = append(ExcludeBotNameContextsList, ExcludeBotNameContextsItemMap)
 					}
-					ExcludeBotNameContextsList = append(ExcludeBotNameContextsList, ExcludeBotNameContextsItemMap)
+					AppFirewallDetectionControlMap["exclude_bot_name_contexts"] = ExcludeBotNameContextsList
 				}
-				AppFirewallDetectionControlMap["exclude_bot_name_contexts"] = ExcludeBotNameContextsList
 			}
-			if len(data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts) > 0 {
-				var ExcludeSignatureContextsList []map[string]interface{}
-				for _, ExcludeSignatureContextsItem := range data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts {
-					ExcludeSignatureContextsItemMap := make(map[string]interface{})
-					if !ExcludeSignatureContextsItem.Context.IsNull() && !ExcludeSignatureContextsItem.Context.IsUnknown() {
-						ExcludeSignatureContextsItemMap["context"] = ExcludeSignatureContextsItem.Context.ValueString()
+			if !data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() && !data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsUnknown() {
+				var ExcludeSignatureContextsElems []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
+				diags := data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.ElementsAs(ctx, &ExcludeSignatureContextsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ExcludeSignatureContextsElems) > 0 {
+					var ExcludeSignatureContextsList []map[string]interface{}
+					for _, ExcludeSignatureContextsItem := range ExcludeSignatureContextsElems {
+						ExcludeSignatureContextsItemMap := make(map[string]interface{})
+						if !ExcludeSignatureContextsItem.Context.IsNull() && !ExcludeSignatureContextsItem.Context.IsUnknown() {
+							ExcludeSignatureContextsItemMap["context"] = ExcludeSignatureContextsItem.Context.ValueString()
+						}
+						if !ExcludeSignatureContextsItem.ContextName.IsNull() && !ExcludeSignatureContextsItem.ContextName.IsUnknown() {
+							ExcludeSignatureContextsItemMap["context_name"] = ExcludeSignatureContextsItem.ContextName.ValueString()
+						}
+						if !ExcludeSignatureContextsItem.SignatureID.IsNull() && !ExcludeSignatureContextsItem.SignatureID.IsUnknown() {
+							ExcludeSignatureContextsItemMap["signature_id"] = ExcludeSignatureContextsItem.SignatureID.ValueInt64()
+						}
+						ExcludeSignatureContextsList = append(ExcludeSignatureContextsList, ExcludeSignatureContextsItemMap)
 					}
-					if !ExcludeSignatureContextsItem.ContextName.IsNull() && !ExcludeSignatureContextsItem.ContextName.IsUnknown() {
-						ExcludeSignatureContextsItemMap["context_name"] = ExcludeSignatureContextsItem.ContextName.ValueString()
-					}
-					if !ExcludeSignatureContextsItem.SignatureID.IsNull() && !ExcludeSignatureContextsItem.SignatureID.IsUnknown() {
-						ExcludeSignatureContextsItemMap["signature_id"] = ExcludeSignatureContextsItem.SignatureID.ValueInt64()
-					}
-					ExcludeSignatureContextsList = append(ExcludeSignatureContextsList, ExcludeSignatureContextsItemMap)
+					AppFirewallDetectionControlMap["exclude_signature_contexts"] = ExcludeSignatureContextsList
 				}
-				AppFirewallDetectionControlMap["exclude_signature_contexts"] = ExcludeSignatureContextsList
 			}
-			if len(data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts) > 0 {
-				var ExcludeViolationContextsList []map[string]interface{}
-				for _, ExcludeViolationContextsItem := range data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts {
-					ExcludeViolationContextsItemMap := make(map[string]interface{})
-					if !ExcludeViolationContextsItem.Context.IsNull() && !ExcludeViolationContextsItem.Context.IsUnknown() {
-						ExcludeViolationContextsItemMap["context"] = ExcludeViolationContextsItem.Context.ValueString()
+			if !data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() && !data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsUnknown() {
+				var ExcludeViolationContextsElems []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
+				diags := data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.ElementsAs(ctx, &ExcludeViolationContextsElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ExcludeViolationContextsElems) > 0 {
+					var ExcludeViolationContextsList []map[string]interface{}
+					for _, ExcludeViolationContextsItem := range ExcludeViolationContextsElems {
+						ExcludeViolationContextsItemMap := make(map[string]interface{})
+						if !ExcludeViolationContextsItem.Context.IsNull() && !ExcludeViolationContextsItem.Context.IsUnknown() {
+							ExcludeViolationContextsItemMap["context"] = ExcludeViolationContextsItem.Context.ValueString()
+						}
+						if !ExcludeViolationContextsItem.ContextName.IsNull() && !ExcludeViolationContextsItem.ContextName.IsUnknown() {
+							ExcludeViolationContextsItemMap["context_name"] = ExcludeViolationContextsItem.ContextName.ValueString()
+						}
+						if !ExcludeViolationContextsItem.ExcludeViolation.IsNull() && !ExcludeViolationContextsItem.ExcludeViolation.IsUnknown() {
+							ExcludeViolationContextsItemMap["exclude_violation"] = ExcludeViolationContextsItem.ExcludeViolation.ValueString()
+						}
+						ExcludeViolationContextsList = append(ExcludeViolationContextsList, ExcludeViolationContextsItemMap)
 					}
-					if !ExcludeViolationContextsItem.ContextName.IsNull() && !ExcludeViolationContextsItem.ContextName.IsUnknown() {
-						ExcludeViolationContextsItemMap["context_name"] = ExcludeViolationContextsItem.ContextName.ValueString()
-					}
-					if !ExcludeViolationContextsItem.ExcludeViolation.IsNull() && !ExcludeViolationContextsItem.ExcludeViolation.IsUnknown() {
-						ExcludeViolationContextsItemMap["exclude_violation"] = ExcludeViolationContextsItem.ExcludeViolation.ValueString()
-					}
-					ExcludeViolationContextsList = append(ExcludeViolationContextsList, ExcludeViolationContextsItemMap)
+					AppFirewallDetectionControlMap["exclude_violation_contexts"] = ExcludeViolationContextsList
 				}
-				AppFirewallDetectionControlMap["exclude_violation_contexts"] = ExcludeViolationContextsList
 			}
 			WAFActionMap["app_firewall_detection_control"] = AppFirewallDetectionControlMap
 		}
@@ -8313,7 +8361,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				}
 				if AppFirewallDetectionControlData, ok := blockData["app_firewall_detection_control"].(map[string]interface{}); ok {
 					return &ServicePolicyRuleWAFActionAppFirewallDetectionControlModel{
-						ExcludeAttackTypeContexts: func() []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel {
+						ExcludeAttackTypeContexts: func() types.List {
 							if rawList, ok := AppFirewallDetectionControlData["exclude_attack_type_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeAttackTypeContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
 								for _, ExcludeAttackTypeContextsItem := range rawList {
@@ -8340,11 +8388,12 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 										})
 									}
 								}
-								return ExcludeAttackTypeContextsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes}, ExcludeAttackTypeContextsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
 						}(),
-						ExcludeBotNameContexts: func() []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel {
+						ExcludeBotNameContexts: func() types.List {
 							if rawList, ok := AppFirewallDetectionControlData["exclude_bot_name_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeBotNameContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
 								for _, ExcludeBotNameContextsItem := range rawList {
@@ -8359,11 +8408,12 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 										})
 									}
 								}
-								return ExcludeBotNameContextsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes}, ExcludeBotNameContextsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
 						}(),
-						ExcludeSignatureContexts: func() []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel {
+						ExcludeSignatureContexts: func() types.List {
 							if rawList, ok := AppFirewallDetectionControlData["exclude_signature_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeSignatureContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
 								for _, ExcludeSignatureContextsItem := range rawList {
@@ -8390,11 +8440,12 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 										})
 									}
 								}
-								return ExcludeSignatureContextsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes}, ExcludeSignatureContextsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
 						}(),
-						ExcludeViolationContexts: func() []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModel {
+						ExcludeViolationContexts: func() types.List {
 							if rawList, ok := AppFirewallDetectionControlData["exclude_violation_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeViolationContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
 								for _, ExcludeViolationContextsItem := range rawList {
@@ -8421,9 +8472,10 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 										})
 									}
 								}
-								return ExcludeViolationContextsResult
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes}, ExcludeViolationContextsResult)
+								return listVal
 							}
-							return nil
+							return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes})
 						}(),
 					}
 				}
