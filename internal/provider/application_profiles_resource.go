@@ -4057,9 +4057,6 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFixProfileModelAttrTypes})
 			}(),
 			HTTP: func() *ApplicationProfilesVirtualServerHTTPModel {
-				if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil {
-					return data.VirtualServer.HTTP
-				}
 				if HTTPData, ok := blockData["http"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerHTTPModel{
 						HTTPClientProfile: func() types.List {
@@ -4375,9 +4372,6 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				return nil
 			}(),
 			HTTPS: func() *ApplicationProfilesVirtualServerHTTPSModel {
-				if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil {
-					return data.VirtualServer.HTTPS
-				}
 				if HTTPSData, ok := blockData["https"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerHTTPSModel{
 						HTTPClientProfile: func() types.List {
@@ -4934,9 +4928,6 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerStatisticsProfileModelAttrTypes})
 			}(),
 			TCP: func() *ApplicationProfilesVirtualServerTCPModel {
-				if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil {
-					return data.VirtualServer.TCP
-				}
 				if TCPData, ok := blockData["tcp"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerTCPModel{
 						TCPClientProfile: func() types.List {
@@ -5032,9 +5023,6 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				return nil
 			}(),
 			UDP: func() *ApplicationProfilesVirtualServerUDPModel {
-				if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil {
-					return data.VirtualServer.UDP
-				}
 				if UDPData, ok := blockData["udp"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerUDPModel{
 						TCPClientProfile: func() types.List {
@@ -5864,9 +5852,6 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFixProfileModelAttrTypes})
 			}(),
 			HTTP: func() *ApplicationProfilesVirtualServerHTTPModel {
-				if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil {
-					return data.VirtualServer.HTTP
-				}
 				if HTTPData, ok := blockData["http"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerHTTPModel{
 						HTTPClientProfile: func() types.List {
@@ -6182,9 +6167,6 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				return nil
 			}(),
 			HTTPS: func() *ApplicationProfilesVirtualServerHTTPSModel {
-				if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil {
-					return data.VirtualServer.HTTPS
-				}
 				if HTTPSData, ok := blockData["https"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerHTTPSModel{
 						HTTPClientProfile: func() types.List {
@@ -6741,9 +6723,6 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerStatisticsProfileModelAttrTypes})
 			}(),
 			TCP: func() *ApplicationProfilesVirtualServerTCPModel {
-				if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil {
-					return data.VirtualServer.TCP
-				}
 				if TCPData, ok := blockData["tcp"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerTCPModel{
 						TCPClientProfile: func() types.List {
@@ -6839,9 +6818,6 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				return nil
 			}(),
 			UDP: func() *ApplicationProfilesVirtualServerUDPModel {
-				if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil {
-					return data.VirtualServer.UDP
-				}
 				if UDPData, ok := blockData["udp"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerUDPModel{
 						TCPClientProfile: func() types.List {
@@ -8656,9 +8632,6 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFixProfileModelAttrTypes})
 			}(),
 			HTTP: func() *ApplicationProfilesVirtualServerHTTPModel {
-				if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil {
-					return data.VirtualServer.HTTP
-				}
 				if HTTPData, ok := blockData["http"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerHTTPModel{
 						HTTPClientProfile: func() types.List {
@@ -8974,9 +8947,6 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				return nil
 			}(),
 			HTTPS: func() *ApplicationProfilesVirtualServerHTTPSModel {
-				if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil {
-					return data.VirtualServer.HTTPS
-				}
 				if HTTPSData, ok := blockData["https"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerHTTPSModel{
 						HTTPClientProfile: func() types.List {
@@ -9533,9 +9503,6 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerStatisticsProfileModelAttrTypes})
 			}(),
 			TCP: func() *ApplicationProfilesVirtualServerTCPModel {
-				if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil {
-					return data.VirtualServer.TCP
-				}
 				if TCPData, ok := blockData["tcp"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerTCPModel{
 						TCPClientProfile: func() types.List {
@@ -9631,9 +9598,6 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				return nil
 			}(),
 			UDP: func() *ApplicationProfilesVirtualServerUDPModel {
-				if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil {
-					return data.VirtualServer.UDP
-				}
 				if UDPData, ok := blockData["udp"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerUDPModel{
 						TCPClientProfile: func() types.List {

@@ -1168,9 +1168,6 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 	if blockData, ok := apiResource.Spec["gre"].(map[string]interface{}); ok && (isImport || data.Gre != nil) {
 		data.Gre = &ExternalConnectorGreModel{
 			GreParameters: func() *ExternalConnectorGreGreParametersModel {
-				if !isImport && data.Gre != nil && data.Gre.GreParameters != nil {
-					return data.Gre.GreParameters
-				}
 				if GreParametersData, ok := blockData["gre_parameters"].(map[string]interface{}); ok {
 					return &ExternalConnectorGreGreParametersModel{
 						PeerIPAddress: func() *ExternalConnectorGreGreParametersPeerIPAddressModel {
@@ -1302,9 +1299,6 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 	if blockData, ok := apiResource.Spec["ipsec"].(map[string]interface{}); ok && (isImport || data.Ipsec != nil) {
 		data.Ipsec = &ExternalConnectorIpsecModel{
 			IKEParameters: func() *ExternalConnectorIpsecIKEParametersModel {
-				if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil {
-					return data.Ipsec.IKEParameters
-				}
 				if IKEParametersData, ok := blockData["ike_parameters"].(map[string]interface{}); ok {
 					return &ExternalConnectorIpsecIKEParametersModel{
 						DpdDisabled: func() *ExternalConnectorEmptyModel {
@@ -1444,9 +1438,6 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 				return nil
 			}(),
 			IpsecTunnelParameters: func() *ExternalConnectorIpsecIpsecTunnelParametersModel {
-				if !isImport && data.Ipsec != nil && data.Ipsec.IpsecTunnelParameters != nil {
-					return data.Ipsec.IpsecTunnelParameters
-				}
 				if IpsecTunnelParametersData, ok := blockData["ipsec_tunnel_parameters"].(map[string]interface{}); ok {
 					return &ExternalConnectorIpsecIpsecTunnelParametersModel{
 						PeerIPAddress: func() *ExternalConnectorIpsecIpsecTunnelParametersPeerIPAddressModel {
@@ -1699,9 +1690,6 @@ func (r *ExternalConnectorResource) Read(ctx context.Context, req resource.ReadR
 	if blockData, ok := apiResource.Spec["gre"].(map[string]interface{}); ok && (isImport || data.Gre != nil) {
 		data.Gre = &ExternalConnectorGreModel{
 			GreParameters: func() *ExternalConnectorGreGreParametersModel {
-				if !isImport && data.Gre != nil && data.Gre.GreParameters != nil {
-					return data.Gre.GreParameters
-				}
 				if GreParametersData, ok := blockData["gre_parameters"].(map[string]interface{}); ok {
 					return &ExternalConnectorGreGreParametersModel{
 						PeerIPAddress: func() *ExternalConnectorGreGreParametersPeerIPAddressModel {
@@ -1833,9 +1821,6 @@ func (r *ExternalConnectorResource) Read(ctx context.Context, req resource.ReadR
 	if blockData, ok := apiResource.Spec["ipsec"].(map[string]interface{}); ok && (isImport || data.Ipsec != nil) {
 		data.Ipsec = &ExternalConnectorIpsecModel{
 			IKEParameters: func() *ExternalConnectorIpsecIKEParametersModel {
-				if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil {
-					return data.Ipsec.IKEParameters
-				}
 				if IKEParametersData, ok := blockData["ike_parameters"].(map[string]interface{}); ok {
 					return &ExternalConnectorIpsecIKEParametersModel{
 						DpdDisabled: func() *ExternalConnectorEmptyModel {
@@ -1975,9 +1960,6 @@ func (r *ExternalConnectorResource) Read(ctx context.Context, req resource.ReadR
 				return nil
 			}(),
 			IpsecTunnelParameters: func() *ExternalConnectorIpsecIpsecTunnelParametersModel {
-				if !isImport && data.Ipsec != nil && data.Ipsec.IpsecTunnelParameters != nil {
-					return data.Ipsec.IpsecTunnelParameters
-				}
 				if IpsecTunnelParametersData, ok := blockData["ipsec_tunnel_parameters"].(map[string]interface{}); ok {
 					return &ExternalConnectorIpsecIpsecTunnelParametersModel{
 						PeerIPAddress: func() *ExternalConnectorIpsecIpsecTunnelParametersPeerIPAddressModel {
@@ -2471,9 +2453,6 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 	if blockData, ok := apiResource.Spec["gre"].(map[string]interface{}); ok && (isImport || data.Gre != nil) {
 		data.Gre = &ExternalConnectorGreModel{
 			GreParameters: func() *ExternalConnectorGreGreParametersModel {
-				if !isImport && data.Gre != nil && data.Gre.GreParameters != nil {
-					return data.Gre.GreParameters
-				}
 				if GreParametersData, ok := blockData["gre_parameters"].(map[string]interface{}); ok {
 					return &ExternalConnectorGreGreParametersModel{
 						PeerIPAddress: func() *ExternalConnectorGreGreParametersPeerIPAddressModel {
@@ -2605,9 +2584,6 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 	if blockData, ok := apiResource.Spec["ipsec"].(map[string]interface{}); ok && (isImport || data.Ipsec != nil) {
 		data.Ipsec = &ExternalConnectorIpsecModel{
 			IKEParameters: func() *ExternalConnectorIpsecIKEParametersModel {
-				if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil {
-					return data.Ipsec.IKEParameters
-				}
 				if IKEParametersData, ok := blockData["ike_parameters"].(map[string]interface{}); ok {
 					return &ExternalConnectorIpsecIKEParametersModel{
 						DpdDisabled: func() *ExternalConnectorEmptyModel {
@@ -2747,9 +2723,6 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 				return nil
 			}(),
 			IpsecTunnelParameters: func() *ExternalConnectorIpsecIpsecTunnelParametersModel {
-				if !isImport && data.Ipsec != nil && data.Ipsec.IpsecTunnelParameters != nil {
-					return data.Ipsec.IpsecTunnelParameters
-				}
 				if IpsecTunnelParametersData, ok := blockData["ipsec_tunnel_parameters"].(map[string]interface{}); ok {
 					return &ExternalConnectorIpsecIpsecTunnelParametersModel{
 						PeerIPAddress: func() *ExternalConnectorIpsecIpsecTunnelParametersPeerIPAddressModel {

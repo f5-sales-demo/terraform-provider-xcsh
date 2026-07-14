@@ -1696,9 +1696,6 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 	if blockData, ok := apiResource.Spec["webhook"].(map[string]interface{}); ok && (isImport || data.Webhook != nil) {
 		data.Webhook = &AlertReceiverWebhookModel{
 			HTTPConfig: func() *AlertReceiverWebhookHTTPConfigModel {
-				if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil {
-					return data.Webhook.HTTPConfig
-				}
 				if HTTPConfigData, ok := blockData["http_config"].(map[string]interface{}); ok {
 					return &AlertReceiverWebhookHTTPConfigModel{
 						AuthToken: func() *AlertReceiverWebhookHTTPConfigAuthTokenModel {
@@ -2361,9 +2358,6 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 	if blockData, ok := apiResource.Spec["webhook"].(map[string]interface{}); ok && (isImport || data.Webhook != nil) {
 		data.Webhook = &AlertReceiverWebhookModel{
 			HTTPConfig: func() *AlertReceiverWebhookHTTPConfigModel {
-				if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil {
-					return data.Webhook.HTTPConfig
-				}
 				if HTTPConfigData, ok := blockData["http_config"].(map[string]interface{}); ok {
 					return &AlertReceiverWebhookHTTPConfigModel{
 						AuthToken: func() *AlertReceiverWebhookHTTPConfigAuthTokenModel {
@@ -3331,9 +3325,6 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 	if blockData, ok := apiResource.Spec["webhook"].(map[string]interface{}); ok && (isImport || data.Webhook != nil) {
 		data.Webhook = &AlertReceiverWebhookModel{
 			HTTPConfig: func() *AlertReceiverWebhookHTTPConfigModel {
-				if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil {
-					return data.Webhook.HTTPConfig
-				}
 				if HTTPConfigData, ok := blockData["http_config"].(map[string]interface{}); ok {
 					return &AlertReceiverWebhookHTTPConfigModel{
 						AuthToken: func() *AlertReceiverWebhookHTTPConfigAuthTokenModel {

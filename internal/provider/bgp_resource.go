@@ -1745,9 +1745,6 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
 		data.Where = &BGPWhereModel{
 			Site: func() *BGPWhereSiteModel {
-				if !isImport && data.Where != nil && data.Where.Site != nil {
-					return data.Where.Site
-				}
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &BGPWhereSiteModel{
 						DisableInternetVIP: func() *BGPEmptyModel {
@@ -1817,9 +1814,6 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 				return nil
 			}(),
 			VirtualSite: func() *BGPWhereVirtualSiteModel {
-				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
-					return data.Where.VirtualSite
-				}
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &BGPWhereVirtualSiteModel{
 						DisableInternetVIP: func() *BGPEmptyModel {
@@ -2427,9 +2421,6 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
 		data.Where = &BGPWhereModel{
 			Site: func() *BGPWhereSiteModel {
-				if !isImport && data.Where != nil && data.Where.Site != nil {
-					return data.Where.Site
-				}
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &BGPWhereSiteModel{
 						DisableInternetVIP: func() *BGPEmptyModel {
@@ -2499,9 +2490,6 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 				return nil
 			}(),
 			VirtualSite: func() *BGPWhereVirtualSiteModel {
-				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
-					return data.Where.VirtualSite
-				}
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &BGPWhereVirtualSiteModel{
 						DisableInternetVIP: func() *BGPEmptyModel {
@@ -3421,9 +3409,6 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
 		data.Where = &BGPWhereModel{
 			Site: func() *BGPWhereSiteModel {
-				if !isImport && data.Where != nil && data.Where.Site != nil {
-					return data.Where.Site
-				}
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &BGPWhereSiteModel{
 						DisableInternetVIP: func() *BGPEmptyModel {
@@ -3493,9 +3478,6 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 				return nil
 			}(),
 			VirtualSite: func() *BGPWhereVirtualSiteModel {
-				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
-					return data.Where.VirtualSite
-				}
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &BGPWhereVirtualSiteModel{
 						DisableInternetVIP: func() *BGPEmptyModel {

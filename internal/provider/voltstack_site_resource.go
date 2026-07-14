@@ -11637,9 +11637,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 	if blockData, ok := apiResource.Spec["custom_network_config"].(map[string]interface{}); ok && (isImport || data.CustomNetworkConfig != nil) {
 		data.CustomNetworkConfig = &VoltstackSiteCustomNetworkConfigModel{
 			ActiveEnhancedFirewallPolicies: func() *VoltstackSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies != nil {
-					return data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies
-				}
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
@@ -11679,9 +11676,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				return nil
 			}(),
 			ActiveForwardProxyPolicies: func() *VoltstackSiteCustomNetworkConfigActiveForwardProxyPoliciesModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveForwardProxyPolicies != nil {
-					return data.CustomNetworkConfig.ActiveForwardProxyPolicies
-				}
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
@@ -11721,9 +11715,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				return nil
 			}(),
 			ActiveNetworkPolicies: func() *VoltstackSiteCustomNetworkConfigActiveNetworkPoliciesModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveNetworkPolicies != nil {
-					return data.CustomNetworkConfig.ActiveNetworkPolicies
-				}
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
@@ -11811,9 +11802,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				return nil
 			}(),
 			GlobalNetworkList: func() *VoltstackSiteCustomNetworkConfigGlobalNetworkListModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.GlobalNetworkList != nil {
-					return data.CustomNetworkConfig.GlobalNetworkList
-				}
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
@@ -11899,9 +11887,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				return nil
 			}(),
 			InterfaceList: func() *VoltstackSiteCustomNetworkConfigInterfaceListModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.InterfaceList != nil {
-					return data.CustomNetworkConfig.InterfaceList
-				}
 				if InterfaceListData, ok := blockData["interface_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigInterfaceListModel{
 						Interfaces: func() types.List {
@@ -12685,9 +12670,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				return types.StringNull()
 			}(),
 			SLIConfig: func() *VoltstackSiteCustomNetworkConfigSLIConfigModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil {
-					return data.CustomNetworkConfig.SLIConfig
-				}
 				if SLIConfigData, ok := blockData["sli_config"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigSLIConfigModel{
 						NoStaticRoutes: func() *VoltstackSiteEmptyModel {
@@ -12967,9 +12949,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				return nil
 			}(),
 			SloConfig: func() *VoltstackSiteCustomNetworkConfigSloConfigModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
-					return data.CustomNetworkConfig.SloConfig
-				}
 				if SloConfigData, ok := blockData["slo_config"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigSloConfigModel{
 						DcClusterGroup: func() *VoltstackSiteCustomNetworkConfigSloConfigDcClusterGroupModel {
@@ -13359,9 +13338,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				return nil
 			}(),
 			StaticRoutes: func() *VoltstackSiteCustomStorageConfigStaticRoutesModel {
-				if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StaticRoutes != nil {
-					return data.CustomStorageConfig.StaticRoutes
-				}
 				if StaticRoutesData, ok := blockData["static_routes"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomStorageConfigStaticRoutesModel{
 						StaticRoutes: func() types.List {
@@ -15944,9 +15920,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				return nil
 			}(),
 			StorageInterfaceList: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListModel {
-				if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageInterfaceList != nil {
-					return data.CustomStorageConfig.StorageInterfaceList
-				}
 				if StorageInterfaceListData, ok := blockData["storage_interface_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomStorageConfigStorageInterfaceListModel{
 						StorageInterfaces: func() types.List {
@@ -16605,9 +16578,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 	if blockData, ok := apiResource.Spec["local_control_plane"].(map[string]interface{}); ok && (isImport || data.LocalControlPlane != nil) {
 		data.LocalControlPlane = &VoltstackSiteLocalControlPlaneModel{
 			BGPConfig: func() *VoltstackSiteLocalControlPlaneBGPConfigModel {
-				if !isImport && data.LocalControlPlane != nil && data.LocalControlPlane.BGPConfig != nil {
-					return data.LocalControlPlane.BGPConfig
-				}
 				if BGPConfigData, ok := blockData["bgp_config"].(map[string]interface{}); ok {
 					return &VoltstackSiteLocalControlPlaneBGPConfigModel{
 						Asn: func() types.Int64 {
@@ -17491,9 +17461,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 	if blockData, ok := apiResource.Spec["custom_network_config"].(map[string]interface{}); ok && (isImport || data.CustomNetworkConfig != nil) {
 		data.CustomNetworkConfig = &VoltstackSiteCustomNetworkConfigModel{
 			ActiveEnhancedFirewallPolicies: func() *VoltstackSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies != nil {
-					return data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies
-				}
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
@@ -17533,9 +17500,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				return nil
 			}(),
 			ActiveForwardProxyPolicies: func() *VoltstackSiteCustomNetworkConfigActiveForwardProxyPoliciesModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveForwardProxyPolicies != nil {
-					return data.CustomNetworkConfig.ActiveForwardProxyPolicies
-				}
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
@@ -17575,9 +17539,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				return nil
 			}(),
 			ActiveNetworkPolicies: func() *VoltstackSiteCustomNetworkConfigActiveNetworkPoliciesModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveNetworkPolicies != nil {
-					return data.CustomNetworkConfig.ActiveNetworkPolicies
-				}
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
@@ -17665,9 +17626,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				return nil
 			}(),
 			GlobalNetworkList: func() *VoltstackSiteCustomNetworkConfigGlobalNetworkListModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.GlobalNetworkList != nil {
-					return data.CustomNetworkConfig.GlobalNetworkList
-				}
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
@@ -17753,9 +17711,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				return nil
 			}(),
 			InterfaceList: func() *VoltstackSiteCustomNetworkConfigInterfaceListModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.InterfaceList != nil {
-					return data.CustomNetworkConfig.InterfaceList
-				}
 				if InterfaceListData, ok := blockData["interface_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigInterfaceListModel{
 						Interfaces: func() types.List {
@@ -18539,9 +18494,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				return types.StringNull()
 			}(),
 			SLIConfig: func() *VoltstackSiteCustomNetworkConfigSLIConfigModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil {
-					return data.CustomNetworkConfig.SLIConfig
-				}
 				if SLIConfigData, ok := blockData["sli_config"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigSLIConfigModel{
 						NoStaticRoutes: func() *VoltstackSiteEmptyModel {
@@ -18821,9 +18773,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				return nil
 			}(),
 			SloConfig: func() *VoltstackSiteCustomNetworkConfigSloConfigModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
-					return data.CustomNetworkConfig.SloConfig
-				}
 				if SloConfigData, ok := blockData["slo_config"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigSloConfigModel{
 						DcClusterGroup: func() *VoltstackSiteCustomNetworkConfigSloConfigDcClusterGroupModel {
@@ -19213,9 +19162,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				return nil
 			}(),
 			StaticRoutes: func() *VoltstackSiteCustomStorageConfigStaticRoutesModel {
-				if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StaticRoutes != nil {
-					return data.CustomStorageConfig.StaticRoutes
-				}
 				if StaticRoutesData, ok := blockData["static_routes"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomStorageConfigStaticRoutesModel{
 						StaticRoutes: func() types.List {
@@ -21798,9 +21744,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				return nil
 			}(),
 			StorageInterfaceList: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListModel {
-				if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageInterfaceList != nil {
-					return data.CustomStorageConfig.StorageInterfaceList
-				}
 				if StorageInterfaceListData, ok := blockData["storage_interface_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomStorageConfigStorageInterfaceListModel{
 						StorageInterfaces: func() types.List {
@@ -22459,9 +22402,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 	if blockData, ok := apiResource.Spec["local_control_plane"].(map[string]interface{}); ok && (isImport || data.LocalControlPlane != nil) {
 		data.LocalControlPlane = &VoltstackSiteLocalControlPlaneModel{
 			BGPConfig: func() *VoltstackSiteLocalControlPlaneBGPConfigModel {
-				if !isImport && data.LocalControlPlane != nil && data.LocalControlPlane.BGPConfig != nil {
-					return data.LocalControlPlane.BGPConfig
-				}
 				if BGPConfigData, ok := blockData["bgp_config"].(map[string]interface{}); ok {
 					return &VoltstackSiteLocalControlPlaneBGPConfigModel{
 						Asn: func() types.Int64 {
@@ -26548,9 +26488,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 	if blockData, ok := apiResource.Spec["custom_network_config"].(map[string]interface{}); ok && (isImport || data.CustomNetworkConfig != nil) {
 		data.CustomNetworkConfig = &VoltstackSiteCustomNetworkConfigModel{
 			ActiveEnhancedFirewallPolicies: func() *VoltstackSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies != nil {
-					return data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies
-				}
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
@@ -26590,9 +26527,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				return nil
 			}(),
 			ActiveForwardProxyPolicies: func() *VoltstackSiteCustomNetworkConfigActiveForwardProxyPoliciesModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveForwardProxyPolicies != nil {
-					return data.CustomNetworkConfig.ActiveForwardProxyPolicies
-				}
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
@@ -26632,9 +26566,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				return nil
 			}(),
 			ActiveNetworkPolicies: func() *VoltstackSiteCustomNetworkConfigActiveNetworkPoliciesModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveNetworkPolicies != nil {
-					return data.CustomNetworkConfig.ActiveNetworkPolicies
-				}
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
@@ -26722,9 +26653,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				return nil
 			}(),
 			GlobalNetworkList: func() *VoltstackSiteCustomNetworkConfigGlobalNetworkListModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.GlobalNetworkList != nil {
-					return data.CustomNetworkConfig.GlobalNetworkList
-				}
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
@@ -26810,9 +26738,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				return nil
 			}(),
 			InterfaceList: func() *VoltstackSiteCustomNetworkConfigInterfaceListModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.InterfaceList != nil {
-					return data.CustomNetworkConfig.InterfaceList
-				}
 				if InterfaceListData, ok := blockData["interface_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigInterfaceListModel{
 						Interfaces: func() types.List {
@@ -27596,9 +27521,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				return types.StringNull()
 			}(),
 			SLIConfig: func() *VoltstackSiteCustomNetworkConfigSLIConfigModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil {
-					return data.CustomNetworkConfig.SLIConfig
-				}
 				if SLIConfigData, ok := blockData["sli_config"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigSLIConfigModel{
 						NoStaticRoutes: func() *VoltstackSiteEmptyModel {
@@ -27878,9 +27800,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				return nil
 			}(),
 			SloConfig: func() *VoltstackSiteCustomNetworkConfigSloConfigModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
-					return data.CustomNetworkConfig.SloConfig
-				}
 				if SloConfigData, ok := blockData["slo_config"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigSloConfigModel{
 						DcClusterGroup: func() *VoltstackSiteCustomNetworkConfigSloConfigDcClusterGroupModel {
@@ -28270,9 +28189,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				return nil
 			}(),
 			StaticRoutes: func() *VoltstackSiteCustomStorageConfigStaticRoutesModel {
-				if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StaticRoutes != nil {
-					return data.CustomStorageConfig.StaticRoutes
-				}
 				if StaticRoutesData, ok := blockData["static_routes"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomStorageConfigStaticRoutesModel{
 						StaticRoutes: func() types.List {
@@ -30855,9 +30771,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				return nil
 			}(),
 			StorageInterfaceList: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListModel {
-				if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageInterfaceList != nil {
-					return data.CustomStorageConfig.StorageInterfaceList
-				}
 				if StorageInterfaceListData, ok := blockData["storage_interface_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomStorageConfigStorageInterfaceListModel{
 						StorageInterfaces: func() types.List {
@@ -31516,9 +31429,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 	if blockData, ok := apiResource.Spec["local_control_plane"].(map[string]interface{}); ok && (isImport || data.LocalControlPlane != nil) {
 		data.LocalControlPlane = &VoltstackSiteLocalControlPlaneModel{
 			BGPConfig: func() *VoltstackSiteLocalControlPlaneBGPConfigModel {
-				if !isImport && data.LocalControlPlane != nil && data.LocalControlPlane.BGPConfig != nil {
-					return data.LocalControlPlane.BGPConfig
-				}
 				if BGPConfigData, ok := blockData["bgp_config"].(map[string]interface{}); ok {
 					return &VoltstackSiteLocalControlPlaneBGPConfigModel{
 						Asn: func() types.Int64 {

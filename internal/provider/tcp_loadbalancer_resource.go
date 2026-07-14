@@ -3306,9 +3306,6 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if blockData, ok := apiResource.Spec["tls_tcp"].(map[string]interface{}); ok && (isImport || data.TLSTCP != nil) {
 		data.TLSTCP = &TCPLoadBalancerTLSTCPModel{
 			TLSCertParams: func() *TCPLoadBalancerTLSTCPTLSCertParamsModel {
-				if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil {
-					return data.TLSTCP.TLSCertParams
-				}
 				if TLSCertParamsData, ok := blockData["tls_cert_params"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPTLSCertParamsModel{
 						Certificates: func() types.List {
@@ -3512,9 +3509,6 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return nil
 			}(),
 			TLSParameters: func() *TCPLoadBalancerTLSTCPTLSParametersModel {
-				if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil {
-					return data.TLSTCP.TLSParameters
-				}
 				if TLSParametersData, ok := blockData["tls_parameters"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPTLSParametersModel{
 						NoMtls: func() *TCPLoadBalancerEmptyModel {
@@ -3868,9 +3862,6 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return nil
 			}(),
 			UseMtls: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsModel {
-				if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil {
-					return data.TLSTCPAutoCert.UseMtls
-				}
 				if UseMtlsData, ok := blockData["use_mtls"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPAutoCertUseMtlsModel{
 						ClientCertificateOptional: func() types.Bool {
@@ -4614,9 +4605,6 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	if blockData, ok := apiResource.Spec["tls_tcp"].(map[string]interface{}); ok && (isImport || data.TLSTCP != nil) {
 		data.TLSTCP = &TCPLoadBalancerTLSTCPModel{
 			TLSCertParams: func() *TCPLoadBalancerTLSTCPTLSCertParamsModel {
-				if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil {
-					return data.TLSTCP.TLSCertParams
-				}
 				if TLSCertParamsData, ok := blockData["tls_cert_params"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPTLSCertParamsModel{
 						Certificates: func() types.List {
@@ -4820,9 +4808,6 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return nil
 			}(),
 			TLSParameters: func() *TCPLoadBalancerTLSTCPTLSParametersModel {
-				if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil {
-					return data.TLSTCP.TLSParameters
-				}
 				if TLSParametersData, ok := blockData["tls_parameters"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPTLSParametersModel{
 						NoMtls: func() *TCPLoadBalancerEmptyModel {
@@ -5176,9 +5161,6 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return nil
 			}(),
 			UseMtls: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsModel {
-				if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil {
-					return data.TLSTCPAutoCert.UseMtls
-				}
 				if UseMtlsData, ok := blockData["use_mtls"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPAutoCertUseMtlsModel{
 						ClientCertificateOptional: func() types.Bool {
@@ -6619,9 +6601,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if blockData, ok := apiResource.Spec["tls_tcp"].(map[string]interface{}); ok && (isImport || data.TLSTCP != nil) {
 		data.TLSTCP = &TCPLoadBalancerTLSTCPModel{
 			TLSCertParams: func() *TCPLoadBalancerTLSTCPTLSCertParamsModel {
-				if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil {
-					return data.TLSTCP.TLSCertParams
-				}
 				if TLSCertParamsData, ok := blockData["tls_cert_params"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPTLSCertParamsModel{
 						Certificates: func() types.List {
@@ -6825,9 +6804,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return nil
 			}(),
 			TLSParameters: func() *TCPLoadBalancerTLSTCPTLSParametersModel {
-				if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil {
-					return data.TLSTCP.TLSParameters
-				}
 				if TLSParametersData, ok := blockData["tls_parameters"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPTLSParametersModel{
 						NoMtls: func() *TCPLoadBalancerEmptyModel {
@@ -7181,9 +7157,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return nil
 			}(),
 			UseMtls: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsModel {
-				if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil {
-					return data.TLSTCPAutoCert.UseMtls
-				}
 				if UseMtlsData, ok := blockData["use_mtls"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPAutoCertUseMtlsModel{
 						ClientCertificateOptional: func() types.Bool {

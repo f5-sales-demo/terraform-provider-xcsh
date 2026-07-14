@@ -1360,9 +1360,6 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 				return nil
 			}(),
 			CommonParams: func() *AdvertisePolicyTLSParametersCommonParamsModel {
-				if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil {
-					return data.TLSParameters.CommonParams
-				}
 				if CommonParamsData, ok := blockData["common_params"].(map[string]interface{}); ok {
 					return &AdvertisePolicyTLSParametersCommonParamsModel{
 						CipherSuites: func() types.List {
@@ -1613,9 +1610,6 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
 		data.Where = &AdvertisePolicyWhereModel{
 			Site: func() *AdvertisePolicyWhereSiteModel {
-				if !isImport && data.Where != nil && data.Where.Site != nil {
-					return data.Where.Site
-				}
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &AdvertisePolicyWhereSiteModel{
 						DisableInternetVIP: func() *AdvertisePolicyEmptyModel {
@@ -1685,9 +1679,6 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 				return nil
 			}(),
 			VirtualNetwork: func() *AdvertisePolicyWhereVirtualNetworkModel {
-				if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil {
-					return data.Where.VirtualNetwork
-				}
 				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
 					return &AdvertisePolicyWhereVirtualNetworkModel{
 						Ref: func() types.List {
@@ -1739,9 +1730,6 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 				return nil
 			}(),
 			VirtualSite: func() *AdvertisePolicyWhereVirtualSiteModel {
-				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
-					return data.Where.VirtualSite
-				}
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &AdvertisePolicyWhereVirtualSiteModel{
 						DisableInternetVIP: func() *AdvertisePolicyEmptyModel {
@@ -2004,9 +1992,6 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 				return nil
 			}(),
 			CommonParams: func() *AdvertisePolicyTLSParametersCommonParamsModel {
-				if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil {
-					return data.TLSParameters.CommonParams
-				}
 				if CommonParamsData, ok := blockData["common_params"].(map[string]interface{}); ok {
 					return &AdvertisePolicyTLSParametersCommonParamsModel{
 						CipherSuites: func() types.List {
@@ -2257,9 +2242,6 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
 		data.Where = &AdvertisePolicyWhereModel{
 			Site: func() *AdvertisePolicyWhereSiteModel {
-				if !isImport && data.Where != nil && data.Where.Site != nil {
-					return data.Where.Site
-				}
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &AdvertisePolicyWhereSiteModel{
 						DisableInternetVIP: func() *AdvertisePolicyEmptyModel {
@@ -2329,9 +2311,6 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 				return nil
 			}(),
 			VirtualNetwork: func() *AdvertisePolicyWhereVirtualNetworkModel {
-				if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil {
-					return data.Where.VirtualNetwork
-				}
 				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
 					return &AdvertisePolicyWhereVirtualNetworkModel{
 						Ref: func() types.List {
@@ -2383,9 +2362,6 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 				return nil
 			}(),
 			VirtualSite: func() *AdvertisePolicyWhereVirtualSiteModel {
-				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
-					return data.Where.VirtualSite
-				}
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &AdvertisePolicyWhereVirtualSiteModel{
 						DisableInternetVIP: func() *AdvertisePolicyEmptyModel {
@@ -2962,9 +2938,6 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 				return nil
 			}(),
 			CommonParams: func() *AdvertisePolicyTLSParametersCommonParamsModel {
-				if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil {
-					return data.TLSParameters.CommonParams
-				}
 				if CommonParamsData, ok := blockData["common_params"].(map[string]interface{}); ok {
 					return &AdvertisePolicyTLSParametersCommonParamsModel{
 						CipherSuites: func() types.List {
@@ -3215,9 +3188,6 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
 		data.Where = &AdvertisePolicyWhereModel{
 			Site: func() *AdvertisePolicyWhereSiteModel {
-				if !isImport && data.Where != nil && data.Where.Site != nil {
-					return data.Where.Site
-				}
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &AdvertisePolicyWhereSiteModel{
 						DisableInternetVIP: func() *AdvertisePolicyEmptyModel {
@@ -3287,9 +3257,6 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 				return nil
 			}(),
 			VirtualNetwork: func() *AdvertisePolicyWhereVirtualNetworkModel {
-				if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil {
-					return data.Where.VirtualNetwork
-				}
 				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
 					return &AdvertisePolicyWhereVirtualNetworkModel{
 						Ref: func() types.List {
@@ -3341,9 +3308,6 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 				return nil
 			}(),
 			VirtualSite: func() *AdvertisePolicyWhereVirtualSiteModel {
-				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
-					return data.Where.VirtualSite
-				}
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &AdvertisePolicyWhereVirtualSiteModel{
 						DisableInternetVIP: func() *AdvertisePolicyEmptyModel {

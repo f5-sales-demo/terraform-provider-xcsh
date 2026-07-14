@@ -3997,9 +3997,6 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				return nil
 			}(),
 			DstSegments: func() *ServicePolicyRuleSegmentPolicyDstSegmentsModel {
-				if !isImport && data.SegmentPolicy != nil && data.SegmentPolicy.DstSegments != nil {
-					return data.SegmentPolicy.DstSegments
-				}
 				if DstSegmentsData, ok := blockData["dst_segments"].(map[string]interface{}); ok {
 					return &ServicePolicyRuleSegmentPolicyDstSegmentsModel{
 						Segments: func() types.List {
@@ -4057,9 +4054,6 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				return nil
 			}(),
 			SrcSegments: func() *ServicePolicyRuleSegmentPolicySrcSegmentsModel {
-				if !isImport && data.SegmentPolicy != nil && data.SegmentPolicy.SrcSegments != nil {
-					return data.SegmentPolicy.SrcSegments
-				}
 				if SrcSegmentsData, ok := blockData["src_segments"].(map[string]interface{}); ok {
 					return &ServicePolicyRuleSegmentPolicySrcSegmentsModel{
 						Segments: func() types.List {
@@ -5678,9 +5672,6 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				return nil
 			}(),
 			DstSegments: func() *ServicePolicyRuleSegmentPolicyDstSegmentsModel {
-				if !isImport && data.SegmentPolicy != nil && data.SegmentPolicy.DstSegments != nil {
-					return data.SegmentPolicy.DstSegments
-				}
 				if DstSegmentsData, ok := blockData["dst_segments"].(map[string]interface{}); ok {
 					return &ServicePolicyRuleSegmentPolicyDstSegmentsModel{
 						Segments: func() types.List {
@@ -5738,9 +5729,6 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				return nil
 			}(),
 			SrcSegments: func() *ServicePolicyRuleSegmentPolicySrcSegmentsModel {
-				if !isImport && data.SegmentPolicy != nil && data.SegmentPolicy.SrcSegments != nil {
-					return data.SegmentPolicy.SrcSegments
-				}
 				if SrcSegmentsData, ok := blockData["src_segments"].(map[string]interface{}); ok {
 					return &ServicePolicyRuleSegmentPolicySrcSegmentsModel{
 						Segments: func() types.List {
@@ -8207,9 +8195,6 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				return nil
 			}(),
 			DstSegments: func() *ServicePolicyRuleSegmentPolicyDstSegmentsModel {
-				if !isImport && data.SegmentPolicy != nil && data.SegmentPolicy.DstSegments != nil {
-					return data.SegmentPolicy.DstSegments
-				}
 				if DstSegmentsData, ok := blockData["dst_segments"].(map[string]interface{}); ok {
 					return &ServicePolicyRuleSegmentPolicyDstSegmentsModel{
 						Segments: func() types.List {
@@ -8267,9 +8252,6 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				return nil
 			}(),
 			SrcSegments: func() *ServicePolicyRuleSegmentPolicySrcSegmentsModel {
-				if !isImport && data.SegmentPolicy != nil && data.SegmentPolicy.SrcSegments != nil {
-					return data.SegmentPolicy.SrcSegments
-				}
 				if SrcSegmentsData, ok := blockData["src_segments"].(map[string]interface{}); ok {
 					return &ServicePolicyRuleSegmentPolicySrcSegmentsModel{
 						Segments: func() types.List {

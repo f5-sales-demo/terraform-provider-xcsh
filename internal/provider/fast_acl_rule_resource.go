@@ -734,9 +734,6 @@ func (r *FastACLRuleResource) Create(ctx context.Context, req resource.CreateReq
 	if blockData, ok := apiResource.Spec["action"].(map[string]interface{}); ok && (isImport || data.Action != nil) {
 		data.Action = &FastACLRuleActionModel{
 			PolicerAction: func() *FastACLRuleActionPolicerActionModel {
-				if !isImport && data.Action != nil && data.Action.PolicerAction != nil {
-					return data.Action.PolicerAction
-				}
 				if PolicerActionData, ok := blockData["policer_action"].(map[string]interface{}); ok {
 					return &FastACLRuleActionPolicerActionModel{
 						Ref: func() types.List {
@@ -788,9 +785,6 @@ func (r *FastACLRuleResource) Create(ctx context.Context, req resource.CreateReq
 				return nil
 			}(),
 			ProtocolPolicerAction: func() *FastACLRuleActionProtocolPolicerActionModel {
-				if !isImport && data.Action != nil && data.Action.ProtocolPolicerAction != nil {
-					return data.Action.ProtocolPolicerAction
-				}
 				if ProtocolPolicerActionData, ok := blockData["protocol_policer_action"].(map[string]interface{}); ok {
 					return &FastACLRuleActionProtocolPolicerActionModel{
 						Ref: func() types.List {
@@ -1060,9 +1054,6 @@ func (r *FastACLRuleResource) Read(ctx context.Context, req resource.ReadRequest
 	if blockData, ok := apiResource.Spec["action"].(map[string]interface{}); ok && (isImport || data.Action != nil) {
 		data.Action = &FastACLRuleActionModel{
 			PolicerAction: func() *FastACLRuleActionPolicerActionModel {
-				if !isImport && data.Action != nil && data.Action.PolicerAction != nil {
-					return data.Action.PolicerAction
-				}
 				if PolicerActionData, ok := blockData["policer_action"].(map[string]interface{}); ok {
 					return &FastACLRuleActionPolicerActionModel{
 						Ref: func() types.List {
@@ -1114,9 +1105,6 @@ func (r *FastACLRuleResource) Read(ctx context.Context, req resource.ReadRequest
 				return nil
 			}(),
 			ProtocolPolicerAction: func() *FastACLRuleActionProtocolPolicerActionModel {
-				if !isImport && data.Action != nil && data.Action.ProtocolPolicerAction != nil {
-					return data.Action.ProtocolPolicerAction
-				}
 				if ProtocolPolicerActionData, ok := blockData["protocol_policer_action"].(map[string]interface{}); ok {
 					return &FastACLRuleActionProtocolPolicerActionModel{
 						Ref: func() types.List {
@@ -1512,9 +1500,6 @@ func (r *FastACLRuleResource) Update(ctx context.Context, req resource.UpdateReq
 	if blockData, ok := apiResource.Spec["action"].(map[string]interface{}); ok && (isImport || data.Action != nil) {
 		data.Action = &FastACLRuleActionModel{
 			PolicerAction: func() *FastACLRuleActionPolicerActionModel {
-				if !isImport && data.Action != nil && data.Action.PolicerAction != nil {
-					return data.Action.PolicerAction
-				}
 				if PolicerActionData, ok := blockData["policer_action"].(map[string]interface{}); ok {
 					return &FastACLRuleActionPolicerActionModel{
 						Ref: func() types.List {
@@ -1566,9 +1551,6 @@ func (r *FastACLRuleResource) Update(ctx context.Context, req resource.UpdateReq
 				return nil
 			}(),
 			ProtocolPolicerAction: func() *FastACLRuleActionProtocolPolicerActionModel {
-				if !isImport && data.Action != nil && data.Action.ProtocolPolicerAction != nil {
-					return data.Action.ProtocolPolicerAction
-				}
 				if ProtocolPolicerActionData, ok := blockData["protocol_policer_action"].(map[string]interface{}); ok {
 					return &FastACLRuleActionProtocolPolicerActionModel{
 						Ref: func() types.List {

@@ -17814,9 +17814,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesModelAttrTypes})
 			}(),
 			BypassRateLimitingRules: func() *CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesModel {
-				if !isImport && data.APIRateLimit != nil && data.APIRateLimit.BypassRateLimitingRules != nil {
-					return data.APIRateLimit.BypassRateLimitingRules
-				}
 				if BypassRateLimitingRulesData, ok := blockData["bypass_rate_limiting_rules"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesModel{
 						BypassRateLimitingRules: func() types.List {
@@ -18510,9 +18507,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return nil
 			}(),
 			CustomIPAllowedList: func() *CDNLoadBalancerAPIRateLimitCustomIPAllowedListModel {
-				if !isImport && data.APIRateLimit != nil && data.APIRateLimit.CustomIPAllowedList != nil {
-					return data.APIRateLimit.CustomIPAllowedList
-				}
 				if CustomIPAllowedListData, ok := blockData["custom_ip_allowed_list"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerAPIRateLimitCustomIPAllowedListModel{
 						RateLimiterAllowedPrefixes: func() types.List {
@@ -22238,9 +22232,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return nil
 			}(),
 			APIDiscoveryFromCodeScan: func() *CDNLoadBalancerEnableAPIDiscoveryAPIDiscoveryFromCodeScanModel {
-				if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APIDiscoveryFromCodeScan != nil {
-					return data.EnableAPIDiscovery.APIDiscoveryFromCodeScan
-				}
 				if APIDiscoveryFromCodeScanData, ok := blockData["api_discovery_from_code_scan"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableAPIDiscoveryAPIDiscoveryFromCodeScanModel{
 						CodeBaseIntegrations: func() types.List {
@@ -22313,9 +22304,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return nil
 			}(),
 			CustomAPIAuthDiscovery: func() *CDNLoadBalancerEnableAPIDiscoveryCustomAPIAuthDiscoveryModel {
-				if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.CustomAPIAuthDiscovery != nil {
-					return data.EnableAPIDiscovery.CustomAPIAuthDiscovery
-				}
 				if CustomAPIAuthDiscoveryData, ok := blockData["custom_api_auth_discovery"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableAPIDiscoveryCustomAPIAuthDiscoveryModel{
 						APIDiscoveryRef: func() *CDNLoadBalancerEnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefModel {
@@ -22694,9 +22682,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return types.BoolNull()
 			}(),
 			TLSCertOptions: func() *CDNLoadBalancerHTTPSTLSCertOptionsModel {
-				if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil {
-					return data.HTTPS.TLSCertOptions
-				}
 				if TLSCertOptionsData, ok := blockData["tls_cert_options"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerHTTPSTLSCertOptionsModel{
 						TLSCertParams: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsModel {
@@ -23285,9 +23270,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return nil
 			}(),
 			AuthorizationServer: func() *CDNLoadBalancerJWTValidationAuthorizationServerModel {
-				if !isImport && data.JWTValidation != nil && data.JWTValidation.AuthorizationServer != nil {
-					return data.JWTValidation.AuthorizationServer
-				}
 				if AuthorizationServerData, ok := blockData["authorization_server"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerJWTValidationAuthorizationServerModel{
 						AuthorizationServers: func() types.List {
@@ -23656,9 +23638,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return nil
 			}(),
 			UseTLS: func() *CDNLoadBalancerOriginPoolUseTLSModel {
-				if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
-					return data.OriginPool.UseTLS
-				}
 				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerOriginPoolUseTLSModel{
 						DefaultSessionKeyCaching: func() *CDNLoadBalancerEmptyModel {
@@ -24363,9 +24342,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return nil
 			}(),
 			RuleList: func() *CDNLoadBalancerPolicyBasedChallengeRuleListModel {
-				if !isImport && data.PolicyBasedChallenge != nil && data.PolicyBasedChallenge.RuleList != nil {
-					return data.PolicyBasedChallenge.RuleList
-				}
 				if RuleListData, ok := blockData["rule_list"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerPolicyBasedChallengeRuleListModel{
 						Rules: func() types.List {
@@ -25348,9 +25324,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if blockData, ok := apiResource.Spec["rate_limit"].(map[string]interface{}); ok && (isImport || data.RateLimit != nil) {
 		data.RateLimit = &CDNLoadBalancerRateLimitModel{
 			CustomIPAllowedList: func() *CDNLoadBalancerRateLimitCustomIPAllowedListModel {
-				if !isImport && data.RateLimit != nil && data.RateLimit.CustomIPAllowedList != nil {
-					return data.RateLimit.CustomIPAllowedList
-				}
 				if CustomIPAllowedListData, ok := blockData["custom_ip_allowed_list"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitCustomIPAllowedListModel{
 						RateLimiterAllowedPrefixes: func() types.List {
@@ -25431,9 +25404,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return nil
 			}(),
 			Policies: func() *CDNLoadBalancerRateLimitPoliciesModel {
-				if !isImport && data.RateLimit != nil && data.RateLimit.Policies != nil {
-					return data.RateLimit.Policies
-				}
 				if PoliciesData, ok := blockData["policies"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitPoliciesModel{
 						Policies: func() types.List {
@@ -26970,9 +26940,6 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesModelAttrTypes})
 			}(),
 			BypassRateLimitingRules: func() *CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesModel {
-				if !isImport && data.APIRateLimit != nil && data.APIRateLimit.BypassRateLimitingRules != nil {
-					return data.APIRateLimit.BypassRateLimitingRules
-				}
 				if BypassRateLimitingRulesData, ok := blockData["bypass_rate_limiting_rules"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesModel{
 						BypassRateLimitingRules: func() types.List {
@@ -27666,9 +27633,6 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return nil
 			}(),
 			CustomIPAllowedList: func() *CDNLoadBalancerAPIRateLimitCustomIPAllowedListModel {
-				if !isImport && data.APIRateLimit != nil && data.APIRateLimit.CustomIPAllowedList != nil {
-					return data.APIRateLimit.CustomIPAllowedList
-				}
 				if CustomIPAllowedListData, ok := blockData["custom_ip_allowed_list"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerAPIRateLimitCustomIPAllowedListModel{
 						RateLimiterAllowedPrefixes: func() types.List {
@@ -31394,9 +31358,6 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return nil
 			}(),
 			APIDiscoveryFromCodeScan: func() *CDNLoadBalancerEnableAPIDiscoveryAPIDiscoveryFromCodeScanModel {
-				if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APIDiscoveryFromCodeScan != nil {
-					return data.EnableAPIDiscovery.APIDiscoveryFromCodeScan
-				}
 				if APIDiscoveryFromCodeScanData, ok := blockData["api_discovery_from_code_scan"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableAPIDiscoveryAPIDiscoveryFromCodeScanModel{
 						CodeBaseIntegrations: func() types.List {
@@ -31469,9 +31430,6 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return nil
 			}(),
 			CustomAPIAuthDiscovery: func() *CDNLoadBalancerEnableAPIDiscoveryCustomAPIAuthDiscoveryModel {
-				if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.CustomAPIAuthDiscovery != nil {
-					return data.EnableAPIDiscovery.CustomAPIAuthDiscovery
-				}
 				if CustomAPIAuthDiscoveryData, ok := blockData["custom_api_auth_discovery"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableAPIDiscoveryCustomAPIAuthDiscoveryModel{
 						APIDiscoveryRef: func() *CDNLoadBalancerEnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefModel {
@@ -31850,9 +31808,6 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return types.BoolNull()
 			}(),
 			TLSCertOptions: func() *CDNLoadBalancerHTTPSTLSCertOptionsModel {
-				if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil {
-					return data.HTTPS.TLSCertOptions
-				}
 				if TLSCertOptionsData, ok := blockData["tls_cert_options"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerHTTPSTLSCertOptionsModel{
 						TLSCertParams: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsModel {
@@ -32441,9 +32396,6 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return nil
 			}(),
 			AuthorizationServer: func() *CDNLoadBalancerJWTValidationAuthorizationServerModel {
-				if !isImport && data.JWTValidation != nil && data.JWTValidation.AuthorizationServer != nil {
-					return data.JWTValidation.AuthorizationServer
-				}
 				if AuthorizationServerData, ok := blockData["authorization_server"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerJWTValidationAuthorizationServerModel{
 						AuthorizationServers: func() types.List {
@@ -32812,9 +32764,6 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return nil
 			}(),
 			UseTLS: func() *CDNLoadBalancerOriginPoolUseTLSModel {
-				if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
-					return data.OriginPool.UseTLS
-				}
 				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerOriginPoolUseTLSModel{
 						DefaultSessionKeyCaching: func() *CDNLoadBalancerEmptyModel {
@@ -33519,9 +33468,6 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return nil
 			}(),
 			RuleList: func() *CDNLoadBalancerPolicyBasedChallengeRuleListModel {
-				if !isImport && data.PolicyBasedChallenge != nil && data.PolicyBasedChallenge.RuleList != nil {
-					return data.PolicyBasedChallenge.RuleList
-				}
 				if RuleListData, ok := blockData["rule_list"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerPolicyBasedChallengeRuleListModel{
 						Rules: func() types.List {
@@ -34504,9 +34450,6 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	if blockData, ok := apiResource.Spec["rate_limit"].(map[string]interface{}); ok && (isImport || data.RateLimit != nil) {
 		data.RateLimit = &CDNLoadBalancerRateLimitModel{
 			CustomIPAllowedList: func() *CDNLoadBalancerRateLimitCustomIPAllowedListModel {
-				if !isImport && data.RateLimit != nil && data.RateLimit.CustomIPAllowedList != nil {
-					return data.RateLimit.CustomIPAllowedList
-				}
 				if CustomIPAllowedListData, ok := blockData["custom_ip_allowed_list"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitCustomIPAllowedListModel{
 						RateLimiterAllowedPrefixes: func() types.List {
@@ -34587,9 +34530,6 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return nil
 			}(),
 			Policies: func() *CDNLoadBalancerRateLimitPoliciesModel {
-				if !isImport && data.RateLimit != nil && data.RateLimit.Policies != nil {
-					return data.RateLimit.Policies
-				}
 				if PoliciesData, ok := blockData["policies"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitPoliciesModel{
 						Policies: func() types.List {
@@ -41153,9 +41093,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesModelAttrTypes})
 			}(),
 			BypassRateLimitingRules: func() *CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesModel {
-				if !isImport && data.APIRateLimit != nil && data.APIRateLimit.BypassRateLimitingRules != nil {
-					return data.APIRateLimit.BypassRateLimitingRules
-				}
 				if BypassRateLimitingRulesData, ok := blockData["bypass_rate_limiting_rules"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesModel{
 						BypassRateLimitingRules: func() types.List {
@@ -41849,9 +41786,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return nil
 			}(),
 			CustomIPAllowedList: func() *CDNLoadBalancerAPIRateLimitCustomIPAllowedListModel {
-				if !isImport && data.APIRateLimit != nil && data.APIRateLimit.CustomIPAllowedList != nil {
-					return data.APIRateLimit.CustomIPAllowedList
-				}
 				if CustomIPAllowedListData, ok := blockData["custom_ip_allowed_list"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerAPIRateLimitCustomIPAllowedListModel{
 						RateLimiterAllowedPrefixes: func() types.List {
@@ -45577,9 +45511,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return nil
 			}(),
 			APIDiscoveryFromCodeScan: func() *CDNLoadBalancerEnableAPIDiscoveryAPIDiscoveryFromCodeScanModel {
-				if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APIDiscoveryFromCodeScan != nil {
-					return data.EnableAPIDiscovery.APIDiscoveryFromCodeScan
-				}
 				if APIDiscoveryFromCodeScanData, ok := blockData["api_discovery_from_code_scan"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableAPIDiscoveryAPIDiscoveryFromCodeScanModel{
 						CodeBaseIntegrations: func() types.List {
@@ -45652,9 +45583,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return nil
 			}(),
 			CustomAPIAuthDiscovery: func() *CDNLoadBalancerEnableAPIDiscoveryCustomAPIAuthDiscoveryModel {
-				if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.CustomAPIAuthDiscovery != nil {
-					return data.EnableAPIDiscovery.CustomAPIAuthDiscovery
-				}
 				if CustomAPIAuthDiscoveryData, ok := blockData["custom_api_auth_discovery"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableAPIDiscoveryCustomAPIAuthDiscoveryModel{
 						APIDiscoveryRef: func() *CDNLoadBalancerEnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefModel {
@@ -46033,9 +45961,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return types.BoolNull()
 			}(),
 			TLSCertOptions: func() *CDNLoadBalancerHTTPSTLSCertOptionsModel {
-				if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil {
-					return data.HTTPS.TLSCertOptions
-				}
 				if TLSCertOptionsData, ok := blockData["tls_cert_options"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerHTTPSTLSCertOptionsModel{
 						TLSCertParams: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsModel {
@@ -46624,9 +46549,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return nil
 			}(),
 			AuthorizationServer: func() *CDNLoadBalancerJWTValidationAuthorizationServerModel {
-				if !isImport && data.JWTValidation != nil && data.JWTValidation.AuthorizationServer != nil {
-					return data.JWTValidation.AuthorizationServer
-				}
 				if AuthorizationServerData, ok := blockData["authorization_server"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerJWTValidationAuthorizationServerModel{
 						AuthorizationServers: func() types.List {
@@ -46995,9 +46917,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return nil
 			}(),
 			UseTLS: func() *CDNLoadBalancerOriginPoolUseTLSModel {
-				if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
-					return data.OriginPool.UseTLS
-				}
 				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerOriginPoolUseTLSModel{
 						DefaultSessionKeyCaching: func() *CDNLoadBalancerEmptyModel {
@@ -47702,9 +47621,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return nil
 			}(),
 			RuleList: func() *CDNLoadBalancerPolicyBasedChallengeRuleListModel {
-				if !isImport && data.PolicyBasedChallenge != nil && data.PolicyBasedChallenge.RuleList != nil {
-					return data.PolicyBasedChallenge.RuleList
-				}
 				if RuleListData, ok := blockData["rule_list"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerPolicyBasedChallengeRuleListModel{
 						Rules: func() types.List {
@@ -48687,9 +48603,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if blockData, ok := apiResource.Spec["rate_limit"].(map[string]interface{}); ok && (isImport || data.RateLimit != nil) {
 		data.RateLimit = &CDNLoadBalancerRateLimitModel{
 			CustomIPAllowedList: func() *CDNLoadBalancerRateLimitCustomIPAllowedListModel {
-				if !isImport && data.RateLimit != nil && data.RateLimit.CustomIPAllowedList != nil {
-					return data.RateLimit.CustomIPAllowedList
-				}
 				if CustomIPAllowedListData, ok := blockData["custom_ip_allowed_list"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitCustomIPAllowedListModel{
 						RateLimiterAllowedPrefixes: func() types.List {
@@ -48770,9 +48683,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return nil
 			}(),
 			Policies: func() *CDNLoadBalancerRateLimitPoliciesModel {
-				if !isImport && data.RateLimit != nil && data.RateLimit.Policies != nil {
-					return data.RateLimit.Policies
-				}
 				if PoliciesData, ok := blockData["policies"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitPoliciesModel{
 						Policies: func() types.List {

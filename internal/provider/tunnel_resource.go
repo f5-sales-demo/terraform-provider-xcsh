@@ -811,9 +811,6 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 	if blockData, ok := apiResource.Spec["local_ip"].(map[string]interface{}); ok && (isImport || data.LocalIP != nil) {
 		data.LocalIP = &TunnelLocalIPModel{
 			Intf: func() *TunnelLocalIPIntfModel {
-				if !isImport && data.LocalIP != nil && data.LocalIP.Intf != nil {
-					return data.LocalIP.Intf
-				}
 				if IntfData, ok := blockData["intf"].(map[string]interface{}); ok {
 					return &TunnelLocalIPIntfModel{
 						LocalIntf: func() types.List {
@@ -1162,9 +1159,6 @@ func (r *TunnelResource) Read(ctx context.Context, req resource.ReadRequest, res
 	if blockData, ok := apiResource.Spec["local_ip"].(map[string]interface{}); ok && (isImport || data.LocalIP != nil) {
 		data.LocalIP = &TunnelLocalIPModel{
 			Intf: func() *TunnelLocalIPIntfModel {
-				if !isImport && data.LocalIP != nil && data.LocalIP.Intf != nil {
-					return data.LocalIP.Intf
-				}
 				if IntfData, ok := blockData["intf"].(map[string]interface{}); ok {
 					return &TunnelLocalIPIntfModel{
 						LocalIntf: func() types.List {
@@ -1644,9 +1638,6 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 	if blockData, ok := apiResource.Spec["local_ip"].(map[string]interface{}); ok && (isImport || data.LocalIP != nil) {
 		data.LocalIP = &TunnelLocalIPModel{
 			Intf: func() *TunnelLocalIPIntfModel {
-				if !isImport && data.LocalIP != nil && data.LocalIP.Intf != nil {
-					return data.LocalIP.Intf
-				}
 				if IntfData, ok := blockData["intf"].(map[string]interface{}); ok {
 					return &TunnelLocalIPIntfModel{
 						LocalIntf: func() types.List {

@@ -4173,9 +4173,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				return types.StringNull()
 			}(),
 			AWSTGWSiteParams: func() *NfvServiceF5BigIPAWSServiceAWSTGWSiteParamsModel {
-				if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.AWSTGWSiteParams != nil {
-					return data.F5BigIPAWSService.AWSTGWSiteParams
-				}
 				if AWSTGWSiteParamsData, ok := blockData["aws_tgw_site_params"].(map[string]interface{}); ok {
 					return &NfvServiceF5BigIPAWSServiceAWSTGWSiteParamsModel{
 						AWSTGWSite: func() *NfvServiceF5BigIPAWSServiceAWSTGWSiteParamsAWSTGWSiteModel {
@@ -4432,9 +4429,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 	if blockData, ok := apiResource.Spec["https_management"].(map[string]interface{}); ok && (isImport || data.HTTPSManagement != nil) {
 		data.HTTPSManagement = &NfvServiceHTTPSManagementModel{
 			AdvertiseOnInternet: func() *NfvServiceHTTPSManagementAdvertiseOnInternetModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnInternet != nil {
-					return data.HTTPSManagement.AdvertiseOnInternet
-				}
 				if AdvertiseOnInternetData, ok := blockData["advertise_on_internet"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnInternetModel{
 						PublicIP: func() *NfvServiceHTTPSManagementAdvertiseOnInternetPublicIPModel {
@@ -4476,9 +4470,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			AdvertiseOnSLIVIP: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil {
-					return data.HTTPSManagement.AdvertiseOnSLIVIP
-				}
 				if AdvertiseOnSLIVIPData, ok := blockData["advertise_on_sli_vip"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPModel{
 						NoMtls: func() *NfvServiceEmptyModel {
@@ -4759,9 +4750,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			AdvertiseOnSloInternetVIP: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil {
-					return data.HTTPSManagement.AdvertiseOnSloInternetVIP
-				}
 				if AdvertiseOnSloInternetVIPData, ok := blockData["advertise_on_slo_internet_vip"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPModel{
 						NoMtls: func() *NfvServiceEmptyModel {
@@ -5042,9 +5030,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			AdvertiseOnSloSLI: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLIModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil {
-					return data.HTTPSManagement.AdvertiseOnSloSLI
-				}
 				if AdvertiseOnSloSLIData, ok := blockData["advertise_on_slo_sli"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSloSLIModel{
 						NoMtls: func() *NfvServiceEmptyModel {
@@ -5325,9 +5310,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			AdvertiseOnSloVIP: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil {
-					return data.HTTPSManagement.AdvertiseOnSloVIP
-				}
 				if AdvertiseOnSloVIPData, ok := blockData["advertise_on_slo_vip"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSloVIPModel{
 						NoMtls: func() *NfvServiceEmptyModel {
@@ -6222,9 +6204,6 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				return types.StringNull()
 			}(),
 			AWSTGWSiteParams: func() *NfvServiceF5BigIPAWSServiceAWSTGWSiteParamsModel {
-				if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.AWSTGWSiteParams != nil {
-					return data.F5BigIPAWSService.AWSTGWSiteParams
-				}
 				if AWSTGWSiteParamsData, ok := blockData["aws_tgw_site_params"].(map[string]interface{}); ok {
 					return &NfvServiceF5BigIPAWSServiceAWSTGWSiteParamsModel{
 						AWSTGWSite: func() *NfvServiceF5BigIPAWSServiceAWSTGWSiteParamsAWSTGWSiteModel {
@@ -6481,9 +6460,6 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 	if blockData, ok := apiResource.Spec["https_management"].(map[string]interface{}); ok && (isImport || data.HTTPSManagement != nil) {
 		data.HTTPSManagement = &NfvServiceHTTPSManagementModel{
 			AdvertiseOnInternet: func() *NfvServiceHTTPSManagementAdvertiseOnInternetModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnInternet != nil {
-					return data.HTTPSManagement.AdvertiseOnInternet
-				}
 				if AdvertiseOnInternetData, ok := blockData["advertise_on_internet"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnInternetModel{
 						PublicIP: func() *NfvServiceHTTPSManagementAdvertiseOnInternetPublicIPModel {
@@ -6525,9 +6501,6 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			AdvertiseOnSLIVIP: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil {
-					return data.HTTPSManagement.AdvertiseOnSLIVIP
-				}
 				if AdvertiseOnSLIVIPData, ok := blockData["advertise_on_sli_vip"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPModel{
 						NoMtls: func() *NfvServiceEmptyModel {
@@ -6808,9 +6781,6 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			AdvertiseOnSloInternetVIP: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil {
-					return data.HTTPSManagement.AdvertiseOnSloInternetVIP
-				}
 				if AdvertiseOnSloInternetVIPData, ok := blockData["advertise_on_slo_internet_vip"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPModel{
 						NoMtls: func() *NfvServiceEmptyModel {
@@ -7091,9 +7061,6 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			AdvertiseOnSloSLI: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLIModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil {
-					return data.HTTPSManagement.AdvertiseOnSloSLI
-				}
 				if AdvertiseOnSloSLIData, ok := blockData["advertise_on_slo_sli"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSloSLIModel{
 						NoMtls: func() *NfvServiceEmptyModel {
@@ -7374,9 +7341,6 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			AdvertiseOnSloVIP: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil {
-					return data.HTTPSManagement.AdvertiseOnSloVIP
-				}
 				if AdvertiseOnSloVIPData, ok := blockData["advertise_on_slo_vip"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSloVIPModel{
 						NoMtls: func() *NfvServiceEmptyModel {
@@ -9298,9 +9262,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				return types.StringNull()
 			}(),
 			AWSTGWSiteParams: func() *NfvServiceF5BigIPAWSServiceAWSTGWSiteParamsModel {
-				if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.AWSTGWSiteParams != nil {
-					return data.F5BigIPAWSService.AWSTGWSiteParams
-				}
 				if AWSTGWSiteParamsData, ok := blockData["aws_tgw_site_params"].(map[string]interface{}); ok {
 					return &NfvServiceF5BigIPAWSServiceAWSTGWSiteParamsModel{
 						AWSTGWSite: func() *NfvServiceF5BigIPAWSServiceAWSTGWSiteParamsAWSTGWSiteModel {
@@ -9557,9 +9518,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 	if blockData, ok := apiResource.Spec["https_management"].(map[string]interface{}); ok && (isImport || data.HTTPSManagement != nil) {
 		data.HTTPSManagement = &NfvServiceHTTPSManagementModel{
 			AdvertiseOnInternet: func() *NfvServiceHTTPSManagementAdvertiseOnInternetModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnInternet != nil {
-					return data.HTTPSManagement.AdvertiseOnInternet
-				}
 				if AdvertiseOnInternetData, ok := blockData["advertise_on_internet"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnInternetModel{
 						PublicIP: func() *NfvServiceHTTPSManagementAdvertiseOnInternetPublicIPModel {
@@ -9601,9 +9559,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			AdvertiseOnSLIVIP: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil {
-					return data.HTTPSManagement.AdvertiseOnSLIVIP
-				}
 				if AdvertiseOnSLIVIPData, ok := blockData["advertise_on_sli_vip"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPModel{
 						NoMtls: func() *NfvServiceEmptyModel {
@@ -9884,9 +9839,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			AdvertiseOnSloInternetVIP: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil {
-					return data.HTTPSManagement.AdvertiseOnSloInternetVIP
-				}
 				if AdvertiseOnSloInternetVIPData, ok := blockData["advertise_on_slo_internet_vip"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPModel{
 						NoMtls: func() *NfvServiceEmptyModel {
@@ -10167,9 +10119,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			AdvertiseOnSloSLI: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLIModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil {
-					return data.HTTPSManagement.AdvertiseOnSloSLI
-				}
 				if AdvertiseOnSloSLIData, ok := blockData["advertise_on_slo_sli"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSloSLIModel{
 						NoMtls: func() *NfvServiceEmptyModel {
@@ -10450,9 +10399,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			AdvertiseOnSloVIP: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil {
-					return data.HTTPSManagement.AdvertiseOnSloVIP
-				}
 				if AdvertiseOnSloVIPData, ok := blockData["advertise_on_slo_vip"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSloVIPModel{
 						NoMtls: func() *NfvServiceEmptyModel {

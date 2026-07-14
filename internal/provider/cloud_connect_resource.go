@@ -1344,9 +1344,6 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 	if blockData, ok := apiResource.Spec["aws_provider"].(map[string]interface{}); ok && (isImport || data.AWSProvider != nil) {
 		data.AWSProvider = &CloudConnectAWSProviderModel{
 			AWSTGWSite: func() *CloudConnectAWSProviderAWSTGWSiteModel {
-				if !isImport && data.AWSProvider != nil && data.AWSProvider.AWSTGWSite != nil {
-					return data.AWSProvider.AWSTGWSite
-				}
 				if AWSTGWSiteData, ok := blockData["aws_tgw_site"].(map[string]interface{}); ok {
 					return &CloudConnectAWSProviderAWSTGWSiteModel{
 						Cred: func() *CloudConnectAWSProviderAWSTGWSiteCredModel {
@@ -1954,9 +1951,6 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 	if blockData, ok := apiResource.Spec["aws_provider"].(map[string]interface{}); ok && (isImport || data.AWSProvider != nil) {
 		data.AWSProvider = &CloudConnectAWSProviderModel{
 			AWSTGWSite: func() *CloudConnectAWSProviderAWSTGWSiteModel {
-				if !isImport && data.AWSProvider != nil && data.AWSProvider.AWSTGWSite != nil {
-					return data.AWSProvider.AWSTGWSite
-				}
 				if AWSTGWSiteData, ok := blockData["aws_tgw_site"].(map[string]interface{}); ok {
 					return &CloudConnectAWSProviderAWSTGWSiteModel{
 						Cred: func() *CloudConnectAWSProviderAWSTGWSiteCredModel {
@@ -2864,9 +2858,6 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 	if blockData, ok := apiResource.Spec["aws_provider"].(map[string]interface{}); ok && (isImport || data.AWSProvider != nil) {
 		data.AWSProvider = &CloudConnectAWSProviderModel{
 			AWSTGWSite: func() *CloudConnectAWSProviderAWSTGWSiteModel {
-				if !isImport && data.AWSProvider != nil && data.AWSProvider.AWSTGWSite != nil {
-					return data.AWSProvider.AWSTGWSite
-				}
 				if AWSTGWSiteData, ok := blockData["aws_tgw_site"].(map[string]interface{}); ok {
 					return &CloudConnectAWSProviderAWSTGWSiteModel{
 						Cred: func() *CloudConnectAWSProviderAWSTGWSiteCredModel {

@@ -984,9 +984,6 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
 		data.Where = &EndpointWhereModel{
 			Site: func() *EndpointWhereSiteModel {
-				if !isImport && data.Where != nil && data.Where.Site != nil {
-					return data.Where.Site
-				}
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &EndpointWhereSiteModel{
 						DisableInternetVIP: func() *EndpointEmptyModel {
@@ -1056,9 +1053,6 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 				return nil
 			}(),
 			VirtualNetwork: func() *EndpointWhereVirtualNetworkModel {
-				if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil {
-					return data.Where.VirtualNetwork
-				}
 				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
 					return &EndpointWhereVirtualNetworkModel{
 						Ref: func() types.List {
@@ -1110,9 +1104,6 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 				return nil
 			}(),
 			VirtualSite: func() *EndpointWhereVirtualSiteModel {
-				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
-					return data.Where.VirtualSite
-				}
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &EndpointWhereVirtualSiteModel{
 						DisableInternetVIP: func() *EndpointEmptyModel {
@@ -1398,9 +1389,6 @@ func (r *EndpointResource) Read(ctx context.Context, req resource.ReadRequest, r
 	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
 		data.Where = &EndpointWhereModel{
 			Site: func() *EndpointWhereSiteModel {
-				if !isImport && data.Where != nil && data.Where.Site != nil {
-					return data.Where.Site
-				}
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &EndpointWhereSiteModel{
 						DisableInternetVIP: func() *EndpointEmptyModel {
@@ -1470,9 +1458,6 @@ func (r *EndpointResource) Read(ctx context.Context, req resource.ReadRequest, r
 				return nil
 			}(),
 			VirtualNetwork: func() *EndpointWhereVirtualNetworkModel {
-				if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil {
-					return data.Where.VirtualNetwork
-				}
 				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
 					return &EndpointWhereVirtualNetworkModel{
 						Ref: func() types.List {
@@ -1524,9 +1509,6 @@ func (r *EndpointResource) Read(ctx context.Context, req resource.ReadRequest, r
 				return nil
 			}(),
 			VirtualSite: func() *EndpointWhereVirtualSiteModel {
-				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
-					return data.Where.VirtualSite
-				}
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &EndpointWhereVirtualSiteModel{
 						DisableInternetVIP: func() *EndpointEmptyModel {
@@ -1998,9 +1980,6 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
 		data.Where = &EndpointWhereModel{
 			Site: func() *EndpointWhereSiteModel {
-				if !isImport && data.Where != nil && data.Where.Site != nil {
-					return data.Where.Site
-				}
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &EndpointWhereSiteModel{
 						DisableInternetVIP: func() *EndpointEmptyModel {
@@ -2070,9 +2049,6 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 				return nil
 			}(),
 			VirtualNetwork: func() *EndpointWhereVirtualNetworkModel {
-				if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil {
-					return data.Where.VirtualNetwork
-				}
 				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
 					return &EndpointWhereVirtualNetworkModel{
 						Ref: func() types.List {
@@ -2124,9 +2100,6 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 				return nil
 			}(),
 			VirtualSite: func() *EndpointWhereVirtualSiteModel {
-				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
-					return data.Where.VirtualSite
-				}
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &EndpointWhereVirtualSiteModel{
 						DisableInternetVIP: func() *EndpointEmptyModel {

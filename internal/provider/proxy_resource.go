@@ -5766,9 +5766,6 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				return nil
 			}(),
 			HTTPSProxy: func() *ProxyDynamicProxyHTTPSProxyModel {
-				if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil {
-					return data.DynamicProxy.HTTPSProxy
-				}
 				if HTTPSProxyData, ok := blockData["https_proxy"].(map[string]interface{}); ok {
 					return &ProxyDynamicProxyHTTPSProxyModel{
 						MoreOption: func() *ProxyDynamicProxyHTTPSProxyMoreOptionModel {
@@ -8433,9 +8430,6 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				return nil
 			}(),
 			HTTPSProxy: func() *ProxyDynamicProxyHTTPSProxyModel {
-				if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil {
-					return data.DynamicProxy.HTTPSProxy
-				}
 				if HTTPSProxyData, ok := blockData["https_proxy"].(map[string]interface{}); ok {
 					return &ProxyDynamicProxyHTTPSProxyModel{
 						MoreOption: func() *ProxyDynamicProxyHTTPSProxyMoreOptionModel {
@@ -12515,9 +12509,6 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				return nil
 			}(),
 			HTTPSProxy: func() *ProxyDynamicProxyHTTPSProxyModel {
-				if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil {
-					return data.DynamicProxy.HTTPSProxy
-				}
 				if HTTPSProxyData, ok := blockData["https_proxy"].(map[string]interface{}); ok {
 					return &ProxyDynamicProxyHTTPSProxyModel{
 						MoreOption: func() *ProxyDynamicProxyHTTPSProxyMoreOptionModel {
