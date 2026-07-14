@@ -3893,9 +3893,6 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 	if blockData, ok := apiResource.Spec["aws_site_type_choice"].(map[string]interface{}); ok && (isImport || data.AWSSiteTypeChoice != nil) {
 		data.AWSSiteTypeChoice = &APMAWSSiteTypeChoiceModel{
 			APMAWSSite: func() *APMAWSSiteTypeChoiceAPMAWSSiteModel {
-				if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil {
-					return data.AWSSiteTypeChoice.APMAWSSite
-				}
 				if APMAWSSiteData, ok := blockData["apm_aws_site"].(map[string]interface{}); ok {
 					return &APMAWSSiteTypeChoiceAPMAWSSiteModel{
 						AdminPassword: func() *APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordModel {
@@ -4207,9 +4204,6 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 	if blockData, ok := apiResource.Spec["baremetal_site_type_choice"].(map[string]interface{}); ok && (isImport || data.BaremetalSiteTypeChoice != nil) {
 		data.BaremetalSiteTypeChoice = &APMBaremetalSiteTypeChoiceModel{
 			F5BareMetalSite: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteModel {
-				if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil {
-					return data.BaremetalSiteTypeChoice.F5BareMetalSite
-				}
 				if F5BareMetalSiteData, ok := blockData["f5_bare_metal_site"].(map[string]interface{}); ok {
 					return &APMBaremetalSiteTypeChoiceF5BareMetalSiteModel{
 						AdminPassword: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordModel {
@@ -4517,9 +4511,6 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 	if blockData, ok := apiResource.Spec["https_management"].(map[string]interface{}); ok && (isImport || data.HTTPSManagement != nil) {
 		data.HTTPSManagement = &APMHTTPSManagementModel{
 			AdvertiseOnInternet: func() *APMHTTPSManagementAdvertiseOnInternetModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnInternet != nil {
-					return data.HTTPSManagement.AdvertiseOnInternet
-				}
 				if AdvertiseOnInternetData, ok := blockData["advertise_on_internet"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnInternetModel{
 						PublicIP: func() *APMHTTPSManagementAdvertiseOnInternetPublicIPModel {
@@ -4561,9 +4552,6 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 				return nil
 			}(),
 			AdvertiseOnSLIVIP: func() *APMHTTPSManagementAdvertiseOnSLIVIPModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil {
-					return data.HTTPSManagement.AdvertiseOnSLIVIP
-				}
 				if AdvertiseOnSLIVIPData, ok := blockData["advertise_on_sli_vip"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSLIVIPModel{
 						NoMtls: func() *APMEmptyModel {
@@ -4844,9 +4832,6 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 				return nil
 			}(),
 			AdvertiseOnSloInternetVIP: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil {
-					return data.HTTPSManagement.AdvertiseOnSloInternetVIP
-				}
 				if AdvertiseOnSloInternetVIPData, ok := blockData["advertise_on_slo_internet_vip"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSloInternetVIPModel{
 						NoMtls: func() *APMEmptyModel {
@@ -5127,9 +5112,6 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 				return nil
 			}(),
 			AdvertiseOnSloSLI: func() *APMHTTPSManagementAdvertiseOnSloSLIModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil {
-					return data.HTTPSManagement.AdvertiseOnSloSLI
-				}
 				if AdvertiseOnSloSLIData, ok := blockData["advertise_on_slo_sli"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSloSLIModel{
 						NoMtls: func() *APMEmptyModel {
@@ -5410,9 +5392,6 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 				return nil
 			}(),
 			AdvertiseOnSloVIP: func() *APMHTTPSManagementAdvertiseOnSloVIPModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil {
-					return data.HTTPSManagement.AdvertiseOnSloVIP
-				}
 				if AdvertiseOnSloVIPData, ok := blockData["advertise_on_slo_vip"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSloVIPModel{
 						NoMtls: func() *APMEmptyModel {
@@ -5814,9 +5793,6 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 	if blockData, ok := apiResource.Spec["aws_site_type_choice"].(map[string]interface{}); ok && (isImport || data.AWSSiteTypeChoice != nil) {
 		data.AWSSiteTypeChoice = &APMAWSSiteTypeChoiceModel{
 			APMAWSSite: func() *APMAWSSiteTypeChoiceAPMAWSSiteModel {
-				if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil {
-					return data.AWSSiteTypeChoice.APMAWSSite
-				}
 				if APMAWSSiteData, ok := blockData["apm_aws_site"].(map[string]interface{}); ok {
 					return &APMAWSSiteTypeChoiceAPMAWSSiteModel{
 						AdminPassword: func() *APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordModel {
@@ -6128,9 +6104,6 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 	if blockData, ok := apiResource.Spec["baremetal_site_type_choice"].(map[string]interface{}); ok && (isImport || data.BaremetalSiteTypeChoice != nil) {
 		data.BaremetalSiteTypeChoice = &APMBaremetalSiteTypeChoiceModel{
 			F5BareMetalSite: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteModel {
-				if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil {
-					return data.BaremetalSiteTypeChoice.F5BareMetalSite
-				}
 				if F5BareMetalSiteData, ok := blockData["f5_bare_metal_site"].(map[string]interface{}); ok {
 					return &APMBaremetalSiteTypeChoiceF5BareMetalSiteModel{
 						AdminPassword: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordModel {
@@ -6438,9 +6411,6 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 	if blockData, ok := apiResource.Spec["https_management"].(map[string]interface{}); ok && (isImport || data.HTTPSManagement != nil) {
 		data.HTTPSManagement = &APMHTTPSManagementModel{
 			AdvertiseOnInternet: func() *APMHTTPSManagementAdvertiseOnInternetModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnInternet != nil {
-					return data.HTTPSManagement.AdvertiseOnInternet
-				}
 				if AdvertiseOnInternetData, ok := blockData["advertise_on_internet"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnInternetModel{
 						PublicIP: func() *APMHTTPSManagementAdvertiseOnInternetPublicIPModel {
@@ -6482,9 +6452,6 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 				return nil
 			}(),
 			AdvertiseOnSLIVIP: func() *APMHTTPSManagementAdvertiseOnSLIVIPModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil {
-					return data.HTTPSManagement.AdvertiseOnSLIVIP
-				}
 				if AdvertiseOnSLIVIPData, ok := blockData["advertise_on_sli_vip"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSLIVIPModel{
 						NoMtls: func() *APMEmptyModel {
@@ -6765,9 +6732,6 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 				return nil
 			}(),
 			AdvertiseOnSloInternetVIP: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil {
-					return data.HTTPSManagement.AdvertiseOnSloInternetVIP
-				}
 				if AdvertiseOnSloInternetVIPData, ok := blockData["advertise_on_slo_internet_vip"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSloInternetVIPModel{
 						NoMtls: func() *APMEmptyModel {
@@ -7048,9 +7012,6 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 				return nil
 			}(),
 			AdvertiseOnSloSLI: func() *APMHTTPSManagementAdvertiseOnSloSLIModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil {
-					return data.HTTPSManagement.AdvertiseOnSloSLI
-				}
 				if AdvertiseOnSloSLIData, ok := blockData["advertise_on_slo_sli"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSloSLIModel{
 						NoMtls: func() *APMEmptyModel {
@@ -7331,9 +7292,6 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 				return nil
 			}(),
 			AdvertiseOnSloVIP: func() *APMHTTPSManagementAdvertiseOnSloVIPModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil {
-					return data.HTTPSManagement.AdvertiseOnSloVIP
-				}
 				if AdvertiseOnSloVIPData, ok := blockData["advertise_on_slo_vip"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSloVIPModel{
 						NoMtls: func() *APMEmptyModel {
@@ -8707,9 +8665,6 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 	if blockData, ok := apiResource.Spec["aws_site_type_choice"].(map[string]interface{}); ok && (isImport || data.AWSSiteTypeChoice != nil) {
 		data.AWSSiteTypeChoice = &APMAWSSiteTypeChoiceModel{
 			APMAWSSite: func() *APMAWSSiteTypeChoiceAPMAWSSiteModel {
-				if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil {
-					return data.AWSSiteTypeChoice.APMAWSSite
-				}
 				if APMAWSSiteData, ok := blockData["apm_aws_site"].(map[string]interface{}); ok {
 					return &APMAWSSiteTypeChoiceAPMAWSSiteModel{
 						AdminPassword: func() *APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordModel {
@@ -9021,9 +8976,6 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 	if blockData, ok := apiResource.Spec["baremetal_site_type_choice"].(map[string]interface{}); ok && (isImport || data.BaremetalSiteTypeChoice != nil) {
 		data.BaremetalSiteTypeChoice = &APMBaremetalSiteTypeChoiceModel{
 			F5BareMetalSite: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteModel {
-				if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil {
-					return data.BaremetalSiteTypeChoice.F5BareMetalSite
-				}
 				if F5BareMetalSiteData, ok := blockData["f5_bare_metal_site"].(map[string]interface{}); ok {
 					return &APMBaremetalSiteTypeChoiceF5BareMetalSiteModel{
 						AdminPassword: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordModel {
@@ -9331,9 +9283,6 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 	if blockData, ok := apiResource.Spec["https_management"].(map[string]interface{}); ok && (isImport || data.HTTPSManagement != nil) {
 		data.HTTPSManagement = &APMHTTPSManagementModel{
 			AdvertiseOnInternet: func() *APMHTTPSManagementAdvertiseOnInternetModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnInternet != nil {
-					return data.HTTPSManagement.AdvertiseOnInternet
-				}
 				if AdvertiseOnInternetData, ok := blockData["advertise_on_internet"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnInternetModel{
 						PublicIP: func() *APMHTTPSManagementAdvertiseOnInternetPublicIPModel {
@@ -9375,9 +9324,6 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 				return nil
 			}(),
 			AdvertiseOnSLIVIP: func() *APMHTTPSManagementAdvertiseOnSLIVIPModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil {
-					return data.HTTPSManagement.AdvertiseOnSLIVIP
-				}
 				if AdvertiseOnSLIVIPData, ok := blockData["advertise_on_sli_vip"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSLIVIPModel{
 						NoMtls: func() *APMEmptyModel {
@@ -9658,9 +9604,6 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 				return nil
 			}(),
 			AdvertiseOnSloInternetVIP: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil {
-					return data.HTTPSManagement.AdvertiseOnSloInternetVIP
-				}
 				if AdvertiseOnSloInternetVIPData, ok := blockData["advertise_on_slo_internet_vip"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSloInternetVIPModel{
 						NoMtls: func() *APMEmptyModel {
@@ -9941,9 +9884,6 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 				return nil
 			}(),
 			AdvertiseOnSloSLI: func() *APMHTTPSManagementAdvertiseOnSloSLIModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil {
-					return data.HTTPSManagement.AdvertiseOnSloSLI
-				}
 				if AdvertiseOnSloSLIData, ok := blockData["advertise_on_slo_sli"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSloSLIModel{
 						NoMtls: func() *APMEmptyModel {
@@ -10224,9 +10164,6 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 				return nil
 			}(),
 			AdvertiseOnSloVIP: func() *APMHTTPSManagementAdvertiseOnSloVIPModel {
-				if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil {
-					return data.HTTPSManagement.AdvertiseOnSloVIP
-				}
 				if AdvertiseOnSloVIPData, ok := blockData["advertise_on_slo_vip"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSloVIPModel{
 						NoMtls: func() *APMEmptyModel {

@@ -17882,9 +17882,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 				return nil
 			}(),
 			SLIConfig: func() *SecuremeshSiteV2LocalVrfSLIConfigModel {
-				if !isImport && data.LocalVrf != nil && data.LocalVrf.SLIConfig != nil {
-					return data.LocalVrf.SLIConfig
-				}
 				if SLIConfigData, ok := blockData["sli_config"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2LocalVrfSLIConfigModel{
 						Labels: func() *SecuremeshSiteV2EmptyModel {
@@ -18188,9 +18185,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 				return nil
 			}(),
 			SloConfig: func() *SecuremeshSiteV2LocalVrfSloConfigModel {
-				if !isImport && data.LocalVrf != nil && data.LocalVrf.SloConfig != nil {
-					return data.LocalVrf.SloConfig
-				}
 				if SloConfigData, ok := blockData["slo_config"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2LocalVrfSloConfigModel{
 						Labels: func() *SecuremeshSiteV2EmptyModel {
@@ -25074,9 +25068,6 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 				return nil
 			}(),
 			SLIConfig: func() *SecuremeshSiteV2LocalVrfSLIConfigModel {
-				if !isImport && data.LocalVrf != nil && data.LocalVrf.SLIConfig != nil {
-					return data.LocalVrf.SLIConfig
-				}
 				if SLIConfigData, ok := blockData["sli_config"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2LocalVrfSLIConfigModel{
 						Labels: func() *SecuremeshSiteV2EmptyModel {
@@ -25380,9 +25371,6 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 				return nil
 			}(),
 			SloConfig: func() *SecuremeshSiteV2LocalVrfSloConfigModel {
-				if !isImport && data.LocalVrf != nil && data.LocalVrf.SloConfig != nil {
-					return data.LocalVrf.SloConfig
-				}
 				if SloConfigData, ok := blockData["slo_config"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2LocalVrfSloConfigModel{
 						Labels: func() *SecuremeshSiteV2EmptyModel {
@@ -36362,9 +36350,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 				return nil
 			}(),
 			SLIConfig: func() *SecuremeshSiteV2LocalVrfSLIConfigModel {
-				if !isImport && data.LocalVrf != nil && data.LocalVrf.SLIConfig != nil {
-					return data.LocalVrf.SLIConfig
-				}
 				if SLIConfigData, ok := blockData["sli_config"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2LocalVrfSLIConfigModel{
 						Labels: func() *SecuremeshSiteV2EmptyModel {
@@ -36668,9 +36653,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 				return nil
 			}(),
 			SloConfig: func() *SecuremeshSiteV2LocalVrfSloConfigModel {
-				if !isImport && data.LocalVrf != nil && data.LocalVrf.SloConfig != nil {
-					return data.LocalVrf.SloConfig
-				}
 				if SloConfigData, ok := blockData["slo_config"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2LocalVrfSloConfigModel{
 						Labels: func() *SecuremeshSiteV2EmptyModel {

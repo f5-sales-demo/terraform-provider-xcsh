@@ -1832,9 +1832,6 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 				return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesModelAttrTypes})
 			}(),
 			SelectedTenantVIP: func() *FastACLREACLSelectedTenantVIPModel {
-				if !isImport && data.REACL != nil && data.REACL.SelectedTenantVIP != nil {
-					return data.REACL.SelectedTenantVIP
-				}
 				if SelectedTenantVIPData, ok := blockData["selected_tenant_vip"].(map[string]interface{}); ok {
 					return &FastACLREACLSelectedTenantVIPModel{
 						DefaultTenantVIP: func() types.Bool {
@@ -2574,9 +2571,6 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 				return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesModelAttrTypes})
 			}(),
 			SelectedTenantVIP: func() *FastACLREACLSelectedTenantVIPModel {
-				if !isImport && data.REACL != nil && data.REACL.SelectedTenantVIP != nil {
-					return data.REACL.SelectedTenantVIP
-				}
 				if SelectedTenantVIPData, ok := blockData["selected_tenant_vip"].(map[string]interface{}); ok {
 					return &FastACLREACLSelectedTenantVIPModel{
 						DefaultTenantVIP: func() types.Bool {
@@ -3695,9 +3689,6 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 				return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesModelAttrTypes})
 			}(),
 			SelectedTenantVIP: func() *FastACLREACLSelectedTenantVIPModel {
-				if !isImport && data.REACL != nil && data.REACL.SelectedTenantVIP != nil {
-					return data.REACL.SelectedTenantVIP
-				}
 				if SelectedTenantVIPData, ok := blockData["selected_tenant_vip"].(map[string]interface{}); ok {
 					return &FastACLREACLSelectedTenantVIPModel{
 						DefaultTenantVIP: func() types.Bool {

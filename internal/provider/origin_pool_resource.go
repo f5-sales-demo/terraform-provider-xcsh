@@ -4431,9 +4431,6 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			UseServerVerification: func() *OriginPoolUseTLSUseServerVerificationModel {
-				if !isImport && data.UseTLS != nil && data.UseTLS.UseServerVerification != nil {
-					return data.UseTLS.UseServerVerification
-				}
 				if UseServerVerificationData, ok := blockData["use_server_verification"].(map[string]interface{}); ok {
 					return &OriginPoolUseTLSUseServerVerificationModel{
 						TrustedCA: func() *OriginPoolUseTLSUseServerVerificationTrustedCAModel {
@@ -6006,9 +6003,6 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			UseServerVerification: func() *OriginPoolUseTLSUseServerVerificationModel {
-				if !isImport && data.UseTLS != nil && data.UseTLS.UseServerVerification != nil {
-					return data.UseTLS.UseServerVerification
-				}
 				if UseServerVerificationData, ok := blockData["use_server_verification"].(map[string]interface{}); ok {
 					return &OriginPoolUseTLSUseServerVerificationModel{
 						TrustedCA: func() *OriginPoolUseTLSUseServerVerificationTrustedCAModel {
@@ -8346,9 +8340,6 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			UseServerVerification: func() *OriginPoolUseTLSUseServerVerificationModel {
-				if !isImport && data.UseTLS != nil && data.UseTLS.UseServerVerification != nil {
-					return data.UseTLS.UseServerVerification
-				}
 				if UseServerVerificationData, ok := blockData["use_server_verification"].(map[string]interface{}); ok {
 					return &OriginPoolUseTLSUseServerVerificationModel{
 						TrustedCA: func() *OriginPoolUseTLSUseServerVerificationTrustedCAModel {

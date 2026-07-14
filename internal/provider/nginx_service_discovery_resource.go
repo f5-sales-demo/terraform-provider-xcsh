@@ -529,9 +529,6 @@ func (r *NginxServiceDiscoveryResource) Create(ctx context.Context, req resource
 	if blockData, ok := apiResource.Spec["discovery_target"].(map[string]interface{}); ok && (isImport || data.DiscoveryTarget != nil) {
 		data.DiscoveryTarget = &NginxServiceDiscoveryDiscoveryTargetModel{
 			ConfigSyncGroup: func() *NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupModel {
-				if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.ConfigSyncGroup != nil {
-					return data.DiscoveryTarget.ConfigSyncGroup
-				}
 				if ConfigSyncGroupData, ok := blockData["config_sync_group"].(map[string]interface{}); ok {
 					return &NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupModel{
 						ConfigSyncGroup: func() types.List {
@@ -583,9 +580,6 @@ func (r *NginxServiceDiscoveryResource) Create(ctx context.Context, req resource
 				return nil
 			}(),
 			NginxInstance: func() *NginxServiceDiscoveryDiscoveryTargetNginxInstanceModel {
-				if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.NginxInstance != nil {
-					return data.DiscoveryTarget.NginxInstance
-				}
 				if NginxInstanceData, ok := blockData["nginx_instance"].(map[string]interface{}); ok {
 					return &NginxServiceDiscoveryDiscoveryTargetNginxInstanceModel{
 						NginxInstance: func() types.List {
@@ -769,9 +763,6 @@ func (r *NginxServiceDiscoveryResource) Read(ctx context.Context, req resource.R
 	if blockData, ok := apiResource.Spec["discovery_target"].(map[string]interface{}); ok && (isImport || data.DiscoveryTarget != nil) {
 		data.DiscoveryTarget = &NginxServiceDiscoveryDiscoveryTargetModel{
 			ConfigSyncGroup: func() *NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupModel {
-				if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.ConfigSyncGroup != nil {
-					return data.DiscoveryTarget.ConfigSyncGroup
-				}
 				if ConfigSyncGroupData, ok := blockData["config_sync_group"].(map[string]interface{}); ok {
 					return &NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupModel{
 						ConfigSyncGroup: func() types.List {
@@ -823,9 +814,6 @@ func (r *NginxServiceDiscoveryResource) Read(ctx context.Context, req resource.R
 				return nil
 			}(),
 			NginxInstance: func() *NginxServiceDiscoveryDiscoveryTargetNginxInstanceModel {
-				if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.NginxInstance != nil {
-					return data.DiscoveryTarget.NginxInstance
-				}
 				if NginxInstanceData, ok := blockData["nginx_instance"].(map[string]interface{}); ok {
 					return &NginxServiceDiscoveryDiscoveryTargetNginxInstanceModel{
 						NginxInstance: func() types.List {
@@ -1086,9 +1074,6 @@ func (r *NginxServiceDiscoveryResource) Update(ctx context.Context, req resource
 	if blockData, ok := apiResource.Spec["discovery_target"].(map[string]interface{}); ok && (isImport || data.DiscoveryTarget != nil) {
 		data.DiscoveryTarget = &NginxServiceDiscoveryDiscoveryTargetModel{
 			ConfigSyncGroup: func() *NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupModel {
-				if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.ConfigSyncGroup != nil {
-					return data.DiscoveryTarget.ConfigSyncGroup
-				}
 				if ConfigSyncGroupData, ok := blockData["config_sync_group"].(map[string]interface{}); ok {
 					return &NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupModel{
 						ConfigSyncGroup: func() types.List {
@@ -1140,9 +1125,6 @@ func (r *NginxServiceDiscoveryResource) Update(ctx context.Context, req resource
 				return nil
 			}(),
 			NginxInstance: func() *NginxServiceDiscoveryDiscoveryTargetNginxInstanceModel {
-				if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.NginxInstance != nil {
-					return data.DiscoveryTarget.NginxInstance
-				}
 				if NginxInstanceData, ok := blockData["nginx_instance"].(map[string]interface{}); ok {
 					return &NginxServiceDiscoveryDiscoveryTargetNginxInstanceModel{
 						NginxInstance: func() types.List {

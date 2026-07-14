@@ -5207,9 +5207,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	if blockData, ok := apiResource.Spec["ingress_egress_gw"].(map[string]interface{}); ok && (isImport || data.IngressEgressGw != nil) {
 		data.IngressEgressGw = &GCPVPCSiteIngressEgressGwModel{
 			ActiveEnhancedFirewallPolicies: func() *GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveEnhancedFirewallPolicies != nil {
-					return data.IngressEgressGw.ActiveEnhancedFirewallPolicies
-				}
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
@@ -5249,9 +5246,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			ActiveForwardProxyPolicies: func() *GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveForwardProxyPolicies != nil {
-					return data.IngressEgressGw.ActiveForwardProxyPolicies
-				}
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
@@ -5291,9 +5285,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			ActiveNetworkPolicies: func() *GCPVPCSiteIngressEgressGwActiveNetworkPoliciesModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveNetworkPolicies != nil {
-					return data.IngressEgressGw.ActiveNetworkPolicies
-				}
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
@@ -5411,9 +5402,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return types.ListNull(types.StringType)
 			}(),
 			GlobalNetworkList: func() *GCPVPCSiteIngressEgressGwGlobalNetworkListModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.GlobalNetworkList != nil {
-					return data.IngressEgressGw.GlobalNetworkList
-				}
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
@@ -5541,9 +5529,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			InsideStaticRoutes: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideStaticRoutes != nil {
-					return data.IngressEgressGw.InsideStaticRoutes
-				}
 				if InsideStaticRoutesData, ok := blockData["inside_static_routes"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwInsideStaticRoutesModel{
 						StaticRouteList: func() types.List {
@@ -5886,9 +5871,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			OutsideStaticRoutes: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideStaticRoutes != nil {
-					return data.IngressEgressGw.OutsideStaticRoutes
-				}
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesModel{
 						StaticRouteList: func() types.List {
@@ -6516,9 +6498,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	if blockData, ok := apiResource.Spec["voltstack_cluster"].(map[string]interface{}); ok && (isImport || data.VoltstackCluster != nil) {
 		data.VoltstackCluster = &GCPVPCSiteVoltstackClusterModel{
 			ActiveEnhancedFirewallPolicies: func() *GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveEnhancedFirewallPolicies != nil {
-					return data.VoltstackCluster.ActiveEnhancedFirewallPolicies
-				}
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
@@ -6558,9 +6537,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			ActiveForwardProxyPolicies: func() *GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveForwardProxyPolicies != nil {
-					return data.VoltstackCluster.ActiveForwardProxyPolicies
-				}
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
@@ -6600,9 +6576,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			ActiveNetworkPolicies: func() *GCPVPCSiteVoltstackClusterActiveNetworkPoliciesModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveNetworkPolicies != nil {
-					return data.VoltstackCluster.ActiveNetworkPolicies
-				}
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
@@ -6704,9 +6677,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return types.ListNull(types.StringType)
 			}(),
 			GlobalNetworkList: func() *GCPVPCSiteVoltstackClusterGlobalNetworkListModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.GlobalNetworkList != nil {
-					return data.VoltstackCluster.GlobalNetworkList
-				}
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
@@ -6880,9 +6850,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return types.Int64Null()
 			}(),
 			OutsideStaticRoutes: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.OutsideStaticRoutes != nil {
-					return data.VoltstackCluster.OutsideStaticRoutes
-				}
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesModel{
 						StaticRouteList: func() types.List {
@@ -7615,9 +7582,6 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 	if blockData, ok := apiResource.Spec["ingress_egress_gw"].(map[string]interface{}); ok && (isImport || data.IngressEgressGw != nil) {
 		data.IngressEgressGw = &GCPVPCSiteIngressEgressGwModel{
 			ActiveEnhancedFirewallPolicies: func() *GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveEnhancedFirewallPolicies != nil {
-					return data.IngressEgressGw.ActiveEnhancedFirewallPolicies
-				}
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
@@ -7657,9 +7621,6 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			ActiveForwardProxyPolicies: func() *GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveForwardProxyPolicies != nil {
-					return data.IngressEgressGw.ActiveForwardProxyPolicies
-				}
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
@@ -7699,9 +7660,6 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			ActiveNetworkPolicies: func() *GCPVPCSiteIngressEgressGwActiveNetworkPoliciesModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveNetworkPolicies != nil {
-					return data.IngressEgressGw.ActiveNetworkPolicies
-				}
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
@@ -7819,9 +7777,6 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return types.ListNull(types.StringType)
 			}(),
 			GlobalNetworkList: func() *GCPVPCSiteIngressEgressGwGlobalNetworkListModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.GlobalNetworkList != nil {
-					return data.IngressEgressGw.GlobalNetworkList
-				}
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
@@ -7949,9 +7904,6 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			InsideStaticRoutes: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideStaticRoutes != nil {
-					return data.IngressEgressGw.InsideStaticRoutes
-				}
 				if InsideStaticRoutesData, ok := blockData["inside_static_routes"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwInsideStaticRoutesModel{
 						StaticRouteList: func() types.List {
@@ -8294,9 +8246,6 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			OutsideStaticRoutes: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideStaticRoutes != nil {
-					return data.IngressEgressGw.OutsideStaticRoutes
-				}
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesModel{
 						StaticRouteList: func() types.List {
@@ -8924,9 +8873,6 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 	if blockData, ok := apiResource.Spec["voltstack_cluster"].(map[string]interface{}); ok && (isImport || data.VoltstackCluster != nil) {
 		data.VoltstackCluster = &GCPVPCSiteVoltstackClusterModel{
 			ActiveEnhancedFirewallPolicies: func() *GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveEnhancedFirewallPolicies != nil {
-					return data.VoltstackCluster.ActiveEnhancedFirewallPolicies
-				}
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
@@ -8966,9 +8912,6 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			ActiveForwardProxyPolicies: func() *GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveForwardProxyPolicies != nil {
-					return data.VoltstackCluster.ActiveForwardProxyPolicies
-				}
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
@@ -9008,9 +8951,6 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			ActiveNetworkPolicies: func() *GCPVPCSiteVoltstackClusterActiveNetworkPoliciesModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveNetworkPolicies != nil {
-					return data.VoltstackCluster.ActiveNetworkPolicies
-				}
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
@@ -9112,9 +9052,6 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return types.ListNull(types.StringType)
 			}(),
 			GlobalNetworkList: func() *GCPVPCSiteVoltstackClusterGlobalNetworkListModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.GlobalNetworkList != nil {
-					return data.VoltstackCluster.GlobalNetworkList
-				}
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
@@ -9288,9 +9225,6 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return types.Int64Null()
 			}(),
 			OutsideStaticRoutes: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.OutsideStaticRoutes != nil {
-					return data.VoltstackCluster.OutsideStaticRoutes
-				}
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesModel{
 						StaticRouteList: func() types.List {
@@ -11279,9 +11213,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	if blockData, ok := apiResource.Spec["ingress_egress_gw"].(map[string]interface{}); ok && (isImport || data.IngressEgressGw != nil) {
 		data.IngressEgressGw = &GCPVPCSiteIngressEgressGwModel{
 			ActiveEnhancedFirewallPolicies: func() *GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveEnhancedFirewallPolicies != nil {
-					return data.IngressEgressGw.ActiveEnhancedFirewallPolicies
-				}
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
@@ -11321,9 +11252,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			ActiveForwardProxyPolicies: func() *GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveForwardProxyPolicies != nil {
-					return data.IngressEgressGw.ActiveForwardProxyPolicies
-				}
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
@@ -11363,9 +11291,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			ActiveNetworkPolicies: func() *GCPVPCSiteIngressEgressGwActiveNetworkPoliciesModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveNetworkPolicies != nil {
-					return data.IngressEgressGw.ActiveNetworkPolicies
-				}
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
@@ -11483,9 +11408,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return types.ListNull(types.StringType)
 			}(),
 			GlobalNetworkList: func() *GCPVPCSiteIngressEgressGwGlobalNetworkListModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.GlobalNetworkList != nil {
-					return data.IngressEgressGw.GlobalNetworkList
-				}
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
@@ -11613,9 +11535,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			InsideStaticRoutes: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideStaticRoutes != nil {
-					return data.IngressEgressGw.InsideStaticRoutes
-				}
 				if InsideStaticRoutesData, ok := blockData["inside_static_routes"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwInsideStaticRoutesModel{
 						StaticRouteList: func() types.List {
@@ -11958,9 +11877,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			OutsideStaticRoutes: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesModel {
-				if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideStaticRoutes != nil {
-					return data.IngressEgressGw.OutsideStaticRoutes
-				}
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesModel{
 						StaticRouteList: func() types.List {
@@ -12588,9 +12504,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	if blockData, ok := apiResource.Spec["voltstack_cluster"].(map[string]interface{}); ok && (isImport || data.VoltstackCluster != nil) {
 		data.VoltstackCluster = &GCPVPCSiteVoltstackClusterModel{
 			ActiveEnhancedFirewallPolicies: func() *GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveEnhancedFirewallPolicies != nil {
-					return data.VoltstackCluster.ActiveEnhancedFirewallPolicies
-				}
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
@@ -12630,9 +12543,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			ActiveForwardProxyPolicies: func() *GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveForwardProxyPolicies != nil {
-					return data.VoltstackCluster.ActiveForwardProxyPolicies
-				}
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
@@ -12672,9 +12582,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			ActiveNetworkPolicies: func() *GCPVPCSiteVoltstackClusterActiveNetworkPoliciesModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveNetworkPolicies != nil {
-					return data.VoltstackCluster.ActiveNetworkPolicies
-				}
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
@@ -12776,9 +12683,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return types.ListNull(types.StringType)
 			}(),
 			GlobalNetworkList: func() *GCPVPCSiteVoltstackClusterGlobalNetworkListModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.GlobalNetworkList != nil {
-					return data.VoltstackCluster.GlobalNetworkList
-				}
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
@@ -12952,9 +12856,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return types.Int64Null()
 			}(),
 			OutsideStaticRoutes: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesModel {
-				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.OutsideStaticRoutes != nil {
-					return data.VoltstackCluster.OutsideStaticRoutes
-				}
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesModel{
 						StaticRouteList: func() types.List {

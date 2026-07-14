@@ -4812,9 +4812,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	if blockData, ok := apiResource.Spec["tgw_security"].(map[string]interface{}); ok && (isImport || data.TGWSecurity != nil) {
 		data.TGWSecurity = &AWSTGWSiteTGWSecurityModel{
 			ActiveEastWestServicePolicies: func() *AWSTGWSiteTGWSecurityActiveEastWestServicePoliciesModel {
-				if !isImport && data.TGWSecurity != nil && data.TGWSecurity.ActiveEastWestServicePolicies != nil {
-					return data.TGWSecurity.ActiveEastWestServicePolicies
-				}
 				if ActiveEastWestServicePoliciesData, ok := blockData["active_east_west_service_policies"].(map[string]interface{}); ok {
 					return &AWSTGWSiteTGWSecurityActiveEastWestServicePoliciesModel{
 						ServicePolicies: func() types.List {
@@ -4854,9 +4851,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			ActiveEnhancedFirewallPolicies: func() *AWSTGWSiteTGWSecurityActiveEnhancedFirewallPoliciesModel {
-				if !isImport && data.TGWSecurity != nil && data.TGWSecurity.ActiveEnhancedFirewallPolicies != nil {
-					return data.TGWSecurity.ActiveEnhancedFirewallPolicies
-				}
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &AWSTGWSiteTGWSecurityActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
@@ -4896,9 +4890,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			ActiveForwardProxyPolicies: func() *AWSTGWSiteTGWSecurityActiveForwardProxyPoliciesModel {
-				if !isImport && data.TGWSecurity != nil && data.TGWSecurity.ActiveForwardProxyPolicies != nil {
-					return data.TGWSecurity.ActiveForwardProxyPolicies
-				}
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &AWSTGWSiteTGWSecurityActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
@@ -4938,9 +4929,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			ActiveNetworkPolicies: func() *AWSTGWSiteTGWSecurityActiveNetworkPoliciesModel {
-				if !isImport && data.TGWSecurity != nil && data.TGWSecurity.ActiveNetworkPolicies != nil {
-					return data.TGWSecurity.ActiveNetworkPolicies
-				}
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &AWSTGWSiteTGWSecurityActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
@@ -5173,9 +5161,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			GlobalNetworkList: func() *AWSTGWSiteVnConfigGlobalNetworkListModel {
-				if !isImport && data.VnConfig != nil && data.VnConfig.GlobalNetworkList != nil {
-					return data.VnConfig.GlobalNetworkList
-				}
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &AWSTGWSiteVnConfigGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
@@ -5261,9 +5246,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			InsideStaticRoutes: func() *AWSTGWSiteVnConfigInsideStaticRoutesModel {
-				if !isImport && data.VnConfig != nil && data.VnConfig.InsideStaticRoutes != nil {
-					return data.VnConfig.InsideStaticRoutes
-				}
 				if InsideStaticRoutesData, ok := blockData["inside_static_routes"].(map[string]interface{}); ok {
 					return &AWSTGWSiteVnConfigInsideStaticRoutesModel{
 						StaticRouteList: func() types.List {
@@ -5495,9 +5477,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				return nil
 			}(),
 			OutsideStaticRoutes: func() *AWSTGWSiteVnConfigOutsideStaticRoutesModel {
-				if !isImport && data.VnConfig != nil && data.VnConfig.OutsideStaticRoutes != nil {
-					return data.VnConfig.OutsideStaticRoutes
-				}
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
 					return &AWSTGWSiteVnConfigOutsideStaticRoutesModel{
 						StaticRouteList: func() types.List {
@@ -6769,9 +6748,6 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 	if blockData, ok := apiResource.Spec["tgw_security"].(map[string]interface{}); ok && (isImport || data.TGWSecurity != nil) {
 		data.TGWSecurity = &AWSTGWSiteTGWSecurityModel{
 			ActiveEastWestServicePolicies: func() *AWSTGWSiteTGWSecurityActiveEastWestServicePoliciesModel {
-				if !isImport && data.TGWSecurity != nil && data.TGWSecurity.ActiveEastWestServicePolicies != nil {
-					return data.TGWSecurity.ActiveEastWestServicePolicies
-				}
 				if ActiveEastWestServicePoliciesData, ok := blockData["active_east_west_service_policies"].(map[string]interface{}); ok {
 					return &AWSTGWSiteTGWSecurityActiveEastWestServicePoliciesModel{
 						ServicePolicies: func() types.List {
@@ -6811,9 +6787,6 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			ActiveEnhancedFirewallPolicies: func() *AWSTGWSiteTGWSecurityActiveEnhancedFirewallPoliciesModel {
-				if !isImport && data.TGWSecurity != nil && data.TGWSecurity.ActiveEnhancedFirewallPolicies != nil {
-					return data.TGWSecurity.ActiveEnhancedFirewallPolicies
-				}
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &AWSTGWSiteTGWSecurityActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
@@ -6853,9 +6826,6 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			ActiveForwardProxyPolicies: func() *AWSTGWSiteTGWSecurityActiveForwardProxyPoliciesModel {
-				if !isImport && data.TGWSecurity != nil && data.TGWSecurity.ActiveForwardProxyPolicies != nil {
-					return data.TGWSecurity.ActiveForwardProxyPolicies
-				}
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &AWSTGWSiteTGWSecurityActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
@@ -6895,9 +6865,6 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			ActiveNetworkPolicies: func() *AWSTGWSiteTGWSecurityActiveNetworkPoliciesModel {
-				if !isImport && data.TGWSecurity != nil && data.TGWSecurity.ActiveNetworkPolicies != nil {
-					return data.TGWSecurity.ActiveNetworkPolicies
-				}
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &AWSTGWSiteTGWSecurityActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
@@ -7130,9 +7097,6 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			GlobalNetworkList: func() *AWSTGWSiteVnConfigGlobalNetworkListModel {
-				if !isImport && data.VnConfig != nil && data.VnConfig.GlobalNetworkList != nil {
-					return data.VnConfig.GlobalNetworkList
-				}
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &AWSTGWSiteVnConfigGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
@@ -7218,9 +7182,6 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			InsideStaticRoutes: func() *AWSTGWSiteVnConfigInsideStaticRoutesModel {
-				if !isImport && data.VnConfig != nil && data.VnConfig.InsideStaticRoutes != nil {
-					return data.VnConfig.InsideStaticRoutes
-				}
 				if InsideStaticRoutesData, ok := blockData["inside_static_routes"].(map[string]interface{}); ok {
 					return &AWSTGWSiteVnConfigInsideStaticRoutesModel{
 						StaticRouteList: func() types.List {
@@ -7452,9 +7413,6 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				return nil
 			}(),
 			OutsideStaticRoutes: func() *AWSTGWSiteVnConfigOutsideStaticRoutesModel {
-				if !isImport && data.VnConfig != nil && data.VnConfig.OutsideStaticRoutes != nil {
-					return data.VnConfig.OutsideStaticRoutes
-				}
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
 					return &AWSTGWSiteVnConfigOutsideStaticRoutesModel{
 						StaticRouteList: func() types.List {
@@ -9722,9 +9680,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	if blockData, ok := apiResource.Spec["tgw_security"].(map[string]interface{}); ok && (isImport || data.TGWSecurity != nil) {
 		data.TGWSecurity = &AWSTGWSiteTGWSecurityModel{
 			ActiveEastWestServicePolicies: func() *AWSTGWSiteTGWSecurityActiveEastWestServicePoliciesModel {
-				if !isImport && data.TGWSecurity != nil && data.TGWSecurity.ActiveEastWestServicePolicies != nil {
-					return data.TGWSecurity.ActiveEastWestServicePolicies
-				}
 				if ActiveEastWestServicePoliciesData, ok := blockData["active_east_west_service_policies"].(map[string]interface{}); ok {
 					return &AWSTGWSiteTGWSecurityActiveEastWestServicePoliciesModel{
 						ServicePolicies: func() types.List {
@@ -9764,9 +9719,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			ActiveEnhancedFirewallPolicies: func() *AWSTGWSiteTGWSecurityActiveEnhancedFirewallPoliciesModel {
-				if !isImport && data.TGWSecurity != nil && data.TGWSecurity.ActiveEnhancedFirewallPolicies != nil {
-					return data.TGWSecurity.ActiveEnhancedFirewallPolicies
-				}
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &AWSTGWSiteTGWSecurityActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
@@ -9806,9 +9758,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			ActiveForwardProxyPolicies: func() *AWSTGWSiteTGWSecurityActiveForwardProxyPoliciesModel {
-				if !isImport && data.TGWSecurity != nil && data.TGWSecurity.ActiveForwardProxyPolicies != nil {
-					return data.TGWSecurity.ActiveForwardProxyPolicies
-				}
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &AWSTGWSiteTGWSecurityActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
@@ -9848,9 +9797,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			ActiveNetworkPolicies: func() *AWSTGWSiteTGWSecurityActiveNetworkPoliciesModel {
-				if !isImport && data.TGWSecurity != nil && data.TGWSecurity.ActiveNetworkPolicies != nil {
-					return data.TGWSecurity.ActiveNetworkPolicies
-				}
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &AWSTGWSiteTGWSecurityActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
@@ -10083,9 +10029,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			GlobalNetworkList: func() *AWSTGWSiteVnConfigGlobalNetworkListModel {
-				if !isImport && data.VnConfig != nil && data.VnConfig.GlobalNetworkList != nil {
-					return data.VnConfig.GlobalNetworkList
-				}
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &AWSTGWSiteVnConfigGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
@@ -10171,9 +10114,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			InsideStaticRoutes: func() *AWSTGWSiteVnConfigInsideStaticRoutesModel {
-				if !isImport && data.VnConfig != nil && data.VnConfig.InsideStaticRoutes != nil {
-					return data.VnConfig.InsideStaticRoutes
-				}
 				if InsideStaticRoutesData, ok := blockData["inside_static_routes"].(map[string]interface{}); ok {
 					return &AWSTGWSiteVnConfigInsideStaticRoutesModel{
 						StaticRouteList: func() types.List {
@@ -10405,9 +10345,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				return nil
 			}(),
 			OutsideStaticRoutes: func() *AWSTGWSiteVnConfigOutsideStaticRoutesModel {
-				if !isImport && data.VnConfig != nil && data.VnConfig.OutsideStaticRoutes != nil {
-					return data.VnConfig.OutsideStaticRoutes
-				}
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
 					return &AWSTGWSiteVnConfigOutsideStaticRoutesModel{
 						StaticRouteList: func() types.List {

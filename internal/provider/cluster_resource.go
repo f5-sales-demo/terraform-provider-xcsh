@@ -1974,9 +1974,6 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 	if blockData, ok := apiResource.Spec["tls_parameters"].(map[string]interface{}); ok && (isImport || data.TLSParameters != nil) {
 		data.TLSParameters = &ClusterTLSParametersModel{
 			CertParams: func() *ClusterTLSParametersCertParamsModel {
-				if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil {
-					return data.TLSParameters.CertParams
-				}
 				if CertParamsData, ok := blockData["cert_params"].(map[string]interface{}); ok {
 					return &ClusterTLSParametersCertParamsModel{
 						Certificates: func() types.List {
@@ -2136,9 +2133,6 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 				return nil
 			}(),
 			CommonParams: func() *ClusterTLSParametersCommonParamsModel {
-				if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil {
-					return data.TLSParameters.CommonParams
-				}
 				if CommonParamsData, ok := blockData["common_params"].(map[string]interface{}); ok {
 					return &ClusterTLSParametersCommonParamsModel{
 						CipherSuites: func() types.List {
@@ -2877,9 +2871,6 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 	if blockData, ok := apiResource.Spec["tls_parameters"].(map[string]interface{}); ok && (isImport || data.TLSParameters != nil) {
 		data.TLSParameters = &ClusterTLSParametersModel{
 			CertParams: func() *ClusterTLSParametersCertParamsModel {
-				if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil {
-					return data.TLSParameters.CertParams
-				}
 				if CertParamsData, ok := blockData["cert_params"].(map[string]interface{}); ok {
 					return &ClusterTLSParametersCertParamsModel{
 						Certificates: func() types.List {
@@ -3039,9 +3030,6 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 				return nil
 			}(),
 			CommonParams: func() *ClusterTLSParametersCommonParamsModel {
-				if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil {
-					return data.TLSParameters.CommonParams
-				}
 				if CommonParamsData, ok := blockData["common_params"].(map[string]interface{}); ok {
 					return &ClusterTLSParametersCommonParamsModel{
 						CipherSuites: func() types.List {
@@ -4222,9 +4210,6 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 	if blockData, ok := apiResource.Spec["tls_parameters"].(map[string]interface{}); ok && (isImport || data.TLSParameters != nil) {
 		data.TLSParameters = &ClusterTLSParametersModel{
 			CertParams: func() *ClusterTLSParametersCertParamsModel {
-				if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil {
-					return data.TLSParameters.CertParams
-				}
 				if CertParamsData, ok := blockData["cert_params"].(map[string]interface{}); ok {
 					return &ClusterTLSParametersCertParamsModel{
 						Certificates: func() types.List {
@@ -4384,9 +4369,6 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 				return nil
 			}(),
 			CommonParams: func() *ClusterTLSParametersCommonParamsModel {
-				if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil {
-					return data.TLSParameters.CommonParams
-				}
 				if CommonParamsData, ok := blockData["common_params"].(map[string]interface{}); ok {
 					return &ClusterTLSParametersCommonParamsModel{
 						CipherSuites: func() types.List {

@@ -4599,9 +4599,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 	if blockData, ok := apiResource.Spec["proxy_advertisement"].(map[string]interface{}); ok && (isImport || data.ProxyAdvertisement != nil) {
 		data.ProxyAdvertisement = &BigIPHTTPProxyProxyAdvertisementModel{
 			AdvertiseCustom: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomModel {
-				if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseCustom != nil {
-					return data.ProxyAdvertisement.AdvertiseCustom
-				}
 				if AdvertiseCustomData, ok := blockData["advertise_custom"].(map[string]interface{}); ok {
 					return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomModel{
 						AdvertiseWhere: func() types.List {
@@ -4966,9 +4963,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 				return nil
 			}(),
 			HTTPS: func() *BigIPHTTPProxyProxyConfigHTTPSModel {
-				if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
-					return data.ProxyConfig.HTTPS
-				}
 				if HTTPSData, ok := blockData["https"].(map[string]interface{}); ok {
 					return &BigIPHTTPProxyProxyConfigHTTPSModel{
 						AddHsts: func() types.Bool {
@@ -5613,9 +5607,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 				return nil
 			}(),
 			HTTPSAutoCert: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertModel {
-				if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
-					return data.ProxyConfig.HTTPSAutoCert
-				}
 				if HTTPSAutoCertData, ok := blockData["https_auto_cert"].(map[string]interface{}); ok {
 					return &BigIPHTTPProxyProxyConfigHTTPSAutoCertModel{
 						AddHsts: func() types.Bool {
@@ -6581,9 +6572,6 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 	if blockData, ok := apiResource.Spec["proxy_advertisement"].(map[string]interface{}); ok && (isImport || data.ProxyAdvertisement != nil) {
 		data.ProxyAdvertisement = &BigIPHTTPProxyProxyAdvertisementModel{
 			AdvertiseCustom: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomModel {
-				if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseCustom != nil {
-					return data.ProxyAdvertisement.AdvertiseCustom
-				}
 				if AdvertiseCustomData, ok := blockData["advertise_custom"].(map[string]interface{}); ok {
 					return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomModel{
 						AdvertiseWhere: func() types.List {
@@ -6948,9 +6936,6 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 				return nil
 			}(),
 			HTTPS: func() *BigIPHTTPProxyProxyConfigHTTPSModel {
-				if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
-					return data.ProxyConfig.HTTPS
-				}
 				if HTTPSData, ok := blockData["https"].(map[string]interface{}); ok {
 					return &BigIPHTTPProxyProxyConfigHTTPSModel{
 						AddHsts: func() types.Bool {
@@ -7595,9 +7580,6 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 				return nil
 			}(),
 			HTTPSAutoCert: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertModel {
-				if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
-					return data.ProxyConfig.HTTPSAutoCert
-				}
 				if HTTPSAutoCertData, ok := blockData["https_auto_cert"].(map[string]interface{}); ok {
 					return &BigIPHTTPProxyProxyConfigHTTPSAutoCertModel{
 						AddHsts: func() types.Bool {
@@ -9574,9 +9556,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 	if blockData, ok := apiResource.Spec["proxy_advertisement"].(map[string]interface{}); ok && (isImport || data.ProxyAdvertisement != nil) {
 		data.ProxyAdvertisement = &BigIPHTTPProxyProxyAdvertisementModel{
 			AdvertiseCustom: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomModel {
-				if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseCustom != nil {
-					return data.ProxyAdvertisement.AdvertiseCustom
-				}
 				if AdvertiseCustomData, ok := blockData["advertise_custom"].(map[string]interface{}); ok {
 					return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomModel{
 						AdvertiseWhere: func() types.List {
@@ -9941,9 +9920,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 				return nil
 			}(),
 			HTTPS: func() *BigIPHTTPProxyProxyConfigHTTPSModel {
-				if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
-					return data.ProxyConfig.HTTPS
-				}
 				if HTTPSData, ok := blockData["https"].(map[string]interface{}); ok {
 					return &BigIPHTTPProxyProxyConfigHTTPSModel{
 						AddHsts: func() types.Bool {
@@ -10588,9 +10564,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 				return nil
 			}(),
 			HTTPSAutoCert: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertModel {
-				if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
-					return data.ProxyConfig.HTTPSAutoCert
-				}
 				if HTTPSAutoCertData, ok := blockData["https_auto_cert"].(map[string]interface{}); ok {
 					return &BigIPHTTPProxyProxyConfigHTTPSAutoCertModel{
 						AddHsts: func() types.Bool {

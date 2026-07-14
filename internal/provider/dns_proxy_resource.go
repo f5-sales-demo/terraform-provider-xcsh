@@ -2490,9 +2490,6 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 	if blockData, ok := apiResource.Spec["proxy_advertisement"].(map[string]interface{}); ok && (isImport || data.ProxyAdvertisement != nil) {
 		data.ProxyAdvertisement = &DNSProxyProxyAdvertisementModel{
 			AdvertiseCustom: func() *DNSProxyProxyAdvertisementAdvertiseCustomModel {
-				if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseCustom != nil {
-					return data.ProxyAdvertisement.AdvertiseCustom
-				}
 				if AdvertiseCustomData, ok := blockData["advertise_custom"].(map[string]interface{}); ok {
 					return &DNSProxyProxyAdvertisementAdvertiseCustomModel{
 						AdvertiseWhere: func() types.List {
@@ -2803,9 +2800,6 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 				return nil
 			}(),
 			AdvertiseOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseOnPublicModel {
-				if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseOnPublic != nil {
-					return data.ProxyAdvertisement.AdvertiseOnPublic
-				}
 				if AdvertiseOnPublicData, ok := blockData["advertise_on_public"].(map[string]interface{}); ok {
 					return &DNSProxyProxyAdvertisementAdvertiseOnPublicModel{
 						PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseOnPublicPublicIPModel {
@@ -3419,9 +3413,6 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 	if blockData, ok := apiResource.Spec["proxy_advertisement"].(map[string]interface{}); ok && (isImport || data.ProxyAdvertisement != nil) {
 		data.ProxyAdvertisement = &DNSProxyProxyAdvertisementModel{
 			AdvertiseCustom: func() *DNSProxyProxyAdvertisementAdvertiseCustomModel {
-				if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseCustom != nil {
-					return data.ProxyAdvertisement.AdvertiseCustom
-				}
 				if AdvertiseCustomData, ok := blockData["advertise_custom"].(map[string]interface{}); ok {
 					return &DNSProxyProxyAdvertisementAdvertiseCustomModel{
 						AdvertiseWhere: func() types.List {
@@ -3732,9 +3723,6 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 				return nil
 			}(),
 			AdvertiseOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseOnPublicModel {
-				if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseOnPublic != nil {
-					return data.ProxyAdvertisement.AdvertiseOnPublic
-				}
 				if AdvertiseOnPublicData, ok := blockData["advertise_on_public"].(map[string]interface{}); ok {
 					return &DNSProxyProxyAdvertisementAdvertiseOnPublicModel{
 						PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseOnPublicPublicIPModel {
@@ -4792,9 +4780,6 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 	if blockData, ok := apiResource.Spec["proxy_advertisement"].(map[string]interface{}); ok && (isImport || data.ProxyAdvertisement != nil) {
 		data.ProxyAdvertisement = &DNSProxyProxyAdvertisementModel{
 			AdvertiseCustom: func() *DNSProxyProxyAdvertisementAdvertiseCustomModel {
-				if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseCustom != nil {
-					return data.ProxyAdvertisement.AdvertiseCustom
-				}
 				if AdvertiseCustomData, ok := blockData["advertise_custom"].(map[string]interface{}); ok {
 					return &DNSProxyProxyAdvertisementAdvertiseCustomModel{
 						AdvertiseWhere: func() types.List {
@@ -5105,9 +5090,6 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 				return nil
 			}(),
 			AdvertiseOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseOnPublicModel {
-				if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseOnPublic != nil {
-					return data.ProxyAdvertisement.AdvertiseOnPublic
-				}
 				if AdvertiseOnPublicData, ok := blockData["advertise_on_public"].(map[string]interface{}); ok {
 					return &DNSProxyProxyAdvertisementAdvertiseOnPublicModel{
 						PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseOnPublicPublicIPModel {

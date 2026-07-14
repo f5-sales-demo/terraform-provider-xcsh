@@ -5684,9 +5684,6 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				return nil
 			}(),
 			ValidationParams: func() *VirtualHostTLSCertParamsValidationParamsModel {
-				if !isImport && data.TLSCertParams != nil && data.TLSCertParams.ValidationParams != nil {
-					return data.TLSCertParams.ValidationParams
-				}
 				if ValidationParamsData, ok := blockData["validation_params"].(map[string]interface{}); ok {
 					return &VirtualHostTLSCertParamsValidationParamsModel{
 						SkipHostnameVerification: func() types.Bool {
@@ -5805,9 +5802,6 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				return nil
 			}(),
 			CommonParams: func() *VirtualHostTLSParametersCommonParamsModel {
-				if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil {
-					return data.TLSParameters.CommonParams
-				}
 				if CommonParamsData, ok := blockData["common_params"].(map[string]interface{}); ok {
 					return &VirtualHostTLSParametersCommonParamsModel{
 						CipherSuites: func() types.List {
@@ -6111,9 +6105,6 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	if blockData, ok := apiResource.Spec["waf_type"].(map[string]interface{}); ok && (isImport || data.WAFType != nil) {
 		data.WAFType = &VirtualHostWAFTypeModel{
 			AppFirewall: func() *VirtualHostWAFTypeAppFirewallModel {
-				if !isImport && data.WAFType != nil && data.WAFType.AppFirewall != nil {
-					return data.WAFType.AppFirewall
-				}
 				if AppFirewallData, ok := blockData["app_firewall"].(map[string]interface{}); ok {
 					return &VirtualHostWAFTypeAppFirewallModel{
 						AppFirewall: func() types.List {
@@ -7997,9 +7988,6 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				return nil
 			}(),
 			ValidationParams: func() *VirtualHostTLSCertParamsValidationParamsModel {
-				if !isImport && data.TLSCertParams != nil && data.TLSCertParams.ValidationParams != nil {
-					return data.TLSCertParams.ValidationParams
-				}
 				if ValidationParamsData, ok := blockData["validation_params"].(map[string]interface{}); ok {
 					return &VirtualHostTLSCertParamsValidationParamsModel{
 						SkipHostnameVerification: func() types.Bool {
@@ -8118,9 +8106,6 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				return nil
 			}(),
 			CommonParams: func() *VirtualHostTLSParametersCommonParamsModel {
-				if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil {
-					return data.TLSParameters.CommonParams
-				}
 				if CommonParamsData, ok := blockData["common_params"].(map[string]interface{}); ok {
 					return &VirtualHostTLSParametersCommonParamsModel{
 						CipherSuites: func() types.List {
@@ -8424,9 +8409,6 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 	if blockData, ok := apiResource.Spec["waf_type"].(map[string]interface{}); ok && (isImport || data.WAFType != nil) {
 		data.WAFType = &VirtualHostWAFTypeModel{
 			AppFirewall: func() *VirtualHostWAFTypeAppFirewallModel {
-				if !isImport && data.WAFType != nil && data.WAFType.AppFirewall != nil {
-					return data.WAFType.AppFirewall
-				}
 				if AppFirewallData, ok := blockData["app_firewall"].(map[string]interface{}); ok {
 					return &VirtualHostWAFTypeAppFirewallModel{
 						AppFirewall: func() types.List {
@@ -11469,9 +11451,6 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				return nil
 			}(),
 			ValidationParams: func() *VirtualHostTLSCertParamsValidationParamsModel {
-				if !isImport && data.TLSCertParams != nil && data.TLSCertParams.ValidationParams != nil {
-					return data.TLSCertParams.ValidationParams
-				}
 				if ValidationParamsData, ok := blockData["validation_params"].(map[string]interface{}); ok {
 					return &VirtualHostTLSCertParamsValidationParamsModel{
 						SkipHostnameVerification: func() types.Bool {
@@ -11590,9 +11569,6 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				return nil
 			}(),
 			CommonParams: func() *VirtualHostTLSParametersCommonParamsModel {
-				if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil {
-					return data.TLSParameters.CommonParams
-				}
 				if CommonParamsData, ok := blockData["common_params"].(map[string]interface{}); ok {
 					return &VirtualHostTLSParametersCommonParamsModel{
 						CipherSuites: func() types.List {
@@ -11896,9 +11872,6 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	if blockData, ok := apiResource.Spec["waf_type"].(map[string]interface{}); ok && (isImport || data.WAFType != nil) {
 		data.WAFType = &VirtualHostWAFTypeModel{
 			AppFirewall: func() *VirtualHostWAFTypeAppFirewallModel {
-				if !isImport && data.WAFType != nil && data.WAFType.AppFirewall != nil {
-					return data.WAFType.AppFirewall
-				}
 				if AppFirewallData, ok := blockData["app_firewall"].(map[string]interface{}); ok {
 					return &VirtualHostWAFTypeAppFirewallModel{
 						AppFirewall: func() types.List {

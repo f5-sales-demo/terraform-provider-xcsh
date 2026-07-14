@@ -2116,9 +2116,6 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 				return types.StringNull()
 			}(),
 			TLSConfig: func() *SecretManagementAccessAccessInfoTLSConfigModel {
-				if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
-					return data.AccessInfo.TLSConfig
-				}
 				if TLSConfigData, ok := blockData["tls_config"].(map[string]interface{}); ok {
 					return &SecretManagementAccessAccessInfoTLSConfigModel{
 						CertParams: func() *SecretManagementAccessAccessInfoTLSConfigCertParamsModel {
@@ -2674,9 +2671,6 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
 		data.Where = &SecretManagementAccessWhereModel{
 			Site: func() *SecretManagementAccessWhereSiteModel {
-				if !isImport && data.Where != nil && data.Where.Site != nil {
-					return data.Where.Site
-				}
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereSiteModel{
 						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {
@@ -2746,9 +2740,6 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 				return nil
 			}(),
 			VirtualNetwork: func() *SecretManagementAccessWhereVirtualNetworkModel {
-				if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil {
-					return data.Where.VirtualNetwork
-				}
 				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereVirtualNetworkModel{
 						Ref: func() types.List {
@@ -2800,9 +2791,6 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 				return nil
 			}(),
 			VirtualSite: func() *SecretManagementAccessWhereVirtualSiteModel {
-				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
-					return data.Where.VirtualSite
-				}
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereVirtualSiteModel{
 						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {
@@ -3086,9 +3074,6 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 				return types.StringNull()
 			}(),
 			TLSConfig: func() *SecretManagementAccessAccessInfoTLSConfigModel {
-				if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
-					return data.AccessInfo.TLSConfig
-				}
 				if TLSConfigData, ok := blockData["tls_config"].(map[string]interface{}); ok {
 					return &SecretManagementAccessAccessInfoTLSConfigModel{
 						CertParams: func() *SecretManagementAccessAccessInfoTLSConfigCertParamsModel {
@@ -3644,9 +3629,6 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
 		data.Where = &SecretManagementAccessWhereModel{
 			Site: func() *SecretManagementAccessWhereSiteModel {
-				if !isImport && data.Where != nil && data.Where.Site != nil {
-					return data.Where.Site
-				}
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereSiteModel{
 						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {
@@ -3716,9 +3698,6 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 				return nil
 			}(),
 			VirtualNetwork: func() *SecretManagementAccessWhereVirtualNetworkModel {
-				if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil {
-					return data.Where.VirtualNetwork
-				}
 				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereVirtualNetworkModel{
 						Ref: func() types.List {
@@ -3770,9 +3749,6 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 				return nil
 			}(),
 			VirtualSite: func() *SecretManagementAccessWhereVirtualSiteModel {
-				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
-					return data.Where.VirtualSite
-				}
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereVirtualSiteModel{
 						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {
@@ -4539,9 +4515,6 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 				return types.StringNull()
 			}(),
 			TLSConfig: func() *SecretManagementAccessAccessInfoTLSConfigModel {
-				if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
-					return data.AccessInfo.TLSConfig
-				}
 				if TLSConfigData, ok := blockData["tls_config"].(map[string]interface{}); ok {
 					return &SecretManagementAccessAccessInfoTLSConfigModel{
 						CertParams: func() *SecretManagementAccessAccessInfoTLSConfigCertParamsModel {
@@ -5097,9 +5070,6 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
 		data.Where = &SecretManagementAccessWhereModel{
 			Site: func() *SecretManagementAccessWhereSiteModel {
-				if !isImport && data.Where != nil && data.Where.Site != nil {
-					return data.Where.Site
-				}
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereSiteModel{
 						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {
@@ -5169,9 +5139,6 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 				return nil
 			}(),
 			VirtualNetwork: func() *SecretManagementAccessWhereVirtualNetworkModel {
-				if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil {
-					return data.Where.VirtualNetwork
-				}
 				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereVirtualNetworkModel{
 						Ref: func() types.List {
@@ -5223,9 +5190,6 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 				return nil
 			}(),
 			VirtualSite: func() *SecretManagementAccessWhereVirtualSiteModel {
-				if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
-					return data.Where.VirtualSite
-				}
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereVirtualSiteModel{
 						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {

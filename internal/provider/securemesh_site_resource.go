@@ -4267,9 +4267,6 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 	if blockData, ok := apiResource.Spec["custom_network_config"].(map[string]interface{}); ok && (isImport || data.CustomNetworkConfig != nil) {
 		data.CustomNetworkConfig = &SecuremeshSiteCustomNetworkConfigModel{
 			ActiveEnhancedFirewallPolicies: func() *SecuremeshSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies != nil {
-					return data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies
-				}
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
@@ -4309,9 +4306,6 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 				return nil
 			}(),
 			ActiveForwardProxyPolicies: func() *SecuremeshSiteCustomNetworkConfigActiveForwardProxyPoliciesModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveForwardProxyPolicies != nil {
-					return data.CustomNetworkConfig.ActiveForwardProxyPolicies
-				}
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
@@ -4351,9 +4345,6 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 				return nil
 			}(),
 			ActiveNetworkPolicies: func() *SecuremeshSiteCustomNetworkConfigActiveNetworkPoliciesModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveNetworkPolicies != nil {
-					return data.CustomNetworkConfig.ActiveNetworkPolicies
-				}
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
@@ -4429,9 +4420,6 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 				return nil
 			}(),
 			GlobalNetworkList: func() *SecuremeshSiteCustomNetworkConfigGlobalNetworkListModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.GlobalNetworkList != nil {
-					return data.CustomNetworkConfig.GlobalNetworkList
-				}
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
@@ -4517,9 +4505,6 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 				return nil
 			}(),
 			InterfaceList: func() *SecuremeshSiteCustomNetworkConfigInterfaceListModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.InterfaceList != nil {
-					return data.CustomNetworkConfig.InterfaceList
-				}
 				if InterfaceListData, ok := blockData["interface_list"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigInterfaceListModel{
 						Interfaces: func() types.List {
@@ -5184,9 +5169,6 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 				return nil
 			}(),
 			SLIConfig: func() *SecuremeshSiteCustomNetworkConfigSLIConfigModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil {
-					return data.CustomNetworkConfig.SLIConfig
-				}
 				if SLIConfigData, ok := blockData["sli_config"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigSLIConfigModel{
 						DcClusterGroup: func() *SecuremeshSiteCustomNetworkConfigSLIConfigDcClusterGroupModel {
@@ -5515,9 +5497,6 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 				return nil
 			}(),
 			SloConfig: func() *SecuremeshSiteCustomNetworkConfigSloConfigModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
-					return data.CustomNetworkConfig.SloConfig
-				}
 				if SloConfigData, ok := blockData["slo_config"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigSloConfigModel{
 						DcClusterGroup: func() *SecuremeshSiteCustomNetworkConfigSloConfigDcClusterGroupModel {
@@ -6350,9 +6329,6 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 	if blockData, ok := apiResource.Spec["custom_network_config"].(map[string]interface{}); ok && (isImport || data.CustomNetworkConfig != nil) {
 		data.CustomNetworkConfig = &SecuremeshSiteCustomNetworkConfigModel{
 			ActiveEnhancedFirewallPolicies: func() *SecuremeshSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies != nil {
-					return data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies
-				}
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
@@ -6392,9 +6368,6 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 				return nil
 			}(),
 			ActiveForwardProxyPolicies: func() *SecuremeshSiteCustomNetworkConfigActiveForwardProxyPoliciesModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveForwardProxyPolicies != nil {
-					return data.CustomNetworkConfig.ActiveForwardProxyPolicies
-				}
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
@@ -6434,9 +6407,6 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 				return nil
 			}(),
 			ActiveNetworkPolicies: func() *SecuremeshSiteCustomNetworkConfigActiveNetworkPoliciesModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveNetworkPolicies != nil {
-					return data.CustomNetworkConfig.ActiveNetworkPolicies
-				}
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
@@ -6512,9 +6482,6 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 				return nil
 			}(),
 			GlobalNetworkList: func() *SecuremeshSiteCustomNetworkConfigGlobalNetworkListModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.GlobalNetworkList != nil {
-					return data.CustomNetworkConfig.GlobalNetworkList
-				}
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
@@ -6600,9 +6567,6 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 				return nil
 			}(),
 			InterfaceList: func() *SecuremeshSiteCustomNetworkConfigInterfaceListModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.InterfaceList != nil {
-					return data.CustomNetworkConfig.InterfaceList
-				}
 				if InterfaceListData, ok := blockData["interface_list"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigInterfaceListModel{
 						Interfaces: func() types.List {
@@ -7267,9 +7231,6 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 				return nil
 			}(),
 			SLIConfig: func() *SecuremeshSiteCustomNetworkConfigSLIConfigModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil {
-					return data.CustomNetworkConfig.SLIConfig
-				}
 				if SLIConfigData, ok := blockData["sli_config"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigSLIConfigModel{
 						DcClusterGroup: func() *SecuremeshSiteCustomNetworkConfigSLIConfigDcClusterGroupModel {
@@ -7598,9 +7559,6 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 				return nil
 			}(),
 			SloConfig: func() *SecuremeshSiteCustomNetworkConfigSloConfigModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
-					return data.CustomNetworkConfig.SloConfig
-				}
 				if SloConfigData, ok := blockData["slo_config"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigSloConfigModel{
 						DcClusterGroup: func() *SecuremeshSiteCustomNetworkConfigSloConfigDcClusterGroupModel {
@@ -9567,9 +9525,6 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 	if blockData, ok := apiResource.Spec["custom_network_config"].(map[string]interface{}); ok && (isImport || data.CustomNetworkConfig != nil) {
 		data.CustomNetworkConfig = &SecuremeshSiteCustomNetworkConfigModel{
 			ActiveEnhancedFirewallPolicies: func() *SecuremeshSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies != nil {
-					return data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies
-				}
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
@@ -9609,9 +9564,6 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 				return nil
 			}(),
 			ActiveForwardProxyPolicies: func() *SecuremeshSiteCustomNetworkConfigActiveForwardProxyPoliciesModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveForwardProxyPolicies != nil {
-					return data.CustomNetworkConfig.ActiveForwardProxyPolicies
-				}
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
@@ -9651,9 +9603,6 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 				return nil
 			}(),
 			ActiveNetworkPolicies: func() *SecuremeshSiteCustomNetworkConfigActiveNetworkPoliciesModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveNetworkPolicies != nil {
-					return data.CustomNetworkConfig.ActiveNetworkPolicies
-				}
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
@@ -9729,9 +9678,6 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 				return nil
 			}(),
 			GlobalNetworkList: func() *SecuremeshSiteCustomNetworkConfigGlobalNetworkListModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.GlobalNetworkList != nil {
-					return data.CustomNetworkConfig.GlobalNetworkList
-				}
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
@@ -9817,9 +9763,6 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 				return nil
 			}(),
 			InterfaceList: func() *SecuremeshSiteCustomNetworkConfigInterfaceListModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.InterfaceList != nil {
-					return data.CustomNetworkConfig.InterfaceList
-				}
 				if InterfaceListData, ok := blockData["interface_list"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigInterfaceListModel{
 						Interfaces: func() types.List {
@@ -10484,9 +10427,6 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 				return nil
 			}(),
 			SLIConfig: func() *SecuremeshSiteCustomNetworkConfigSLIConfigModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil {
-					return data.CustomNetworkConfig.SLIConfig
-				}
 				if SLIConfigData, ok := blockData["sli_config"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigSLIConfigModel{
 						DcClusterGroup: func() *SecuremeshSiteCustomNetworkConfigSLIConfigDcClusterGroupModel {
@@ -10815,9 +10755,6 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 				return nil
 			}(),
 			SloConfig: func() *SecuremeshSiteCustomNetworkConfigSloConfigModel {
-				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
-					return data.CustomNetworkConfig.SloConfig
-				}
 				if SloConfigData, ok := blockData["slo_config"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigSloConfigModel{
 						DcClusterGroup: func() *SecuremeshSiteCustomNetworkConfigSloConfigDcClusterGroupModel {
