@@ -35,24 +35,45 @@ on the import path.
 - `preserveWhole` is all-or-nothing: any object-ref descendant disables preservation
   for the ENTIRE block, even when the actually-configured arms carry no object-ref.
 
-## Fix design (chosen: preserve + tenant-patch merge)
-On the apply path (`!isImport`), preserve the PLANNED block value even when it has
-object-ref descendants, then recursively patch ONLY the object-ref Computed leaves
-(`tenant`, and `uid`/`kind` where server-derived) from the API response into the
-preserved value. This keeps user-set Optional markers/scalars (any_client absence,
-invert_matcher) intact while still fixing the #1091 tenant-unknown problem.
+## Fix design (implemented: state-threaded reconstruction)
+The originally-sketched "preserve whole + separate patchObjectRefTenants walk" was
+replaced by a cleaner, lower-risk equivalent that reuses the provider's existing,
+already-tested per-leaf preserve logic (scalar preserve at render.go:612, empty-marker
+preserve at render.go:740) instead of generating a new recursive patch walker per
+resource. Same semantics — off-spine Optional markers/scalars reflect the PLAN, object
+references reconstruct their Computed `tenant` from the API — but achieved by threading
+the prior-state accessor down into the reconstruction rather than post-patching a
+preserved copy.
 
-Implementation sketch:
-- Replace the `preserveWhole` gate so single blocks are preserved whenever configured
-  (`stateBase!=""` and planned non-nil), regardless of object-ref descendants.
-- Add a generated `patchObjectRefTenants(planned, apiResponse)` walk (per resource,
-  over the object-ref descendant paths) invoked in the preserve branch, copying
-  server tenant/uid/kind into the preserved value.
-- For LIST-nested blocks (api_endpoint_rules), thread the prior-state list positionally
-  so element Optional leaves are preserved too (currently stateBase="" for list-child
-  reconstruction — render.go:858).
-- Regen + `go test ./tools/... ./internal/...` + rebuild + re-run the webapp SP3 matrix
-  to full green; release; bump webapp versions.tf.
+Two changes in `tools/pkg/codegen/render.go`:
+
+1. **`renderUnmarshalSingleChild` — thread state into a "spine" block's children.**
+   `preserveWhole` is unchanged (still only for blocks with NO object-ref descendant, so
+   direct/nested refs still reconstruct — #1079/#1091 preserved). When a block merely
+   CONTAINS a reference on one arm and so cannot be preserved whole, its children are now
+   reconstructed with the prior-state accessor threaded in (`childStateBase =
+   stateBase.<Field>`), UNLESS the block *is* itself an object reference (all its leaves
+   are server-derived). Off-spine children then hit their existing preserve paths (return
+   the planned marker/scalar); the reference arm, when recursion reaches it, reads its
+   Computed tenant from the API.
+
+2. **`renderUnmarshalListChild` — positional element-state threading.** A list configured
+   inside a single block now loads its prior-state elements (`<Field>.ElementsAs` — nested
+   lists are always `types.List`) and threads `existing[idx]` + `len(existing) > idx` into
+   each element's children, mirroring `renderUnmarshalTopLevelList`. This preserves element
+   Optional leaves (api_endpoint_method.invert_matcher, client_matcher.any_client) that
+   were previously reconstructed from the API (stateBase="" at the old render.go:857).
+
+Why this is correct and low-risk: it makes NESTED reconstruction consistent with the
+TOP-LEVEL list renderer, which already threads positional state. The three existing
+object-ref tests (`ObjectRefReadsFromAPI`, `NonRefPreserves`, `NestedObjectRefReconstructs`)
+still pass unchanged — they exercise ref leaves only, whose behavior is untouched. New
+TDD tests: `TestRenderUnmarshalSingleChild_SpinePreservesOffSpineLeaves`,
+`TestRenderUnmarshalListChild_PreservesElementStatePositionally`.
+
+Verification: `go test ./tools/... ./internal/...` green; all 128 resources regenerate
+and compile; webapp defaults plan 0-change; SP3 live matrix to full green; then release +
+bump webapp versions.tf.
 
 ## Interim module state (webapp)
 The SP3 module explicitly sets `invert_matcher=false` and

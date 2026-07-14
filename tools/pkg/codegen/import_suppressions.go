@@ -50,6 +50,20 @@ var importDefaultSuppressionsSeed = map[string][]string{
 		// Matched by leaf name at any depth (see isImportDefaultSuppressed).
 		"default_api_auth_discovery",
 		"disable_learn_from_redirect_traffic",
+		// SP3 API Protection (#41) server-default oneof base markers: the API echoes
+		// any_client {} alongside a concrete client_matcher arm (ip_prefix_list /
+		// ip_threat_category_list), and skip_response_validation {} on every
+		// open_api_validation_rules entry's validation_mode. The module never declares
+		// either (it omits client_matcher for "match any"), so both must be suppressed
+		// on import to keep api_protection_rules / validation_custom_list round-trip
+		// clean. discover-defaults.go can't observe them (its probe LB configures no
+		// api_protection_rules / validation_custom_list). Verified live (f5-sales-demo
+		// webapp-api-protection SP3 matrix variants 004, 006). any_ip is the same class:
+		// the default source-IP sub-oneof member inside a client_matcher
+		// ip_threat_category_list arm, echoed alongside ip_threat_categories (variant 002).
+		"any_client",
+		"any_ip",
+		"skip_response_validation",
 	},
 }
 

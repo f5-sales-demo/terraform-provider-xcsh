@@ -809,3 +809,83 @@ func TestRenderUnmarshalSingleChild_NestedObjectRefReconstructs(t *testing.T) {
 		t.Errorf("the nested object-reference read-back must read tenant from the API response:\n%s", out)
 	}
 }
+
+// #41 (SP3 API Protection): a single block that CONTAINS an object reference on one
+// arm (a "spine" block, e.g. client_matcher whose deep ip_matcher.prefix_sets arm is a
+// reference) must reconstruct only the reference arm from the API while PRESERVING its
+// off-spine Optional markers/scalars from the planned state. Reconstructing the whole
+// block materializes server-echoed defaults the plan omitted (any_client:{},
+// invert_matcher:false) -> "Provider produced inconsistent result after apply: was
+// absent/null, now present/false". The reference arm must still read its Computed tenant
+// from the API.
+func TestRenderUnmarshalSingleChild_SpinePreservesOffSpineLeaves(t *testing.T) {
+	clientMatcher := openapi.TerraformAttribute{
+		GoName: "ClientMatcher", JsonName: "client_matcher", TfsdkTag: "client_matcher",
+		IsBlock: true, NestedBlockType: "single",
+		NestedAttributes: []openapi.TerraformAttribute{
+			// off-spine empty-marker oneof member
+			{GoName: "AnyClient", JsonName: "any_client", TfsdkTag: "any_client", IsBlock: true, NestedBlockType: "single"},
+			// off-spine Optional scalar
+			{GoName: "InvertMatcher", JsonName: "invert_matcher", TfsdkTag: "invert_matcher", Type: "bool", Optional: true},
+			// spine: ip_matcher -> prefix_sets (an object reference with a tenant child)
+			{
+				GoName: "IpMatcher", JsonName: "ip_matcher", TfsdkTag: "ip_matcher",
+				IsBlock: true, NestedBlockType: "single",
+				NestedAttributes: []openapi.TerraformAttribute{
+					{
+						GoName: "PrefixSets", JsonName: "prefix_sets", TfsdkTag: "prefix_sets",
+						IsBlock: true, NestedBlockType: "single",
+						NestedAttributes: []openapi.TerraformAttribute{
+							{GoName: "Name", TfsdkTag: "name", JsonName: "name", Type: "string"},
+							{GoName: "Tenant", TfsdkTag: "tenant", JsonName: "tenant", Type: "string"},
+						},
+					},
+				},
+			},
+		},
+	}
+	var sb strings.Builder
+	renderUnmarshalSingleChild(&sb, "R", "ApiEndpointRulesClientMatcher", clientMatcher,
+		"itemMap", "apiEndpointRulesItem", "len(existing) > i", "single", "\t")
+	out := sb.String()
+	if !strings.Contains(out, "return apiEndpointRulesItem.ClientMatcher.AnyClient") {
+		t.Errorf("off-spine empty-marker must preserve the planned value (not materialize any_client from the API):\n%s", out)
+	}
+	if !strings.Contains(out, "return apiEndpointRulesItem.ClientMatcher.InvertMatcher") {
+		t.Errorf("off-spine Optional scalar must preserve the planned value (not materialize invert_matcher from the API):\n%s", out)
+	}
+	if !strings.Contains(out, `PrefixSetsData["tenant"]`) {
+		t.Errorf("the spine's object-reference arm must still reconstruct its tenant from the API:\n%s", out)
+	}
+}
+
+// #41 (SP3 API Protection): a list block nested inside a configured single block (e.g.
+// api_protection_rules.api_endpoint_rules[]) must thread the prior-state elements
+// positionally into element children, mirroring the top-level list renderer, so element
+// Optional markers/scalars preserve the planned value on Read/Create instead of
+// materializing server-echoed defaults. Import still reads the API.
+func TestRenderUnmarshalListChild_PreservesElementStatePositionally(t *testing.T) {
+	list := openapi.TerraformAttribute{
+		GoName: "ApiEndpointRules", JsonName: "api_endpoint_rules", TfsdkTag: "api_endpoint_rules",
+		IsBlock: true, NestedBlockType: "list",
+		NestedAttributes: []openapi.TerraformAttribute{
+			{
+				GoName: "ApiEndpointMethod", JsonName: "api_endpoint_method", TfsdkTag: "api_endpoint_method",
+				IsBlock: true, NestedBlockType: "single",
+				NestedAttributes: []openapi.TerraformAttribute{
+					{GoName: "InvertMatcher", JsonName: "invert_matcher", TfsdkTag: "invert_matcher", Type: "bool", Optional: true},
+				},
+			},
+		},
+	}
+	var sb strings.Builder
+	renderUnmarshalListChild(&sb, "R", "ApiProtectionRulesApiEndpointRules", list,
+		"apiProtectionRulesData", "data.ApiProtectionRules", "data.ApiProtectionRules != nil", "single", "\t")
+	out := sb.String()
+	if !strings.Contains(out, "data.ApiProtectionRules.ApiEndpointRules.ElementsAs(ctx, &ApiEndpointRulesExisting") {
+		t.Errorf("nested list must load prior-state elements from the parent state for positional preservation:\n%s", out)
+	}
+	if !strings.Contains(out, "ApiEndpointRulesExisting[ApiEndpointRulesIdx].ApiEndpointMethod.InvertMatcher") {
+		t.Errorf("nested list element leaf must preserve the planned value positionally:\n%s", out)
+	}
+}
