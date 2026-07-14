@@ -5076,9 +5076,14 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !isImport && data.ActiveForwardProxyPolicies != nil && (data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() || len(data.ActiveForwardProxyPolicies.ForwardProxyPolicies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
 				}
+				var ForwardProxyPoliciesExisting []ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel
+				if !isImport && data.ActiveForwardProxyPolicies != nil && !data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
+					data.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesExisting, false)
+				}
 				if rawList, ok := blockData["forward_proxy_policies"].([]interface{}); ok && len(rawList) > 0 {
 					var ForwardProxyPoliciesResult []ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel
-					for _, ForwardProxyPoliciesItem := range rawList {
+					for ForwardProxyPoliciesIdx, ForwardProxyPoliciesItem := range rawList {
+						_ = ForwardProxyPoliciesIdx
 						if ForwardProxyPoliciesItemMap, ok := ForwardProxyPoliciesItem.(map[string]interface{}); ok {
 							ForwardProxyPoliciesResult = append(ForwardProxyPoliciesResult, ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel{
 								Name: func() types.String {
@@ -5152,18 +5157,30 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if HTTPProxyData, ok := blockData["http_proxy"].(map[string]interface{}); ok {
 					return &ProxyDynamicProxyHTTPProxyModel{
 						MoreOption: func() *ProxyDynamicProxyHTTPProxyMoreOptionModel {
+							if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+								return data.DynamicProxy.HTTPProxy.MoreOption
+							}
 							if MoreOptionData, ok := HTTPProxyData["more_option"].(map[string]interface{}); ok {
 								return &ProxyDynamicProxyHTTPProxyMoreOptionModel{
 									BufferPolicy: func() *ProxyDynamicProxyHTTPProxyMoreOptionBufferPolicyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy != nil {
+											return data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy
+										}
 										if BufferPolicyData, ok := MoreOptionData["buffer_policy"].(map[string]interface{}); ok {
 											return &ProxyDynamicProxyHTTPProxyMoreOptionBufferPolicyModel{
 												Disabled: func() types.Bool {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy != nil && !data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.Disabled.IsUnknown() {
+														return data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.Disabled
+													}
 													if v, ok := BufferPolicyData["disabled"].(bool); ok {
 														return types.BoolValue(v)
 													}
 													return types.BoolNull()
 												}(),
 												MaxRequestBytes: func() types.Int64 {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy != nil && !data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes.IsUnknown() {
+														return data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes
+													}
 													if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
 														return types.Int64Value(int64(v))
 													}
@@ -5174,9 +5191,15 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										return nil
 									}(),
 									CompressionParams: func() *ProxyDynamicProxyHTTPProxyMoreOptionCompressionParamsModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams != nil {
+											return data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams
+										}
 										if CompressionParamsData, ok := MoreOptionData["compression_params"].(map[string]interface{}); ok {
 											return &ProxyDynamicProxyHTTPProxyMoreOptionCompressionParamsModel{
 												ContentLength: func() types.Int64 {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams != nil && !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentLength.IsUnknown() {
+														return data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentLength
+													}
 													if v, ok := CompressionParamsData["content_length"].(float64); ok && v != 0 {
 														return types.Int64Value(int64(v))
 													}
@@ -5196,12 +5219,18 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 													return types.ListNull(types.StringType)
 												}(),
 												DisableOnEtagHeader: func() types.Bool {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams != nil && !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader.IsUnknown() {
+														return data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader
+													}
 													if v, ok := CompressionParamsData["disable_on_etag_header"].(bool); ok {
 														return types.BoolValue(v)
 													}
 													return types.BoolNull()
 												}(),
 												RemoveAcceptEncodingHeader: func() types.Bool {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams != nil && !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.IsUnknown() {
+														return data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader
+													}
 													if v, ok := CompressionParamsData["remove_accept_encoding_header"].(bool); ok {
 														return types.BoolValue(v)
 													}
@@ -5212,57 +5241,89 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										return nil
 									}(),
 									CustomErrors: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors
+										}
 										if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									DisableDefaultErrorPages: func() types.Bool {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
+											return data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages
+										}
 										if v, ok := MoreOptionData["disable_default_error_pages"].(bool); ok {
 											return types.BoolValue(v)
 										}
 										return types.BoolNull()
 									}(),
 									DisablePathNormalize: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPProxy.MoreOption.DisablePathNormalize
+										}
 										if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									EnablePathNormalize: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPProxy.MoreOption.EnablePathNormalize
+										}
 										if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									IdleTimeout: func() types.Int64 {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.IdleTimeout.IsUnknown() {
+											return data.DynamicProxy.HTTPProxy.MoreOption.IdleTimeout
+										}
 										if v, ok := MoreOptionData["idle_timeout"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									MaxRequestHeaderSize: func() types.Int64 {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestHeaderSize.IsUnknown() {
+											return data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestHeaderSize
+										}
 										if v, ok := MoreOptionData["max_request_header_size"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									MaxRequestsPerConnection: func() types.Int64 {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestsPerConnection.IsUnknown() {
+											return data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestsPerConnection
+										}
 										if v, ok := MoreOptionData["max_requests_per_connection"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									NoRequestLimitPerConnection: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPProxy.MoreOption.NoRequestLimitPerConnection
+										}
 										if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									RequestCookiesToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && (data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.IsNull() || len(data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddModelAttrTypes})
+										}
+										var RequestCookiesToAddExisting []ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.ElementsAs(ctx, &RequestCookiesToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var RequestCookiesToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddModel
-											for _, RequestCookiesToAddItem := range rawList {
+											for RequestCookiesToAddIdx, RequestCookiesToAddItem := range rawList {
+												_ = RequestCookiesToAddIdx
 												if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
 													RequestCookiesToAddResult = append(RequestCookiesToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddModel{
 														Name: func() types.String {
@@ -5281,6 +5342,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -5306,6 +5370,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -5356,9 +5423,17 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										return types.ListNull(types.StringType)
 									}(),
 									RequestHeadersToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && (data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToAdd.IsNull() || len(data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddModelAttrTypes})
+										}
+										var RequestHeadersToAddExisting []ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToAdd.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToAdd.ElementsAs(ctx, &RequestHeadersToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var RequestHeadersToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddModel
-											for _, RequestHeadersToAddItem := range rawList {
+											for RequestHeadersToAddIdx, RequestHeadersToAddItem := range rawList {
+												_ = RequestHeadersToAddIdx
 												if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
 													RequestHeadersToAddResult = append(RequestHeadersToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddModel{
 														Append: func() types.Bool {
@@ -5377,6 +5452,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -5402,6 +5480,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -5452,9 +5533,17 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										return types.ListNull(types.StringType)
 									}(),
 									ResponseCookiesToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && (data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToAdd.IsNull() || len(data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModelAttrTypes})
+										}
+										var ResponseCookiesToAddExisting []ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToAdd.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToAdd.ElementsAs(ctx, &ResponseCookiesToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var ResponseCookiesToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModel
-											for _, ResponseCookiesToAddItem := range rawList {
+											for ResponseCookiesToAddIdx, ResponseCookiesToAddItem := range rawList {
+												_ = ResponseCookiesToAddIdx
 												if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
 													ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModel{
 														AddDomain: func() types.String {
@@ -5470,12 +5559,18 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														AddHttponly: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														AddPartitioned: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -5488,60 +5583,90 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														AddSecure: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreDomain: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreExpiry: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreHttponly: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreMaxAge: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnorePartitioned: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnorePath: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreSamesite: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreSecure: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreValue: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -5566,18 +5691,27 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.BoolNull()
 														}(),
 														SamesiteLax: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														SamesiteNone: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														SamesiteStrict: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -5587,6 +5721,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -5612,6 +5749,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -5662,9 +5802,17 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										return types.ListNull(types.StringType)
 									}(),
 									ResponseHeadersToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && (data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToAdd.IsNull() || len(data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddModelAttrTypes})
+										}
+										var ResponseHeadersToAddExisting []ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToAdd.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToAdd.ElementsAs(ctx, &ResponseHeadersToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var ResponseHeadersToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddModel
-											for _, ResponseHeadersToAddItem := range rawList {
+											for ResponseHeadersToAddIdx, ResponseHeadersToAddItem := range rawList {
+												_ = ResponseHeadersToAddIdx
 												if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
 													ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddModel{
 														Append: func() types.Bool {
@@ -5683,6 +5831,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -5708,6 +5859,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -5769,18 +5923,30 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if HTTPSProxyData, ok := blockData["https_proxy"].(map[string]interface{}); ok {
 					return &ProxyDynamicProxyHTTPSProxyModel{
 						MoreOption: func() *ProxyDynamicProxyHTTPSProxyMoreOptionModel {
+							if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+								return data.DynamicProxy.HTTPSProxy.MoreOption
+							}
 							if MoreOptionData, ok := HTTPSProxyData["more_option"].(map[string]interface{}); ok {
 								return &ProxyDynamicProxyHTTPSProxyMoreOptionModel{
 									BufferPolicy: func() *ProxyDynamicProxyHTTPSProxyMoreOptionBufferPolicyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy != nil {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy
+										}
 										if BufferPolicyData, ok := MoreOptionData["buffer_policy"].(map[string]interface{}); ok {
 											return &ProxyDynamicProxyHTTPSProxyMoreOptionBufferPolicyModel{
 												Disabled: func() types.Bool {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.Disabled.IsUnknown() {
+														return data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.Disabled
+													}
 													if v, ok := BufferPolicyData["disabled"].(bool); ok {
 														return types.BoolValue(v)
 													}
 													return types.BoolNull()
 												}(),
 												MaxRequestBytes: func() types.Int64 {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.MaxRequestBytes.IsUnknown() {
+														return data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.MaxRequestBytes
+													}
 													if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
 														return types.Int64Value(int64(v))
 													}
@@ -5791,9 +5957,15 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										return nil
 									}(),
 									CompressionParams: func() *ProxyDynamicProxyHTTPSProxyMoreOptionCompressionParamsModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams != nil {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams
+										}
 										if CompressionParamsData, ok := MoreOptionData["compression_params"].(map[string]interface{}); ok {
 											return &ProxyDynamicProxyHTTPSProxyMoreOptionCompressionParamsModel{
 												ContentLength: func() types.Int64 {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentLength.IsUnknown() {
+														return data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentLength
+													}
 													if v, ok := CompressionParamsData["content_length"].(float64); ok && v != 0 {
 														return types.Int64Value(int64(v))
 													}
@@ -5813,12 +5985,18 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 													return types.ListNull(types.StringType)
 												}(),
 												DisableOnEtagHeader: func() types.Bool {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.DisableOnEtagHeader.IsUnknown() {
+														return data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.DisableOnEtagHeader
+													}
 													if v, ok := CompressionParamsData["disable_on_etag_header"].(bool); ok {
 														return types.BoolValue(v)
 													}
 													return types.BoolNull()
 												}(),
 												RemoveAcceptEncodingHeader: func() types.Bool {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.IsUnknown() {
+														return data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader
+													}
 													if v, ok := CompressionParamsData["remove_accept_encoding_header"].(bool); ok {
 														return types.BoolValue(v)
 													}
@@ -5829,57 +6007,89 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										return nil
 									}(),
 									CustomErrors: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors
+										}
 										if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									DisableDefaultErrorPages: func() types.Bool {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages
+										}
 										if v, ok := MoreOptionData["disable_default_error_pages"].(bool); ok {
 											return types.BoolValue(v)
 										}
 										return types.BoolNull()
 									}(),
 									DisablePathNormalize: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.DisablePathNormalize
+										}
 										if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									EnablePathNormalize: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.EnablePathNormalize
+										}
 										if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									IdleTimeout: func() types.Int64 {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.IdleTimeout.IsUnknown() {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.IdleTimeout
+										}
 										if v, ok := MoreOptionData["idle_timeout"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									MaxRequestHeaderSize: func() types.Int64 {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestHeaderSize.IsUnknown() {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestHeaderSize
+										}
 										if v, ok := MoreOptionData["max_request_header_size"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									MaxRequestsPerConnection: func() types.Int64 {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestsPerConnection.IsUnknown() {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestsPerConnection
+										}
 										if v, ok := MoreOptionData["max_requests_per_connection"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									NoRequestLimitPerConnection: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.NoRequestLimitPerConnection
+										}
 										if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									RequestCookiesToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && (data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.IsNull() || len(data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddModelAttrTypes})
+										}
+										var RequestCookiesToAddExisting []ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.ElementsAs(ctx, &RequestCookiesToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var RequestCookiesToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddModel
-											for _, RequestCookiesToAddItem := range rawList {
+											for RequestCookiesToAddIdx, RequestCookiesToAddItem := range rawList {
+												_ = RequestCookiesToAddIdx
 												if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
 													RequestCookiesToAddResult = append(RequestCookiesToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddModel{
 														Name: func() types.String {
@@ -5898,6 +6108,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -5923,6 +6136,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -5973,9 +6189,17 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										return types.ListNull(types.StringType)
 									}(),
 									RequestHeadersToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && (data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToAdd.IsNull() || len(data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddModelAttrTypes})
+										}
+										var RequestHeadersToAddExisting []ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToAdd.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToAdd.ElementsAs(ctx, &RequestHeadersToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var RequestHeadersToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddModel
-											for _, RequestHeadersToAddItem := range rawList {
+											for RequestHeadersToAddIdx, RequestHeadersToAddItem := range rawList {
+												_ = RequestHeadersToAddIdx
 												if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
 													RequestHeadersToAddResult = append(RequestHeadersToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddModel{
 														Append: func() types.Bool {
@@ -5994,6 +6218,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -6019,6 +6246,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -6069,9 +6299,17 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										return types.ListNull(types.StringType)
 									}(),
 									ResponseCookiesToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && (data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToAdd.IsNull() || len(data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModelAttrTypes})
+										}
+										var ResponseCookiesToAddExisting []ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToAdd.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToAdd.ElementsAs(ctx, &ResponseCookiesToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var ResponseCookiesToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModel
-											for _, ResponseCookiesToAddItem := range rawList {
+											for ResponseCookiesToAddIdx, ResponseCookiesToAddItem := range rawList {
+												_ = ResponseCookiesToAddIdx
 												if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
 													ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModel{
 														AddDomain: func() types.String {
@@ -6087,12 +6325,18 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														AddHttponly: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														AddPartitioned: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -6105,60 +6349,90 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														AddSecure: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreDomain: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreExpiry: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreHttponly: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreMaxAge: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnorePartitioned: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnorePath: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreSamesite: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreSecure: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreValue: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -6183,18 +6457,27 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.BoolNull()
 														}(),
 														SamesiteLax: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														SamesiteNone: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														SamesiteStrict: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -6204,6 +6487,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -6229,6 +6515,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -6279,9 +6568,17 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										return types.ListNull(types.StringType)
 									}(),
 									ResponseHeadersToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && (data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToAdd.IsNull() || len(data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddModelAttrTypes})
+										}
+										var ResponseHeadersToAddExisting []ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToAdd.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToAdd.ElementsAs(ctx, &ResponseHeadersToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var ResponseHeadersToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddModel
-											for _, ResponseHeadersToAddItem := range rawList {
+											for ResponseHeadersToAddIdx, ResponseHeadersToAddItem := range rawList {
+												_ = ResponseHeadersToAddIdx
 												if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
 													ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddModel{
 														Append: func() types.Bool {
@@ -6300,6 +6597,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -6325,6 +6625,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -6382,15 +6685,26 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							if TLSParamsData, ok := HTTPSProxyData["tls_params"].(map[string]interface{}); ok {
 								return &ProxyDynamicProxyHTTPSProxyTLSParamsModel{
 									NoMtls: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil {
+											return data.DynamicProxy.HTTPSProxy.TLSParams.NoMtls
+										}
 										if _, ok := TLSParamsData["no_mtls"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									TLSCertificates: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && (data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.IsNull() || len(data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModelAttrTypes})
+										}
+										var TLSCertificatesExisting []ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.IsUnknown() {
+											data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+										}
 										if rawList, ok := TLSParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var TLSCertificatesResult []ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModel
-											for _, TLSCertificatesItem := range rawList {
+											for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+												_ = TLSCertificatesIdx
 												if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 													TLSCertificatesResult = append(TLSCertificatesResult, ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModel{
 														CertificateURL: func() types.String {
@@ -6426,6 +6740,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														DisableOCSPStapling: func() *ProxyEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -6435,6 +6752,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -6460,6 +6780,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -6483,6 +6806,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														UseSystemDefaults: func() *ProxyEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -6497,9 +6823,15 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModelAttrTypes})
 									}(),
 									TLSConfig: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil {
+											return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig
+										}
 										if TLSConfigData, ok := TLSParamsData["tls_config"].(map[string]interface{}); ok {
 											return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigModel{
 												CustomSecurity: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigCustomSecurityModel {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity != nil {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity
+													}
 													if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 														return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigCustomSecurityModel{
 															CipherSuites: func() types.List {
@@ -6532,18 +6864,27 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 													return nil
 												}(),
 												DefaultSecurity: func() *ProxyEmptyModel {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.DefaultSecurity
+													}
 													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 														return &ProxyEmptyModel{}
 													}
 													return nil
 												}(),
 												LowSecurity: func() *ProxyEmptyModel {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.LowSecurity
+													}
 													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 														return &ProxyEmptyModel{}
 													}
 													return nil
 												}(),
 												MediumSecurity: func() *ProxyEmptyModel {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.MediumSecurity
+													}
 													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 														return &ProxyEmptyModel{}
 													}
@@ -6557,6 +6898,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										if UseMtlsData, ok := TLSParamsData["use_mtls"].(map[string]interface{}); ok {
 											return &ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsModel{
 												ClientCertificateOptional: func() types.Bool {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.ClientCertificateOptional.IsUnknown() {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.ClientCertificateOptional
+													}
 													if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 														return types.BoolValue(v)
 													}
@@ -6588,6 +6932,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 													return nil
 												}(),
 												NoCRL: func() *ProxyEmptyModel {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.NoCRL
+													}
 													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 														return &ProxyEmptyModel{}
 													}
@@ -6625,12 +6972,18 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 													return types.StringNull()
 												}(),
 												XfccDisabled: func() *ProxyEmptyModel {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccDisabled
+													}
 													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 														return &ProxyEmptyModel{}
 													}
 													return nil
 												}(),
 												XfccOptions: func() *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsXfccOptionsModel {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions != nil {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions
+													}
 													if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 														return &ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsXfccOptionsModel{
 															XfccHeaderElements: func() types.List {
@@ -6669,6 +7022,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if SniProxyData, ok := blockData["sni_proxy"].(map[string]interface{}); ok {
 					return &ProxyDynamicProxySniProxyModel{
 						IdleTimeout: func() types.Int64 {
+							if !isImport && data.DynamicProxy != nil && data.DynamicProxy.SniProxy != nil && !data.DynamicProxy.SniProxy.IdleTimeout.IsUnknown() {
+								return data.DynamicProxy.SniProxy.IdleTimeout
+							}
 							if v, ok := SniProxyData["idle_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -6698,15 +7054,24 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if MoreOptionData, ok := blockData["more_option"].(map[string]interface{}); ok {
 					return &ProxyHTTPProxyMoreOptionModel{
 						BufferPolicy: func() *ProxyHTTPProxyMoreOptionBufferPolicyModel {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && data.HTTPProxy.MoreOption.BufferPolicy != nil {
+								return data.HTTPProxy.MoreOption.BufferPolicy
+							}
 							if BufferPolicyData, ok := MoreOptionData["buffer_policy"].(map[string]interface{}); ok {
 								return &ProxyHTTPProxyMoreOptionBufferPolicyModel{
 									Disabled: func() types.Bool {
+										if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && data.HTTPProxy.MoreOption.BufferPolicy != nil && !data.HTTPProxy.MoreOption.BufferPolicy.Disabled.IsUnknown() {
+											return data.HTTPProxy.MoreOption.BufferPolicy.Disabled
+										}
 										if v, ok := BufferPolicyData["disabled"].(bool); ok {
 											return types.BoolValue(v)
 										}
 										return types.BoolNull()
 									}(),
 									MaxRequestBytes: func() types.Int64 {
+										if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && data.HTTPProxy.MoreOption.BufferPolicy != nil && !data.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes.IsUnknown() {
+											return data.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes
+										}
 										if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -6717,9 +7082,15 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							return nil
 						}(),
 						CompressionParams: func() *ProxyHTTPProxyMoreOptionCompressionParamsModel {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && data.HTTPProxy.MoreOption.CompressionParams != nil {
+								return data.HTTPProxy.MoreOption.CompressionParams
+							}
 							if CompressionParamsData, ok := MoreOptionData["compression_params"].(map[string]interface{}); ok {
 								return &ProxyHTTPProxyMoreOptionCompressionParamsModel{
 									ContentLength: func() types.Int64 {
+										if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && data.HTTPProxy.MoreOption.CompressionParams != nil && !data.HTTPProxy.MoreOption.CompressionParams.ContentLength.IsUnknown() {
+											return data.HTTPProxy.MoreOption.CompressionParams.ContentLength
+										}
 										if v, ok := CompressionParamsData["content_length"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -6739,12 +7110,18 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										return types.ListNull(types.StringType)
 									}(),
 									DisableOnEtagHeader: func() types.Bool {
+										if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && data.HTTPProxy.MoreOption.CompressionParams != nil && !data.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader.IsUnknown() {
+											return data.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader
+										}
 										if v, ok := CompressionParamsData["disable_on_etag_header"].(bool); ok {
 											return types.BoolValue(v)
 										}
 										return types.BoolNull()
 									}(),
 									RemoveAcceptEncodingHeader: func() types.Bool {
+										if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && data.HTTPProxy.MoreOption.CompressionParams != nil && !data.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.IsUnknown() {
+											return data.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader
+										}
 										if v, ok := CompressionParamsData["remove_accept_encoding_header"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -6755,57 +7132,89 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							return nil
 						}(),
 						CustomErrors: func() *ProxyEmptyModel {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+								return data.HTTPProxy.MoreOption.CustomErrors
+							}
 							if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
 								return &ProxyEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableDefaultErrorPages: func() types.Bool {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
+								return data.HTTPProxy.MoreOption.DisableDefaultErrorPages
+							}
 							if v, ok := MoreOptionData["disable_default_error_pages"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
 						DisablePathNormalize: func() *ProxyEmptyModel {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+								return data.HTTPProxy.MoreOption.DisablePathNormalize
+							}
 							if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
 								return &ProxyEmptyModel{}
 							}
 							return nil
 						}(),
 						EnablePathNormalize: func() *ProxyEmptyModel {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+								return data.HTTPProxy.MoreOption.EnablePathNormalize
+							}
 							if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
 								return &ProxyEmptyModel{}
 							}
 							return nil
 						}(),
 						IdleTimeout: func() types.Int64 {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.IdleTimeout.IsUnknown() {
+								return data.HTTPProxy.MoreOption.IdleTimeout
+							}
 							if v, ok := MoreOptionData["idle_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxRequestHeaderSize: func() types.Int64 {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.MaxRequestHeaderSize.IsUnknown() {
+								return data.HTTPProxy.MoreOption.MaxRequestHeaderSize
+							}
 							if v, ok := MoreOptionData["max_request_header_size"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxRequestsPerConnection: func() types.Int64 {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.MaxRequestsPerConnection.IsUnknown() {
+								return data.HTTPProxy.MoreOption.MaxRequestsPerConnection
+							}
 							if v, ok := MoreOptionData["max_requests_per_connection"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						NoRequestLimitPerConnection: func() *ProxyEmptyModel {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+								return data.HTTPProxy.MoreOption.NoRequestLimitPerConnection
+							}
 							if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
 								return &ProxyEmptyModel{}
 							}
 							return nil
 						}(),
 						RequestCookiesToAdd: func() types.List {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && (data.HTTPProxy.MoreOption.RequestCookiesToAdd.IsNull() || len(data.HTTPProxy.MoreOption.RequestCookiesToAdd.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProxyHTTPProxyMoreOptionRequestCookiesToAddModelAttrTypes})
+							}
+							var RequestCookiesToAddExisting []ProxyHTTPProxyMoreOptionRequestCookiesToAddModel
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.RequestCookiesToAdd.IsNull() && !data.HTTPProxy.MoreOption.RequestCookiesToAdd.IsUnknown() {
+								data.HTTPProxy.MoreOption.RequestCookiesToAdd.ElementsAs(ctx, &RequestCookiesToAddExisting, false)
+							}
 							if rawList, ok := MoreOptionData["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var RequestCookiesToAddResult []ProxyHTTPProxyMoreOptionRequestCookiesToAddModel
-								for _, RequestCookiesToAddItem := range rawList {
+								for RequestCookiesToAddIdx, RequestCookiesToAddItem := range rawList {
+									_ = RequestCookiesToAddIdx
 									if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
 										RequestCookiesToAddResult = append(RequestCookiesToAddResult, ProxyHTTPProxyMoreOptionRequestCookiesToAddModel{
 											Name: func() types.String {
@@ -6824,6 +7233,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 													return &ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueModel{
 														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+															if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -6849,6 +7261,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel {
+															if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+																return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -6899,9 +7314,17 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							return types.ListNull(types.StringType)
 						}(),
 						RequestHeadersToAdd: func() types.List {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && (data.HTTPProxy.MoreOption.RequestHeadersToAdd.IsNull() || len(data.HTTPProxy.MoreOption.RequestHeadersToAdd.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProxyHTTPProxyMoreOptionRequestHeadersToAddModelAttrTypes})
+							}
+							var RequestHeadersToAddExisting []ProxyHTTPProxyMoreOptionRequestHeadersToAddModel
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.RequestHeadersToAdd.IsNull() && !data.HTTPProxy.MoreOption.RequestHeadersToAdd.IsUnknown() {
+								data.HTTPProxy.MoreOption.RequestHeadersToAdd.ElementsAs(ctx, &RequestHeadersToAddExisting, false)
+							}
 							if rawList, ok := MoreOptionData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var RequestHeadersToAddResult []ProxyHTTPProxyMoreOptionRequestHeadersToAddModel
-								for _, RequestHeadersToAddItem := range rawList {
+								for RequestHeadersToAddIdx, RequestHeadersToAddItem := range rawList {
+									_ = RequestHeadersToAddIdx
 									if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
 										RequestHeadersToAddResult = append(RequestHeadersToAddResult, ProxyHTTPProxyMoreOptionRequestHeadersToAddModel{
 											Append: func() types.Bool {
@@ -6920,6 +7343,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 													return &ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueModel{
 														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+															if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -6945,6 +7371,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel {
+															if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -6995,9 +7424,17 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							return types.ListNull(types.StringType)
 						}(),
 						ResponseCookiesToAdd: func() types.List {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && (data.HTTPProxy.MoreOption.ResponseCookiesToAdd.IsNull() || len(data.HTTPProxy.MoreOption.ResponseCookiesToAdd.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProxyHTTPProxyMoreOptionResponseCookiesToAddModelAttrTypes})
+							}
+							var ResponseCookiesToAddExisting []ProxyHTTPProxyMoreOptionResponseCookiesToAddModel
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.ResponseCookiesToAdd.IsNull() && !data.HTTPProxy.MoreOption.ResponseCookiesToAdd.IsUnknown() {
+								data.HTTPProxy.MoreOption.ResponseCookiesToAdd.ElementsAs(ctx, &ResponseCookiesToAddExisting, false)
+							}
 							if rawList, ok := MoreOptionData["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var ResponseCookiesToAddResult []ProxyHTTPProxyMoreOptionResponseCookiesToAddModel
-								for _, ResponseCookiesToAddItem := range rawList {
+								for ResponseCookiesToAddIdx, ResponseCookiesToAddItem := range rawList {
+									_ = ResponseCookiesToAddIdx
 									if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
 										ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, ProxyHTTPProxyMoreOptionResponseCookiesToAddModel{
 											AddDomain: func() types.String {
@@ -7013,12 +7450,18 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return types.StringNull()
 											}(),
 											AddHttponly: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											AddPartitioned: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
@@ -7031,60 +7474,90 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return types.StringNull()
 											}(),
 											AddSecure: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnoreDomain: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnoreExpiry: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnoreHttponly: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnoreMaxAge: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnorePartitioned: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnorePath: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnoreSamesite: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnoreSecure: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnoreValue: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
@@ -7109,18 +7582,27 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return types.BoolNull()
 											}(),
 											SamesiteLax: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											SamesiteNone: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											SamesiteStrict: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
@@ -7130,6 +7612,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 													return &ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel{
 														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -7155,6 +7640,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -7205,9 +7693,17 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							return types.ListNull(types.StringType)
 						}(),
 						ResponseHeadersToAdd: func() types.List {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && (data.HTTPProxy.MoreOption.ResponseHeadersToAdd.IsNull() || len(data.HTTPProxy.MoreOption.ResponseHeadersToAdd.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProxyHTTPProxyMoreOptionResponseHeadersToAddModelAttrTypes})
+							}
+							var ResponseHeadersToAddExisting []ProxyHTTPProxyMoreOptionResponseHeadersToAddModel
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.ResponseHeadersToAdd.IsNull() && !data.HTTPProxy.MoreOption.ResponseHeadersToAdd.IsUnknown() {
+								data.HTTPProxy.MoreOption.ResponseHeadersToAdd.ElementsAs(ctx, &ResponseHeadersToAddExisting, false)
+							}
 							if rawList, ok := MoreOptionData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var ResponseHeadersToAddResult []ProxyHTTPProxyMoreOptionResponseHeadersToAddModel
-								for _, ResponseHeadersToAddItem := range rawList {
+								for ResponseHeadersToAddIdx, ResponseHeadersToAddItem := range rawList {
+									_ = ResponseHeadersToAddIdx
 									if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
 										ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, ProxyHTTPProxyMoreOptionResponseHeadersToAddModel{
 											Append: func() types.Bool {
@@ -7226,6 +7722,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 													return &ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueModel{
 														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+															if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -7251,6 +7750,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel {
+															if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -7324,9 +7826,14 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !isImport && data.SiteVirtualSites != nil && (data.SiteVirtualSites.AdvertiseWhere.IsNull() || len(data.SiteVirtualSites.AdvertiseWhere.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ProxySiteVirtualSitesAdvertiseWhereModelAttrTypes})
 				}
+				var AdvertiseWhereExisting []ProxySiteVirtualSitesAdvertiseWhereModel
+				if !isImport && data.SiteVirtualSites != nil && !data.SiteVirtualSites.AdvertiseWhere.IsNull() && !data.SiteVirtualSites.AdvertiseWhere.IsUnknown() {
+					data.SiteVirtualSites.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereExisting, false)
+				}
 				if rawList, ok := blockData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
 					var AdvertiseWhereResult []ProxySiteVirtualSitesAdvertiseWhereModel
-					for _, AdvertiseWhereItem := range rawList {
+					for AdvertiseWhereIdx, AdvertiseWhereItem := range rawList {
+						_ = AdvertiseWhereIdx
 						if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
 							AdvertiseWhereResult = append(AdvertiseWhereResult, ProxySiteVirtualSitesAdvertiseWhereModel{
 								Port: func() types.Int64 {
@@ -7380,6 +7887,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return nil
 								}(),
 								UseDefaultPort: func() *ProxyEmptyModel {
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
+										return &ProxyEmptyModel{}
+									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &ProxyEmptyModel{}
 									}
@@ -7448,6 +7958,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							return types.StringNull()
 						}(),
 						CustomHashAlgorithms: func() *ProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel {
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil && data.TLSIntercept.CustomCertificate.CustomHashAlgorithms != nil {
+								return data.TLSIntercept.CustomCertificate.CustomHashAlgorithms
+							}
 							if CustomHashAlgorithmsData, ok := CustomCertificateData["custom_hash_algorithms"].(map[string]interface{}); ok {
 								return &ProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel{
 									HashAlgorithms: func() types.List {
@@ -7474,15 +7987,24 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							return types.StringNull()
 						}(),
 						DisableOCSPStapling: func() *ProxyEmptyModel {
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil {
+								return data.TLSIntercept.CustomCertificate.DisableOCSPStapling
+							}
 							if _, ok := CustomCertificateData["disable_ocsp_stapling"].(map[string]interface{}); ok {
 								return &ProxyEmptyModel{}
 							}
 							return nil
 						}(),
 						PrivateKey: func() *ProxyTLSInterceptCustomCertificatePrivateKeyModel {
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil && data.TLSIntercept.CustomCertificate.PrivateKey != nil {
+								return data.TLSIntercept.CustomCertificate.PrivateKey
+							}
 							if PrivateKeyData, ok := CustomCertificateData["private_key"].(map[string]interface{}); ok {
 								return &ProxyTLSInterceptCustomCertificatePrivateKeyModel{
 									BlindfoldSecretInfo: func() *ProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel {
+										if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil && data.TLSIntercept.CustomCertificate.PrivateKey != nil && data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo != nil {
+											return data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &ProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -7508,6 +8030,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										return nil
 									}(),
 									ClearSecretInfo: func() *ProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel {
+										if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil && data.TLSIntercept.CustomCertificate.PrivateKey != nil && data.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo != nil {
+											return data.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 											return &ProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel{
 												Provider: func() types.String {
@@ -7531,6 +8056,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							return nil
 						}(),
 						UseSystemDefaults: func() *ProxyEmptyModel {
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil {
+								return data.TLSIntercept.CustomCertificate.UseSystemDefaults
+							}
 							if _, ok := CustomCertificateData["use_system_defaults"].(map[string]interface{}); ok {
 								return &ProxyEmptyModel{}
 							}
@@ -7556,12 +8084,23 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if PolicyData, ok := blockData["policy"].(map[string]interface{}); ok {
 					return &ProxyTLSInterceptPolicyModel{
 						InterceptionRules: func() types.List {
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.Policy != nil && (data.TLSIntercept.Policy.InterceptionRules.IsNull() || len(data.TLSIntercept.Policy.InterceptionRules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProxyTLSInterceptPolicyInterceptionRulesModelAttrTypes})
+							}
+							var InterceptionRulesExisting []ProxyTLSInterceptPolicyInterceptionRulesModel
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.Policy != nil && !data.TLSIntercept.Policy.InterceptionRules.IsNull() && !data.TLSIntercept.Policy.InterceptionRules.IsUnknown() {
+								data.TLSIntercept.Policy.InterceptionRules.ElementsAs(ctx, &InterceptionRulesExisting, false)
+							}
 							if rawList, ok := PolicyData["interception_rules"].([]interface{}); ok && len(rawList) > 0 {
 								var InterceptionRulesResult []ProxyTLSInterceptPolicyInterceptionRulesModel
-								for _, InterceptionRulesItem := range rawList {
+								for InterceptionRulesIdx, InterceptionRulesItem := range rawList {
+									_ = InterceptionRulesIdx
 									if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
 										InterceptionRulesResult = append(InterceptionRulesResult, ProxyTLSInterceptPolicyInterceptionRulesModel{
 											DisableInterception: func() *ProxyEmptyModel {
+												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
@@ -7593,6 +8132,9 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return nil
 											}(),
 											EnableInterception: func() *ProxyEmptyModel {
+												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
@@ -7740,9 +8282,14 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				if !isImport && data.ActiveForwardProxyPolicies != nil && (data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() || len(data.ActiveForwardProxyPolicies.ForwardProxyPolicies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
 				}
+				var ForwardProxyPoliciesExisting []ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel
+				if !isImport && data.ActiveForwardProxyPolicies != nil && !data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
+					data.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesExisting, false)
+				}
 				if rawList, ok := blockData["forward_proxy_policies"].([]interface{}); ok && len(rawList) > 0 {
 					var ForwardProxyPoliciesResult []ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel
-					for _, ForwardProxyPoliciesItem := range rawList {
+					for ForwardProxyPoliciesIdx, ForwardProxyPoliciesItem := range rawList {
+						_ = ForwardProxyPoliciesIdx
 						if ForwardProxyPoliciesItemMap, ok := ForwardProxyPoliciesItem.(map[string]interface{}); ok {
 							ForwardProxyPoliciesResult = append(ForwardProxyPoliciesResult, ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel{
 								Name: func() types.String {
@@ -7816,18 +8363,30 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				if HTTPProxyData, ok := blockData["http_proxy"].(map[string]interface{}); ok {
 					return &ProxyDynamicProxyHTTPProxyModel{
 						MoreOption: func() *ProxyDynamicProxyHTTPProxyMoreOptionModel {
+							if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+								return data.DynamicProxy.HTTPProxy.MoreOption
+							}
 							if MoreOptionData, ok := HTTPProxyData["more_option"].(map[string]interface{}); ok {
 								return &ProxyDynamicProxyHTTPProxyMoreOptionModel{
 									BufferPolicy: func() *ProxyDynamicProxyHTTPProxyMoreOptionBufferPolicyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy != nil {
+											return data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy
+										}
 										if BufferPolicyData, ok := MoreOptionData["buffer_policy"].(map[string]interface{}); ok {
 											return &ProxyDynamicProxyHTTPProxyMoreOptionBufferPolicyModel{
 												Disabled: func() types.Bool {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy != nil && !data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.Disabled.IsUnknown() {
+														return data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.Disabled
+													}
 													if v, ok := BufferPolicyData["disabled"].(bool); ok {
 														return types.BoolValue(v)
 													}
 													return types.BoolNull()
 												}(),
 												MaxRequestBytes: func() types.Int64 {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy != nil && !data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes.IsUnknown() {
+														return data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes
+													}
 													if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
 														return types.Int64Value(int64(v))
 													}
@@ -7838,9 +8397,15 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										return nil
 									}(),
 									CompressionParams: func() *ProxyDynamicProxyHTTPProxyMoreOptionCompressionParamsModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams != nil {
+											return data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams
+										}
 										if CompressionParamsData, ok := MoreOptionData["compression_params"].(map[string]interface{}); ok {
 											return &ProxyDynamicProxyHTTPProxyMoreOptionCompressionParamsModel{
 												ContentLength: func() types.Int64 {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams != nil && !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentLength.IsUnknown() {
+														return data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentLength
+													}
 													if v, ok := CompressionParamsData["content_length"].(float64); ok && v != 0 {
 														return types.Int64Value(int64(v))
 													}
@@ -7860,12 +8425,18 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 													return types.ListNull(types.StringType)
 												}(),
 												DisableOnEtagHeader: func() types.Bool {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams != nil && !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader.IsUnknown() {
+														return data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader
+													}
 													if v, ok := CompressionParamsData["disable_on_etag_header"].(bool); ok {
 														return types.BoolValue(v)
 													}
 													return types.BoolNull()
 												}(),
 												RemoveAcceptEncodingHeader: func() types.Bool {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams != nil && !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.IsUnknown() {
+														return data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader
+													}
 													if v, ok := CompressionParamsData["remove_accept_encoding_header"].(bool); ok {
 														return types.BoolValue(v)
 													}
@@ -7876,57 +8447,89 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										return nil
 									}(),
 									CustomErrors: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors
+										}
 										if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									DisableDefaultErrorPages: func() types.Bool {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
+											return data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages
+										}
 										if v, ok := MoreOptionData["disable_default_error_pages"].(bool); ok {
 											return types.BoolValue(v)
 										}
 										return types.BoolNull()
 									}(),
 									DisablePathNormalize: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPProxy.MoreOption.DisablePathNormalize
+										}
 										if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									EnablePathNormalize: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPProxy.MoreOption.EnablePathNormalize
+										}
 										if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									IdleTimeout: func() types.Int64 {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.IdleTimeout.IsUnknown() {
+											return data.DynamicProxy.HTTPProxy.MoreOption.IdleTimeout
+										}
 										if v, ok := MoreOptionData["idle_timeout"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									MaxRequestHeaderSize: func() types.Int64 {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestHeaderSize.IsUnknown() {
+											return data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestHeaderSize
+										}
 										if v, ok := MoreOptionData["max_request_header_size"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									MaxRequestsPerConnection: func() types.Int64 {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestsPerConnection.IsUnknown() {
+											return data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestsPerConnection
+										}
 										if v, ok := MoreOptionData["max_requests_per_connection"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									NoRequestLimitPerConnection: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPProxy.MoreOption.NoRequestLimitPerConnection
+										}
 										if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									RequestCookiesToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && (data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.IsNull() || len(data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddModelAttrTypes})
+										}
+										var RequestCookiesToAddExisting []ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.ElementsAs(ctx, &RequestCookiesToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var RequestCookiesToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddModel
-											for _, RequestCookiesToAddItem := range rawList {
+											for RequestCookiesToAddIdx, RequestCookiesToAddItem := range rawList {
+												_ = RequestCookiesToAddIdx
 												if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
 													RequestCookiesToAddResult = append(RequestCookiesToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddModel{
 														Name: func() types.String {
@@ -7945,6 +8548,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -7970,6 +8576,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -8020,9 +8629,17 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										return types.ListNull(types.StringType)
 									}(),
 									RequestHeadersToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && (data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToAdd.IsNull() || len(data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddModelAttrTypes})
+										}
+										var RequestHeadersToAddExisting []ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToAdd.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToAdd.ElementsAs(ctx, &RequestHeadersToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var RequestHeadersToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddModel
-											for _, RequestHeadersToAddItem := range rawList {
+											for RequestHeadersToAddIdx, RequestHeadersToAddItem := range rawList {
+												_ = RequestHeadersToAddIdx
 												if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
 													RequestHeadersToAddResult = append(RequestHeadersToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddModel{
 														Append: func() types.Bool {
@@ -8041,6 +8658,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -8066,6 +8686,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -8116,9 +8739,17 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										return types.ListNull(types.StringType)
 									}(),
 									ResponseCookiesToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && (data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToAdd.IsNull() || len(data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModelAttrTypes})
+										}
+										var ResponseCookiesToAddExisting []ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToAdd.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToAdd.ElementsAs(ctx, &ResponseCookiesToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var ResponseCookiesToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModel
-											for _, ResponseCookiesToAddItem := range rawList {
+											for ResponseCookiesToAddIdx, ResponseCookiesToAddItem := range rawList {
+												_ = ResponseCookiesToAddIdx
 												if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
 													ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModel{
 														AddDomain: func() types.String {
@@ -8134,12 +8765,18 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														AddHttponly: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														AddPartitioned: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -8152,60 +8789,90 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														AddSecure: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreDomain: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreExpiry: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreHttponly: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreMaxAge: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnorePartitioned: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnorePath: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreSamesite: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreSecure: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreValue: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -8230,18 +8897,27 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.BoolNull()
 														}(),
 														SamesiteLax: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														SamesiteNone: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														SamesiteStrict: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -8251,6 +8927,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -8276,6 +8955,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -8326,9 +9008,17 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										return types.ListNull(types.StringType)
 									}(),
 									ResponseHeadersToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && (data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToAdd.IsNull() || len(data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddModelAttrTypes})
+										}
+										var ResponseHeadersToAddExisting []ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToAdd.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToAdd.ElementsAs(ctx, &ResponseHeadersToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var ResponseHeadersToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddModel
-											for _, ResponseHeadersToAddItem := range rawList {
+											for ResponseHeadersToAddIdx, ResponseHeadersToAddItem := range rawList {
+												_ = ResponseHeadersToAddIdx
 												if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
 													ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddModel{
 														Append: func() types.Bool {
@@ -8347,6 +9037,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -8372,6 +9065,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -8433,18 +9129,30 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				if HTTPSProxyData, ok := blockData["https_proxy"].(map[string]interface{}); ok {
 					return &ProxyDynamicProxyHTTPSProxyModel{
 						MoreOption: func() *ProxyDynamicProxyHTTPSProxyMoreOptionModel {
+							if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+								return data.DynamicProxy.HTTPSProxy.MoreOption
+							}
 							if MoreOptionData, ok := HTTPSProxyData["more_option"].(map[string]interface{}); ok {
 								return &ProxyDynamicProxyHTTPSProxyMoreOptionModel{
 									BufferPolicy: func() *ProxyDynamicProxyHTTPSProxyMoreOptionBufferPolicyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy != nil {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy
+										}
 										if BufferPolicyData, ok := MoreOptionData["buffer_policy"].(map[string]interface{}); ok {
 											return &ProxyDynamicProxyHTTPSProxyMoreOptionBufferPolicyModel{
 												Disabled: func() types.Bool {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.Disabled.IsUnknown() {
+														return data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.Disabled
+													}
 													if v, ok := BufferPolicyData["disabled"].(bool); ok {
 														return types.BoolValue(v)
 													}
 													return types.BoolNull()
 												}(),
 												MaxRequestBytes: func() types.Int64 {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.MaxRequestBytes.IsUnknown() {
+														return data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.MaxRequestBytes
+													}
 													if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
 														return types.Int64Value(int64(v))
 													}
@@ -8455,9 +9163,15 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										return nil
 									}(),
 									CompressionParams: func() *ProxyDynamicProxyHTTPSProxyMoreOptionCompressionParamsModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams != nil {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams
+										}
 										if CompressionParamsData, ok := MoreOptionData["compression_params"].(map[string]interface{}); ok {
 											return &ProxyDynamicProxyHTTPSProxyMoreOptionCompressionParamsModel{
 												ContentLength: func() types.Int64 {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentLength.IsUnknown() {
+														return data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentLength
+													}
 													if v, ok := CompressionParamsData["content_length"].(float64); ok && v != 0 {
 														return types.Int64Value(int64(v))
 													}
@@ -8477,12 +9191,18 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 													return types.ListNull(types.StringType)
 												}(),
 												DisableOnEtagHeader: func() types.Bool {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.DisableOnEtagHeader.IsUnknown() {
+														return data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.DisableOnEtagHeader
+													}
 													if v, ok := CompressionParamsData["disable_on_etag_header"].(bool); ok {
 														return types.BoolValue(v)
 													}
 													return types.BoolNull()
 												}(),
 												RemoveAcceptEncodingHeader: func() types.Bool {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.IsUnknown() {
+														return data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader
+													}
 													if v, ok := CompressionParamsData["remove_accept_encoding_header"].(bool); ok {
 														return types.BoolValue(v)
 													}
@@ -8493,57 +9213,89 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										return nil
 									}(),
 									CustomErrors: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors
+										}
 										if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									DisableDefaultErrorPages: func() types.Bool {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages
+										}
 										if v, ok := MoreOptionData["disable_default_error_pages"].(bool); ok {
 											return types.BoolValue(v)
 										}
 										return types.BoolNull()
 									}(),
 									DisablePathNormalize: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.DisablePathNormalize
+										}
 										if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									EnablePathNormalize: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.EnablePathNormalize
+										}
 										if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									IdleTimeout: func() types.Int64 {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.IdleTimeout.IsUnknown() {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.IdleTimeout
+										}
 										if v, ok := MoreOptionData["idle_timeout"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									MaxRequestHeaderSize: func() types.Int64 {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestHeaderSize.IsUnknown() {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestHeaderSize
+										}
 										if v, ok := MoreOptionData["max_request_header_size"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									MaxRequestsPerConnection: func() types.Int64 {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestsPerConnection.IsUnknown() {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestsPerConnection
+										}
 										if v, ok := MoreOptionData["max_requests_per_connection"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									NoRequestLimitPerConnection: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.NoRequestLimitPerConnection
+										}
 										if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									RequestCookiesToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && (data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.IsNull() || len(data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddModelAttrTypes})
+										}
+										var RequestCookiesToAddExisting []ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.ElementsAs(ctx, &RequestCookiesToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var RequestCookiesToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddModel
-											for _, RequestCookiesToAddItem := range rawList {
+											for RequestCookiesToAddIdx, RequestCookiesToAddItem := range rawList {
+												_ = RequestCookiesToAddIdx
 												if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
 													RequestCookiesToAddResult = append(RequestCookiesToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddModel{
 														Name: func() types.String {
@@ -8562,6 +9314,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -8587,6 +9342,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -8637,9 +9395,17 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										return types.ListNull(types.StringType)
 									}(),
 									RequestHeadersToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && (data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToAdd.IsNull() || len(data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddModelAttrTypes})
+										}
+										var RequestHeadersToAddExisting []ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToAdd.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToAdd.ElementsAs(ctx, &RequestHeadersToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var RequestHeadersToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddModel
-											for _, RequestHeadersToAddItem := range rawList {
+											for RequestHeadersToAddIdx, RequestHeadersToAddItem := range rawList {
+												_ = RequestHeadersToAddIdx
 												if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
 													RequestHeadersToAddResult = append(RequestHeadersToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddModel{
 														Append: func() types.Bool {
@@ -8658,6 +9424,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -8683,6 +9452,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -8733,9 +9505,17 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										return types.ListNull(types.StringType)
 									}(),
 									ResponseCookiesToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && (data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToAdd.IsNull() || len(data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModelAttrTypes})
+										}
+										var ResponseCookiesToAddExisting []ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToAdd.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToAdd.ElementsAs(ctx, &ResponseCookiesToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var ResponseCookiesToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModel
-											for _, ResponseCookiesToAddItem := range rawList {
+											for ResponseCookiesToAddIdx, ResponseCookiesToAddItem := range rawList {
+												_ = ResponseCookiesToAddIdx
 												if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
 													ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModel{
 														AddDomain: func() types.String {
@@ -8751,12 +9531,18 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														AddHttponly: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														AddPartitioned: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -8769,60 +9555,90 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														AddSecure: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreDomain: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreExpiry: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreHttponly: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreMaxAge: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnorePartitioned: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnorePath: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreSamesite: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreSecure: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreValue: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -8847,18 +9663,27 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.BoolNull()
 														}(),
 														SamesiteLax: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														SamesiteNone: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														SamesiteStrict: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -8868,6 +9693,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -8893,6 +9721,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -8943,9 +9774,17 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										return types.ListNull(types.StringType)
 									}(),
 									ResponseHeadersToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && (data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToAdd.IsNull() || len(data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddModelAttrTypes})
+										}
+										var ResponseHeadersToAddExisting []ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToAdd.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToAdd.ElementsAs(ctx, &ResponseHeadersToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var ResponseHeadersToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddModel
-											for _, ResponseHeadersToAddItem := range rawList {
+											for ResponseHeadersToAddIdx, ResponseHeadersToAddItem := range rawList {
+												_ = ResponseHeadersToAddIdx
 												if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
 													ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddModel{
 														Append: func() types.Bool {
@@ -8964,6 +9803,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -8989,6 +9831,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -9046,15 +9891,26 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							if TLSParamsData, ok := HTTPSProxyData["tls_params"].(map[string]interface{}); ok {
 								return &ProxyDynamicProxyHTTPSProxyTLSParamsModel{
 									NoMtls: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil {
+											return data.DynamicProxy.HTTPSProxy.TLSParams.NoMtls
+										}
 										if _, ok := TLSParamsData["no_mtls"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									TLSCertificates: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && (data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.IsNull() || len(data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModelAttrTypes})
+										}
+										var TLSCertificatesExisting []ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.IsUnknown() {
+											data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+										}
 										if rawList, ok := TLSParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var TLSCertificatesResult []ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModel
-											for _, TLSCertificatesItem := range rawList {
+											for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+												_ = TLSCertificatesIdx
 												if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 													TLSCertificatesResult = append(TLSCertificatesResult, ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModel{
 														CertificateURL: func() types.String {
@@ -9090,6 +9946,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														DisableOCSPStapling: func() *ProxyEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -9099,6 +9958,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -9124,6 +9986,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -9147,6 +10012,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														UseSystemDefaults: func() *ProxyEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -9161,9 +10029,15 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModelAttrTypes})
 									}(),
 									TLSConfig: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil {
+											return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig
+										}
 										if TLSConfigData, ok := TLSParamsData["tls_config"].(map[string]interface{}); ok {
 											return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigModel{
 												CustomSecurity: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigCustomSecurityModel {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity != nil {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity
+													}
 													if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 														return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigCustomSecurityModel{
 															CipherSuites: func() types.List {
@@ -9196,18 +10070,27 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 													return nil
 												}(),
 												DefaultSecurity: func() *ProxyEmptyModel {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.DefaultSecurity
+													}
 													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 														return &ProxyEmptyModel{}
 													}
 													return nil
 												}(),
 												LowSecurity: func() *ProxyEmptyModel {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.LowSecurity
+													}
 													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 														return &ProxyEmptyModel{}
 													}
 													return nil
 												}(),
 												MediumSecurity: func() *ProxyEmptyModel {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.MediumSecurity
+													}
 													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 														return &ProxyEmptyModel{}
 													}
@@ -9221,6 +10104,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										if UseMtlsData, ok := TLSParamsData["use_mtls"].(map[string]interface{}); ok {
 											return &ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsModel{
 												ClientCertificateOptional: func() types.Bool {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.ClientCertificateOptional.IsUnknown() {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.ClientCertificateOptional
+													}
 													if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 														return types.BoolValue(v)
 													}
@@ -9252,6 +10138,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 													return nil
 												}(),
 												NoCRL: func() *ProxyEmptyModel {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.NoCRL
+													}
 													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 														return &ProxyEmptyModel{}
 													}
@@ -9289,12 +10178,18 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 													return types.StringNull()
 												}(),
 												XfccDisabled: func() *ProxyEmptyModel {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccDisabled
+													}
 													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 														return &ProxyEmptyModel{}
 													}
 													return nil
 												}(),
 												XfccOptions: func() *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsXfccOptionsModel {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions != nil {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions
+													}
 													if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 														return &ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsXfccOptionsModel{
 															XfccHeaderElements: func() types.List {
@@ -9333,6 +10228,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				if SniProxyData, ok := blockData["sni_proxy"].(map[string]interface{}); ok {
 					return &ProxyDynamicProxySniProxyModel{
 						IdleTimeout: func() types.Int64 {
+							if !isImport && data.DynamicProxy != nil && data.DynamicProxy.SniProxy != nil && !data.DynamicProxy.SniProxy.IdleTimeout.IsUnknown() {
+								return data.DynamicProxy.SniProxy.IdleTimeout
+							}
 							if v, ok := SniProxyData["idle_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -9362,15 +10260,24 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				if MoreOptionData, ok := blockData["more_option"].(map[string]interface{}); ok {
 					return &ProxyHTTPProxyMoreOptionModel{
 						BufferPolicy: func() *ProxyHTTPProxyMoreOptionBufferPolicyModel {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && data.HTTPProxy.MoreOption.BufferPolicy != nil {
+								return data.HTTPProxy.MoreOption.BufferPolicy
+							}
 							if BufferPolicyData, ok := MoreOptionData["buffer_policy"].(map[string]interface{}); ok {
 								return &ProxyHTTPProxyMoreOptionBufferPolicyModel{
 									Disabled: func() types.Bool {
+										if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && data.HTTPProxy.MoreOption.BufferPolicy != nil && !data.HTTPProxy.MoreOption.BufferPolicy.Disabled.IsUnknown() {
+											return data.HTTPProxy.MoreOption.BufferPolicy.Disabled
+										}
 										if v, ok := BufferPolicyData["disabled"].(bool); ok {
 											return types.BoolValue(v)
 										}
 										return types.BoolNull()
 									}(),
 									MaxRequestBytes: func() types.Int64 {
+										if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && data.HTTPProxy.MoreOption.BufferPolicy != nil && !data.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes.IsUnknown() {
+											return data.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes
+										}
 										if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -9381,9 +10288,15 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							return nil
 						}(),
 						CompressionParams: func() *ProxyHTTPProxyMoreOptionCompressionParamsModel {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && data.HTTPProxy.MoreOption.CompressionParams != nil {
+								return data.HTTPProxy.MoreOption.CompressionParams
+							}
 							if CompressionParamsData, ok := MoreOptionData["compression_params"].(map[string]interface{}); ok {
 								return &ProxyHTTPProxyMoreOptionCompressionParamsModel{
 									ContentLength: func() types.Int64 {
+										if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && data.HTTPProxy.MoreOption.CompressionParams != nil && !data.HTTPProxy.MoreOption.CompressionParams.ContentLength.IsUnknown() {
+											return data.HTTPProxy.MoreOption.CompressionParams.ContentLength
+										}
 										if v, ok := CompressionParamsData["content_length"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -9403,12 +10316,18 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										return types.ListNull(types.StringType)
 									}(),
 									DisableOnEtagHeader: func() types.Bool {
+										if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && data.HTTPProxy.MoreOption.CompressionParams != nil && !data.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader.IsUnknown() {
+											return data.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader
+										}
 										if v, ok := CompressionParamsData["disable_on_etag_header"].(bool); ok {
 											return types.BoolValue(v)
 										}
 										return types.BoolNull()
 									}(),
 									RemoveAcceptEncodingHeader: func() types.Bool {
+										if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && data.HTTPProxy.MoreOption.CompressionParams != nil && !data.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.IsUnknown() {
+											return data.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader
+										}
 										if v, ok := CompressionParamsData["remove_accept_encoding_header"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -9419,57 +10338,89 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							return nil
 						}(),
 						CustomErrors: func() *ProxyEmptyModel {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+								return data.HTTPProxy.MoreOption.CustomErrors
+							}
 							if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
 								return &ProxyEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableDefaultErrorPages: func() types.Bool {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
+								return data.HTTPProxy.MoreOption.DisableDefaultErrorPages
+							}
 							if v, ok := MoreOptionData["disable_default_error_pages"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
 						DisablePathNormalize: func() *ProxyEmptyModel {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+								return data.HTTPProxy.MoreOption.DisablePathNormalize
+							}
 							if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
 								return &ProxyEmptyModel{}
 							}
 							return nil
 						}(),
 						EnablePathNormalize: func() *ProxyEmptyModel {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+								return data.HTTPProxy.MoreOption.EnablePathNormalize
+							}
 							if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
 								return &ProxyEmptyModel{}
 							}
 							return nil
 						}(),
 						IdleTimeout: func() types.Int64 {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.IdleTimeout.IsUnknown() {
+								return data.HTTPProxy.MoreOption.IdleTimeout
+							}
 							if v, ok := MoreOptionData["idle_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxRequestHeaderSize: func() types.Int64 {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.MaxRequestHeaderSize.IsUnknown() {
+								return data.HTTPProxy.MoreOption.MaxRequestHeaderSize
+							}
 							if v, ok := MoreOptionData["max_request_header_size"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxRequestsPerConnection: func() types.Int64 {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.MaxRequestsPerConnection.IsUnknown() {
+								return data.HTTPProxy.MoreOption.MaxRequestsPerConnection
+							}
 							if v, ok := MoreOptionData["max_requests_per_connection"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						NoRequestLimitPerConnection: func() *ProxyEmptyModel {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+								return data.HTTPProxy.MoreOption.NoRequestLimitPerConnection
+							}
 							if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
 								return &ProxyEmptyModel{}
 							}
 							return nil
 						}(),
 						RequestCookiesToAdd: func() types.List {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && (data.HTTPProxy.MoreOption.RequestCookiesToAdd.IsNull() || len(data.HTTPProxy.MoreOption.RequestCookiesToAdd.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProxyHTTPProxyMoreOptionRequestCookiesToAddModelAttrTypes})
+							}
+							var RequestCookiesToAddExisting []ProxyHTTPProxyMoreOptionRequestCookiesToAddModel
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.RequestCookiesToAdd.IsNull() && !data.HTTPProxy.MoreOption.RequestCookiesToAdd.IsUnknown() {
+								data.HTTPProxy.MoreOption.RequestCookiesToAdd.ElementsAs(ctx, &RequestCookiesToAddExisting, false)
+							}
 							if rawList, ok := MoreOptionData["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var RequestCookiesToAddResult []ProxyHTTPProxyMoreOptionRequestCookiesToAddModel
-								for _, RequestCookiesToAddItem := range rawList {
+								for RequestCookiesToAddIdx, RequestCookiesToAddItem := range rawList {
+									_ = RequestCookiesToAddIdx
 									if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
 										RequestCookiesToAddResult = append(RequestCookiesToAddResult, ProxyHTTPProxyMoreOptionRequestCookiesToAddModel{
 											Name: func() types.String {
@@ -9488,6 +10439,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 													return &ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueModel{
 														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+															if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -9513,6 +10467,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel {
+															if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+																return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -9563,9 +10520,17 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							return types.ListNull(types.StringType)
 						}(),
 						RequestHeadersToAdd: func() types.List {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && (data.HTTPProxy.MoreOption.RequestHeadersToAdd.IsNull() || len(data.HTTPProxy.MoreOption.RequestHeadersToAdd.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProxyHTTPProxyMoreOptionRequestHeadersToAddModelAttrTypes})
+							}
+							var RequestHeadersToAddExisting []ProxyHTTPProxyMoreOptionRequestHeadersToAddModel
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.RequestHeadersToAdd.IsNull() && !data.HTTPProxy.MoreOption.RequestHeadersToAdd.IsUnknown() {
+								data.HTTPProxy.MoreOption.RequestHeadersToAdd.ElementsAs(ctx, &RequestHeadersToAddExisting, false)
+							}
 							if rawList, ok := MoreOptionData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var RequestHeadersToAddResult []ProxyHTTPProxyMoreOptionRequestHeadersToAddModel
-								for _, RequestHeadersToAddItem := range rawList {
+								for RequestHeadersToAddIdx, RequestHeadersToAddItem := range rawList {
+									_ = RequestHeadersToAddIdx
 									if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
 										RequestHeadersToAddResult = append(RequestHeadersToAddResult, ProxyHTTPProxyMoreOptionRequestHeadersToAddModel{
 											Append: func() types.Bool {
@@ -9584,6 +10549,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 													return &ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueModel{
 														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+															if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -9609,6 +10577,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel {
+															if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -9659,9 +10630,17 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							return types.ListNull(types.StringType)
 						}(),
 						ResponseCookiesToAdd: func() types.List {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && (data.HTTPProxy.MoreOption.ResponseCookiesToAdd.IsNull() || len(data.HTTPProxy.MoreOption.ResponseCookiesToAdd.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProxyHTTPProxyMoreOptionResponseCookiesToAddModelAttrTypes})
+							}
+							var ResponseCookiesToAddExisting []ProxyHTTPProxyMoreOptionResponseCookiesToAddModel
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.ResponseCookiesToAdd.IsNull() && !data.HTTPProxy.MoreOption.ResponseCookiesToAdd.IsUnknown() {
+								data.HTTPProxy.MoreOption.ResponseCookiesToAdd.ElementsAs(ctx, &ResponseCookiesToAddExisting, false)
+							}
 							if rawList, ok := MoreOptionData["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var ResponseCookiesToAddResult []ProxyHTTPProxyMoreOptionResponseCookiesToAddModel
-								for _, ResponseCookiesToAddItem := range rawList {
+								for ResponseCookiesToAddIdx, ResponseCookiesToAddItem := range rawList {
+									_ = ResponseCookiesToAddIdx
 									if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
 										ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, ProxyHTTPProxyMoreOptionResponseCookiesToAddModel{
 											AddDomain: func() types.String {
@@ -9677,12 +10656,18 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return types.StringNull()
 											}(),
 											AddHttponly: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											AddPartitioned: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
@@ -9695,60 +10680,90 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return types.StringNull()
 											}(),
 											AddSecure: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnoreDomain: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnoreExpiry: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnoreHttponly: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnoreMaxAge: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnorePartitioned: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnorePath: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnoreSamesite: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnoreSecure: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnoreValue: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
@@ -9773,18 +10788,27 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return types.BoolNull()
 											}(),
 											SamesiteLax: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											SamesiteNone: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											SamesiteStrict: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
@@ -9794,6 +10818,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 													return &ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel{
 														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -9819,6 +10846,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -9869,9 +10899,17 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							return types.ListNull(types.StringType)
 						}(),
 						ResponseHeadersToAdd: func() types.List {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && (data.HTTPProxy.MoreOption.ResponseHeadersToAdd.IsNull() || len(data.HTTPProxy.MoreOption.ResponseHeadersToAdd.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProxyHTTPProxyMoreOptionResponseHeadersToAddModelAttrTypes})
+							}
+							var ResponseHeadersToAddExisting []ProxyHTTPProxyMoreOptionResponseHeadersToAddModel
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.ResponseHeadersToAdd.IsNull() && !data.HTTPProxy.MoreOption.ResponseHeadersToAdd.IsUnknown() {
+								data.HTTPProxy.MoreOption.ResponseHeadersToAdd.ElementsAs(ctx, &ResponseHeadersToAddExisting, false)
+							}
 							if rawList, ok := MoreOptionData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var ResponseHeadersToAddResult []ProxyHTTPProxyMoreOptionResponseHeadersToAddModel
-								for _, ResponseHeadersToAddItem := range rawList {
+								for ResponseHeadersToAddIdx, ResponseHeadersToAddItem := range rawList {
+									_ = ResponseHeadersToAddIdx
 									if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
 										ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, ProxyHTTPProxyMoreOptionResponseHeadersToAddModel{
 											Append: func() types.Bool {
@@ -9890,6 +10928,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 													return &ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueModel{
 														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+															if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -9915,6 +10956,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel {
+															if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -9988,9 +11032,14 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				if !isImport && data.SiteVirtualSites != nil && (data.SiteVirtualSites.AdvertiseWhere.IsNull() || len(data.SiteVirtualSites.AdvertiseWhere.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ProxySiteVirtualSitesAdvertiseWhereModelAttrTypes})
 				}
+				var AdvertiseWhereExisting []ProxySiteVirtualSitesAdvertiseWhereModel
+				if !isImport && data.SiteVirtualSites != nil && !data.SiteVirtualSites.AdvertiseWhere.IsNull() && !data.SiteVirtualSites.AdvertiseWhere.IsUnknown() {
+					data.SiteVirtualSites.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereExisting, false)
+				}
 				if rawList, ok := blockData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
 					var AdvertiseWhereResult []ProxySiteVirtualSitesAdvertiseWhereModel
-					for _, AdvertiseWhereItem := range rawList {
+					for AdvertiseWhereIdx, AdvertiseWhereItem := range rawList {
+						_ = AdvertiseWhereIdx
 						if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
 							AdvertiseWhereResult = append(AdvertiseWhereResult, ProxySiteVirtualSitesAdvertiseWhereModel{
 								Port: func() types.Int64 {
@@ -10044,6 +11093,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return nil
 								}(),
 								UseDefaultPort: func() *ProxyEmptyModel {
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
+										return &ProxyEmptyModel{}
+									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &ProxyEmptyModel{}
 									}
@@ -10112,6 +11164,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							return types.StringNull()
 						}(),
 						CustomHashAlgorithms: func() *ProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel {
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil && data.TLSIntercept.CustomCertificate.CustomHashAlgorithms != nil {
+								return data.TLSIntercept.CustomCertificate.CustomHashAlgorithms
+							}
 							if CustomHashAlgorithmsData, ok := CustomCertificateData["custom_hash_algorithms"].(map[string]interface{}); ok {
 								return &ProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel{
 									HashAlgorithms: func() types.List {
@@ -10138,15 +11193,24 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							return types.StringNull()
 						}(),
 						DisableOCSPStapling: func() *ProxyEmptyModel {
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil {
+								return data.TLSIntercept.CustomCertificate.DisableOCSPStapling
+							}
 							if _, ok := CustomCertificateData["disable_ocsp_stapling"].(map[string]interface{}); ok {
 								return &ProxyEmptyModel{}
 							}
 							return nil
 						}(),
 						PrivateKey: func() *ProxyTLSInterceptCustomCertificatePrivateKeyModel {
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil && data.TLSIntercept.CustomCertificate.PrivateKey != nil {
+								return data.TLSIntercept.CustomCertificate.PrivateKey
+							}
 							if PrivateKeyData, ok := CustomCertificateData["private_key"].(map[string]interface{}); ok {
 								return &ProxyTLSInterceptCustomCertificatePrivateKeyModel{
 									BlindfoldSecretInfo: func() *ProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel {
+										if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil && data.TLSIntercept.CustomCertificate.PrivateKey != nil && data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo != nil {
+											return data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &ProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -10172,6 +11236,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										return nil
 									}(),
 									ClearSecretInfo: func() *ProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel {
+										if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil && data.TLSIntercept.CustomCertificate.PrivateKey != nil && data.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo != nil {
+											return data.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 											return &ProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel{
 												Provider: func() types.String {
@@ -10195,6 +11262,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							return nil
 						}(),
 						UseSystemDefaults: func() *ProxyEmptyModel {
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil {
+								return data.TLSIntercept.CustomCertificate.UseSystemDefaults
+							}
 							if _, ok := CustomCertificateData["use_system_defaults"].(map[string]interface{}); ok {
 								return &ProxyEmptyModel{}
 							}
@@ -10220,12 +11290,23 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				if PolicyData, ok := blockData["policy"].(map[string]interface{}); ok {
 					return &ProxyTLSInterceptPolicyModel{
 						InterceptionRules: func() types.List {
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.Policy != nil && (data.TLSIntercept.Policy.InterceptionRules.IsNull() || len(data.TLSIntercept.Policy.InterceptionRules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProxyTLSInterceptPolicyInterceptionRulesModelAttrTypes})
+							}
+							var InterceptionRulesExisting []ProxyTLSInterceptPolicyInterceptionRulesModel
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.Policy != nil && !data.TLSIntercept.Policy.InterceptionRules.IsNull() && !data.TLSIntercept.Policy.InterceptionRules.IsUnknown() {
+								data.TLSIntercept.Policy.InterceptionRules.ElementsAs(ctx, &InterceptionRulesExisting, false)
+							}
 							if rawList, ok := PolicyData["interception_rules"].([]interface{}); ok && len(rawList) > 0 {
 								var InterceptionRulesResult []ProxyTLSInterceptPolicyInterceptionRulesModel
-								for _, InterceptionRulesItem := range rawList {
+								for InterceptionRulesIdx, InterceptionRulesItem := range rawList {
+									_ = InterceptionRulesIdx
 									if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
 										InterceptionRulesResult = append(InterceptionRulesResult, ProxyTLSInterceptPolicyInterceptionRulesModel{
 											DisableInterception: func() *ProxyEmptyModel {
+												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
@@ -10257,6 +11338,9 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return nil
 											}(),
 											EnableInterception: func() *ProxyEmptyModel {
+												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
@@ -11819,9 +12903,14 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !isImport && data.ActiveForwardProxyPolicies != nil && (data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() || len(data.ActiveForwardProxyPolicies.ForwardProxyPolicies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
 				}
+				var ForwardProxyPoliciesExisting []ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel
+				if !isImport && data.ActiveForwardProxyPolicies != nil && !data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
+					data.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesExisting, false)
+				}
 				if rawList, ok := blockData["forward_proxy_policies"].([]interface{}); ok && len(rawList) > 0 {
 					var ForwardProxyPoliciesResult []ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel
-					for _, ForwardProxyPoliciesItem := range rawList {
+					for ForwardProxyPoliciesIdx, ForwardProxyPoliciesItem := range rawList {
+						_ = ForwardProxyPoliciesIdx
 						if ForwardProxyPoliciesItemMap, ok := ForwardProxyPoliciesItem.(map[string]interface{}); ok {
 							ForwardProxyPoliciesResult = append(ForwardProxyPoliciesResult, ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModel{
 								Name: func() types.String {
@@ -11895,18 +12984,30 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if HTTPProxyData, ok := blockData["http_proxy"].(map[string]interface{}); ok {
 					return &ProxyDynamicProxyHTTPProxyModel{
 						MoreOption: func() *ProxyDynamicProxyHTTPProxyMoreOptionModel {
+							if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+								return data.DynamicProxy.HTTPProxy.MoreOption
+							}
 							if MoreOptionData, ok := HTTPProxyData["more_option"].(map[string]interface{}); ok {
 								return &ProxyDynamicProxyHTTPProxyMoreOptionModel{
 									BufferPolicy: func() *ProxyDynamicProxyHTTPProxyMoreOptionBufferPolicyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy != nil {
+											return data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy
+										}
 										if BufferPolicyData, ok := MoreOptionData["buffer_policy"].(map[string]interface{}); ok {
 											return &ProxyDynamicProxyHTTPProxyMoreOptionBufferPolicyModel{
 												Disabled: func() types.Bool {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy != nil && !data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.Disabled.IsUnknown() {
+														return data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.Disabled
+													}
 													if v, ok := BufferPolicyData["disabled"].(bool); ok {
 														return types.BoolValue(v)
 													}
 													return types.BoolNull()
 												}(),
 												MaxRequestBytes: func() types.Int64 {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy != nil && !data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes.IsUnknown() {
+														return data.DynamicProxy.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes
+													}
 													if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
 														return types.Int64Value(int64(v))
 													}
@@ -11917,9 +13018,15 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										return nil
 									}(),
 									CompressionParams: func() *ProxyDynamicProxyHTTPProxyMoreOptionCompressionParamsModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams != nil {
+											return data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams
+										}
 										if CompressionParamsData, ok := MoreOptionData["compression_params"].(map[string]interface{}); ok {
 											return &ProxyDynamicProxyHTTPProxyMoreOptionCompressionParamsModel{
 												ContentLength: func() types.Int64 {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams != nil && !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentLength.IsUnknown() {
+														return data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentLength
+													}
 													if v, ok := CompressionParamsData["content_length"].(float64); ok && v != 0 {
 														return types.Int64Value(int64(v))
 													}
@@ -11939,12 +13046,18 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 													return types.ListNull(types.StringType)
 												}(),
 												DisableOnEtagHeader: func() types.Bool {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams != nil && !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader.IsUnknown() {
+														return data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader
+													}
 													if v, ok := CompressionParamsData["disable_on_etag_header"].(bool); ok {
 														return types.BoolValue(v)
 													}
 													return types.BoolNull()
 												}(),
 												RemoveAcceptEncodingHeader: func() types.Bool {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams != nil && !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.IsUnknown() {
+														return data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader
+													}
 													if v, ok := CompressionParamsData["remove_accept_encoding_header"].(bool); ok {
 														return types.BoolValue(v)
 													}
@@ -11955,57 +13068,89 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										return nil
 									}(),
 									CustomErrors: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors
+										}
 										if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									DisableDefaultErrorPages: func() types.Bool {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
+											return data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages
+										}
 										if v, ok := MoreOptionData["disable_default_error_pages"].(bool); ok {
 											return types.BoolValue(v)
 										}
 										return types.BoolNull()
 									}(),
 									DisablePathNormalize: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPProxy.MoreOption.DisablePathNormalize
+										}
 										if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									EnablePathNormalize: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPProxy.MoreOption.EnablePathNormalize
+										}
 										if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									IdleTimeout: func() types.Int64 {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.IdleTimeout.IsUnknown() {
+											return data.DynamicProxy.HTTPProxy.MoreOption.IdleTimeout
+										}
 										if v, ok := MoreOptionData["idle_timeout"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									MaxRequestHeaderSize: func() types.Int64 {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestHeaderSize.IsUnknown() {
+											return data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestHeaderSize
+										}
 										if v, ok := MoreOptionData["max_request_header_size"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									MaxRequestsPerConnection: func() types.Int64 {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestsPerConnection.IsUnknown() {
+											return data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestsPerConnection
+										}
 										if v, ok := MoreOptionData["max_requests_per_connection"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									NoRequestLimitPerConnection: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPProxy.MoreOption.NoRequestLimitPerConnection
+										}
 										if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									RequestCookiesToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && (data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.IsNull() || len(data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddModelAttrTypes})
+										}
+										var RequestCookiesToAddExisting []ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.ElementsAs(ctx, &RequestCookiesToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var RequestCookiesToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddModel
-											for _, RequestCookiesToAddItem := range rawList {
+											for RequestCookiesToAddIdx, RequestCookiesToAddItem := range rawList {
+												_ = RequestCookiesToAddIdx
 												if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
 													RequestCookiesToAddResult = append(RequestCookiesToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddModel{
 														Name: func() types.String {
@@ -12024,6 +13169,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -12049,6 +13197,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -12099,9 +13250,17 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										return types.ListNull(types.StringType)
 									}(),
 									RequestHeadersToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && (data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToAdd.IsNull() || len(data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddModelAttrTypes})
+										}
+										var RequestHeadersToAddExisting []ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToAdd.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToAdd.ElementsAs(ctx, &RequestHeadersToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var RequestHeadersToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddModel
-											for _, RequestHeadersToAddItem := range rawList {
+											for RequestHeadersToAddIdx, RequestHeadersToAddItem := range rawList {
+												_ = RequestHeadersToAddIdx
 												if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
 													RequestHeadersToAddResult = append(RequestHeadersToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddModel{
 														Append: func() types.Bool {
@@ -12120,6 +13279,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -12145,6 +13307,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -12195,9 +13360,17 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										return types.ListNull(types.StringType)
 									}(),
 									ResponseCookiesToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && (data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToAdd.IsNull() || len(data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModelAttrTypes})
+										}
+										var ResponseCookiesToAddExisting []ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToAdd.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToAdd.ElementsAs(ctx, &ResponseCookiesToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var ResponseCookiesToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModel
-											for _, ResponseCookiesToAddItem := range rawList {
+											for ResponseCookiesToAddIdx, ResponseCookiesToAddItem := range rawList {
+												_ = ResponseCookiesToAddIdx
 												if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
 													ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModel{
 														AddDomain: func() types.String {
@@ -12213,12 +13386,18 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														AddHttponly: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														AddPartitioned: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -12231,60 +13410,90 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														AddSecure: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreDomain: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreExpiry: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreHttponly: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreMaxAge: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnorePartitioned: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnorePath: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreSamesite: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreSecure: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreValue: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -12309,18 +13518,27 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.BoolNull()
 														}(),
 														SamesiteLax: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														SamesiteNone: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														SamesiteStrict: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -12330,6 +13548,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -12355,6 +13576,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -12405,9 +13629,17 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										return types.ListNull(types.StringType)
 									}(),
 									ResponseHeadersToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && (data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToAdd.IsNull() || len(data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddModelAttrTypes})
+										}
+										var ResponseHeadersToAddExisting []ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToAdd.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToAdd.ElementsAs(ctx, &ResponseHeadersToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var ResponseHeadersToAddResult []ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddModel
-											for _, ResponseHeadersToAddItem := range rawList {
+											for ResponseHeadersToAddIdx, ResponseHeadersToAddItem := range rawList {
+												_ = ResponseHeadersToAddIdx
 												if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
 													ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddModel{
 														Append: func() types.Bool {
@@ -12426,6 +13658,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -12451,6 +13686,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -12512,18 +13750,30 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if HTTPSProxyData, ok := blockData["https_proxy"].(map[string]interface{}); ok {
 					return &ProxyDynamicProxyHTTPSProxyModel{
 						MoreOption: func() *ProxyDynamicProxyHTTPSProxyMoreOptionModel {
+							if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+								return data.DynamicProxy.HTTPSProxy.MoreOption
+							}
 							if MoreOptionData, ok := HTTPSProxyData["more_option"].(map[string]interface{}); ok {
 								return &ProxyDynamicProxyHTTPSProxyMoreOptionModel{
 									BufferPolicy: func() *ProxyDynamicProxyHTTPSProxyMoreOptionBufferPolicyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy != nil {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy
+										}
 										if BufferPolicyData, ok := MoreOptionData["buffer_policy"].(map[string]interface{}); ok {
 											return &ProxyDynamicProxyHTTPSProxyMoreOptionBufferPolicyModel{
 												Disabled: func() types.Bool {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.Disabled.IsUnknown() {
+														return data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.Disabled
+													}
 													if v, ok := BufferPolicyData["disabled"].(bool); ok {
 														return types.BoolValue(v)
 													}
 													return types.BoolNull()
 												}(),
 												MaxRequestBytes: func() types.Int64 {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.MaxRequestBytes.IsUnknown() {
+														return data.DynamicProxy.HTTPSProxy.MoreOption.BufferPolicy.MaxRequestBytes
+													}
 													if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
 														return types.Int64Value(int64(v))
 													}
@@ -12534,9 +13784,15 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										return nil
 									}(),
 									CompressionParams: func() *ProxyDynamicProxyHTTPSProxyMoreOptionCompressionParamsModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams != nil {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams
+										}
 										if CompressionParamsData, ok := MoreOptionData["compression_params"].(map[string]interface{}); ok {
 											return &ProxyDynamicProxyHTTPSProxyMoreOptionCompressionParamsModel{
 												ContentLength: func() types.Int64 {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentLength.IsUnknown() {
+														return data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentLength
+													}
 													if v, ok := CompressionParamsData["content_length"].(float64); ok && v != 0 {
 														return types.Int64Value(int64(v))
 													}
@@ -12556,12 +13812,18 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 													return types.ListNull(types.StringType)
 												}(),
 												DisableOnEtagHeader: func() types.Bool {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.DisableOnEtagHeader.IsUnknown() {
+														return data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.DisableOnEtagHeader
+													}
 													if v, ok := CompressionParamsData["disable_on_etag_header"].(bool); ok {
 														return types.BoolValue(v)
 													}
 													return types.BoolNull()
 												}(),
 												RemoveAcceptEncodingHeader: func() types.Bool {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.IsUnknown() {
+														return data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader
+													}
 													if v, ok := CompressionParamsData["remove_accept_encoding_header"].(bool); ok {
 														return types.BoolValue(v)
 													}
@@ -12572,57 +13834,89 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										return nil
 									}(),
 									CustomErrors: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors
+										}
 										if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									DisableDefaultErrorPages: func() types.Bool {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages
+										}
 										if v, ok := MoreOptionData["disable_default_error_pages"].(bool); ok {
 											return types.BoolValue(v)
 										}
 										return types.BoolNull()
 									}(),
 									DisablePathNormalize: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.DisablePathNormalize
+										}
 										if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									EnablePathNormalize: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.EnablePathNormalize
+										}
 										if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									IdleTimeout: func() types.Int64 {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.IdleTimeout.IsUnknown() {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.IdleTimeout
+										}
 										if v, ok := MoreOptionData["idle_timeout"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									MaxRequestHeaderSize: func() types.Int64 {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestHeaderSize.IsUnknown() {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestHeaderSize
+										}
 										if v, ok := MoreOptionData["max_request_header_size"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									MaxRequestsPerConnection: func() types.Int64 {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestsPerConnection.IsUnknown() {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestsPerConnection
+										}
 										if v, ok := MoreOptionData["max_requests_per_connection"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									NoRequestLimitPerConnection: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+											return data.DynamicProxy.HTTPSProxy.MoreOption.NoRequestLimitPerConnection
+										}
 										if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									RequestCookiesToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && (data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.IsNull() || len(data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddModelAttrTypes})
+										}
+										var RequestCookiesToAddExisting []ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.ElementsAs(ctx, &RequestCookiesToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var RequestCookiesToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddModel
-											for _, RequestCookiesToAddItem := range rawList {
+											for RequestCookiesToAddIdx, RequestCookiesToAddItem := range rawList {
+												_ = RequestCookiesToAddIdx
 												if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
 													RequestCookiesToAddResult = append(RequestCookiesToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddModel{
 														Name: func() types.String {
@@ -12641,6 +13935,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -12666,6 +13963,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -12716,9 +14016,17 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										return types.ListNull(types.StringType)
 									}(),
 									RequestHeadersToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && (data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToAdd.IsNull() || len(data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddModelAttrTypes})
+										}
+										var RequestHeadersToAddExisting []ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToAdd.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToAdd.ElementsAs(ctx, &RequestHeadersToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var RequestHeadersToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddModel
-											for _, RequestHeadersToAddItem := range rawList {
+											for RequestHeadersToAddIdx, RequestHeadersToAddItem := range rawList {
+												_ = RequestHeadersToAddIdx
 												if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
 													RequestHeadersToAddResult = append(RequestHeadersToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddModel{
 														Append: func() types.Bool {
@@ -12737,6 +14045,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -12762,6 +14073,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -12812,9 +14126,17 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										return types.ListNull(types.StringType)
 									}(),
 									ResponseCookiesToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && (data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToAdd.IsNull() || len(data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModelAttrTypes})
+										}
+										var ResponseCookiesToAddExisting []ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToAdd.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToAdd.ElementsAs(ctx, &ResponseCookiesToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var ResponseCookiesToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModel
-											for _, ResponseCookiesToAddItem := range rawList {
+											for ResponseCookiesToAddIdx, ResponseCookiesToAddItem := range rawList {
+												_ = ResponseCookiesToAddIdx
 												if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
 													ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModel{
 														AddDomain: func() types.String {
@@ -12830,12 +14152,18 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														AddHttponly: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														AddPartitioned: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -12848,60 +14176,90 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														AddSecure: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreDomain: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreExpiry: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreHttponly: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreMaxAge: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnorePartitioned: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnorePath: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreSamesite: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreSecure: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														IgnoreValue: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -12926,18 +14284,27 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.BoolNull()
 														}(),
 														SamesiteLax: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														SamesiteNone: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														SamesiteStrict: func() *ProxyEmptyModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -12947,6 +14314,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -12972,6 +14342,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -13022,9 +14395,17 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										return types.ListNull(types.StringType)
 									}(),
 									ResponseHeadersToAdd: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && (data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToAdd.IsNull() || len(data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToAdd.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddModelAttrTypes})
+										}
+										var ResponseHeadersToAddExisting []ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToAdd.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToAdd.IsUnknown() {
+											data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToAdd.ElementsAs(ctx, &ResponseHeadersToAddExisting, false)
+										}
 										if rawList, ok := MoreOptionData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 											var ResponseHeadersToAddResult []ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddModel
-											for _, ResponseHeadersToAddItem := range rawList {
+											for ResponseHeadersToAddIdx, ResponseHeadersToAddItem := range rawList {
+												_ = ResponseHeadersToAddIdx
 												if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
 													ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddModel{
 														Append: func() types.Bool {
@@ -13043,6 +14424,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+																		if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																			return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -13068,6 +14452,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel {
+																		if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																			return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -13125,15 +14512,26 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							if TLSParamsData, ok := HTTPSProxyData["tls_params"].(map[string]interface{}); ok {
 								return &ProxyDynamicProxyHTTPSProxyTLSParamsModel{
 									NoMtls: func() *ProxyEmptyModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil {
+											return data.DynamicProxy.HTTPSProxy.TLSParams.NoMtls
+										}
 										if _, ok := TLSParamsData["no_mtls"].(map[string]interface{}); ok {
 											return &ProxyEmptyModel{}
 										}
 										return nil
 									}(),
 									TLSCertificates: func() types.List {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && (data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.IsNull() || len(data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModelAttrTypes})
+										}
+										var TLSCertificatesExisting []ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModel
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.IsUnknown() {
+											data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+										}
 										if rawList, ok := TLSParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var TLSCertificatesResult []ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModel
-											for _, TLSCertificatesItem := range rawList {
+											for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+												_ = TLSCertificatesIdx
 												if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 													TLSCertificatesResult = append(TLSCertificatesResult, ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModel{
 														CertificateURL: func() types.String {
@@ -13169,6 +14567,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														DisableOCSPStapling: func() *ProxyEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -13178,6 +14579,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 																return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -13203,6 +14607,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -13226,6 +14633,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														UseSystemDefaults: func() *ProxyEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+																return &ProxyEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
 															}
@@ -13240,9 +14650,15 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										return types.ListNull(types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModelAttrTypes})
 									}(),
 									TLSConfig: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigModel {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil {
+											return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig
+										}
 										if TLSConfigData, ok := TLSParamsData["tls_config"].(map[string]interface{}); ok {
 											return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigModel{
 												CustomSecurity: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigCustomSecurityModel {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity != nil {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity
+													}
 													if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 														return &ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigCustomSecurityModel{
 															CipherSuites: func() types.List {
@@ -13275,18 +14691,27 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 													return nil
 												}(),
 												DefaultSecurity: func() *ProxyEmptyModel {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.DefaultSecurity
+													}
 													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 														return &ProxyEmptyModel{}
 													}
 													return nil
 												}(),
 												LowSecurity: func() *ProxyEmptyModel {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.LowSecurity
+													}
 													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 														return &ProxyEmptyModel{}
 													}
 													return nil
 												}(),
 												MediumSecurity: func() *ProxyEmptyModel {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.MediumSecurity
+													}
 													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 														return &ProxyEmptyModel{}
 													}
@@ -13300,6 +14725,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										if UseMtlsData, ok := TLSParamsData["use_mtls"].(map[string]interface{}); ok {
 											return &ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsModel{
 												ClientCertificateOptional: func() types.Bool {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.ClientCertificateOptional.IsUnknown() {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.ClientCertificateOptional
+													}
 													if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 														return types.BoolValue(v)
 													}
@@ -13331,6 +14759,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 													return nil
 												}(),
 												NoCRL: func() *ProxyEmptyModel {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.NoCRL
+													}
 													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 														return &ProxyEmptyModel{}
 													}
@@ -13368,12 +14799,18 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 													return types.StringNull()
 												}(),
 												XfccDisabled: func() *ProxyEmptyModel {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccDisabled
+													}
 													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 														return &ProxyEmptyModel{}
 													}
 													return nil
 												}(),
 												XfccOptions: func() *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsXfccOptionsModel {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions != nil {
+														return data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions
+													}
 													if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 														return &ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsXfccOptionsModel{
 															XfccHeaderElements: func() types.List {
@@ -13412,6 +14849,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if SniProxyData, ok := blockData["sni_proxy"].(map[string]interface{}); ok {
 					return &ProxyDynamicProxySniProxyModel{
 						IdleTimeout: func() types.Int64 {
+							if !isImport && data.DynamicProxy != nil && data.DynamicProxy.SniProxy != nil && !data.DynamicProxy.SniProxy.IdleTimeout.IsUnknown() {
+								return data.DynamicProxy.SniProxy.IdleTimeout
+							}
 							if v, ok := SniProxyData["idle_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -13441,15 +14881,24 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if MoreOptionData, ok := blockData["more_option"].(map[string]interface{}); ok {
 					return &ProxyHTTPProxyMoreOptionModel{
 						BufferPolicy: func() *ProxyHTTPProxyMoreOptionBufferPolicyModel {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && data.HTTPProxy.MoreOption.BufferPolicy != nil {
+								return data.HTTPProxy.MoreOption.BufferPolicy
+							}
 							if BufferPolicyData, ok := MoreOptionData["buffer_policy"].(map[string]interface{}); ok {
 								return &ProxyHTTPProxyMoreOptionBufferPolicyModel{
 									Disabled: func() types.Bool {
+										if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && data.HTTPProxy.MoreOption.BufferPolicy != nil && !data.HTTPProxy.MoreOption.BufferPolicy.Disabled.IsUnknown() {
+											return data.HTTPProxy.MoreOption.BufferPolicy.Disabled
+										}
 										if v, ok := BufferPolicyData["disabled"].(bool); ok {
 											return types.BoolValue(v)
 										}
 										return types.BoolNull()
 									}(),
 									MaxRequestBytes: func() types.Int64 {
+										if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && data.HTTPProxy.MoreOption.BufferPolicy != nil && !data.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes.IsUnknown() {
+											return data.HTTPProxy.MoreOption.BufferPolicy.MaxRequestBytes
+										}
 										if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -13460,9 +14909,15 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							return nil
 						}(),
 						CompressionParams: func() *ProxyHTTPProxyMoreOptionCompressionParamsModel {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && data.HTTPProxy.MoreOption.CompressionParams != nil {
+								return data.HTTPProxy.MoreOption.CompressionParams
+							}
 							if CompressionParamsData, ok := MoreOptionData["compression_params"].(map[string]interface{}); ok {
 								return &ProxyHTTPProxyMoreOptionCompressionParamsModel{
 									ContentLength: func() types.Int64 {
+										if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && data.HTTPProxy.MoreOption.CompressionParams != nil && !data.HTTPProxy.MoreOption.CompressionParams.ContentLength.IsUnknown() {
+											return data.HTTPProxy.MoreOption.CompressionParams.ContentLength
+										}
 										if v, ok := CompressionParamsData["content_length"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -13482,12 +14937,18 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										return types.ListNull(types.StringType)
 									}(),
 									DisableOnEtagHeader: func() types.Bool {
+										if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && data.HTTPProxy.MoreOption.CompressionParams != nil && !data.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader.IsUnknown() {
+											return data.HTTPProxy.MoreOption.CompressionParams.DisableOnEtagHeader
+										}
 										if v, ok := CompressionParamsData["disable_on_etag_header"].(bool); ok {
 											return types.BoolValue(v)
 										}
 										return types.BoolNull()
 									}(),
 									RemoveAcceptEncodingHeader: func() types.Bool {
+										if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && data.HTTPProxy.MoreOption.CompressionParams != nil && !data.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader.IsUnknown() {
+											return data.HTTPProxy.MoreOption.CompressionParams.RemoveAcceptEncodingHeader
+										}
 										if v, ok := CompressionParamsData["remove_accept_encoding_header"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -13498,57 +14959,89 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							return nil
 						}(),
 						CustomErrors: func() *ProxyEmptyModel {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+								return data.HTTPProxy.MoreOption.CustomErrors
+							}
 							if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
 								return &ProxyEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableDefaultErrorPages: func() types.Bool {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
+								return data.HTTPProxy.MoreOption.DisableDefaultErrorPages
+							}
 							if v, ok := MoreOptionData["disable_default_error_pages"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
 						DisablePathNormalize: func() *ProxyEmptyModel {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+								return data.HTTPProxy.MoreOption.DisablePathNormalize
+							}
 							if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
 								return &ProxyEmptyModel{}
 							}
 							return nil
 						}(),
 						EnablePathNormalize: func() *ProxyEmptyModel {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+								return data.HTTPProxy.MoreOption.EnablePathNormalize
+							}
 							if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
 								return &ProxyEmptyModel{}
 							}
 							return nil
 						}(),
 						IdleTimeout: func() types.Int64 {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.IdleTimeout.IsUnknown() {
+								return data.HTTPProxy.MoreOption.IdleTimeout
+							}
 							if v, ok := MoreOptionData["idle_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxRequestHeaderSize: func() types.Int64 {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.MaxRequestHeaderSize.IsUnknown() {
+								return data.HTTPProxy.MoreOption.MaxRequestHeaderSize
+							}
 							if v, ok := MoreOptionData["max_request_header_size"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxRequestsPerConnection: func() types.Int64 {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.MaxRequestsPerConnection.IsUnknown() {
+								return data.HTTPProxy.MoreOption.MaxRequestsPerConnection
+							}
 							if v, ok := MoreOptionData["max_requests_per_connection"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						NoRequestLimitPerConnection: func() *ProxyEmptyModel {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+								return data.HTTPProxy.MoreOption.NoRequestLimitPerConnection
+							}
 							if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
 								return &ProxyEmptyModel{}
 							}
 							return nil
 						}(),
 						RequestCookiesToAdd: func() types.List {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && (data.HTTPProxy.MoreOption.RequestCookiesToAdd.IsNull() || len(data.HTTPProxy.MoreOption.RequestCookiesToAdd.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProxyHTTPProxyMoreOptionRequestCookiesToAddModelAttrTypes})
+							}
+							var RequestCookiesToAddExisting []ProxyHTTPProxyMoreOptionRequestCookiesToAddModel
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.RequestCookiesToAdd.IsNull() && !data.HTTPProxy.MoreOption.RequestCookiesToAdd.IsUnknown() {
+								data.HTTPProxy.MoreOption.RequestCookiesToAdd.ElementsAs(ctx, &RequestCookiesToAddExisting, false)
+							}
 							if rawList, ok := MoreOptionData["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var RequestCookiesToAddResult []ProxyHTTPProxyMoreOptionRequestCookiesToAddModel
-								for _, RequestCookiesToAddItem := range rawList {
+								for RequestCookiesToAddIdx, RequestCookiesToAddItem := range rawList {
+									_ = RequestCookiesToAddIdx
 									if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
 										RequestCookiesToAddResult = append(RequestCookiesToAddResult, ProxyHTTPProxyMoreOptionRequestCookiesToAddModel{
 											Name: func() types.String {
@@ -13567,6 +15060,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 													return &ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueModel{
 														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+															if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -13592,6 +15088,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel {
+															if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+																return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionRequestCookiesToAddSecretValueClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -13642,9 +15141,17 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							return types.ListNull(types.StringType)
 						}(),
 						RequestHeadersToAdd: func() types.List {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && (data.HTTPProxy.MoreOption.RequestHeadersToAdd.IsNull() || len(data.HTTPProxy.MoreOption.RequestHeadersToAdd.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProxyHTTPProxyMoreOptionRequestHeadersToAddModelAttrTypes})
+							}
+							var RequestHeadersToAddExisting []ProxyHTTPProxyMoreOptionRequestHeadersToAddModel
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.RequestHeadersToAdd.IsNull() && !data.HTTPProxy.MoreOption.RequestHeadersToAdd.IsUnknown() {
+								data.HTTPProxy.MoreOption.RequestHeadersToAdd.ElementsAs(ctx, &RequestHeadersToAddExisting, false)
+							}
 							if rawList, ok := MoreOptionData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var RequestHeadersToAddResult []ProxyHTTPProxyMoreOptionRequestHeadersToAddModel
-								for _, RequestHeadersToAddItem := range rawList {
+								for RequestHeadersToAddIdx, RequestHeadersToAddItem := range rawList {
+									_ = RequestHeadersToAddIdx
 									if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
 										RequestHeadersToAddResult = append(RequestHeadersToAddResult, ProxyHTTPProxyMoreOptionRequestHeadersToAddModel{
 											Append: func() types.Bool {
@@ -13663,6 +15170,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 													return &ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueModel{
 														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+															if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -13688,6 +15198,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel {
+															if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -13738,9 +15251,17 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							return types.ListNull(types.StringType)
 						}(),
 						ResponseCookiesToAdd: func() types.List {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && (data.HTTPProxy.MoreOption.ResponseCookiesToAdd.IsNull() || len(data.HTTPProxy.MoreOption.ResponseCookiesToAdd.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProxyHTTPProxyMoreOptionResponseCookiesToAddModelAttrTypes})
+							}
+							var ResponseCookiesToAddExisting []ProxyHTTPProxyMoreOptionResponseCookiesToAddModel
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.ResponseCookiesToAdd.IsNull() && !data.HTTPProxy.MoreOption.ResponseCookiesToAdd.IsUnknown() {
+								data.HTTPProxy.MoreOption.ResponseCookiesToAdd.ElementsAs(ctx, &ResponseCookiesToAddExisting, false)
+							}
 							if rawList, ok := MoreOptionData["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var ResponseCookiesToAddResult []ProxyHTTPProxyMoreOptionResponseCookiesToAddModel
-								for _, ResponseCookiesToAddItem := range rawList {
+								for ResponseCookiesToAddIdx, ResponseCookiesToAddItem := range rawList {
+									_ = ResponseCookiesToAddIdx
 									if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
 										ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, ProxyHTTPProxyMoreOptionResponseCookiesToAddModel{
 											AddDomain: func() types.String {
@@ -13756,12 +15277,18 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return types.StringNull()
 											}(),
 											AddHttponly: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											AddPartitioned: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
@@ -13774,60 +15301,90 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return types.StringNull()
 											}(),
 											AddSecure: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnoreDomain: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnoreExpiry: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnoreHttponly: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnoreMaxAge: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnorePartitioned: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnorePath: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnoreSamesite: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnoreSecure: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											IgnoreValue: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
@@ -13852,18 +15409,27 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return types.BoolNull()
 											}(),
 											SamesiteLax: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											SamesiteNone: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											SamesiteStrict: func() *ProxyEmptyModel {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
@@ -13873,6 +15439,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 													return &ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel{
 														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -13898,6 +15467,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -13948,9 +15520,17 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							return types.ListNull(types.StringType)
 						}(),
 						ResponseHeadersToAdd: func() types.List {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && (data.HTTPProxy.MoreOption.ResponseHeadersToAdd.IsNull() || len(data.HTTPProxy.MoreOption.ResponseHeadersToAdd.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProxyHTTPProxyMoreOptionResponseHeadersToAddModelAttrTypes})
+							}
+							var ResponseHeadersToAddExisting []ProxyHTTPProxyMoreOptionResponseHeadersToAddModel
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.ResponseHeadersToAdd.IsNull() && !data.HTTPProxy.MoreOption.ResponseHeadersToAdd.IsUnknown() {
+								data.HTTPProxy.MoreOption.ResponseHeadersToAdd.ElementsAs(ctx, &ResponseHeadersToAddExisting, false)
+							}
 							if rawList, ok := MoreOptionData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var ResponseHeadersToAddResult []ProxyHTTPProxyMoreOptionResponseHeadersToAddModel
-								for _, ResponseHeadersToAddItem := range rawList {
+								for ResponseHeadersToAddIdx, ResponseHeadersToAddItem := range rawList {
+									_ = ResponseHeadersToAddIdx
 									if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
 										ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, ProxyHTTPProxyMoreOptionResponseHeadersToAddModel{
 											Append: func() types.Bool {
@@ -13969,6 +15549,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 													return &ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueModel{
 														BlindfoldSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+															if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -13994,6 +15577,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														ClearSecretInfo: func() *ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel {
+															if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																return &ProxyHTTPProxyMoreOptionResponseHeadersToAddSecretValueClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -14067,9 +15653,14 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !isImport && data.SiteVirtualSites != nil && (data.SiteVirtualSites.AdvertiseWhere.IsNull() || len(data.SiteVirtualSites.AdvertiseWhere.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ProxySiteVirtualSitesAdvertiseWhereModelAttrTypes})
 				}
+				var AdvertiseWhereExisting []ProxySiteVirtualSitesAdvertiseWhereModel
+				if !isImport && data.SiteVirtualSites != nil && !data.SiteVirtualSites.AdvertiseWhere.IsNull() && !data.SiteVirtualSites.AdvertiseWhere.IsUnknown() {
+					data.SiteVirtualSites.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereExisting, false)
+				}
 				if rawList, ok := blockData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
 					var AdvertiseWhereResult []ProxySiteVirtualSitesAdvertiseWhereModel
-					for _, AdvertiseWhereItem := range rawList {
+					for AdvertiseWhereIdx, AdvertiseWhereItem := range rawList {
+						_ = AdvertiseWhereIdx
 						if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
 							AdvertiseWhereResult = append(AdvertiseWhereResult, ProxySiteVirtualSitesAdvertiseWhereModel{
 								Port: func() types.Int64 {
@@ -14123,6 +15714,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return nil
 								}(),
 								UseDefaultPort: func() *ProxyEmptyModel {
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
+										return &ProxyEmptyModel{}
+									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &ProxyEmptyModel{}
 									}
@@ -14191,6 +15785,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							return types.StringNull()
 						}(),
 						CustomHashAlgorithms: func() *ProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel {
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil && data.TLSIntercept.CustomCertificate.CustomHashAlgorithms != nil {
+								return data.TLSIntercept.CustomCertificate.CustomHashAlgorithms
+							}
 							if CustomHashAlgorithmsData, ok := CustomCertificateData["custom_hash_algorithms"].(map[string]interface{}); ok {
 								return &ProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel{
 									HashAlgorithms: func() types.List {
@@ -14217,15 +15814,24 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							return types.StringNull()
 						}(),
 						DisableOCSPStapling: func() *ProxyEmptyModel {
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil {
+								return data.TLSIntercept.CustomCertificate.DisableOCSPStapling
+							}
 							if _, ok := CustomCertificateData["disable_ocsp_stapling"].(map[string]interface{}); ok {
 								return &ProxyEmptyModel{}
 							}
 							return nil
 						}(),
 						PrivateKey: func() *ProxyTLSInterceptCustomCertificatePrivateKeyModel {
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil && data.TLSIntercept.CustomCertificate.PrivateKey != nil {
+								return data.TLSIntercept.CustomCertificate.PrivateKey
+							}
 							if PrivateKeyData, ok := CustomCertificateData["private_key"].(map[string]interface{}); ok {
 								return &ProxyTLSInterceptCustomCertificatePrivateKeyModel{
 									BlindfoldSecretInfo: func() *ProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel {
+										if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil && data.TLSIntercept.CustomCertificate.PrivateKey != nil && data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo != nil {
+											return data.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &ProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -14251,6 +15857,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										return nil
 									}(),
 									ClearSecretInfo: func() *ProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel {
+										if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil && data.TLSIntercept.CustomCertificate.PrivateKey != nil && data.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo != nil {
+											return data.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 											return &ProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel{
 												Provider: func() types.String {
@@ -14274,6 +15883,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							return nil
 						}(),
 						UseSystemDefaults: func() *ProxyEmptyModel {
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil {
+								return data.TLSIntercept.CustomCertificate.UseSystemDefaults
+							}
 							if _, ok := CustomCertificateData["use_system_defaults"].(map[string]interface{}); ok {
 								return &ProxyEmptyModel{}
 							}
@@ -14299,12 +15911,23 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if PolicyData, ok := blockData["policy"].(map[string]interface{}); ok {
 					return &ProxyTLSInterceptPolicyModel{
 						InterceptionRules: func() types.List {
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.Policy != nil && (data.TLSIntercept.Policy.InterceptionRules.IsNull() || len(data.TLSIntercept.Policy.InterceptionRules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProxyTLSInterceptPolicyInterceptionRulesModelAttrTypes})
+							}
+							var InterceptionRulesExisting []ProxyTLSInterceptPolicyInterceptionRulesModel
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.Policy != nil && !data.TLSIntercept.Policy.InterceptionRules.IsNull() && !data.TLSIntercept.Policy.InterceptionRules.IsUnknown() {
+								data.TLSIntercept.Policy.InterceptionRules.ElementsAs(ctx, &InterceptionRulesExisting, false)
+							}
 							if rawList, ok := PolicyData["interception_rules"].([]interface{}); ok && len(rawList) > 0 {
 								var InterceptionRulesResult []ProxyTLSInterceptPolicyInterceptionRulesModel
-								for _, InterceptionRulesItem := range rawList {
+								for InterceptionRulesIdx, InterceptionRulesItem := range rawList {
+									_ = InterceptionRulesIdx
 									if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
 										InterceptionRulesResult = append(InterceptionRulesResult, ProxyTLSInterceptPolicyInterceptionRulesModel{
 											DisableInterception: func() *ProxyEmptyModel {
+												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}
@@ -14336,6 +15959,9 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return nil
 											}(),
 											EnableInterception: func() *ProxyEmptyModel {
+												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception != nil {
+													return &ProxyEmptyModel{}
+												}
 												if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
 												}

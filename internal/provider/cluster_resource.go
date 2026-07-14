@@ -1868,24 +1868,36 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 				if HeaderTransformationData, ok := blockData["header_transformation"].(map[string]interface{}); ok {
 					return &ClusterHttp1ConfigHeaderTransformationModel{
 						DefaultHeaderTransformation: func() *ClusterEmptyModel {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+								return data.Http1Config.HeaderTransformation.DefaultHeaderTransformation
+							}
 							if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
 								return &ClusterEmptyModel{}
 							}
 							return nil
 						}(),
 						LegacyHeaderTransformation: func() *ClusterEmptyModel {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+								return data.Http1Config.HeaderTransformation.LegacyHeaderTransformation
+							}
 							if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 								return &ClusterEmptyModel{}
 							}
 							return nil
 						}(),
 						PreserveCaseHeaderTransformation: func() *ClusterEmptyModel {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+								return data.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation
+							}
 							if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
 								return &ClusterEmptyModel{}
 							}
 							return nil
 						}(),
 						ProperCaseHeaderTransformation: func() *ClusterEmptyModel {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+								return data.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation
+							}
 							if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
 								return &ClusterEmptyModel{}
 							}
@@ -1977,9 +1989,17 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 				if CertParamsData, ok := blockData["cert_params"].(map[string]interface{}); ok {
 					return &ClusterTLSParametersCertParamsModel{
 						Certificates: func() types.List {
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && (data.TLSParameters.CertParams.Certificates.IsNull() || len(data.TLSParameters.CertParams.Certificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsCertificatesModelAttrTypes})
+							}
+							var CertificatesExisting []ClusterTLSParametersCertParamsCertificatesModel
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && !data.TLSParameters.CertParams.Certificates.IsNull() && !data.TLSParameters.CertParams.Certificates.IsUnknown() {
+								data.TLSParameters.CertParams.Certificates.ElementsAs(ctx, &CertificatesExisting, false)
+							}
 							if rawList, ok := CertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var CertificatesResult []ClusterTLSParametersCertParamsCertificatesModel
-								for _, CertificatesItem := range rawList {
+								for CertificatesIdx, CertificatesItem := range rawList {
+									_ = CertificatesIdx
 									if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
 										CertificatesResult = append(CertificatesResult, ClusterTLSParametersCertParamsCertificatesModel{
 											Kind: func() types.String {
@@ -2049,6 +2069,9 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 							if ValidationParamsData, ok := CertParamsData["validation_params"].(map[string]interface{}); ok {
 								return &ClusterTLSParametersCertParamsValidationParamsModel{
 									SkipHostnameVerification: func() types.Bool {
+										if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.ValidationParams != nil && !data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+											return data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification
+										}
 										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -2058,9 +2081,17 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
 											return &ClusterTLSParametersCertParamsValidationParamsTrustedCAModel{
 												TrustedCAList: func() types.List {
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.ValidationParams != nil && data.TLSParameters.CertParams.ValidationParams.TrustedCA != nil && (data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+													}
+													var TrustedCAListExisting []ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.ValidationParams != nil && data.TLSParameters.CertParams.ValidationParams.TrustedCA != nil && !data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+														data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+													}
 													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
 														var TrustedCAListResult []ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel
-														for _, TrustedCAListItem := range rawList {
+														for TrustedCAListIdx, TrustedCAListItem := range rawList {
+															_ = TrustedCAListIdx
 															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
 																TrustedCAListResult = append(TrustedCAListResult, ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel{
 																	Kind: func() types.String {
@@ -2161,9 +2192,17 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 							return types.StringNull()
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && (data.TLSParameters.CommonParams.TLSCertificates.IsNull() || len(data.TLSParameters.CommonParams.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []ClusterTLSParametersCommonParamsTLSCertificatesModel
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && !data.TLSParameters.CommonParams.TLSCertificates.IsNull() && !data.TLSParameters.CommonParams.TLSCertificates.IsUnknown() {
+								data.TLSParameters.CommonParams.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := CommonParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []ClusterTLSParametersCommonParamsTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, ClusterTLSParametersCommonParamsTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -2199,6 +2238,9 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *ClusterEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &ClusterEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &ClusterEmptyModel{}
 												}
@@ -2208,6 +2250,9 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -2233,6 +2278,9 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 															return nil
 														}(),
 														ClearSecretInfo: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -2256,6 +2304,9 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 												return nil
 											}(),
 											UseSystemDefaults: func() *ClusterEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &ClusterEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &ClusterEmptyModel{}
 												}
@@ -2273,6 +2324,9 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 							if ValidationParamsData, ok := CommonParamsData["validation_params"].(map[string]interface{}); ok {
 								return &ClusterTLSParametersCommonParamsValidationParamsModel{
 									SkipHostnameVerification: func() types.Bool {
+										if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && data.TLSParameters.CommonParams.ValidationParams != nil && !data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+											return data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification
+										}
 										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -2282,9 +2336,17 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
 											return &ClusterTLSParametersCommonParamsValidationParamsTrustedCAModel{
 												TrustedCAList: func() types.List {
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && data.TLSParameters.CommonParams.ValidationParams != nil && data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil && (data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+													}
+													var TrustedCAListExisting []ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && data.TLSParameters.CommonParams.ValidationParams != nil && data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+														data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+													}
 													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
 														var TrustedCAListResult []ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
-														for _, TrustedCAListItem := range rawList {
+														for TrustedCAListIdx, TrustedCAListItem := range rawList {
+															_ = TrustedCAListIdx
 															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
 																TrustedCAListResult = append(TrustedCAListResult, ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel{
 																	Kind: func() types.String {
@@ -2765,24 +2827,36 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 				if HeaderTransformationData, ok := blockData["header_transformation"].(map[string]interface{}); ok {
 					return &ClusterHttp1ConfigHeaderTransformationModel{
 						DefaultHeaderTransformation: func() *ClusterEmptyModel {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+								return data.Http1Config.HeaderTransformation.DefaultHeaderTransformation
+							}
 							if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
 								return &ClusterEmptyModel{}
 							}
 							return nil
 						}(),
 						LegacyHeaderTransformation: func() *ClusterEmptyModel {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+								return data.Http1Config.HeaderTransformation.LegacyHeaderTransformation
+							}
 							if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 								return &ClusterEmptyModel{}
 							}
 							return nil
 						}(),
 						PreserveCaseHeaderTransformation: func() *ClusterEmptyModel {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+								return data.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation
+							}
 							if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
 								return &ClusterEmptyModel{}
 							}
 							return nil
 						}(),
 						ProperCaseHeaderTransformation: func() *ClusterEmptyModel {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+								return data.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation
+							}
 							if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
 								return &ClusterEmptyModel{}
 							}
@@ -2874,9 +2948,17 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 				if CertParamsData, ok := blockData["cert_params"].(map[string]interface{}); ok {
 					return &ClusterTLSParametersCertParamsModel{
 						Certificates: func() types.List {
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && (data.TLSParameters.CertParams.Certificates.IsNull() || len(data.TLSParameters.CertParams.Certificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsCertificatesModelAttrTypes})
+							}
+							var CertificatesExisting []ClusterTLSParametersCertParamsCertificatesModel
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && !data.TLSParameters.CertParams.Certificates.IsNull() && !data.TLSParameters.CertParams.Certificates.IsUnknown() {
+								data.TLSParameters.CertParams.Certificates.ElementsAs(ctx, &CertificatesExisting, false)
+							}
 							if rawList, ok := CertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var CertificatesResult []ClusterTLSParametersCertParamsCertificatesModel
-								for _, CertificatesItem := range rawList {
+								for CertificatesIdx, CertificatesItem := range rawList {
+									_ = CertificatesIdx
 									if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
 										CertificatesResult = append(CertificatesResult, ClusterTLSParametersCertParamsCertificatesModel{
 											Kind: func() types.String {
@@ -2946,6 +3028,9 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 							if ValidationParamsData, ok := CertParamsData["validation_params"].(map[string]interface{}); ok {
 								return &ClusterTLSParametersCertParamsValidationParamsModel{
 									SkipHostnameVerification: func() types.Bool {
+										if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.ValidationParams != nil && !data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+											return data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification
+										}
 										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -2955,9 +3040,17 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
 											return &ClusterTLSParametersCertParamsValidationParamsTrustedCAModel{
 												TrustedCAList: func() types.List {
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.ValidationParams != nil && data.TLSParameters.CertParams.ValidationParams.TrustedCA != nil && (data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+													}
+													var TrustedCAListExisting []ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.ValidationParams != nil && data.TLSParameters.CertParams.ValidationParams.TrustedCA != nil && !data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+														data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+													}
 													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
 														var TrustedCAListResult []ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel
-														for _, TrustedCAListItem := range rawList {
+														for TrustedCAListIdx, TrustedCAListItem := range rawList {
+															_ = TrustedCAListIdx
 															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
 																TrustedCAListResult = append(TrustedCAListResult, ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel{
 																	Kind: func() types.String {
@@ -3058,9 +3151,17 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 							return types.StringNull()
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && (data.TLSParameters.CommonParams.TLSCertificates.IsNull() || len(data.TLSParameters.CommonParams.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []ClusterTLSParametersCommonParamsTLSCertificatesModel
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && !data.TLSParameters.CommonParams.TLSCertificates.IsNull() && !data.TLSParameters.CommonParams.TLSCertificates.IsUnknown() {
+								data.TLSParameters.CommonParams.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := CommonParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []ClusterTLSParametersCommonParamsTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, ClusterTLSParametersCommonParamsTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -3096,6 +3197,9 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *ClusterEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &ClusterEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &ClusterEmptyModel{}
 												}
@@ -3105,6 +3209,9 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -3130,6 +3237,9 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 															return nil
 														}(),
 														ClearSecretInfo: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -3153,6 +3263,9 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 												return nil
 											}(),
 											UseSystemDefaults: func() *ClusterEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &ClusterEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &ClusterEmptyModel{}
 												}
@@ -3170,6 +3283,9 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 							if ValidationParamsData, ok := CommonParamsData["validation_params"].(map[string]interface{}); ok {
 								return &ClusterTLSParametersCommonParamsValidationParamsModel{
 									SkipHostnameVerification: func() types.Bool {
+										if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && data.TLSParameters.CommonParams.ValidationParams != nil && !data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+											return data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification
+										}
 										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -3179,9 +3295,17 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
 											return &ClusterTLSParametersCommonParamsValidationParamsTrustedCAModel{
 												TrustedCAList: func() types.List {
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && data.TLSParameters.CommonParams.ValidationParams != nil && data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil && (data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+													}
+													var TrustedCAListExisting []ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && data.TLSParameters.CommonParams.ValidationParams != nil && data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+														data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+													}
 													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
 														var TrustedCAListResult []ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
-														for _, TrustedCAListItem := range rawList {
+														for TrustedCAListIdx, TrustedCAListItem := range rawList {
+															_ = TrustedCAListIdx
 															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
 																TrustedCAListResult = append(TrustedCAListResult, ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel{
 																	Kind: func() types.String {
@@ -4104,24 +4228,36 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 				if HeaderTransformationData, ok := blockData["header_transformation"].(map[string]interface{}); ok {
 					return &ClusterHttp1ConfigHeaderTransformationModel{
 						DefaultHeaderTransformation: func() *ClusterEmptyModel {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+								return data.Http1Config.HeaderTransformation.DefaultHeaderTransformation
+							}
 							if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
 								return &ClusterEmptyModel{}
 							}
 							return nil
 						}(),
 						LegacyHeaderTransformation: func() *ClusterEmptyModel {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+								return data.Http1Config.HeaderTransformation.LegacyHeaderTransformation
+							}
 							if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 								return &ClusterEmptyModel{}
 							}
 							return nil
 						}(),
 						PreserveCaseHeaderTransformation: func() *ClusterEmptyModel {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+								return data.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation
+							}
 							if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
 								return &ClusterEmptyModel{}
 							}
 							return nil
 						}(),
 						ProperCaseHeaderTransformation: func() *ClusterEmptyModel {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+								return data.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation
+							}
 							if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
 								return &ClusterEmptyModel{}
 							}
@@ -4213,9 +4349,17 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 				if CertParamsData, ok := blockData["cert_params"].(map[string]interface{}); ok {
 					return &ClusterTLSParametersCertParamsModel{
 						Certificates: func() types.List {
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && (data.TLSParameters.CertParams.Certificates.IsNull() || len(data.TLSParameters.CertParams.Certificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsCertificatesModelAttrTypes})
+							}
+							var CertificatesExisting []ClusterTLSParametersCertParamsCertificatesModel
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && !data.TLSParameters.CertParams.Certificates.IsNull() && !data.TLSParameters.CertParams.Certificates.IsUnknown() {
+								data.TLSParameters.CertParams.Certificates.ElementsAs(ctx, &CertificatesExisting, false)
+							}
 							if rawList, ok := CertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var CertificatesResult []ClusterTLSParametersCertParamsCertificatesModel
-								for _, CertificatesItem := range rawList {
+								for CertificatesIdx, CertificatesItem := range rawList {
+									_ = CertificatesIdx
 									if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
 										CertificatesResult = append(CertificatesResult, ClusterTLSParametersCertParamsCertificatesModel{
 											Kind: func() types.String {
@@ -4285,6 +4429,9 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 							if ValidationParamsData, ok := CertParamsData["validation_params"].(map[string]interface{}); ok {
 								return &ClusterTLSParametersCertParamsValidationParamsModel{
 									SkipHostnameVerification: func() types.Bool {
+										if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.ValidationParams != nil && !data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+											return data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification
+										}
 										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -4294,9 +4441,17 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
 											return &ClusterTLSParametersCertParamsValidationParamsTrustedCAModel{
 												TrustedCAList: func() types.List {
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.ValidationParams != nil && data.TLSParameters.CertParams.ValidationParams.TrustedCA != nil && (data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+													}
+													var TrustedCAListExisting []ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.ValidationParams != nil && data.TLSParameters.CertParams.ValidationParams.TrustedCA != nil && !data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+														data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+													}
 													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
 														var TrustedCAListResult []ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel
-														for _, TrustedCAListItem := range rawList {
+														for TrustedCAListIdx, TrustedCAListItem := range rawList {
+															_ = TrustedCAListIdx
 															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
 																TrustedCAListResult = append(TrustedCAListResult, ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel{
 																	Kind: func() types.String {
@@ -4397,9 +4552,17 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 							return types.StringNull()
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && (data.TLSParameters.CommonParams.TLSCertificates.IsNull() || len(data.TLSParameters.CommonParams.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []ClusterTLSParametersCommonParamsTLSCertificatesModel
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && !data.TLSParameters.CommonParams.TLSCertificates.IsNull() && !data.TLSParameters.CommonParams.TLSCertificates.IsUnknown() {
+								data.TLSParameters.CommonParams.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := CommonParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []ClusterTLSParametersCommonParamsTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, ClusterTLSParametersCommonParamsTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -4435,6 +4598,9 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *ClusterEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &ClusterEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &ClusterEmptyModel{}
 												}
@@ -4444,6 +4610,9 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -4469,6 +4638,9 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 															return nil
 														}(),
 														ClearSecretInfo: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -4492,6 +4664,9 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 												return nil
 											}(),
 											UseSystemDefaults: func() *ClusterEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &ClusterEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &ClusterEmptyModel{}
 												}
@@ -4509,6 +4684,9 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 							if ValidationParamsData, ok := CommonParamsData["validation_params"].(map[string]interface{}); ok {
 								return &ClusterTLSParametersCommonParamsValidationParamsModel{
 									SkipHostnameVerification: func() types.Bool {
+										if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && data.TLSParameters.CommonParams.ValidationParams != nil && !data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+											return data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification
+										}
 										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -4518,9 +4696,17 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
 											return &ClusterTLSParametersCommonParamsValidationParamsTrustedCAModel{
 												TrustedCAList: func() types.List {
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && data.TLSParameters.CommonParams.ValidationParams != nil && data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil && (data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+													}
+													var TrustedCAListExisting []ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && data.TLSParameters.CommonParams.ValidationParams != nil && data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+														data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+													}
 													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
 														var TrustedCAListResult []ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
-														for _, TrustedCAListItem := range rawList {
+														for TrustedCAListIdx, TrustedCAListItem := range rawList {
+															_ = TrustedCAListIdx
 															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
 																TrustedCAListResult = append(TrustedCAListResult, ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel{
 																	Kind: func() types.String {

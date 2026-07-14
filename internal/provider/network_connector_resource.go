@@ -938,6 +938,9 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 				if TLSInterceptData, ok := blockData["tls_intercept"].(map[string]interface{}); ok {
 					return &NetworkConnectorEnableForwardProxyTLSInterceptModel{
 						CustomCertificate: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateModel {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil {
+								return data.EnableForwardProxy.TLSIntercept.CustomCertificate
+							}
 							if CustomCertificateData, ok := TLSInterceptData["custom_certificate"].(map[string]interface{}); ok {
 								return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateModel{
 									CertificateURL: func() types.String {
@@ -947,6 +950,9 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 										return types.StringNull()
 									}(),
 									CustomHashAlgorithms: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel {
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms != nil {
+											return data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms
+										}
 										if CustomHashAlgorithmsData, ok := CustomCertificateData["custom_hash_algorithms"].(map[string]interface{}); ok {
 											return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel{
 												HashAlgorithms: func() types.List {
@@ -973,15 +979,24 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 										return types.StringNull()
 									}(),
 									DisableOCSPStapling: func() *NetworkConnectorEmptyModel {
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil {
+											return data.EnableForwardProxy.TLSIntercept.CustomCertificate.DisableOCSPStapling
+										}
 										if _, ok := CustomCertificateData["disable_ocsp_stapling"].(map[string]interface{}); ok {
 											return &NetworkConnectorEmptyModel{}
 										}
 										return nil
 									}(),
 									PrivateKey: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModel {
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil {
+											return data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey
+										}
 										if PrivateKeyData, ok := CustomCertificateData["private_key"].(map[string]interface{}); ok {
 											return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModel{
 												BlindfoldSecretInfo: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel {
+													if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo != nil {
+														return data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -1007,6 +1022,9 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 													return nil
 												}(),
 												ClearSecretInfo: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel {
+													if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo != nil {
+														return data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 														return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel{
 															Provider: func() types.String {
@@ -1030,6 +1048,9 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 										return nil
 									}(),
 									UseSystemDefaults: func() *NetworkConnectorEmptyModel {
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil {
+											return data.EnableForwardProxy.TLSIntercept.CustomCertificate.UseSystemDefaults
+										}
 										if _, ok := CustomCertificateData["use_system_defaults"].(map[string]interface{}); ok {
 											return &NetworkConnectorEmptyModel{}
 										}
@@ -1040,21 +1061,38 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 							return nil
 						}(),
 						EnableForAllDomains: func() *NetworkConnectorEmptyModel {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
+								return data.EnableForwardProxy.TLSIntercept.EnableForAllDomains
+							}
 							if _, ok := TLSInterceptData["enable_for_all_domains"].(map[string]interface{}); ok {
 								return &NetworkConnectorEmptyModel{}
 							}
 							return nil
 						}(),
 						Policy: func() *NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.Policy != nil {
+								return data.EnableForwardProxy.TLSIntercept.Policy
+							}
 							if PolicyData, ok := TLSInterceptData["policy"].(map[string]interface{}); ok {
 								return &NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel{
 									InterceptionRules: func() types.List {
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.Policy != nil && (data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.IsNull() || len(data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModelAttrTypes})
+										}
+										var InterceptionRulesExisting []NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.Policy != nil && !data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.IsNull() && !data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.IsUnknown() {
+											data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.ElementsAs(ctx, &InterceptionRulesExisting, false)
+										}
 										if rawList, ok := PolicyData["interception_rules"].([]interface{}); ok && len(rawList) > 0 {
 											var InterceptionRulesResult []NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel
-											for _, InterceptionRulesItem := range rawList {
+											for InterceptionRulesIdx, InterceptionRulesItem := range rawList {
+												_ = InterceptionRulesIdx
 												if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
 													InterceptionRulesResult = append(InterceptionRulesResult, NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel{
 														DisableInterception: func() *NetworkConnectorEmptyModel {
+															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception != nil {
+																return &NetworkConnectorEmptyModel{}
+															}
 															if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
 																return &NetworkConnectorEmptyModel{}
 															}
@@ -1086,6 +1124,9 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 															return nil
 														}(),
 														EnableInterception: func() *NetworkConnectorEmptyModel {
+															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception != nil {
+																return &NetworkConnectorEmptyModel{}
+															}
 															if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
 																return &NetworkConnectorEmptyModel{}
 															}
@@ -1110,12 +1151,18 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 							return types.StringNull()
 						}(),
 						VolterraCertificate: func() *NetworkConnectorEmptyModel {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
+								return data.EnableForwardProxy.TLSIntercept.VolterraCertificate
+							}
 							if _, ok := TLSInterceptData["volterra_certificate"].(map[string]interface{}); ok {
 								return &NetworkConnectorEmptyModel{}
 							}
 							return nil
 						}(),
 						VolterraTrustedCA: func() *NetworkConnectorEmptyModel {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
+								return data.EnableForwardProxy.TLSIntercept.VolterraTrustedCA
+							}
 							if _, ok := TLSInterceptData["volterra_trusted_ca"].(map[string]interface{}); ok {
 								return &NetworkConnectorEmptyModel{}
 							}
@@ -1365,6 +1412,9 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 				if TLSInterceptData, ok := blockData["tls_intercept"].(map[string]interface{}); ok {
 					return &NetworkConnectorEnableForwardProxyTLSInterceptModel{
 						CustomCertificate: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateModel {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil {
+								return data.EnableForwardProxy.TLSIntercept.CustomCertificate
+							}
 							if CustomCertificateData, ok := TLSInterceptData["custom_certificate"].(map[string]interface{}); ok {
 								return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateModel{
 									CertificateURL: func() types.String {
@@ -1374,6 +1424,9 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 										return types.StringNull()
 									}(),
 									CustomHashAlgorithms: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel {
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms != nil {
+											return data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms
+										}
 										if CustomHashAlgorithmsData, ok := CustomCertificateData["custom_hash_algorithms"].(map[string]interface{}); ok {
 											return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel{
 												HashAlgorithms: func() types.List {
@@ -1400,15 +1453,24 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 										return types.StringNull()
 									}(),
 									DisableOCSPStapling: func() *NetworkConnectorEmptyModel {
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil {
+											return data.EnableForwardProxy.TLSIntercept.CustomCertificate.DisableOCSPStapling
+										}
 										if _, ok := CustomCertificateData["disable_ocsp_stapling"].(map[string]interface{}); ok {
 											return &NetworkConnectorEmptyModel{}
 										}
 										return nil
 									}(),
 									PrivateKey: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModel {
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil {
+											return data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey
+										}
 										if PrivateKeyData, ok := CustomCertificateData["private_key"].(map[string]interface{}); ok {
 											return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModel{
 												BlindfoldSecretInfo: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel {
+													if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo != nil {
+														return data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -1434,6 +1496,9 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 													return nil
 												}(),
 												ClearSecretInfo: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel {
+													if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo != nil {
+														return data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 														return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel{
 															Provider: func() types.String {
@@ -1457,6 +1522,9 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 										return nil
 									}(),
 									UseSystemDefaults: func() *NetworkConnectorEmptyModel {
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil {
+											return data.EnableForwardProxy.TLSIntercept.CustomCertificate.UseSystemDefaults
+										}
 										if _, ok := CustomCertificateData["use_system_defaults"].(map[string]interface{}); ok {
 											return &NetworkConnectorEmptyModel{}
 										}
@@ -1467,21 +1535,38 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 							return nil
 						}(),
 						EnableForAllDomains: func() *NetworkConnectorEmptyModel {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
+								return data.EnableForwardProxy.TLSIntercept.EnableForAllDomains
+							}
 							if _, ok := TLSInterceptData["enable_for_all_domains"].(map[string]interface{}); ok {
 								return &NetworkConnectorEmptyModel{}
 							}
 							return nil
 						}(),
 						Policy: func() *NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.Policy != nil {
+								return data.EnableForwardProxy.TLSIntercept.Policy
+							}
 							if PolicyData, ok := TLSInterceptData["policy"].(map[string]interface{}); ok {
 								return &NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel{
 									InterceptionRules: func() types.List {
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.Policy != nil && (data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.IsNull() || len(data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModelAttrTypes})
+										}
+										var InterceptionRulesExisting []NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.Policy != nil && !data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.IsNull() && !data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.IsUnknown() {
+											data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.ElementsAs(ctx, &InterceptionRulesExisting, false)
+										}
 										if rawList, ok := PolicyData["interception_rules"].([]interface{}); ok && len(rawList) > 0 {
 											var InterceptionRulesResult []NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel
-											for _, InterceptionRulesItem := range rawList {
+											for InterceptionRulesIdx, InterceptionRulesItem := range rawList {
+												_ = InterceptionRulesIdx
 												if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
 													InterceptionRulesResult = append(InterceptionRulesResult, NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel{
 														DisableInterception: func() *NetworkConnectorEmptyModel {
+															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception != nil {
+																return &NetworkConnectorEmptyModel{}
+															}
 															if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
 																return &NetworkConnectorEmptyModel{}
 															}
@@ -1513,6 +1598,9 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 															return nil
 														}(),
 														EnableInterception: func() *NetworkConnectorEmptyModel {
+															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception != nil {
+																return &NetworkConnectorEmptyModel{}
+															}
 															if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
 																return &NetworkConnectorEmptyModel{}
 															}
@@ -1537,12 +1625,18 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 							return types.StringNull()
 						}(),
 						VolterraCertificate: func() *NetworkConnectorEmptyModel {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
+								return data.EnableForwardProxy.TLSIntercept.VolterraCertificate
+							}
 							if _, ok := TLSInterceptData["volterra_certificate"].(map[string]interface{}); ok {
 								return &NetworkConnectorEmptyModel{}
 							}
 							return nil
 						}(),
 						VolterraTrustedCA: func() *NetworkConnectorEmptyModel {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
+								return data.EnableForwardProxy.TLSIntercept.VolterraTrustedCA
+							}
 							if _, ok := TLSInterceptData["volterra_trusted_ca"].(map[string]interface{}); ok {
 								return &NetworkConnectorEmptyModel{}
 							}
@@ -1962,6 +2056,9 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 				if TLSInterceptData, ok := blockData["tls_intercept"].(map[string]interface{}); ok {
 					return &NetworkConnectorEnableForwardProxyTLSInterceptModel{
 						CustomCertificate: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateModel {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil {
+								return data.EnableForwardProxy.TLSIntercept.CustomCertificate
+							}
 							if CustomCertificateData, ok := TLSInterceptData["custom_certificate"].(map[string]interface{}); ok {
 								return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateModel{
 									CertificateURL: func() types.String {
@@ -1971,6 +2068,9 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 										return types.StringNull()
 									}(),
 									CustomHashAlgorithms: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel {
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms != nil {
+											return data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms
+										}
 										if CustomHashAlgorithmsData, ok := CustomCertificateData["custom_hash_algorithms"].(map[string]interface{}); ok {
 											return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel{
 												HashAlgorithms: func() types.List {
@@ -1997,15 +2097,24 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 										return types.StringNull()
 									}(),
 									DisableOCSPStapling: func() *NetworkConnectorEmptyModel {
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil {
+											return data.EnableForwardProxy.TLSIntercept.CustomCertificate.DisableOCSPStapling
+										}
 										if _, ok := CustomCertificateData["disable_ocsp_stapling"].(map[string]interface{}); ok {
 											return &NetworkConnectorEmptyModel{}
 										}
 										return nil
 									}(),
 									PrivateKey: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModel {
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil {
+											return data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey
+										}
 										if PrivateKeyData, ok := CustomCertificateData["private_key"].(map[string]interface{}); ok {
 											return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModel{
 												BlindfoldSecretInfo: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel {
+													if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo != nil {
+														return data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -2031,6 +2140,9 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 													return nil
 												}(),
 												ClearSecretInfo: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel {
+													if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo != nil {
+														return data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 														return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel{
 															Provider: func() types.String {
@@ -2054,6 +2166,9 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 										return nil
 									}(),
 									UseSystemDefaults: func() *NetworkConnectorEmptyModel {
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil {
+											return data.EnableForwardProxy.TLSIntercept.CustomCertificate.UseSystemDefaults
+										}
 										if _, ok := CustomCertificateData["use_system_defaults"].(map[string]interface{}); ok {
 											return &NetworkConnectorEmptyModel{}
 										}
@@ -2064,21 +2179,38 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 							return nil
 						}(),
 						EnableForAllDomains: func() *NetworkConnectorEmptyModel {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
+								return data.EnableForwardProxy.TLSIntercept.EnableForAllDomains
+							}
 							if _, ok := TLSInterceptData["enable_for_all_domains"].(map[string]interface{}); ok {
 								return &NetworkConnectorEmptyModel{}
 							}
 							return nil
 						}(),
 						Policy: func() *NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.Policy != nil {
+								return data.EnableForwardProxy.TLSIntercept.Policy
+							}
 							if PolicyData, ok := TLSInterceptData["policy"].(map[string]interface{}); ok {
 								return &NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel{
 									InterceptionRules: func() types.List {
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.Policy != nil && (data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.IsNull() || len(data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModelAttrTypes})
+										}
+										var InterceptionRulesExisting []NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.Policy != nil && !data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.IsNull() && !data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.IsUnknown() {
+											data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.ElementsAs(ctx, &InterceptionRulesExisting, false)
+										}
 										if rawList, ok := PolicyData["interception_rules"].([]interface{}); ok && len(rawList) > 0 {
 											var InterceptionRulesResult []NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel
-											for _, InterceptionRulesItem := range rawList {
+											for InterceptionRulesIdx, InterceptionRulesItem := range rawList {
+												_ = InterceptionRulesIdx
 												if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
 													InterceptionRulesResult = append(InterceptionRulesResult, NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel{
 														DisableInterception: func() *NetworkConnectorEmptyModel {
+															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception != nil {
+																return &NetworkConnectorEmptyModel{}
+															}
 															if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
 																return &NetworkConnectorEmptyModel{}
 															}
@@ -2110,6 +2242,9 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 															return nil
 														}(),
 														EnableInterception: func() *NetworkConnectorEmptyModel {
+															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception != nil {
+																return &NetworkConnectorEmptyModel{}
+															}
 															if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
 																return &NetworkConnectorEmptyModel{}
 															}
@@ -2134,12 +2269,18 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 							return types.StringNull()
 						}(),
 						VolterraCertificate: func() *NetworkConnectorEmptyModel {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
+								return data.EnableForwardProxy.TLSIntercept.VolterraCertificate
+							}
 							if _, ok := TLSInterceptData["volterra_certificate"].(map[string]interface{}); ok {
 								return &NetworkConnectorEmptyModel{}
 							}
 							return nil
 						}(),
 						VolterraTrustedCA: func() *NetworkConnectorEmptyModel {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
+								return data.EnableForwardProxy.TLSIntercept.VolterraTrustedCA
+							}
 							if _, ok := TLSInterceptData["volterra_trusted_ca"].(map[string]interface{}); ok {
 								return &NetworkConnectorEmptyModel{}
 							}

@@ -1011,6 +1011,9 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 				if SecretKeyData, ok := blockData["secret_key"].(map[string]interface{}); ok {
 					return &CloudCredentialsAWSSecretKeySecretKeyModel{
 						BlindfoldSecretInfo: func() *CloudCredentialsAWSSecretKeySecretKeyBlindfoldSecretInfoModel {
+							if !isImport && data.AWSSecretKey != nil && data.AWSSecretKey.SecretKey != nil && data.AWSSecretKey.SecretKey.BlindfoldSecretInfo != nil {
+								return data.AWSSecretKey.SecretKey.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := SecretKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsAWSSecretKeySecretKeyBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -1036,6 +1039,9 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 							return nil
 						}(),
 						ClearSecretInfo: func() *CloudCredentialsAWSSecretKeySecretKeyClearSecretInfoModel {
+							if !isImport && data.AWSSecretKey != nil && data.AWSSecretKey.SecretKey != nil && data.AWSSecretKey.SecretKey.ClearSecretInfo != nil {
+								return data.AWSSecretKey.SecretKey.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := SecretKeyData["clear_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsAWSSecretKeySecretKeyClearSecretInfoModel{
 									Provider: func() types.String {
@@ -1075,6 +1081,9 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 				if ClientSecretData, ok := blockData["client_secret"].(map[string]interface{}); ok {
 					return &CloudCredentialsAzureClientSecretClientSecretModel{
 						BlindfoldSecretInfo: func() *CloudCredentialsAzureClientSecretClientSecretBlindfoldSecretInfoModel {
+							if !isImport && data.AzureClientSecret != nil && data.AzureClientSecret.ClientSecret != nil && data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo != nil {
+								return data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := ClientSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsAzureClientSecretClientSecretBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -1100,6 +1109,9 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 							return nil
 						}(),
 						ClearSecretInfo: func() *CloudCredentialsAzureClientSecretClientSecretClearSecretInfoModel {
+							if !isImport && data.AzureClientSecret != nil && data.AzureClientSecret.ClientSecret != nil && data.AzureClientSecret.ClientSecret.ClearSecretInfo != nil {
+								return data.AzureClientSecret.ClientSecret.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := ClientSecretData["clear_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsAzureClientSecretClientSecretClearSecretInfoModel{
 									Provider: func() types.String {
@@ -1157,6 +1169,9 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 				if PasswordData, ok := blockData["password"].(map[string]interface{}); ok {
 					return &CloudCredentialsAzurePfxCertificatePasswordModel{
 						BlindfoldSecretInfo: func() *CloudCredentialsAzurePfxCertificatePasswordBlindfoldSecretInfoModel {
+							if !isImport && data.AzurePfxCertificate != nil && data.AzurePfxCertificate.Password != nil && data.AzurePfxCertificate.Password.BlindfoldSecretInfo != nil {
+								return data.AzurePfxCertificate.Password.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsAzurePfxCertificatePasswordBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -1182,6 +1197,9 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 							return nil
 						}(),
 						ClearSecretInfo: func() *CloudCredentialsAzurePfxCertificatePasswordClearSecretInfoModel {
+							if !isImport && data.AzurePfxCertificate != nil && data.AzurePfxCertificate.Password != nil && data.AzurePfxCertificate.Password.ClearSecretInfo != nil {
+								return data.AzurePfxCertificate.Password.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsAzurePfxCertificatePasswordClearSecretInfoModel{
 									Provider: func() types.String {
@@ -1227,6 +1245,9 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 				if CredentialFileData, ok := blockData["credential_file"].(map[string]interface{}); ok {
 					return &CloudCredentialsGCPCredFileCredentialFileModel{
 						BlindfoldSecretInfo: func() *CloudCredentialsGCPCredFileCredentialFileBlindfoldSecretInfoModel {
+							if !isImport && data.GCPCredFile != nil && data.GCPCredFile.CredentialFile != nil && data.GCPCredFile.CredentialFile.BlindfoldSecretInfo != nil {
+								return data.GCPCredFile.CredentialFile.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := CredentialFileData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsGCPCredFileCredentialFileBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -1252,6 +1273,9 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 							return nil
 						}(),
 						ClearSecretInfo: func() *CloudCredentialsGCPCredFileCredentialFileClearSecretInfoModel {
+							if !isImport && data.GCPCredFile != nil && data.GCPCredFile.CredentialFile != nil && data.GCPCredFile.CredentialFile.ClearSecretInfo != nil {
+								return data.GCPCredFile.CredentialFile.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := CredentialFileData["clear_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsGCPCredFileCredentialFileClearSecretInfoModel{
 									Provider: func() types.String {
@@ -1442,6 +1466,9 @@ func (r *CloudCredentialsResource) Read(ctx context.Context, req resource.ReadRe
 				if SecretKeyData, ok := blockData["secret_key"].(map[string]interface{}); ok {
 					return &CloudCredentialsAWSSecretKeySecretKeyModel{
 						BlindfoldSecretInfo: func() *CloudCredentialsAWSSecretKeySecretKeyBlindfoldSecretInfoModel {
+							if !isImport && data.AWSSecretKey != nil && data.AWSSecretKey.SecretKey != nil && data.AWSSecretKey.SecretKey.BlindfoldSecretInfo != nil {
+								return data.AWSSecretKey.SecretKey.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := SecretKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsAWSSecretKeySecretKeyBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -1467,6 +1494,9 @@ func (r *CloudCredentialsResource) Read(ctx context.Context, req resource.ReadRe
 							return nil
 						}(),
 						ClearSecretInfo: func() *CloudCredentialsAWSSecretKeySecretKeyClearSecretInfoModel {
+							if !isImport && data.AWSSecretKey != nil && data.AWSSecretKey.SecretKey != nil && data.AWSSecretKey.SecretKey.ClearSecretInfo != nil {
+								return data.AWSSecretKey.SecretKey.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := SecretKeyData["clear_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsAWSSecretKeySecretKeyClearSecretInfoModel{
 									Provider: func() types.String {
@@ -1506,6 +1536,9 @@ func (r *CloudCredentialsResource) Read(ctx context.Context, req resource.ReadRe
 				if ClientSecretData, ok := blockData["client_secret"].(map[string]interface{}); ok {
 					return &CloudCredentialsAzureClientSecretClientSecretModel{
 						BlindfoldSecretInfo: func() *CloudCredentialsAzureClientSecretClientSecretBlindfoldSecretInfoModel {
+							if !isImport && data.AzureClientSecret != nil && data.AzureClientSecret.ClientSecret != nil && data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo != nil {
+								return data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := ClientSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsAzureClientSecretClientSecretBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -1531,6 +1564,9 @@ func (r *CloudCredentialsResource) Read(ctx context.Context, req resource.ReadRe
 							return nil
 						}(),
 						ClearSecretInfo: func() *CloudCredentialsAzureClientSecretClientSecretClearSecretInfoModel {
+							if !isImport && data.AzureClientSecret != nil && data.AzureClientSecret.ClientSecret != nil && data.AzureClientSecret.ClientSecret.ClearSecretInfo != nil {
+								return data.AzureClientSecret.ClientSecret.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := ClientSecretData["clear_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsAzureClientSecretClientSecretClearSecretInfoModel{
 									Provider: func() types.String {
@@ -1588,6 +1624,9 @@ func (r *CloudCredentialsResource) Read(ctx context.Context, req resource.ReadRe
 				if PasswordData, ok := blockData["password"].(map[string]interface{}); ok {
 					return &CloudCredentialsAzurePfxCertificatePasswordModel{
 						BlindfoldSecretInfo: func() *CloudCredentialsAzurePfxCertificatePasswordBlindfoldSecretInfoModel {
+							if !isImport && data.AzurePfxCertificate != nil && data.AzurePfxCertificate.Password != nil && data.AzurePfxCertificate.Password.BlindfoldSecretInfo != nil {
+								return data.AzurePfxCertificate.Password.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsAzurePfxCertificatePasswordBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -1613,6 +1652,9 @@ func (r *CloudCredentialsResource) Read(ctx context.Context, req resource.ReadRe
 							return nil
 						}(),
 						ClearSecretInfo: func() *CloudCredentialsAzurePfxCertificatePasswordClearSecretInfoModel {
+							if !isImport && data.AzurePfxCertificate != nil && data.AzurePfxCertificate.Password != nil && data.AzurePfxCertificate.Password.ClearSecretInfo != nil {
+								return data.AzurePfxCertificate.Password.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsAzurePfxCertificatePasswordClearSecretInfoModel{
 									Provider: func() types.String {
@@ -1658,6 +1700,9 @@ func (r *CloudCredentialsResource) Read(ctx context.Context, req resource.ReadRe
 				if CredentialFileData, ok := blockData["credential_file"].(map[string]interface{}); ok {
 					return &CloudCredentialsGCPCredFileCredentialFileModel{
 						BlindfoldSecretInfo: func() *CloudCredentialsGCPCredFileCredentialFileBlindfoldSecretInfoModel {
+							if !isImport && data.GCPCredFile != nil && data.GCPCredFile.CredentialFile != nil && data.GCPCredFile.CredentialFile.BlindfoldSecretInfo != nil {
+								return data.GCPCredFile.CredentialFile.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := CredentialFileData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsGCPCredFileCredentialFileBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -1683,6 +1728,9 @@ func (r *CloudCredentialsResource) Read(ctx context.Context, req resource.ReadRe
 							return nil
 						}(),
 						ClearSecretInfo: func() *CloudCredentialsGCPCredFileCredentialFileClearSecretInfoModel {
+							if !isImport && data.GCPCredFile != nil && data.GCPCredFile.CredentialFile != nil && data.GCPCredFile.CredentialFile.ClearSecretInfo != nil {
+								return data.GCPCredFile.CredentialFile.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := CredentialFileData["clear_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsGCPCredFileCredentialFileClearSecretInfoModel{
 									Provider: func() types.String {
@@ -2036,6 +2084,9 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 				if SecretKeyData, ok := blockData["secret_key"].(map[string]interface{}); ok {
 					return &CloudCredentialsAWSSecretKeySecretKeyModel{
 						BlindfoldSecretInfo: func() *CloudCredentialsAWSSecretKeySecretKeyBlindfoldSecretInfoModel {
+							if !isImport && data.AWSSecretKey != nil && data.AWSSecretKey.SecretKey != nil && data.AWSSecretKey.SecretKey.BlindfoldSecretInfo != nil {
+								return data.AWSSecretKey.SecretKey.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := SecretKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsAWSSecretKeySecretKeyBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -2061,6 +2112,9 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 							return nil
 						}(),
 						ClearSecretInfo: func() *CloudCredentialsAWSSecretKeySecretKeyClearSecretInfoModel {
+							if !isImport && data.AWSSecretKey != nil && data.AWSSecretKey.SecretKey != nil && data.AWSSecretKey.SecretKey.ClearSecretInfo != nil {
+								return data.AWSSecretKey.SecretKey.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := SecretKeyData["clear_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsAWSSecretKeySecretKeyClearSecretInfoModel{
 									Provider: func() types.String {
@@ -2100,6 +2154,9 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 				if ClientSecretData, ok := blockData["client_secret"].(map[string]interface{}); ok {
 					return &CloudCredentialsAzureClientSecretClientSecretModel{
 						BlindfoldSecretInfo: func() *CloudCredentialsAzureClientSecretClientSecretBlindfoldSecretInfoModel {
+							if !isImport && data.AzureClientSecret != nil && data.AzureClientSecret.ClientSecret != nil && data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo != nil {
+								return data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := ClientSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsAzureClientSecretClientSecretBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -2125,6 +2182,9 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 							return nil
 						}(),
 						ClearSecretInfo: func() *CloudCredentialsAzureClientSecretClientSecretClearSecretInfoModel {
+							if !isImport && data.AzureClientSecret != nil && data.AzureClientSecret.ClientSecret != nil && data.AzureClientSecret.ClientSecret.ClearSecretInfo != nil {
+								return data.AzureClientSecret.ClientSecret.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := ClientSecretData["clear_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsAzureClientSecretClientSecretClearSecretInfoModel{
 									Provider: func() types.String {
@@ -2182,6 +2242,9 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 				if PasswordData, ok := blockData["password"].(map[string]interface{}); ok {
 					return &CloudCredentialsAzurePfxCertificatePasswordModel{
 						BlindfoldSecretInfo: func() *CloudCredentialsAzurePfxCertificatePasswordBlindfoldSecretInfoModel {
+							if !isImport && data.AzurePfxCertificate != nil && data.AzurePfxCertificate.Password != nil && data.AzurePfxCertificate.Password.BlindfoldSecretInfo != nil {
+								return data.AzurePfxCertificate.Password.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsAzurePfxCertificatePasswordBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -2207,6 +2270,9 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 							return nil
 						}(),
 						ClearSecretInfo: func() *CloudCredentialsAzurePfxCertificatePasswordClearSecretInfoModel {
+							if !isImport && data.AzurePfxCertificate != nil && data.AzurePfxCertificate.Password != nil && data.AzurePfxCertificate.Password.ClearSecretInfo != nil {
+								return data.AzurePfxCertificate.Password.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsAzurePfxCertificatePasswordClearSecretInfoModel{
 									Provider: func() types.String {
@@ -2252,6 +2318,9 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 				if CredentialFileData, ok := blockData["credential_file"].(map[string]interface{}); ok {
 					return &CloudCredentialsGCPCredFileCredentialFileModel{
 						BlindfoldSecretInfo: func() *CloudCredentialsGCPCredFileCredentialFileBlindfoldSecretInfoModel {
+							if !isImport && data.GCPCredFile != nil && data.GCPCredFile.CredentialFile != nil && data.GCPCredFile.CredentialFile.BlindfoldSecretInfo != nil {
+								return data.GCPCredFile.CredentialFile.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := CredentialFileData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsGCPCredFileCredentialFileBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -2277,6 +2346,9 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 							return nil
 						}(),
 						ClearSecretInfo: func() *CloudCredentialsGCPCredFileCredentialFileClearSecretInfoModel {
+							if !isImport && data.GCPCredFile != nil && data.GCPCredFile.CredentialFile != nil && data.GCPCredFile.CredentialFile.ClearSecretInfo != nil {
+								return data.GCPCredFile.CredentialFile.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := CredentialFileData["clear_secret_info"].(map[string]interface{}); ok {
 								return &CloudCredentialsGCPCredFileCredentialFileClearSecretInfoModel{
 									Provider: func() types.String {

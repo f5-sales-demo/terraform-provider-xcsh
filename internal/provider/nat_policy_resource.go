@@ -1848,9 +1848,17 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 												if ElasticIpsData, ok := DynamicData["elastic_ips"].(map[string]interface{}); ok {
 													return &NATPolicyRulesActionDynamicElasticIpsModel{
 														Refs: func() types.List {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil && existingRulesItems[listIdx].Action.Dynamic != nil && existingRulesItems[listIdx].Action.Dynamic.ElasticIps != nil && (existingRulesItems[listIdx].Action.Dynamic.ElasticIps.Refs.IsNull() || len(existingRulesItems[listIdx].Action.Dynamic.ElasticIps.Refs.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesActionDynamicElasticIpsRefsModelAttrTypes})
+															}
+															var RefsExisting []NATPolicyRulesActionDynamicElasticIpsRefsModel
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil && existingRulesItems[listIdx].Action.Dynamic != nil && existingRulesItems[listIdx].Action.Dynamic.ElasticIps != nil && !existingRulesItems[listIdx].Action.Dynamic.ElasticIps.Refs.IsNull() && !existingRulesItems[listIdx].Action.Dynamic.ElasticIps.Refs.IsUnknown() {
+																existingRulesItems[listIdx].Action.Dynamic.ElasticIps.Refs.ElementsAs(ctx, &RefsExisting, false)
+															}
 															if rawList, ok := ElasticIpsData["refs"].([]interface{}); ok && len(rawList) > 0 {
 																var RefsResult []NATPolicyRulesActionDynamicElasticIpsRefsModel
-																for _, RefsItem := range rawList {
+																for RefsIdx, RefsItem := range rawList {
+																	_ = RefsIdx
 																	if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 																		RefsResult = append(RefsResult, NATPolicyRulesActionDynamicElasticIpsRefsModel{
 																			Kind: func() types.String {
@@ -1896,6 +1904,9 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 												return nil
 											}(),
 											Pools: func() *NATPolicyRulesActionDynamicPoolsModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil && existingRulesItems[listIdx].Action.Dynamic != nil && existingRulesItems[listIdx].Action.Dynamic.Pools != nil {
+													return existingRulesItems[listIdx].Action.Dynamic.Pools
+												}
 												if PoolsData, ok := DynamicData["pools"].(map[string]interface{}); ok {
 													return &NATPolicyRulesActionDynamicPoolsModel{
 														Prefixes: func() types.List {
@@ -1933,9 +1944,17 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 						if CloudConnectData, ok := itemMap["cloud_connect"].(map[string]interface{}); ok {
 							return &NATPolicyRulesCloudConnectModel{
 								Refs: func() types.List {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].CloudConnect != nil && (existingRulesItems[listIdx].CloudConnect.Refs.IsNull() || len(existingRulesItems[listIdx].CloudConnect.Refs.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesCloudConnectRefsModelAttrTypes})
+									}
+									var RefsExisting []NATPolicyRulesCloudConnectRefsModel
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].CloudConnect != nil && !existingRulesItems[listIdx].CloudConnect.Refs.IsNull() && !existingRulesItems[listIdx].CloudConnect.Refs.IsUnknown() {
+										existingRulesItems[listIdx].CloudConnect.Refs.ElementsAs(ctx, &RefsExisting, false)
+									}
 									if rawList, ok := CloudConnectData["refs"].([]interface{}); ok && len(rawList) > 0 {
 										var RefsResult []NATPolicyRulesCloudConnectRefsModel
-										for _, RefsItem := range rawList {
+										for RefsIdx, RefsItem := range rawList {
+											_ = RefsIdx
 											if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 												RefsResult = append(RefsResult, NATPolicyRulesCloudConnectRefsModel{
 													Kind: func() types.String {
@@ -1984,6 +2003,9 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 						if CriteriaData, ok := itemMap["criteria"].(map[string]interface{}); ok {
 							return &NATPolicyRulesCriteriaModel{
 								Any: func() *NATPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+										return existingRulesItems[listIdx].Criteria.Any
+									}
 									if _, ok := CriteriaData["any"].(map[string]interface{}); ok {
 										return &NATPolicyEmptyModel{}
 									}
@@ -2003,15 +2025,24 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 									return types.ListNull(types.StringType)
 								}(),
 								DestinationPort: func() *NATPolicyRulesCriteriaDestinationPortModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.DestinationPort != nil {
+										return existingRulesItems[listIdx].Criteria.DestinationPort
+									}
 									if DestinationPortData, ok := CriteriaData["destination_port"].(map[string]interface{}); ok {
 										return &NATPolicyRulesCriteriaDestinationPortModel{
 											NoPortMatch: func() *NATPolicyEmptyModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.DestinationPort != nil {
+													return existingRulesItems[listIdx].Criteria.DestinationPort.NoPortMatch
+												}
 												if _, ok := DestinationPortData["no_port_match"].(map[string]interface{}); ok {
 													return &NATPolicyEmptyModel{}
 												}
 												return nil
 											}(),
 											Port: func() types.Int64 {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.DestinationPort != nil && !existingRulesItems[listIdx].Criteria.DestinationPort.Port.IsUnknown() {
+													return existingRulesItems[listIdx].Criteria.DestinationPort.Port
+												}
 												if v, ok := DestinationPortData["port"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -2028,6 +2059,9 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 									return nil
 								}(),
 								ICMP: func() *NATPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+										return existingRulesItems[listIdx].Criteria.ICMP
+									}
 									if _, ok := CriteriaData["icmp"].(map[string]interface{}); ok {
 										return &NATPolicyEmptyModel{}
 									}
@@ -2043,9 +2077,17 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 									if SegmentData, ok := CriteriaData["segment"].(map[string]interface{}); ok {
 										return &NATPolicyRulesCriteriaSegmentModel{
 											Refs: func() types.List {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.Segment != nil && (existingRulesItems[listIdx].Criteria.Segment.Refs.IsNull() || len(existingRulesItems[listIdx].Criteria.Segment.Refs.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesCriteriaSegmentRefsModelAttrTypes})
+												}
+												var RefsExisting []NATPolicyRulesCriteriaSegmentRefsModel
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.Segment != nil && !existingRulesItems[listIdx].Criteria.Segment.Refs.IsNull() && !existingRulesItems[listIdx].Criteria.Segment.Refs.IsUnknown() {
+													existingRulesItems[listIdx].Criteria.Segment.Refs.ElementsAs(ctx, &RefsExisting, false)
+												}
 												if rawList, ok := SegmentData["refs"].([]interface{}); ok && len(rawList) > 0 {
 													var RefsResult []NATPolicyRulesCriteriaSegmentRefsModel
-													for _, RefsItem := range rawList {
+													for RefsIdx, RefsItem := range rawList {
+														_ = RefsIdx
 														if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 															RefsResult = append(RefsResult, NATPolicyRulesCriteriaSegmentRefsModel{
 																Kind: func() types.String {
@@ -2091,12 +2133,18 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 									return nil
 								}(),
 								SiteLocalInsideNetwork: func() *NATPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+										return existingRulesItems[listIdx].Criteria.SiteLocalInsideNetwork
+									}
 									if _, ok := CriteriaData["site_local_inside_network"].(map[string]interface{}); ok {
 										return &NATPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								SiteLocalNetwork: func() *NATPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+										return existingRulesItems[listIdx].Criteria.SiteLocalNetwork
+									}
 									if _, ok := CriteriaData["site_local_network"].(map[string]interface{}); ok {
 										return &NATPolicyEmptyModel{}
 									}
@@ -2116,15 +2164,24 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 									return types.ListNull(types.StringType)
 								}(),
 								SourcePort: func() *NATPolicyRulesCriteriaSourcePortModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.SourcePort != nil {
+										return existingRulesItems[listIdx].Criteria.SourcePort
+									}
 									if SourcePortData, ok := CriteriaData["source_port"].(map[string]interface{}); ok {
 										return &NATPolicyRulesCriteriaSourcePortModel{
 											NoPortMatch: func() *NATPolicyEmptyModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.SourcePort != nil {
+													return existingRulesItems[listIdx].Criteria.SourcePort.NoPortMatch
+												}
 												if _, ok := SourcePortData["no_port_match"].(map[string]interface{}); ok {
 													return &NATPolicyEmptyModel{}
 												}
 												return nil
 											}(),
 											Port: func() types.Int64 {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.SourcePort != nil && !existingRulesItems[listIdx].Criteria.SourcePort.Port.IsUnknown() {
+													return existingRulesItems[listIdx].Criteria.SourcePort.Port
+												}
 												if v, ok := SourcePortData["port"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -2141,18 +2198,30 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 									return nil
 								}(),
 								TCP: func() *NATPolicyRulesCriteriaTCPModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil {
+										return existingRulesItems[listIdx].Criteria.TCP
+									}
 									if TCPData, ok := CriteriaData["tcp"].(map[string]interface{}); ok {
 										return &NATPolicyRulesCriteriaTCPModel{
 											DestinationPort: func() *NATPolicyRulesCriteriaTCPDestinationPortModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.DestinationPort != nil {
+													return existingRulesItems[listIdx].Criteria.TCP.DestinationPort
+												}
 												if DestinationPortData, ok := TCPData["destination_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaTCPDestinationPortModel{
 														NoPortMatch: func() *NATPolicyEmptyModel {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.DestinationPort != nil {
+																return existingRulesItems[listIdx].Criteria.TCP.DestinationPort.NoPortMatch
+															}
 															if _, ok := DestinationPortData["no_port_match"].(map[string]interface{}); ok {
 																return &NATPolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														Port: func() types.Int64 {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.DestinationPort != nil && !existingRulesItems[listIdx].Criteria.TCP.DestinationPort.Port.IsUnknown() {
+																return existingRulesItems[listIdx].Criteria.TCP.DestinationPort.Port
+															}
 															if v, ok := DestinationPortData["port"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -2169,15 +2238,24 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 												return nil
 											}(),
 											SourcePort: func() *NATPolicyRulesCriteriaTCPSourcePortModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.SourcePort != nil {
+													return existingRulesItems[listIdx].Criteria.TCP.SourcePort
+												}
 												if SourcePortData, ok := TCPData["source_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaTCPSourcePortModel{
 														NoPortMatch: func() *NATPolicyEmptyModel {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.SourcePort != nil {
+																return existingRulesItems[listIdx].Criteria.TCP.SourcePort.NoPortMatch
+															}
 															if _, ok := SourcePortData["no_port_match"].(map[string]interface{}); ok {
 																return &NATPolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														Port: func() types.Int64 {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.SourcePort != nil && !existingRulesItems[listIdx].Criteria.TCP.SourcePort.Port.IsUnknown() {
+																return existingRulesItems[listIdx].Criteria.TCP.SourcePort.Port
+															}
 															if v, ok := SourcePortData["port"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -2198,18 +2276,30 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 									return nil
 								}(),
 								UDP: func() *NATPolicyRulesCriteriaUDPModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil {
+										return existingRulesItems[listIdx].Criteria.UDP
+									}
 									if UDPData, ok := CriteriaData["udp"].(map[string]interface{}); ok {
 										return &NATPolicyRulesCriteriaUDPModel{
 											DestinationPort: func() *NATPolicyRulesCriteriaUDPDestinationPortModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.DestinationPort != nil {
+													return existingRulesItems[listIdx].Criteria.UDP.DestinationPort
+												}
 												if DestinationPortData, ok := UDPData["destination_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaUDPDestinationPortModel{
 														NoPortMatch: func() *NATPolicyEmptyModel {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.DestinationPort != nil {
+																return existingRulesItems[listIdx].Criteria.UDP.DestinationPort.NoPortMatch
+															}
 															if _, ok := DestinationPortData["no_port_match"].(map[string]interface{}); ok {
 																return &NATPolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														Port: func() types.Int64 {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.DestinationPort != nil && !existingRulesItems[listIdx].Criteria.UDP.DestinationPort.Port.IsUnknown() {
+																return existingRulesItems[listIdx].Criteria.UDP.DestinationPort.Port
+															}
 															if v, ok := DestinationPortData["port"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -2226,15 +2316,24 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 												return nil
 											}(),
 											SourcePort: func() *NATPolicyRulesCriteriaUDPSourcePortModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.SourcePort != nil {
+													return existingRulesItems[listIdx].Criteria.UDP.SourcePort
+												}
 												if SourcePortData, ok := UDPData["source_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaUDPSourcePortModel{
 														NoPortMatch: func() *NATPolicyEmptyModel {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.SourcePort != nil {
+																return existingRulesItems[listIdx].Criteria.UDP.SourcePort.NoPortMatch
+															}
 															if _, ok := SourcePortData["no_port_match"].(map[string]interface{}); ok {
 																return &NATPolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														Port: func() types.Int64 {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.SourcePort != nil && !existingRulesItems[listIdx].Criteria.UDP.SourcePort.Port.IsUnknown() {
+																return existingRulesItems[listIdx].Criteria.UDP.SourcePort.Port
+															}
 															if v, ok := SourcePortData["port"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -2258,9 +2357,17 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 									if VirtualNetworkData, ok := CriteriaData["virtual_network"].(map[string]interface{}); ok {
 										return &NATPolicyRulesCriteriaVirtualNetworkModel{
 											Refs: func() types.List {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.VirtualNetwork != nil && (existingRulesItems[listIdx].Criteria.VirtualNetwork.Refs.IsNull() || len(existingRulesItems[listIdx].Criteria.VirtualNetwork.Refs.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesCriteriaVirtualNetworkRefsModelAttrTypes})
+												}
+												var RefsExisting []NATPolicyRulesCriteriaVirtualNetworkRefsModel
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.VirtualNetwork != nil && !existingRulesItems[listIdx].Criteria.VirtualNetwork.Refs.IsNull() && !existingRulesItems[listIdx].Criteria.VirtualNetwork.Refs.IsUnknown() {
+													existingRulesItems[listIdx].Criteria.VirtualNetwork.Refs.ElementsAs(ctx, &RefsExisting, false)
+												}
 												if rawList, ok := VirtualNetworkData["refs"].([]interface{}); ok && len(rawList) > 0 {
 													var RefsResult []NATPolicyRulesCriteriaVirtualNetworkRefsModel
-													for _, RefsItem := range rawList {
+													for RefsIdx, RefsItem := range rawList {
+														_ = RefsIdx
 														if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 															RefsResult = append(RefsResult, NATPolicyRulesCriteriaVirtualNetworkRefsModel{
 																Kind: func() types.String {
@@ -2337,9 +2444,17 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 						if NetworkInterfaceData, ok := itemMap["network_interface"].(map[string]interface{}); ok {
 							return &NATPolicyRulesNetworkInterfaceModel{
 								Refs: func() types.List {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].NetworkInterface != nil && (existingRulesItems[listIdx].NetworkInterface.Refs.IsNull() || len(existingRulesItems[listIdx].NetworkInterface.Refs.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesNetworkInterfaceRefsModelAttrTypes})
+									}
+									var RefsExisting []NATPolicyRulesNetworkInterfaceRefsModel
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].NetworkInterface != nil && !existingRulesItems[listIdx].NetworkInterface.Refs.IsNull() && !existingRulesItems[listIdx].NetworkInterface.Refs.IsUnknown() {
+										existingRulesItems[listIdx].NetworkInterface.Refs.ElementsAs(ctx, &RefsExisting, false)
+									}
 									if rawList, ok := NetworkInterfaceData["refs"].([]interface{}); ok && len(rawList) > 0 {
 										var RefsResult []NATPolicyRulesNetworkInterfaceRefsModel
-										for _, RefsItem := range rawList {
+										for RefsIdx, RefsItem := range rawList {
+											_ = RefsIdx
 											if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 												RefsResult = append(RefsResult, NATPolicyRulesNetworkInterfaceRefsModel{
 													Kind: func() types.String {
@@ -2388,9 +2503,17 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 						if NodeInterfaceData, ok := itemMap["node_interface"].(map[string]interface{}); ok {
 							return &NATPolicyRulesNodeInterfaceModel{
 								List: func() types.List {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].NodeInterface != nil && (existingRulesItems[listIdx].NodeInterface.List.IsNull() || len(existingRulesItems[listIdx].NodeInterface.List.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesNodeInterfaceListModelAttrTypes})
+									}
+									var ListExisting []NATPolicyRulesNodeInterfaceListModel
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].NodeInterface != nil && !existingRulesItems[listIdx].NodeInterface.List.IsNull() && !existingRulesItems[listIdx].NodeInterface.List.IsUnknown() {
+										existingRulesItems[listIdx].NodeInterface.List.ElementsAs(ctx, &ListExisting, false)
+									}
 									if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
 										var ListResult []NATPolicyRulesNodeInterfaceListModel
-										for _, ListItem := range rawList {
+										for ListIdx, ListItem := range rawList {
+											_ = ListIdx
 											if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 												ListResult = append(ListResult, NATPolicyRulesNodeInterfaceListModel{
 													Interface: func() types.List {
@@ -2459,9 +2582,17 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 						if SegmentData, ok := itemMap["segment"].(map[string]interface{}); ok {
 							return &NATPolicyRulesSegmentModel{
 								Refs: func() types.List {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Segment != nil && (existingRulesItems[listIdx].Segment.Refs.IsNull() || len(existingRulesItems[listIdx].Segment.Refs.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesSegmentRefsModelAttrTypes})
+									}
+									var RefsExisting []NATPolicyRulesSegmentRefsModel
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Segment != nil && !existingRulesItems[listIdx].Segment.Refs.IsNull() && !existingRulesItems[listIdx].Segment.Refs.IsUnknown() {
+										existingRulesItems[listIdx].Segment.Refs.ElementsAs(ctx, &RefsExisting, false)
+									}
 									if rawList, ok := SegmentData["refs"].([]interface{}); ok && len(rawList) > 0 {
 										var RefsResult []NATPolicyRulesSegmentRefsModel
-										for _, RefsItem := range rawList {
+										for RefsIdx, RefsItem := range rawList {
+											_ = RefsIdx
 											if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 												RefsResult = append(RefsResult, NATPolicyRulesSegmentRefsModel{
 													Kind: func() types.String {
@@ -2510,9 +2641,17 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 						if VirtualNetworkData, ok := itemMap["virtual_network"].(map[string]interface{}); ok {
 							return &NATPolicyRulesVirtualNetworkModel{
 								Refs: func() types.List {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].VirtualNetwork != nil && (existingRulesItems[listIdx].VirtualNetwork.Refs.IsNull() || len(existingRulesItems[listIdx].VirtualNetwork.Refs.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesVirtualNetworkRefsModelAttrTypes})
+									}
+									var RefsExisting []NATPolicyRulesVirtualNetworkRefsModel
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].VirtualNetwork != nil && !existingRulesItems[listIdx].VirtualNetwork.Refs.IsNull() && !existingRulesItems[listIdx].VirtualNetwork.Refs.IsUnknown() {
+										existingRulesItems[listIdx].VirtualNetwork.Refs.ElementsAs(ctx, &RefsExisting, false)
+									}
 									if rawList, ok := VirtualNetworkData["refs"].([]interface{}); ok && len(rawList) > 0 {
 										var RefsResult []NATPolicyRulesVirtualNetworkRefsModel
-										for _, RefsItem := range rawList {
+										for RefsIdx, RefsItem := range rawList {
+											_ = RefsIdx
 											if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 												RefsResult = append(RefsResult, NATPolicyRulesVirtualNetworkRefsModel{
 													Kind: func() types.String {
@@ -2574,9 +2713,14 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 				if !isImport && data.Site != nil && (data.Site.Refs.IsNull() || len(data.Site.Refs.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NATPolicySiteRefsModelAttrTypes})
 				}
+				var RefsExisting []NATPolicySiteRefsModel
+				if !isImport && data.Site != nil && !data.Site.Refs.IsNull() && !data.Site.Refs.IsUnknown() {
+					data.Site.Refs.ElementsAs(ctx, &RefsExisting, false)
+				}
 				if rawList, ok := blockData["refs"].([]interface{}); ok && len(rawList) > 0 {
 					var RefsResult []NATPolicySiteRefsModel
-					for _, RefsItem := range rawList {
+					for RefsIdx, RefsItem := range rawList {
+						_ = RefsIdx
 						if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 							RefsResult = append(RefsResult, NATPolicySiteRefsModel{
 								Kind: func() types.String {
@@ -2734,9 +2878,17 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 												if ElasticIpsData, ok := DynamicData["elastic_ips"].(map[string]interface{}); ok {
 													return &NATPolicyRulesActionDynamicElasticIpsModel{
 														Refs: func() types.List {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil && existingRulesItems[listIdx].Action.Dynamic != nil && existingRulesItems[listIdx].Action.Dynamic.ElasticIps != nil && (existingRulesItems[listIdx].Action.Dynamic.ElasticIps.Refs.IsNull() || len(existingRulesItems[listIdx].Action.Dynamic.ElasticIps.Refs.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesActionDynamicElasticIpsRefsModelAttrTypes})
+															}
+															var RefsExisting []NATPolicyRulesActionDynamicElasticIpsRefsModel
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil && existingRulesItems[listIdx].Action.Dynamic != nil && existingRulesItems[listIdx].Action.Dynamic.ElasticIps != nil && !existingRulesItems[listIdx].Action.Dynamic.ElasticIps.Refs.IsNull() && !existingRulesItems[listIdx].Action.Dynamic.ElasticIps.Refs.IsUnknown() {
+																existingRulesItems[listIdx].Action.Dynamic.ElasticIps.Refs.ElementsAs(ctx, &RefsExisting, false)
+															}
 															if rawList, ok := ElasticIpsData["refs"].([]interface{}); ok && len(rawList) > 0 {
 																var RefsResult []NATPolicyRulesActionDynamicElasticIpsRefsModel
-																for _, RefsItem := range rawList {
+																for RefsIdx, RefsItem := range rawList {
+																	_ = RefsIdx
 																	if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 																		RefsResult = append(RefsResult, NATPolicyRulesActionDynamicElasticIpsRefsModel{
 																			Kind: func() types.String {
@@ -2782,6 +2934,9 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 												return nil
 											}(),
 											Pools: func() *NATPolicyRulesActionDynamicPoolsModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil && existingRulesItems[listIdx].Action.Dynamic != nil && existingRulesItems[listIdx].Action.Dynamic.Pools != nil {
+													return existingRulesItems[listIdx].Action.Dynamic.Pools
+												}
 												if PoolsData, ok := DynamicData["pools"].(map[string]interface{}); ok {
 													return &NATPolicyRulesActionDynamicPoolsModel{
 														Prefixes: func() types.List {
@@ -2819,9 +2974,17 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 						if CloudConnectData, ok := itemMap["cloud_connect"].(map[string]interface{}); ok {
 							return &NATPolicyRulesCloudConnectModel{
 								Refs: func() types.List {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].CloudConnect != nil && (existingRulesItems[listIdx].CloudConnect.Refs.IsNull() || len(existingRulesItems[listIdx].CloudConnect.Refs.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesCloudConnectRefsModelAttrTypes})
+									}
+									var RefsExisting []NATPolicyRulesCloudConnectRefsModel
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].CloudConnect != nil && !existingRulesItems[listIdx].CloudConnect.Refs.IsNull() && !existingRulesItems[listIdx].CloudConnect.Refs.IsUnknown() {
+										existingRulesItems[listIdx].CloudConnect.Refs.ElementsAs(ctx, &RefsExisting, false)
+									}
 									if rawList, ok := CloudConnectData["refs"].([]interface{}); ok && len(rawList) > 0 {
 										var RefsResult []NATPolicyRulesCloudConnectRefsModel
-										for _, RefsItem := range rawList {
+										for RefsIdx, RefsItem := range rawList {
+											_ = RefsIdx
 											if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 												RefsResult = append(RefsResult, NATPolicyRulesCloudConnectRefsModel{
 													Kind: func() types.String {
@@ -2870,6 +3033,9 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 						if CriteriaData, ok := itemMap["criteria"].(map[string]interface{}); ok {
 							return &NATPolicyRulesCriteriaModel{
 								Any: func() *NATPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+										return existingRulesItems[listIdx].Criteria.Any
+									}
 									if _, ok := CriteriaData["any"].(map[string]interface{}); ok {
 										return &NATPolicyEmptyModel{}
 									}
@@ -2889,15 +3055,24 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 									return types.ListNull(types.StringType)
 								}(),
 								DestinationPort: func() *NATPolicyRulesCriteriaDestinationPortModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.DestinationPort != nil {
+										return existingRulesItems[listIdx].Criteria.DestinationPort
+									}
 									if DestinationPortData, ok := CriteriaData["destination_port"].(map[string]interface{}); ok {
 										return &NATPolicyRulesCriteriaDestinationPortModel{
 											NoPortMatch: func() *NATPolicyEmptyModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.DestinationPort != nil {
+													return existingRulesItems[listIdx].Criteria.DestinationPort.NoPortMatch
+												}
 												if _, ok := DestinationPortData["no_port_match"].(map[string]interface{}); ok {
 													return &NATPolicyEmptyModel{}
 												}
 												return nil
 											}(),
 											Port: func() types.Int64 {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.DestinationPort != nil && !existingRulesItems[listIdx].Criteria.DestinationPort.Port.IsUnknown() {
+													return existingRulesItems[listIdx].Criteria.DestinationPort.Port
+												}
 												if v, ok := DestinationPortData["port"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -2914,6 +3089,9 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 									return nil
 								}(),
 								ICMP: func() *NATPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+										return existingRulesItems[listIdx].Criteria.ICMP
+									}
 									if _, ok := CriteriaData["icmp"].(map[string]interface{}); ok {
 										return &NATPolicyEmptyModel{}
 									}
@@ -2929,9 +3107,17 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 									if SegmentData, ok := CriteriaData["segment"].(map[string]interface{}); ok {
 										return &NATPolicyRulesCriteriaSegmentModel{
 											Refs: func() types.List {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.Segment != nil && (existingRulesItems[listIdx].Criteria.Segment.Refs.IsNull() || len(existingRulesItems[listIdx].Criteria.Segment.Refs.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesCriteriaSegmentRefsModelAttrTypes})
+												}
+												var RefsExisting []NATPolicyRulesCriteriaSegmentRefsModel
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.Segment != nil && !existingRulesItems[listIdx].Criteria.Segment.Refs.IsNull() && !existingRulesItems[listIdx].Criteria.Segment.Refs.IsUnknown() {
+													existingRulesItems[listIdx].Criteria.Segment.Refs.ElementsAs(ctx, &RefsExisting, false)
+												}
 												if rawList, ok := SegmentData["refs"].([]interface{}); ok && len(rawList) > 0 {
 													var RefsResult []NATPolicyRulesCriteriaSegmentRefsModel
-													for _, RefsItem := range rawList {
+													for RefsIdx, RefsItem := range rawList {
+														_ = RefsIdx
 														if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 															RefsResult = append(RefsResult, NATPolicyRulesCriteriaSegmentRefsModel{
 																Kind: func() types.String {
@@ -2977,12 +3163,18 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 									return nil
 								}(),
 								SiteLocalInsideNetwork: func() *NATPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+										return existingRulesItems[listIdx].Criteria.SiteLocalInsideNetwork
+									}
 									if _, ok := CriteriaData["site_local_inside_network"].(map[string]interface{}); ok {
 										return &NATPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								SiteLocalNetwork: func() *NATPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+										return existingRulesItems[listIdx].Criteria.SiteLocalNetwork
+									}
 									if _, ok := CriteriaData["site_local_network"].(map[string]interface{}); ok {
 										return &NATPolicyEmptyModel{}
 									}
@@ -3002,15 +3194,24 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 									return types.ListNull(types.StringType)
 								}(),
 								SourcePort: func() *NATPolicyRulesCriteriaSourcePortModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.SourcePort != nil {
+										return existingRulesItems[listIdx].Criteria.SourcePort
+									}
 									if SourcePortData, ok := CriteriaData["source_port"].(map[string]interface{}); ok {
 										return &NATPolicyRulesCriteriaSourcePortModel{
 											NoPortMatch: func() *NATPolicyEmptyModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.SourcePort != nil {
+													return existingRulesItems[listIdx].Criteria.SourcePort.NoPortMatch
+												}
 												if _, ok := SourcePortData["no_port_match"].(map[string]interface{}); ok {
 													return &NATPolicyEmptyModel{}
 												}
 												return nil
 											}(),
 											Port: func() types.Int64 {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.SourcePort != nil && !existingRulesItems[listIdx].Criteria.SourcePort.Port.IsUnknown() {
+													return existingRulesItems[listIdx].Criteria.SourcePort.Port
+												}
 												if v, ok := SourcePortData["port"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -3027,18 +3228,30 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 									return nil
 								}(),
 								TCP: func() *NATPolicyRulesCriteriaTCPModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil {
+										return existingRulesItems[listIdx].Criteria.TCP
+									}
 									if TCPData, ok := CriteriaData["tcp"].(map[string]interface{}); ok {
 										return &NATPolicyRulesCriteriaTCPModel{
 											DestinationPort: func() *NATPolicyRulesCriteriaTCPDestinationPortModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.DestinationPort != nil {
+													return existingRulesItems[listIdx].Criteria.TCP.DestinationPort
+												}
 												if DestinationPortData, ok := TCPData["destination_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaTCPDestinationPortModel{
 														NoPortMatch: func() *NATPolicyEmptyModel {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.DestinationPort != nil {
+																return existingRulesItems[listIdx].Criteria.TCP.DestinationPort.NoPortMatch
+															}
 															if _, ok := DestinationPortData["no_port_match"].(map[string]interface{}); ok {
 																return &NATPolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														Port: func() types.Int64 {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.DestinationPort != nil && !existingRulesItems[listIdx].Criteria.TCP.DestinationPort.Port.IsUnknown() {
+																return existingRulesItems[listIdx].Criteria.TCP.DestinationPort.Port
+															}
 															if v, ok := DestinationPortData["port"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -3055,15 +3268,24 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 												return nil
 											}(),
 											SourcePort: func() *NATPolicyRulesCriteriaTCPSourcePortModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.SourcePort != nil {
+													return existingRulesItems[listIdx].Criteria.TCP.SourcePort
+												}
 												if SourcePortData, ok := TCPData["source_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaTCPSourcePortModel{
 														NoPortMatch: func() *NATPolicyEmptyModel {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.SourcePort != nil {
+																return existingRulesItems[listIdx].Criteria.TCP.SourcePort.NoPortMatch
+															}
 															if _, ok := SourcePortData["no_port_match"].(map[string]interface{}); ok {
 																return &NATPolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														Port: func() types.Int64 {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.SourcePort != nil && !existingRulesItems[listIdx].Criteria.TCP.SourcePort.Port.IsUnknown() {
+																return existingRulesItems[listIdx].Criteria.TCP.SourcePort.Port
+															}
 															if v, ok := SourcePortData["port"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -3084,18 +3306,30 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 									return nil
 								}(),
 								UDP: func() *NATPolicyRulesCriteriaUDPModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil {
+										return existingRulesItems[listIdx].Criteria.UDP
+									}
 									if UDPData, ok := CriteriaData["udp"].(map[string]interface{}); ok {
 										return &NATPolicyRulesCriteriaUDPModel{
 											DestinationPort: func() *NATPolicyRulesCriteriaUDPDestinationPortModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.DestinationPort != nil {
+													return existingRulesItems[listIdx].Criteria.UDP.DestinationPort
+												}
 												if DestinationPortData, ok := UDPData["destination_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaUDPDestinationPortModel{
 														NoPortMatch: func() *NATPolicyEmptyModel {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.DestinationPort != nil {
+																return existingRulesItems[listIdx].Criteria.UDP.DestinationPort.NoPortMatch
+															}
 															if _, ok := DestinationPortData["no_port_match"].(map[string]interface{}); ok {
 																return &NATPolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														Port: func() types.Int64 {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.DestinationPort != nil && !existingRulesItems[listIdx].Criteria.UDP.DestinationPort.Port.IsUnknown() {
+																return existingRulesItems[listIdx].Criteria.UDP.DestinationPort.Port
+															}
 															if v, ok := DestinationPortData["port"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -3112,15 +3346,24 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 												return nil
 											}(),
 											SourcePort: func() *NATPolicyRulesCriteriaUDPSourcePortModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.SourcePort != nil {
+													return existingRulesItems[listIdx].Criteria.UDP.SourcePort
+												}
 												if SourcePortData, ok := UDPData["source_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaUDPSourcePortModel{
 														NoPortMatch: func() *NATPolicyEmptyModel {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.SourcePort != nil {
+																return existingRulesItems[listIdx].Criteria.UDP.SourcePort.NoPortMatch
+															}
 															if _, ok := SourcePortData["no_port_match"].(map[string]interface{}); ok {
 																return &NATPolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														Port: func() types.Int64 {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.SourcePort != nil && !existingRulesItems[listIdx].Criteria.UDP.SourcePort.Port.IsUnknown() {
+																return existingRulesItems[listIdx].Criteria.UDP.SourcePort.Port
+															}
 															if v, ok := SourcePortData["port"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -3144,9 +3387,17 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 									if VirtualNetworkData, ok := CriteriaData["virtual_network"].(map[string]interface{}); ok {
 										return &NATPolicyRulesCriteriaVirtualNetworkModel{
 											Refs: func() types.List {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.VirtualNetwork != nil && (existingRulesItems[listIdx].Criteria.VirtualNetwork.Refs.IsNull() || len(existingRulesItems[listIdx].Criteria.VirtualNetwork.Refs.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesCriteriaVirtualNetworkRefsModelAttrTypes})
+												}
+												var RefsExisting []NATPolicyRulesCriteriaVirtualNetworkRefsModel
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.VirtualNetwork != nil && !existingRulesItems[listIdx].Criteria.VirtualNetwork.Refs.IsNull() && !existingRulesItems[listIdx].Criteria.VirtualNetwork.Refs.IsUnknown() {
+													existingRulesItems[listIdx].Criteria.VirtualNetwork.Refs.ElementsAs(ctx, &RefsExisting, false)
+												}
 												if rawList, ok := VirtualNetworkData["refs"].([]interface{}); ok && len(rawList) > 0 {
 													var RefsResult []NATPolicyRulesCriteriaVirtualNetworkRefsModel
-													for _, RefsItem := range rawList {
+													for RefsIdx, RefsItem := range rawList {
+														_ = RefsIdx
 														if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 															RefsResult = append(RefsResult, NATPolicyRulesCriteriaVirtualNetworkRefsModel{
 																Kind: func() types.String {
@@ -3223,9 +3474,17 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 						if NetworkInterfaceData, ok := itemMap["network_interface"].(map[string]interface{}); ok {
 							return &NATPolicyRulesNetworkInterfaceModel{
 								Refs: func() types.List {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].NetworkInterface != nil && (existingRulesItems[listIdx].NetworkInterface.Refs.IsNull() || len(existingRulesItems[listIdx].NetworkInterface.Refs.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesNetworkInterfaceRefsModelAttrTypes})
+									}
+									var RefsExisting []NATPolicyRulesNetworkInterfaceRefsModel
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].NetworkInterface != nil && !existingRulesItems[listIdx].NetworkInterface.Refs.IsNull() && !existingRulesItems[listIdx].NetworkInterface.Refs.IsUnknown() {
+										existingRulesItems[listIdx].NetworkInterface.Refs.ElementsAs(ctx, &RefsExisting, false)
+									}
 									if rawList, ok := NetworkInterfaceData["refs"].([]interface{}); ok && len(rawList) > 0 {
 										var RefsResult []NATPolicyRulesNetworkInterfaceRefsModel
-										for _, RefsItem := range rawList {
+										for RefsIdx, RefsItem := range rawList {
+											_ = RefsIdx
 											if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 												RefsResult = append(RefsResult, NATPolicyRulesNetworkInterfaceRefsModel{
 													Kind: func() types.String {
@@ -3274,9 +3533,17 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 						if NodeInterfaceData, ok := itemMap["node_interface"].(map[string]interface{}); ok {
 							return &NATPolicyRulesNodeInterfaceModel{
 								List: func() types.List {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].NodeInterface != nil && (existingRulesItems[listIdx].NodeInterface.List.IsNull() || len(existingRulesItems[listIdx].NodeInterface.List.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesNodeInterfaceListModelAttrTypes})
+									}
+									var ListExisting []NATPolicyRulesNodeInterfaceListModel
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].NodeInterface != nil && !existingRulesItems[listIdx].NodeInterface.List.IsNull() && !existingRulesItems[listIdx].NodeInterface.List.IsUnknown() {
+										existingRulesItems[listIdx].NodeInterface.List.ElementsAs(ctx, &ListExisting, false)
+									}
 									if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
 										var ListResult []NATPolicyRulesNodeInterfaceListModel
-										for _, ListItem := range rawList {
+										for ListIdx, ListItem := range rawList {
+											_ = ListIdx
 											if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 												ListResult = append(ListResult, NATPolicyRulesNodeInterfaceListModel{
 													Interface: func() types.List {
@@ -3345,9 +3612,17 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 						if SegmentData, ok := itemMap["segment"].(map[string]interface{}); ok {
 							return &NATPolicyRulesSegmentModel{
 								Refs: func() types.List {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Segment != nil && (existingRulesItems[listIdx].Segment.Refs.IsNull() || len(existingRulesItems[listIdx].Segment.Refs.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesSegmentRefsModelAttrTypes})
+									}
+									var RefsExisting []NATPolicyRulesSegmentRefsModel
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Segment != nil && !existingRulesItems[listIdx].Segment.Refs.IsNull() && !existingRulesItems[listIdx].Segment.Refs.IsUnknown() {
+										existingRulesItems[listIdx].Segment.Refs.ElementsAs(ctx, &RefsExisting, false)
+									}
 									if rawList, ok := SegmentData["refs"].([]interface{}); ok && len(rawList) > 0 {
 										var RefsResult []NATPolicyRulesSegmentRefsModel
-										for _, RefsItem := range rawList {
+										for RefsIdx, RefsItem := range rawList {
+											_ = RefsIdx
 											if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 												RefsResult = append(RefsResult, NATPolicyRulesSegmentRefsModel{
 													Kind: func() types.String {
@@ -3396,9 +3671,17 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 						if VirtualNetworkData, ok := itemMap["virtual_network"].(map[string]interface{}); ok {
 							return &NATPolicyRulesVirtualNetworkModel{
 								Refs: func() types.List {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].VirtualNetwork != nil && (existingRulesItems[listIdx].VirtualNetwork.Refs.IsNull() || len(existingRulesItems[listIdx].VirtualNetwork.Refs.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesVirtualNetworkRefsModelAttrTypes})
+									}
+									var RefsExisting []NATPolicyRulesVirtualNetworkRefsModel
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].VirtualNetwork != nil && !existingRulesItems[listIdx].VirtualNetwork.Refs.IsNull() && !existingRulesItems[listIdx].VirtualNetwork.Refs.IsUnknown() {
+										existingRulesItems[listIdx].VirtualNetwork.Refs.ElementsAs(ctx, &RefsExisting, false)
+									}
 									if rawList, ok := VirtualNetworkData["refs"].([]interface{}); ok && len(rawList) > 0 {
 										var RefsResult []NATPolicyRulesVirtualNetworkRefsModel
-										for _, RefsItem := range rawList {
+										for RefsIdx, RefsItem := range rawList {
+											_ = RefsIdx
 											if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 												RefsResult = append(RefsResult, NATPolicyRulesVirtualNetworkRefsModel{
 													Kind: func() types.String {
@@ -3460,9 +3743,14 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 				if !isImport && data.Site != nil && (data.Site.Refs.IsNull() || len(data.Site.Refs.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NATPolicySiteRefsModelAttrTypes})
 				}
+				var RefsExisting []NATPolicySiteRefsModel
+				if !isImport && data.Site != nil && !data.Site.Refs.IsNull() && !data.Site.Refs.IsUnknown() {
+					data.Site.Refs.ElementsAs(ctx, &RefsExisting, false)
+				}
 				if rawList, ok := blockData["refs"].([]interface{}); ok && len(rawList) > 0 {
 					var RefsResult []NATPolicySiteRefsModel
-					for _, RefsItem := range rawList {
+					for RefsIdx, RefsItem := range rawList {
+						_ = RefsIdx
 						if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 							RefsResult = append(RefsResult, NATPolicySiteRefsModel{
 								Kind: func() types.String {
@@ -4077,9 +4365,17 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 												if ElasticIpsData, ok := DynamicData["elastic_ips"].(map[string]interface{}); ok {
 													return &NATPolicyRulesActionDynamicElasticIpsModel{
 														Refs: func() types.List {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil && existingRulesItems[listIdx].Action.Dynamic != nil && existingRulesItems[listIdx].Action.Dynamic.ElasticIps != nil && (existingRulesItems[listIdx].Action.Dynamic.ElasticIps.Refs.IsNull() || len(existingRulesItems[listIdx].Action.Dynamic.ElasticIps.Refs.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesActionDynamicElasticIpsRefsModelAttrTypes})
+															}
+															var RefsExisting []NATPolicyRulesActionDynamicElasticIpsRefsModel
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil && existingRulesItems[listIdx].Action.Dynamic != nil && existingRulesItems[listIdx].Action.Dynamic.ElasticIps != nil && !existingRulesItems[listIdx].Action.Dynamic.ElasticIps.Refs.IsNull() && !existingRulesItems[listIdx].Action.Dynamic.ElasticIps.Refs.IsUnknown() {
+																existingRulesItems[listIdx].Action.Dynamic.ElasticIps.Refs.ElementsAs(ctx, &RefsExisting, false)
+															}
 															if rawList, ok := ElasticIpsData["refs"].([]interface{}); ok && len(rawList) > 0 {
 																var RefsResult []NATPolicyRulesActionDynamicElasticIpsRefsModel
-																for _, RefsItem := range rawList {
+																for RefsIdx, RefsItem := range rawList {
+																	_ = RefsIdx
 																	if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 																		RefsResult = append(RefsResult, NATPolicyRulesActionDynamicElasticIpsRefsModel{
 																			Kind: func() types.String {
@@ -4125,6 +4421,9 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 												return nil
 											}(),
 											Pools: func() *NATPolicyRulesActionDynamicPoolsModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil && existingRulesItems[listIdx].Action.Dynamic != nil && existingRulesItems[listIdx].Action.Dynamic.Pools != nil {
+													return existingRulesItems[listIdx].Action.Dynamic.Pools
+												}
 												if PoolsData, ok := DynamicData["pools"].(map[string]interface{}); ok {
 													return &NATPolicyRulesActionDynamicPoolsModel{
 														Prefixes: func() types.List {
@@ -4162,9 +4461,17 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 						if CloudConnectData, ok := itemMap["cloud_connect"].(map[string]interface{}); ok {
 							return &NATPolicyRulesCloudConnectModel{
 								Refs: func() types.List {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].CloudConnect != nil && (existingRulesItems[listIdx].CloudConnect.Refs.IsNull() || len(existingRulesItems[listIdx].CloudConnect.Refs.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesCloudConnectRefsModelAttrTypes})
+									}
+									var RefsExisting []NATPolicyRulesCloudConnectRefsModel
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].CloudConnect != nil && !existingRulesItems[listIdx].CloudConnect.Refs.IsNull() && !existingRulesItems[listIdx].CloudConnect.Refs.IsUnknown() {
+										existingRulesItems[listIdx].CloudConnect.Refs.ElementsAs(ctx, &RefsExisting, false)
+									}
 									if rawList, ok := CloudConnectData["refs"].([]interface{}); ok && len(rawList) > 0 {
 										var RefsResult []NATPolicyRulesCloudConnectRefsModel
-										for _, RefsItem := range rawList {
+										for RefsIdx, RefsItem := range rawList {
+											_ = RefsIdx
 											if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 												RefsResult = append(RefsResult, NATPolicyRulesCloudConnectRefsModel{
 													Kind: func() types.String {
@@ -4213,6 +4520,9 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 						if CriteriaData, ok := itemMap["criteria"].(map[string]interface{}); ok {
 							return &NATPolicyRulesCriteriaModel{
 								Any: func() *NATPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+										return existingRulesItems[listIdx].Criteria.Any
+									}
 									if _, ok := CriteriaData["any"].(map[string]interface{}); ok {
 										return &NATPolicyEmptyModel{}
 									}
@@ -4232,15 +4542,24 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 									return types.ListNull(types.StringType)
 								}(),
 								DestinationPort: func() *NATPolicyRulesCriteriaDestinationPortModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.DestinationPort != nil {
+										return existingRulesItems[listIdx].Criteria.DestinationPort
+									}
 									if DestinationPortData, ok := CriteriaData["destination_port"].(map[string]interface{}); ok {
 										return &NATPolicyRulesCriteriaDestinationPortModel{
 											NoPortMatch: func() *NATPolicyEmptyModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.DestinationPort != nil {
+													return existingRulesItems[listIdx].Criteria.DestinationPort.NoPortMatch
+												}
 												if _, ok := DestinationPortData["no_port_match"].(map[string]interface{}); ok {
 													return &NATPolicyEmptyModel{}
 												}
 												return nil
 											}(),
 											Port: func() types.Int64 {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.DestinationPort != nil && !existingRulesItems[listIdx].Criteria.DestinationPort.Port.IsUnknown() {
+													return existingRulesItems[listIdx].Criteria.DestinationPort.Port
+												}
 												if v, ok := DestinationPortData["port"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -4257,6 +4576,9 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 									return nil
 								}(),
 								ICMP: func() *NATPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+										return existingRulesItems[listIdx].Criteria.ICMP
+									}
 									if _, ok := CriteriaData["icmp"].(map[string]interface{}); ok {
 										return &NATPolicyEmptyModel{}
 									}
@@ -4272,9 +4594,17 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 									if SegmentData, ok := CriteriaData["segment"].(map[string]interface{}); ok {
 										return &NATPolicyRulesCriteriaSegmentModel{
 											Refs: func() types.List {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.Segment != nil && (existingRulesItems[listIdx].Criteria.Segment.Refs.IsNull() || len(existingRulesItems[listIdx].Criteria.Segment.Refs.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesCriteriaSegmentRefsModelAttrTypes})
+												}
+												var RefsExisting []NATPolicyRulesCriteriaSegmentRefsModel
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.Segment != nil && !existingRulesItems[listIdx].Criteria.Segment.Refs.IsNull() && !existingRulesItems[listIdx].Criteria.Segment.Refs.IsUnknown() {
+													existingRulesItems[listIdx].Criteria.Segment.Refs.ElementsAs(ctx, &RefsExisting, false)
+												}
 												if rawList, ok := SegmentData["refs"].([]interface{}); ok && len(rawList) > 0 {
 													var RefsResult []NATPolicyRulesCriteriaSegmentRefsModel
-													for _, RefsItem := range rawList {
+													for RefsIdx, RefsItem := range rawList {
+														_ = RefsIdx
 														if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 															RefsResult = append(RefsResult, NATPolicyRulesCriteriaSegmentRefsModel{
 																Kind: func() types.String {
@@ -4320,12 +4650,18 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 									return nil
 								}(),
 								SiteLocalInsideNetwork: func() *NATPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+										return existingRulesItems[listIdx].Criteria.SiteLocalInsideNetwork
+									}
 									if _, ok := CriteriaData["site_local_inside_network"].(map[string]interface{}); ok {
 										return &NATPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								SiteLocalNetwork: func() *NATPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+										return existingRulesItems[listIdx].Criteria.SiteLocalNetwork
+									}
 									if _, ok := CriteriaData["site_local_network"].(map[string]interface{}); ok {
 										return &NATPolicyEmptyModel{}
 									}
@@ -4345,15 +4681,24 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 									return types.ListNull(types.StringType)
 								}(),
 								SourcePort: func() *NATPolicyRulesCriteriaSourcePortModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.SourcePort != nil {
+										return existingRulesItems[listIdx].Criteria.SourcePort
+									}
 									if SourcePortData, ok := CriteriaData["source_port"].(map[string]interface{}); ok {
 										return &NATPolicyRulesCriteriaSourcePortModel{
 											NoPortMatch: func() *NATPolicyEmptyModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.SourcePort != nil {
+													return existingRulesItems[listIdx].Criteria.SourcePort.NoPortMatch
+												}
 												if _, ok := SourcePortData["no_port_match"].(map[string]interface{}); ok {
 													return &NATPolicyEmptyModel{}
 												}
 												return nil
 											}(),
 											Port: func() types.Int64 {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.SourcePort != nil && !existingRulesItems[listIdx].Criteria.SourcePort.Port.IsUnknown() {
+													return existingRulesItems[listIdx].Criteria.SourcePort.Port
+												}
 												if v, ok := SourcePortData["port"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -4370,18 +4715,30 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 									return nil
 								}(),
 								TCP: func() *NATPolicyRulesCriteriaTCPModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil {
+										return existingRulesItems[listIdx].Criteria.TCP
+									}
 									if TCPData, ok := CriteriaData["tcp"].(map[string]interface{}); ok {
 										return &NATPolicyRulesCriteriaTCPModel{
 											DestinationPort: func() *NATPolicyRulesCriteriaTCPDestinationPortModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.DestinationPort != nil {
+													return existingRulesItems[listIdx].Criteria.TCP.DestinationPort
+												}
 												if DestinationPortData, ok := TCPData["destination_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaTCPDestinationPortModel{
 														NoPortMatch: func() *NATPolicyEmptyModel {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.DestinationPort != nil {
+																return existingRulesItems[listIdx].Criteria.TCP.DestinationPort.NoPortMatch
+															}
 															if _, ok := DestinationPortData["no_port_match"].(map[string]interface{}); ok {
 																return &NATPolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														Port: func() types.Int64 {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.DestinationPort != nil && !existingRulesItems[listIdx].Criteria.TCP.DestinationPort.Port.IsUnknown() {
+																return existingRulesItems[listIdx].Criteria.TCP.DestinationPort.Port
+															}
 															if v, ok := DestinationPortData["port"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -4398,15 +4755,24 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 												return nil
 											}(),
 											SourcePort: func() *NATPolicyRulesCriteriaTCPSourcePortModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.SourcePort != nil {
+													return existingRulesItems[listIdx].Criteria.TCP.SourcePort
+												}
 												if SourcePortData, ok := TCPData["source_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaTCPSourcePortModel{
 														NoPortMatch: func() *NATPolicyEmptyModel {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.SourcePort != nil {
+																return existingRulesItems[listIdx].Criteria.TCP.SourcePort.NoPortMatch
+															}
 															if _, ok := SourcePortData["no_port_match"].(map[string]interface{}); ok {
 																return &NATPolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														Port: func() types.Int64 {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.SourcePort != nil && !existingRulesItems[listIdx].Criteria.TCP.SourcePort.Port.IsUnknown() {
+																return existingRulesItems[listIdx].Criteria.TCP.SourcePort.Port
+															}
 															if v, ok := SourcePortData["port"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -4427,18 +4793,30 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 									return nil
 								}(),
 								UDP: func() *NATPolicyRulesCriteriaUDPModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil {
+										return existingRulesItems[listIdx].Criteria.UDP
+									}
 									if UDPData, ok := CriteriaData["udp"].(map[string]interface{}); ok {
 										return &NATPolicyRulesCriteriaUDPModel{
 											DestinationPort: func() *NATPolicyRulesCriteriaUDPDestinationPortModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.DestinationPort != nil {
+													return existingRulesItems[listIdx].Criteria.UDP.DestinationPort
+												}
 												if DestinationPortData, ok := UDPData["destination_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaUDPDestinationPortModel{
 														NoPortMatch: func() *NATPolicyEmptyModel {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.DestinationPort != nil {
+																return existingRulesItems[listIdx].Criteria.UDP.DestinationPort.NoPortMatch
+															}
 															if _, ok := DestinationPortData["no_port_match"].(map[string]interface{}); ok {
 																return &NATPolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														Port: func() types.Int64 {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.DestinationPort != nil && !existingRulesItems[listIdx].Criteria.UDP.DestinationPort.Port.IsUnknown() {
+																return existingRulesItems[listIdx].Criteria.UDP.DestinationPort.Port
+															}
 															if v, ok := DestinationPortData["port"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -4455,15 +4833,24 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 												return nil
 											}(),
 											SourcePort: func() *NATPolicyRulesCriteriaUDPSourcePortModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.SourcePort != nil {
+													return existingRulesItems[listIdx].Criteria.UDP.SourcePort
+												}
 												if SourcePortData, ok := UDPData["source_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaUDPSourcePortModel{
 														NoPortMatch: func() *NATPolicyEmptyModel {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.SourcePort != nil {
+																return existingRulesItems[listIdx].Criteria.UDP.SourcePort.NoPortMatch
+															}
 															if _, ok := SourcePortData["no_port_match"].(map[string]interface{}); ok {
 																return &NATPolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														Port: func() types.Int64 {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.SourcePort != nil && !existingRulesItems[listIdx].Criteria.UDP.SourcePort.Port.IsUnknown() {
+																return existingRulesItems[listIdx].Criteria.UDP.SourcePort.Port
+															}
 															if v, ok := SourcePortData["port"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -4487,9 +4874,17 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 									if VirtualNetworkData, ok := CriteriaData["virtual_network"].(map[string]interface{}); ok {
 										return &NATPolicyRulesCriteriaVirtualNetworkModel{
 											Refs: func() types.List {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.VirtualNetwork != nil && (existingRulesItems[listIdx].Criteria.VirtualNetwork.Refs.IsNull() || len(existingRulesItems[listIdx].Criteria.VirtualNetwork.Refs.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesCriteriaVirtualNetworkRefsModelAttrTypes})
+												}
+												var RefsExisting []NATPolicyRulesCriteriaVirtualNetworkRefsModel
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.VirtualNetwork != nil && !existingRulesItems[listIdx].Criteria.VirtualNetwork.Refs.IsNull() && !existingRulesItems[listIdx].Criteria.VirtualNetwork.Refs.IsUnknown() {
+													existingRulesItems[listIdx].Criteria.VirtualNetwork.Refs.ElementsAs(ctx, &RefsExisting, false)
+												}
 												if rawList, ok := VirtualNetworkData["refs"].([]interface{}); ok && len(rawList) > 0 {
 													var RefsResult []NATPolicyRulesCriteriaVirtualNetworkRefsModel
-													for _, RefsItem := range rawList {
+													for RefsIdx, RefsItem := range rawList {
+														_ = RefsIdx
 														if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 															RefsResult = append(RefsResult, NATPolicyRulesCriteriaVirtualNetworkRefsModel{
 																Kind: func() types.String {
@@ -4566,9 +4961,17 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 						if NetworkInterfaceData, ok := itemMap["network_interface"].(map[string]interface{}); ok {
 							return &NATPolicyRulesNetworkInterfaceModel{
 								Refs: func() types.List {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].NetworkInterface != nil && (existingRulesItems[listIdx].NetworkInterface.Refs.IsNull() || len(existingRulesItems[listIdx].NetworkInterface.Refs.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesNetworkInterfaceRefsModelAttrTypes})
+									}
+									var RefsExisting []NATPolicyRulesNetworkInterfaceRefsModel
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].NetworkInterface != nil && !existingRulesItems[listIdx].NetworkInterface.Refs.IsNull() && !existingRulesItems[listIdx].NetworkInterface.Refs.IsUnknown() {
+										existingRulesItems[listIdx].NetworkInterface.Refs.ElementsAs(ctx, &RefsExisting, false)
+									}
 									if rawList, ok := NetworkInterfaceData["refs"].([]interface{}); ok && len(rawList) > 0 {
 										var RefsResult []NATPolicyRulesNetworkInterfaceRefsModel
-										for _, RefsItem := range rawList {
+										for RefsIdx, RefsItem := range rawList {
+											_ = RefsIdx
 											if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 												RefsResult = append(RefsResult, NATPolicyRulesNetworkInterfaceRefsModel{
 													Kind: func() types.String {
@@ -4617,9 +5020,17 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 						if NodeInterfaceData, ok := itemMap["node_interface"].(map[string]interface{}); ok {
 							return &NATPolicyRulesNodeInterfaceModel{
 								List: func() types.List {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].NodeInterface != nil && (existingRulesItems[listIdx].NodeInterface.List.IsNull() || len(existingRulesItems[listIdx].NodeInterface.List.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesNodeInterfaceListModelAttrTypes})
+									}
+									var ListExisting []NATPolicyRulesNodeInterfaceListModel
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].NodeInterface != nil && !existingRulesItems[listIdx].NodeInterface.List.IsNull() && !existingRulesItems[listIdx].NodeInterface.List.IsUnknown() {
+										existingRulesItems[listIdx].NodeInterface.List.ElementsAs(ctx, &ListExisting, false)
+									}
 									if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
 										var ListResult []NATPolicyRulesNodeInterfaceListModel
-										for _, ListItem := range rawList {
+										for ListIdx, ListItem := range rawList {
+											_ = ListIdx
 											if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 												ListResult = append(ListResult, NATPolicyRulesNodeInterfaceListModel{
 													Interface: func() types.List {
@@ -4688,9 +5099,17 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 						if SegmentData, ok := itemMap["segment"].(map[string]interface{}); ok {
 							return &NATPolicyRulesSegmentModel{
 								Refs: func() types.List {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Segment != nil && (existingRulesItems[listIdx].Segment.Refs.IsNull() || len(existingRulesItems[listIdx].Segment.Refs.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesSegmentRefsModelAttrTypes})
+									}
+									var RefsExisting []NATPolicyRulesSegmentRefsModel
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Segment != nil && !existingRulesItems[listIdx].Segment.Refs.IsNull() && !existingRulesItems[listIdx].Segment.Refs.IsUnknown() {
+										existingRulesItems[listIdx].Segment.Refs.ElementsAs(ctx, &RefsExisting, false)
+									}
 									if rawList, ok := SegmentData["refs"].([]interface{}); ok && len(rawList) > 0 {
 										var RefsResult []NATPolicyRulesSegmentRefsModel
-										for _, RefsItem := range rawList {
+										for RefsIdx, RefsItem := range rawList {
+											_ = RefsIdx
 											if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 												RefsResult = append(RefsResult, NATPolicyRulesSegmentRefsModel{
 													Kind: func() types.String {
@@ -4739,9 +5158,17 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 						if VirtualNetworkData, ok := itemMap["virtual_network"].(map[string]interface{}); ok {
 							return &NATPolicyRulesVirtualNetworkModel{
 								Refs: func() types.List {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].VirtualNetwork != nil && (existingRulesItems[listIdx].VirtualNetwork.Refs.IsNull() || len(existingRulesItems[listIdx].VirtualNetwork.Refs.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesVirtualNetworkRefsModelAttrTypes})
+									}
+									var RefsExisting []NATPolicyRulesVirtualNetworkRefsModel
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].VirtualNetwork != nil && !existingRulesItems[listIdx].VirtualNetwork.Refs.IsNull() && !existingRulesItems[listIdx].VirtualNetwork.Refs.IsUnknown() {
+										existingRulesItems[listIdx].VirtualNetwork.Refs.ElementsAs(ctx, &RefsExisting, false)
+									}
 									if rawList, ok := VirtualNetworkData["refs"].([]interface{}); ok && len(rawList) > 0 {
 										var RefsResult []NATPolicyRulesVirtualNetworkRefsModel
-										for _, RefsItem := range rawList {
+										for RefsIdx, RefsItem := range rawList {
+											_ = RefsIdx
 											if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 												RefsResult = append(RefsResult, NATPolicyRulesVirtualNetworkRefsModel{
 													Kind: func() types.String {
@@ -4803,9 +5230,14 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 				if !isImport && data.Site != nil && (data.Site.Refs.IsNull() || len(data.Site.Refs.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NATPolicySiteRefsModelAttrTypes})
 				}
+				var RefsExisting []NATPolicySiteRefsModel
+				if !isImport && data.Site != nil && !data.Site.Refs.IsNull() && !data.Site.Refs.IsUnknown() {
+					data.Site.Refs.ElementsAs(ctx, &RefsExisting, false)
+				}
 				if rawList, ok := blockData["refs"].([]interface{}); ok && len(rawList) > 0 {
 					var RefsResult []NATPolicySiteRefsModel
-					for _, RefsItem := range rawList {
+					for RefsIdx, RefsItem := range rawList {
+						_ = RefsIdx
 						if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 							RefsResult = append(RefsResult, NATPolicySiteRefsModel{
 								Kind: func() types.String {

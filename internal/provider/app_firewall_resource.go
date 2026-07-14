@@ -1063,9 +1063,14 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 				if !isImport && data.CustomAnonymization != nil && (data.CustomAnonymization.AnonymizationConfig.IsNull() || len(data.CustomAnonymization.AnonymizationConfig.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: AppFirewallCustomAnonymizationAnonymizationConfigModelAttrTypes})
 				}
+				var AnonymizationConfigExisting []AppFirewallCustomAnonymizationAnonymizationConfigModel
+				if !isImport && data.CustomAnonymization != nil && !data.CustomAnonymization.AnonymizationConfig.IsNull() && !data.CustomAnonymization.AnonymizationConfig.IsUnknown() {
+					data.CustomAnonymization.AnonymizationConfig.ElementsAs(ctx, &AnonymizationConfigExisting, false)
+				}
 				if rawList, ok := blockData["anonymization_config"].([]interface{}); ok && len(rawList) > 0 {
 					var AnonymizationConfigResult []AppFirewallCustomAnonymizationAnonymizationConfigModel
-					for _, AnonymizationConfigItem := range rawList {
+					for AnonymizationConfigIdx, AnonymizationConfigItem := range rawList {
+						_ = AnonymizationConfigIdx
 						if AnonymizationConfigItemMap, ok := AnonymizationConfigItem.(map[string]interface{}); ok {
 							AnonymizationConfigResult = append(AnonymizationConfigResult, AppFirewallCustomAnonymizationAnonymizationConfigModel{
 								Cookie: func() *AppFirewallCustomAnonymizationAnonymizationConfigCookieModel {
@@ -1219,6 +1224,9 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 				if SignatureSelectionSettingData, ok := blockData["signature_selection_setting"].(map[string]interface{}); ok {
 					return &AppFirewallDetectionSettingsSignatureSelectionSettingModel{
 						AttackTypeSettings: func() *AppFirewallDetectionSettingsSignatureSelectionSettingAttackTypeSettingsModel {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && data.DetectionSettings.SignatureSelectionSetting.AttackTypeSettings != nil {
+								return data.DetectionSettings.SignatureSelectionSetting.AttackTypeSettings
+							}
 							if AttackTypeSettingsData, ok := SignatureSelectionSettingData["attack_type_settings"].(map[string]interface{}); ok {
 								return &AppFirewallDetectionSettingsSignatureSelectionSettingAttackTypeSettingsModel{
 									DisabledAttackTypes: func() types.List {
@@ -1239,24 +1247,36 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 							return nil
 						}(),
 						DefaultAttackTypeSettings: func() *AppFirewallEmptyModel {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+								return data.DetectionSettings.SignatureSelectionSetting.DefaultAttackTypeSettings
+							}
 							if _, ok := SignatureSelectionSettingData["default_attack_type_settings"].(map[string]interface{}); ok {
 								return &AppFirewallEmptyModel{}
 							}
 							return nil
 						}(),
 						HighMediumAccuracySignatures: func() *AppFirewallEmptyModel {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+								return data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures
+							}
 							if _, ok := SignatureSelectionSettingData["high_medium_accuracy_signatures"].(map[string]interface{}); ok {
 								return &AppFirewallEmptyModel{}
 							}
 							return nil
 						}(),
 						HighMediumLowAccuracySignatures: func() *AppFirewallEmptyModel {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+								return data.DetectionSettings.SignatureSelectionSetting.HighMediumLowAccuracySignatures
+							}
 							if _, ok := SignatureSelectionSettingData["high_medium_low_accuracy_signatures"].(map[string]interface{}); ok {
 								return &AppFirewallEmptyModel{}
 							}
 							return nil
 						}(),
 						OnlyHighAccuracySignatures: func() *AppFirewallEmptyModel {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+								return data.DetectionSettings.SignatureSelectionSetting.OnlyHighAccuracySignatures
+							}
 							if _, ok := SignatureSelectionSettingData["only_high_accuracy_signatures"].(map[string]interface{}); ok {
 								return &AppFirewallEmptyModel{}
 							}
@@ -1273,6 +1293,9 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 				if StageNewAndUpdatedSignaturesData, ok := blockData["stage_new_and_updated_signatures"].(map[string]interface{}); ok {
 					return &AppFirewallDetectionSettingsStageNewAndUpdatedSignaturesModel{
 						StagingPeriod: func() types.Int64 {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.StageNewAndUpdatedSignatures != nil && !data.DetectionSettings.StageNewAndUpdatedSignatures.StagingPeriod.IsUnknown() {
+								return data.DetectionSettings.StageNewAndUpdatedSignatures.StagingPeriod
+							}
 							if v, ok := StageNewAndUpdatedSignaturesData["staging_period"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -1289,6 +1312,9 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 				if StageNewSignaturesData, ok := blockData["stage_new_signatures"].(map[string]interface{}); ok {
 					return &AppFirewallDetectionSettingsStageNewSignaturesModel{
 						StagingPeriod: func() types.Int64 {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.StageNewSignatures != nil && !data.DetectionSettings.StageNewSignatures.StagingPeriod.IsUnknown() {
+								return data.DetectionSettings.StageNewSignatures.StagingPeriod
+							}
 							if v, ok := StageNewSignaturesData["staging_period"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -1328,9 +1354,14 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 				if !isImport && data.DetectionSettings != nil && (data.DetectionSettings.ViolationsView.IsNull() || len(data.DetectionSettings.ViolationsView.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: AppFirewallDetectionSettingsViolationsViewModelAttrTypes})
 				}
+				var ViolationsViewExisting []AppFirewallDetectionSettingsViolationsViewModel
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.ViolationsView.IsNull() && !data.DetectionSettings.ViolationsView.IsUnknown() {
+					data.DetectionSettings.ViolationsView.ElementsAs(ctx, &ViolationsViewExisting, false)
+				}
 				if rawList, ok := blockData["violations_view"].([]interface{}); ok && len(rawList) > 0 {
 					var ViolationsViewResult []AppFirewallDetectionSettingsViolationsViewModel
-					for _, ViolationsViewItem := range rawList {
+					for ViolationsViewIdx, ViolationsViewItem := range rawList {
+						_ = ViolationsViewIdx
 						if ViolationsViewItemMap, ok := ViolationsViewItem.(map[string]interface{}); ok {
 							ViolationsViewResult = append(ViolationsViewResult, AppFirewallDetectionSettingsViolationsViewModel{
 								DescriptionSpec: func() types.String {
@@ -1561,9 +1592,14 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 				if !isImport && data.CustomAnonymization != nil && (data.CustomAnonymization.AnonymizationConfig.IsNull() || len(data.CustomAnonymization.AnonymizationConfig.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: AppFirewallCustomAnonymizationAnonymizationConfigModelAttrTypes})
 				}
+				var AnonymizationConfigExisting []AppFirewallCustomAnonymizationAnonymizationConfigModel
+				if !isImport && data.CustomAnonymization != nil && !data.CustomAnonymization.AnonymizationConfig.IsNull() && !data.CustomAnonymization.AnonymizationConfig.IsUnknown() {
+					data.CustomAnonymization.AnonymizationConfig.ElementsAs(ctx, &AnonymizationConfigExisting, false)
+				}
 				if rawList, ok := blockData["anonymization_config"].([]interface{}); ok && len(rawList) > 0 {
 					var AnonymizationConfigResult []AppFirewallCustomAnonymizationAnonymizationConfigModel
-					for _, AnonymizationConfigItem := range rawList {
+					for AnonymizationConfigIdx, AnonymizationConfigItem := range rawList {
+						_ = AnonymizationConfigIdx
 						if AnonymizationConfigItemMap, ok := AnonymizationConfigItem.(map[string]interface{}); ok {
 							AnonymizationConfigResult = append(AnonymizationConfigResult, AppFirewallCustomAnonymizationAnonymizationConfigModel{
 								Cookie: func() *AppFirewallCustomAnonymizationAnonymizationConfigCookieModel {
@@ -1717,6 +1753,9 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 				if SignatureSelectionSettingData, ok := blockData["signature_selection_setting"].(map[string]interface{}); ok {
 					return &AppFirewallDetectionSettingsSignatureSelectionSettingModel{
 						AttackTypeSettings: func() *AppFirewallDetectionSettingsSignatureSelectionSettingAttackTypeSettingsModel {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && data.DetectionSettings.SignatureSelectionSetting.AttackTypeSettings != nil {
+								return data.DetectionSettings.SignatureSelectionSetting.AttackTypeSettings
+							}
 							if AttackTypeSettingsData, ok := SignatureSelectionSettingData["attack_type_settings"].(map[string]interface{}); ok {
 								return &AppFirewallDetectionSettingsSignatureSelectionSettingAttackTypeSettingsModel{
 									DisabledAttackTypes: func() types.List {
@@ -1737,24 +1776,36 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 							return nil
 						}(),
 						DefaultAttackTypeSettings: func() *AppFirewallEmptyModel {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+								return data.DetectionSettings.SignatureSelectionSetting.DefaultAttackTypeSettings
+							}
 							if _, ok := SignatureSelectionSettingData["default_attack_type_settings"].(map[string]interface{}); ok {
 								return &AppFirewallEmptyModel{}
 							}
 							return nil
 						}(),
 						HighMediumAccuracySignatures: func() *AppFirewallEmptyModel {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+								return data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures
+							}
 							if _, ok := SignatureSelectionSettingData["high_medium_accuracy_signatures"].(map[string]interface{}); ok {
 								return &AppFirewallEmptyModel{}
 							}
 							return nil
 						}(),
 						HighMediumLowAccuracySignatures: func() *AppFirewallEmptyModel {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+								return data.DetectionSettings.SignatureSelectionSetting.HighMediumLowAccuracySignatures
+							}
 							if _, ok := SignatureSelectionSettingData["high_medium_low_accuracy_signatures"].(map[string]interface{}); ok {
 								return &AppFirewallEmptyModel{}
 							}
 							return nil
 						}(),
 						OnlyHighAccuracySignatures: func() *AppFirewallEmptyModel {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+								return data.DetectionSettings.SignatureSelectionSetting.OnlyHighAccuracySignatures
+							}
 							if _, ok := SignatureSelectionSettingData["only_high_accuracy_signatures"].(map[string]interface{}); ok {
 								return &AppFirewallEmptyModel{}
 							}
@@ -1771,6 +1822,9 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 				if StageNewAndUpdatedSignaturesData, ok := blockData["stage_new_and_updated_signatures"].(map[string]interface{}); ok {
 					return &AppFirewallDetectionSettingsStageNewAndUpdatedSignaturesModel{
 						StagingPeriod: func() types.Int64 {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.StageNewAndUpdatedSignatures != nil && !data.DetectionSettings.StageNewAndUpdatedSignatures.StagingPeriod.IsUnknown() {
+								return data.DetectionSettings.StageNewAndUpdatedSignatures.StagingPeriod
+							}
 							if v, ok := StageNewAndUpdatedSignaturesData["staging_period"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -1787,6 +1841,9 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 				if StageNewSignaturesData, ok := blockData["stage_new_signatures"].(map[string]interface{}); ok {
 					return &AppFirewallDetectionSettingsStageNewSignaturesModel{
 						StagingPeriod: func() types.Int64 {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.StageNewSignatures != nil && !data.DetectionSettings.StageNewSignatures.StagingPeriod.IsUnknown() {
+								return data.DetectionSettings.StageNewSignatures.StagingPeriod
+							}
 							if v, ok := StageNewSignaturesData["staging_period"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -1826,9 +1883,14 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 				if !isImport && data.DetectionSettings != nil && (data.DetectionSettings.ViolationsView.IsNull() || len(data.DetectionSettings.ViolationsView.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: AppFirewallDetectionSettingsViolationsViewModelAttrTypes})
 				}
+				var ViolationsViewExisting []AppFirewallDetectionSettingsViolationsViewModel
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.ViolationsView.IsNull() && !data.DetectionSettings.ViolationsView.IsUnknown() {
+					data.DetectionSettings.ViolationsView.ElementsAs(ctx, &ViolationsViewExisting, false)
+				}
 				if rawList, ok := blockData["violations_view"].([]interface{}); ok && len(rawList) > 0 {
 					var ViolationsViewResult []AppFirewallDetectionSettingsViolationsViewModel
-					for _, ViolationsViewItem := range rawList {
+					for ViolationsViewIdx, ViolationsViewItem := range rawList {
+						_ = ViolationsViewIdx
 						if ViolationsViewItemMap, ok := ViolationsViewItem.(map[string]interface{}); ok {
 							ViolationsViewResult = append(ViolationsViewResult, AppFirewallDetectionSettingsViolationsViewModel{
 								DescriptionSpec: func() types.String {
@@ -2276,9 +2338,14 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 				if !isImport && data.CustomAnonymization != nil && (data.CustomAnonymization.AnonymizationConfig.IsNull() || len(data.CustomAnonymization.AnonymizationConfig.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: AppFirewallCustomAnonymizationAnonymizationConfigModelAttrTypes})
 				}
+				var AnonymizationConfigExisting []AppFirewallCustomAnonymizationAnonymizationConfigModel
+				if !isImport && data.CustomAnonymization != nil && !data.CustomAnonymization.AnonymizationConfig.IsNull() && !data.CustomAnonymization.AnonymizationConfig.IsUnknown() {
+					data.CustomAnonymization.AnonymizationConfig.ElementsAs(ctx, &AnonymizationConfigExisting, false)
+				}
 				if rawList, ok := blockData["anonymization_config"].([]interface{}); ok && len(rawList) > 0 {
 					var AnonymizationConfigResult []AppFirewallCustomAnonymizationAnonymizationConfigModel
-					for _, AnonymizationConfigItem := range rawList {
+					for AnonymizationConfigIdx, AnonymizationConfigItem := range rawList {
+						_ = AnonymizationConfigIdx
 						if AnonymizationConfigItemMap, ok := AnonymizationConfigItem.(map[string]interface{}); ok {
 							AnonymizationConfigResult = append(AnonymizationConfigResult, AppFirewallCustomAnonymizationAnonymizationConfigModel{
 								Cookie: func() *AppFirewallCustomAnonymizationAnonymizationConfigCookieModel {
@@ -2432,6 +2499,9 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 				if SignatureSelectionSettingData, ok := blockData["signature_selection_setting"].(map[string]interface{}); ok {
 					return &AppFirewallDetectionSettingsSignatureSelectionSettingModel{
 						AttackTypeSettings: func() *AppFirewallDetectionSettingsSignatureSelectionSettingAttackTypeSettingsModel {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && data.DetectionSettings.SignatureSelectionSetting.AttackTypeSettings != nil {
+								return data.DetectionSettings.SignatureSelectionSetting.AttackTypeSettings
+							}
 							if AttackTypeSettingsData, ok := SignatureSelectionSettingData["attack_type_settings"].(map[string]interface{}); ok {
 								return &AppFirewallDetectionSettingsSignatureSelectionSettingAttackTypeSettingsModel{
 									DisabledAttackTypes: func() types.List {
@@ -2452,24 +2522,36 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 							return nil
 						}(),
 						DefaultAttackTypeSettings: func() *AppFirewallEmptyModel {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+								return data.DetectionSettings.SignatureSelectionSetting.DefaultAttackTypeSettings
+							}
 							if _, ok := SignatureSelectionSettingData["default_attack_type_settings"].(map[string]interface{}); ok {
 								return &AppFirewallEmptyModel{}
 							}
 							return nil
 						}(),
 						HighMediumAccuracySignatures: func() *AppFirewallEmptyModel {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+								return data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures
+							}
 							if _, ok := SignatureSelectionSettingData["high_medium_accuracy_signatures"].(map[string]interface{}); ok {
 								return &AppFirewallEmptyModel{}
 							}
 							return nil
 						}(),
 						HighMediumLowAccuracySignatures: func() *AppFirewallEmptyModel {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+								return data.DetectionSettings.SignatureSelectionSetting.HighMediumLowAccuracySignatures
+							}
 							if _, ok := SignatureSelectionSettingData["high_medium_low_accuracy_signatures"].(map[string]interface{}); ok {
 								return &AppFirewallEmptyModel{}
 							}
 							return nil
 						}(),
 						OnlyHighAccuracySignatures: func() *AppFirewallEmptyModel {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+								return data.DetectionSettings.SignatureSelectionSetting.OnlyHighAccuracySignatures
+							}
 							if _, ok := SignatureSelectionSettingData["only_high_accuracy_signatures"].(map[string]interface{}); ok {
 								return &AppFirewallEmptyModel{}
 							}
@@ -2486,6 +2568,9 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 				if StageNewAndUpdatedSignaturesData, ok := blockData["stage_new_and_updated_signatures"].(map[string]interface{}); ok {
 					return &AppFirewallDetectionSettingsStageNewAndUpdatedSignaturesModel{
 						StagingPeriod: func() types.Int64 {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.StageNewAndUpdatedSignatures != nil && !data.DetectionSettings.StageNewAndUpdatedSignatures.StagingPeriod.IsUnknown() {
+								return data.DetectionSettings.StageNewAndUpdatedSignatures.StagingPeriod
+							}
 							if v, ok := StageNewAndUpdatedSignaturesData["staging_period"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -2502,6 +2587,9 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 				if StageNewSignaturesData, ok := blockData["stage_new_signatures"].(map[string]interface{}); ok {
 					return &AppFirewallDetectionSettingsStageNewSignaturesModel{
 						StagingPeriod: func() types.Int64 {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.StageNewSignatures != nil && !data.DetectionSettings.StageNewSignatures.StagingPeriod.IsUnknown() {
+								return data.DetectionSettings.StageNewSignatures.StagingPeriod
+							}
 							if v, ok := StageNewSignaturesData["staging_period"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -2541,9 +2629,14 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 				if !isImport && data.DetectionSettings != nil && (data.DetectionSettings.ViolationsView.IsNull() || len(data.DetectionSettings.ViolationsView.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: AppFirewallDetectionSettingsViolationsViewModelAttrTypes})
 				}
+				var ViolationsViewExisting []AppFirewallDetectionSettingsViolationsViewModel
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.ViolationsView.IsNull() && !data.DetectionSettings.ViolationsView.IsUnknown() {
+					data.DetectionSettings.ViolationsView.ElementsAs(ctx, &ViolationsViewExisting, false)
+				}
 				if rawList, ok := blockData["violations_view"].([]interface{}); ok && len(rawList) > 0 {
 					var ViolationsViewResult []AppFirewallDetectionSettingsViolationsViewModel
-					for _, ViolationsViewItem := range rawList {
+					for ViolationsViewIdx, ViolationsViewItem := range rawList {
+						_ = ViolationsViewIdx
 						if ViolationsViewItemMap, ok := ViolationsViewItem.(map[string]interface{}); ok {
 							ViolationsViewResult = append(ViolationsViewResult, AppFirewallDetectionSettingsViolationsViewModel{
 								DescriptionSpec: func() types.String {

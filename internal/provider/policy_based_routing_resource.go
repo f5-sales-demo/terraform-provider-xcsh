@@ -1394,18 +1394,29 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 				if !isImport && data.ForwardProxyPbr != nil && (data.ForwardProxyPbr.ForwardProxyPbrRules.IsNull() || len(data.ForwardProxyPbr.ForwardProxyPbrRules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesModelAttrTypes})
 				}
+				var ForwardProxyPbrRulesExisting []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesModel
+				if !isImport && data.ForwardProxyPbr != nil && !data.ForwardProxyPbr.ForwardProxyPbrRules.IsNull() && !data.ForwardProxyPbr.ForwardProxyPbrRules.IsUnknown() {
+					data.ForwardProxyPbr.ForwardProxyPbrRules.ElementsAs(ctx, &ForwardProxyPbrRulesExisting, false)
+				}
 				if rawList, ok := blockData["forward_proxy_pbr_rules"].([]interface{}); ok && len(rawList) > 0 {
 					var ForwardProxyPbrRulesResult []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesModel
-					for _, ForwardProxyPbrRulesItem := range rawList {
+					for ForwardProxyPbrRulesIdx, ForwardProxyPbrRulesItem := range rawList {
+						_ = ForwardProxyPbrRulesIdx
 						if ForwardProxyPbrRulesItemMap, ok := ForwardProxyPbrRulesItem.(map[string]interface{}); ok {
 							ForwardProxyPbrRulesResult = append(ForwardProxyPbrRulesResult, PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesModel{
 								AllDestinations: func() *PolicyBasedRoutingEmptyModel {
+									if !isImport && len(ForwardProxyPbrRulesExisting) > ForwardProxyPbrRulesIdx && ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].AllDestinations != nil {
+										return &PolicyBasedRoutingEmptyModel{}
+									}
 									if _, ok := ForwardProxyPbrRulesItemMap["all_destinations"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingEmptyModel{}
 									}
 									return nil
 								}(),
 								AllSources: func() *PolicyBasedRoutingEmptyModel {
+									if !isImport && len(ForwardProxyPbrRulesExisting) > ForwardProxyPbrRulesIdx && ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].AllSources != nil {
+										return &PolicyBasedRoutingEmptyModel{}
+									}
 									if _, ok := ForwardProxyPbrRulesItemMap["all_sources"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingEmptyModel{}
 									}
@@ -1447,12 +1458,23 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 									if HTTPListData, ok := ForwardProxyPbrRulesItemMap["http_list"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListModel{
 											HTTPList: func() types.List {
+												if !isImport && len(ForwardProxyPbrRulesExisting) > ForwardProxyPbrRulesIdx && ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].HTTPList != nil && (ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].HTTPList.HTTPList.IsNull() || len(ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].HTTPList.HTTPList.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModelAttrTypes})
+												}
+												var HTTPListExisting []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModel
+												if !isImport && len(ForwardProxyPbrRulesExisting) > ForwardProxyPbrRulesIdx && ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].HTTPList != nil && !ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].HTTPList.HTTPList.IsNull() && !ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].HTTPList.HTTPList.IsUnknown() {
+													ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].HTTPList.HTTPList.ElementsAs(ctx, &HTTPListExisting, false)
+												}
 												if rawList, ok := HTTPListData["http_list"].([]interface{}); ok && len(rawList) > 0 {
 													var HTTPListResult []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModel
-													for _, HTTPListItem := range rawList {
+													for HTTPListIdx, HTTPListItem := range rawList {
+														_ = HTTPListIdx
 														if HTTPListItemMap, ok := HTTPListItem.(map[string]interface{}); ok {
 															HTTPListResult = append(HTTPListResult, PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModel{
 																AnyPath: func() *PolicyBasedRoutingEmptyModel {
+																	if !isImport && len(HTTPListExisting) > HTTPListIdx && HTTPListExisting[HTTPListIdx].AnyPath != nil {
+																		return &PolicyBasedRoutingEmptyModel{}
+																	}
 																	if _, ok := HTTPListItemMap["any_path"].(map[string]interface{}); ok {
 																		return &PolicyBasedRoutingEmptyModel{}
 																	}
@@ -1594,9 +1616,17 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 									if TLSListData, ok := ForwardProxyPbrRulesItemMap["tls_list"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListModel{
 											TLSList: func() types.List {
+												if !isImport && len(ForwardProxyPbrRulesExisting) > ForwardProxyPbrRulesIdx && ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].TLSList != nil && (ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].TLSList.TLSList.IsNull() || len(ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].TLSList.TLSList.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModelAttrTypes})
+												}
+												var TLSListExisting []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModel
+												if !isImport && len(ForwardProxyPbrRulesExisting) > ForwardProxyPbrRulesIdx && ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].TLSList != nil && !ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].TLSList.TLSList.IsNull() && !ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].TLSList.TLSList.IsUnknown() {
+													ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].TLSList.TLSList.ElementsAs(ctx, &TLSListExisting, false)
+												}
 												if rawList, ok := TLSListData["tls_list"].([]interface{}); ok && len(rawList) > 0 {
 													var TLSListResult []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModel
-													for _, TLSListItem := range rawList {
+													for TLSListIdx, TLSListItem := range rawList {
+														_ = TLSListIdx
 														if TLSListItemMap, ok := TLSListItem.(map[string]interface{}); ok {
 															TLSListResult = append(TLSListResult, PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModel{
 																ExactValue: func() types.String {
@@ -1677,30 +1707,47 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 				if !isImport && data.NetworkPbr != nil && (data.NetworkPbr.NetworkPbrRules.IsNull() || len(data.NetworkPbr.NetworkPbrRules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingNetworkPbrNetworkPbrRulesModelAttrTypes})
 				}
+				var NetworkPbrRulesExisting []PolicyBasedRoutingNetworkPbrNetworkPbrRulesModel
+				if !isImport && data.NetworkPbr != nil && !data.NetworkPbr.NetworkPbrRules.IsNull() && !data.NetworkPbr.NetworkPbrRules.IsUnknown() {
+					data.NetworkPbr.NetworkPbrRules.ElementsAs(ctx, &NetworkPbrRulesExisting, false)
+				}
 				if rawList, ok := blockData["network_pbr_rules"].([]interface{}); ok && len(rawList) > 0 {
 					var NetworkPbrRulesResult []PolicyBasedRoutingNetworkPbrNetworkPbrRulesModel
-					for _, NetworkPbrRulesItem := range rawList {
+					for NetworkPbrRulesIdx, NetworkPbrRulesItem := range rawList {
+						_ = NetworkPbrRulesIdx
 						if NetworkPbrRulesItemMap, ok := NetworkPbrRulesItem.(map[string]interface{}); ok {
 							NetworkPbrRulesResult = append(NetworkPbrRulesResult, PolicyBasedRoutingNetworkPbrNetworkPbrRulesModel{
 								AllTCPTraffic: func() *PolicyBasedRoutingEmptyModel {
+									if !isImport && len(NetworkPbrRulesExisting) > NetworkPbrRulesIdx && NetworkPbrRulesExisting[NetworkPbrRulesIdx].AllTCPTraffic != nil {
+										return &PolicyBasedRoutingEmptyModel{}
+									}
 									if _, ok := NetworkPbrRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTraffic: func() *PolicyBasedRoutingEmptyModel {
+									if !isImport && len(NetworkPbrRulesExisting) > NetworkPbrRulesIdx && NetworkPbrRulesExisting[NetworkPbrRulesIdx].AllTraffic != nil {
+										return &PolicyBasedRoutingEmptyModel{}
+									}
 									if _, ok := NetworkPbrRulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingEmptyModel{}
 									}
 									return nil
 								}(),
 								AllUDPTraffic: func() *PolicyBasedRoutingEmptyModel {
+									if !isImport && len(NetworkPbrRulesExisting) > NetworkPbrRulesIdx && NetworkPbrRulesExisting[NetworkPbrRulesIdx].AllUDPTraffic != nil {
+										return &PolicyBasedRoutingEmptyModel{}
+									}
 									if _, ok := NetworkPbrRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingEmptyModel{}
 									}
 									return nil
 								}(),
 								Any: func() *PolicyBasedRoutingEmptyModel {
+									if !isImport && len(NetworkPbrRulesExisting) > NetworkPbrRulesIdx && NetworkPbrRulesExisting[NetworkPbrRulesIdx].Any != nil {
+										return &PolicyBasedRoutingEmptyModel{}
+									}
 									if _, ok := NetworkPbrRulesItemMap["any"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingEmptyModel{}
 									}
@@ -1768,9 +1815,17 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 									if IPPrefixSetData, ok := NetworkPbrRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingNetworkPbrNetworkPbrRulesIPPrefixSetModel{
 											Ref: func() types.List {
+												if !isImport && len(NetworkPbrRulesExisting) > NetworkPbrRulesIdx && NetworkPbrRulesExisting[NetworkPbrRulesIdx].IPPrefixSet != nil && (NetworkPbrRulesExisting[NetworkPbrRulesIdx].IPPrefixSet.Ref.IsNull() || len(NetworkPbrRulesExisting[NetworkPbrRulesIdx].IPPrefixSet.Ref.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingNetworkPbrNetworkPbrRulesIPPrefixSetRefModelAttrTypes})
+												}
+												var RefExisting []PolicyBasedRoutingNetworkPbrNetworkPbrRulesIPPrefixSetRefModel
+												if !isImport && len(NetworkPbrRulesExisting) > NetworkPbrRulesIdx && NetworkPbrRulesExisting[NetworkPbrRulesIdx].IPPrefixSet != nil && !NetworkPbrRulesExisting[NetworkPbrRulesIdx].IPPrefixSet.Ref.IsNull() && !NetworkPbrRulesExisting[NetworkPbrRulesIdx].IPPrefixSet.Ref.IsUnknown() {
+													NetworkPbrRulesExisting[NetworkPbrRulesIdx].IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+												}
 												if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
 													var RefResult []PolicyBasedRoutingNetworkPbrNetworkPbrRulesIPPrefixSetRefModel
-													for _, RefItem := range rawList {
+													for RefIdx, RefItem := range rawList {
+														_ = RefIdx
 														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 															RefResult = append(RefResult, PolicyBasedRoutingNetworkPbrNetworkPbrRulesIPPrefixSetRefModel{
 																Kind: func() types.String {
@@ -2053,18 +2108,29 @@ func (r *PolicyBasedRoutingResource) Read(ctx context.Context, req resource.Read
 				if !isImport && data.ForwardProxyPbr != nil && (data.ForwardProxyPbr.ForwardProxyPbrRules.IsNull() || len(data.ForwardProxyPbr.ForwardProxyPbrRules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesModelAttrTypes})
 				}
+				var ForwardProxyPbrRulesExisting []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesModel
+				if !isImport && data.ForwardProxyPbr != nil && !data.ForwardProxyPbr.ForwardProxyPbrRules.IsNull() && !data.ForwardProxyPbr.ForwardProxyPbrRules.IsUnknown() {
+					data.ForwardProxyPbr.ForwardProxyPbrRules.ElementsAs(ctx, &ForwardProxyPbrRulesExisting, false)
+				}
 				if rawList, ok := blockData["forward_proxy_pbr_rules"].([]interface{}); ok && len(rawList) > 0 {
 					var ForwardProxyPbrRulesResult []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesModel
-					for _, ForwardProxyPbrRulesItem := range rawList {
+					for ForwardProxyPbrRulesIdx, ForwardProxyPbrRulesItem := range rawList {
+						_ = ForwardProxyPbrRulesIdx
 						if ForwardProxyPbrRulesItemMap, ok := ForwardProxyPbrRulesItem.(map[string]interface{}); ok {
 							ForwardProxyPbrRulesResult = append(ForwardProxyPbrRulesResult, PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesModel{
 								AllDestinations: func() *PolicyBasedRoutingEmptyModel {
+									if !isImport && len(ForwardProxyPbrRulesExisting) > ForwardProxyPbrRulesIdx && ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].AllDestinations != nil {
+										return &PolicyBasedRoutingEmptyModel{}
+									}
 									if _, ok := ForwardProxyPbrRulesItemMap["all_destinations"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingEmptyModel{}
 									}
 									return nil
 								}(),
 								AllSources: func() *PolicyBasedRoutingEmptyModel {
+									if !isImport && len(ForwardProxyPbrRulesExisting) > ForwardProxyPbrRulesIdx && ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].AllSources != nil {
+										return &PolicyBasedRoutingEmptyModel{}
+									}
 									if _, ok := ForwardProxyPbrRulesItemMap["all_sources"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingEmptyModel{}
 									}
@@ -2106,12 +2172,23 @@ func (r *PolicyBasedRoutingResource) Read(ctx context.Context, req resource.Read
 									if HTTPListData, ok := ForwardProxyPbrRulesItemMap["http_list"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListModel{
 											HTTPList: func() types.List {
+												if !isImport && len(ForwardProxyPbrRulesExisting) > ForwardProxyPbrRulesIdx && ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].HTTPList != nil && (ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].HTTPList.HTTPList.IsNull() || len(ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].HTTPList.HTTPList.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModelAttrTypes})
+												}
+												var HTTPListExisting []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModel
+												if !isImport && len(ForwardProxyPbrRulesExisting) > ForwardProxyPbrRulesIdx && ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].HTTPList != nil && !ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].HTTPList.HTTPList.IsNull() && !ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].HTTPList.HTTPList.IsUnknown() {
+													ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].HTTPList.HTTPList.ElementsAs(ctx, &HTTPListExisting, false)
+												}
 												if rawList, ok := HTTPListData["http_list"].([]interface{}); ok && len(rawList) > 0 {
 													var HTTPListResult []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModel
-													for _, HTTPListItem := range rawList {
+													for HTTPListIdx, HTTPListItem := range rawList {
+														_ = HTTPListIdx
 														if HTTPListItemMap, ok := HTTPListItem.(map[string]interface{}); ok {
 															HTTPListResult = append(HTTPListResult, PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModel{
 																AnyPath: func() *PolicyBasedRoutingEmptyModel {
+																	if !isImport && len(HTTPListExisting) > HTTPListIdx && HTTPListExisting[HTTPListIdx].AnyPath != nil {
+																		return &PolicyBasedRoutingEmptyModel{}
+																	}
 																	if _, ok := HTTPListItemMap["any_path"].(map[string]interface{}); ok {
 																		return &PolicyBasedRoutingEmptyModel{}
 																	}
@@ -2253,9 +2330,17 @@ func (r *PolicyBasedRoutingResource) Read(ctx context.Context, req resource.Read
 									if TLSListData, ok := ForwardProxyPbrRulesItemMap["tls_list"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListModel{
 											TLSList: func() types.List {
+												if !isImport && len(ForwardProxyPbrRulesExisting) > ForwardProxyPbrRulesIdx && ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].TLSList != nil && (ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].TLSList.TLSList.IsNull() || len(ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].TLSList.TLSList.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModelAttrTypes})
+												}
+												var TLSListExisting []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModel
+												if !isImport && len(ForwardProxyPbrRulesExisting) > ForwardProxyPbrRulesIdx && ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].TLSList != nil && !ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].TLSList.TLSList.IsNull() && !ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].TLSList.TLSList.IsUnknown() {
+													ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].TLSList.TLSList.ElementsAs(ctx, &TLSListExisting, false)
+												}
 												if rawList, ok := TLSListData["tls_list"].([]interface{}); ok && len(rawList) > 0 {
 													var TLSListResult []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModel
-													for _, TLSListItem := range rawList {
+													for TLSListIdx, TLSListItem := range rawList {
+														_ = TLSListIdx
 														if TLSListItemMap, ok := TLSListItem.(map[string]interface{}); ok {
 															TLSListResult = append(TLSListResult, PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModel{
 																ExactValue: func() types.String {
@@ -2336,30 +2421,47 @@ func (r *PolicyBasedRoutingResource) Read(ctx context.Context, req resource.Read
 				if !isImport && data.NetworkPbr != nil && (data.NetworkPbr.NetworkPbrRules.IsNull() || len(data.NetworkPbr.NetworkPbrRules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingNetworkPbrNetworkPbrRulesModelAttrTypes})
 				}
+				var NetworkPbrRulesExisting []PolicyBasedRoutingNetworkPbrNetworkPbrRulesModel
+				if !isImport && data.NetworkPbr != nil && !data.NetworkPbr.NetworkPbrRules.IsNull() && !data.NetworkPbr.NetworkPbrRules.IsUnknown() {
+					data.NetworkPbr.NetworkPbrRules.ElementsAs(ctx, &NetworkPbrRulesExisting, false)
+				}
 				if rawList, ok := blockData["network_pbr_rules"].([]interface{}); ok && len(rawList) > 0 {
 					var NetworkPbrRulesResult []PolicyBasedRoutingNetworkPbrNetworkPbrRulesModel
-					for _, NetworkPbrRulesItem := range rawList {
+					for NetworkPbrRulesIdx, NetworkPbrRulesItem := range rawList {
+						_ = NetworkPbrRulesIdx
 						if NetworkPbrRulesItemMap, ok := NetworkPbrRulesItem.(map[string]interface{}); ok {
 							NetworkPbrRulesResult = append(NetworkPbrRulesResult, PolicyBasedRoutingNetworkPbrNetworkPbrRulesModel{
 								AllTCPTraffic: func() *PolicyBasedRoutingEmptyModel {
+									if !isImport && len(NetworkPbrRulesExisting) > NetworkPbrRulesIdx && NetworkPbrRulesExisting[NetworkPbrRulesIdx].AllTCPTraffic != nil {
+										return &PolicyBasedRoutingEmptyModel{}
+									}
 									if _, ok := NetworkPbrRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTraffic: func() *PolicyBasedRoutingEmptyModel {
+									if !isImport && len(NetworkPbrRulesExisting) > NetworkPbrRulesIdx && NetworkPbrRulesExisting[NetworkPbrRulesIdx].AllTraffic != nil {
+										return &PolicyBasedRoutingEmptyModel{}
+									}
 									if _, ok := NetworkPbrRulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingEmptyModel{}
 									}
 									return nil
 								}(),
 								AllUDPTraffic: func() *PolicyBasedRoutingEmptyModel {
+									if !isImport && len(NetworkPbrRulesExisting) > NetworkPbrRulesIdx && NetworkPbrRulesExisting[NetworkPbrRulesIdx].AllUDPTraffic != nil {
+										return &PolicyBasedRoutingEmptyModel{}
+									}
 									if _, ok := NetworkPbrRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingEmptyModel{}
 									}
 									return nil
 								}(),
 								Any: func() *PolicyBasedRoutingEmptyModel {
+									if !isImport && len(NetworkPbrRulesExisting) > NetworkPbrRulesIdx && NetworkPbrRulesExisting[NetworkPbrRulesIdx].Any != nil {
+										return &PolicyBasedRoutingEmptyModel{}
+									}
 									if _, ok := NetworkPbrRulesItemMap["any"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingEmptyModel{}
 									}
@@ -2427,9 +2529,17 @@ func (r *PolicyBasedRoutingResource) Read(ctx context.Context, req resource.Read
 									if IPPrefixSetData, ok := NetworkPbrRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingNetworkPbrNetworkPbrRulesIPPrefixSetModel{
 											Ref: func() types.List {
+												if !isImport && len(NetworkPbrRulesExisting) > NetworkPbrRulesIdx && NetworkPbrRulesExisting[NetworkPbrRulesIdx].IPPrefixSet != nil && (NetworkPbrRulesExisting[NetworkPbrRulesIdx].IPPrefixSet.Ref.IsNull() || len(NetworkPbrRulesExisting[NetworkPbrRulesIdx].IPPrefixSet.Ref.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingNetworkPbrNetworkPbrRulesIPPrefixSetRefModelAttrTypes})
+												}
+												var RefExisting []PolicyBasedRoutingNetworkPbrNetworkPbrRulesIPPrefixSetRefModel
+												if !isImport && len(NetworkPbrRulesExisting) > NetworkPbrRulesIdx && NetworkPbrRulesExisting[NetworkPbrRulesIdx].IPPrefixSet != nil && !NetworkPbrRulesExisting[NetworkPbrRulesIdx].IPPrefixSet.Ref.IsNull() && !NetworkPbrRulesExisting[NetworkPbrRulesIdx].IPPrefixSet.Ref.IsUnknown() {
+													NetworkPbrRulesExisting[NetworkPbrRulesIdx].IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+												}
 												if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
 													var RefResult []PolicyBasedRoutingNetworkPbrNetworkPbrRulesIPPrefixSetRefModel
-													for _, RefItem := range rawList {
+													for RefIdx, RefItem := range rawList {
+														_ = RefIdx
 														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 															RefResult = append(RefResult, PolicyBasedRoutingNetworkPbrNetworkPbrRulesIPPrefixSetRefModel{
 																Kind: func() types.String {
@@ -3035,18 +3145,29 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 				if !isImport && data.ForwardProxyPbr != nil && (data.ForwardProxyPbr.ForwardProxyPbrRules.IsNull() || len(data.ForwardProxyPbr.ForwardProxyPbrRules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesModelAttrTypes})
 				}
+				var ForwardProxyPbrRulesExisting []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesModel
+				if !isImport && data.ForwardProxyPbr != nil && !data.ForwardProxyPbr.ForwardProxyPbrRules.IsNull() && !data.ForwardProxyPbr.ForwardProxyPbrRules.IsUnknown() {
+					data.ForwardProxyPbr.ForwardProxyPbrRules.ElementsAs(ctx, &ForwardProxyPbrRulesExisting, false)
+				}
 				if rawList, ok := blockData["forward_proxy_pbr_rules"].([]interface{}); ok && len(rawList) > 0 {
 					var ForwardProxyPbrRulesResult []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesModel
-					for _, ForwardProxyPbrRulesItem := range rawList {
+					for ForwardProxyPbrRulesIdx, ForwardProxyPbrRulesItem := range rawList {
+						_ = ForwardProxyPbrRulesIdx
 						if ForwardProxyPbrRulesItemMap, ok := ForwardProxyPbrRulesItem.(map[string]interface{}); ok {
 							ForwardProxyPbrRulesResult = append(ForwardProxyPbrRulesResult, PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesModel{
 								AllDestinations: func() *PolicyBasedRoutingEmptyModel {
+									if !isImport && len(ForwardProxyPbrRulesExisting) > ForwardProxyPbrRulesIdx && ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].AllDestinations != nil {
+										return &PolicyBasedRoutingEmptyModel{}
+									}
 									if _, ok := ForwardProxyPbrRulesItemMap["all_destinations"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingEmptyModel{}
 									}
 									return nil
 								}(),
 								AllSources: func() *PolicyBasedRoutingEmptyModel {
+									if !isImport && len(ForwardProxyPbrRulesExisting) > ForwardProxyPbrRulesIdx && ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].AllSources != nil {
+										return &PolicyBasedRoutingEmptyModel{}
+									}
 									if _, ok := ForwardProxyPbrRulesItemMap["all_sources"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingEmptyModel{}
 									}
@@ -3088,12 +3209,23 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 									if HTTPListData, ok := ForwardProxyPbrRulesItemMap["http_list"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListModel{
 											HTTPList: func() types.List {
+												if !isImport && len(ForwardProxyPbrRulesExisting) > ForwardProxyPbrRulesIdx && ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].HTTPList != nil && (ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].HTTPList.HTTPList.IsNull() || len(ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].HTTPList.HTTPList.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModelAttrTypes})
+												}
+												var HTTPListExisting []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModel
+												if !isImport && len(ForwardProxyPbrRulesExisting) > ForwardProxyPbrRulesIdx && ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].HTTPList != nil && !ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].HTTPList.HTTPList.IsNull() && !ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].HTTPList.HTTPList.IsUnknown() {
+													ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].HTTPList.HTTPList.ElementsAs(ctx, &HTTPListExisting, false)
+												}
 												if rawList, ok := HTTPListData["http_list"].([]interface{}); ok && len(rawList) > 0 {
 													var HTTPListResult []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModel
-													for _, HTTPListItem := range rawList {
+													for HTTPListIdx, HTTPListItem := range rawList {
+														_ = HTTPListIdx
 														if HTTPListItemMap, ok := HTTPListItem.(map[string]interface{}); ok {
 															HTTPListResult = append(HTTPListResult, PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModel{
 																AnyPath: func() *PolicyBasedRoutingEmptyModel {
+																	if !isImport && len(HTTPListExisting) > HTTPListIdx && HTTPListExisting[HTTPListIdx].AnyPath != nil {
+																		return &PolicyBasedRoutingEmptyModel{}
+																	}
 																	if _, ok := HTTPListItemMap["any_path"].(map[string]interface{}); ok {
 																		return &PolicyBasedRoutingEmptyModel{}
 																	}
@@ -3235,9 +3367,17 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 									if TLSListData, ok := ForwardProxyPbrRulesItemMap["tls_list"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListModel{
 											TLSList: func() types.List {
+												if !isImport && len(ForwardProxyPbrRulesExisting) > ForwardProxyPbrRulesIdx && ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].TLSList != nil && (ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].TLSList.TLSList.IsNull() || len(ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].TLSList.TLSList.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModelAttrTypes})
+												}
+												var TLSListExisting []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModel
+												if !isImport && len(ForwardProxyPbrRulesExisting) > ForwardProxyPbrRulesIdx && ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].TLSList != nil && !ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].TLSList.TLSList.IsNull() && !ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].TLSList.TLSList.IsUnknown() {
+													ForwardProxyPbrRulesExisting[ForwardProxyPbrRulesIdx].TLSList.TLSList.ElementsAs(ctx, &TLSListExisting, false)
+												}
 												if rawList, ok := TLSListData["tls_list"].([]interface{}); ok && len(rawList) > 0 {
 													var TLSListResult []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModel
-													for _, TLSListItem := range rawList {
+													for TLSListIdx, TLSListItem := range rawList {
+														_ = TLSListIdx
 														if TLSListItemMap, ok := TLSListItem.(map[string]interface{}); ok {
 															TLSListResult = append(TLSListResult, PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModel{
 																ExactValue: func() types.String {
@@ -3318,30 +3458,47 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 				if !isImport && data.NetworkPbr != nil && (data.NetworkPbr.NetworkPbrRules.IsNull() || len(data.NetworkPbr.NetworkPbrRules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingNetworkPbrNetworkPbrRulesModelAttrTypes})
 				}
+				var NetworkPbrRulesExisting []PolicyBasedRoutingNetworkPbrNetworkPbrRulesModel
+				if !isImport && data.NetworkPbr != nil && !data.NetworkPbr.NetworkPbrRules.IsNull() && !data.NetworkPbr.NetworkPbrRules.IsUnknown() {
+					data.NetworkPbr.NetworkPbrRules.ElementsAs(ctx, &NetworkPbrRulesExisting, false)
+				}
 				if rawList, ok := blockData["network_pbr_rules"].([]interface{}); ok && len(rawList) > 0 {
 					var NetworkPbrRulesResult []PolicyBasedRoutingNetworkPbrNetworkPbrRulesModel
-					for _, NetworkPbrRulesItem := range rawList {
+					for NetworkPbrRulesIdx, NetworkPbrRulesItem := range rawList {
+						_ = NetworkPbrRulesIdx
 						if NetworkPbrRulesItemMap, ok := NetworkPbrRulesItem.(map[string]interface{}); ok {
 							NetworkPbrRulesResult = append(NetworkPbrRulesResult, PolicyBasedRoutingNetworkPbrNetworkPbrRulesModel{
 								AllTCPTraffic: func() *PolicyBasedRoutingEmptyModel {
+									if !isImport && len(NetworkPbrRulesExisting) > NetworkPbrRulesIdx && NetworkPbrRulesExisting[NetworkPbrRulesIdx].AllTCPTraffic != nil {
+										return &PolicyBasedRoutingEmptyModel{}
+									}
 									if _, ok := NetworkPbrRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTraffic: func() *PolicyBasedRoutingEmptyModel {
+									if !isImport && len(NetworkPbrRulesExisting) > NetworkPbrRulesIdx && NetworkPbrRulesExisting[NetworkPbrRulesIdx].AllTraffic != nil {
+										return &PolicyBasedRoutingEmptyModel{}
+									}
 									if _, ok := NetworkPbrRulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingEmptyModel{}
 									}
 									return nil
 								}(),
 								AllUDPTraffic: func() *PolicyBasedRoutingEmptyModel {
+									if !isImport && len(NetworkPbrRulesExisting) > NetworkPbrRulesIdx && NetworkPbrRulesExisting[NetworkPbrRulesIdx].AllUDPTraffic != nil {
+										return &PolicyBasedRoutingEmptyModel{}
+									}
 									if _, ok := NetworkPbrRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingEmptyModel{}
 									}
 									return nil
 								}(),
 								Any: func() *PolicyBasedRoutingEmptyModel {
+									if !isImport && len(NetworkPbrRulesExisting) > NetworkPbrRulesIdx && NetworkPbrRulesExisting[NetworkPbrRulesIdx].Any != nil {
+										return &PolicyBasedRoutingEmptyModel{}
+									}
 									if _, ok := NetworkPbrRulesItemMap["any"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingEmptyModel{}
 									}
@@ -3409,9 +3566,17 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 									if IPPrefixSetData, ok := NetworkPbrRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
 										return &PolicyBasedRoutingNetworkPbrNetworkPbrRulesIPPrefixSetModel{
 											Ref: func() types.List {
+												if !isImport && len(NetworkPbrRulesExisting) > NetworkPbrRulesIdx && NetworkPbrRulesExisting[NetworkPbrRulesIdx].IPPrefixSet != nil && (NetworkPbrRulesExisting[NetworkPbrRulesIdx].IPPrefixSet.Ref.IsNull() || len(NetworkPbrRulesExisting[NetworkPbrRulesIdx].IPPrefixSet.Ref.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingNetworkPbrNetworkPbrRulesIPPrefixSetRefModelAttrTypes})
+												}
+												var RefExisting []PolicyBasedRoutingNetworkPbrNetworkPbrRulesIPPrefixSetRefModel
+												if !isImport && len(NetworkPbrRulesExisting) > NetworkPbrRulesIdx && NetworkPbrRulesExisting[NetworkPbrRulesIdx].IPPrefixSet != nil && !NetworkPbrRulesExisting[NetworkPbrRulesIdx].IPPrefixSet.Ref.IsNull() && !NetworkPbrRulesExisting[NetworkPbrRulesIdx].IPPrefixSet.Ref.IsUnknown() {
+													NetworkPbrRulesExisting[NetworkPbrRulesIdx].IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+												}
 												if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
 													var RefResult []PolicyBasedRoutingNetworkPbrNetworkPbrRulesIPPrefixSetRefModel
-													for _, RefItem := range rawList {
+													for RefIdx, RefItem := range rawList {
+														_ = RefIdx
 														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 															RefResult = append(RefResult, PolicyBasedRoutingNetworkPbrNetworkPbrRulesIPPrefixSetRefModel{
 																Kind: func() types.String {

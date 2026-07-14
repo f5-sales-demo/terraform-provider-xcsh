@@ -5044,6 +5044,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							return types.StringNull()
 						}(),
 						Version: func() types.Int64 {
+							if !isImport && data.AdminPassword != nil && data.AdminPassword.VaultSecretInfo != nil && !data.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
+								return data.AdminPassword.VaultSecretInfo.Version
+							}
 							if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -5080,12 +5083,20 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteBlockedServicesBlockedServiceModelAttrTypes})
 				}
+				var BlockedServiceExisting []GCPVPCSiteBlockedServicesBlockedServiceModel
+				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
+					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
+				}
 				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []GCPVPCSiteBlockedServicesBlockedServiceModel
-					for _, BlockedServiceItem := range rawList {
+					for BlockedServiceIdx, BlockedServiceItem := range rawList {
+						_ = BlockedServiceIdx
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, GCPVPCSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *GCPVPCSiteEmptyModel {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
+										return &GCPVPCSiteEmptyModel{}
+									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &GCPVPCSiteEmptyModel{}
 									}
@@ -5098,12 +5109,18 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 									return types.StringNull()
 								}(),
 								SSH: func() *GCPVPCSiteEmptyModel {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
+										return &GCPVPCSiteEmptyModel{}
+									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &GCPVPCSiteEmptyModel{}
 									}
 									return nil
 								}(),
 								WebUserInterface: func() *GCPVPCSiteEmptyModel {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
+										return &GCPVPCSiteEmptyModel{}
+									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &GCPVPCSiteEmptyModel{}
 									}
@@ -5210,9 +5227,17 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveEnhancedFirewallPolicies != nil && (data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() || len(data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModelAttrTypes})
+							}
+							var EnhancedFirewallPoliciesExisting []GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveEnhancedFirewallPolicies != nil && !data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
+								data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveEnhancedFirewallPoliciesData["enhanced_firewall_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var EnhancedFirewallPoliciesResult []GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
-								for _, EnhancedFirewallPoliciesItem := range rawList {
+								for EnhancedFirewallPoliciesIdx, EnhancedFirewallPoliciesItem := range rawList {
+									_ = EnhancedFirewallPoliciesIdx
 									if EnhancedFirewallPoliciesItemMap, ok := EnhancedFirewallPoliciesItem.(map[string]interface{}); ok {
 										EnhancedFirewallPoliciesResult = append(EnhancedFirewallPoliciesResult, GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel{
 											Name: func() types.String {
@@ -5249,9 +5274,17 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveForwardProxyPolicies != nil && (data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() || len(data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
+							}
+							var ForwardProxyPoliciesExisting []GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesForwardProxyPoliciesModel
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveForwardProxyPolicies != nil && !data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
+								data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveForwardProxyPoliciesData["forward_proxy_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var ForwardProxyPoliciesResult []GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesForwardProxyPoliciesModel
-								for _, ForwardProxyPoliciesItem := range rawList {
+								for ForwardProxyPoliciesIdx, ForwardProxyPoliciesItem := range rawList {
+									_ = ForwardProxyPoliciesIdx
 									if ForwardProxyPoliciesItemMap, ok := ForwardProxyPoliciesItem.(map[string]interface{}); ok {
 										ForwardProxyPoliciesResult = append(ForwardProxyPoliciesResult, GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesForwardProxyPoliciesModel{
 											Name: func() types.String {
@@ -5288,9 +5321,17 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveNetworkPolicies != nil && (data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.IsNull() || len(data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwActiveNetworkPoliciesNetworkPoliciesModelAttrTypes})
+							}
+							var NetworkPoliciesExisting []GCPVPCSiteIngressEgressGwActiveNetworkPoliciesNetworkPoliciesModel
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveNetworkPolicies != nil && !data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
+								data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveNetworkPoliciesData["network_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var NetworkPoliciesResult []GCPVPCSiteIngressEgressGwActiveNetworkPoliciesNetworkPoliciesModel
-								for _, NetworkPoliciesItem := range rawList {
+								for NetworkPoliciesIdx, NetworkPoliciesItem := range rawList {
+									_ = NetworkPoliciesIdx
 									if NetworkPoliciesItemMap, ok := NetworkPoliciesItem.(map[string]interface{}); ok {
 										NetworkPoliciesResult = append(NetworkPoliciesResult, GCPVPCSiteIngressEgressGwActiveNetworkPoliciesNetworkPoliciesModel{
 											Name: func() types.String {
@@ -5405,9 +5446,17 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.GlobalNetworkList != nil && (data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.IsNull() || len(data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwGlobalNetworkListGlobalNetworkConnectionsModelAttrTypes})
+							}
+							var GlobalNetworkConnectionsExisting []GCPVPCSiteIngressEgressGwGlobalNetworkListGlobalNetworkConnectionsModel
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.GlobalNetworkList != nil && !data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.IsNull() && !data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.IsUnknown() {
+								data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.ElementsAs(ctx, &GlobalNetworkConnectionsExisting, false)
+							}
 							if rawList, ok := GlobalNetworkListData["global_network_connections"].([]interface{}); ok && len(rawList) > 0 {
 								var GlobalNetworkConnectionsResult []GCPVPCSiteIngressEgressGwGlobalNetworkListGlobalNetworkConnectionsModel
-								for _, GlobalNetworkConnectionsItem := range rawList {
+								for GlobalNetworkConnectionsIdx, GlobalNetworkConnectionsItem := range rawList {
+									_ = GlobalNetworkConnectionsIdx
 									if GlobalNetworkConnectionsItemMap, ok := GlobalNetworkConnectionsItem.(map[string]interface{}); ok {
 										GlobalNetworkConnectionsResult = append(GlobalNetworkConnectionsResult, GCPVPCSiteIngressEgressGwGlobalNetworkListGlobalNetworkConnectionsModel{
 											SLIToGlobalDR: func() *GCPVPCSiteIngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRModel {
@@ -5493,6 +5542,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if InsideNetworkData, ok := blockData["inside_network"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwInsideNetworkModel{
 						ExistingNetwork: func() *GCPVPCSiteIngressEgressGwInsideNetworkExistingNetworkModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideNetwork != nil && data.IngressEgressGw.InsideNetwork.ExistingNetwork != nil {
+								return data.IngressEgressGw.InsideNetwork.ExistingNetwork
+							}
 							if ExistingNetworkData, ok := InsideNetworkData["existing_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwInsideNetworkExistingNetworkModel{
 									Name: func() types.String {
@@ -5506,6 +5558,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							return nil
 						}(),
 						NewNetwork: func() *GCPVPCSiteIngressEgressGwInsideNetworkNewNetworkModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideNetwork != nil && data.IngressEgressGw.InsideNetwork.NewNetwork != nil {
+								return data.IngressEgressGw.InsideNetwork.NewNetwork
+							}
 							if NewNetworkData, ok := InsideNetworkData["new_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwInsideNetworkNewNetworkModel{
 									Name: func() types.String {
@@ -5519,6 +5574,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							return nil
 						}(),
 						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideNetwork != nil {
+								return data.IngressEgressGw.InsideNetwork.NewNetworkAutogenerate
+							}
 							if _, ok := InsideNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
@@ -5532,9 +5590,17 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if InsideStaticRoutesData, ok := blockData["inside_static_routes"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwInsideStaticRoutesModel{
 						StaticRouteList: func() types.List {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideStaticRoutes != nil && (data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.IsNull() || len(data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListModelAttrTypes})
+							}
+							var StaticRouteListExisting []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListModel
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideStaticRoutes != nil && !data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.IsNull() && !data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.IsUnknown() {
+								data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListExisting, false)
+							}
 							if rawList, ok := InsideStaticRoutesData["static_route_list"].([]interface{}); ok && len(rawList) > 0 {
 								var StaticRouteListResult []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListModel
-								for _, StaticRouteListItem := range rawList {
+								for StaticRouteListIdx, StaticRouteListItem := range rawList {
+									_ = StaticRouteListIdx
 									if StaticRouteListItemMap, ok := StaticRouteListItem.(map[string]interface{}); ok {
 										StaticRouteListResult = append(StaticRouteListResult, GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListModel{
 											CustomStaticRoute: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteModel {
@@ -5554,6 +5620,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 															return types.ListNull(types.StringType)
 														}(),
 														Labels: func() *GCPVPCSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
+															}
 															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
 																return &GCPVPCSiteEmptyModel{}
 															}
@@ -5563,9 +5632,17 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
 																	Interface: func() types.List {
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && (StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsNull() || len(StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModelAttrTypes})
+																		}
+																		var InterfaceExisting []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsUnknown() {
+																			StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																		}
 																		if rawList, ok := NexthopData["interface"].([]interface{}); ok && len(rawList) > 0 {
 																			var InterfaceResult []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
-																			for _, InterfaceItem := range rawList {
+																			for InterfaceIdx, InterfaceItem := range rawList {
+																				_ = InterfaceIdx
 																				if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																					InterfaceResult = append(InterfaceResult, GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel{
 																						Kind: func() types.String {
@@ -5607,9 +5684,15 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																		return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModelAttrTypes})
 																	}(),
 																	NexthopAddress: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel {
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil {
+																			return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress
+																		}
 																		if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 																			return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel{
 																				Ipv4: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4
+																					}
 																					if Ipv4Data, ok := NexthopAddressData["ipv4"].(map[string]interface{}); ok {
 																						return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model{
 																							Addr: func() types.String {
@@ -5623,6 +5706,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																					return nil
 																				}(),
 																				Ipv6: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv6
+																					}
 																					if Ipv6Data, ok := NexthopAddressData["ipv6"].(map[string]interface{}); ok {
 																						return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model{
 																							Addr: func() types.String {
@@ -5650,15 +5736,26 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 															return nil
 														}(),
 														Subnets: func() types.List {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && (StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsNull() || len(StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
+															}
+															var SubnetsExisting []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsNull() && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsUnknown() {
+																StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.ElementsAs(ctx, &SubnetsExisting, false)
+															}
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
-																for _, SubnetsItem := range rawList {
+																for SubnetsIdx, SubnetsItem := range rawList {
+																	_ = SubnetsIdx
 																	if SubnetsItemMap, ok := SubnetsItem.(map[string]interface{}); ok {
 																		SubnetsResult = append(SubnetsResult, GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel{
 																			Ipv4: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Model {
 																				if Ipv4Data, ok := SubnetsItemMap["ipv4"].(map[string]interface{}); ok {
 																					return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Model{
 																						Plen: func() types.Int64 {
+																							if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv4 != nil && !SubnetsExisting[SubnetsIdx].Ipv4.Plen.IsUnknown() {
+																								return SubnetsExisting[SubnetsIdx].Ipv4.Plen
+																							}
 																							if v, ok := Ipv4Data["plen"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -5678,6 +5775,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																				if Ipv6Data, ok := SubnetsItemMap["ipv6"].(map[string]interface{}); ok {
 																					return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Model{
 																						Plen: func() types.Int64 {
+																							if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv6 != nil && !SubnetsExisting[SubnetsIdx].Ipv6.Plen.IsUnknown() {
+																								return SubnetsExisting[SubnetsIdx].Ipv6.Plen
+																							}
 																							if v, ok := Ipv6Data["plen"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -5730,6 +5830,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if InsideSubnetData, ok := blockData["inside_subnet"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwInsideSubnetModel{
 						ExistingSubnet: func() *GCPVPCSiteIngressEgressGwInsideSubnetExistingSubnetModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideSubnet != nil && data.IngressEgressGw.InsideSubnet.ExistingSubnet != nil {
+								return data.IngressEgressGw.InsideSubnet.ExistingSubnet
+							}
 							if ExistingSubnetData, ok := InsideSubnetData["existing_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwInsideSubnetExistingSubnetModel{
 									SubnetName: func() types.String {
@@ -5743,6 +5846,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							return nil
 						}(),
 						NewSubnet: func() *GCPVPCSiteIngressEgressGwInsideSubnetNewSubnetModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideSubnet != nil && data.IngressEgressGw.InsideSubnet.NewSubnet != nil {
+								return data.IngressEgressGw.InsideSubnet.NewSubnet
+							}
 							if NewSubnetData, ok := InsideSubnetData["new_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwInsideSubnetNewSubnetModel{
 									PrimaryIpv4: func() types.String {
@@ -5835,6 +5941,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if OutsideNetworkData, ok := blockData["outside_network"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwOutsideNetworkModel{
 						ExistingNetwork: func() *GCPVPCSiteIngressEgressGwOutsideNetworkExistingNetworkModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideNetwork != nil && data.IngressEgressGw.OutsideNetwork.ExistingNetwork != nil {
+								return data.IngressEgressGw.OutsideNetwork.ExistingNetwork
+							}
 							if ExistingNetworkData, ok := OutsideNetworkData["existing_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwOutsideNetworkExistingNetworkModel{
 									Name: func() types.String {
@@ -5848,6 +5957,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							return nil
 						}(),
 						NewNetwork: func() *GCPVPCSiteIngressEgressGwOutsideNetworkNewNetworkModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideNetwork != nil && data.IngressEgressGw.OutsideNetwork.NewNetwork != nil {
+								return data.IngressEgressGw.OutsideNetwork.NewNetwork
+							}
 							if NewNetworkData, ok := OutsideNetworkData["new_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwOutsideNetworkNewNetworkModel{
 									Name: func() types.String {
@@ -5861,6 +5973,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							return nil
 						}(),
 						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideNetwork != nil {
+								return data.IngressEgressGw.OutsideNetwork.NewNetworkAutogenerate
+							}
 							if _, ok := OutsideNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
@@ -5874,9 +5989,17 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesModel{
 						StaticRouteList: func() types.List {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideStaticRoutes != nil && (data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.IsNull() || len(data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListModelAttrTypes})
+							}
+							var StaticRouteListExisting []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListModel
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideStaticRoutes != nil && !data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.IsNull() && !data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.IsUnknown() {
+								data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListExisting, false)
+							}
 							if rawList, ok := OutsideStaticRoutesData["static_route_list"].([]interface{}); ok && len(rawList) > 0 {
 								var StaticRouteListResult []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListModel
-								for _, StaticRouteListItem := range rawList {
+								for StaticRouteListIdx, StaticRouteListItem := range rawList {
+									_ = StaticRouteListIdx
 									if StaticRouteListItemMap, ok := StaticRouteListItem.(map[string]interface{}); ok {
 										StaticRouteListResult = append(StaticRouteListResult, GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListModel{
 											CustomStaticRoute: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteModel {
@@ -5896,6 +6019,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 															return types.ListNull(types.StringType)
 														}(),
 														Labels: func() *GCPVPCSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
+															}
 															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
 																return &GCPVPCSiteEmptyModel{}
 															}
@@ -5905,9 +6031,17 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
 																	Interface: func() types.List {
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && (StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsNull() || len(StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModelAttrTypes})
+																		}
+																		var InterfaceExisting []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsUnknown() {
+																			StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																		}
 																		if rawList, ok := NexthopData["interface"].([]interface{}); ok && len(rawList) > 0 {
 																			var InterfaceResult []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
-																			for _, InterfaceItem := range rawList {
+																			for InterfaceIdx, InterfaceItem := range rawList {
+																				_ = InterfaceIdx
 																				if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																					InterfaceResult = append(InterfaceResult, GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel{
 																						Kind: func() types.String {
@@ -5949,9 +6083,15 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																		return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModelAttrTypes})
 																	}(),
 																	NexthopAddress: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel {
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil {
+																			return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress
+																		}
 																		if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 																			return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel{
 																				Ipv4: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4
+																					}
 																					if Ipv4Data, ok := NexthopAddressData["ipv4"].(map[string]interface{}); ok {
 																						return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model{
 																							Addr: func() types.String {
@@ -5965,6 +6105,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																					return nil
 																				}(),
 																				Ipv6: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv6
+																					}
 																					if Ipv6Data, ok := NexthopAddressData["ipv6"].(map[string]interface{}); ok {
 																						return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model{
 																							Addr: func() types.String {
@@ -5992,15 +6135,26 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 															return nil
 														}(),
 														Subnets: func() types.List {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && (StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsNull() || len(StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
+															}
+															var SubnetsExisting []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsNull() && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsUnknown() {
+																StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.ElementsAs(ctx, &SubnetsExisting, false)
+															}
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
-																for _, SubnetsItem := range rawList {
+																for SubnetsIdx, SubnetsItem := range rawList {
+																	_ = SubnetsIdx
 																	if SubnetsItemMap, ok := SubnetsItem.(map[string]interface{}); ok {
 																		SubnetsResult = append(SubnetsResult, GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel{
 																			Ipv4: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Model {
 																				if Ipv4Data, ok := SubnetsItemMap["ipv4"].(map[string]interface{}); ok {
 																					return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Model{
 																						Plen: func() types.Int64 {
+																							if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv4 != nil && !SubnetsExisting[SubnetsIdx].Ipv4.Plen.IsUnknown() {
+																								return SubnetsExisting[SubnetsIdx].Ipv4.Plen
+																							}
 																							if v, ok := Ipv4Data["plen"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -6020,6 +6174,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																				if Ipv6Data, ok := SubnetsItemMap["ipv6"].(map[string]interface{}); ok {
 																					return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Model{
 																						Plen: func() types.Int64 {
+																							if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv6 != nil && !SubnetsExisting[SubnetsIdx].Ipv6.Plen.IsUnknown() {
+																								return SubnetsExisting[SubnetsIdx].Ipv6.Plen
+																							}
 																							if v, ok := Ipv6Data["plen"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -6072,6 +6229,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if OutsideSubnetData, ok := blockData["outside_subnet"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwOutsideSubnetModel{
 						ExistingSubnet: func() *GCPVPCSiteIngressEgressGwOutsideSubnetExistingSubnetModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideSubnet != nil && data.IngressEgressGw.OutsideSubnet.ExistingSubnet != nil {
+								return data.IngressEgressGw.OutsideSubnet.ExistingSubnet
+							}
 							if ExistingSubnetData, ok := OutsideSubnetData["existing_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwOutsideSubnetExistingSubnetModel{
 									SubnetName: func() types.String {
@@ -6085,6 +6245,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							return nil
 						}(),
 						NewSubnet: func() *GCPVPCSiteIngressEgressGwOutsideSubnetNewSubnetModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideSubnet != nil && data.IngressEgressGw.OutsideSubnet.NewSubnet != nil {
+								return data.IngressEgressGw.OutsideSubnet.NewSubnet
+							}
 							if NewSubnetData, ok := OutsideSubnetData["new_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwOutsideSubnetNewSubnetModel{
 									PrimaryIpv4: func() types.String {
@@ -6114,15 +6277,24 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if PerformanceEnhancementModeData, ok := blockData["performance_enhancement_mode"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwPerformanceEnhancementModeModel{
 						PerfModeL3Enhanced: func() *GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced
+							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
 									Jumbo: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
+										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
 											return &GCPVPCSiteEmptyModel{}
 										}
 										return nil
 									}(),
 									NoJumbo: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
+										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
 											return &GCPVPCSiteEmptyModel{}
 										}
@@ -6133,6 +6305,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							return nil
 						}(),
 						PerfModeL7Enhanced: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil {
+								return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
+							}
 							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
@@ -6190,6 +6365,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if LocalNetworkData, ok := blockData["local_network"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressGwLocalNetworkModel{
 						ExistingNetwork: func() *GCPVPCSiteIngressGwLocalNetworkExistingNetworkModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.LocalNetwork != nil && data.IngressGw.LocalNetwork.ExistingNetwork != nil {
+								return data.IngressGw.LocalNetwork.ExistingNetwork
+							}
 							if ExistingNetworkData, ok := LocalNetworkData["existing_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressGwLocalNetworkExistingNetworkModel{
 									Name: func() types.String {
@@ -6203,6 +6381,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							return nil
 						}(),
 						NewNetwork: func() *GCPVPCSiteIngressGwLocalNetworkNewNetworkModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.LocalNetwork != nil && data.IngressGw.LocalNetwork.NewNetwork != nil {
+								return data.IngressGw.LocalNetwork.NewNetwork
+							}
 							if NewNetworkData, ok := LocalNetworkData["new_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressGwLocalNetworkNewNetworkModel{
 									Name: func() types.String {
@@ -6216,6 +6397,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							return nil
 						}(),
 						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.LocalNetwork != nil {
+								return data.IngressGw.LocalNetwork.NewNetworkAutogenerate
+							}
 							if _, ok := LocalNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
@@ -6232,6 +6416,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if LocalSubnetData, ok := blockData["local_subnet"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressGwLocalSubnetModel{
 						ExistingSubnet: func() *GCPVPCSiteIngressGwLocalSubnetExistingSubnetModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.LocalSubnet != nil && data.IngressGw.LocalSubnet.ExistingSubnet != nil {
+								return data.IngressGw.LocalSubnet.ExistingSubnet
+							}
 							if ExistingSubnetData, ok := LocalSubnetData["existing_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressGwLocalSubnetExistingSubnetModel{
 									SubnetName: func() types.String {
@@ -6245,6 +6432,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							return nil
 						}(),
 						NewSubnet: func() *GCPVPCSiteIngressGwLocalSubnetNewSubnetModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.LocalSubnet != nil && data.IngressGw.LocalSubnet.NewSubnet != nil {
+								return data.IngressGw.LocalSubnet.NewSubnet
+							}
 							if NewSubnetData, ok := LocalSubnetData["new_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressGwLocalSubnetNewSubnetModel{
 									PrimaryIpv4: func() types.String {
@@ -6283,15 +6473,24 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if PerformanceEnhancementModeData, ok := blockData["performance_enhancement_mode"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressGwPerformanceEnhancementModeModel{
 						PerfModeL3Enhanced: func() *GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced
+							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
 									Jumbo: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
+										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
 											return &GCPVPCSiteEmptyModel{}
 										}
 										return nil
 									}(),
 									NoJumbo: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
+										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
 											return &GCPVPCSiteEmptyModel{}
 										}
@@ -6302,6 +6501,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							return nil
 						}(),
 						PerfModeL7Enhanced: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil {
+								return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
+							}
 							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
@@ -6331,24 +6533,36 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &GCPVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel{
 						DisableVegaUpgradeMode: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
+							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
 							return nil
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
+							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						DrainNodeTimeout: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout
+							}
 							if v, ok := EnableUpgradeDrainData["drain_node_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						EnableVegaUpgradeMode: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
+							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
@@ -6501,9 +6715,17 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveEnhancedFirewallPolicies != nil && (data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() || len(data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModelAttrTypes})
+							}
+							var EnhancedFirewallPoliciesExisting []GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveEnhancedFirewallPolicies != nil && !data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
+								data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveEnhancedFirewallPoliciesData["enhanced_firewall_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var EnhancedFirewallPoliciesResult []GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
-								for _, EnhancedFirewallPoliciesItem := range rawList {
+								for EnhancedFirewallPoliciesIdx, EnhancedFirewallPoliciesItem := range rawList {
+									_ = EnhancedFirewallPoliciesIdx
 									if EnhancedFirewallPoliciesItemMap, ok := EnhancedFirewallPoliciesItem.(map[string]interface{}); ok {
 										EnhancedFirewallPoliciesResult = append(EnhancedFirewallPoliciesResult, GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel{
 											Name: func() types.String {
@@ -6540,9 +6762,17 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveForwardProxyPolicies != nil && (data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() || len(data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
+							}
+							var ForwardProxyPoliciesExisting []GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesForwardProxyPoliciesModel
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveForwardProxyPolicies != nil && !data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
+								data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveForwardProxyPoliciesData["forward_proxy_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var ForwardProxyPoliciesResult []GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesForwardProxyPoliciesModel
-								for _, ForwardProxyPoliciesItem := range rawList {
+								for ForwardProxyPoliciesIdx, ForwardProxyPoliciesItem := range rawList {
+									_ = ForwardProxyPoliciesIdx
 									if ForwardProxyPoliciesItemMap, ok := ForwardProxyPoliciesItem.(map[string]interface{}); ok {
 										ForwardProxyPoliciesResult = append(ForwardProxyPoliciesResult, GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesForwardProxyPoliciesModel{
 											Name: func() types.String {
@@ -6579,9 +6809,17 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveNetworkPolicies != nil && (data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.IsNull() || len(data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterActiveNetworkPoliciesNetworkPoliciesModelAttrTypes})
+							}
+							var NetworkPoliciesExisting []GCPVPCSiteVoltstackClusterActiveNetworkPoliciesNetworkPoliciesModel
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveNetworkPolicies != nil && !data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
+								data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveNetworkPoliciesData["network_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var NetworkPoliciesResult []GCPVPCSiteVoltstackClusterActiveNetworkPoliciesNetworkPoliciesModel
-								for _, NetworkPoliciesItem := range rawList {
+								for NetworkPoliciesIdx, NetworkPoliciesItem := range rawList {
+									_ = NetworkPoliciesIdx
 									if NetworkPoliciesItemMap, ok := NetworkPoliciesItem.(map[string]interface{}); ok {
 										NetworkPoliciesResult = append(NetworkPoliciesResult, GCPVPCSiteVoltstackClusterActiveNetworkPoliciesNetworkPoliciesModel{
 											Name: func() types.String {
@@ -6680,9 +6918,17 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.GlobalNetworkList != nil && (data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.IsNull() || len(data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterGlobalNetworkListGlobalNetworkConnectionsModelAttrTypes})
+							}
+							var GlobalNetworkConnectionsExisting []GCPVPCSiteVoltstackClusterGlobalNetworkListGlobalNetworkConnectionsModel
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.GlobalNetworkList != nil && !data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.IsNull() && !data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.IsUnknown() {
+								data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.ElementsAs(ctx, &GlobalNetworkConnectionsExisting, false)
+							}
 							if rawList, ok := GlobalNetworkListData["global_network_connections"].([]interface{}); ok && len(rawList) > 0 {
 								var GlobalNetworkConnectionsResult []GCPVPCSiteVoltstackClusterGlobalNetworkListGlobalNetworkConnectionsModel
-								for _, GlobalNetworkConnectionsItem := range rawList {
+								for GlobalNetworkConnectionsIdx, GlobalNetworkConnectionsItem := range rawList {
+									_ = GlobalNetworkConnectionsIdx
 									if GlobalNetworkConnectionsItemMap, ok := GlobalNetworkConnectionsItem.(map[string]interface{}); ok {
 										GlobalNetworkConnectionsResult = append(GlobalNetworkConnectionsResult, GCPVPCSiteVoltstackClusterGlobalNetworkListGlobalNetworkConnectionsModel{
 											SLIToGlobalDR: func() *GCPVPCSiteVoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRModel {
@@ -6853,9 +7099,17 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesModel{
 						StaticRouteList: func() types.List {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.OutsideStaticRoutes != nil && (data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.IsNull() || len(data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListModelAttrTypes})
+							}
+							var StaticRouteListExisting []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListModel
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.OutsideStaticRoutes != nil && !data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.IsNull() && !data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.IsUnknown() {
+								data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListExisting, false)
+							}
 							if rawList, ok := OutsideStaticRoutesData["static_route_list"].([]interface{}); ok && len(rawList) > 0 {
 								var StaticRouteListResult []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListModel
-								for _, StaticRouteListItem := range rawList {
+								for StaticRouteListIdx, StaticRouteListItem := range rawList {
+									_ = StaticRouteListIdx
 									if StaticRouteListItemMap, ok := StaticRouteListItem.(map[string]interface{}); ok {
 										StaticRouteListResult = append(StaticRouteListResult, GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListModel{
 											CustomStaticRoute: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteModel {
@@ -6875,6 +7129,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 															return types.ListNull(types.StringType)
 														}(),
 														Labels: func() *GCPVPCSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
+															}
 															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
 																return &GCPVPCSiteEmptyModel{}
 															}
@@ -6884,9 +7141,17 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
 																	Interface: func() types.List {
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && (StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsNull() || len(StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModelAttrTypes})
+																		}
+																		var InterfaceExisting []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsUnknown() {
+																			StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																		}
 																		if rawList, ok := NexthopData["interface"].([]interface{}); ok && len(rawList) > 0 {
 																			var InterfaceResult []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
-																			for _, InterfaceItem := range rawList {
+																			for InterfaceIdx, InterfaceItem := range rawList {
+																				_ = InterfaceIdx
 																				if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																					InterfaceResult = append(InterfaceResult, GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel{
 																						Kind: func() types.String {
@@ -6928,9 +7193,15 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																		return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModelAttrTypes})
 																	}(),
 																	NexthopAddress: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel {
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil {
+																			return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress
+																		}
 																		if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 																			return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel{
 																				Ipv4: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4
+																					}
 																					if Ipv4Data, ok := NexthopAddressData["ipv4"].(map[string]interface{}); ok {
 																						return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model{
 																							Addr: func() types.String {
@@ -6944,6 +7215,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																					return nil
 																				}(),
 																				Ipv6: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv6
+																					}
 																					if Ipv6Data, ok := NexthopAddressData["ipv6"].(map[string]interface{}); ok {
 																						return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model{
 																							Addr: func() types.String {
@@ -6971,15 +7245,26 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 															return nil
 														}(),
 														Subnets: func() types.List {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && (StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsNull() || len(StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
+															}
+															var SubnetsExisting []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsNull() && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsUnknown() {
+																StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.ElementsAs(ctx, &SubnetsExisting, false)
+															}
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
-																for _, SubnetsItem := range rawList {
+																for SubnetsIdx, SubnetsItem := range rawList {
+																	_ = SubnetsIdx
 																	if SubnetsItemMap, ok := SubnetsItem.(map[string]interface{}); ok {
 																		SubnetsResult = append(SubnetsResult, GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel{
 																			Ipv4: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Model {
 																				if Ipv4Data, ok := SubnetsItemMap["ipv4"].(map[string]interface{}); ok {
 																					return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Model{
 																						Plen: func() types.Int64 {
+																							if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv4 != nil && !SubnetsExisting[SubnetsIdx].Ipv4.Plen.IsUnknown() {
+																								return SubnetsExisting[SubnetsIdx].Ipv4.Plen
+																							}
 																							if v, ok := Ipv4Data["plen"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -6999,6 +7284,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																				if Ipv6Data, ok := SubnetsItemMap["ipv6"].(map[string]interface{}); ok {
 																					return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Model{
 																						Plen: func() types.Int64 {
+																							if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv6 != nil && !SubnetsExisting[SubnetsIdx].Ipv6.Plen.IsUnknown() {
+																								return SubnetsExisting[SubnetsIdx].Ipv6.Plen
+																							}
 																							if v, ok := Ipv6Data["plen"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -7051,6 +7339,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if SiteLocalNetworkData, ok := blockData["site_local_network"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterSiteLocalNetworkModel{
 						ExistingNetwork: func() *GCPVPCSiteVoltstackClusterSiteLocalNetworkExistingNetworkModel {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.SiteLocalNetwork != nil && data.VoltstackCluster.SiteLocalNetwork.ExistingNetwork != nil {
+								return data.VoltstackCluster.SiteLocalNetwork.ExistingNetwork
+							}
 							if ExistingNetworkData, ok := SiteLocalNetworkData["existing_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteVoltstackClusterSiteLocalNetworkExistingNetworkModel{
 									Name: func() types.String {
@@ -7064,6 +7355,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							return nil
 						}(),
 						NewNetwork: func() *GCPVPCSiteVoltstackClusterSiteLocalNetworkNewNetworkModel {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.SiteLocalNetwork != nil && data.VoltstackCluster.SiteLocalNetwork.NewNetwork != nil {
+								return data.VoltstackCluster.SiteLocalNetwork.NewNetwork
+							}
 							if NewNetworkData, ok := SiteLocalNetworkData["new_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteVoltstackClusterSiteLocalNetworkNewNetworkModel{
 									Name: func() types.String {
@@ -7077,6 +7371,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							return nil
 						}(),
 						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.SiteLocalNetwork != nil {
+								return data.VoltstackCluster.SiteLocalNetwork.NewNetworkAutogenerate
+							}
 							if _, ok := SiteLocalNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
@@ -7093,6 +7390,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if SiteLocalSubnetData, ok := blockData["site_local_subnet"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterSiteLocalSubnetModel{
 						ExistingSubnet: func() *GCPVPCSiteVoltstackClusterSiteLocalSubnetExistingSubnetModel {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.SiteLocalSubnet != nil && data.VoltstackCluster.SiteLocalSubnet.ExistingSubnet != nil {
+								return data.VoltstackCluster.SiteLocalSubnet.ExistingSubnet
+							}
 							if ExistingSubnetData, ok := SiteLocalSubnetData["existing_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteVoltstackClusterSiteLocalSubnetExistingSubnetModel{
 									SubnetName: func() types.String {
@@ -7106,6 +7406,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							return nil
 						}(),
 						NewSubnet: func() *GCPVPCSiteVoltstackClusterSiteLocalSubnetNewSubnetModel {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.SiteLocalSubnet != nil && data.VoltstackCluster.SiteLocalSubnet.NewSubnet != nil {
+								return data.VoltstackCluster.SiteLocalSubnet.NewSubnet
+							}
 							if NewSubnetData, ok := SiteLocalSubnetData["new_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteVoltstackClusterSiteLocalSubnetNewSubnetModel{
 									PrimaryIpv4: func() types.String {
@@ -7153,9 +7456,17 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if StorageClassListData, ok := blockData["storage_class_list"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterStorageClassListModel{
 						StorageClasses: func() types.List {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.StorageClassList != nil && (data.VoltstackCluster.StorageClassList.StorageClasses.IsNull() || len(data.VoltstackCluster.StorageClassList.StorageClasses.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModelAttrTypes})
+							}
+							var StorageClassesExisting []GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModel
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.StorageClassList != nil && !data.VoltstackCluster.StorageClassList.StorageClasses.IsNull() && !data.VoltstackCluster.StorageClassList.StorageClasses.IsUnknown() {
+								data.VoltstackCluster.StorageClassList.StorageClasses.ElementsAs(ctx, &StorageClassesExisting, false)
+							}
 							if rawList, ok := StorageClassListData["storage_classes"].([]interface{}); ok && len(rawList) > 0 {
 								var StorageClassesResult []GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModel
-								for _, StorageClassesItem := range rawList {
+								for StorageClassesIdx, StorageClassesItem := range rawList {
+									_ = StorageClassesIdx
 									if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
 										StorageClassesResult = append(StorageClassesResult, GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModel{
 											DefaultStorageClass: func() types.Bool {
@@ -7419,6 +7730,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							return types.StringNull()
 						}(),
 						Version: func() types.Int64 {
+							if !isImport && data.AdminPassword != nil && data.AdminPassword.VaultSecretInfo != nil && !data.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
+								return data.AdminPassword.VaultSecretInfo.Version
+							}
 							if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -7455,12 +7769,20 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteBlockedServicesBlockedServiceModelAttrTypes})
 				}
+				var BlockedServiceExisting []GCPVPCSiteBlockedServicesBlockedServiceModel
+				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
+					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
+				}
 				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []GCPVPCSiteBlockedServicesBlockedServiceModel
-					for _, BlockedServiceItem := range rawList {
+					for BlockedServiceIdx, BlockedServiceItem := range rawList {
+						_ = BlockedServiceIdx
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, GCPVPCSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *GCPVPCSiteEmptyModel {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
+										return &GCPVPCSiteEmptyModel{}
+									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &GCPVPCSiteEmptyModel{}
 									}
@@ -7473,12 +7795,18 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 									return types.StringNull()
 								}(),
 								SSH: func() *GCPVPCSiteEmptyModel {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
+										return &GCPVPCSiteEmptyModel{}
+									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &GCPVPCSiteEmptyModel{}
 									}
 									return nil
 								}(),
 								WebUserInterface: func() *GCPVPCSiteEmptyModel {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
+										return &GCPVPCSiteEmptyModel{}
+									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &GCPVPCSiteEmptyModel{}
 									}
@@ -7585,9 +7913,17 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveEnhancedFirewallPolicies != nil && (data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() || len(data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModelAttrTypes})
+							}
+							var EnhancedFirewallPoliciesExisting []GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveEnhancedFirewallPolicies != nil && !data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
+								data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveEnhancedFirewallPoliciesData["enhanced_firewall_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var EnhancedFirewallPoliciesResult []GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
-								for _, EnhancedFirewallPoliciesItem := range rawList {
+								for EnhancedFirewallPoliciesIdx, EnhancedFirewallPoliciesItem := range rawList {
+									_ = EnhancedFirewallPoliciesIdx
 									if EnhancedFirewallPoliciesItemMap, ok := EnhancedFirewallPoliciesItem.(map[string]interface{}); ok {
 										EnhancedFirewallPoliciesResult = append(EnhancedFirewallPoliciesResult, GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel{
 											Name: func() types.String {
@@ -7624,9 +7960,17 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveForwardProxyPolicies != nil && (data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() || len(data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
+							}
+							var ForwardProxyPoliciesExisting []GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesForwardProxyPoliciesModel
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveForwardProxyPolicies != nil && !data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
+								data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveForwardProxyPoliciesData["forward_proxy_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var ForwardProxyPoliciesResult []GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesForwardProxyPoliciesModel
-								for _, ForwardProxyPoliciesItem := range rawList {
+								for ForwardProxyPoliciesIdx, ForwardProxyPoliciesItem := range rawList {
+									_ = ForwardProxyPoliciesIdx
 									if ForwardProxyPoliciesItemMap, ok := ForwardProxyPoliciesItem.(map[string]interface{}); ok {
 										ForwardProxyPoliciesResult = append(ForwardProxyPoliciesResult, GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesForwardProxyPoliciesModel{
 											Name: func() types.String {
@@ -7663,9 +8007,17 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveNetworkPolicies != nil && (data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.IsNull() || len(data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwActiveNetworkPoliciesNetworkPoliciesModelAttrTypes})
+							}
+							var NetworkPoliciesExisting []GCPVPCSiteIngressEgressGwActiveNetworkPoliciesNetworkPoliciesModel
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveNetworkPolicies != nil && !data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
+								data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveNetworkPoliciesData["network_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var NetworkPoliciesResult []GCPVPCSiteIngressEgressGwActiveNetworkPoliciesNetworkPoliciesModel
-								for _, NetworkPoliciesItem := range rawList {
+								for NetworkPoliciesIdx, NetworkPoliciesItem := range rawList {
+									_ = NetworkPoliciesIdx
 									if NetworkPoliciesItemMap, ok := NetworkPoliciesItem.(map[string]interface{}); ok {
 										NetworkPoliciesResult = append(NetworkPoliciesResult, GCPVPCSiteIngressEgressGwActiveNetworkPoliciesNetworkPoliciesModel{
 											Name: func() types.String {
@@ -7780,9 +8132,17 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.GlobalNetworkList != nil && (data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.IsNull() || len(data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwGlobalNetworkListGlobalNetworkConnectionsModelAttrTypes})
+							}
+							var GlobalNetworkConnectionsExisting []GCPVPCSiteIngressEgressGwGlobalNetworkListGlobalNetworkConnectionsModel
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.GlobalNetworkList != nil && !data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.IsNull() && !data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.IsUnknown() {
+								data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.ElementsAs(ctx, &GlobalNetworkConnectionsExisting, false)
+							}
 							if rawList, ok := GlobalNetworkListData["global_network_connections"].([]interface{}); ok && len(rawList) > 0 {
 								var GlobalNetworkConnectionsResult []GCPVPCSiteIngressEgressGwGlobalNetworkListGlobalNetworkConnectionsModel
-								for _, GlobalNetworkConnectionsItem := range rawList {
+								for GlobalNetworkConnectionsIdx, GlobalNetworkConnectionsItem := range rawList {
+									_ = GlobalNetworkConnectionsIdx
 									if GlobalNetworkConnectionsItemMap, ok := GlobalNetworkConnectionsItem.(map[string]interface{}); ok {
 										GlobalNetworkConnectionsResult = append(GlobalNetworkConnectionsResult, GCPVPCSiteIngressEgressGwGlobalNetworkListGlobalNetworkConnectionsModel{
 											SLIToGlobalDR: func() *GCPVPCSiteIngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRModel {
@@ -7868,6 +8228,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if InsideNetworkData, ok := blockData["inside_network"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwInsideNetworkModel{
 						ExistingNetwork: func() *GCPVPCSiteIngressEgressGwInsideNetworkExistingNetworkModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideNetwork != nil && data.IngressEgressGw.InsideNetwork.ExistingNetwork != nil {
+								return data.IngressEgressGw.InsideNetwork.ExistingNetwork
+							}
 							if ExistingNetworkData, ok := InsideNetworkData["existing_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwInsideNetworkExistingNetworkModel{
 									Name: func() types.String {
@@ -7881,6 +8244,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							return nil
 						}(),
 						NewNetwork: func() *GCPVPCSiteIngressEgressGwInsideNetworkNewNetworkModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideNetwork != nil && data.IngressEgressGw.InsideNetwork.NewNetwork != nil {
+								return data.IngressEgressGw.InsideNetwork.NewNetwork
+							}
 							if NewNetworkData, ok := InsideNetworkData["new_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwInsideNetworkNewNetworkModel{
 									Name: func() types.String {
@@ -7894,6 +8260,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							return nil
 						}(),
 						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideNetwork != nil {
+								return data.IngressEgressGw.InsideNetwork.NewNetworkAutogenerate
+							}
 							if _, ok := InsideNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
@@ -7907,9 +8276,17 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if InsideStaticRoutesData, ok := blockData["inside_static_routes"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwInsideStaticRoutesModel{
 						StaticRouteList: func() types.List {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideStaticRoutes != nil && (data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.IsNull() || len(data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListModelAttrTypes})
+							}
+							var StaticRouteListExisting []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListModel
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideStaticRoutes != nil && !data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.IsNull() && !data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.IsUnknown() {
+								data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListExisting, false)
+							}
 							if rawList, ok := InsideStaticRoutesData["static_route_list"].([]interface{}); ok && len(rawList) > 0 {
 								var StaticRouteListResult []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListModel
-								for _, StaticRouteListItem := range rawList {
+								for StaticRouteListIdx, StaticRouteListItem := range rawList {
+									_ = StaticRouteListIdx
 									if StaticRouteListItemMap, ok := StaticRouteListItem.(map[string]interface{}); ok {
 										StaticRouteListResult = append(StaticRouteListResult, GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListModel{
 											CustomStaticRoute: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteModel {
@@ -7929,6 +8306,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 															return types.ListNull(types.StringType)
 														}(),
 														Labels: func() *GCPVPCSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
+															}
 															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
 																return &GCPVPCSiteEmptyModel{}
 															}
@@ -7938,9 +8318,17 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
 																	Interface: func() types.List {
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && (StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsNull() || len(StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModelAttrTypes})
+																		}
+																		var InterfaceExisting []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsUnknown() {
+																			StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																		}
 																		if rawList, ok := NexthopData["interface"].([]interface{}); ok && len(rawList) > 0 {
 																			var InterfaceResult []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
-																			for _, InterfaceItem := range rawList {
+																			for InterfaceIdx, InterfaceItem := range rawList {
+																				_ = InterfaceIdx
 																				if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																					InterfaceResult = append(InterfaceResult, GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel{
 																						Kind: func() types.String {
@@ -7982,9 +8370,15 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																		return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModelAttrTypes})
 																	}(),
 																	NexthopAddress: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel {
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil {
+																			return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress
+																		}
 																		if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 																			return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel{
 																				Ipv4: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4
+																					}
 																					if Ipv4Data, ok := NexthopAddressData["ipv4"].(map[string]interface{}); ok {
 																						return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model{
 																							Addr: func() types.String {
@@ -7998,6 +8392,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																					return nil
 																				}(),
 																				Ipv6: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv6
+																					}
 																					if Ipv6Data, ok := NexthopAddressData["ipv6"].(map[string]interface{}); ok {
 																						return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model{
 																							Addr: func() types.String {
@@ -8025,15 +8422,26 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 															return nil
 														}(),
 														Subnets: func() types.List {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && (StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsNull() || len(StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
+															}
+															var SubnetsExisting []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsNull() && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsUnknown() {
+																StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.ElementsAs(ctx, &SubnetsExisting, false)
+															}
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
-																for _, SubnetsItem := range rawList {
+																for SubnetsIdx, SubnetsItem := range rawList {
+																	_ = SubnetsIdx
 																	if SubnetsItemMap, ok := SubnetsItem.(map[string]interface{}); ok {
 																		SubnetsResult = append(SubnetsResult, GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel{
 																			Ipv4: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Model {
 																				if Ipv4Data, ok := SubnetsItemMap["ipv4"].(map[string]interface{}); ok {
 																					return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Model{
 																						Plen: func() types.Int64 {
+																							if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv4 != nil && !SubnetsExisting[SubnetsIdx].Ipv4.Plen.IsUnknown() {
+																								return SubnetsExisting[SubnetsIdx].Ipv4.Plen
+																							}
 																							if v, ok := Ipv4Data["plen"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -8053,6 +8461,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																				if Ipv6Data, ok := SubnetsItemMap["ipv6"].(map[string]interface{}); ok {
 																					return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Model{
 																						Plen: func() types.Int64 {
+																							if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv6 != nil && !SubnetsExisting[SubnetsIdx].Ipv6.Plen.IsUnknown() {
+																								return SubnetsExisting[SubnetsIdx].Ipv6.Plen
+																							}
 																							if v, ok := Ipv6Data["plen"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -8105,6 +8516,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if InsideSubnetData, ok := blockData["inside_subnet"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwInsideSubnetModel{
 						ExistingSubnet: func() *GCPVPCSiteIngressEgressGwInsideSubnetExistingSubnetModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideSubnet != nil && data.IngressEgressGw.InsideSubnet.ExistingSubnet != nil {
+								return data.IngressEgressGw.InsideSubnet.ExistingSubnet
+							}
 							if ExistingSubnetData, ok := InsideSubnetData["existing_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwInsideSubnetExistingSubnetModel{
 									SubnetName: func() types.String {
@@ -8118,6 +8532,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							return nil
 						}(),
 						NewSubnet: func() *GCPVPCSiteIngressEgressGwInsideSubnetNewSubnetModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideSubnet != nil && data.IngressEgressGw.InsideSubnet.NewSubnet != nil {
+								return data.IngressEgressGw.InsideSubnet.NewSubnet
+							}
 							if NewSubnetData, ok := InsideSubnetData["new_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwInsideSubnetNewSubnetModel{
 									PrimaryIpv4: func() types.String {
@@ -8210,6 +8627,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if OutsideNetworkData, ok := blockData["outside_network"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwOutsideNetworkModel{
 						ExistingNetwork: func() *GCPVPCSiteIngressEgressGwOutsideNetworkExistingNetworkModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideNetwork != nil && data.IngressEgressGw.OutsideNetwork.ExistingNetwork != nil {
+								return data.IngressEgressGw.OutsideNetwork.ExistingNetwork
+							}
 							if ExistingNetworkData, ok := OutsideNetworkData["existing_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwOutsideNetworkExistingNetworkModel{
 									Name: func() types.String {
@@ -8223,6 +8643,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							return nil
 						}(),
 						NewNetwork: func() *GCPVPCSiteIngressEgressGwOutsideNetworkNewNetworkModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideNetwork != nil && data.IngressEgressGw.OutsideNetwork.NewNetwork != nil {
+								return data.IngressEgressGw.OutsideNetwork.NewNetwork
+							}
 							if NewNetworkData, ok := OutsideNetworkData["new_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwOutsideNetworkNewNetworkModel{
 									Name: func() types.String {
@@ -8236,6 +8659,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							return nil
 						}(),
 						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideNetwork != nil {
+								return data.IngressEgressGw.OutsideNetwork.NewNetworkAutogenerate
+							}
 							if _, ok := OutsideNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
@@ -8249,9 +8675,17 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesModel{
 						StaticRouteList: func() types.List {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideStaticRoutes != nil && (data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.IsNull() || len(data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListModelAttrTypes})
+							}
+							var StaticRouteListExisting []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListModel
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideStaticRoutes != nil && !data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.IsNull() && !data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.IsUnknown() {
+								data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListExisting, false)
+							}
 							if rawList, ok := OutsideStaticRoutesData["static_route_list"].([]interface{}); ok && len(rawList) > 0 {
 								var StaticRouteListResult []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListModel
-								for _, StaticRouteListItem := range rawList {
+								for StaticRouteListIdx, StaticRouteListItem := range rawList {
+									_ = StaticRouteListIdx
 									if StaticRouteListItemMap, ok := StaticRouteListItem.(map[string]interface{}); ok {
 										StaticRouteListResult = append(StaticRouteListResult, GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListModel{
 											CustomStaticRoute: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteModel {
@@ -8271,6 +8705,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 															return types.ListNull(types.StringType)
 														}(),
 														Labels: func() *GCPVPCSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
+															}
 															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
 																return &GCPVPCSiteEmptyModel{}
 															}
@@ -8280,9 +8717,17 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
 																	Interface: func() types.List {
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && (StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsNull() || len(StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModelAttrTypes})
+																		}
+																		var InterfaceExisting []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsUnknown() {
+																			StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																		}
 																		if rawList, ok := NexthopData["interface"].([]interface{}); ok && len(rawList) > 0 {
 																			var InterfaceResult []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
-																			for _, InterfaceItem := range rawList {
+																			for InterfaceIdx, InterfaceItem := range rawList {
+																				_ = InterfaceIdx
 																				if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																					InterfaceResult = append(InterfaceResult, GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel{
 																						Kind: func() types.String {
@@ -8324,9 +8769,15 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																		return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModelAttrTypes})
 																	}(),
 																	NexthopAddress: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel {
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil {
+																			return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress
+																		}
 																		if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 																			return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel{
 																				Ipv4: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4
+																					}
 																					if Ipv4Data, ok := NexthopAddressData["ipv4"].(map[string]interface{}); ok {
 																						return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model{
 																							Addr: func() types.String {
@@ -8340,6 +8791,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																					return nil
 																				}(),
 																				Ipv6: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv6
+																					}
 																					if Ipv6Data, ok := NexthopAddressData["ipv6"].(map[string]interface{}); ok {
 																						return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model{
 																							Addr: func() types.String {
@@ -8367,15 +8821,26 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 															return nil
 														}(),
 														Subnets: func() types.List {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && (StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsNull() || len(StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
+															}
+															var SubnetsExisting []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsNull() && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsUnknown() {
+																StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.ElementsAs(ctx, &SubnetsExisting, false)
+															}
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
-																for _, SubnetsItem := range rawList {
+																for SubnetsIdx, SubnetsItem := range rawList {
+																	_ = SubnetsIdx
 																	if SubnetsItemMap, ok := SubnetsItem.(map[string]interface{}); ok {
 																		SubnetsResult = append(SubnetsResult, GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel{
 																			Ipv4: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Model {
 																				if Ipv4Data, ok := SubnetsItemMap["ipv4"].(map[string]interface{}); ok {
 																					return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Model{
 																						Plen: func() types.Int64 {
+																							if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv4 != nil && !SubnetsExisting[SubnetsIdx].Ipv4.Plen.IsUnknown() {
+																								return SubnetsExisting[SubnetsIdx].Ipv4.Plen
+																							}
 																							if v, ok := Ipv4Data["plen"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -8395,6 +8860,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																				if Ipv6Data, ok := SubnetsItemMap["ipv6"].(map[string]interface{}); ok {
 																					return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Model{
 																						Plen: func() types.Int64 {
+																							if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv6 != nil && !SubnetsExisting[SubnetsIdx].Ipv6.Plen.IsUnknown() {
+																								return SubnetsExisting[SubnetsIdx].Ipv6.Plen
+																							}
 																							if v, ok := Ipv6Data["plen"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -8447,6 +8915,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if OutsideSubnetData, ok := blockData["outside_subnet"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwOutsideSubnetModel{
 						ExistingSubnet: func() *GCPVPCSiteIngressEgressGwOutsideSubnetExistingSubnetModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideSubnet != nil && data.IngressEgressGw.OutsideSubnet.ExistingSubnet != nil {
+								return data.IngressEgressGw.OutsideSubnet.ExistingSubnet
+							}
 							if ExistingSubnetData, ok := OutsideSubnetData["existing_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwOutsideSubnetExistingSubnetModel{
 									SubnetName: func() types.String {
@@ -8460,6 +8931,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							return nil
 						}(),
 						NewSubnet: func() *GCPVPCSiteIngressEgressGwOutsideSubnetNewSubnetModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideSubnet != nil && data.IngressEgressGw.OutsideSubnet.NewSubnet != nil {
+								return data.IngressEgressGw.OutsideSubnet.NewSubnet
+							}
 							if NewSubnetData, ok := OutsideSubnetData["new_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwOutsideSubnetNewSubnetModel{
 									PrimaryIpv4: func() types.String {
@@ -8489,15 +8963,24 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if PerformanceEnhancementModeData, ok := blockData["performance_enhancement_mode"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwPerformanceEnhancementModeModel{
 						PerfModeL3Enhanced: func() *GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced
+							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
 									Jumbo: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
+										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
 											return &GCPVPCSiteEmptyModel{}
 										}
 										return nil
 									}(),
 									NoJumbo: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
+										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
 											return &GCPVPCSiteEmptyModel{}
 										}
@@ -8508,6 +8991,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							return nil
 						}(),
 						PerfModeL7Enhanced: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil {
+								return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
+							}
 							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
@@ -8565,6 +9051,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if LocalNetworkData, ok := blockData["local_network"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressGwLocalNetworkModel{
 						ExistingNetwork: func() *GCPVPCSiteIngressGwLocalNetworkExistingNetworkModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.LocalNetwork != nil && data.IngressGw.LocalNetwork.ExistingNetwork != nil {
+								return data.IngressGw.LocalNetwork.ExistingNetwork
+							}
 							if ExistingNetworkData, ok := LocalNetworkData["existing_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressGwLocalNetworkExistingNetworkModel{
 									Name: func() types.String {
@@ -8578,6 +9067,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							return nil
 						}(),
 						NewNetwork: func() *GCPVPCSiteIngressGwLocalNetworkNewNetworkModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.LocalNetwork != nil && data.IngressGw.LocalNetwork.NewNetwork != nil {
+								return data.IngressGw.LocalNetwork.NewNetwork
+							}
 							if NewNetworkData, ok := LocalNetworkData["new_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressGwLocalNetworkNewNetworkModel{
 									Name: func() types.String {
@@ -8591,6 +9083,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							return nil
 						}(),
 						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.LocalNetwork != nil {
+								return data.IngressGw.LocalNetwork.NewNetworkAutogenerate
+							}
 							if _, ok := LocalNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
@@ -8607,6 +9102,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if LocalSubnetData, ok := blockData["local_subnet"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressGwLocalSubnetModel{
 						ExistingSubnet: func() *GCPVPCSiteIngressGwLocalSubnetExistingSubnetModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.LocalSubnet != nil && data.IngressGw.LocalSubnet.ExistingSubnet != nil {
+								return data.IngressGw.LocalSubnet.ExistingSubnet
+							}
 							if ExistingSubnetData, ok := LocalSubnetData["existing_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressGwLocalSubnetExistingSubnetModel{
 									SubnetName: func() types.String {
@@ -8620,6 +9118,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							return nil
 						}(),
 						NewSubnet: func() *GCPVPCSiteIngressGwLocalSubnetNewSubnetModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.LocalSubnet != nil && data.IngressGw.LocalSubnet.NewSubnet != nil {
+								return data.IngressGw.LocalSubnet.NewSubnet
+							}
 							if NewSubnetData, ok := LocalSubnetData["new_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressGwLocalSubnetNewSubnetModel{
 									PrimaryIpv4: func() types.String {
@@ -8658,15 +9159,24 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if PerformanceEnhancementModeData, ok := blockData["performance_enhancement_mode"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressGwPerformanceEnhancementModeModel{
 						PerfModeL3Enhanced: func() *GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced
+							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
 									Jumbo: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
+										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
 											return &GCPVPCSiteEmptyModel{}
 										}
 										return nil
 									}(),
 									NoJumbo: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
+										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
 											return &GCPVPCSiteEmptyModel{}
 										}
@@ -8677,6 +9187,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							return nil
 						}(),
 						PerfModeL7Enhanced: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil {
+								return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
+							}
 							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
@@ -8706,24 +9219,36 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &GCPVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel{
 						DisableVegaUpgradeMode: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
+							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
 							return nil
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
+							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						DrainNodeTimeout: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout
+							}
 							if v, ok := EnableUpgradeDrainData["drain_node_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						EnableVegaUpgradeMode: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
+							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
@@ -8876,9 +9401,17 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveEnhancedFirewallPolicies != nil && (data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() || len(data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModelAttrTypes})
+							}
+							var EnhancedFirewallPoliciesExisting []GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveEnhancedFirewallPolicies != nil && !data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
+								data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveEnhancedFirewallPoliciesData["enhanced_firewall_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var EnhancedFirewallPoliciesResult []GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
-								for _, EnhancedFirewallPoliciesItem := range rawList {
+								for EnhancedFirewallPoliciesIdx, EnhancedFirewallPoliciesItem := range rawList {
+									_ = EnhancedFirewallPoliciesIdx
 									if EnhancedFirewallPoliciesItemMap, ok := EnhancedFirewallPoliciesItem.(map[string]interface{}); ok {
 										EnhancedFirewallPoliciesResult = append(EnhancedFirewallPoliciesResult, GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel{
 											Name: func() types.String {
@@ -8915,9 +9448,17 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveForwardProxyPolicies != nil && (data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() || len(data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
+							}
+							var ForwardProxyPoliciesExisting []GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesForwardProxyPoliciesModel
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveForwardProxyPolicies != nil && !data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
+								data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveForwardProxyPoliciesData["forward_proxy_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var ForwardProxyPoliciesResult []GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesForwardProxyPoliciesModel
-								for _, ForwardProxyPoliciesItem := range rawList {
+								for ForwardProxyPoliciesIdx, ForwardProxyPoliciesItem := range rawList {
+									_ = ForwardProxyPoliciesIdx
 									if ForwardProxyPoliciesItemMap, ok := ForwardProxyPoliciesItem.(map[string]interface{}); ok {
 										ForwardProxyPoliciesResult = append(ForwardProxyPoliciesResult, GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesForwardProxyPoliciesModel{
 											Name: func() types.String {
@@ -8954,9 +9495,17 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveNetworkPolicies != nil && (data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.IsNull() || len(data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterActiveNetworkPoliciesNetworkPoliciesModelAttrTypes})
+							}
+							var NetworkPoliciesExisting []GCPVPCSiteVoltstackClusterActiveNetworkPoliciesNetworkPoliciesModel
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveNetworkPolicies != nil && !data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
+								data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveNetworkPoliciesData["network_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var NetworkPoliciesResult []GCPVPCSiteVoltstackClusterActiveNetworkPoliciesNetworkPoliciesModel
-								for _, NetworkPoliciesItem := range rawList {
+								for NetworkPoliciesIdx, NetworkPoliciesItem := range rawList {
+									_ = NetworkPoliciesIdx
 									if NetworkPoliciesItemMap, ok := NetworkPoliciesItem.(map[string]interface{}); ok {
 										NetworkPoliciesResult = append(NetworkPoliciesResult, GCPVPCSiteVoltstackClusterActiveNetworkPoliciesNetworkPoliciesModel{
 											Name: func() types.String {
@@ -9055,9 +9604,17 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.GlobalNetworkList != nil && (data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.IsNull() || len(data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterGlobalNetworkListGlobalNetworkConnectionsModelAttrTypes})
+							}
+							var GlobalNetworkConnectionsExisting []GCPVPCSiteVoltstackClusterGlobalNetworkListGlobalNetworkConnectionsModel
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.GlobalNetworkList != nil && !data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.IsNull() && !data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.IsUnknown() {
+								data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.ElementsAs(ctx, &GlobalNetworkConnectionsExisting, false)
+							}
 							if rawList, ok := GlobalNetworkListData["global_network_connections"].([]interface{}); ok && len(rawList) > 0 {
 								var GlobalNetworkConnectionsResult []GCPVPCSiteVoltstackClusterGlobalNetworkListGlobalNetworkConnectionsModel
-								for _, GlobalNetworkConnectionsItem := range rawList {
+								for GlobalNetworkConnectionsIdx, GlobalNetworkConnectionsItem := range rawList {
+									_ = GlobalNetworkConnectionsIdx
 									if GlobalNetworkConnectionsItemMap, ok := GlobalNetworkConnectionsItem.(map[string]interface{}); ok {
 										GlobalNetworkConnectionsResult = append(GlobalNetworkConnectionsResult, GCPVPCSiteVoltstackClusterGlobalNetworkListGlobalNetworkConnectionsModel{
 											SLIToGlobalDR: func() *GCPVPCSiteVoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRModel {
@@ -9228,9 +9785,17 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesModel{
 						StaticRouteList: func() types.List {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.OutsideStaticRoutes != nil && (data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.IsNull() || len(data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListModelAttrTypes})
+							}
+							var StaticRouteListExisting []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListModel
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.OutsideStaticRoutes != nil && !data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.IsNull() && !data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.IsUnknown() {
+								data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListExisting, false)
+							}
 							if rawList, ok := OutsideStaticRoutesData["static_route_list"].([]interface{}); ok && len(rawList) > 0 {
 								var StaticRouteListResult []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListModel
-								for _, StaticRouteListItem := range rawList {
+								for StaticRouteListIdx, StaticRouteListItem := range rawList {
+									_ = StaticRouteListIdx
 									if StaticRouteListItemMap, ok := StaticRouteListItem.(map[string]interface{}); ok {
 										StaticRouteListResult = append(StaticRouteListResult, GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListModel{
 											CustomStaticRoute: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteModel {
@@ -9250,6 +9815,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 															return types.ListNull(types.StringType)
 														}(),
 														Labels: func() *GCPVPCSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
+															}
 															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
 																return &GCPVPCSiteEmptyModel{}
 															}
@@ -9259,9 +9827,17 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
 																	Interface: func() types.List {
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && (StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsNull() || len(StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModelAttrTypes})
+																		}
+																		var InterfaceExisting []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsUnknown() {
+																			StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																		}
 																		if rawList, ok := NexthopData["interface"].([]interface{}); ok && len(rawList) > 0 {
 																			var InterfaceResult []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
-																			for _, InterfaceItem := range rawList {
+																			for InterfaceIdx, InterfaceItem := range rawList {
+																				_ = InterfaceIdx
 																				if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																					InterfaceResult = append(InterfaceResult, GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel{
 																						Kind: func() types.String {
@@ -9303,9 +9879,15 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																		return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModelAttrTypes})
 																	}(),
 																	NexthopAddress: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel {
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil {
+																			return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress
+																		}
 																		if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 																			return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel{
 																				Ipv4: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4
+																					}
 																					if Ipv4Data, ok := NexthopAddressData["ipv4"].(map[string]interface{}); ok {
 																						return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model{
 																							Addr: func() types.String {
@@ -9319,6 +9901,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																					return nil
 																				}(),
 																				Ipv6: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv6
+																					}
 																					if Ipv6Data, ok := NexthopAddressData["ipv6"].(map[string]interface{}); ok {
 																						return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model{
 																							Addr: func() types.String {
@@ -9346,15 +9931,26 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 															return nil
 														}(),
 														Subnets: func() types.List {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && (StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsNull() || len(StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
+															}
+															var SubnetsExisting []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsNull() && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsUnknown() {
+																StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.ElementsAs(ctx, &SubnetsExisting, false)
+															}
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
-																for _, SubnetsItem := range rawList {
+																for SubnetsIdx, SubnetsItem := range rawList {
+																	_ = SubnetsIdx
 																	if SubnetsItemMap, ok := SubnetsItem.(map[string]interface{}); ok {
 																		SubnetsResult = append(SubnetsResult, GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel{
 																			Ipv4: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Model {
 																				if Ipv4Data, ok := SubnetsItemMap["ipv4"].(map[string]interface{}); ok {
 																					return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Model{
 																						Plen: func() types.Int64 {
+																							if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv4 != nil && !SubnetsExisting[SubnetsIdx].Ipv4.Plen.IsUnknown() {
+																								return SubnetsExisting[SubnetsIdx].Ipv4.Plen
+																							}
 																							if v, ok := Ipv4Data["plen"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -9374,6 +9970,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																				if Ipv6Data, ok := SubnetsItemMap["ipv6"].(map[string]interface{}); ok {
 																					return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Model{
 																						Plen: func() types.Int64 {
+																							if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv6 != nil && !SubnetsExisting[SubnetsIdx].Ipv6.Plen.IsUnknown() {
+																								return SubnetsExisting[SubnetsIdx].Ipv6.Plen
+																							}
 																							if v, ok := Ipv6Data["plen"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -9426,6 +10025,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if SiteLocalNetworkData, ok := blockData["site_local_network"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterSiteLocalNetworkModel{
 						ExistingNetwork: func() *GCPVPCSiteVoltstackClusterSiteLocalNetworkExistingNetworkModel {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.SiteLocalNetwork != nil && data.VoltstackCluster.SiteLocalNetwork.ExistingNetwork != nil {
+								return data.VoltstackCluster.SiteLocalNetwork.ExistingNetwork
+							}
 							if ExistingNetworkData, ok := SiteLocalNetworkData["existing_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteVoltstackClusterSiteLocalNetworkExistingNetworkModel{
 									Name: func() types.String {
@@ -9439,6 +10041,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							return nil
 						}(),
 						NewNetwork: func() *GCPVPCSiteVoltstackClusterSiteLocalNetworkNewNetworkModel {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.SiteLocalNetwork != nil && data.VoltstackCluster.SiteLocalNetwork.NewNetwork != nil {
+								return data.VoltstackCluster.SiteLocalNetwork.NewNetwork
+							}
 							if NewNetworkData, ok := SiteLocalNetworkData["new_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteVoltstackClusterSiteLocalNetworkNewNetworkModel{
 									Name: func() types.String {
@@ -9452,6 +10057,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							return nil
 						}(),
 						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.SiteLocalNetwork != nil {
+								return data.VoltstackCluster.SiteLocalNetwork.NewNetworkAutogenerate
+							}
 							if _, ok := SiteLocalNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
@@ -9468,6 +10076,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if SiteLocalSubnetData, ok := blockData["site_local_subnet"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterSiteLocalSubnetModel{
 						ExistingSubnet: func() *GCPVPCSiteVoltstackClusterSiteLocalSubnetExistingSubnetModel {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.SiteLocalSubnet != nil && data.VoltstackCluster.SiteLocalSubnet.ExistingSubnet != nil {
+								return data.VoltstackCluster.SiteLocalSubnet.ExistingSubnet
+							}
 							if ExistingSubnetData, ok := SiteLocalSubnetData["existing_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteVoltstackClusterSiteLocalSubnetExistingSubnetModel{
 									SubnetName: func() types.String {
@@ -9481,6 +10092,9 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							return nil
 						}(),
 						NewSubnet: func() *GCPVPCSiteVoltstackClusterSiteLocalSubnetNewSubnetModel {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.SiteLocalSubnet != nil && data.VoltstackCluster.SiteLocalSubnet.NewSubnet != nil {
+								return data.VoltstackCluster.SiteLocalSubnet.NewSubnet
+							}
 							if NewSubnetData, ok := SiteLocalSubnetData["new_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteVoltstackClusterSiteLocalSubnetNewSubnetModel{
 									PrimaryIpv4: func() types.String {
@@ -9528,9 +10142,17 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if StorageClassListData, ok := blockData["storage_class_list"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterStorageClassListModel{
 						StorageClasses: func() types.List {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.StorageClassList != nil && (data.VoltstackCluster.StorageClassList.StorageClasses.IsNull() || len(data.VoltstackCluster.StorageClassList.StorageClasses.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModelAttrTypes})
+							}
+							var StorageClassesExisting []GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModel
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.StorageClassList != nil && !data.VoltstackCluster.StorageClassList.StorageClasses.IsNull() && !data.VoltstackCluster.StorageClassList.StorageClasses.IsUnknown() {
+								data.VoltstackCluster.StorageClassList.StorageClasses.ElementsAs(ctx, &StorageClassesExisting, false)
+							}
 							if rawList, ok := StorageClassListData["storage_classes"].([]interface{}); ok && len(rawList) > 0 {
 								var StorageClassesResult []GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModel
-								for _, StorageClassesItem := range rawList {
+								for StorageClassesIdx, StorageClassesItem := range rawList {
+									_ = StorageClassesIdx
 									if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
 										StorageClassesResult = append(StorageClassesResult, GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModel{
 											DefaultStorageClass: func() types.Bool {
@@ -11050,6 +11672,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							return types.StringNull()
 						}(),
 						Version: func() types.Int64 {
+							if !isImport && data.AdminPassword != nil && data.AdminPassword.VaultSecretInfo != nil && !data.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
+								return data.AdminPassword.VaultSecretInfo.Version
+							}
 							if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -11086,12 +11711,20 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteBlockedServicesBlockedServiceModelAttrTypes})
 				}
+				var BlockedServiceExisting []GCPVPCSiteBlockedServicesBlockedServiceModel
+				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
+					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
+				}
 				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []GCPVPCSiteBlockedServicesBlockedServiceModel
-					for _, BlockedServiceItem := range rawList {
+					for BlockedServiceIdx, BlockedServiceItem := range rawList {
+						_ = BlockedServiceIdx
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, GCPVPCSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *GCPVPCSiteEmptyModel {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
+										return &GCPVPCSiteEmptyModel{}
+									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &GCPVPCSiteEmptyModel{}
 									}
@@ -11104,12 +11737,18 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 									return types.StringNull()
 								}(),
 								SSH: func() *GCPVPCSiteEmptyModel {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
+										return &GCPVPCSiteEmptyModel{}
+									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &GCPVPCSiteEmptyModel{}
 									}
 									return nil
 								}(),
 								WebUserInterface: func() *GCPVPCSiteEmptyModel {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
+										return &GCPVPCSiteEmptyModel{}
+									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &GCPVPCSiteEmptyModel{}
 									}
@@ -11216,9 +11855,17 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveEnhancedFirewallPolicies != nil && (data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() || len(data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModelAttrTypes})
+							}
+							var EnhancedFirewallPoliciesExisting []GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveEnhancedFirewallPolicies != nil && !data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
+								data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveEnhancedFirewallPoliciesData["enhanced_firewall_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var EnhancedFirewallPoliciesResult []GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
-								for _, EnhancedFirewallPoliciesItem := range rawList {
+								for EnhancedFirewallPoliciesIdx, EnhancedFirewallPoliciesItem := range rawList {
+									_ = EnhancedFirewallPoliciesIdx
 									if EnhancedFirewallPoliciesItemMap, ok := EnhancedFirewallPoliciesItem.(map[string]interface{}); ok {
 										EnhancedFirewallPoliciesResult = append(EnhancedFirewallPoliciesResult, GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel{
 											Name: func() types.String {
@@ -11255,9 +11902,17 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveForwardProxyPolicies != nil && (data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() || len(data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
+							}
+							var ForwardProxyPoliciesExisting []GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesForwardProxyPoliciesModel
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveForwardProxyPolicies != nil && !data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
+								data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveForwardProxyPoliciesData["forward_proxy_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var ForwardProxyPoliciesResult []GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesForwardProxyPoliciesModel
-								for _, ForwardProxyPoliciesItem := range rawList {
+								for ForwardProxyPoliciesIdx, ForwardProxyPoliciesItem := range rawList {
+									_ = ForwardProxyPoliciesIdx
 									if ForwardProxyPoliciesItemMap, ok := ForwardProxyPoliciesItem.(map[string]interface{}); ok {
 										ForwardProxyPoliciesResult = append(ForwardProxyPoliciesResult, GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesForwardProxyPoliciesModel{
 											Name: func() types.String {
@@ -11294,9 +11949,17 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveNetworkPolicies != nil && (data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.IsNull() || len(data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwActiveNetworkPoliciesNetworkPoliciesModelAttrTypes})
+							}
+							var NetworkPoliciesExisting []GCPVPCSiteIngressEgressGwActiveNetworkPoliciesNetworkPoliciesModel
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.ActiveNetworkPolicies != nil && !data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
+								data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveNetworkPoliciesData["network_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var NetworkPoliciesResult []GCPVPCSiteIngressEgressGwActiveNetworkPoliciesNetworkPoliciesModel
-								for _, NetworkPoliciesItem := range rawList {
+								for NetworkPoliciesIdx, NetworkPoliciesItem := range rawList {
+									_ = NetworkPoliciesIdx
 									if NetworkPoliciesItemMap, ok := NetworkPoliciesItem.(map[string]interface{}); ok {
 										NetworkPoliciesResult = append(NetworkPoliciesResult, GCPVPCSiteIngressEgressGwActiveNetworkPoliciesNetworkPoliciesModel{
 											Name: func() types.String {
@@ -11411,9 +12074,17 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.GlobalNetworkList != nil && (data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.IsNull() || len(data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwGlobalNetworkListGlobalNetworkConnectionsModelAttrTypes})
+							}
+							var GlobalNetworkConnectionsExisting []GCPVPCSiteIngressEgressGwGlobalNetworkListGlobalNetworkConnectionsModel
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.GlobalNetworkList != nil && !data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.IsNull() && !data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.IsUnknown() {
+								data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.ElementsAs(ctx, &GlobalNetworkConnectionsExisting, false)
+							}
 							if rawList, ok := GlobalNetworkListData["global_network_connections"].([]interface{}); ok && len(rawList) > 0 {
 								var GlobalNetworkConnectionsResult []GCPVPCSiteIngressEgressGwGlobalNetworkListGlobalNetworkConnectionsModel
-								for _, GlobalNetworkConnectionsItem := range rawList {
+								for GlobalNetworkConnectionsIdx, GlobalNetworkConnectionsItem := range rawList {
+									_ = GlobalNetworkConnectionsIdx
 									if GlobalNetworkConnectionsItemMap, ok := GlobalNetworkConnectionsItem.(map[string]interface{}); ok {
 										GlobalNetworkConnectionsResult = append(GlobalNetworkConnectionsResult, GCPVPCSiteIngressEgressGwGlobalNetworkListGlobalNetworkConnectionsModel{
 											SLIToGlobalDR: func() *GCPVPCSiteIngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRModel {
@@ -11499,6 +12170,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if InsideNetworkData, ok := blockData["inside_network"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwInsideNetworkModel{
 						ExistingNetwork: func() *GCPVPCSiteIngressEgressGwInsideNetworkExistingNetworkModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideNetwork != nil && data.IngressEgressGw.InsideNetwork.ExistingNetwork != nil {
+								return data.IngressEgressGw.InsideNetwork.ExistingNetwork
+							}
 							if ExistingNetworkData, ok := InsideNetworkData["existing_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwInsideNetworkExistingNetworkModel{
 									Name: func() types.String {
@@ -11512,6 +12186,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							return nil
 						}(),
 						NewNetwork: func() *GCPVPCSiteIngressEgressGwInsideNetworkNewNetworkModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideNetwork != nil && data.IngressEgressGw.InsideNetwork.NewNetwork != nil {
+								return data.IngressEgressGw.InsideNetwork.NewNetwork
+							}
 							if NewNetworkData, ok := InsideNetworkData["new_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwInsideNetworkNewNetworkModel{
 									Name: func() types.String {
@@ -11525,6 +12202,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							return nil
 						}(),
 						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideNetwork != nil {
+								return data.IngressEgressGw.InsideNetwork.NewNetworkAutogenerate
+							}
 							if _, ok := InsideNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
@@ -11538,9 +12218,17 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if InsideStaticRoutesData, ok := blockData["inside_static_routes"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwInsideStaticRoutesModel{
 						StaticRouteList: func() types.List {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideStaticRoutes != nil && (data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.IsNull() || len(data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListModelAttrTypes})
+							}
+							var StaticRouteListExisting []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListModel
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideStaticRoutes != nil && !data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.IsNull() && !data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.IsUnknown() {
+								data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListExisting, false)
+							}
 							if rawList, ok := InsideStaticRoutesData["static_route_list"].([]interface{}); ok && len(rawList) > 0 {
 								var StaticRouteListResult []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListModel
-								for _, StaticRouteListItem := range rawList {
+								for StaticRouteListIdx, StaticRouteListItem := range rawList {
+									_ = StaticRouteListIdx
 									if StaticRouteListItemMap, ok := StaticRouteListItem.(map[string]interface{}); ok {
 										StaticRouteListResult = append(StaticRouteListResult, GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListModel{
 											CustomStaticRoute: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteModel {
@@ -11560,6 +12248,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 															return types.ListNull(types.StringType)
 														}(),
 														Labels: func() *GCPVPCSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
+															}
 															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
 																return &GCPVPCSiteEmptyModel{}
 															}
@@ -11569,9 +12260,17 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
 																	Interface: func() types.List {
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && (StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsNull() || len(StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModelAttrTypes})
+																		}
+																		var InterfaceExisting []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsUnknown() {
+																			StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																		}
 																		if rawList, ok := NexthopData["interface"].([]interface{}); ok && len(rawList) > 0 {
 																			var InterfaceResult []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
-																			for _, InterfaceItem := range rawList {
+																			for InterfaceIdx, InterfaceItem := range rawList {
+																				_ = InterfaceIdx
 																				if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																					InterfaceResult = append(InterfaceResult, GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel{
 																						Kind: func() types.String {
@@ -11613,9 +12312,15 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																		return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModelAttrTypes})
 																	}(),
 																	NexthopAddress: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel {
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil {
+																			return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress
+																		}
 																		if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 																			return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel{
 																				Ipv4: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4
+																					}
 																					if Ipv4Data, ok := NexthopAddressData["ipv4"].(map[string]interface{}); ok {
 																						return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model{
 																							Addr: func() types.String {
@@ -11629,6 +12334,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																					return nil
 																				}(),
 																				Ipv6: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv6
+																					}
 																					if Ipv6Data, ok := NexthopAddressData["ipv6"].(map[string]interface{}); ok {
 																						return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model{
 																							Addr: func() types.String {
@@ -11656,15 +12364,26 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 															return nil
 														}(),
 														Subnets: func() types.List {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && (StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsNull() || len(StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
+															}
+															var SubnetsExisting []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsNull() && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsUnknown() {
+																StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.ElementsAs(ctx, &SubnetsExisting, false)
+															}
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
-																for _, SubnetsItem := range rawList {
+																for SubnetsIdx, SubnetsItem := range rawList {
+																	_ = SubnetsIdx
 																	if SubnetsItemMap, ok := SubnetsItem.(map[string]interface{}); ok {
 																		SubnetsResult = append(SubnetsResult, GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel{
 																			Ipv4: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Model {
 																				if Ipv4Data, ok := SubnetsItemMap["ipv4"].(map[string]interface{}); ok {
 																					return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Model{
 																						Plen: func() types.Int64 {
+																							if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv4 != nil && !SubnetsExisting[SubnetsIdx].Ipv4.Plen.IsUnknown() {
+																								return SubnetsExisting[SubnetsIdx].Ipv4.Plen
+																							}
 																							if v, ok := Ipv4Data["plen"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -11684,6 +12403,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																				if Ipv6Data, ok := SubnetsItemMap["ipv6"].(map[string]interface{}); ok {
 																					return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Model{
 																						Plen: func() types.Int64 {
+																							if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv6 != nil && !SubnetsExisting[SubnetsIdx].Ipv6.Plen.IsUnknown() {
+																								return SubnetsExisting[SubnetsIdx].Ipv6.Plen
+																							}
 																							if v, ok := Ipv6Data["plen"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -11736,6 +12458,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if InsideSubnetData, ok := blockData["inside_subnet"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwInsideSubnetModel{
 						ExistingSubnet: func() *GCPVPCSiteIngressEgressGwInsideSubnetExistingSubnetModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideSubnet != nil && data.IngressEgressGw.InsideSubnet.ExistingSubnet != nil {
+								return data.IngressEgressGw.InsideSubnet.ExistingSubnet
+							}
 							if ExistingSubnetData, ok := InsideSubnetData["existing_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwInsideSubnetExistingSubnetModel{
 									SubnetName: func() types.String {
@@ -11749,6 +12474,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							return nil
 						}(),
 						NewSubnet: func() *GCPVPCSiteIngressEgressGwInsideSubnetNewSubnetModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideSubnet != nil && data.IngressEgressGw.InsideSubnet.NewSubnet != nil {
+								return data.IngressEgressGw.InsideSubnet.NewSubnet
+							}
 							if NewSubnetData, ok := InsideSubnetData["new_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwInsideSubnetNewSubnetModel{
 									PrimaryIpv4: func() types.String {
@@ -11841,6 +12569,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if OutsideNetworkData, ok := blockData["outside_network"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwOutsideNetworkModel{
 						ExistingNetwork: func() *GCPVPCSiteIngressEgressGwOutsideNetworkExistingNetworkModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideNetwork != nil && data.IngressEgressGw.OutsideNetwork.ExistingNetwork != nil {
+								return data.IngressEgressGw.OutsideNetwork.ExistingNetwork
+							}
 							if ExistingNetworkData, ok := OutsideNetworkData["existing_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwOutsideNetworkExistingNetworkModel{
 									Name: func() types.String {
@@ -11854,6 +12585,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							return nil
 						}(),
 						NewNetwork: func() *GCPVPCSiteIngressEgressGwOutsideNetworkNewNetworkModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideNetwork != nil && data.IngressEgressGw.OutsideNetwork.NewNetwork != nil {
+								return data.IngressEgressGw.OutsideNetwork.NewNetwork
+							}
 							if NewNetworkData, ok := OutsideNetworkData["new_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwOutsideNetworkNewNetworkModel{
 									Name: func() types.String {
@@ -11867,6 +12601,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							return nil
 						}(),
 						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideNetwork != nil {
+								return data.IngressEgressGw.OutsideNetwork.NewNetworkAutogenerate
+							}
 							if _, ok := OutsideNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
@@ -11880,9 +12617,17 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesModel{
 						StaticRouteList: func() types.List {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideStaticRoutes != nil && (data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.IsNull() || len(data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListModelAttrTypes})
+							}
+							var StaticRouteListExisting []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListModel
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideStaticRoutes != nil && !data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.IsNull() && !data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.IsUnknown() {
+								data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListExisting, false)
+							}
 							if rawList, ok := OutsideStaticRoutesData["static_route_list"].([]interface{}); ok && len(rawList) > 0 {
 								var StaticRouteListResult []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListModel
-								for _, StaticRouteListItem := range rawList {
+								for StaticRouteListIdx, StaticRouteListItem := range rawList {
+									_ = StaticRouteListIdx
 									if StaticRouteListItemMap, ok := StaticRouteListItem.(map[string]interface{}); ok {
 										StaticRouteListResult = append(StaticRouteListResult, GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListModel{
 											CustomStaticRoute: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteModel {
@@ -11902,6 +12647,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 															return types.ListNull(types.StringType)
 														}(),
 														Labels: func() *GCPVPCSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
+															}
 															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
 																return &GCPVPCSiteEmptyModel{}
 															}
@@ -11911,9 +12659,17 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
 																	Interface: func() types.List {
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && (StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsNull() || len(StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModelAttrTypes})
+																		}
+																		var InterfaceExisting []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsUnknown() {
+																			StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																		}
 																		if rawList, ok := NexthopData["interface"].([]interface{}); ok && len(rawList) > 0 {
 																			var InterfaceResult []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
-																			for _, InterfaceItem := range rawList {
+																			for InterfaceIdx, InterfaceItem := range rawList {
+																				_ = InterfaceIdx
 																				if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																					InterfaceResult = append(InterfaceResult, GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel{
 																						Kind: func() types.String {
@@ -11955,9 +12711,15 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																		return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModelAttrTypes})
 																	}(),
 																	NexthopAddress: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel {
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil {
+																			return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress
+																		}
 																		if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 																			return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel{
 																				Ipv4: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4
+																					}
 																					if Ipv4Data, ok := NexthopAddressData["ipv4"].(map[string]interface{}); ok {
 																						return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model{
 																							Addr: func() types.String {
@@ -11971,6 +12733,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																					return nil
 																				}(),
 																				Ipv6: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv6
+																					}
 																					if Ipv6Data, ok := NexthopAddressData["ipv6"].(map[string]interface{}); ok {
 																						return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model{
 																							Addr: func() types.String {
@@ -11998,15 +12763,26 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 															return nil
 														}(),
 														Subnets: func() types.List {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && (StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsNull() || len(StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
+															}
+															var SubnetsExisting []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsNull() && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsUnknown() {
+																StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.ElementsAs(ctx, &SubnetsExisting, false)
+															}
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
-																for _, SubnetsItem := range rawList {
+																for SubnetsIdx, SubnetsItem := range rawList {
+																	_ = SubnetsIdx
 																	if SubnetsItemMap, ok := SubnetsItem.(map[string]interface{}); ok {
 																		SubnetsResult = append(SubnetsResult, GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel{
 																			Ipv4: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Model {
 																				if Ipv4Data, ok := SubnetsItemMap["ipv4"].(map[string]interface{}); ok {
 																					return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Model{
 																						Plen: func() types.Int64 {
+																							if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv4 != nil && !SubnetsExisting[SubnetsIdx].Ipv4.Plen.IsUnknown() {
+																								return SubnetsExisting[SubnetsIdx].Ipv4.Plen
+																							}
 																							if v, ok := Ipv4Data["plen"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -12026,6 +12802,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																				if Ipv6Data, ok := SubnetsItemMap["ipv6"].(map[string]interface{}); ok {
 																					return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Model{
 																						Plen: func() types.Int64 {
+																							if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv6 != nil && !SubnetsExisting[SubnetsIdx].Ipv6.Plen.IsUnknown() {
+																								return SubnetsExisting[SubnetsIdx].Ipv6.Plen
+																							}
 																							if v, ok := Ipv6Data["plen"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -12078,6 +12857,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if OutsideSubnetData, ok := blockData["outside_subnet"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwOutsideSubnetModel{
 						ExistingSubnet: func() *GCPVPCSiteIngressEgressGwOutsideSubnetExistingSubnetModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideSubnet != nil && data.IngressEgressGw.OutsideSubnet.ExistingSubnet != nil {
+								return data.IngressEgressGw.OutsideSubnet.ExistingSubnet
+							}
 							if ExistingSubnetData, ok := OutsideSubnetData["existing_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwOutsideSubnetExistingSubnetModel{
 									SubnetName: func() types.String {
@@ -12091,6 +12873,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							return nil
 						}(),
 						NewSubnet: func() *GCPVPCSiteIngressEgressGwOutsideSubnetNewSubnetModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideSubnet != nil && data.IngressEgressGw.OutsideSubnet.NewSubnet != nil {
+								return data.IngressEgressGw.OutsideSubnet.NewSubnet
+							}
 							if NewSubnetData, ok := OutsideSubnetData["new_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwOutsideSubnetNewSubnetModel{
 									PrimaryIpv4: func() types.String {
@@ -12120,15 +12905,24 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if PerformanceEnhancementModeData, ok := blockData["performance_enhancement_mode"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressEgressGwPerformanceEnhancementModeModel{
 						PerfModeL3Enhanced: func() *GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced
+							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
 									Jumbo: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
+										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
 											return &GCPVPCSiteEmptyModel{}
 										}
 										return nil
 									}(),
 									NoJumbo: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
+										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
 											return &GCPVPCSiteEmptyModel{}
 										}
@@ -12139,6 +12933,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							return nil
 						}(),
 						PerfModeL7Enhanced: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil {
+								return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
+							}
 							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
@@ -12196,6 +12993,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if LocalNetworkData, ok := blockData["local_network"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressGwLocalNetworkModel{
 						ExistingNetwork: func() *GCPVPCSiteIngressGwLocalNetworkExistingNetworkModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.LocalNetwork != nil && data.IngressGw.LocalNetwork.ExistingNetwork != nil {
+								return data.IngressGw.LocalNetwork.ExistingNetwork
+							}
 							if ExistingNetworkData, ok := LocalNetworkData["existing_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressGwLocalNetworkExistingNetworkModel{
 									Name: func() types.String {
@@ -12209,6 +13009,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							return nil
 						}(),
 						NewNetwork: func() *GCPVPCSiteIngressGwLocalNetworkNewNetworkModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.LocalNetwork != nil && data.IngressGw.LocalNetwork.NewNetwork != nil {
+								return data.IngressGw.LocalNetwork.NewNetwork
+							}
 							if NewNetworkData, ok := LocalNetworkData["new_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressGwLocalNetworkNewNetworkModel{
 									Name: func() types.String {
@@ -12222,6 +13025,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							return nil
 						}(),
 						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.LocalNetwork != nil {
+								return data.IngressGw.LocalNetwork.NewNetworkAutogenerate
+							}
 							if _, ok := LocalNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
@@ -12238,6 +13044,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if LocalSubnetData, ok := blockData["local_subnet"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressGwLocalSubnetModel{
 						ExistingSubnet: func() *GCPVPCSiteIngressGwLocalSubnetExistingSubnetModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.LocalSubnet != nil && data.IngressGw.LocalSubnet.ExistingSubnet != nil {
+								return data.IngressGw.LocalSubnet.ExistingSubnet
+							}
 							if ExistingSubnetData, ok := LocalSubnetData["existing_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressGwLocalSubnetExistingSubnetModel{
 									SubnetName: func() types.String {
@@ -12251,6 +13060,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							return nil
 						}(),
 						NewSubnet: func() *GCPVPCSiteIngressGwLocalSubnetNewSubnetModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.LocalSubnet != nil && data.IngressGw.LocalSubnet.NewSubnet != nil {
+								return data.IngressGw.LocalSubnet.NewSubnet
+							}
 							if NewSubnetData, ok := LocalSubnetData["new_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressGwLocalSubnetNewSubnetModel{
 									PrimaryIpv4: func() types.String {
@@ -12289,15 +13101,24 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if PerformanceEnhancementModeData, ok := blockData["performance_enhancement_mode"].(map[string]interface{}); ok {
 					return &GCPVPCSiteIngressGwPerformanceEnhancementModeModel{
 						PerfModeL3Enhanced: func() *GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced
+							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
 									Jumbo: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
+										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
 											return &GCPVPCSiteEmptyModel{}
 										}
 										return nil
 									}(),
 									NoJumbo: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
+										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
 											return &GCPVPCSiteEmptyModel{}
 										}
@@ -12308,6 +13129,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							return nil
 						}(),
 						PerfModeL7Enhanced: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil {
+								return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
+							}
 							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
@@ -12337,24 +13161,36 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &GCPVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel{
 						DisableVegaUpgradeMode: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
+							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
 							return nil
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
+							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						DrainNodeTimeout: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout
+							}
 							if v, ok := EnableUpgradeDrainData["drain_node_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						EnableVegaUpgradeMode: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
+							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
@@ -12507,9 +13343,17 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveEnhancedFirewallPolicies != nil && (data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() || len(data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModelAttrTypes})
+							}
+							var EnhancedFirewallPoliciesExisting []GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveEnhancedFirewallPolicies != nil && !data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
+								data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveEnhancedFirewallPoliciesData["enhanced_firewall_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var EnhancedFirewallPoliciesResult []GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
-								for _, EnhancedFirewallPoliciesItem := range rawList {
+								for EnhancedFirewallPoliciesIdx, EnhancedFirewallPoliciesItem := range rawList {
+									_ = EnhancedFirewallPoliciesIdx
 									if EnhancedFirewallPoliciesItemMap, ok := EnhancedFirewallPoliciesItem.(map[string]interface{}); ok {
 										EnhancedFirewallPoliciesResult = append(EnhancedFirewallPoliciesResult, GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel{
 											Name: func() types.String {
@@ -12546,9 +13390,17 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveForwardProxyPolicies != nil && (data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() || len(data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
+							}
+							var ForwardProxyPoliciesExisting []GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesForwardProxyPoliciesModel
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveForwardProxyPolicies != nil && !data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
+								data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveForwardProxyPoliciesData["forward_proxy_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var ForwardProxyPoliciesResult []GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesForwardProxyPoliciesModel
-								for _, ForwardProxyPoliciesItem := range rawList {
+								for ForwardProxyPoliciesIdx, ForwardProxyPoliciesItem := range rawList {
+									_ = ForwardProxyPoliciesIdx
 									if ForwardProxyPoliciesItemMap, ok := ForwardProxyPoliciesItem.(map[string]interface{}); ok {
 										ForwardProxyPoliciesResult = append(ForwardProxyPoliciesResult, GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesForwardProxyPoliciesModel{
 											Name: func() types.String {
@@ -12585,9 +13437,17 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveNetworkPolicies != nil && (data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.IsNull() || len(data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterActiveNetworkPoliciesNetworkPoliciesModelAttrTypes})
+							}
+							var NetworkPoliciesExisting []GCPVPCSiteVoltstackClusterActiveNetworkPoliciesNetworkPoliciesModel
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.ActiveNetworkPolicies != nil && !data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
+								data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveNetworkPoliciesData["network_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var NetworkPoliciesResult []GCPVPCSiteVoltstackClusterActiveNetworkPoliciesNetworkPoliciesModel
-								for _, NetworkPoliciesItem := range rawList {
+								for NetworkPoliciesIdx, NetworkPoliciesItem := range rawList {
+									_ = NetworkPoliciesIdx
 									if NetworkPoliciesItemMap, ok := NetworkPoliciesItem.(map[string]interface{}); ok {
 										NetworkPoliciesResult = append(NetworkPoliciesResult, GCPVPCSiteVoltstackClusterActiveNetworkPoliciesNetworkPoliciesModel{
 											Name: func() types.String {
@@ -12686,9 +13546,17 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.GlobalNetworkList != nil && (data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.IsNull() || len(data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterGlobalNetworkListGlobalNetworkConnectionsModelAttrTypes})
+							}
+							var GlobalNetworkConnectionsExisting []GCPVPCSiteVoltstackClusterGlobalNetworkListGlobalNetworkConnectionsModel
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.GlobalNetworkList != nil && !data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.IsNull() && !data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.IsUnknown() {
+								data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.ElementsAs(ctx, &GlobalNetworkConnectionsExisting, false)
+							}
 							if rawList, ok := GlobalNetworkListData["global_network_connections"].([]interface{}); ok && len(rawList) > 0 {
 								var GlobalNetworkConnectionsResult []GCPVPCSiteVoltstackClusterGlobalNetworkListGlobalNetworkConnectionsModel
-								for _, GlobalNetworkConnectionsItem := range rawList {
+								for GlobalNetworkConnectionsIdx, GlobalNetworkConnectionsItem := range rawList {
+									_ = GlobalNetworkConnectionsIdx
 									if GlobalNetworkConnectionsItemMap, ok := GlobalNetworkConnectionsItem.(map[string]interface{}); ok {
 										GlobalNetworkConnectionsResult = append(GlobalNetworkConnectionsResult, GCPVPCSiteVoltstackClusterGlobalNetworkListGlobalNetworkConnectionsModel{
 											SLIToGlobalDR: func() *GCPVPCSiteVoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRModel {
@@ -12859,9 +13727,17 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesModel{
 						StaticRouteList: func() types.List {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.OutsideStaticRoutes != nil && (data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.IsNull() || len(data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListModelAttrTypes})
+							}
+							var StaticRouteListExisting []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListModel
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.OutsideStaticRoutes != nil && !data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.IsNull() && !data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.IsUnknown() {
+								data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListExisting, false)
+							}
 							if rawList, ok := OutsideStaticRoutesData["static_route_list"].([]interface{}); ok && len(rawList) > 0 {
 								var StaticRouteListResult []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListModel
-								for _, StaticRouteListItem := range rawList {
+								for StaticRouteListIdx, StaticRouteListItem := range rawList {
+									_ = StaticRouteListIdx
 									if StaticRouteListItemMap, ok := StaticRouteListItem.(map[string]interface{}); ok {
 										StaticRouteListResult = append(StaticRouteListResult, GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListModel{
 											CustomStaticRoute: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteModel {
@@ -12881,6 +13757,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 															return types.ListNull(types.StringType)
 														}(),
 														Labels: func() *GCPVPCSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
+															}
 															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
 																return &GCPVPCSiteEmptyModel{}
 															}
@@ -12890,9 +13769,17 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
 																	Interface: func() types.List {
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && (StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsNull() || len(StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModelAttrTypes})
+																		}
+																		var InterfaceExisting []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.IsUnknown() {
+																			StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																		}
 																		if rawList, ok := NexthopData["interface"].([]interface{}); ok && len(rawList) > 0 {
 																			var InterfaceResult []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
-																			for _, InterfaceItem := range rawList {
+																			for InterfaceIdx, InterfaceItem := range rawList {
+																				_ = InterfaceIdx
 																				if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																					InterfaceResult = append(InterfaceResult, GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel{
 																						Kind: func() types.String {
@@ -12934,9 +13821,15 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																		return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModelAttrTypes})
 																	}(),
 																	NexthopAddress: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel {
+																		if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil {
+																			return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress
+																		}
 																		if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 																			return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel{
 																				Ipv4: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4
+																					}
 																					if Ipv4Data, ok := NexthopAddressData["ipv4"].(map[string]interface{}); ok {
 																						return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model{
 																							Addr: func() types.String {
@@ -12950,6 +13843,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																					return nil
 																				}(),
 																				Ipv6: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv6
+																					}
 																					if Ipv6Data, ok := NexthopAddressData["ipv6"].(map[string]interface{}); ok {
 																						return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model{
 																							Addr: func() types.String {
@@ -12977,15 +13873,26 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 															return nil
 														}(),
 														Subnets: func() types.List {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && (StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsNull() || len(StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes})
+															}
+															var SubnetsExisting []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsNull() && !StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.IsUnknown() {
+																StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Subnets.ElementsAs(ctx, &SubnetsExisting, false)
+															}
 															if rawList, ok := CustomStaticRouteData["subnets"].([]interface{}); ok && len(rawList) > 0 {
 																var SubnetsResult []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
-																for _, SubnetsItem := range rawList {
+																for SubnetsIdx, SubnetsItem := range rawList {
+																	_ = SubnetsIdx
 																	if SubnetsItemMap, ok := SubnetsItem.(map[string]interface{}); ok {
 																		SubnetsResult = append(SubnetsResult, GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel{
 																			Ipv4: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Model {
 																				if Ipv4Data, ok := SubnetsItemMap["ipv4"].(map[string]interface{}); ok {
 																					return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Model{
 																						Plen: func() types.Int64 {
+																							if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv4 != nil && !SubnetsExisting[SubnetsIdx].Ipv4.Plen.IsUnknown() {
+																								return SubnetsExisting[SubnetsIdx].Ipv4.Plen
+																							}
 																							if v, ok := Ipv4Data["plen"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -13005,6 +13912,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																				if Ipv6Data, ok := SubnetsItemMap["ipv6"].(map[string]interface{}); ok {
 																					return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Model{
 																						Plen: func() types.Int64 {
+																							if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv6 != nil && !SubnetsExisting[SubnetsIdx].Ipv6.Plen.IsUnknown() {
+																								return SubnetsExisting[SubnetsIdx].Ipv6.Plen
+																							}
 																							if v, ok := Ipv6Data["plen"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -13057,6 +13967,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if SiteLocalNetworkData, ok := blockData["site_local_network"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterSiteLocalNetworkModel{
 						ExistingNetwork: func() *GCPVPCSiteVoltstackClusterSiteLocalNetworkExistingNetworkModel {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.SiteLocalNetwork != nil && data.VoltstackCluster.SiteLocalNetwork.ExistingNetwork != nil {
+								return data.VoltstackCluster.SiteLocalNetwork.ExistingNetwork
+							}
 							if ExistingNetworkData, ok := SiteLocalNetworkData["existing_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteVoltstackClusterSiteLocalNetworkExistingNetworkModel{
 									Name: func() types.String {
@@ -13070,6 +13983,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							return nil
 						}(),
 						NewNetwork: func() *GCPVPCSiteVoltstackClusterSiteLocalNetworkNewNetworkModel {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.SiteLocalNetwork != nil && data.VoltstackCluster.SiteLocalNetwork.NewNetwork != nil {
+								return data.VoltstackCluster.SiteLocalNetwork.NewNetwork
+							}
 							if NewNetworkData, ok := SiteLocalNetworkData["new_network"].(map[string]interface{}); ok {
 								return &GCPVPCSiteVoltstackClusterSiteLocalNetworkNewNetworkModel{
 									Name: func() types.String {
@@ -13083,6 +13999,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							return nil
 						}(),
 						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.SiteLocalNetwork != nil {
+								return data.VoltstackCluster.SiteLocalNetwork.NewNetworkAutogenerate
+							}
 							if _, ok := SiteLocalNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
 								return &GCPVPCSiteEmptyModel{}
 							}
@@ -13099,6 +14018,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if SiteLocalSubnetData, ok := blockData["site_local_subnet"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterSiteLocalSubnetModel{
 						ExistingSubnet: func() *GCPVPCSiteVoltstackClusterSiteLocalSubnetExistingSubnetModel {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.SiteLocalSubnet != nil && data.VoltstackCluster.SiteLocalSubnet.ExistingSubnet != nil {
+								return data.VoltstackCluster.SiteLocalSubnet.ExistingSubnet
+							}
 							if ExistingSubnetData, ok := SiteLocalSubnetData["existing_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteVoltstackClusterSiteLocalSubnetExistingSubnetModel{
 									SubnetName: func() types.String {
@@ -13112,6 +14034,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							return nil
 						}(),
 						NewSubnet: func() *GCPVPCSiteVoltstackClusterSiteLocalSubnetNewSubnetModel {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.SiteLocalSubnet != nil && data.VoltstackCluster.SiteLocalSubnet.NewSubnet != nil {
+								return data.VoltstackCluster.SiteLocalSubnet.NewSubnet
+							}
 							if NewSubnetData, ok := SiteLocalSubnetData["new_subnet"].(map[string]interface{}); ok {
 								return &GCPVPCSiteVoltstackClusterSiteLocalSubnetNewSubnetModel{
 									PrimaryIpv4: func() types.String {
@@ -13159,9 +14084,17 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if StorageClassListData, ok := blockData["storage_class_list"].(map[string]interface{}); ok {
 					return &GCPVPCSiteVoltstackClusterStorageClassListModel{
 						StorageClasses: func() types.List {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.StorageClassList != nil && (data.VoltstackCluster.StorageClassList.StorageClasses.IsNull() || len(data.VoltstackCluster.StorageClassList.StorageClasses.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModelAttrTypes})
+							}
+							var StorageClassesExisting []GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModel
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.StorageClassList != nil && !data.VoltstackCluster.StorageClassList.StorageClasses.IsNull() && !data.VoltstackCluster.StorageClassList.StorageClasses.IsUnknown() {
+								data.VoltstackCluster.StorageClassList.StorageClasses.ElementsAs(ctx, &StorageClassesExisting, false)
+							}
 							if rawList, ok := StorageClassListData["storage_classes"].([]interface{}); ok && len(rawList) > 0 {
 								var StorageClassesResult []GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModel
-								for _, StorageClassesItem := range rawList {
+								for StorageClassesIdx, StorageClassesItem := range rawList {
+									_ = StorageClassesIdx
 									if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
 										StorageClassesResult = append(StorageClassesResult, GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModel{
 											DefaultStorageClass: func() types.Bool {

@@ -1269,9 +1269,15 @@ func (r *CodeBaseIntegrationResource) Create(ctx context.Context, req resource.C
 				if AzureReposData, ok := blockData["azure_repos"].(map[string]interface{}); ok {
 					return &CodeBaseIntegrationCodeBaseIntegrationAzureReposModel{
 						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenModel {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.AzureRepos != nil && data.CodeBaseIntegration.AzureRepos.AccessToken != nil {
+								return data.CodeBaseIntegration.AzureRepos.AccessToken
+							}
 							if AccessTokenData, ok := AzureReposData["access_token"].(map[string]interface{}); ok {
 								return &CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenModel{
 									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenBlindfoldSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.AzureRepos != nil && data.CodeBaseIntegration.AzureRepos.AccessToken != nil && data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo != nil {
+											return data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -1297,6 +1303,9 @@ func (r *CodeBaseIntegrationResource) Create(ctx context.Context, req resource.C
 										return nil
 									}(),
 									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenClearSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.AzureRepos != nil && data.CodeBaseIntegration.AzureRepos.AccessToken != nil && data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo != nil {
+											return data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenClearSecretInfoModel{
 												Provider: func() types.String {
@@ -1330,9 +1339,15 @@ func (r *CodeBaseIntegrationResource) Create(ctx context.Context, req resource.C
 				if BitbucketData, ok := blockData["bitbucket"].(map[string]interface{}); ok {
 					return &CodeBaseIntegrationCodeBaseIntegrationBitbucketModel{
 						Passwd: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdModel {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Bitbucket != nil && data.CodeBaseIntegration.Bitbucket.Passwd != nil {
+								return data.CodeBaseIntegration.Bitbucket.Passwd
+							}
 							if PasswdData, ok := BitbucketData["passwd"].(map[string]interface{}); ok {
 								return &CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdModel{
 									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdBlindfoldSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Bitbucket != nil && data.CodeBaseIntegration.Bitbucket.Passwd != nil && data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo != nil {
+											return data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := PasswdData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -1358,6 +1373,9 @@ func (r *CodeBaseIntegrationResource) Create(ctx context.Context, req resource.C
 										return nil
 									}(),
 									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdClearSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Bitbucket != nil && data.CodeBaseIntegration.Bitbucket.Passwd != nil && data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo != nil {
+											return data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := PasswdData["clear_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdClearSecretInfoModel{
 												Provider: func() types.String {
@@ -1397,9 +1415,15 @@ func (r *CodeBaseIntegrationResource) Create(ctx context.Context, req resource.C
 				if BitbucketServerData, ok := blockData["bitbucket_server"].(map[string]interface{}); ok {
 					return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerModel{
 						Passwd: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdModel {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.BitbucketServer != nil && data.CodeBaseIntegration.BitbucketServer.Passwd != nil {
+								return data.CodeBaseIntegration.BitbucketServer.Passwd
+							}
 							if PasswdData, ok := BitbucketServerData["passwd"].(map[string]interface{}); ok {
 								return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdModel{
 									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdBlindfoldSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.BitbucketServer != nil && data.CodeBaseIntegration.BitbucketServer.Passwd != nil && data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo != nil {
+											return data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := PasswdData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -1425,6 +1449,9 @@ func (r *CodeBaseIntegrationResource) Create(ctx context.Context, req resource.C
 										return nil
 									}(),
 									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdClearSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.BitbucketServer != nil && data.CodeBaseIntegration.BitbucketServer.Passwd != nil && data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo != nil {
+											return data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := PasswdData["clear_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdClearSecretInfoModel{
 												Provider: func() types.String {
@@ -1460,6 +1487,9 @@ func (r *CodeBaseIntegrationResource) Create(ctx context.Context, req resource.C
 							return types.StringNull()
 						}(),
 						VerifySSL: func() types.Bool {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.BitbucketServer != nil && !data.CodeBaseIntegration.BitbucketServer.VerifySSL.IsUnknown() {
+								return data.CodeBaseIntegration.BitbucketServer.VerifySSL
+							}
 							if v, ok := BitbucketServerData["verify_ssl"].(bool); ok {
 								return types.BoolValue(v)
 							}
@@ -1476,9 +1506,15 @@ func (r *CodeBaseIntegrationResource) Create(ctx context.Context, req resource.C
 				if GithubData, ok := blockData["github"].(map[string]interface{}); ok {
 					return &CodeBaseIntegrationCodeBaseIntegrationGithubModel{
 						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenModel {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Github != nil && data.CodeBaseIntegration.Github.AccessToken != nil {
+								return data.CodeBaseIntegration.Github.AccessToken
+							}
 							if AccessTokenData, ok := GithubData["access_token"].(map[string]interface{}); ok {
 								return &CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenModel{
 									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenBlindfoldSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Github != nil && data.CodeBaseIntegration.Github.AccessToken != nil && data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo != nil {
+											return data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -1504,6 +1540,9 @@ func (r *CodeBaseIntegrationResource) Create(ctx context.Context, req resource.C
 										return nil
 									}(),
 									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenClearSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Github != nil && data.CodeBaseIntegration.Github.AccessToken != nil && data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo != nil {
+											return data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenClearSecretInfoModel{
 												Provider: func() types.String {
@@ -1533,6 +1572,9 @@ func (r *CodeBaseIntegrationResource) Create(ctx context.Context, req resource.C
 							return types.StringNull()
 						}(),
 						VerifySSL: func() types.Bool {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Github != nil && !data.CodeBaseIntegration.Github.VerifySSL.IsUnknown() {
+								return data.CodeBaseIntegration.Github.VerifySSL
+							}
 							if v, ok := GithubData["verify_ssl"].(bool); ok {
 								return types.BoolValue(v)
 							}
@@ -1549,9 +1591,15 @@ func (r *CodeBaseIntegrationResource) Create(ctx context.Context, req resource.C
 				if GithubEnterpriseData, ok := blockData["github_enterprise"].(map[string]interface{}); ok {
 					return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseModel{
 						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenModel {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GithubEnterprise != nil && data.CodeBaseIntegration.GithubEnterprise.AccessToken != nil {
+								return data.CodeBaseIntegration.GithubEnterprise.AccessToken
+							}
 							if AccessTokenData, ok := GithubEnterpriseData["access_token"].(map[string]interface{}); ok {
 								return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenModel{
 									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenBlindfoldSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GithubEnterprise != nil && data.CodeBaseIntegration.GithubEnterprise.AccessToken != nil && data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo != nil {
+											return data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -1577,6 +1625,9 @@ func (r *CodeBaseIntegrationResource) Create(ctx context.Context, req resource.C
 										return nil
 									}(),
 									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenClearSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GithubEnterprise != nil && data.CodeBaseIntegration.GithubEnterprise.AccessToken != nil && data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo != nil {
+											return data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenClearSecretInfoModel{
 												Provider: func() types.String {
@@ -1622,9 +1673,15 @@ func (r *CodeBaseIntegrationResource) Create(ctx context.Context, req resource.C
 				if GitlabData, ok := blockData["gitlab"].(map[string]interface{}); ok {
 					return &CodeBaseIntegrationCodeBaseIntegrationGitlabModel{
 						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenModel {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Gitlab != nil && data.CodeBaseIntegration.Gitlab.AccessToken != nil {
+								return data.CodeBaseIntegration.Gitlab.AccessToken
+							}
 							if AccessTokenData, ok := GitlabData["access_token"].(map[string]interface{}); ok {
 								return &CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenModel{
 									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenBlindfoldSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Gitlab != nil && data.CodeBaseIntegration.Gitlab.AccessToken != nil && data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo != nil {
+											return data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -1650,6 +1707,9 @@ func (r *CodeBaseIntegrationResource) Create(ctx context.Context, req resource.C
 										return nil
 									}(),
 									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenClearSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Gitlab != nil && data.CodeBaseIntegration.Gitlab.AccessToken != nil && data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo != nil {
+											return data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenClearSecretInfoModel{
 												Provider: func() types.String {
@@ -1683,9 +1743,15 @@ func (r *CodeBaseIntegrationResource) Create(ctx context.Context, req resource.C
 				if GitlabEnterpriseData, ok := blockData["gitlab_enterprise"].(map[string]interface{}); ok {
 					return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseModel{
 						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenModel {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GitlabEnterprise != nil && data.CodeBaseIntegration.GitlabEnterprise.AccessToken != nil {
+								return data.CodeBaseIntegration.GitlabEnterprise.AccessToken
+							}
 							if AccessTokenData, ok := GitlabEnterpriseData["access_token"].(map[string]interface{}); ok {
 								return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenModel{
 									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenBlindfoldSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GitlabEnterprise != nil && data.CodeBaseIntegration.GitlabEnterprise.AccessToken != nil && data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo != nil {
+											return data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -1711,6 +1777,9 @@ func (r *CodeBaseIntegrationResource) Create(ctx context.Context, req resource.C
 										return nil
 									}(),
 									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenClearSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GitlabEnterprise != nil && data.CodeBaseIntegration.GitlabEnterprise.AccessToken != nil && data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo != nil {
+											return data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenClearSecretInfoModel{
 												Provider: func() types.String {
@@ -1847,9 +1916,15 @@ func (r *CodeBaseIntegrationResource) Read(ctx context.Context, req resource.Rea
 				if AzureReposData, ok := blockData["azure_repos"].(map[string]interface{}); ok {
 					return &CodeBaseIntegrationCodeBaseIntegrationAzureReposModel{
 						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenModel {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.AzureRepos != nil && data.CodeBaseIntegration.AzureRepos.AccessToken != nil {
+								return data.CodeBaseIntegration.AzureRepos.AccessToken
+							}
 							if AccessTokenData, ok := AzureReposData["access_token"].(map[string]interface{}); ok {
 								return &CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenModel{
 									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenBlindfoldSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.AzureRepos != nil && data.CodeBaseIntegration.AzureRepos.AccessToken != nil && data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo != nil {
+											return data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -1875,6 +1950,9 @@ func (r *CodeBaseIntegrationResource) Read(ctx context.Context, req resource.Rea
 										return nil
 									}(),
 									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenClearSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.AzureRepos != nil && data.CodeBaseIntegration.AzureRepos.AccessToken != nil && data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo != nil {
+											return data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenClearSecretInfoModel{
 												Provider: func() types.String {
@@ -1908,9 +1986,15 @@ func (r *CodeBaseIntegrationResource) Read(ctx context.Context, req resource.Rea
 				if BitbucketData, ok := blockData["bitbucket"].(map[string]interface{}); ok {
 					return &CodeBaseIntegrationCodeBaseIntegrationBitbucketModel{
 						Passwd: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdModel {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Bitbucket != nil && data.CodeBaseIntegration.Bitbucket.Passwd != nil {
+								return data.CodeBaseIntegration.Bitbucket.Passwd
+							}
 							if PasswdData, ok := BitbucketData["passwd"].(map[string]interface{}); ok {
 								return &CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdModel{
 									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdBlindfoldSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Bitbucket != nil && data.CodeBaseIntegration.Bitbucket.Passwd != nil && data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo != nil {
+											return data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := PasswdData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -1936,6 +2020,9 @@ func (r *CodeBaseIntegrationResource) Read(ctx context.Context, req resource.Rea
 										return nil
 									}(),
 									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdClearSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Bitbucket != nil && data.CodeBaseIntegration.Bitbucket.Passwd != nil && data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo != nil {
+											return data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := PasswdData["clear_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdClearSecretInfoModel{
 												Provider: func() types.String {
@@ -1975,9 +2062,15 @@ func (r *CodeBaseIntegrationResource) Read(ctx context.Context, req resource.Rea
 				if BitbucketServerData, ok := blockData["bitbucket_server"].(map[string]interface{}); ok {
 					return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerModel{
 						Passwd: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdModel {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.BitbucketServer != nil && data.CodeBaseIntegration.BitbucketServer.Passwd != nil {
+								return data.CodeBaseIntegration.BitbucketServer.Passwd
+							}
 							if PasswdData, ok := BitbucketServerData["passwd"].(map[string]interface{}); ok {
 								return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdModel{
 									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdBlindfoldSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.BitbucketServer != nil && data.CodeBaseIntegration.BitbucketServer.Passwd != nil && data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo != nil {
+											return data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := PasswdData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -2003,6 +2096,9 @@ func (r *CodeBaseIntegrationResource) Read(ctx context.Context, req resource.Rea
 										return nil
 									}(),
 									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdClearSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.BitbucketServer != nil && data.CodeBaseIntegration.BitbucketServer.Passwd != nil && data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo != nil {
+											return data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := PasswdData["clear_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdClearSecretInfoModel{
 												Provider: func() types.String {
@@ -2038,6 +2134,9 @@ func (r *CodeBaseIntegrationResource) Read(ctx context.Context, req resource.Rea
 							return types.StringNull()
 						}(),
 						VerifySSL: func() types.Bool {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.BitbucketServer != nil && !data.CodeBaseIntegration.BitbucketServer.VerifySSL.IsUnknown() {
+								return data.CodeBaseIntegration.BitbucketServer.VerifySSL
+							}
 							if v, ok := BitbucketServerData["verify_ssl"].(bool); ok {
 								return types.BoolValue(v)
 							}
@@ -2054,9 +2153,15 @@ func (r *CodeBaseIntegrationResource) Read(ctx context.Context, req resource.Rea
 				if GithubData, ok := blockData["github"].(map[string]interface{}); ok {
 					return &CodeBaseIntegrationCodeBaseIntegrationGithubModel{
 						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenModel {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Github != nil && data.CodeBaseIntegration.Github.AccessToken != nil {
+								return data.CodeBaseIntegration.Github.AccessToken
+							}
 							if AccessTokenData, ok := GithubData["access_token"].(map[string]interface{}); ok {
 								return &CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenModel{
 									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenBlindfoldSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Github != nil && data.CodeBaseIntegration.Github.AccessToken != nil && data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo != nil {
+											return data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -2082,6 +2187,9 @@ func (r *CodeBaseIntegrationResource) Read(ctx context.Context, req resource.Rea
 										return nil
 									}(),
 									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenClearSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Github != nil && data.CodeBaseIntegration.Github.AccessToken != nil && data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo != nil {
+											return data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenClearSecretInfoModel{
 												Provider: func() types.String {
@@ -2111,6 +2219,9 @@ func (r *CodeBaseIntegrationResource) Read(ctx context.Context, req resource.Rea
 							return types.StringNull()
 						}(),
 						VerifySSL: func() types.Bool {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Github != nil && !data.CodeBaseIntegration.Github.VerifySSL.IsUnknown() {
+								return data.CodeBaseIntegration.Github.VerifySSL
+							}
 							if v, ok := GithubData["verify_ssl"].(bool); ok {
 								return types.BoolValue(v)
 							}
@@ -2127,9 +2238,15 @@ func (r *CodeBaseIntegrationResource) Read(ctx context.Context, req resource.Rea
 				if GithubEnterpriseData, ok := blockData["github_enterprise"].(map[string]interface{}); ok {
 					return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseModel{
 						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenModel {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GithubEnterprise != nil && data.CodeBaseIntegration.GithubEnterprise.AccessToken != nil {
+								return data.CodeBaseIntegration.GithubEnterprise.AccessToken
+							}
 							if AccessTokenData, ok := GithubEnterpriseData["access_token"].(map[string]interface{}); ok {
 								return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenModel{
 									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenBlindfoldSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GithubEnterprise != nil && data.CodeBaseIntegration.GithubEnterprise.AccessToken != nil && data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo != nil {
+											return data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -2155,6 +2272,9 @@ func (r *CodeBaseIntegrationResource) Read(ctx context.Context, req resource.Rea
 										return nil
 									}(),
 									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenClearSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GithubEnterprise != nil && data.CodeBaseIntegration.GithubEnterprise.AccessToken != nil && data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo != nil {
+											return data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenClearSecretInfoModel{
 												Provider: func() types.String {
@@ -2200,9 +2320,15 @@ func (r *CodeBaseIntegrationResource) Read(ctx context.Context, req resource.Rea
 				if GitlabData, ok := blockData["gitlab"].(map[string]interface{}); ok {
 					return &CodeBaseIntegrationCodeBaseIntegrationGitlabModel{
 						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenModel {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Gitlab != nil && data.CodeBaseIntegration.Gitlab.AccessToken != nil {
+								return data.CodeBaseIntegration.Gitlab.AccessToken
+							}
 							if AccessTokenData, ok := GitlabData["access_token"].(map[string]interface{}); ok {
 								return &CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenModel{
 									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenBlindfoldSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Gitlab != nil && data.CodeBaseIntegration.Gitlab.AccessToken != nil && data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo != nil {
+											return data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -2228,6 +2354,9 @@ func (r *CodeBaseIntegrationResource) Read(ctx context.Context, req resource.Rea
 										return nil
 									}(),
 									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenClearSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Gitlab != nil && data.CodeBaseIntegration.Gitlab.AccessToken != nil && data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo != nil {
+											return data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenClearSecretInfoModel{
 												Provider: func() types.String {
@@ -2261,9 +2390,15 @@ func (r *CodeBaseIntegrationResource) Read(ctx context.Context, req resource.Rea
 				if GitlabEnterpriseData, ok := blockData["gitlab_enterprise"].(map[string]interface{}); ok {
 					return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseModel{
 						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenModel {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GitlabEnterprise != nil && data.CodeBaseIntegration.GitlabEnterprise.AccessToken != nil {
+								return data.CodeBaseIntegration.GitlabEnterprise.AccessToken
+							}
 							if AccessTokenData, ok := GitlabEnterpriseData["access_token"].(map[string]interface{}); ok {
 								return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenModel{
 									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenBlindfoldSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GitlabEnterprise != nil && data.CodeBaseIntegration.GitlabEnterprise.AccessToken != nil && data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo != nil {
+											return data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -2289,6 +2424,9 @@ func (r *CodeBaseIntegrationResource) Read(ctx context.Context, req resource.Rea
 										return nil
 									}(),
 									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenClearSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GitlabEnterprise != nil && data.CodeBaseIntegration.GitlabEnterprise.AccessToken != nil && data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo != nil {
+											return data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenClearSecretInfoModel{
 												Provider: func() types.String {
@@ -2663,9 +2801,15 @@ func (r *CodeBaseIntegrationResource) Update(ctx context.Context, req resource.U
 				if AzureReposData, ok := blockData["azure_repos"].(map[string]interface{}); ok {
 					return &CodeBaseIntegrationCodeBaseIntegrationAzureReposModel{
 						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenModel {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.AzureRepos != nil && data.CodeBaseIntegration.AzureRepos.AccessToken != nil {
+								return data.CodeBaseIntegration.AzureRepos.AccessToken
+							}
 							if AccessTokenData, ok := AzureReposData["access_token"].(map[string]interface{}); ok {
 								return &CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenModel{
 									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenBlindfoldSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.AzureRepos != nil && data.CodeBaseIntegration.AzureRepos.AccessToken != nil && data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo != nil {
+											return data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -2691,6 +2835,9 @@ func (r *CodeBaseIntegrationResource) Update(ctx context.Context, req resource.U
 										return nil
 									}(),
 									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenClearSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.AzureRepos != nil && data.CodeBaseIntegration.AzureRepos.AccessToken != nil && data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo != nil {
+											return data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationAzureReposAccessTokenClearSecretInfoModel{
 												Provider: func() types.String {
@@ -2724,9 +2871,15 @@ func (r *CodeBaseIntegrationResource) Update(ctx context.Context, req resource.U
 				if BitbucketData, ok := blockData["bitbucket"].(map[string]interface{}); ok {
 					return &CodeBaseIntegrationCodeBaseIntegrationBitbucketModel{
 						Passwd: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdModel {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Bitbucket != nil && data.CodeBaseIntegration.Bitbucket.Passwd != nil {
+								return data.CodeBaseIntegration.Bitbucket.Passwd
+							}
 							if PasswdData, ok := BitbucketData["passwd"].(map[string]interface{}); ok {
 								return &CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdModel{
 									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdBlindfoldSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Bitbucket != nil && data.CodeBaseIntegration.Bitbucket.Passwd != nil && data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo != nil {
+											return data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := PasswdData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -2752,6 +2905,9 @@ func (r *CodeBaseIntegrationResource) Update(ctx context.Context, req resource.U
 										return nil
 									}(),
 									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdClearSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Bitbucket != nil && data.CodeBaseIntegration.Bitbucket.Passwd != nil && data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo != nil {
+											return data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := PasswdData["clear_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketPasswdClearSecretInfoModel{
 												Provider: func() types.String {
@@ -2791,9 +2947,15 @@ func (r *CodeBaseIntegrationResource) Update(ctx context.Context, req resource.U
 				if BitbucketServerData, ok := blockData["bitbucket_server"].(map[string]interface{}); ok {
 					return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerModel{
 						Passwd: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdModel {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.BitbucketServer != nil && data.CodeBaseIntegration.BitbucketServer.Passwd != nil {
+								return data.CodeBaseIntegration.BitbucketServer.Passwd
+							}
 							if PasswdData, ok := BitbucketServerData["passwd"].(map[string]interface{}); ok {
 								return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdModel{
 									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdBlindfoldSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.BitbucketServer != nil && data.CodeBaseIntegration.BitbucketServer.Passwd != nil && data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo != nil {
+											return data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := PasswdData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -2819,6 +2981,9 @@ func (r *CodeBaseIntegrationResource) Update(ctx context.Context, req resource.U
 										return nil
 									}(),
 									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdClearSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.BitbucketServer != nil && data.CodeBaseIntegration.BitbucketServer.Passwd != nil && data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo != nil {
+											return data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := PasswdData["clear_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationBitbucketServerPasswdClearSecretInfoModel{
 												Provider: func() types.String {
@@ -2854,6 +3019,9 @@ func (r *CodeBaseIntegrationResource) Update(ctx context.Context, req resource.U
 							return types.StringNull()
 						}(),
 						VerifySSL: func() types.Bool {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.BitbucketServer != nil && !data.CodeBaseIntegration.BitbucketServer.VerifySSL.IsUnknown() {
+								return data.CodeBaseIntegration.BitbucketServer.VerifySSL
+							}
 							if v, ok := BitbucketServerData["verify_ssl"].(bool); ok {
 								return types.BoolValue(v)
 							}
@@ -2870,9 +3038,15 @@ func (r *CodeBaseIntegrationResource) Update(ctx context.Context, req resource.U
 				if GithubData, ok := blockData["github"].(map[string]interface{}); ok {
 					return &CodeBaseIntegrationCodeBaseIntegrationGithubModel{
 						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenModel {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Github != nil && data.CodeBaseIntegration.Github.AccessToken != nil {
+								return data.CodeBaseIntegration.Github.AccessToken
+							}
 							if AccessTokenData, ok := GithubData["access_token"].(map[string]interface{}); ok {
 								return &CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenModel{
 									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenBlindfoldSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Github != nil && data.CodeBaseIntegration.Github.AccessToken != nil && data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo != nil {
+											return data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -2898,6 +3072,9 @@ func (r *CodeBaseIntegrationResource) Update(ctx context.Context, req resource.U
 										return nil
 									}(),
 									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenClearSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Github != nil && data.CodeBaseIntegration.Github.AccessToken != nil && data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo != nil {
+											return data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGithubAccessTokenClearSecretInfoModel{
 												Provider: func() types.String {
@@ -2927,6 +3104,9 @@ func (r *CodeBaseIntegrationResource) Update(ctx context.Context, req resource.U
 							return types.StringNull()
 						}(),
 						VerifySSL: func() types.Bool {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Github != nil && !data.CodeBaseIntegration.Github.VerifySSL.IsUnknown() {
+								return data.CodeBaseIntegration.Github.VerifySSL
+							}
 							if v, ok := GithubData["verify_ssl"].(bool); ok {
 								return types.BoolValue(v)
 							}
@@ -2943,9 +3123,15 @@ func (r *CodeBaseIntegrationResource) Update(ctx context.Context, req resource.U
 				if GithubEnterpriseData, ok := blockData["github_enterprise"].(map[string]interface{}); ok {
 					return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseModel{
 						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenModel {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GithubEnterprise != nil && data.CodeBaseIntegration.GithubEnterprise.AccessToken != nil {
+								return data.CodeBaseIntegration.GithubEnterprise.AccessToken
+							}
 							if AccessTokenData, ok := GithubEnterpriseData["access_token"].(map[string]interface{}); ok {
 								return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenModel{
 									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenBlindfoldSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GithubEnterprise != nil && data.CodeBaseIntegration.GithubEnterprise.AccessToken != nil && data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo != nil {
+											return data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -2971,6 +3157,9 @@ func (r *CodeBaseIntegrationResource) Update(ctx context.Context, req resource.U
 										return nil
 									}(),
 									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenClearSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GithubEnterprise != nil && data.CodeBaseIntegration.GithubEnterprise.AccessToken != nil && data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo != nil {
+											return data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGithubEnterpriseAccessTokenClearSecretInfoModel{
 												Provider: func() types.String {
@@ -3016,9 +3205,15 @@ func (r *CodeBaseIntegrationResource) Update(ctx context.Context, req resource.U
 				if GitlabData, ok := blockData["gitlab"].(map[string]interface{}); ok {
 					return &CodeBaseIntegrationCodeBaseIntegrationGitlabModel{
 						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenModel {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Gitlab != nil && data.CodeBaseIntegration.Gitlab.AccessToken != nil {
+								return data.CodeBaseIntegration.Gitlab.AccessToken
+							}
 							if AccessTokenData, ok := GitlabData["access_token"].(map[string]interface{}); ok {
 								return &CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenModel{
 									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenBlindfoldSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Gitlab != nil && data.CodeBaseIntegration.Gitlab.AccessToken != nil && data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo != nil {
+											return data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -3044,6 +3239,9 @@ func (r *CodeBaseIntegrationResource) Update(ctx context.Context, req resource.U
 										return nil
 									}(),
 									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenClearSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.Gitlab != nil && data.CodeBaseIntegration.Gitlab.AccessToken != nil && data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo != nil {
+											return data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGitlabAccessTokenClearSecretInfoModel{
 												Provider: func() types.String {
@@ -3077,9 +3275,15 @@ func (r *CodeBaseIntegrationResource) Update(ctx context.Context, req resource.U
 				if GitlabEnterpriseData, ok := blockData["gitlab_enterprise"].(map[string]interface{}); ok {
 					return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseModel{
 						AccessToken: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenModel {
+							if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GitlabEnterprise != nil && data.CodeBaseIntegration.GitlabEnterprise.AccessToken != nil {
+								return data.CodeBaseIntegration.GitlabEnterprise.AccessToken
+							}
 							if AccessTokenData, ok := GitlabEnterpriseData["access_token"].(map[string]interface{}); ok {
 								return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenModel{
 									BlindfoldSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenBlindfoldSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GitlabEnterprise != nil && data.CodeBaseIntegration.GitlabEnterprise.AccessToken != nil && data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo != nil {
+											return data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AccessTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -3105,6 +3309,9 @@ func (r *CodeBaseIntegrationResource) Update(ctx context.Context, req resource.U
 										return nil
 									}(),
 									ClearSecretInfo: func() *CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenClearSecretInfoModel {
+										if !isImport && data.CodeBaseIntegration != nil && data.CodeBaseIntegration.GitlabEnterprise != nil && data.CodeBaseIntegration.GitlabEnterprise.AccessToken != nil && data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo != nil {
+											return data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AccessTokenData["clear_secret_info"].(map[string]interface{}); ok {
 											return &CodeBaseIntegrationCodeBaseIntegrationGitlabEnterpriseAccessTokenClearSecretInfoModel{
 												Provider: func() types.String {

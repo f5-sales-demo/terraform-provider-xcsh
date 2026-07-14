@@ -967,18 +967,27 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if ResponseCacheParametersData, ok := blockData["response_cache_parameters"].(map[string]interface{}); ok {
 					return &DNSLoadBalancerResponseCacheResponseCacheParametersModel{
 						CacheCIDRIpv4: func() types.Int64 {
+							if !isImport && data.ResponseCache != nil && data.ResponseCache.ResponseCacheParameters != nil && !data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv4.IsUnknown() {
+								return data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv4
+							}
 							if v, ok := ResponseCacheParametersData["cache_cidr_ipv4"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						CacheCIDRIpv6: func() types.Int64 {
+							if !isImport && data.ResponseCache != nil && data.ResponseCache.ResponseCacheParameters != nil && !data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv6.IsUnknown() {
+								return data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv6
+							}
 							if v, ok := ResponseCacheParametersData["cache_cidr_ipv6"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						CacheTTL: func() types.Int64 {
+							if !isImport && data.ResponseCache != nil && data.ResponseCache.ResponseCacheParameters != nil && !data.ResponseCache.ResponseCacheParameters.CacheTTL.IsUnknown() {
+								return data.ResponseCache.ResponseCacheParameters.CacheTTL
+							}
 							if v, ok := ResponseCacheParametersData["cache_ttl"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -996,9 +1005,14 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if !isImport && data.RuleList != nil && (data.RuleList.Rules.IsNull() || len(data.RuleList.Rules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSLoadBalancerRuleListRulesModelAttrTypes})
 				}
+				var RulesExisting []DNSLoadBalancerRuleListRulesModel
+				if !isImport && data.RuleList != nil && !data.RuleList.Rules.IsNull() && !data.RuleList.Rules.IsUnknown() {
+					data.RuleList.Rules.ElementsAs(ctx, &RulesExisting, false)
+				}
 				if rawList, ok := blockData["rules"].([]interface{}); ok && len(rawList) > 0 {
 					var RulesResult []DNSLoadBalancerRuleListRulesModel
-					for _, RulesItem := range rawList {
+					for RulesIdx, RulesItem := range rawList {
+						_ = RulesIdx
 						if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 							RulesResult = append(RulesResult, DNSLoadBalancerRuleListRulesModel{
 								AsnList: func() *DNSLoadBalancerRuleListRulesAsnListModel {
@@ -1025,9 +1039,17 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									if AsnMatcherData, ok := RulesItemMap["asn_matcher"].(map[string]interface{}); ok {
 										return &DNSLoadBalancerRuleListRulesAsnMatcherModel{
 											AsnSets: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AsnMatcher != nil && (RulesExisting[RulesIdx].AsnMatcher.AsnSets.IsNull() || len(RulesExisting[RulesIdx].AsnMatcher.AsnSets.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSLoadBalancerRuleListRulesAsnMatcherAsnSetsModelAttrTypes})
+												}
+												var AsnSetsExisting []DNSLoadBalancerRuleListRulesAsnMatcherAsnSetsModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AsnMatcher != nil && !RulesExisting[RulesIdx].AsnMatcher.AsnSets.IsNull() && !RulesExisting[RulesIdx].AsnMatcher.AsnSets.IsUnknown() {
+													RulesExisting[RulesIdx].AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+												}
 												if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 													var AsnSetsResult []DNSLoadBalancerRuleListRulesAsnMatcherAsnSetsModel
-													for _, AsnSetsItem := range rawList {
+													for AsnSetsIdx, AsnSetsItem := range rawList {
+														_ = AsnSetsIdx
 														if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 															AsnSetsResult = append(AsnSetsResult, DNSLoadBalancerRuleListRulesAsnMatcherAsnSetsModel{
 																Kind: func() types.String {
@@ -1121,6 +1143,9 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									if IPPrefixListData, ok := RulesItemMap["ip_prefix_list"].(map[string]interface{}); ok {
 										return &DNSLoadBalancerRuleListRulesIPPrefixListModel{
 											InvertMatch: func() types.Bool {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].IPPrefixList != nil && !RulesExisting[RulesIdx].IPPrefixList.InvertMatch.IsUnknown() {
+													return RulesExisting[RulesIdx].IPPrefixList.InvertMatch
+												}
 												if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -1147,15 +1172,26 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									if IPPrefixSetData, ok := RulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
 										return &DNSLoadBalancerRuleListRulesIPPrefixSetModel{
 											InvertMatcher: func() types.Bool {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].IPPrefixSet != nil && !RulesExisting[RulesIdx].IPPrefixSet.InvertMatcher.IsUnknown() {
+													return RulesExisting[RulesIdx].IPPrefixSet.InvertMatcher
+												}
 												if v, ok := IPPrefixSetData["invert_matcher"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											PrefixSets: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].IPPrefixSet != nil && (RulesExisting[RulesIdx].IPPrefixSet.PrefixSets.IsNull() || len(RulesExisting[RulesIdx].IPPrefixSet.PrefixSets.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSLoadBalancerRuleListRulesIPPrefixSetPrefixSetsModelAttrTypes})
+												}
+												var PrefixSetsExisting []DNSLoadBalancerRuleListRulesIPPrefixSetPrefixSetsModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].IPPrefixSet != nil && !RulesExisting[RulesIdx].IPPrefixSet.PrefixSets.IsNull() && !RulesExisting[RulesIdx].IPPrefixSet.PrefixSets.IsUnknown() {
+													RulesExisting[RulesIdx].IPPrefixSet.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+												}
 												if rawList, ok := IPPrefixSetData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 													var PrefixSetsResult []DNSLoadBalancerRuleListRulesIPPrefixSetPrefixSetsModel
-													for _, PrefixSetsItem := range rawList {
+													for PrefixSetsIdx, PrefixSetsItem := range rawList {
+														_ = PrefixSetsIdx
 														if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 															PrefixSetsResult = append(PrefixSetsResult, DNSLoadBalancerRuleListRulesIPPrefixSetPrefixSetsModel{
 																Kind: func() types.String {
@@ -1388,18 +1424,27 @@ func (r *DNSLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if ResponseCacheParametersData, ok := blockData["response_cache_parameters"].(map[string]interface{}); ok {
 					return &DNSLoadBalancerResponseCacheResponseCacheParametersModel{
 						CacheCIDRIpv4: func() types.Int64 {
+							if !isImport && data.ResponseCache != nil && data.ResponseCache.ResponseCacheParameters != nil && !data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv4.IsUnknown() {
+								return data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv4
+							}
 							if v, ok := ResponseCacheParametersData["cache_cidr_ipv4"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						CacheCIDRIpv6: func() types.Int64 {
+							if !isImport && data.ResponseCache != nil && data.ResponseCache.ResponseCacheParameters != nil && !data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv6.IsUnknown() {
+								return data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv6
+							}
 							if v, ok := ResponseCacheParametersData["cache_cidr_ipv6"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						CacheTTL: func() types.Int64 {
+							if !isImport && data.ResponseCache != nil && data.ResponseCache.ResponseCacheParameters != nil && !data.ResponseCache.ResponseCacheParameters.CacheTTL.IsUnknown() {
+								return data.ResponseCache.ResponseCacheParameters.CacheTTL
+							}
 							if v, ok := ResponseCacheParametersData["cache_ttl"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -1417,9 +1462,14 @@ func (r *DNSLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if !isImport && data.RuleList != nil && (data.RuleList.Rules.IsNull() || len(data.RuleList.Rules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSLoadBalancerRuleListRulesModelAttrTypes})
 				}
+				var RulesExisting []DNSLoadBalancerRuleListRulesModel
+				if !isImport && data.RuleList != nil && !data.RuleList.Rules.IsNull() && !data.RuleList.Rules.IsUnknown() {
+					data.RuleList.Rules.ElementsAs(ctx, &RulesExisting, false)
+				}
 				if rawList, ok := blockData["rules"].([]interface{}); ok && len(rawList) > 0 {
 					var RulesResult []DNSLoadBalancerRuleListRulesModel
-					for _, RulesItem := range rawList {
+					for RulesIdx, RulesItem := range rawList {
+						_ = RulesIdx
 						if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 							RulesResult = append(RulesResult, DNSLoadBalancerRuleListRulesModel{
 								AsnList: func() *DNSLoadBalancerRuleListRulesAsnListModel {
@@ -1446,9 +1496,17 @@ func (r *DNSLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 									if AsnMatcherData, ok := RulesItemMap["asn_matcher"].(map[string]interface{}); ok {
 										return &DNSLoadBalancerRuleListRulesAsnMatcherModel{
 											AsnSets: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AsnMatcher != nil && (RulesExisting[RulesIdx].AsnMatcher.AsnSets.IsNull() || len(RulesExisting[RulesIdx].AsnMatcher.AsnSets.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSLoadBalancerRuleListRulesAsnMatcherAsnSetsModelAttrTypes})
+												}
+												var AsnSetsExisting []DNSLoadBalancerRuleListRulesAsnMatcherAsnSetsModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AsnMatcher != nil && !RulesExisting[RulesIdx].AsnMatcher.AsnSets.IsNull() && !RulesExisting[RulesIdx].AsnMatcher.AsnSets.IsUnknown() {
+													RulesExisting[RulesIdx].AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+												}
 												if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 													var AsnSetsResult []DNSLoadBalancerRuleListRulesAsnMatcherAsnSetsModel
-													for _, AsnSetsItem := range rawList {
+													for AsnSetsIdx, AsnSetsItem := range rawList {
+														_ = AsnSetsIdx
 														if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 															AsnSetsResult = append(AsnSetsResult, DNSLoadBalancerRuleListRulesAsnMatcherAsnSetsModel{
 																Kind: func() types.String {
@@ -1542,6 +1600,9 @@ func (r *DNSLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 									if IPPrefixListData, ok := RulesItemMap["ip_prefix_list"].(map[string]interface{}); ok {
 										return &DNSLoadBalancerRuleListRulesIPPrefixListModel{
 											InvertMatch: func() types.Bool {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].IPPrefixList != nil && !RulesExisting[RulesIdx].IPPrefixList.InvertMatch.IsUnknown() {
+													return RulesExisting[RulesIdx].IPPrefixList.InvertMatch
+												}
 												if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -1568,15 +1629,26 @@ func (r *DNSLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 									if IPPrefixSetData, ok := RulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
 										return &DNSLoadBalancerRuleListRulesIPPrefixSetModel{
 											InvertMatcher: func() types.Bool {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].IPPrefixSet != nil && !RulesExisting[RulesIdx].IPPrefixSet.InvertMatcher.IsUnknown() {
+													return RulesExisting[RulesIdx].IPPrefixSet.InvertMatcher
+												}
 												if v, ok := IPPrefixSetData["invert_matcher"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											PrefixSets: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].IPPrefixSet != nil && (RulesExisting[RulesIdx].IPPrefixSet.PrefixSets.IsNull() || len(RulesExisting[RulesIdx].IPPrefixSet.PrefixSets.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSLoadBalancerRuleListRulesIPPrefixSetPrefixSetsModelAttrTypes})
+												}
+												var PrefixSetsExisting []DNSLoadBalancerRuleListRulesIPPrefixSetPrefixSetsModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].IPPrefixSet != nil && !RulesExisting[RulesIdx].IPPrefixSet.PrefixSets.IsNull() && !RulesExisting[RulesIdx].IPPrefixSet.PrefixSets.IsUnknown() {
+													RulesExisting[RulesIdx].IPPrefixSet.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+												}
 												if rawList, ok := IPPrefixSetData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 													var PrefixSetsResult []DNSLoadBalancerRuleListRulesIPPrefixSetPrefixSetsModel
-													for _, PrefixSetsItem := range rawList {
+													for PrefixSetsIdx, PrefixSetsItem := range rawList {
+														_ = PrefixSetsIdx
 														if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 															PrefixSetsResult = append(PrefixSetsResult, DNSLoadBalancerRuleListRulesIPPrefixSetPrefixSetsModel{
 																Kind: func() types.String {
@@ -1994,18 +2066,27 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if ResponseCacheParametersData, ok := blockData["response_cache_parameters"].(map[string]interface{}); ok {
 					return &DNSLoadBalancerResponseCacheResponseCacheParametersModel{
 						CacheCIDRIpv4: func() types.Int64 {
+							if !isImport && data.ResponseCache != nil && data.ResponseCache.ResponseCacheParameters != nil && !data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv4.IsUnknown() {
+								return data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv4
+							}
 							if v, ok := ResponseCacheParametersData["cache_cidr_ipv4"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						CacheCIDRIpv6: func() types.Int64 {
+							if !isImport && data.ResponseCache != nil && data.ResponseCache.ResponseCacheParameters != nil && !data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv6.IsUnknown() {
+								return data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv6
+							}
 							if v, ok := ResponseCacheParametersData["cache_cidr_ipv6"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						CacheTTL: func() types.Int64 {
+							if !isImport && data.ResponseCache != nil && data.ResponseCache.ResponseCacheParameters != nil && !data.ResponseCache.ResponseCacheParameters.CacheTTL.IsUnknown() {
+								return data.ResponseCache.ResponseCacheParameters.CacheTTL
+							}
 							if v, ok := ResponseCacheParametersData["cache_ttl"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -2023,9 +2104,14 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if !isImport && data.RuleList != nil && (data.RuleList.Rules.IsNull() || len(data.RuleList.Rules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSLoadBalancerRuleListRulesModelAttrTypes})
 				}
+				var RulesExisting []DNSLoadBalancerRuleListRulesModel
+				if !isImport && data.RuleList != nil && !data.RuleList.Rules.IsNull() && !data.RuleList.Rules.IsUnknown() {
+					data.RuleList.Rules.ElementsAs(ctx, &RulesExisting, false)
+				}
 				if rawList, ok := blockData["rules"].([]interface{}); ok && len(rawList) > 0 {
 					var RulesResult []DNSLoadBalancerRuleListRulesModel
-					for _, RulesItem := range rawList {
+					for RulesIdx, RulesItem := range rawList {
+						_ = RulesIdx
 						if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 							RulesResult = append(RulesResult, DNSLoadBalancerRuleListRulesModel{
 								AsnList: func() *DNSLoadBalancerRuleListRulesAsnListModel {
@@ -2052,9 +2138,17 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									if AsnMatcherData, ok := RulesItemMap["asn_matcher"].(map[string]interface{}); ok {
 										return &DNSLoadBalancerRuleListRulesAsnMatcherModel{
 											AsnSets: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AsnMatcher != nil && (RulesExisting[RulesIdx].AsnMatcher.AsnSets.IsNull() || len(RulesExisting[RulesIdx].AsnMatcher.AsnSets.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSLoadBalancerRuleListRulesAsnMatcherAsnSetsModelAttrTypes})
+												}
+												var AsnSetsExisting []DNSLoadBalancerRuleListRulesAsnMatcherAsnSetsModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AsnMatcher != nil && !RulesExisting[RulesIdx].AsnMatcher.AsnSets.IsNull() && !RulesExisting[RulesIdx].AsnMatcher.AsnSets.IsUnknown() {
+													RulesExisting[RulesIdx].AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+												}
 												if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 													var AsnSetsResult []DNSLoadBalancerRuleListRulesAsnMatcherAsnSetsModel
-													for _, AsnSetsItem := range rawList {
+													for AsnSetsIdx, AsnSetsItem := range rawList {
+														_ = AsnSetsIdx
 														if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 															AsnSetsResult = append(AsnSetsResult, DNSLoadBalancerRuleListRulesAsnMatcherAsnSetsModel{
 																Kind: func() types.String {
@@ -2148,6 +2242,9 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									if IPPrefixListData, ok := RulesItemMap["ip_prefix_list"].(map[string]interface{}); ok {
 										return &DNSLoadBalancerRuleListRulesIPPrefixListModel{
 											InvertMatch: func() types.Bool {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].IPPrefixList != nil && !RulesExisting[RulesIdx].IPPrefixList.InvertMatch.IsUnknown() {
+													return RulesExisting[RulesIdx].IPPrefixList.InvertMatch
+												}
 												if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -2174,15 +2271,26 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									if IPPrefixSetData, ok := RulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
 										return &DNSLoadBalancerRuleListRulesIPPrefixSetModel{
 											InvertMatcher: func() types.Bool {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].IPPrefixSet != nil && !RulesExisting[RulesIdx].IPPrefixSet.InvertMatcher.IsUnknown() {
+													return RulesExisting[RulesIdx].IPPrefixSet.InvertMatcher
+												}
 												if v, ok := IPPrefixSetData["invert_matcher"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											PrefixSets: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].IPPrefixSet != nil && (RulesExisting[RulesIdx].IPPrefixSet.PrefixSets.IsNull() || len(RulesExisting[RulesIdx].IPPrefixSet.PrefixSets.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSLoadBalancerRuleListRulesIPPrefixSetPrefixSetsModelAttrTypes})
+												}
+												var PrefixSetsExisting []DNSLoadBalancerRuleListRulesIPPrefixSetPrefixSetsModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].IPPrefixSet != nil && !RulesExisting[RulesIdx].IPPrefixSet.PrefixSets.IsNull() && !RulesExisting[RulesIdx].IPPrefixSet.PrefixSets.IsUnknown() {
+													RulesExisting[RulesIdx].IPPrefixSet.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+												}
 												if rawList, ok := IPPrefixSetData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 													var PrefixSetsResult []DNSLoadBalancerRuleListRulesIPPrefixSetPrefixSetsModel
-													for _, PrefixSetsItem := range rawList {
+													for PrefixSetsIdx, PrefixSetsItem := range rawList {
+														_ = PrefixSetsIdx
 														if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 															PrefixSetsResult = append(PrefixSetsResult, DNSLoadBalancerRuleListRulesIPPrefixSetPrefixSetsModel{
 																Kind: func() types.String {

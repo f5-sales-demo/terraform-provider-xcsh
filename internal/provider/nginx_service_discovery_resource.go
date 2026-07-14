@@ -532,9 +532,17 @@ func (r *NginxServiceDiscoveryResource) Create(ctx context.Context, req resource
 				if ConfigSyncGroupData, ok := blockData["config_sync_group"].(map[string]interface{}); ok {
 					return &NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupModel{
 						ConfigSyncGroup: func() types.List {
+							if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.ConfigSyncGroup != nil && (data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.IsNull() || len(data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModelAttrTypes})
+							}
+							var ConfigSyncGroupExisting []NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModel
+							if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.ConfigSyncGroup != nil && !data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.IsNull() && !data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.IsUnknown() {
+								data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.ElementsAs(ctx, &ConfigSyncGroupExisting, false)
+							}
 							if rawList, ok := ConfigSyncGroupData["config_sync_group"].([]interface{}); ok && len(rawList) > 0 {
 								var ConfigSyncGroupResult []NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModel
-								for _, ConfigSyncGroupItem := range rawList {
+								for ConfigSyncGroupIdx, ConfigSyncGroupItem := range rawList {
+									_ = ConfigSyncGroupIdx
 									if ConfigSyncGroupItemMap, ok := ConfigSyncGroupItem.(map[string]interface{}); ok {
 										ConfigSyncGroupResult = append(ConfigSyncGroupResult, NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModel{
 											Kind: func() types.String {
@@ -583,9 +591,17 @@ func (r *NginxServiceDiscoveryResource) Create(ctx context.Context, req resource
 				if NginxInstanceData, ok := blockData["nginx_instance"].(map[string]interface{}); ok {
 					return &NginxServiceDiscoveryDiscoveryTargetNginxInstanceModel{
 						NginxInstance: func() types.List {
+							if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.NginxInstance != nil && (data.DiscoveryTarget.NginxInstance.NginxInstance.IsNull() || len(data.DiscoveryTarget.NginxInstance.NginxInstance.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModelAttrTypes})
+							}
+							var NginxInstanceExisting []NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModel
+							if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.NginxInstance != nil && !data.DiscoveryTarget.NginxInstance.NginxInstance.IsNull() && !data.DiscoveryTarget.NginxInstance.NginxInstance.IsUnknown() {
+								data.DiscoveryTarget.NginxInstance.NginxInstance.ElementsAs(ctx, &NginxInstanceExisting, false)
+							}
 							if rawList, ok := NginxInstanceData["nginx_instance"].([]interface{}); ok && len(rawList) > 0 {
 								var NginxInstanceResult []NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModel
-								for _, NginxInstanceItem := range rawList {
+								for NginxInstanceIdx, NginxInstanceItem := range rawList {
+									_ = NginxInstanceIdx
 									if NginxInstanceItemMap, ok := NginxInstanceItem.(map[string]interface{}); ok {
 										NginxInstanceResult = append(NginxInstanceResult, NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModel{
 											Kind: func() types.String {
@@ -766,9 +782,17 @@ func (r *NginxServiceDiscoveryResource) Read(ctx context.Context, req resource.R
 				if ConfigSyncGroupData, ok := blockData["config_sync_group"].(map[string]interface{}); ok {
 					return &NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupModel{
 						ConfigSyncGroup: func() types.List {
+							if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.ConfigSyncGroup != nil && (data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.IsNull() || len(data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModelAttrTypes})
+							}
+							var ConfigSyncGroupExisting []NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModel
+							if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.ConfigSyncGroup != nil && !data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.IsNull() && !data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.IsUnknown() {
+								data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.ElementsAs(ctx, &ConfigSyncGroupExisting, false)
+							}
 							if rawList, ok := ConfigSyncGroupData["config_sync_group"].([]interface{}); ok && len(rawList) > 0 {
 								var ConfigSyncGroupResult []NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModel
-								for _, ConfigSyncGroupItem := range rawList {
+								for ConfigSyncGroupIdx, ConfigSyncGroupItem := range rawList {
+									_ = ConfigSyncGroupIdx
 									if ConfigSyncGroupItemMap, ok := ConfigSyncGroupItem.(map[string]interface{}); ok {
 										ConfigSyncGroupResult = append(ConfigSyncGroupResult, NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModel{
 											Kind: func() types.String {
@@ -817,9 +841,17 @@ func (r *NginxServiceDiscoveryResource) Read(ctx context.Context, req resource.R
 				if NginxInstanceData, ok := blockData["nginx_instance"].(map[string]interface{}); ok {
 					return &NginxServiceDiscoveryDiscoveryTargetNginxInstanceModel{
 						NginxInstance: func() types.List {
+							if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.NginxInstance != nil && (data.DiscoveryTarget.NginxInstance.NginxInstance.IsNull() || len(data.DiscoveryTarget.NginxInstance.NginxInstance.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModelAttrTypes})
+							}
+							var NginxInstanceExisting []NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModel
+							if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.NginxInstance != nil && !data.DiscoveryTarget.NginxInstance.NginxInstance.IsNull() && !data.DiscoveryTarget.NginxInstance.NginxInstance.IsUnknown() {
+								data.DiscoveryTarget.NginxInstance.NginxInstance.ElementsAs(ctx, &NginxInstanceExisting, false)
+							}
 							if rawList, ok := NginxInstanceData["nginx_instance"].([]interface{}); ok && len(rawList) > 0 {
 								var NginxInstanceResult []NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModel
-								for _, NginxInstanceItem := range rawList {
+								for NginxInstanceIdx, NginxInstanceItem := range rawList {
+									_ = NginxInstanceIdx
 									if NginxInstanceItemMap, ok := NginxInstanceItem.(map[string]interface{}); ok {
 										NginxInstanceResult = append(NginxInstanceResult, NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModel{
 											Kind: func() types.String {
@@ -1077,9 +1109,17 @@ func (r *NginxServiceDiscoveryResource) Update(ctx context.Context, req resource
 				if ConfigSyncGroupData, ok := blockData["config_sync_group"].(map[string]interface{}); ok {
 					return &NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupModel{
 						ConfigSyncGroup: func() types.List {
+							if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.ConfigSyncGroup != nil && (data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.IsNull() || len(data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModelAttrTypes})
+							}
+							var ConfigSyncGroupExisting []NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModel
+							if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.ConfigSyncGroup != nil && !data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.IsNull() && !data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.IsUnknown() {
+								data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.ElementsAs(ctx, &ConfigSyncGroupExisting, false)
+							}
 							if rawList, ok := ConfigSyncGroupData["config_sync_group"].([]interface{}); ok && len(rawList) > 0 {
 								var ConfigSyncGroupResult []NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModel
-								for _, ConfigSyncGroupItem := range rawList {
+								for ConfigSyncGroupIdx, ConfigSyncGroupItem := range rawList {
+									_ = ConfigSyncGroupIdx
 									if ConfigSyncGroupItemMap, ok := ConfigSyncGroupItem.(map[string]interface{}); ok {
 										ConfigSyncGroupResult = append(ConfigSyncGroupResult, NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModel{
 											Kind: func() types.String {
@@ -1128,9 +1168,17 @@ func (r *NginxServiceDiscoveryResource) Update(ctx context.Context, req resource
 				if NginxInstanceData, ok := blockData["nginx_instance"].(map[string]interface{}); ok {
 					return &NginxServiceDiscoveryDiscoveryTargetNginxInstanceModel{
 						NginxInstance: func() types.List {
+							if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.NginxInstance != nil && (data.DiscoveryTarget.NginxInstance.NginxInstance.IsNull() || len(data.DiscoveryTarget.NginxInstance.NginxInstance.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModelAttrTypes})
+							}
+							var NginxInstanceExisting []NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModel
+							if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.NginxInstance != nil && !data.DiscoveryTarget.NginxInstance.NginxInstance.IsNull() && !data.DiscoveryTarget.NginxInstance.NginxInstance.IsUnknown() {
+								data.DiscoveryTarget.NginxInstance.NginxInstance.ElementsAs(ctx, &NginxInstanceExisting, false)
+							}
 							if rawList, ok := NginxInstanceData["nginx_instance"].([]interface{}); ok && len(rawList) > 0 {
 								var NginxInstanceResult []NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModel
-								for _, NginxInstanceItem := range rawList {
+								for NginxInstanceIdx, NginxInstanceItem := range rawList {
+									_ = NginxInstanceIdx
 									if NginxInstanceItemMap, ok := NginxInstanceItem.(map[string]interface{}); ok {
 										NginxInstanceResult = append(NginxInstanceResult, NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModel{
 											Kind: func() types.String {

@@ -4493,9 +4493,14 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 				if !isImport && data.Primary != nil && (data.Primary.DefaultRrSetGroup.IsNull() || len(data.Primary.DefaultRrSetGroup.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupModelAttrTypes})
 				}
+				var DefaultRrSetGroupExisting []DNSZonePrimaryDefaultRrSetGroupModel
+				if !isImport && data.Primary != nil && !data.Primary.DefaultRrSetGroup.IsNull() && !data.Primary.DefaultRrSetGroup.IsUnknown() {
+					data.Primary.DefaultRrSetGroup.ElementsAs(ctx, &DefaultRrSetGroupExisting, false)
+				}
 				if rawList, ok := blockData["default_rr_set_group"].([]interface{}); ok && len(rawList) > 0 {
 					var DefaultRrSetGroupResult []DNSZonePrimaryDefaultRrSetGroupModel
-					for _, DefaultRrSetGroupItem := range rawList {
+					for DefaultRrSetGroupIdx, DefaultRrSetGroupItem := range rawList {
+						_ = DefaultRrSetGroupIdx
 						if DefaultRrSetGroupItemMap, ok := DefaultRrSetGroupItem.(map[string]interface{}); ok {
 							DefaultRrSetGroupResult = append(DefaultRrSetGroupResult, DNSZonePrimaryDefaultRrSetGroupModel{
 								ARecord: func() *DNSZonePrimaryDefaultRrSetGroupARecordModel {
@@ -4560,9 +4565,17 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].AfsdbRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].AfsdbRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].AfsdbRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].AfsdbRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].AfsdbRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].AfsdbRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].AfsdbRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := AfsdbRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModel{
 																Hostname: func() types.String {
@@ -4612,9 +4625,17 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CaaRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CaaRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CaaRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CaaRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CaaRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CaaRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CaaRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := CaaRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModel{
 																Flags: func() types.Int64 {
@@ -4657,9 +4678,17 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CdsRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CdsRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CdsRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CdsRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CdsRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CdsRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CdsRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := CdsRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModel{
 																DsKeyAlgorithm: func() types.String {
@@ -4735,9 +4764,17 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CertRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CertRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CertRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CertRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CertRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CertRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CertRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := CertRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModel{
 																Algorithm: func() types.String {
@@ -4811,9 +4848,17 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].DsRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].DsRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].DsRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].DsRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].DsRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].DsRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].DsRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := DsRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModel{
 																DsKeyAlgorithm: func() types.String {
@@ -4965,9 +5010,17 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].LocRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].LocRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].LocRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].LocRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].LocRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].LocRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].LocRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := LocRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModel{
 																Altitude: func() types.Int64 {
@@ -5064,9 +5117,17 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].MxRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].MxRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].MxRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].MxRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].MxRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].MxRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].MxRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := MxRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModel{
 																Domain: func() types.String {
@@ -5103,9 +5164,17 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].NaptrRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].NaptrRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].NaptrRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].NaptrRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].NaptrRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].NaptrRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].NaptrRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := NaptrRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModel{
 																Flags: func() types.String {
@@ -5218,9 +5287,17 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SrvRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SrvRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SrvRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SrvRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SrvRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SrvRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SrvRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := SrvRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModel{
 																Port: func() types.Int64 {
@@ -5269,9 +5346,17 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SshfpRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SshfpRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SshfpRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SshfpRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SshfpRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SshfpRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SshfpRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := SshfpRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModel{
 																Algorithm: func() types.String {
@@ -5328,9 +5413,17 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].TlsaRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].TlsaRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].TlsaRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].TlsaRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].TlsaRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].TlsaRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].TlsaRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := TlsaRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModel{
 																CertificateAssociationData: func() types.String {
@@ -5425,12 +5518,18 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 				if DnssecModeData, ok := blockData["dnssec_mode"].(map[string]interface{}); ok {
 					return &DNSZonePrimaryDnssecModeModel{
 						DisableSpec: func() *DNSZoneEmptyModel {
+							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
+								return data.Primary.DnssecMode.DisableSpec
+							}
 							if _, ok := DnssecModeData["disable"].(map[string]interface{}); ok {
 								return &DNSZoneEmptyModel{}
 							}
 							return nil
 						}(),
 						Enable: func() *DNSZoneEmptyModel {
+							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
+								return data.Primary.DnssecMode.Enable
+							}
 							if _, ok := DnssecModeData["enable"].(map[string]interface{}); ok {
 								return &DNSZoneEmptyModel{}
 							}
@@ -5444,9 +5543,14 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 				if !isImport && data.Primary != nil && (data.Primary.RrSetGroup.IsNull() || len(data.Primary.RrSetGroup.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupModelAttrTypes})
 				}
+				var RrSetGroupExisting []DNSZonePrimaryRrSetGroupModel
+				if !isImport && data.Primary != nil && !data.Primary.RrSetGroup.IsNull() && !data.Primary.RrSetGroup.IsUnknown() {
+					data.Primary.RrSetGroup.ElementsAs(ctx, &RrSetGroupExisting, false)
+				}
 				if rawList, ok := blockData["rr_set_group"].([]interface{}); ok && len(rawList) > 0 {
 					var RrSetGroupResult []DNSZonePrimaryRrSetGroupModel
-					for _, RrSetGroupItem := range rawList {
+					for RrSetGroupIdx, RrSetGroupItem := range rawList {
+						_ = RrSetGroupIdx
 						if RrSetGroupItemMap, ok := RrSetGroupItem.(map[string]interface{}); ok {
 							RrSetGroupResult = append(RrSetGroupResult, DNSZonePrimaryRrSetGroupModel{
 								Metadata: func() *DNSZonePrimaryRrSetGroupMetadataModel {
@@ -6400,30 +6504,45 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 				if SoaParametersData, ok := blockData["soa_parameters"].(map[string]interface{}); ok {
 					return &DNSZonePrimarySoaParametersModel{
 						Expire: func() types.Int64 {
+							if !isImport && data.Primary != nil && data.Primary.SoaParameters != nil && !data.Primary.SoaParameters.Expire.IsUnknown() {
+								return data.Primary.SoaParameters.Expire
+							}
 							if v, ok := SoaParametersData["expire"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						NegativeTTL: func() types.Int64 {
+							if !isImport && data.Primary != nil && data.Primary.SoaParameters != nil && !data.Primary.SoaParameters.NegativeTTL.IsUnknown() {
+								return data.Primary.SoaParameters.NegativeTTL
+							}
 							if v, ok := SoaParametersData["negative_ttl"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Refresh: func() types.Int64 {
+							if !isImport && data.Primary != nil && data.Primary.SoaParameters != nil && !data.Primary.SoaParameters.Refresh.IsUnknown() {
+								return data.Primary.SoaParameters.Refresh
+							}
 							if v, ok := SoaParametersData["refresh"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Retry: func() types.Int64 {
+							if !isImport && data.Primary != nil && data.Primary.SoaParameters != nil && !data.Primary.SoaParameters.Retry.IsUnknown() {
+								return data.Primary.SoaParameters.Retry
+							}
 							if v, ok := SoaParametersData["retry"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						TTL: func() types.Int64 {
+							if !isImport && data.Primary != nil && data.Primary.SoaParameters != nil && !data.Primary.SoaParameters.TTL.IsUnknown() {
+								return data.Primary.SoaParameters.TTL
+							}
 							if v, ok := SoaParametersData["ttl"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -6469,6 +6588,9 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 				if TsigKeyValueData, ok := blockData["tsig_key_value"].(map[string]interface{}); ok {
 					return &DNSZoneSecondaryTsigKeyValueModel{
 						BlindfoldSecretInfo: func() *DNSZoneSecondaryTsigKeyValueBlindfoldSecretInfoModel {
+							if !isImport && data.Secondary != nil && data.Secondary.TsigKeyValue != nil && data.Secondary.TsigKeyValue.BlindfoldSecretInfo != nil {
+								return data.Secondary.TsigKeyValue.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := TsigKeyValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &DNSZoneSecondaryTsigKeyValueBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -6494,6 +6616,9 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 							return nil
 						}(),
 						ClearSecretInfo: func() *DNSZoneSecondaryTsigKeyValueClearSecretInfoModel {
+							if !isImport && data.Secondary != nil && data.Secondary.TsigKeyValue != nil && data.Secondary.TsigKeyValue.ClearSecretInfo != nil {
+								return data.Secondary.TsigKeyValue.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := TsigKeyValueData["clear_secret_info"].(map[string]interface{}); ok {
 								return &DNSZoneSecondaryTsigKeyValueClearSecretInfoModel{
 									Provider: func() types.String {
@@ -6626,9 +6751,14 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 				if !isImport && data.Primary != nil && (data.Primary.DefaultRrSetGroup.IsNull() || len(data.Primary.DefaultRrSetGroup.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupModelAttrTypes})
 				}
+				var DefaultRrSetGroupExisting []DNSZonePrimaryDefaultRrSetGroupModel
+				if !isImport && data.Primary != nil && !data.Primary.DefaultRrSetGroup.IsNull() && !data.Primary.DefaultRrSetGroup.IsUnknown() {
+					data.Primary.DefaultRrSetGroup.ElementsAs(ctx, &DefaultRrSetGroupExisting, false)
+				}
 				if rawList, ok := blockData["default_rr_set_group"].([]interface{}); ok && len(rawList) > 0 {
 					var DefaultRrSetGroupResult []DNSZonePrimaryDefaultRrSetGroupModel
-					for _, DefaultRrSetGroupItem := range rawList {
+					for DefaultRrSetGroupIdx, DefaultRrSetGroupItem := range rawList {
+						_ = DefaultRrSetGroupIdx
 						if DefaultRrSetGroupItemMap, ok := DefaultRrSetGroupItem.(map[string]interface{}); ok {
 							DefaultRrSetGroupResult = append(DefaultRrSetGroupResult, DNSZonePrimaryDefaultRrSetGroupModel{
 								ARecord: func() *DNSZonePrimaryDefaultRrSetGroupARecordModel {
@@ -6693,9 +6823,17 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].AfsdbRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].AfsdbRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].AfsdbRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].AfsdbRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].AfsdbRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].AfsdbRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].AfsdbRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := AfsdbRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModel{
 																Hostname: func() types.String {
@@ -6745,9 +6883,17 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CaaRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CaaRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CaaRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CaaRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CaaRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CaaRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CaaRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := CaaRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModel{
 																Flags: func() types.Int64 {
@@ -6790,9 +6936,17 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CdsRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CdsRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CdsRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CdsRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CdsRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CdsRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CdsRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := CdsRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModel{
 																DsKeyAlgorithm: func() types.String {
@@ -6868,9 +7022,17 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CertRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CertRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CertRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CertRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CertRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CertRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CertRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := CertRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModel{
 																Algorithm: func() types.String {
@@ -6944,9 +7106,17 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].DsRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].DsRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].DsRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].DsRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].DsRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].DsRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].DsRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := DsRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModel{
 																DsKeyAlgorithm: func() types.String {
@@ -7098,9 +7268,17 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].LocRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].LocRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].LocRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].LocRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].LocRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].LocRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].LocRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := LocRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModel{
 																Altitude: func() types.Int64 {
@@ -7197,9 +7375,17 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].MxRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].MxRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].MxRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].MxRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].MxRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].MxRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].MxRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := MxRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModel{
 																Domain: func() types.String {
@@ -7236,9 +7422,17 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].NaptrRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].NaptrRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].NaptrRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].NaptrRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].NaptrRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].NaptrRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].NaptrRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := NaptrRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModel{
 																Flags: func() types.String {
@@ -7351,9 +7545,17 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SrvRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SrvRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SrvRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SrvRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SrvRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SrvRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SrvRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := SrvRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModel{
 																Port: func() types.Int64 {
@@ -7402,9 +7604,17 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SshfpRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SshfpRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SshfpRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SshfpRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SshfpRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SshfpRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SshfpRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := SshfpRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModel{
 																Algorithm: func() types.String {
@@ -7461,9 +7671,17 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].TlsaRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].TlsaRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].TlsaRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].TlsaRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].TlsaRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].TlsaRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].TlsaRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := TlsaRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModel{
 																CertificateAssociationData: func() types.String {
@@ -7558,12 +7776,18 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 				if DnssecModeData, ok := blockData["dnssec_mode"].(map[string]interface{}); ok {
 					return &DNSZonePrimaryDnssecModeModel{
 						DisableSpec: func() *DNSZoneEmptyModel {
+							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
+								return data.Primary.DnssecMode.DisableSpec
+							}
 							if _, ok := DnssecModeData["disable"].(map[string]interface{}); ok {
 								return &DNSZoneEmptyModel{}
 							}
 							return nil
 						}(),
 						Enable: func() *DNSZoneEmptyModel {
+							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
+								return data.Primary.DnssecMode.Enable
+							}
 							if _, ok := DnssecModeData["enable"].(map[string]interface{}); ok {
 								return &DNSZoneEmptyModel{}
 							}
@@ -7577,9 +7801,14 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 				if !isImport && data.Primary != nil && (data.Primary.RrSetGroup.IsNull() || len(data.Primary.RrSetGroup.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupModelAttrTypes})
 				}
+				var RrSetGroupExisting []DNSZonePrimaryRrSetGroupModel
+				if !isImport && data.Primary != nil && !data.Primary.RrSetGroup.IsNull() && !data.Primary.RrSetGroup.IsUnknown() {
+					data.Primary.RrSetGroup.ElementsAs(ctx, &RrSetGroupExisting, false)
+				}
 				if rawList, ok := blockData["rr_set_group"].([]interface{}); ok && len(rawList) > 0 {
 					var RrSetGroupResult []DNSZonePrimaryRrSetGroupModel
-					for _, RrSetGroupItem := range rawList {
+					for RrSetGroupIdx, RrSetGroupItem := range rawList {
+						_ = RrSetGroupIdx
 						if RrSetGroupItemMap, ok := RrSetGroupItem.(map[string]interface{}); ok {
 							RrSetGroupResult = append(RrSetGroupResult, DNSZonePrimaryRrSetGroupModel{
 								Metadata: func() *DNSZonePrimaryRrSetGroupMetadataModel {
@@ -8533,30 +8762,45 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 				if SoaParametersData, ok := blockData["soa_parameters"].(map[string]interface{}); ok {
 					return &DNSZonePrimarySoaParametersModel{
 						Expire: func() types.Int64 {
+							if !isImport && data.Primary != nil && data.Primary.SoaParameters != nil && !data.Primary.SoaParameters.Expire.IsUnknown() {
+								return data.Primary.SoaParameters.Expire
+							}
 							if v, ok := SoaParametersData["expire"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						NegativeTTL: func() types.Int64 {
+							if !isImport && data.Primary != nil && data.Primary.SoaParameters != nil && !data.Primary.SoaParameters.NegativeTTL.IsUnknown() {
+								return data.Primary.SoaParameters.NegativeTTL
+							}
 							if v, ok := SoaParametersData["negative_ttl"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Refresh: func() types.Int64 {
+							if !isImport && data.Primary != nil && data.Primary.SoaParameters != nil && !data.Primary.SoaParameters.Refresh.IsUnknown() {
+								return data.Primary.SoaParameters.Refresh
+							}
 							if v, ok := SoaParametersData["refresh"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Retry: func() types.Int64 {
+							if !isImport && data.Primary != nil && data.Primary.SoaParameters != nil && !data.Primary.SoaParameters.Retry.IsUnknown() {
+								return data.Primary.SoaParameters.Retry
+							}
 							if v, ok := SoaParametersData["retry"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						TTL: func() types.Int64 {
+							if !isImport && data.Primary != nil && data.Primary.SoaParameters != nil && !data.Primary.SoaParameters.TTL.IsUnknown() {
+								return data.Primary.SoaParameters.TTL
+							}
 							if v, ok := SoaParametersData["ttl"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -8602,6 +8846,9 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 				if TsigKeyValueData, ok := blockData["tsig_key_value"].(map[string]interface{}); ok {
 					return &DNSZoneSecondaryTsigKeyValueModel{
 						BlindfoldSecretInfo: func() *DNSZoneSecondaryTsigKeyValueBlindfoldSecretInfoModel {
+							if !isImport && data.Secondary != nil && data.Secondary.TsigKeyValue != nil && data.Secondary.TsigKeyValue.BlindfoldSecretInfo != nil {
+								return data.Secondary.TsigKeyValue.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := TsigKeyValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &DNSZoneSecondaryTsigKeyValueBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -8627,6 +8874,9 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 							return nil
 						}(),
 						ClearSecretInfo: func() *DNSZoneSecondaryTsigKeyValueClearSecretInfoModel {
+							if !isImport && data.Secondary != nil && data.Secondary.TsigKeyValue != nil && data.Secondary.TsigKeyValue.ClearSecretInfo != nil {
+								return data.Secondary.TsigKeyValue.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := TsigKeyValueData["clear_secret_info"].(map[string]interface{}); ok {
 								return &DNSZoneSecondaryTsigKeyValueClearSecretInfoModel{
 									Provider: func() types.String {
@@ -9951,9 +10201,14 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 				if !isImport && data.Primary != nil && (data.Primary.DefaultRrSetGroup.IsNull() || len(data.Primary.DefaultRrSetGroup.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupModelAttrTypes})
 				}
+				var DefaultRrSetGroupExisting []DNSZonePrimaryDefaultRrSetGroupModel
+				if !isImport && data.Primary != nil && !data.Primary.DefaultRrSetGroup.IsNull() && !data.Primary.DefaultRrSetGroup.IsUnknown() {
+					data.Primary.DefaultRrSetGroup.ElementsAs(ctx, &DefaultRrSetGroupExisting, false)
+				}
 				if rawList, ok := blockData["default_rr_set_group"].([]interface{}); ok && len(rawList) > 0 {
 					var DefaultRrSetGroupResult []DNSZonePrimaryDefaultRrSetGroupModel
-					for _, DefaultRrSetGroupItem := range rawList {
+					for DefaultRrSetGroupIdx, DefaultRrSetGroupItem := range rawList {
+						_ = DefaultRrSetGroupIdx
 						if DefaultRrSetGroupItemMap, ok := DefaultRrSetGroupItem.(map[string]interface{}); ok {
 							DefaultRrSetGroupResult = append(DefaultRrSetGroupResult, DNSZonePrimaryDefaultRrSetGroupModel{
 								ARecord: func() *DNSZonePrimaryDefaultRrSetGroupARecordModel {
@@ -10018,9 +10273,17 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].AfsdbRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].AfsdbRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].AfsdbRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].AfsdbRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].AfsdbRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].AfsdbRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].AfsdbRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := AfsdbRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModel{
 																Hostname: func() types.String {
@@ -10070,9 +10333,17 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CaaRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CaaRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CaaRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CaaRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CaaRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CaaRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CaaRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := CaaRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModel{
 																Flags: func() types.Int64 {
@@ -10115,9 +10386,17 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CdsRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CdsRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CdsRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CdsRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CdsRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CdsRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CdsRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := CdsRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModel{
 																DsKeyAlgorithm: func() types.String {
@@ -10193,9 +10472,17 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CertRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CertRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CertRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CertRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CertRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CertRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].CertRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := CertRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModel{
 																Algorithm: func() types.String {
@@ -10269,9 +10556,17 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].DsRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].DsRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].DsRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].DsRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].DsRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].DsRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].DsRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := DsRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModel{
 																DsKeyAlgorithm: func() types.String {
@@ -10423,9 +10718,17 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].LocRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].LocRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].LocRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].LocRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].LocRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].LocRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].LocRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := LocRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModel{
 																Altitude: func() types.Int64 {
@@ -10522,9 +10825,17 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].MxRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].MxRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].MxRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].MxRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].MxRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].MxRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].MxRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := MxRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModel{
 																Domain: func() types.String {
@@ -10561,9 +10872,17 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].NaptrRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].NaptrRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].NaptrRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].NaptrRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].NaptrRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].NaptrRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].NaptrRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := NaptrRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModel{
 																Flags: func() types.String {
@@ -10676,9 +10995,17 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SrvRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SrvRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SrvRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SrvRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SrvRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SrvRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SrvRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := SrvRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModel{
 																Port: func() types.Int64 {
@@ -10727,9 +11054,17 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SshfpRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SshfpRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SshfpRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SshfpRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SshfpRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SshfpRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].SshfpRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := SshfpRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModel{
 																Algorithm: func() types.String {
@@ -10786,9 +11121,17 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												return types.StringNull()
 											}(),
 											Values: func() types.List {
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].TlsaRecord != nil && (DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].TlsaRecord.Values.IsNull() || len(DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].TlsaRecord.Values.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModelAttrTypes})
+												}
+												var ValuesExisting []DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModel
+												if !isImport && len(DefaultRrSetGroupExisting) > DefaultRrSetGroupIdx && DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].TlsaRecord != nil && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].TlsaRecord.Values.IsNull() && !DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].TlsaRecord.Values.IsUnknown() {
+													DefaultRrSetGroupExisting[DefaultRrSetGroupIdx].TlsaRecord.Values.ElementsAs(ctx, &ValuesExisting, false)
+												}
 												if rawList, ok := TlsaRecordData["values"].([]interface{}); ok && len(rawList) > 0 {
 													var ValuesResult []DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModel
-													for _, ValuesItem := range rawList {
+													for ValuesIdx, ValuesItem := range rawList {
+														_ = ValuesIdx
 														if ValuesItemMap, ok := ValuesItem.(map[string]interface{}); ok {
 															ValuesResult = append(ValuesResult, DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModel{
 																CertificateAssociationData: func() types.String {
@@ -10883,12 +11226,18 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 				if DnssecModeData, ok := blockData["dnssec_mode"].(map[string]interface{}); ok {
 					return &DNSZonePrimaryDnssecModeModel{
 						DisableSpec: func() *DNSZoneEmptyModel {
+							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
+								return data.Primary.DnssecMode.DisableSpec
+							}
 							if _, ok := DnssecModeData["disable"].(map[string]interface{}); ok {
 								return &DNSZoneEmptyModel{}
 							}
 							return nil
 						}(),
 						Enable: func() *DNSZoneEmptyModel {
+							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
+								return data.Primary.DnssecMode.Enable
+							}
 							if _, ok := DnssecModeData["enable"].(map[string]interface{}); ok {
 								return &DNSZoneEmptyModel{}
 							}
@@ -10902,9 +11251,14 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 				if !isImport && data.Primary != nil && (data.Primary.RrSetGroup.IsNull() || len(data.Primary.RrSetGroup.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupModelAttrTypes})
 				}
+				var RrSetGroupExisting []DNSZonePrimaryRrSetGroupModel
+				if !isImport && data.Primary != nil && !data.Primary.RrSetGroup.IsNull() && !data.Primary.RrSetGroup.IsUnknown() {
+					data.Primary.RrSetGroup.ElementsAs(ctx, &RrSetGroupExisting, false)
+				}
 				if rawList, ok := blockData["rr_set_group"].([]interface{}); ok && len(rawList) > 0 {
 					var RrSetGroupResult []DNSZonePrimaryRrSetGroupModel
-					for _, RrSetGroupItem := range rawList {
+					for RrSetGroupIdx, RrSetGroupItem := range rawList {
+						_ = RrSetGroupIdx
 						if RrSetGroupItemMap, ok := RrSetGroupItem.(map[string]interface{}); ok {
 							RrSetGroupResult = append(RrSetGroupResult, DNSZonePrimaryRrSetGroupModel{
 								Metadata: func() *DNSZonePrimaryRrSetGroupMetadataModel {
@@ -11858,30 +12212,45 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 				if SoaParametersData, ok := blockData["soa_parameters"].(map[string]interface{}); ok {
 					return &DNSZonePrimarySoaParametersModel{
 						Expire: func() types.Int64 {
+							if !isImport && data.Primary != nil && data.Primary.SoaParameters != nil && !data.Primary.SoaParameters.Expire.IsUnknown() {
+								return data.Primary.SoaParameters.Expire
+							}
 							if v, ok := SoaParametersData["expire"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						NegativeTTL: func() types.Int64 {
+							if !isImport && data.Primary != nil && data.Primary.SoaParameters != nil && !data.Primary.SoaParameters.NegativeTTL.IsUnknown() {
+								return data.Primary.SoaParameters.NegativeTTL
+							}
 							if v, ok := SoaParametersData["negative_ttl"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Refresh: func() types.Int64 {
+							if !isImport && data.Primary != nil && data.Primary.SoaParameters != nil && !data.Primary.SoaParameters.Refresh.IsUnknown() {
+								return data.Primary.SoaParameters.Refresh
+							}
 							if v, ok := SoaParametersData["refresh"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Retry: func() types.Int64 {
+							if !isImport && data.Primary != nil && data.Primary.SoaParameters != nil && !data.Primary.SoaParameters.Retry.IsUnknown() {
+								return data.Primary.SoaParameters.Retry
+							}
 							if v, ok := SoaParametersData["retry"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						TTL: func() types.Int64 {
+							if !isImport && data.Primary != nil && data.Primary.SoaParameters != nil && !data.Primary.SoaParameters.TTL.IsUnknown() {
+								return data.Primary.SoaParameters.TTL
+							}
 							if v, ok := SoaParametersData["ttl"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -11927,6 +12296,9 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 				if TsigKeyValueData, ok := blockData["tsig_key_value"].(map[string]interface{}); ok {
 					return &DNSZoneSecondaryTsigKeyValueModel{
 						BlindfoldSecretInfo: func() *DNSZoneSecondaryTsigKeyValueBlindfoldSecretInfoModel {
+							if !isImport && data.Secondary != nil && data.Secondary.TsigKeyValue != nil && data.Secondary.TsigKeyValue.BlindfoldSecretInfo != nil {
+								return data.Secondary.TsigKeyValue.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := TsigKeyValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &DNSZoneSecondaryTsigKeyValueBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -11952,6 +12324,9 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 							return nil
 						}(),
 						ClearSecretInfo: func() *DNSZoneSecondaryTsigKeyValueClearSecretInfoModel {
+							if !isImport && data.Secondary != nil && data.Secondary.TsigKeyValue != nil && data.Secondary.TsigKeyValue.ClearSecretInfo != nil {
+								return data.Secondary.TsigKeyValue.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := TsigKeyValueData["clear_secret_info"].(map[string]interface{}); ok {
 								return &DNSZoneSecondaryTsigKeyValueClearSecretInfoModel{
 									Provider: func() types.String {

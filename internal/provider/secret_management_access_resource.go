@@ -2010,12 +2010,21 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 				if RESTAuthInfoData, ok := blockData["rest_auth_info"].(map[string]interface{}); ok {
 					return &SecretManagementAccessAccessInfoRESTAuthInfoModel{
 						BasicAuth: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.BasicAuth != nil {
+								return data.AccessInfo.RESTAuthInfo.BasicAuth
+							}
 							if BasicAuthData, ok := RESTAuthInfoData["basic_auth"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthModel{
 									Password: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.BasicAuth != nil && data.AccessInfo.RESTAuthInfo.BasicAuth.Password != nil {
+											return data.AccessInfo.RESTAuthInfo.BasicAuth.Password
+										}
 										if PasswordData, ok := BasicAuthData["password"].(map[string]interface{}); ok {
 											return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordModel{
 												BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordBlindfoldSecretInfoModel {
+													if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.BasicAuth != nil && data.AccessInfo.RESTAuthInfo.BasicAuth.Password != nil && data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo != nil {
+														return data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -2041,6 +2050,9 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 													return nil
 												}(),
 												ClearSecretInfo: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordClearSecretInfoModel {
+													if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.BasicAuth != nil && data.AccessInfo.RESTAuthInfo.BasicAuth.Password != nil && data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo != nil {
+														return data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 														return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordClearSecretInfoModel{
 															Provider: func() types.String {
@@ -2074,9 +2086,15 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 							return nil
 						}(),
 						HeadersAuth: func() *SecretManagementAccessAccessInfoRESTAuthInfoHeadersAuthModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.HeadersAuth != nil {
+								return data.AccessInfo.RESTAuthInfo.HeadersAuth
+							}
 							if HeadersAuthData, ok := RESTAuthInfoData["headers_auth"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoRESTAuthInfoHeadersAuthModel{
 									Headers: func() *SecretManagementAccessEmptyModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.HeadersAuth != nil {
+											return data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers
+										}
 										if _, ok := HeadersAuthData["headers"].(map[string]interface{}); ok {
 											return &SecretManagementAccessEmptyModel{}
 										}
@@ -2087,9 +2105,15 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 							return nil
 						}(),
 						QueryParamsAuth: func() *SecretManagementAccessAccessInfoRESTAuthInfoQueryParamsAuthModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.QueryParamsAuth != nil {
+								return data.AccessInfo.RESTAuthInfo.QueryParamsAuth
+							}
 							if QueryParamsAuthData, ok := RESTAuthInfoData["query_params_auth"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoRESTAuthInfoQueryParamsAuthModel{
 									QueryParams: func() *SecretManagementAccessEmptyModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.QueryParamsAuth != nil {
+											return data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams
+										}
 										if _, ok := QueryParamsAuthData["query_params"].(map[string]interface{}); ok {
 											return &SecretManagementAccessEmptyModel{}
 										}
@@ -2122,9 +2146,17 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 							if CertParamsData, ok := TLSConfigData["cert_params"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoTLSConfigCertParamsModel{
 									Certificates: func() types.List {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CertParams != nil && (data.AccessInfo.TLSConfig.CertParams.Certificates.IsNull() || len(data.AccessInfo.TLSConfig.CertParams.Certificates.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModelAttrTypes})
+										}
+										var CertificatesExisting []SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModel
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CertParams != nil && !data.AccessInfo.TLSConfig.CertParams.Certificates.IsNull() && !data.AccessInfo.TLSConfig.CertParams.Certificates.IsUnknown() {
+											data.AccessInfo.TLSConfig.CertParams.Certificates.ElementsAs(ctx, &CertificatesExisting, false)
+										}
 										if rawList, ok := CertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var CertificatesResult []SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModel
-											for _, CertificatesItem := range rawList {
+											for CertificatesIdx, CertificatesItem := range rawList {
+												_ = CertificatesIdx
 												if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
 													CertificatesResult = append(CertificatesResult, SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModel{
 														Kind: func() types.String {
@@ -2194,6 +2226,9 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 										if ValidationParamsData, ok := CertParamsData["validation_params"].(map[string]interface{}); ok {
 											return &SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsModel{
 												SkipHostnameVerification: func() types.Bool {
+													if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CertParams != nil && data.AccessInfo.TLSConfig.CertParams.ValidationParams != nil && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+														return data.AccessInfo.TLSConfig.CertParams.ValidationParams.SkipHostnameVerification
+													}
 													if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
 														return types.BoolValue(v)
 													}
@@ -2203,9 +2238,17 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 													if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
 														return &SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCAModel{
 															TrustedCAList: func() types.List {
+																if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CertParams != nil && data.AccessInfo.TLSConfig.CertParams.ValidationParams != nil && data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA != nil && (data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+																	return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+																}
+																var TrustedCAListExisting []SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModel
+																if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CertParams != nil && data.AccessInfo.TLSConfig.CertParams.ValidationParams != nil && data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA != nil && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+																	data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+																}
 																if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
 																	var TrustedCAListResult []SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModel
-																	for _, TrustedCAListItem := range rawList {
+																	for TrustedCAListIdx, TrustedCAListItem := range rawList {
+																		_ = TrustedCAListIdx
 																		if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
 																			TrustedCAListResult = append(TrustedCAListResult, SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModel{
 																				Kind: func() types.String {
@@ -2306,9 +2349,17 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 										return types.StringNull()
 									}(),
 									TLSCertificates: func() types.List {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CommonParams != nil && (data.AccessInfo.TLSConfig.CommonParams.TLSCertificates.IsNull() || len(data.AccessInfo.TLSConfig.CommonParams.TLSCertificates.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModelAttrTypes})
+										}
+										var TLSCertificatesExisting []SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModel
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CommonParams != nil && !data.AccessInfo.TLSConfig.CommonParams.TLSCertificates.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.TLSCertificates.IsUnknown() {
+											data.AccessInfo.TLSConfig.CommonParams.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+										}
 										if rawList, ok := CommonParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var TLSCertificatesResult []SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModel
-											for _, TLSCertificatesItem := range rawList {
+											for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+												_ = TLSCertificatesIdx
 												if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 													TLSCertificatesResult = append(TLSCertificatesResult, SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModel{
 														CertificateURL: func() types.String {
@@ -2344,6 +2395,9 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 															return types.StringNull()
 														}(),
 														DisableOCSPStapling: func() *SecretManagementAccessEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+																return &SecretManagementAccessEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 																return &SecretManagementAccessEmptyModel{}
 															}
@@ -2353,6 +2407,9 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 																return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -2378,6 +2435,9 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -2401,6 +2461,9 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 															return nil
 														}(),
 														UseSystemDefaults: func() *SecretManagementAccessEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+																return &SecretManagementAccessEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 																return &SecretManagementAccessEmptyModel{}
 															}
@@ -2418,6 +2481,9 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 										if ValidationParamsData, ok := CommonParamsData["validation_params"].(map[string]interface{}); ok {
 											return &SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsModel{
 												SkipHostnameVerification: func() types.Bool {
+													if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CommonParams != nil && data.AccessInfo.TLSConfig.CommonParams.ValidationParams != nil && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+														return data.AccessInfo.TLSConfig.CommonParams.ValidationParams.SkipHostnameVerification
+													}
 													if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
 														return types.BoolValue(v)
 													}
@@ -2427,9 +2493,17 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 													if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
 														return &SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCAModel{
 															TrustedCAList: func() types.List {
+																if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CommonParams != nil && data.AccessInfo.TLSConfig.CommonParams.ValidationParams != nil && data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA != nil && (data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+																	return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+																}
+																var TrustedCAListExisting []SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModel
+																if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CommonParams != nil && data.AccessInfo.TLSConfig.CommonParams.ValidationParams != nil && data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA != nil && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+																	data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+																}
 																if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
 																	var TrustedCAListResult []SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModel
-																	for _, TrustedCAListItem := range rawList {
+																	for TrustedCAListIdx, TrustedCAListItem := range rawList {
+																		_ = TrustedCAListIdx
 																		if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
 																			TrustedCAListResult = append(TrustedCAListResult, SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModel{
 																				Kind: func() types.String {
@@ -2502,24 +2576,36 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 							return nil
 						}(),
 						DefaultSessionKeyCaching: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+								return data.AccessInfo.TLSConfig.DefaultSessionKeyCaching
+							}
 							if _, ok := TLSConfigData["default_session_key_caching"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableSessionKeyCaching: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+								return data.AccessInfo.TLSConfig.DisableSessionKeyCaching
+							}
 							if _, ok := TLSConfigData["disable_session_key_caching"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableSni: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+								return data.AccessInfo.TLSConfig.DisableSni
+							}
 							if _, ok := TLSConfigData["disable_sni"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxSessionKeys: func() types.Int64 {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && !data.AccessInfo.TLSConfig.MaxSessionKeys.IsUnknown() {
+								return data.AccessInfo.TLSConfig.MaxSessionKeys
+							}
 							if v, ok := TLSConfigData["max_session_keys"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -2532,6 +2618,9 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 							return types.StringNull()
 						}(),
 						UseHostHeaderAsSni: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+								return data.AccessInfo.TLSConfig.UseHostHeaderAsSni
+							}
 							if _, ok := TLSConfigData["use_host_header_as_sni"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
@@ -2548,6 +2637,9 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 				if VaultAuthInfoData, ok := blockData["vault_auth_info"].(map[string]interface{}); ok {
 					return &SecretManagementAccessAccessInfoVaultAuthInfoModel{
 						AppRoleAuth: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth != nil {
+								return data.AccessInfo.VaultAuthInfo.AppRoleAuth
+							}
 							if AppRoleAuthData, ok := VaultAuthInfoData["app_role_auth"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthModel{
 									RoleID: func() types.String {
@@ -2557,9 +2649,15 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 										return types.StringNull()
 									}(),
 									SecretID: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID != nil {
+											return data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID
+										}
 										if SecretIDData, ok := AppRoleAuthData["secret_id"].(map[string]interface{}); ok {
 											return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDModel{
 												BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDBlindfoldSecretInfoModel {
+													if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo != nil {
+														return data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := SecretIDData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -2585,6 +2683,9 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 													return nil
 												}(),
 												ClearSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDClearSecretInfoModel {
+													if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo != nil {
+														return data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := SecretIDData["clear_secret_info"].(map[string]interface{}); ok {
 														return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDClearSecretInfoModel{
 															Provider: func() types.String {
@@ -2612,9 +2713,15 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 							return nil
 						}(),
 						Token: func() *SecretManagementAccessAccessInfoVaultAuthInfoTokenModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil && data.AccessInfo.VaultAuthInfo.Token != nil {
+								return data.AccessInfo.VaultAuthInfo.Token
+							}
 							if TokenData, ok := VaultAuthInfoData["token"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoVaultAuthInfoTokenModel{
 									BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoTokenBlindfoldSecretInfoModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil && data.AccessInfo.VaultAuthInfo.Token != nil && data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo != nil {
+											return data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := TokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &SecretManagementAccessAccessInfoVaultAuthInfoTokenBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -2640,6 +2747,9 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 										return nil
 									}(),
 									ClearSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoTokenClearSecretInfoModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil && data.AccessInfo.VaultAuthInfo.Token != nil && data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo != nil {
+											return data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := TokenData["clear_secret_info"].(map[string]interface{}); ok {
 											return &SecretManagementAccessAccessInfoVaultAuthInfoTokenClearSecretInfoModel{
 												Provider: func() types.String {
@@ -2674,12 +2784,18 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereSiteModel{
 						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.DisableInternetVIP
+							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.EnableInternetVIP
+							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
@@ -2692,9 +2808,17 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.Site != nil && (data.Where.Site.Ref.IsNull() || len(data.Where.Site.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessWhereSiteRefModelAttrTypes})
+							}
+							var RefExisting []SecretManagementAccessWhereSiteRefModel
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
+								data.Where.Site.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []SecretManagementAccessWhereSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, SecretManagementAccessWhereSiteRefModel{
 											Kind: func() types.String {
@@ -2743,9 +2867,17 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereVirtualNetworkModel{
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil && (data.Where.VirtualNetwork.Ref.IsNull() || len(data.Where.VirtualNetwork.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessWhereVirtualNetworkRefModelAttrTypes})
+							}
+							var RefExisting []SecretManagementAccessWhereVirtualNetworkRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil && !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
+								data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := VirtualNetworkData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []SecretManagementAccessWhereVirtualNetworkRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, SecretManagementAccessWhereVirtualNetworkRefModel{
 											Kind: func() types.String {
@@ -2794,12 +2926,18 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereVirtualSiteModel{
 						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.DisableInternetVIP
+							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.EnableInternetVIP
+							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
@@ -2812,9 +2950,17 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && (data.Where.VirtualSite.Ref.IsNull() || len(data.Where.VirtualSite.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessWhereVirtualSiteRefModelAttrTypes})
+							}
+							var RefExisting []SecretManagementAccessWhereVirtualSiteRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
+								data.Where.VirtualSite.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []SecretManagementAccessWhereVirtualSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, SecretManagementAccessWhereVirtualSiteRefModel{
 											Kind: func() types.String {
@@ -2968,12 +3114,21 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 				if RESTAuthInfoData, ok := blockData["rest_auth_info"].(map[string]interface{}); ok {
 					return &SecretManagementAccessAccessInfoRESTAuthInfoModel{
 						BasicAuth: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.BasicAuth != nil {
+								return data.AccessInfo.RESTAuthInfo.BasicAuth
+							}
 							if BasicAuthData, ok := RESTAuthInfoData["basic_auth"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthModel{
 									Password: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.BasicAuth != nil && data.AccessInfo.RESTAuthInfo.BasicAuth.Password != nil {
+											return data.AccessInfo.RESTAuthInfo.BasicAuth.Password
+										}
 										if PasswordData, ok := BasicAuthData["password"].(map[string]interface{}); ok {
 											return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordModel{
 												BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordBlindfoldSecretInfoModel {
+													if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.BasicAuth != nil && data.AccessInfo.RESTAuthInfo.BasicAuth.Password != nil && data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo != nil {
+														return data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -2999,6 +3154,9 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 													return nil
 												}(),
 												ClearSecretInfo: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordClearSecretInfoModel {
+													if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.BasicAuth != nil && data.AccessInfo.RESTAuthInfo.BasicAuth.Password != nil && data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo != nil {
+														return data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 														return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordClearSecretInfoModel{
 															Provider: func() types.String {
@@ -3032,9 +3190,15 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 							return nil
 						}(),
 						HeadersAuth: func() *SecretManagementAccessAccessInfoRESTAuthInfoHeadersAuthModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.HeadersAuth != nil {
+								return data.AccessInfo.RESTAuthInfo.HeadersAuth
+							}
 							if HeadersAuthData, ok := RESTAuthInfoData["headers_auth"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoRESTAuthInfoHeadersAuthModel{
 									Headers: func() *SecretManagementAccessEmptyModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.HeadersAuth != nil {
+											return data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers
+										}
 										if _, ok := HeadersAuthData["headers"].(map[string]interface{}); ok {
 											return &SecretManagementAccessEmptyModel{}
 										}
@@ -3045,9 +3209,15 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 							return nil
 						}(),
 						QueryParamsAuth: func() *SecretManagementAccessAccessInfoRESTAuthInfoQueryParamsAuthModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.QueryParamsAuth != nil {
+								return data.AccessInfo.RESTAuthInfo.QueryParamsAuth
+							}
 							if QueryParamsAuthData, ok := RESTAuthInfoData["query_params_auth"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoRESTAuthInfoQueryParamsAuthModel{
 									QueryParams: func() *SecretManagementAccessEmptyModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.QueryParamsAuth != nil {
+											return data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams
+										}
 										if _, ok := QueryParamsAuthData["query_params"].(map[string]interface{}); ok {
 											return &SecretManagementAccessEmptyModel{}
 										}
@@ -3080,9 +3250,17 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 							if CertParamsData, ok := TLSConfigData["cert_params"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoTLSConfigCertParamsModel{
 									Certificates: func() types.List {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CertParams != nil && (data.AccessInfo.TLSConfig.CertParams.Certificates.IsNull() || len(data.AccessInfo.TLSConfig.CertParams.Certificates.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModelAttrTypes})
+										}
+										var CertificatesExisting []SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModel
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CertParams != nil && !data.AccessInfo.TLSConfig.CertParams.Certificates.IsNull() && !data.AccessInfo.TLSConfig.CertParams.Certificates.IsUnknown() {
+											data.AccessInfo.TLSConfig.CertParams.Certificates.ElementsAs(ctx, &CertificatesExisting, false)
+										}
 										if rawList, ok := CertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var CertificatesResult []SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModel
-											for _, CertificatesItem := range rawList {
+											for CertificatesIdx, CertificatesItem := range rawList {
+												_ = CertificatesIdx
 												if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
 													CertificatesResult = append(CertificatesResult, SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModel{
 														Kind: func() types.String {
@@ -3152,6 +3330,9 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 										if ValidationParamsData, ok := CertParamsData["validation_params"].(map[string]interface{}); ok {
 											return &SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsModel{
 												SkipHostnameVerification: func() types.Bool {
+													if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CertParams != nil && data.AccessInfo.TLSConfig.CertParams.ValidationParams != nil && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+														return data.AccessInfo.TLSConfig.CertParams.ValidationParams.SkipHostnameVerification
+													}
 													if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
 														return types.BoolValue(v)
 													}
@@ -3161,9 +3342,17 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 													if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
 														return &SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCAModel{
 															TrustedCAList: func() types.List {
+																if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CertParams != nil && data.AccessInfo.TLSConfig.CertParams.ValidationParams != nil && data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA != nil && (data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+																	return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+																}
+																var TrustedCAListExisting []SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModel
+																if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CertParams != nil && data.AccessInfo.TLSConfig.CertParams.ValidationParams != nil && data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA != nil && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+																	data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+																}
 																if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
 																	var TrustedCAListResult []SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModel
-																	for _, TrustedCAListItem := range rawList {
+																	for TrustedCAListIdx, TrustedCAListItem := range rawList {
+																		_ = TrustedCAListIdx
 																		if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
 																			TrustedCAListResult = append(TrustedCAListResult, SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModel{
 																				Kind: func() types.String {
@@ -3264,9 +3453,17 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 										return types.StringNull()
 									}(),
 									TLSCertificates: func() types.List {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CommonParams != nil && (data.AccessInfo.TLSConfig.CommonParams.TLSCertificates.IsNull() || len(data.AccessInfo.TLSConfig.CommonParams.TLSCertificates.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModelAttrTypes})
+										}
+										var TLSCertificatesExisting []SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModel
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CommonParams != nil && !data.AccessInfo.TLSConfig.CommonParams.TLSCertificates.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.TLSCertificates.IsUnknown() {
+											data.AccessInfo.TLSConfig.CommonParams.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+										}
 										if rawList, ok := CommonParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var TLSCertificatesResult []SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModel
-											for _, TLSCertificatesItem := range rawList {
+											for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+												_ = TLSCertificatesIdx
 												if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 													TLSCertificatesResult = append(TLSCertificatesResult, SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModel{
 														CertificateURL: func() types.String {
@@ -3302,6 +3499,9 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 															return types.StringNull()
 														}(),
 														DisableOCSPStapling: func() *SecretManagementAccessEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+																return &SecretManagementAccessEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 																return &SecretManagementAccessEmptyModel{}
 															}
@@ -3311,6 +3511,9 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 																return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -3336,6 +3539,9 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -3359,6 +3565,9 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 															return nil
 														}(),
 														UseSystemDefaults: func() *SecretManagementAccessEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+																return &SecretManagementAccessEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 																return &SecretManagementAccessEmptyModel{}
 															}
@@ -3376,6 +3585,9 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 										if ValidationParamsData, ok := CommonParamsData["validation_params"].(map[string]interface{}); ok {
 											return &SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsModel{
 												SkipHostnameVerification: func() types.Bool {
+													if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CommonParams != nil && data.AccessInfo.TLSConfig.CommonParams.ValidationParams != nil && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+														return data.AccessInfo.TLSConfig.CommonParams.ValidationParams.SkipHostnameVerification
+													}
 													if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
 														return types.BoolValue(v)
 													}
@@ -3385,9 +3597,17 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 													if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
 														return &SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCAModel{
 															TrustedCAList: func() types.List {
+																if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CommonParams != nil && data.AccessInfo.TLSConfig.CommonParams.ValidationParams != nil && data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA != nil && (data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+																	return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+																}
+																var TrustedCAListExisting []SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModel
+																if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CommonParams != nil && data.AccessInfo.TLSConfig.CommonParams.ValidationParams != nil && data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA != nil && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+																	data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+																}
 																if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
 																	var TrustedCAListResult []SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModel
-																	for _, TrustedCAListItem := range rawList {
+																	for TrustedCAListIdx, TrustedCAListItem := range rawList {
+																		_ = TrustedCAListIdx
 																		if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
 																			TrustedCAListResult = append(TrustedCAListResult, SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModel{
 																				Kind: func() types.String {
@@ -3460,24 +3680,36 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 							return nil
 						}(),
 						DefaultSessionKeyCaching: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+								return data.AccessInfo.TLSConfig.DefaultSessionKeyCaching
+							}
 							if _, ok := TLSConfigData["default_session_key_caching"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableSessionKeyCaching: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+								return data.AccessInfo.TLSConfig.DisableSessionKeyCaching
+							}
 							if _, ok := TLSConfigData["disable_session_key_caching"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableSni: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+								return data.AccessInfo.TLSConfig.DisableSni
+							}
 							if _, ok := TLSConfigData["disable_sni"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxSessionKeys: func() types.Int64 {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && !data.AccessInfo.TLSConfig.MaxSessionKeys.IsUnknown() {
+								return data.AccessInfo.TLSConfig.MaxSessionKeys
+							}
 							if v, ok := TLSConfigData["max_session_keys"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -3490,6 +3722,9 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 							return types.StringNull()
 						}(),
 						UseHostHeaderAsSni: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+								return data.AccessInfo.TLSConfig.UseHostHeaderAsSni
+							}
 							if _, ok := TLSConfigData["use_host_header_as_sni"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
@@ -3506,6 +3741,9 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 				if VaultAuthInfoData, ok := blockData["vault_auth_info"].(map[string]interface{}); ok {
 					return &SecretManagementAccessAccessInfoVaultAuthInfoModel{
 						AppRoleAuth: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth != nil {
+								return data.AccessInfo.VaultAuthInfo.AppRoleAuth
+							}
 							if AppRoleAuthData, ok := VaultAuthInfoData["app_role_auth"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthModel{
 									RoleID: func() types.String {
@@ -3515,9 +3753,15 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 										return types.StringNull()
 									}(),
 									SecretID: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID != nil {
+											return data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID
+										}
 										if SecretIDData, ok := AppRoleAuthData["secret_id"].(map[string]interface{}); ok {
 											return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDModel{
 												BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDBlindfoldSecretInfoModel {
+													if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo != nil {
+														return data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := SecretIDData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -3543,6 +3787,9 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 													return nil
 												}(),
 												ClearSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDClearSecretInfoModel {
+													if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo != nil {
+														return data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := SecretIDData["clear_secret_info"].(map[string]interface{}); ok {
 														return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDClearSecretInfoModel{
 															Provider: func() types.String {
@@ -3570,9 +3817,15 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 							return nil
 						}(),
 						Token: func() *SecretManagementAccessAccessInfoVaultAuthInfoTokenModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil && data.AccessInfo.VaultAuthInfo.Token != nil {
+								return data.AccessInfo.VaultAuthInfo.Token
+							}
 							if TokenData, ok := VaultAuthInfoData["token"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoVaultAuthInfoTokenModel{
 									BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoTokenBlindfoldSecretInfoModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil && data.AccessInfo.VaultAuthInfo.Token != nil && data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo != nil {
+											return data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := TokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &SecretManagementAccessAccessInfoVaultAuthInfoTokenBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -3598,6 +3851,9 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 										return nil
 									}(),
 									ClearSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoTokenClearSecretInfoModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil && data.AccessInfo.VaultAuthInfo.Token != nil && data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo != nil {
+											return data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := TokenData["clear_secret_info"].(map[string]interface{}); ok {
 											return &SecretManagementAccessAccessInfoVaultAuthInfoTokenClearSecretInfoModel{
 												Provider: func() types.String {
@@ -3632,12 +3888,18 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereSiteModel{
 						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.DisableInternetVIP
+							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.EnableInternetVIP
+							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
@@ -3650,9 +3912,17 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.Site != nil && (data.Where.Site.Ref.IsNull() || len(data.Where.Site.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessWhereSiteRefModelAttrTypes})
+							}
+							var RefExisting []SecretManagementAccessWhereSiteRefModel
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
+								data.Where.Site.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []SecretManagementAccessWhereSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, SecretManagementAccessWhereSiteRefModel{
 											Kind: func() types.String {
@@ -3701,9 +3971,17 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereVirtualNetworkModel{
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil && (data.Where.VirtualNetwork.Ref.IsNull() || len(data.Where.VirtualNetwork.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessWhereVirtualNetworkRefModelAttrTypes})
+							}
+							var RefExisting []SecretManagementAccessWhereVirtualNetworkRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil && !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
+								data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := VirtualNetworkData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []SecretManagementAccessWhereVirtualNetworkRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, SecretManagementAccessWhereVirtualNetworkRefModel{
 											Kind: func() types.String {
@@ -3752,12 +4030,18 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereVirtualSiteModel{
 						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.DisableInternetVIP
+							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.EnableInternetVIP
+							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
@@ -3770,9 +4054,17 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && (data.Where.VirtualSite.Ref.IsNull() || len(data.Where.VirtualSite.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessWhereVirtualSiteRefModelAttrTypes})
+							}
+							var RefExisting []SecretManagementAccessWhereVirtualSiteRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
+								data.Where.VirtualSite.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []SecretManagementAccessWhereVirtualSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, SecretManagementAccessWhereVirtualSiteRefModel{
 											Kind: func() types.String {
@@ -4409,12 +4701,21 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 				if RESTAuthInfoData, ok := blockData["rest_auth_info"].(map[string]interface{}); ok {
 					return &SecretManagementAccessAccessInfoRESTAuthInfoModel{
 						BasicAuth: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.BasicAuth != nil {
+								return data.AccessInfo.RESTAuthInfo.BasicAuth
+							}
 							if BasicAuthData, ok := RESTAuthInfoData["basic_auth"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthModel{
 									Password: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.BasicAuth != nil && data.AccessInfo.RESTAuthInfo.BasicAuth.Password != nil {
+											return data.AccessInfo.RESTAuthInfo.BasicAuth.Password
+										}
 										if PasswordData, ok := BasicAuthData["password"].(map[string]interface{}); ok {
 											return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordModel{
 												BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordBlindfoldSecretInfoModel {
+													if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.BasicAuth != nil && data.AccessInfo.RESTAuthInfo.BasicAuth.Password != nil && data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo != nil {
+														return data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -4440,6 +4741,9 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 													return nil
 												}(),
 												ClearSecretInfo: func() *SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordClearSecretInfoModel {
+													if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.BasicAuth != nil && data.AccessInfo.RESTAuthInfo.BasicAuth.Password != nil && data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo != nil {
+														return data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 														return &SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordClearSecretInfoModel{
 															Provider: func() types.String {
@@ -4473,9 +4777,15 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 							return nil
 						}(),
 						HeadersAuth: func() *SecretManagementAccessAccessInfoRESTAuthInfoHeadersAuthModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.HeadersAuth != nil {
+								return data.AccessInfo.RESTAuthInfo.HeadersAuth
+							}
 							if HeadersAuthData, ok := RESTAuthInfoData["headers_auth"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoRESTAuthInfoHeadersAuthModel{
 									Headers: func() *SecretManagementAccessEmptyModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.HeadersAuth != nil {
+											return data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers
+										}
 										if _, ok := HeadersAuthData["headers"].(map[string]interface{}); ok {
 											return &SecretManagementAccessEmptyModel{}
 										}
@@ -4486,9 +4796,15 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 							return nil
 						}(),
 						QueryParamsAuth: func() *SecretManagementAccessAccessInfoRESTAuthInfoQueryParamsAuthModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.QueryParamsAuth != nil {
+								return data.AccessInfo.RESTAuthInfo.QueryParamsAuth
+							}
 							if QueryParamsAuthData, ok := RESTAuthInfoData["query_params_auth"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoRESTAuthInfoQueryParamsAuthModel{
 									QueryParams: func() *SecretManagementAccessEmptyModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.QueryParamsAuth != nil {
+											return data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams
+										}
 										if _, ok := QueryParamsAuthData["query_params"].(map[string]interface{}); ok {
 											return &SecretManagementAccessEmptyModel{}
 										}
@@ -4521,9 +4837,17 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 							if CertParamsData, ok := TLSConfigData["cert_params"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoTLSConfigCertParamsModel{
 									Certificates: func() types.List {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CertParams != nil && (data.AccessInfo.TLSConfig.CertParams.Certificates.IsNull() || len(data.AccessInfo.TLSConfig.CertParams.Certificates.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModelAttrTypes})
+										}
+										var CertificatesExisting []SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModel
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CertParams != nil && !data.AccessInfo.TLSConfig.CertParams.Certificates.IsNull() && !data.AccessInfo.TLSConfig.CertParams.Certificates.IsUnknown() {
+											data.AccessInfo.TLSConfig.CertParams.Certificates.ElementsAs(ctx, &CertificatesExisting, false)
+										}
 										if rawList, ok := CertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var CertificatesResult []SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModel
-											for _, CertificatesItem := range rawList {
+											for CertificatesIdx, CertificatesItem := range rawList {
+												_ = CertificatesIdx
 												if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
 													CertificatesResult = append(CertificatesResult, SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModel{
 														Kind: func() types.String {
@@ -4593,6 +4917,9 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 										if ValidationParamsData, ok := CertParamsData["validation_params"].(map[string]interface{}); ok {
 											return &SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsModel{
 												SkipHostnameVerification: func() types.Bool {
+													if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CertParams != nil && data.AccessInfo.TLSConfig.CertParams.ValidationParams != nil && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+														return data.AccessInfo.TLSConfig.CertParams.ValidationParams.SkipHostnameVerification
+													}
 													if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
 														return types.BoolValue(v)
 													}
@@ -4602,9 +4929,17 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 													if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
 														return &SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCAModel{
 															TrustedCAList: func() types.List {
+																if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CertParams != nil && data.AccessInfo.TLSConfig.CertParams.ValidationParams != nil && data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA != nil && (data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+																	return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+																}
+																var TrustedCAListExisting []SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModel
+																if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CertParams != nil && data.AccessInfo.TLSConfig.CertParams.ValidationParams != nil && data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA != nil && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+																	data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+																}
 																if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
 																	var TrustedCAListResult []SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModel
-																	for _, TrustedCAListItem := range rawList {
+																	for TrustedCAListIdx, TrustedCAListItem := range rawList {
+																		_ = TrustedCAListIdx
 																		if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
 																			TrustedCAListResult = append(TrustedCAListResult, SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModel{
 																				Kind: func() types.String {
@@ -4705,9 +5040,17 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 										return types.StringNull()
 									}(),
 									TLSCertificates: func() types.List {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CommonParams != nil && (data.AccessInfo.TLSConfig.CommonParams.TLSCertificates.IsNull() || len(data.AccessInfo.TLSConfig.CommonParams.TLSCertificates.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModelAttrTypes})
+										}
+										var TLSCertificatesExisting []SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModel
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CommonParams != nil && !data.AccessInfo.TLSConfig.CommonParams.TLSCertificates.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.TLSCertificates.IsUnknown() {
+											data.AccessInfo.TLSConfig.CommonParams.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+										}
 										if rawList, ok := CommonParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var TLSCertificatesResult []SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModel
-											for _, TLSCertificatesItem := range rawList {
+											for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+												_ = TLSCertificatesIdx
 												if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 													TLSCertificatesResult = append(TLSCertificatesResult, SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModel{
 														CertificateURL: func() types.String {
@@ -4743,6 +5086,9 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 															return types.StringNull()
 														}(),
 														DisableOCSPStapling: func() *SecretManagementAccessEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+																return &SecretManagementAccessEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 																return &SecretManagementAccessEmptyModel{}
 															}
@@ -4752,6 +5098,9 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 																return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -4777,6 +5126,9 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -4800,6 +5152,9 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 															return nil
 														}(),
 														UseSystemDefaults: func() *SecretManagementAccessEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+																return &SecretManagementAccessEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 																return &SecretManagementAccessEmptyModel{}
 															}
@@ -4817,6 +5172,9 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 										if ValidationParamsData, ok := CommonParamsData["validation_params"].(map[string]interface{}); ok {
 											return &SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsModel{
 												SkipHostnameVerification: func() types.Bool {
+													if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CommonParams != nil && data.AccessInfo.TLSConfig.CommonParams.ValidationParams != nil && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+														return data.AccessInfo.TLSConfig.CommonParams.ValidationParams.SkipHostnameVerification
+													}
 													if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
 														return types.BoolValue(v)
 													}
@@ -4826,9 +5184,17 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 													if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
 														return &SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCAModel{
 															TrustedCAList: func() types.List {
+																if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CommonParams != nil && data.AccessInfo.TLSConfig.CommonParams.ValidationParams != nil && data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA != nil && (data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+																	return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+																}
+																var TrustedCAListExisting []SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModel
+																if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CommonParams != nil && data.AccessInfo.TLSConfig.CommonParams.ValidationParams != nil && data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA != nil && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+																	data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+																}
 																if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
 																	var TrustedCAListResult []SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModel
-																	for _, TrustedCAListItem := range rawList {
+																	for TrustedCAListIdx, TrustedCAListItem := range rawList {
+																		_ = TrustedCAListIdx
 																		if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
 																			TrustedCAListResult = append(TrustedCAListResult, SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModel{
 																				Kind: func() types.String {
@@ -4901,24 +5267,36 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 							return nil
 						}(),
 						DefaultSessionKeyCaching: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+								return data.AccessInfo.TLSConfig.DefaultSessionKeyCaching
+							}
 							if _, ok := TLSConfigData["default_session_key_caching"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableSessionKeyCaching: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+								return data.AccessInfo.TLSConfig.DisableSessionKeyCaching
+							}
 							if _, ok := TLSConfigData["disable_session_key_caching"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableSni: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+								return data.AccessInfo.TLSConfig.DisableSni
+							}
 							if _, ok := TLSConfigData["disable_sni"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxSessionKeys: func() types.Int64 {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && !data.AccessInfo.TLSConfig.MaxSessionKeys.IsUnknown() {
+								return data.AccessInfo.TLSConfig.MaxSessionKeys
+							}
 							if v, ok := TLSConfigData["max_session_keys"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -4931,6 +5309,9 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 							return types.StringNull()
 						}(),
 						UseHostHeaderAsSni: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+								return data.AccessInfo.TLSConfig.UseHostHeaderAsSni
+							}
 							if _, ok := TLSConfigData["use_host_header_as_sni"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
@@ -4947,6 +5328,9 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 				if VaultAuthInfoData, ok := blockData["vault_auth_info"].(map[string]interface{}); ok {
 					return &SecretManagementAccessAccessInfoVaultAuthInfoModel{
 						AppRoleAuth: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth != nil {
+								return data.AccessInfo.VaultAuthInfo.AppRoleAuth
+							}
 							if AppRoleAuthData, ok := VaultAuthInfoData["app_role_auth"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthModel{
 									RoleID: func() types.String {
@@ -4956,9 +5340,15 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 										return types.StringNull()
 									}(),
 									SecretID: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID != nil {
+											return data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID
+										}
 										if SecretIDData, ok := AppRoleAuthData["secret_id"].(map[string]interface{}); ok {
 											return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDModel{
 												BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDBlindfoldSecretInfoModel {
+													if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo != nil {
+														return data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := SecretIDData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -4984,6 +5374,9 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 													return nil
 												}(),
 												ClearSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDClearSecretInfoModel {
+													if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID != nil && data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo != nil {
+														return data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := SecretIDData["clear_secret_info"].(map[string]interface{}); ok {
 														return &SecretManagementAccessAccessInfoVaultAuthInfoAppRoleAuthSecretIDClearSecretInfoModel{
 															Provider: func() types.String {
@@ -5011,9 +5404,15 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 							return nil
 						}(),
 						Token: func() *SecretManagementAccessAccessInfoVaultAuthInfoTokenModel {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil && data.AccessInfo.VaultAuthInfo.Token != nil {
+								return data.AccessInfo.VaultAuthInfo.Token
+							}
 							if TokenData, ok := VaultAuthInfoData["token"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoVaultAuthInfoTokenModel{
 									BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoTokenBlindfoldSecretInfoModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil && data.AccessInfo.VaultAuthInfo.Token != nil && data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo != nil {
+											return data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := TokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &SecretManagementAccessAccessInfoVaultAuthInfoTokenBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -5039,6 +5438,9 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 										return nil
 									}(),
 									ClearSecretInfo: func() *SecretManagementAccessAccessInfoVaultAuthInfoTokenClearSecretInfoModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.VaultAuthInfo != nil && data.AccessInfo.VaultAuthInfo.Token != nil && data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo != nil {
+											return data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := TokenData["clear_secret_info"].(map[string]interface{}); ok {
 											return &SecretManagementAccessAccessInfoVaultAuthInfoTokenClearSecretInfoModel{
 												Provider: func() types.String {
@@ -5073,12 +5475,18 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereSiteModel{
 						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.DisableInternetVIP
+							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.EnableInternetVIP
+							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
@@ -5091,9 +5499,17 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.Site != nil && (data.Where.Site.Ref.IsNull() || len(data.Where.Site.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessWhereSiteRefModelAttrTypes})
+							}
+							var RefExisting []SecretManagementAccessWhereSiteRefModel
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
+								data.Where.Site.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []SecretManagementAccessWhereSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, SecretManagementAccessWhereSiteRefModel{
 											Kind: func() types.String {
@@ -5142,9 +5558,17 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereVirtualNetworkModel{
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil && (data.Where.VirtualNetwork.Ref.IsNull() || len(data.Where.VirtualNetwork.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessWhereVirtualNetworkRefModelAttrTypes})
+							}
+							var RefExisting []SecretManagementAccessWhereVirtualNetworkRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil && !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
+								data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := VirtualNetworkData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []SecretManagementAccessWhereVirtualNetworkRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, SecretManagementAccessWhereVirtualNetworkRefModel{
 											Kind: func() types.String {
@@ -5193,12 +5617,18 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereVirtualSiteModel{
 						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.DisableInternetVIP
+							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *SecretManagementAccessEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.EnableInternetVIP
+							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &SecretManagementAccessEmptyModel{}
 							}
@@ -5211,9 +5641,17 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && (data.Where.VirtualSite.Ref.IsNull() || len(data.Where.VirtualSite.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessWhereVirtualSiteRefModelAttrTypes})
+							}
+							var RefExisting []SecretManagementAccessWhereVirtualSiteRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
+								data.Where.VirtualSite.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []SecretManagementAccessWhereVirtualSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, SecretManagementAccessWhereVirtualSiteRefModel{
 											Kind: func() types.String {

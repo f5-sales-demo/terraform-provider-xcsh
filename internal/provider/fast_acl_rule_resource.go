@@ -737,9 +737,17 @@ func (r *FastACLRuleResource) Create(ctx context.Context, req resource.CreateReq
 				if PolicerActionData, ok := blockData["policer_action"].(map[string]interface{}); ok {
 					return &FastACLRuleActionPolicerActionModel{
 						Ref: func() types.List {
+							if !isImport && data.Action != nil && data.Action.PolicerAction != nil && (data.Action.PolicerAction.Ref.IsNull() || len(data.Action.PolicerAction.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: FastACLRuleActionPolicerActionRefModelAttrTypes})
+							}
+							var RefExisting []FastACLRuleActionPolicerActionRefModel
+							if !isImport && data.Action != nil && data.Action.PolicerAction != nil && !data.Action.PolicerAction.Ref.IsNull() && !data.Action.PolicerAction.Ref.IsUnknown() {
+								data.Action.PolicerAction.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := PolicerActionData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []FastACLRuleActionPolicerActionRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, FastACLRuleActionPolicerActionRefModel{
 											Kind: func() types.String {
@@ -788,9 +796,17 @@ func (r *FastACLRuleResource) Create(ctx context.Context, req resource.CreateReq
 				if ProtocolPolicerActionData, ok := blockData["protocol_policer_action"].(map[string]interface{}); ok {
 					return &FastACLRuleActionProtocolPolicerActionModel{
 						Ref: func() types.List {
+							if !isImport && data.Action != nil && data.Action.ProtocolPolicerAction != nil && (data.Action.ProtocolPolicerAction.Ref.IsNull() || len(data.Action.ProtocolPolicerAction.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: FastACLRuleActionProtocolPolicerActionRefModelAttrTypes})
+							}
+							var RefExisting []FastACLRuleActionProtocolPolicerActionRefModel
+							if !isImport && data.Action != nil && data.Action.ProtocolPolicerAction != nil && !data.Action.ProtocolPolicerAction.Ref.IsNull() && !data.Action.ProtocolPolicerAction.Ref.IsUnknown() {
+								data.Action.ProtocolPolicerAction.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := ProtocolPolicerActionData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []FastACLRuleActionProtocolPolicerActionRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, FastACLRuleActionProtocolPolicerActionRefModel{
 											Kind: func() types.String {
@@ -849,9 +865,14 @@ func (r *FastACLRuleResource) Create(ctx context.Context, req resource.CreateReq
 				if !isImport && data.IPPrefixSet != nil && (data.IPPrefixSet.Ref.IsNull() || len(data.IPPrefixSet.Ref.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FastACLRuleIPPrefixSetRefModelAttrTypes})
 				}
+				var RefExisting []FastACLRuleIPPrefixSetRefModel
+				if !isImport && data.IPPrefixSet != nil && !data.IPPrefixSet.Ref.IsNull() && !data.IPPrefixSet.Ref.IsUnknown() {
+					data.IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+				}
 				if rawList, ok := blockData["ref"].([]interface{}); ok && len(rawList) > 0 {
 					var RefResult []FastACLRuleIPPrefixSetRefModel
-					for _, RefItem := range rawList {
+					for RefIdx, RefItem := range rawList {
+						_ = RefIdx
 						if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 							RefResult = append(RefResult, FastACLRuleIPPrefixSetRefModel{
 								Kind: func() types.String {
@@ -1057,9 +1078,17 @@ func (r *FastACLRuleResource) Read(ctx context.Context, req resource.ReadRequest
 				if PolicerActionData, ok := blockData["policer_action"].(map[string]interface{}); ok {
 					return &FastACLRuleActionPolicerActionModel{
 						Ref: func() types.List {
+							if !isImport && data.Action != nil && data.Action.PolicerAction != nil && (data.Action.PolicerAction.Ref.IsNull() || len(data.Action.PolicerAction.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: FastACLRuleActionPolicerActionRefModelAttrTypes})
+							}
+							var RefExisting []FastACLRuleActionPolicerActionRefModel
+							if !isImport && data.Action != nil && data.Action.PolicerAction != nil && !data.Action.PolicerAction.Ref.IsNull() && !data.Action.PolicerAction.Ref.IsUnknown() {
+								data.Action.PolicerAction.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := PolicerActionData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []FastACLRuleActionPolicerActionRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, FastACLRuleActionPolicerActionRefModel{
 											Kind: func() types.String {
@@ -1108,9 +1137,17 @@ func (r *FastACLRuleResource) Read(ctx context.Context, req resource.ReadRequest
 				if ProtocolPolicerActionData, ok := blockData["protocol_policer_action"].(map[string]interface{}); ok {
 					return &FastACLRuleActionProtocolPolicerActionModel{
 						Ref: func() types.List {
+							if !isImport && data.Action != nil && data.Action.ProtocolPolicerAction != nil && (data.Action.ProtocolPolicerAction.Ref.IsNull() || len(data.Action.ProtocolPolicerAction.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: FastACLRuleActionProtocolPolicerActionRefModelAttrTypes})
+							}
+							var RefExisting []FastACLRuleActionProtocolPolicerActionRefModel
+							if !isImport && data.Action != nil && data.Action.ProtocolPolicerAction != nil && !data.Action.ProtocolPolicerAction.Ref.IsNull() && !data.Action.ProtocolPolicerAction.Ref.IsUnknown() {
+								data.Action.ProtocolPolicerAction.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := ProtocolPolicerActionData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []FastACLRuleActionProtocolPolicerActionRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, FastACLRuleActionProtocolPolicerActionRefModel{
 											Kind: func() types.String {
@@ -1169,9 +1206,14 @@ func (r *FastACLRuleResource) Read(ctx context.Context, req resource.ReadRequest
 				if !isImport && data.IPPrefixSet != nil && (data.IPPrefixSet.Ref.IsNull() || len(data.IPPrefixSet.Ref.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FastACLRuleIPPrefixSetRefModelAttrTypes})
 				}
+				var RefExisting []FastACLRuleIPPrefixSetRefModel
+				if !isImport && data.IPPrefixSet != nil && !data.IPPrefixSet.Ref.IsNull() && !data.IPPrefixSet.Ref.IsUnknown() {
+					data.IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+				}
 				if rawList, ok := blockData["ref"].([]interface{}); ok && len(rawList) > 0 {
 					var RefResult []FastACLRuleIPPrefixSetRefModel
-					for _, RefItem := range rawList {
+					for RefIdx, RefItem := range rawList {
+						_ = RefIdx
 						if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 							RefResult = append(RefResult, FastACLRuleIPPrefixSetRefModel{
 								Kind: func() types.String {
@@ -1503,9 +1545,17 @@ func (r *FastACLRuleResource) Update(ctx context.Context, req resource.UpdateReq
 				if PolicerActionData, ok := blockData["policer_action"].(map[string]interface{}); ok {
 					return &FastACLRuleActionPolicerActionModel{
 						Ref: func() types.List {
+							if !isImport && data.Action != nil && data.Action.PolicerAction != nil && (data.Action.PolicerAction.Ref.IsNull() || len(data.Action.PolicerAction.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: FastACLRuleActionPolicerActionRefModelAttrTypes})
+							}
+							var RefExisting []FastACLRuleActionPolicerActionRefModel
+							if !isImport && data.Action != nil && data.Action.PolicerAction != nil && !data.Action.PolicerAction.Ref.IsNull() && !data.Action.PolicerAction.Ref.IsUnknown() {
+								data.Action.PolicerAction.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := PolicerActionData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []FastACLRuleActionPolicerActionRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, FastACLRuleActionPolicerActionRefModel{
 											Kind: func() types.String {
@@ -1554,9 +1604,17 @@ func (r *FastACLRuleResource) Update(ctx context.Context, req resource.UpdateReq
 				if ProtocolPolicerActionData, ok := blockData["protocol_policer_action"].(map[string]interface{}); ok {
 					return &FastACLRuleActionProtocolPolicerActionModel{
 						Ref: func() types.List {
+							if !isImport && data.Action != nil && data.Action.ProtocolPolicerAction != nil && (data.Action.ProtocolPolicerAction.Ref.IsNull() || len(data.Action.ProtocolPolicerAction.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: FastACLRuleActionProtocolPolicerActionRefModelAttrTypes})
+							}
+							var RefExisting []FastACLRuleActionProtocolPolicerActionRefModel
+							if !isImport && data.Action != nil && data.Action.ProtocolPolicerAction != nil && !data.Action.ProtocolPolicerAction.Ref.IsNull() && !data.Action.ProtocolPolicerAction.Ref.IsUnknown() {
+								data.Action.ProtocolPolicerAction.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := ProtocolPolicerActionData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []FastACLRuleActionProtocolPolicerActionRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, FastACLRuleActionProtocolPolicerActionRefModel{
 											Kind: func() types.String {
@@ -1615,9 +1673,14 @@ func (r *FastACLRuleResource) Update(ctx context.Context, req resource.UpdateReq
 				if !isImport && data.IPPrefixSet != nil && (data.IPPrefixSet.Ref.IsNull() || len(data.IPPrefixSet.Ref.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FastACLRuleIPPrefixSetRefModelAttrTypes})
 				}
+				var RefExisting []FastACLRuleIPPrefixSetRefModel
+				if !isImport && data.IPPrefixSet != nil && !data.IPPrefixSet.Ref.IsNull() && !data.IPPrefixSet.Ref.IsUnknown() {
+					data.IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+				}
 				if rawList, ok := blockData["ref"].([]interface{}); ok && len(rawList) > 0 {
 					var RefResult []FastACLRuleIPPrefixSetRefModel
-					for _, RefItem := range rawList {
+					for RefIdx, RefItem := range rawList {
+						_ = RefIdx
 						if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 							RefResult = append(RefResult, FastACLRuleIPPrefixSetRefModel{
 								Kind: func() types.String {

@@ -434,6 +434,9 @@ func (r *FilterSetResource) Create(ctx context.Context, req resource.CreateReque
 						if DateFieldData, ok := itemMap["date_field"].(map[string]interface{}); ok {
 							return &FilterSetFilterFieldsDateFieldModel{
 								Absolute: func() *FilterSetFilterFieldsDateFieldAbsoluteModel {
+									if !isImport && len(existingFilterFieldsItems) > listIdx && existingFilterFieldsItems[listIdx].DateField != nil && existingFilterFieldsItems[listIdx].DateField.Absolute != nil {
+										return existingFilterFieldsItems[listIdx].DateField.Absolute
+									}
 									if AbsoluteData, ok := DateFieldData["absolute"].(map[string]interface{}); ok {
 										return &FilterSetFilterFieldsDateFieldAbsoluteModel{
 											EndDate: func() types.String {
@@ -626,6 +629,9 @@ func (r *FilterSetResource) Read(ctx context.Context, req resource.ReadRequest, 
 						if DateFieldData, ok := itemMap["date_field"].(map[string]interface{}); ok {
 							return &FilterSetFilterFieldsDateFieldModel{
 								Absolute: func() *FilterSetFilterFieldsDateFieldAbsoluteModel {
+									if !isImport && len(existingFilterFieldsItems) > listIdx && existingFilterFieldsItems[listIdx].DateField != nil && existingFilterFieldsItems[listIdx].DateField.Absolute != nil {
+										return existingFilterFieldsItems[listIdx].DateField.Absolute
+									}
 									if AbsoluteData, ok := DateFieldData["absolute"].(map[string]interface{}); ok {
 										return &FilterSetFilterFieldsDateFieldAbsoluteModel{
 											EndDate: func() types.String {
@@ -862,6 +868,9 @@ func (r *FilterSetResource) Update(ctx context.Context, req resource.UpdateReque
 						if DateFieldData, ok := itemMap["date_field"].(map[string]interface{}); ok {
 							return &FilterSetFilterFieldsDateFieldModel{
 								Absolute: func() *FilterSetFilterFieldsDateFieldAbsoluteModel {
+									if !isImport && len(existingFilterFieldsItems) > listIdx && existingFilterFieldsItems[listIdx].DateField != nil && existingFilterFieldsItems[listIdx].DateField.Absolute != nil {
+										return existingFilterFieldsItems[listIdx].DateField.Absolute
+									}
 									if AbsoluteData, ok := DateFieldData["absolute"].(map[string]interface{}); ok {
 										return &FilterSetFilterFieldsDateFieldAbsoluteModel{
 											EndDate: func() types.String {

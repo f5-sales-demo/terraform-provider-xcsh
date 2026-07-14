@@ -3734,9 +3734,14 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 				if !isImport && data.AllowList != nil && (data.AllowList.AsnSet.IsNull() || len(data.AllowList.AsnSet.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyAllowListAsnSetModelAttrTypes})
 				}
+				var AsnSetExisting []ServicePolicyAllowListAsnSetModel
+				if !isImport && data.AllowList != nil && !data.AllowList.AsnSet.IsNull() && !data.AllowList.AsnSet.IsUnknown() {
+					data.AllowList.AsnSet.ElementsAs(ctx, &AsnSetExisting, false)
+				}
 				if rawList, ok := blockData["asn_set"].([]interface{}); ok && len(rawList) > 0 {
 					var AsnSetResult []ServicePolicyAllowListAsnSetModel
-					for _, AsnSetItem := range rawList {
+					for AsnSetIdx, AsnSetItem := range rawList {
+						_ = AsnSetIdx
 						if AsnSetItemMap, ok := AsnSetItem.(map[string]interface{}); ok {
 							AsnSetResult = append(AsnSetResult, ServicePolicyAllowListAsnSetModel{
 								Name: func() types.String {
@@ -3809,9 +3814,14 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 				if !isImport && data.AllowList != nil && (data.AllowList.IPPrefixSet.IsNull() || len(data.AllowList.IPPrefixSet.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyAllowListIPPrefixSetModelAttrTypes})
 				}
+				var IPPrefixSetExisting []ServicePolicyAllowListIPPrefixSetModel
+				if !isImport && data.AllowList != nil && !data.AllowList.IPPrefixSet.IsNull() && !data.AllowList.IPPrefixSet.IsUnknown() {
+					data.AllowList.IPPrefixSet.ElementsAs(ctx, &IPPrefixSetExisting, false)
+				}
 				if rawList, ok := blockData["ip_prefix_set"].([]interface{}); ok && len(rawList) > 0 {
 					var IPPrefixSetResult []ServicePolicyAllowListIPPrefixSetModel
-					for _, IPPrefixSetItem := range rawList {
+					for IPPrefixSetIdx, IPPrefixSetItem := range rawList {
+						_ = IPPrefixSetIdx
 						if IPPrefixSetItemMap, ok := IPPrefixSetItem.(map[string]interface{}); ok {
 							IPPrefixSetResult = append(IPPrefixSetResult, ServicePolicyAllowListIPPrefixSetModel{
 								Name: func() types.String {
@@ -3923,9 +3933,14 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 				if !isImport && data.DenyList != nil && (data.DenyList.AsnSet.IsNull() || len(data.DenyList.AsnSet.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyDenyListAsnSetModelAttrTypes})
 				}
+				var AsnSetExisting []ServicePolicyDenyListAsnSetModel
+				if !isImport && data.DenyList != nil && !data.DenyList.AsnSet.IsNull() && !data.DenyList.AsnSet.IsUnknown() {
+					data.DenyList.AsnSet.ElementsAs(ctx, &AsnSetExisting, false)
+				}
 				if rawList, ok := blockData["asn_set"].([]interface{}); ok && len(rawList) > 0 {
 					var AsnSetResult []ServicePolicyDenyListAsnSetModel
-					for _, AsnSetItem := range rawList {
+					for AsnSetIdx, AsnSetItem := range rawList {
+						_ = AsnSetIdx
 						if AsnSetItemMap, ok := AsnSetItem.(map[string]interface{}); ok {
 							AsnSetResult = append(AsnSetResult, ServicePolicyDenyListAsnSetModel{
 								Name: func() types.String {
@@ -3998,9 +4013,14 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 				if !isImport && data.DenyList != nil && (data.DenyList.IPPrefixSet.IsNull() || len(data.DenyList.IPPrefixSet.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyDenyListIPPrefixSetModelAttrTypes})
 				}
+				var IPPrefixSetExisting []ServicePolicyDenyListIPPrefixSetModel
+				if !isImport && data.DenyList != nil && !data.DenyList.IPPrefixSet.IsNull() && !data.DenyList.IPPrefixSet.IsUnknown() {
+					data.DenyList.IPPrefixSet.ElementsAs(ctx, &IPPrefixSetExisting, false)
+				}
 				if rawList, ok := blockData["ip_prefix_set"].([]interface{}); ok && len(rawList) > 0 {
 					var IPPrefixSetResult []ServicePolicyDenyListIPPrefixSetModel
-					for _, IPPrefixSetItem := range rawList {
+					for IPPrefixSetIdx, IPPrefixSetItem := range rawList {
+						_ = IPPrefixSetIdx
 						if IPPrefixSetItemMap, ok := IPPrefixSetItem.(map[string]interface{}); ok {
 							IPPrefixSetResult = append(IPPrefixSetResult, ServicePolicyDenyListIPPrefixSetModel{
 								Name: func() types.String {
@@ -4086,9 +4106,14 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 				if !isImport && data.RuleList != nil && (data.RuleList.Rules.IsNull() || len(data.RuleList.Rules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesModelAttrTypes})
 				}
+				var RulesExisting []ServicePolicyRuleListRulesModel
+				if !isImport && data.RuleList != nil && !data.RuleList.Rules.IsNull() && !data.RuleList.Rules.IsUnknown() {
+					data.RuleList.Rules.ElementsAs(ctx, &RulesExisting, false)
+				}
 				if rawList, ok := blockData["rules"].([]interface{}); ok && len(rawList) > 0 {
 					var RulesResult []ServicePolicyRuleListRulesModel
-					for _, RulesItem := range rawList {
+					for RulesIdx, RulesItem := range rawList {
+						_ = RulesIdx
 						if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 							RulesResult = append(RulesResult, ServicePolicyRuleListRulesModel{
 								Metadata: func() *ServicePolicyRuleListRulesMetadataModel {
@@ -4120,27 +4145,42 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return types.StringNull()
 											}(),
 											AnyAsn: func() *ServicePolicyEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+													return RulesExisting[RulesIdx].Spec.AnyAsn
+												}
 												if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
 													return &ServicePolicyEmptyModel{}
 												}
 												return nil
 											}(),
 											AnyClient: func() *ServicePolicyEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+													return RulesExisting[RulesIdx].Spec.AnyClient
+												}
 												if _, ok := SpecData["any_client"].(map[string]interface{}); ok {
 													return &ServicePolicyEmptyModel{}
 												}
 												return nil
 											}(),
 											AnyIP: func() *ServicePolicyEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+													return RulesExisting[RulesIdx].Spec.AnyIP
+												}
 												if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
 													return &ServicePolicyEmptyModel{}
 												}
 												return nil
 											}(),
 											APIGroupMatcher: func() *ServicePolicyRuleListRulesSpecAPIGroupMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.APIGroupMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.APIGroupMatcher
+												}
 												if APIGroupMatcherData, ok := SpecData["api_group_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecAPIGroupMatcherModel{
 														InvertMatcher: func() types.Bool {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.APIGroupMatcher != nil && !RulesExisting[RulesIdx].Spec.APIGroupMatcher.InvertMatcher.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.APIGroupMatcher.InvertMatcher
+															}
 															if v, ok := APIGroupMatcherData["invert_matcher"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -4164,18 +4204,32 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											ArgMatchers: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.ArgMatchers.IsNull() || len(RulesExisting[RulesIdx].Spec.ArgMatchers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecArgMatchersModelAttrTypes})
+												}
+												var ArgMatchersExisting []ServicePolicyRuleListRulesSpecArgMatchersModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.ArgMatchers.IsNull() && !RulesExisting[RulesIdx].Spec.ArgMatchers.IsUnknown() {
+													RulesExisting[RulesIdx].Spec.ArgMatchers.ElementsAs(ctx, &ArgMatchersExisting, false)
+												}
 												if rawList, ok := SpecData["arg_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var ArgMatchersResult []ServicePolicyRuleListRulesSpecArgMatchersModel
-													for _, ArgMatchersItem := range rawList {
+													for ArgMatchersIdx, ArgMatchersItem := range rawList {
+														_ = ArgMatchersIdx
 														if ArgMatchersItemMap, ok := ArgMatchersItem.(map[string]interface{}); ok {
 															ArgMatchersResult = append(ArgMatchersResult, ServicePolicyRuleListRulesSpecArgMatchersModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && ArgMatchersExisting[ArgMatchersIdx].CheckNotPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := ArgMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && ArgMatchersExisting[ArgMatchersIdx].CheckPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := ArgMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
@@ -4248,6 +4302,9 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecArgMatchersModelAttrTypes})
 											}(),
 											AsnList: func() *ServicePolicyRuleListRulesSpecAsnListModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.AsnList != nil {
+													return RulesExisting[RulesIdx].Spec.AsnList
+												}
 												if AsnListData, ok := SpecData["asn_list"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecAsnListModel{
 														AsNumbers: func() types.List {
@@ -4271,9 +4328,17 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												if AsnMatcherData, ok := SpecData["asn_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecAsnMatcherModel{
 														AsnSets: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.AsnMatcher != nil && (RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.IsNull() || len(RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecAsnMatcherAsnSetsModelAttrTypes})
+															}
+															var AsnSetsExisting []ServicePolicyRuleListRulesSpecAsnMatcherAsnSetsModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.AsnMatcher != nil && !RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.IsNull() && !RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.IsUnknown() {
+																RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+															}
 															if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 																var AsnSetsResult []ServicePolicyRuleListRulesSpecAsnMatcherAsnSetsModel
-																for _, AsnSetsItem := range rawList {
+																for AsnSetsIdx, AsnSetsItem := range rawList {
+																	_ = AsnSetsIdx
 																	if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 																		AsnSetsResult = append(AsnSetsResult, ServicePolicyRuleListRulesSpecAsnMatcherAsnSetsModel{
 																			Kind: func() types.String {
@@ -4319,6 +4384,9 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											BodyMatcher: func() *ServicePolicyRuleListRulesSpecBodyMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BodyMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.BodyMatcher
+												}
 												if BodyMatcherData, ok := SpecData["body_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecBodyMatcherModel{
 														ExactValues: func() types.List {
@@ -4365,15 +4433,24 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											BotAction: func() *ServicePolicyRuleListRulesSpecBotActionModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BotAction != nil {
+													return RulesExisting[RulesIdx].Spec.BotAction
+												}
 												if BotActionData, ok := SpecData["bot_action"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecBotActionModel{
 														BotSkipProcessing: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BotAction != nil {
+																return RulesExisting[RulesIdx].Spec.BotAction.BotSkipProcessing
+															}
 															if _, ok := BotActionData["bot_skip_processing"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														None: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BotAction != nil {
+																return RulesExisting[RulesIdx].Spec.BotAction.None
+															}
 															if _, ok := BotActionData["none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
@@ -4390,6 +4467,9 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return types.StringNull()
 											}(),
 											ClientNameMatcher: func() *ServicePolicyRuleListRulesSpecClientNameMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.ClientNameMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.ClientNameMatcher
+												}
 												if ClientNameMatcherData, ok := SpecData["client_name_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecClientNameMatcherModel{
 														ExactValues: func() types.List {
@@ -4436,6 +4516,9 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											ClientSelector: func() *ServicePolicyRuleListRulesSpecClientSelectorModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.ClientSelector != nil {
+													return RulesExisting[RulesIdx].Spec.ClientSelector
+												}
 												if ClientSelectorData, ok := SpecData["client_selector"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecClientSelectorModel{
 														Expressions: func() types.List {
@@ -4456,18 +4539,32 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											CookieMatchers: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.CookieMatchers.IsNull() || len(RulesExisting[RulesIdx].Spec.CookieMatchers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecCookieMatchersModelAttrTypes})
+												}
+												var CookieMatchersExisting []ServicePolicyRuleListRulesSpecCookieMatchersModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.CookieMatchers.IsNull() && !RulesExisting[RulesIdx].Spec.CookieMatchers.IsUnknown() {
+													RulesExisting[RulesIdx].Spec.CookieMatchers.ElementsAs(ctx, &CookieMatchersExisting, false)
+												}
 												if rawList, ok := SpecData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var CookieMatchersResult []ServicePolicyRuleListRulesSpecCookieMatchersModel
-													for _, CookieMatchersItem := range rawList {
+													for CookieMatchersIdx, CookieMatchersItem := range rawList {
+														_ = CookieMatchersIdx
 														if CookieMatchersItemMap, ok := CookieMatchersItem.(map[string]interface{}); ok {
 															CookieMatchersResult = append(CookieMatchersResult, ServicePolicyRuleListRulesSpecCookieMatchersModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := CookieMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := CookieMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
@@ -4540,6 +4637,9 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecCookieMatchersModelAttrTypes})
 											}(),
 											DomainMatcher: func() *ServicePolicyRuleListRulesSpecDomainMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.DomainMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.DomainMatcher
+												}
 												if DomainMatcherData, ok := SpecData["domain_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecDomainMatcherModel{
 														ExactValues: func() types.List {
@@ -4592,18 +4692,32 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return types.StringNull()
 											}(),
 											Headers: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.Headers.IsNull() || len(RulesExisting[RulesIdx].Spec.Headers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecHeadersModelAttrTypes})
+												}
+												var HeadersExisting []ServicePolicyRuleListRulesSpecHeadersModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.Headers.IsNull() && !RulesExisting[RulesIdx].Spec.Headers.IsUnknown() {
+													RulesExisting[RulesIdx].Spec.Headers.ElementsAs(ctx, &HeadersExisting, false)
+												}
 												if rawList, ok := SpecData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []ServicePolicyRuleListRulesSpecHeadersModel
-													for _, HeadersItem := range rawList {
+													for HeadersIdx, HeadersItem := range rawList {
+														_ = HeadersIdx
 														if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 															HeadersResult = append(HeadersResult, ServicePolicyRuleListRulesSpecHeadersModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
@@ -4676,9 +4790,15 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecHeadersModelAttrTypes})
 											}(),
 											HTTPMethod: func() *ServicePolicyRuleListRulesSpecHTTPMethodModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.HTTPMethod != nil {
+													return RulesExisting[RulesIdx].Spec.HTTPMethod
+												}
 												if HTTPMethodData, ok := SpecData["http_method"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecHTTPMethodModel{
 														InvertMatcher: func() types.Bool {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.HTTPMethod != nil && !RulesExisting[RulesIdx].Spec.HTTPMethod.InvertMatcher.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.HTTPMethod.InvertMatcher
+															}
 															if v, ok := HTTPMethodData["invert_matcher"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -4705,15 +4825,26 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												if IPMatcherData, ok := SpecData["ip_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecIPMatcherModel{
 														InvertMatcher: func() types.Bool {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPMatcher != nil && !RulesExisting[RulesIdx].Spec.IPMatcher.InvertMatcher.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.IPMatcher.InvertMatcher
+															}
 															if v, ok := IPMatcherData["invert_matcher"].(bool); ok {
 																return types.BoolValue(v)
 															}
 															return types.BoolNull()
 														}(),
 														PrefixSets: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPMatcher != nil && (RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.IsNull() || len(RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecIPMatcherPrefixSetsModelAttrTypes})
+															}
+															var PrefixSetsExisting []ServicePolicyRuleListRulesSpecIPMatcherPrefixSetsModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPMatcher != nil && !RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.IsNull() && !RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.IsUnknown() {
+																RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+															}
 															if rawList, ok := IPMatcherData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 																var PrefixSetsResult []ServicePolicyRuleListRulesSpecIPMatcherPrefixSetsModel
-																for _, PrefixSetsItem := range rawList {
+																for PrefixSetsIdx, PrefixSetsItem := range rawList {
+																	_ = PrefixSetsIdx
 																	if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 																		PrefixSetsResult = append(PrefixSetsResult, ServicePolicyRuleListRulesSpecIPMatcherPrefixSetsModel{
 																			Kind: func() types.String {
@@ -4759,9 +4890,15 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											IPPrefixList: func() *ServicePolicyRuleListRulesSpecIPPrefixListModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPPrefixList != nil {
+													return RulesExisting[RulesIdx].Spec.IPPrefixList
+												}
 												if IPPrefixListData, ok := SpecData["ip_prefix_list"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecIPPrefixListModel{
 														InvertMatch: func() types.Bool {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPPrefixList != nil && !RulesExisting[RulesIdx].Spec.IPPrefixList.InvertMatch.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.IPPrefixList.InvertMatch
+															}
 															if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -4785,6 +4922,9 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											IPThreatCategoryList: func() *ServicePolicyRuleListRulesSpecIPThreatCategoryListModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPThreatCategoryList != nil {
+													return RulesExisting[RulesIdx].Spec.IPThreatCategoryList
+												}
 												if IPThreatCategoryListData, ok := SpecData["ip_threat_category_list"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecIPThreatCategoryListModel{
 														IPThreatCategories: func() types.List {
@@ -4805,6 +4945,9 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											Ja4TLSFingerprint: func() *ServicePolicyRuleListRulesSpecJa4TLSFingerprintModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Ja4TLSFingerprint != nil {
+													return RulesExisting[RulesIdx].Spec.Ja4TLSFingerprint
+												}
 												if Ja4TLSFingerprintData, ok := SpecData["ja4_tls_fingerprint"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecJa4TLSFingerprintModel{
 														ExactValues: func() types.List {
@@ -4825,18 +4968,32 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											JWTClaims: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.JWTClaims.IsNull() || len(RulesExisting[RulesIdx].Spec.JWTClaims.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecJWTClaimsModelAttrTypes})
+												}
+												var JWTClaimsExisting []ServicePolicyRuleListRulesSpecJWTClaimsModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.JWTClaims.IsNull() && !RulesExisting[RulesIdx].Spec.JWTClaims.IsUnknown() {
+													RulesExisting[RulesIdx].Spec.JWTClaims.ElementsAs(ctx, &JWTClaimsExisting, false)
+												}
 												if rawList, ok := SpecData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 													var JWTClaimsResult []ServicePolicyRuleListRulesSpecJWTClaimsModel
-													for _, JWTClaimsItem := range rawList {
+													for JWTClaimsIdx, JWTClaimsItem := range rawList {
+														_ = JWTClaimsIdx
 														if JWTClaimsItemMap, ok := JWTClaimsItem.(map[string]interface{}); ok {
 															JWTClaimsResult = append(JWTClaimsResult, ServicePolicyRuleListRulesSpecJWTClaimsModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := JWTClaimsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := JWTClaimsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
@@ -4909,6 +5066,9 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecJWTClaimsModelAttrTypes})
 											}(),
 											LabelMatcher: func() *ServicePolicyRuleListRulesSpecLabelMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.LabelMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.LabelMatcher
+												}
 												if LabelMatcherData, ok := SpecData["label_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecLabelMatcherModel{
 														Keys: func() types.List {
@@ -4929,15 +5089,24 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											MumAction: func() *ServicePolicyRuleListRulesSpecMumActionModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil {
+													return RulesExisting[RulesIdx].Spec.MumAction
+												}
 												if MumActionData, ok := SpecData["mum_action"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecMumActionModel{
 														Default: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil {
+																return RulesExisting[RulesIdx].Spec.MumAction.Default
+															}
 															if _, ok := MumActionData["default"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														SkipProcessing: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil {
+																return RulesExisting[RulesIdx].Spec.MumAction.SkipProcessing
+															}
 															if _, ok := MumActionData["skip_processing"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
@@ -4948,6 +5117,9 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											Path: func() *ServicePolicyRuleListRulesSpecPathModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Path != nil {
+													return RulesExisting[RulesIdx].Spec.Path
+												}
 												if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecPathModel{
 														ExactValues: func() types.List {
@@ -4964,6 +5136,9 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															return types.ListNull(types.StringType)
 														}(),
 														InvertMatcher: func() types.Bool {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Path != nil && !RulesExisting[RulesIdx].Spec.Path.InvertMatcher.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.Path.InvertMatcher
+															}
 															if v, ok := PathData["invert_matcher"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -5026,9 +5201,15 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											PortMatcher: func() *ServicePolicyRuleListRulesSpecPortMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.PortMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.PortMatcher
+												}
 												if PortMatcherData, ok := SpecData["port_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecPortMatcherModel{
 														InvertMatcher: func() types.Bool {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.PortMatcher != nil && !RulesExisting[RulesIdx].Spec.PortMatcher.InvertMatcher.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.PortMatcher.InvertMatcher
+															}
 															if v, ok := PortMatcherData["invert_matcher"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -5052,18 +5233,32 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											QueryParams: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.QueryParams.IsNull() || len(RulesExisting[RulesIdx].Spec.QueryParams.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecQueryParamsModelAttrTypes})
+												}
+												var QueryParamsExisting []ServicePolicyRuleListRulesSpecQueryParamsModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.QueryParams.IsNull() && !RulesExisting[RulesIdx].Spec.QueryParams.IsUnknown() {
+													RulesExisting[RulesIdx].Spec.QueryParams.ElementsAs(ctx, &QueryParamsExisting, false)
+												}
 												if rawList, ok := SpecData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 													var QueryParamsResult []ServicePolicyRuleListRulesSpecQueryParamsModel
-													for _, QueryParamsItem := range rawList {
+													for QueryParamsIdx, QueryParamsItem := range rawList {
+														_ = QueryParamsIdx
 														if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 															QueryParamsResult = append(QueryParamsResult, ServicePolicyRuleListRulesSpecQueryParamsModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckNotPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := QueryParamsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := QueryParamsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
@@ -5136,159 +5331,240 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecQueryParamsModelAttrTypes})
 											}(),
 											RequestConstraints: func() *ServicePolicyRuleListRulesSpecRequestConstraintsModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+													return RulesExisting[RulesIdx].Spec.RequestConstraints
+												}
 												if RequestConstraintsData, ok := SpecData["request_constraints"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecRequestConstraintsModel{
 														MaxCookieCountExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieCountExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieCountExceeds
+															}
 															if v, ok := RequestConstraintsData["max_cookie_count_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxCookieCountNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieCountNone
+															}
 															if _, ok := RequestConstraintsData["max_cookie_count_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxCookieKeySizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieKeySizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieKeySizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_cookie_key_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxCookieKeySizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieKeySizeNone
+															}
 															if _, ok := RequestConstraintsData["max_cookie_key_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxCookieValueSizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieValueSizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieValueSizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_cookie_value_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxCookieValueSizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieValueSizeNone
+															}
 															if _, ok := RequestConstraintsData["max_cookie_value_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxHeaderCountExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderCountExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderCountExceeds
+															}
 															if v, ok := RequestConstraintsData["max_header_count_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxHeaderCountNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderCountNone
+															}
 															if _, ok := RequestConstraintsData["max_header_count_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxHeaderKeySizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderKeySizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderKeySizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_header_key_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxHeaderKeySizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderKeySizeNone
+															}
 															if _, ok := RequestConstraintsData["max_header_key_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxHeaderValueSizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderValueSizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderValueSizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_header_value_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxHeaderValueSizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderValueSizeNone
+															}
 															if _, ok := RequestConstraintsData["max_header_value_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxParameterCountExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterCountExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterCountExceeds
+															}
 															if v, ok := RequestConstraintsData["max_parameter_count_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxParameterCountNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterCountNone
+															}
 															if _, ok := RequestConstraintsData["max_parameter_count_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxParameterNameSizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterNameSizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterNameSizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_parameter_name_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxParameterNameSizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterNameSizeNone
+															}
 															if _, ok := RequestConstraintsData["max_parameter_name_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxParameterValueSizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterValueSizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterValueSizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_parameter_value_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxParameterValueSizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterValueSizeNone
+															}
 															if _, ok := RequestConstraintsData["max_parameter_value_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxQuerySizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxQuerySizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxQuerySizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_query_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxQuerySizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxQuerySizeNone
+															}
 															if _, ok := RequestConstraintsData["max_query_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxRequestLineSizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestLineSizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestLineSizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_request_line_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxRequestLineSizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestLineSizeNone
+															}
 															if _, ok := RequestConstraintsData["max_request_line_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxRequestSizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestSizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestSizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_request_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxRequestSizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestSizeNone
+															}
 															if _, ok := RequestConstraintsData["max_request_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxURLSizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxURLSizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxURLSizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_url_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxURLSizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxURLSizeNone
+															}
 															if _, ok := RequestConstraintsData["max_url_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
@@ -5302,6 +5578,9 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												if SegmentPolicyData, ok := SpecData["segment_policy"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecSegmentPolicyModel{
 														DstAny: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil {
+																return RulesExisting[RulesIdx].Spec.SegmentPolicy.DstAny
+															}
 															if _, ok := SegmentPolicyData["dst_any"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
@@ -5311,9 +5590,17 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															if DstSegmentsData, ok := SegmentPolicyData["dst_segments"].(map[string]interface{}); ok {
 																return &ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsModel{
 																	Segments: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments != nil && (RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments.Segments.IsNull() || len(RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments.Segments.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsSegmentsModelAttrTypes})
+																		}
+																		var SegmentsExisting []ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsSegmentsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments != nil && !RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments.Segments.IsNull() && !RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments.Segments.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments.Segments.ElementsAs(ctx, &SegmentsExisting, false)
+																		}
 																		if rawList, ok := DstSegmentsData["segments"].([]interface{}); ok && len(rawList) > 0 {
 																			var SegmentsResult []ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsSegmentsModel
-																			for _, SegmentsItem := range rawList {
+																			for SegmentsIdx, SegmentsItem := range rawList {
+																				_ = SegmentsIdx
 																				if SegmentsItemMap, ok := SegmentsItem.(map[string]interface{}); ok {
 																					SegmentsResult = append(SegmentsResult, ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsSegmentsModel{
 																						Name: func() types.String {
@@ -5347,12 +5634,18 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															return nil
 														}(),
 														IntraSegment: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil {
+																return RulesExisting[RulesIdx].Spec.SegmentPolicy.IntraSegment
+															}
 															if _, ok := SegmentPolicyData["intra_segment"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														SrcAny: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil {
+																return RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcAny
+															}
 															if _, ok := SegmentPolicyData["src_any"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
@@ -5362,9 +5655,17 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															if SrcSegmentsData, ok := SegmentPolicyData["src_segments"].(map[string]interface{}); ok {
 																return &ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsModel{
 																	Segments: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments != nil && (RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments.Segments.IsNull() || len(RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments.Segments.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsSegmentsModelAttrTypes})
+																		}
+																		var SegmentsExisting []ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsSegmentsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments != nil && !RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments.Segments.IsNull() && !RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments.Segments.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments.Segments.ElementsAs(ctx, &SegmentsExisting, false)
+																		}
 																		if rawList, ok := SrcSegmentsData["segments"].([]interface{}); ok && len(rawList) > 0 {
 																			var SegmentsResult []ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsSegmentsModel
-																			for _, SegmentsItem := range rawList {
+																			for SegmentsIdx, SegmentsItem := range rawList {
+																				_ = SegmentsIdx
 																				if SegmentsItemMap, ok := SegmentsItem.(map[string]interface{}); ok {
 																					SegmentsResult = append(SegmentsResult, ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsSegmentsModel{
 																						Name: func() types.String {
@@ -5402,6 +5703,9 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											TLSFingerprintMatcher: func() *ServicePolicyRuleListRulesSpecTLSFingerprintMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.TLSFingerprintMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.TLSFingerprintMatcher
+												}
 												if TLSFingerprintMatcherData, ok := SpecData["tls_fingerprint_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecTLSFingerprintMatcherModel{
 														Classes: func() types.List {
@@ -5448,6 +5752,9 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											UserIdentityMatcher: func() *ServicePolicyRuleListRulesSpecUserIdentityMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.UserIdentityMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.UserIdentityMatcher
+												}
 												if UserIdentityMatcherData, ok := SpecData["user_identity_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecUserIdentityMatcherModel{
 														ExactValues: func() types.List {
@@ -5481,15 +5788,29 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											WAFAction: func() *ServicePolicyRuleListRulesSpecWAFActionModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil {
+													return RulesExisting[RulesIdx].Spec.WAFAction
+												}
 												if WAFActionData, ok := SpecData["waf_action"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecWAFActionModel{
 														AppFirewallDetectionControl: func() *ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil {
+																return RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl
+															}
 															if AppFirewallDetectionControlData, ok := WAFActionData["app_firewall_detection_control"].(map[string]interface{}); ok {
 																return &ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlModel{
 																	ExcludeAttackTypeContexts: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() || len(RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
+																		}
+																		var ExcludeAttackTypeContextsExisting []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.ElementsAs(ctx, &ExcludeAttackTypeContextsExisting, false)
+																		}
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_attack_type_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeAttackTypeContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
-																			for _, ExcludeAttackTypeContextsItem := range rawList {
+																			for ExcludeAttackTypeContextsIdx, ExcludeAttackTypeContextsItem := range rawList {
+																				_ = ExcludeAttackTypeContextsIdx
 																				if ExcludeAttackTypeContextsItemMap, ok := ExcludeAttackTypeContextsItem.(map[string]interface{}); ok {
 																					ExcludeAttackTypeContextsResult = append(ExcludeAttackTypeContextsResult, ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel{
 																						Context: func() types.String {
@@ -5519,9 +5840,17 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
 																	}(),
 																	ExcludeBotNameContexts: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() || len(RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
+																		}
+																		var ExcludeBotNameContextsExisting []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.ElementsAs(ctx, &ExcludeBotNameContextsExisting, false)
+																		}
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_bot_name_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeBotNameContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
-																			for _, ExcludeBotNameContextsItem := range rawList {
+																			for ExcludeBotNameContextsIdx, ExcludeBotNameContextsItem := range rawList {
+																				_ = ExcludeBotNameContextsIdx
 																				if ExcludeBotNameContextsItemMap, ok := ExcludeBotNameContextsItem.(map[string]interface{}); ok {
 																					ExcludeBotNameContextsResult = append(ExcludeBotNameContextsResult, ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel{
 																						BotName: func() types.String {
@@ -5539,9 +5868,17 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
 																	}(),
 																	ExcludeSignatureContexts: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() || len(RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
+																		}
+																		var ExcludeSignatureContextsExisting []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.ElementsAs(ctx, &ExcludeSignatureContextsExisting, false)
+																		}
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_signature_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeSignatureContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
-																			for _, ExcludeSignatureContextsItem := range rawList {
+																			for ExcludeSignatureContextsIdx, ExcludeSignatureContextsItem := range rawList {
+																				_ = ExcludeSignatureContextsIdx
 																				if ExcludeSignatureContextsItemMap, ok := ExcludeSignatureContextsItem.(map[string]interface{}); ok {
 																					ExcludeSignatureContextsResult = append(ExcludeSignatureContextsResult, ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel{
 																						Context: func() types.String {
@@ -5571,9 +5908,17 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
 																	}(),
 																	ExcludeViolationContexts: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() || len(RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes})
+																		}
+																		var ExcludeViolationContextsExisting []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.ElementsAs(ctx, &ExcludeViolationContextsExisting, false)
+																		}
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_violation_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeViolationContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
-																			for _, ExcludeViolationContextsItem := range rawList {
+																			for ExcludeViolationContextsIdx, ExcludeViolationContextsItem := range rawList {
+																				_ = ExcludeViolationContextsIdx
 																				if ExcludeViolationContextsItemMap, ok := ExcludeViolationContextsItem.(map[string]interface{}); ok {
 																					ExcludeViolationContextsResult = append(ExcludeViolationContextsResult, ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModel{
 																						Context: func() types.String {
@@ -5607,12 +5952,18 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															return nil
 														}(),
 														None: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil {
+																return RulesExisting[RulesIdx].Spec.WAFAction.None
+															}
 															if _, ok := WAFActionData["none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														WAFSkipProcessing: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil {
+																return RulesExisting[RulesIdx].Spec.WAFAction.WAFSkipProcessing
+															}
 															if _, ok := WAFActionData["waf_skip_processing"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
@@ -5816,9 +6167,14 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 				if !isImport && data.AllowList != nil && (data.AllowList.AsnSet.IsNull() || len(data.AllowList.AsnSet.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyAllowListAsnSetModelAttrTypes})
 				}
+				var AsnSetExisting []ServicePolicyAllowListAsnSetModel
+				if !isImport && data.AllowList != nil && !data.AllowList.AsnSet.IsNull() && !data.AllowList.AsnSet.IsUnknown() {
+					data.AllowList.AsnSet.ElementsAs(ctx, &AsnSetExisting, false)
+				}
 				if rawList, ok := blockData["asn_set"].([]interface{}); ok && len(rawList) > 0 {
 					var AsnSetResult []ServicePolicyAllowListAsnSetModel
-					for _, AsnSetItem := range rawList {
+					for AsnSetIdx, AsnSetItem := range rawList {
+						_ = AsnSetIdx
 						if AsnSetItemMap, ok := AsnSetItem.(map[string]interface{}); ok {
 							AsnSetResult = append(AsnSetResult, ServicePolicyAllowListAsnSetModel{
 								Name: func() types.String {
@@ -5891,9 +6247,14 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 				if !isImport && data.AllowList != nil && (data.AllowList.IPPrefixSet.IsNull() || len(data.AllowList.IPPrefixSet.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyAllowListIPPrefixSetModelAttrTypes})
 				}
+				var IPPrefixSetExisting []ServicePolicyAllowListIPPrefixSetModel
+				if !isImport && data.AllowList != nil && !data.AllowList.IPPrefixSet.IsNull() && !data.AllowList.IPPrefixSet.IsUnknown() {
+					data.AllowList.IPPrefixSet.ElementsAs(ctx, &IPPrefixSetExisting, false)
+				}
 				if rawList, ok := blockData["ip_prefix_set"].([]interface{}); ok && len(rawList) > 0 {
 					var IPPrefixSetResult []ServicePolicyAllowListIPPrefixSetModel
-					for _, IPPrefixSetItem := range rawList {
+					for IPPrefixSetIdx, IPPrefixSetItem := range rawList {
+						_ = IPPrefixSetIdx
 						if IPPrefixSetItemMap, ok := IPPrefixSetItem.(map[string]interface{}); ok {
 							IPPrefixSetResult = append(IPPrefixSetResult, ServicePolicyAllowListIPPrefixSetModel{
 								Name: func() types.String {
@@ -6005,9 +6366,14 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 				if !isImport && data.DenyList != nil && (data.DenyList.AsnSet.IsNull() || len(data.DenyList.AsnSet.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyDenyListAsnSetModelAttrTypes})
 				}
+				var AsnSetExisting []ServicePolicyDenyListAsnSetModel
+				if !isImport && data.DenyList != nil && !data.DenyList.AsnSet.IsNull() && !data.DenyList.AsnSet.IsUnknown() {
+					data.DenyList.AsnSet.ElementsAs(ctx, &AsnSetExisting, false)
+				}
 				if rawList, ok := blockData["asn_set"].([]interface{}); ok && len(rawList) > 0 {
 					var AsnSetResult []ServicePolicyDenyListAsnSetModel
-					for _, AsnSetItem := range rawList {
+					for AsnSetIdx, AsnSetItem := range rawList {
+						_ = AsnSetIdx
 						if AsnSetItemMap, ok := AsnSetItem.(map[string]interface{}); ok {
 							AsnSetResult = append(AsnSetResult, ServicePolicyDenyListAsnSetModel{
 								Name: func() types.String {
@@ -6080,9 +6446,14 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 				if !isImport && data.DenyList != nil && (data.DenyList.IPPrefixSet.IsNull() || len(data.DenyList.IPPrefixSet.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyDenyListIPPrefixSetModelAttrTypes})
 				}
+				var IPPrefixSetExisting []ServicePolicyDenyListIPPrefixSetModel
+				if !isImport && data.DenyList != nil && !data.DenyList.IPPrefixSet.IsNull() && !data.DenyList.IPPrefixSet.IsUnknown() {
+					data.DenyList.IPPrefixSet.ElementsAs(ctx, &IPPrefixSetExisting, false)
+				}
 				if rawList, ok := blockData["ip_prefix_set"].([]interface{}); ok && len(rawList) > 0 {
 					var IPPrefixSetResult []ServicePolicyDenyListIPPrefixSetModel
-					for _, IPPrefixSetItem := range rawList {
+					for IPPrefixSetIdx, IPPrefixSetItem := range rawList {
+						_ = IPPrefixSetIdx
 						if IPPrefixSetItemMap, ok := IPPrefixSetItem.(map[string]interface{}); ok {
 							IPPrefixSetResult = append(IPPrefixSetResult, ServicePolicyDenyListIPPrefixSetModel{
 								Name: func() types.String {
@@ -6168,9 +6539,14 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 				if !isImport && data.RuleList != nil && (data.RuleList.Rules.IsNull() || len(data.RuleList.Rules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesModelAttrTypes})
 				}
+				var RulesExisting []ServicePolicyRuleListRulesModel
+				if !isImport && data.RuleList != nil && !data.RuleList.Rules.IsNull() && !data.RuleList.Rules.IsUnknown() {
+					data.RuleList.Rules.ElementsAs(ctx, &RulesExisting, false)
+				}
 				if rawList, ok := blockData["rules"].([]interface{}); ok && len(rawList) > 0 {
 					var RulesResult []ServicePolicyRuleListRulesModel
-					for _, RulesItem := range rawList {
+					for RulesIdx, RulesItem := range rawList {
+						_ = RulesIdx
 						if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 							RulesResult = append(RulesResult, ServicePolicyRuleListRulesModel{
 								Metadata: func() *ServicePolicyRuleListRulesMetadataModel {
@@ -6202,27 +6578,42 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return types.StringNull()
 											}(),
 											AnyAsn: func() *ServicePolicyEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+													return RulesExisting[RulesIdx].Spec.AnyAsn
+												}
 												if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
 													return &ServicePolicyEmptyModel{}
 												}
 												return nil
 											}(),
 											AnyClient: func() *ServicePolicyEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+													return RulesExisting[RulesIdx].Spec.AnyClient
+												}
 												if _, ok := SpecData["any_client"].(map[string]interface{}); ok {
 													return &ServicePolicyEmptyModel{}
 												}
 												return nil
 											}(),
 											AnyIP: func() *ServicePolicyEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+													return RulesExisting[RulesIdx].Spec.AnyIP
+												}
 												if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
 													return &ServicePolicyEmptyModel{}
 												}
 												return nil
 											}(),
 											APIGroupMatcher: func() *ServicePolicyRuleListRulesSpecAPIGroupMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.APIGroupMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.APIGroupMatcher
+												}
 												if APIGroupMatcherData, ok := SpecData["api_group_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecAPIGroupMatcherModel{
 														InvertMatcher: func() types.Bool {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.APIGroupMatcher != nil && !RulesExisting[RulesIdx].Spec.APIGroupMatcher.InvertMatcher.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.APIGroupMatcher.InvertMatcher
+															}
 															if v, ok := APIGroupMatcherData["invert_matcher"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -6246,18 +6637,32 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											ArgMatchers: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.ArgMatchers.IsNull() || len(RulesExisting[RulesIdx].Spec.ArgMatchers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecArgMatchersModelAttrTypes})
+												}
+												var ArgMatchersExisting []ServicePolicyRuleListRulesSpecArgMatchersModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.ArgMatchers.IsNull() && !RulesExisting[RulesIdx].Spec.ArgMatchers.IsUnknown() {
+													RulesExisting[RulesIdx].Spec.ArgMatchers.ElementsAs(ctx, &ArgMatchersExisting, false)
+												}
 												if rawList, ok := SpecData["arg_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var ArgMatchersResult []ServicePolicyRuleListRulesSpecArgMatchersModel
-													for _, ArgMatchersItem := range rawList {
+													for ArgMatchersIdx, ArgMatchersItem := range rawList {
+														_ = ArgMatchersIdx
 														if ArgMatchersItemMap, ok := ArgMatchersItem.(map[string]interface{}); ok {
 															ArgMatchersResult = append(ArgMatchersResult, ServicePolicyRuleListRulesSpecArgMatchersModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && ArgMatchersExisting[ArgMatchersIdx].CheckNotPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := ArgMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && ArgMatchersExisting[ArgMatchersIdx].CheckPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := ArgMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
@@ -6330,6 +6735,9 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecArgMatchersModelAttrTypes})
 											}(),
 											AsnList: func() *ServicePolicyRuleListRulesSpecAsnListModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.AsnList != nil {
+													return RulesExisting[RulesIdx].Spec.AsnList
+												}
 												if AsnListData, ok := SpecData["asn_list"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecAsnListModel{
 														AsNumbers: func() types.List {
@@ -6353,9 +6761,17 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												if AsnMatcherData, ok := SpecData["asn_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecAsnMatcherModel{
 														AsnSets: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.AsnMatcher != nil && (RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.IsNull() || len(RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecAsnMatcherAsnSetsModelAttrTypes})
+															}
+															var AsnSetsExisting []ServicePolicyRuleListRulesSpecAsnMatcherAsnSetsModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.AsnMatcher != nil && !RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.IsNull() && !RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.IsUnknown() {
+																RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+															}
 															if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 																var AsnSetsResult []ServicePolicyRuleListRulesSpecAsnMatcherAsnSetsModel
-																for _, AsnSetsItem := range rawList {
+																for AsnSetsIdx, AsnSetsItem := range rawList {
+																	_ = AsnSetsIdx
 																	if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 																		AsnSetsResult = append(AsnSetsResult, ServicePolicyRuleListRulesSpecAsnMatcherAsnSetsModel{
 																			Kind: func() types.String {
@@ -6401,6 +6817,9 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											BodyMatcher: func() *ServicePolicyRuleListRulesSpecBodyMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BodyMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.BodyMatcher
+												}
 												if BodyMatcherData, ok := SpecData["body_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecBodyMatcherModel{
 														ExactValues: func() types.List {
@@ -6447,15 +6866,24 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											BotAction: func() *ServicePolicyRuleListRulesSpecBotActionModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BotAction != nil {
+													return RulesExisting[RulesIdx].Spec.BotAction
+												}
 												if BotActionData, ok := SpecData["bot_action"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecBotActionModel{
 														BotSkipProcessing: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BotAction != nil {
+																return RulesExisting[RulesIdx].Spec.BotAction.BotSkipProcessing
+															}
 															if _, ok := BotActionData["bot_skip_processing"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														None: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BotAction != nil {
+																return RulesExisting[RulesIdx].Spec.BotAction.None
+															}
 															if _, ok := BotActionData["none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
@@ -6472,6 +6900,9 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return types.StringNull()
 											}(),
 											ClientNameMatcher: func() *ServicePolicyRuleListRulesSpecClientNameMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.ClientNameMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.ClientNameMatcher
+												}
 												if ClientNameMatcherData, ok := SpecData["client_name_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecClientNameMatcherModel{
 														ExactValues: func() types.List {
@@ -6518,6 +6949,9 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											ClientSelector: func() *ServicePolicyRuleListRulesSpecClientSelectorModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.ClientSelector != nil {
+													return RulesExisting[RulesIdx].Spec.ClientSelector
+												}
 												if ClientSelectorData, ok := SpecData["client_selector"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecClientSelectorModel{
 														Expressions: func() types.List {
@@ -6538,18 +6972,32 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											CookieMatchers: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.CookieMatchers.IsNull() || len(RulesExisting[RulesIdx].Spec.CookieMatchers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecCookieMatchersModelAttrTypes})
+												}
+												var CookieMatchersExisting []ServicePolicyRuleListRulesSpecCookieMatchersModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.CookieMatchers.IsNull() && !RulesExisting[RulesIdx].Spec.CookieMatchers.IsUnknown() {
+													RulesExisting[RulesIdx].Spec.CookieMatchers.ElementsAs(ctx, &CookieMatchersExisting, false)
+												}
 												if rawList, ok := SpecData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var CookieMatchersResult []ServicePolicyRuleListRulesSpecCookieMatchersModel
-													for _, CookieMatchersItem := range rawList {
+													for CookieMatchersIdx, CookieMatchersItem := range rawList {
+														_ = CookieMatchersIdx
 														if CookieMatchersItemMap, ok := CookieMatchersItem.(map[string]interface{}); ok {
 															CookieMatchersResult = append(CookieMatchersResult, ServicePolicyRuleListRulesSpecCookieMatchersModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := CookieMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := CookieMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
@@ -6622,6 +7070,9 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecCookieMatchersModelAttrTypes})
 											}(),
 											DomainMatcher: func() *ServicePolicyRuleListRulesSpecDomainMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.DomainMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.DomainMatcher
+												}
 												if DomainMatcherData, ok := SpecData["domain_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecDomainMatcherModel{
 														ExactValues: func() types.List {
@@ -6674,18 +7125,32 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return types.StringNull()
 											}(),
 											Headers: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.Headers.IsNull() || len(RulesExisting[RulesIdx].Spec.Headers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecHeadersModelAttrTypes})
+												}
+												var HeadersExisting []ServicePolicyRuleListRulesSpecHeadersModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.Headers.IsNull() && !RulesExisting[RulesIdx].Spec.Headers.IsUnknown() {
+													RulesExisting[RulesIdx].Spec.Headers.ElementsAs(ctx, &HeadersExisting, false)
+												}
 												if rawList, ok := SpecData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []ServicePolicyRuleListRulesSpecHeadersModel
-													for _, HeadersItem := range rawList {
+													for HeadersIdx, HeadersItem := range rawList {
+														_ = HeadersIdx
 														if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 															HeadersResult = append(HeadersResult, ServicePolicyRuleListRulesSpecHeadersModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
@@ -6758,9 +7223,15 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecHeadersModelAttrTypes})
 											}(),
 											HTTPMethod: func() *ServicePolicyRuleListRulesSpecHTTPMethodModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.HTTPMethod != nil {
+													return RulesExisting[RulesIdx].Spec.HTTPMethod
+												}
 												if HTTPMethodData, ok := SpecData["http_method"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecHTTPMethodModel{
 														InvertMatcher: func() types.Bool {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.HTTPMethod != nil && !RulesExisting[RulesIdx].Spec.HTTPMethod.InvertMatcher.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.HTTPMethod.InvertMatcher
+															}
 															if v, ok := HTTPMethodData["invert_matcher"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -6787,15 +7258,26 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												if IPMatcherData, ok := SpecData["ip_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecIPMatcherModel{
 														InvertMatcher: func() types.Bool {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPMatcher != nil && !RulesExisting[RulesIdx].Spec.IPMatcher.InvertMatcher.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.IPMatcher.InvertMatcher
+															}
 															if v, ok := IPMatcherData["invert_matcher"].(bool); ok {
 																return types.BoolValue(v)
 															}
 															return types.BoolNull()
 														}(),
 														PrefixSets: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPMatcher != nil && (RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.IsNull() || len(RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecIPMatcherPrefixSetsModelAttrTypes})
+															}
+															var PrefixSetsExisting []ServicePolicyRuleListRulesSpecIPMatcherPrefixSetsModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPMatcher != nil && !RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.IsNull() && !RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.IsUnknown() {
+																RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+															}
 															if rawList, ok := IPMatcherData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 																var PrefixSetsResult []ServicePolicyRuleListRulesSpecIPMatcherPrefixSetsModel
-																for _, PrefixSetsItem := range rawList {
+																for PrefixSetsIdx, PrefixSetsItem := range rawList {
+																	_ = PrefixSetsIdx
 																	if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 																		PrefixSetsResult = append(PrefixSetsResult, ServicePolicyRuleListRulesSpecIPMatcherPrefixSetsModel{
 																			Kind: func() types.String {
@@ -6841,9 +7323,15 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											IPPrefixList: func() *ServicePolicyRuleListRulesSpecIPPrefixListModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPPrefixList != nil {
+													return RulesExisting[RulesIdx].Spec.IPPrefixList
+												}
 												if IPPrefixListData, ok := SpecData["ip_prefix_list"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecIPPrefixListModel{
 														InvertMatch: func() types.Bool {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPPrefixList != nil && !RulesExisting[RulesIdx].Spec.IPPrefixList.InvertMatch.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.IPPrefixList.InvertMatch
+															}
 															if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -6867,6 +7355,9 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											IPThreatCategoryList: func() *ServicePolicyRuleListRulesSpecIPThreatCategoryListModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPThreatCategoryList != nil {
+													return RulesExisting[RulesIdx].Spec.IPThreatCategoryList
+												}
 												if IPThreatCategoryListData, ok := SpecData["ip_threat_category_list"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecIPThreatCategoryListModel{
 														IPThreatCategories: func() types.List {
@@ -6887,6 +7378,9 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											Ja4TLSFingerprint: func() *ServicePolicyRuleListRulesSpecJa4TLSFingerprintModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Ja4TLSFingerprint != nil {
+													return RulesExisting[RulesIdx].Spec.Ja4TLSFingerprint
+												}
 												if Ja4TLSFingerprintData, ok := SpecData["ja4_tls_fingerprint"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecJa4TLSFingerprintModel{
 														ExactValues: func() types.List {
@@ -6907,18 +7401,32 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											JWTClaims: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.JWTClaims.IsNull() || len(RulesExisting[RulesIdx].Spec.JWTClaims.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecJWTClaimsModelAttrTypes})
+												}
+												var JWTClaimsExisting []ServicePolicyRuleListRulesSpecJWTClaimsModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.JWTClaims.IsNull() && !RulesExisting[RulesIdx].Spec.JWTClaims.IsUnknown() {
+													RulesExisting[RulesIdx].Spec.JWTClaims.ElementsAs(ctx, &JWTClaimsExisting, false)
+												}
 												if rawList, ok := SpecData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 													var JWTClaimsResult []ServicePolicyRuleListRulesSpecJWTClaimsModel
-													for _, JWTClaimsItem := range rawList {
+													for JWTClaimsIdx, JWTClaimsItem := range rawList {
+														_ = JWTClaimsIdx
 														if JWTClaimsItemMap, ok := JWTClaimsItem.(map[string]interface{}); ok {
 															JWTClaimsResult = append(JWTClaimsResult, ServicePolicyRuleListRulesSpecJWTClaimsModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := JWTClaimsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := JWTClaimsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
@@ -6991,6 +7499,9 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecJWTClaimsModelAttrTypes})
 											}(),
 											LabelMatcher: func() *ServicePolicyRuleListRulesSpecLabelMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.LabelMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.LabelMatcher
+												}
 												if LabelMatcherData, ok := SpecData["label_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecLabelMatcherModel{
 														Keys: func() types.List {
@@ -7011,15 +7522,24 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											MumAction: func() *ServicePolicyRuleListRulesSpecMumActionModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil {
+													return RulesExisting[RulesIdx].Spec.MumAction
+												}
 												if MumActionData, ok := SpecData["mum_action"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecMumActionModel{
 														Default: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil {
+																return RulesExisting[RulesIdx].Spec.MumAction.Default
+															}
 															if _, ok := MumActionData["default"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														SkipProcessing: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil {
+																return RulesExisting[RulesIdx].Spec.MumAction.SkipProcessing
+															}
 															if _, ok := MumActionData["skip_processing"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
@@ -7030,6 +7550,9 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											Path: func() *ServicePolicyRuleListRulesSpecPathModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Path != nil {
+													return RulesExisting[RulesIdx].Spec.Path
+												}
 												if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecPathModel{
 														ExactValues: func() types.List {
@@ -7046,6 +7569,9 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															return types.ListNull(types.StringType)
 														}(),
 														InvertMatcher: func() types.Bool {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Path != nil && !RulesExisting[RulesIdx].Spec.Path.InvertMatcher.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.Path.InvertMatcher
+															}
 															if v, ok := PathData["invert_matcher"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -7108,9 +7634,15 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											PortMatcher: func() *ServicePolicyRuleListRulesSpecPortMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.PortMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.PortMatcher
+												}
 												if PortMatcherData, ok := SpecData["port_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecPortMatcherModel{
 														InvertMatcher: func() types.Bool {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.PortMatcher != nil && !RulesExisting[RulesIdx].Spec.PortMatcher.InvertMatcher.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.PortMatcher.InvertMatcher
+															}
 															if v, ok := PortMatcherData["invert_matcher"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -7134,18 +7666,32 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											QueryParams: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.QueryParams.IsNull() || len(RulesExisting[RulesIdx].Spec.QueryParams.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecQueryParamsModelAttrTypes})
+												}
+												var QueryParamsExisting []ServicePolicyRuleListRulesSpecQueryParamsModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.QueryParams.IsNull() && !RulesExisting[RulesIdx].Spec.QueryParams.IsUnknown() {
+													RulesExisting[RulesIdx].Spec.QueryParams.ElementsAs(ctx, &QueryParamsExisting, false)
+												}
 												if rawList, ok := SpecData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 													var QueryParamsResult []ServicePolicyRuleListRulesSpecQueryParamsModel
-													for _, QueryParamsItem := range rawList {
+													for QueryParamsIdx, QueryParamsItem := range rawList {
+														_ = QueryParamsIdx
 														if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 															QueryParamsResult = append(QueryParamsResult, ServicePolicyRuleListRulesSpecQueryParamsModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckNotPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := QueryParamsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := QueryParamsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
@@ -7218,159 +7764,240 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecQueryParamsModelAttrTypes})
 											}(),
 											RequestConstraints: func() *ServicePolicyRuleListRulesSpecRequestConstraintsModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+													return RulesExisting[RulesIdx].Spec.RequestConstraints
+												}
 												if RequestConstraintsData, ok := SpecData["request_constraints"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecRequestConstraintsModel{
 														MaxCookieCountExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieCountExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieCountExceeds
+															}
 															if v, ok := RequestConstraintsData["max_cookie_count_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxCookieCountNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieCountNone
+															}
 															if _, ok := RequestConstraintsData["max_cookie_count_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxCookieKeySizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieKeySizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieKeySizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_cookie_key_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxCookieKeySizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieKeySizeNone
+															}
 															if _, ok := RequestConstraintsData["max_cookie_key_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxCookieValueSizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieValueSizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieValueSizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_cookie_value_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxCookieValueSizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieValueSizeNone
+															}
 															if _, ok := RequestConstraintsData["max_cookie_value_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxHeaderCountExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderCountExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderCountExceeds
+															}
 															if v, ok := RequestConstraintsData["max_header_count_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxHeaderCountNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderCountNone
+															}
 															if _, ok := RequestConstraintsData["max_header_count_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxHeaderKeySizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderKeySizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderKeySizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_header_key_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxHeaderKeySizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderKeySizeNone
+															}
 															if _, ok := RequestConstraintsData["max_header_key_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxHeaderValueSizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderValueSizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderValueSizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_header_value_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxHeaderValueSizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderValueSizeNone
+															}
 															if _, ok := RequestConstraintsData["max_header_value_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxParameterCountExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterCountExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterCountExceeds
+															}
 															if v, ok := RequestConstraintsData["max_parameter_count_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxParameterCountNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterCountNone
+															}
 															if _, ok := RequestConstraintsData["max_parameter_count_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxParameterNameSizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterNameSizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterNameSizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_parameter_name_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxParameterNameSizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterNameSizeNone
+															}
 															if _, ok := RequestConstraintsData["max_parameter_name_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxParameterValueSizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterValueSizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterValueSizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_parameter_value_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxParameterValueSizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterValueSizeNone
+															}
 															if _, ok := RequestConstraintsData["max_parameter_value_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxQuerySizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxQuerySizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxQuerySizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_query_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxQuerySizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxQuerySizeNone
+															}
 															if _, ok := RequestConstraintsData["max_query_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxRequestLineSizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestLineSizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestLineSizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_request_line_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxRequestLineSizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestLineSizeNone
+															}
 															if _, ok := RequestConstraintsData["max_request_line_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxRequestSizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestSizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestSizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_request_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxRequestSizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestSizeNone
+															}
 															if _, ok := RequestConstraintsData["max_request_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxURLSizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxURLSizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxURLSizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_url_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxURLSizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxURLSizeNone
+															}
 															if _, ok := RequestConstraintsData["max_url_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
@@ -7384,6 +8011,9 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												if SegmentPolicyData, ok := SpecData["segment_policy"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecSegmentPolicyModel{
 														DstAny: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil {
+																return RulesExisting[RulesIdx].Spec.SegmentPolicy.DstAny
+															}
 															if _, ok := SegmentPolicyData["dst_any"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
@@ -7393,9 +8023,17 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															if DstSegmentsData, ok := SegmentPolicyData["dst_segments"].(map[string]interface{}); ok {
 																return &ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsModel{
 																	Segments: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments != nil && (RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments.Segments.IsNull() || len(RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments.Segments.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsSegmentsModelAttrTypes})
+																		}
+																		var SegmentsExisting []ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsSegmentsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments != nil && !RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments.Segments.IsNull() && !RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments.Segments.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments.Segments.ElementsAs(ctx, &SegmentsExisting, false)
+																		}
 																		if rawList, ok := DstSegmentsData["segments"].([]interface{}); ok && len(rawList) > 0 {
 																			var SegmentsResult []ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsSegmentsModel
-																			for _, SegmentsItem := range rawList {
+																			for SegmentsIdx, SegmentsItem := range rawList {
+																				_ = SegmentsIdx
 																				if SegmentsItemMap, ok := SegmentsItem.(map[string]interface{}); ok {
 																					SegmentsResult = append(SegmentsResult, ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsSegmentsModel{
 																						Name: func() types.String {
@@ -7429,12 +8067,18 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															return nil
 														}(),
 														IntraSegment: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil {
+																return RulesExisting[RulesIdx].Spec.SegmentPolicy.IntraSegment
+															}
 															if _, ok := SegmentPolicyData["intra_segment"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														SrcAny: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil {
+																return RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcAny
+															}
 															if _, ok := SegmentPolicyData["src_any"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
@@ -7444,9 +8088,17 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															if SrcSegmentsData, ok := SegmentPolicyData["src_segments"].(map[string]interface{}); ok {
 																return &ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsModel{
 																	Segments: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments != nil && (RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments.Segments.IsNull() || len(RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments.Segments.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsSegmentsModelAttrTypes})
+																		}
+																		var SegmentsExisting []ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsSegmentsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments != nil && !RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments.Segments.IsNull() && !RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments.Segments.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments.Segments.ElementsAs(ctx, &SegmentsExisting, false)
+																		}
 																		if rawList, ok := SrcSegmentsData["segments"].([]interface{}); ok && len(rawList) > 0 {
 																			var SegmentsResult []ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsSegmentsModel
-																			for _, SegmentsItem := range rawList {
+																			for SegmentsIdx, SegmentsItem := range rawList {
+																				_ = SegmentsIdx
 																				if SegmentsItemMap, ok := SegmentsItem.(map[string]interface{}); ok {
 																					SegmentsResult = append(SegmentsResult, ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsSegmentsModel{
 																						Name: func() types.String {
@@ -7484,6 +8136,9 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											TLSFingerprintMatcher: func() *ServicePolicyRuleListRulesSpecTLSFingerprintMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.TLSFingerprintMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.TLSFingerprintMatcher
+												}
 												if TLSFingerprintMatcherData, ok := SpecData["tls_fingerprint_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecTLSFingerprintMatcherModel{
 														Classes: func() types.List {
@@ -7530,6 +8185,9 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											UserIdentityMatcher: func() *ServicePolicyRuleListRulesSpecUserIdentityMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.UserIdentityMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.UserIdentityMatcher
+												}
 												if UserIdentityMatcherData, ok := SpecData["user_identity_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecUserIdentityMatcherModel{
 														ExactValues: func() types.List {
@@ -7563,15 +8221,29 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											WAFAction: func() *ServicePolicyRuleListRulesSpecWAFActionModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil {
+													return RulesExisting[RulesIdx].Spec.WAFAction
+												}
 												if WAFActionData, ok := SpecData["waf_action"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecWAFActionModel{
 														AppFirewallDetectionControl: func() *ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil {
+																return RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl
+															}
 															if AppFirewallDetectionControlData, ok := WAFActionData["app_firewall_detection_control"].(map[string]interface{}); ok {
 																return &ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlModel{
 																	ExcludeAttackTypeContexts: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() || len(RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
+																		}
+																		var ExcludeAttackTypeContextsExisting []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.ElementsAs(ctx, &ExcludeAttackTypeContextsExisting, false)
+																		}
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_attack_type_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeAttackTypeContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
-																			for _, ExcludeAttackTypeContextsItem := range rawList {
+																			for ExcludeAttackTypeContextsIdx, ExcludeAttackTypeContextsItem := range rawList {
+																				_ = ExcludeAttackTypeContextsIdx
 																				if ExcludeAttackTypeContextsItemMap, ok := ExcludeAttackTypeContextsItem.(map[string]interface{}); ok {
 																					ExcludeAttackTypeContextsResult = append(ExcludeAttackTypeContextsResult, ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel{
 																						Context: func() types.String {
@@ -7601,9 +8273,17 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
 																	}(),
 																	ExcludeBotNameContexts: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() || len(RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
+																		}
+																		var ExcludeBotNameContextsExisting []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.ElementsAs(ctx, &ExcludeBotNameContextsExisting, false)
+																		}
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_bot_name_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeBotNameContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
-																			for _, ExcludeBotNameContextsItem := range rawList {
+																			for ExcludeBotNameContextsIdx, ExcludeBotNameContextsItem := range rawList {
+																				_ = ExcludeBotNameContextsIdx
 																				if ExcludeBotNameContextsItemMap, ok := ExcludeBotNameContextsItem.(map[string]interface{}); ok {
 																					ExcludeBotNameContextsResult = append(ExcludeBotNameContextsResult, ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel{
 																						BotName: func() types.String {
@@ -7621,9 +8301,17 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
 																	}(),
 																	ExcludeSignatureContexts: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() || len(RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
+																		}
+																		var ExcludeSignatureContextsExisting []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.ElementsAs(ctx, &ExcludeSignatureContextsExisting, false)
+																		}
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_signature_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeSignatureContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
-																			for _, ExcludeSignatureContextsItem := range rawList {
+																			for ExcludeSignatureContextsIdx, ExcludeSignatureContextsItem := range rawList {
+																				_ = ExcludeSignatureContextsIdx
 																				if ExcludeSignatureContextsItemMap, ok := ExcludeSignatureContextsItem.(map[string]interface{}); ok {
 																					ExcludeSignatureContextsResult = append(ExcludeSignatureContextsResult, ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel{
 																						Context: func() types.String {
@@ -7653,9 +8341,17 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
 																	}(),
 																	ExcludeViolationContexts: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() || len(RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes})
+																		}
+																		var ExcludeViolationContextsExisting []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.ElementsAs(ctx, &ExcludeViolationContextsExisting, false)
+																		}
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_violation_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeViolationContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
-																			for _, ExcludeViolationContextsItem := range rawList {
+																			for ExcludeViolationContextsIdx, ExcludeViolationContextsItem := range rawList {
+																				_ = ExcludeViolationContextsIdx
 																				if ExcludeViolationContextsItemMap, ok := ExcludeViolationContextsItem.(map[string]interface{}); ok {
 																					ExcludeViolationContextsResult = append(ExcludeViolationContextsResult, ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModel{
 																						Context: func() types.String {
@@ -7689,12 +8385,18 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															return nil
 														}(),
 														None: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil {
+																return RulesExisting[RulesIdx].Spec.WAFAction.None
+															}
 															if _, ok := WAFActionData["none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														WAFSkipProcessing: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil {
+																return RulesExisting[RulesIdx].Spec.WAFAction.WAFSkipProcessing
+															}
 															if _, ok := WAFActionData["waf_skip_processing"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
@@ -9036,9 +9738,14 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 				if !isImport && data.AllowList != nil && (data.AllowList.AsnSet.IsNull() || len(data.AllowList.AsnSet.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyAllowListAsnSetModelAttrTypes})
 				}
+				var AsnSetExisting []ServicePolicyAllowListAsnSetModel
+				if !isImport && data.AllowList != nil && !data.AllowList.AsnSet.IsNull() && !data.AllowList.AsnSet.IsUnknown() {
+					data.AllowList.AsnSet.ElementsAs(ctx, &AsnSetExisting, false)
+				}
 				if rawList, ok := blockData["asn_set"].([]interface{}); ok && len(rawList) > 0 {
 					var AsnSetResult []ServicePolicyAllowListAsnSetModel
-					for _, AsnSetItem := range rawList {
+					for AsnSetIdx, AsnSetItem := range rawList {
+						_ = AsnSetIdx
 						if AsnSetItemMap, ok := AsnSetItem.(map[string]interface{}); ok {
 							AsnSetResult = append(AsnSetResult, ServicePolicyAllowListAsnSetModel{
 								Name: func() types.String {
@@ -9111,9 +9818,14 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 				if !isImport && data.AllowList != nil && (data.AllowList.IPPrefixSet.IsNull() || len(data.AllowList.IPPrefixSet.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyAllowListIPPrefixSetModelAttrTypes})
 				}
+				var IPPrefixSetExisting []ServicePolicyAllowListIPPrefixSetModel
+				if !isImport && data.AllowList != nil && !data.AllowList.IPPrefixSet.IsNull() && !data.AllowList.IPPrefixSet.IsUnknown() {
+					data.AllowList.IPPrefixSet.ElementsAs(ctx, &IPPrefixSetExisting, false)
+				}
 				if rawList, ok := blockData["ip_prefix_set"].([]interface{}); ok && len(rawList) > 0 {
 					var IPPrefixSetResult []ServicePolicyAllowListIPPrefixSetModel
-					for _, IPPrefixSetItem := range rawList {
+					for IPPrefixSetIdx, IPPrefixSetItem := range rawList {
+						_ = IPPrefixSetIdx
 						if IPPrefixSetItemMap, ok := IPPrefixSetItem.(map[string]interface{}); ok {
 							IPPrefixSetResult = append(IPPrefixSetResult, ServicePolicyAllowListIPPrefixSetModel{
 								Name: func() types.String {
@@ -9225,9 +9937,14 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 				if !isImport && data.DenyList != nil && (data.DenyList.AsnSet.IsNull() || len(data.DenyList.AsnSet.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyDenyListAsnSetModelAttrTypes})
 				}
+				var AsnSetExisting []ServicePolicyDenyListAsnSetModel
+				if !isImport && data.DenyList != nil && !data.DenyList.AsnSet.IsNull() && !data.DenyList.AsnSet.IsUnknown() {
+					data.DenyList.AsnSet.ElementsAs(ctx, &AsnSetExisting, false)
+				}
 				if rawList, ok := blockData["asn_set"].([]interface{}); ok && len(rawList) > 0 {
 					var AsnSetResult []ServicePolicyDenyListAsnSetModel
-					for _, AsnSetItem := range rawList {
+					for AsnSetIdx, AsnSetItem := range rawList {
+						_ = AsnSetIdx
 						if AsnSetItemMap, ok := AsnSetItem.(map[string]interface{}); ok {
 							AsnSetResult = append(AsnSetResult, ServicePolicyDenyListAsnSetModel{
 								Name: func() types.String {
@@ -9300,9 +10017,14 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 				if !isImport && data.DenyList != nil && (data.DenyList.IPPrefixSet.IsNull() || len(data.DenyList.IPPrefixSet.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyDenyListIPPrefixSetModelAttrTypes})
 				}
+				var IPPrefixSetExisting []ServicePolicyDenyListIPPrefixSetModel
+				if !isImport && data.DenyList != nil && !data.DenyList.IPPrefixSet.IsNull() && !data.DenyList.IPPrefixSet.IsUnknown() {
+					data.DenyList.IPPrefixSet.ElementsAs(ctx, &IPPrefixSetExisting, false)
+				}
 				if rawList, ok := blockData["ip_prefix_set"].([]interface{}); ok && len(rawList) > 0 {
 					var IPPrefixSetResult []ServicePolicyDenyListIPPrefixSetModel
-					for _, IPPrefixSetItem := range rawList {
+					for IPPrefixSetIdx, IPPrefixSetItem := range rawList {
+						_ = IPPrefixSetIdx
 						if IPPrefixSetItemMap, ok := IPPrefixSetItem.(map[string]interface{}); ok {
 							IPPrefixSetResult = append(IPPrefixSetResult, ServicePolicyDenyListIPPrefixSetModel{
 								Name: func() types.String {
@@ -9388,9 +10110,14 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 				if !isImport && data.RuleList != nil && (data.RuleList.Rules.IsNull() || len(data.RuleList.Rules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesModelAttrTypes})
 				}
+				var RulesExisting []ServicePolicyRuleListRulesModel
+				if !isImport && data.RuleList != nil && !data.RuleList.Rules.IsNull() && !data.RuleList.Rules.IsUnknown() {
+					data.RuleList.Rules.ElementsAs(ctx, &RulesExisting, false)
+				}
 				if rawList, ok := blockData["rules"].([]interface{}); ok && len(rawList) > 0 {
 					var RulesResult []ServicePolicyRuleListRulesModel
-					for _, RulesItem := range rawList {
+					for RulesIdx, RulesItem := range rawList {
+						_ = RulesIdx
 						if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 							RulesResult = append(RulesResult, ServicePolicyRuleListRulesModel{
 								Metadata: func() *ServicePolicyRuleListRulesMetadataModel {
@@ -9422,27 +10149,42 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return types.StringNull()
 											}(),
 											AnyAsn: func() *ServicePolicyEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+													return RulesExisting[RulesIdx].Spec.AnyAsn
+												}
 												if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
 													return &ServicePolicyEmptyModel{}
 												}
 												return nil
 											}(),
 											AnyClient: func() *ServicePolicyEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+													return RulesExisting[RulesIdx].Spec.AnyClient
+												}
 												if _, ok := SpecData["any_client"].(map[string]interface{}); ok {
 													return &ServicePolicyEmptyModel{}
 												}
 												return nil
 											}(),
 											AnyIP: func() *ServicePolicyEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+													return RulesExisting[RulesIdx].Spec.AnyIP
+												}
 												if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
 													return &ServicePolicyEmptyModel{}
 												}
 												return nil
 											}(),
 											APIGroupMatcher: func() *ServicePolicyRuleListRulesSpecAPIGroupMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.APIGroupMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.APIGroupMatcher
+												}
 												if APIGroupMatcherData, ok := SpecData["api_group_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecAPIGroupMatcherModel{
 														InvertMatcher: func() types.Bool {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.APIGroupMatcher != nil && !RulesExisting[RulesIdx].Spec.APIGroupMatcher.InvertMatcher.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.APIGroupMatcher.InvertMatcher
+															}
 															if v, ok := APIGroupMatcherData["invert_matcher"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -9466,18 +10208,32 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											ArgMatchers: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.ArgMatchers.IsNull() || len(RulesExisting[RulesIdx].Spec.ArgMatchers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecArgMatchersModelAttrTypes})
+												}
+												var ArgMatchersExisting []ServicePolicyRuleListRulesSpecArgMatchersModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.ArgMatchers.IsNull() && !RulesExisting[RulesIdx].Spec.ArgMatchers.IsUnknown() {
+													RulesExisting[RulesIdx].Spec.ArgMatchers.ElementsAs(ctx, &ArgMatchersExisting, false)
+												}
 												if rawList, ok := SpecData["arg_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var ArgMatchersResult []ServicePolicyRuleListRulesSpecArgMatchersModel
-													for _, ArgMatchersItem := range rawList {
+													for ArgMatchersIdx, ArgMatchersItem := range rawList {
+														_ = ArgMatchersIdx
 														if ArgMatchersItemMap, ok := ArgMatchersItem.(map[string]interface{}); ok {
 															ArgMatchersResult = append(ArgMatchersResult, ServicePolicyRuleListRulesSpecArgMatchersModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && ArgMatchersExisting[ArgMatchersIdx].CheckNotPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := ArgMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && ArgMatchersExisting[ArgMatchersIdx].CheckPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := ArgMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
@@ -9550,6 +10306,9 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecArgMatchersModelAttrTypes})
 											}(),
 											AsnList: func() *ServicePolicyRuleListRulesSpecAsnListModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.AsnList != nil {
+													return RulesExisting[RulesIdx].Spec.AsnList
+												}
 												if AsnListData, ok := SpecData["asn_list"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecAsnListModel{
 														AsNumbers: func() types.List {
@@ -9573,9 +10332,17 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												if AsnMatcherData, ok := SpecData["asn_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecAsnMatcherModel{
 														AsnSets: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.AsnMatcher != nil && (RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.IsNull() || len(RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecAsnMatcherAsnSetsModelAttrTypes})
+															}
+															var AsnSetsExisting []ServicePolicyRuleListRulesSpecAsnMatcherAsnSetsModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.AsnMatcher != nil && !RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.IsNull() && !RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.IsUnknown() {
+																RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+															}
 															if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 																var AsnSetsResult []ServicePolicyRuleListRulesSpecAsnMatcherAsnSetsModel
-																for _, AsnSetsItem := range rawList {
+																for AsnSetsIdx, AsnSetsItem := range rawList {
+																	_ = AsnSetsIdx
 																	if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 																		AsnSetsResult = append(AsnSetsResult, ServicePolicyRuleListRulesSpecAsnMatcherAsnSetsModel{
 																			Kind: func() types.String {
@@ -9621,6 +10388,9 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											BodyMatcher: func() *ServicePolicyRuleListRulesSpecBodyMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BodyMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.BodyMatcher
+												}
 												if BodyMatcherData, ok := SpecData["body_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecBodyMatcherModel{
 														ExactValues: func() types.List {
@@ -9667,15 +10437,24 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											BotAction: func() *ServicePolicyRuleListRulesSpecBotActionModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BotAction != nil {
+													return RulesExisting[RulesIdx].Spec.BotAction
+												}
 												if BotActionData, ok := SpecData["bot_action"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecBotActionModel{
 														BotSkipProcessing: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BotAction != nil {
+																return RulesExisting[RulesIdx].Spec.BotAction.BotSkipProcessing
+															}
 															if _, ok := BotActionData["bot_skip_processing"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														None: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BotAction != nil {
+																return RulesExisting[RulesIdx].Spec.BotAction.None
+															}
 															if _, ok := BotActionData["none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
@@ -9692,6 +10471,9 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return types.StringNull()
 											}(),
 											ClientNameMatcher: func() *ServicePolicyRuleListRulesSpecClientNameMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.ClientNameMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.ClientNameMatcher
+												}
 												if ClientNameMatcherData, ok := SpecData["client_name_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecClientNameMatcherModel{
 														ExactValues: func() types.List {
@@ -9738,6 +10520,9 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											ClientSelector: func() *ServicePolicyRuleListRulesSpecClientSelectorModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.ClientSelector != nil {
+													return RulesExisting[RulesIdx].Spec.ClientSelector
+												}
 												if ClientSelectorData, ok := SpecData["client_selector"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecClientSelectorModel{
 														Expressions: func() types.List {
@@ -9758,18 +10543,32 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											CookieMatchers: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.CookieMatchers.IsNull() || len(RulesExisting[RulesIdx].Spec.CookieMatchers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecCookieMatchersModelAttrTypes})
+												}
+												var CookieMatchersExisting []ServicePolicyRuleListRulesSpecCookieMatchersModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.CookieMatchers.IsNull() && !RulesExisting[RulesIdx].Spec.CookieMatchers.IsUnknown() {
+													RulesExisting[RulesIdx].Spec.CookieMatchers.ElementsAs(ctx, &CookieMatchersExisting, false)
+												}
 												if rawList, ok := SpecData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var CookieMatchersResult []ServicePolicyRuleListRulesSpecCookieMatchersModel
-													for _, CookieMatchersItem := range rawList {
+													for CookieMatchersIdx, CookieMatchersItem := range rawList {
+														_ = CookieMatchersIdx
 														if CookieMatchersItemMap, ok := CookieMatchersItem.(map[string]interface{}); ok {
 															CookieMatchersResult = append(CookieMatchersResult, ServicePolicyRuleListRulesSpecCookieMatchersModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := CookieMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := CookieMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
@@ -9842,6 +10641,9 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecCookieMatchersModelAttrTypes})
 											}(),
 											DomainMatcher: func() *ServicePolicyRuleListRulesSpecDomainMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.DomainMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.DomainMatcher
+												}
 												if DomainMatcherData, ok := SpecData["domain_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecDomainMatcherModel{
 														ExactValues: func() types.List {
@@ -9894,18 +10696,32 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return types.StringNull()
 											}(),
 											Headers: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.Headers.IsNull() || len(RulesExisting[RulesIdx].Spec.Headers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecHeadersModelAttrTypes})
+												}
+												var HeadersExisting []ServicePolicyRuleListRulesSpecHeadersModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.Headers.IsNull() && !RulesExisting[RulesIdx].Spec.Headers.IsUnknown() {
+													RulesExisting[RulesIdx].Spec.Headers.ElementsAs(ctx, &HeadersExisting, false)
+												}
 												if rawList, ok := SpecData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []ServicePolicyRuleListRulesSpecHeadersModel
-													for _, HeadersItem := range rawList {
+													for HeadersIdx, HeadersItem := range rawList {
+														_ = HeadersIdx
 														if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 															HeadersResult = append(HeadersResult, ServicePolicyRuleListRulesSpecHeadersModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
@@ -9978,9 +10794,15 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecHeadersModelAttrTypes})
 											}(),
 											HTTPMethod: func() *ServicePolicyRuleListRulesSpecHTTPMethodModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.HTTPMethod != nil {
+													return RulesExisting[RulesIdx].Spec.HTTPMethod
+												}
 												if HTTPMethodData, ok := SpecData["http_method"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecHTTPMethodModel{
 														InvertMatcher: func() types.Bool {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.HTTPMethod != nil && !RulesExisting[RulesIdx].Spec.HTTPMethod.InvertMatcher.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.HTTPMethod.InvertMatcher
+															}
 															if v, ok := HTTPMethodData["invert_matcher"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -10007,15 +10829,26 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												if IPMatcherData, ok := SpecData["ip_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecIPMatcherModel{
 														InvertMatcher: func() types.Bool {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPMatcher != nil && !RulesExisting[RulesIdx].Spec.IPMatcher.InvertMatcher.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.IPMatcher.InvertMatcher
+															}
 															if v, ok := IPMatcherData["invert_matcher"].(bool); ok {
 																return types.BoolValue(v)
 															}
 															return types.BoolNull()
 														}(),
 														PrefixSets: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPMatcher != nil && (RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.IsNull() || len(RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecIPMatcherPrefixSetsModelAttrTypes})
+															}
+															var PrefixSetsExisting []ServicePolicyRuleListRulesSpecIPMatcherPrefixSetsModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPMatcher != nil && !RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.IsNull() && !RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.IsUnknown() {
+																RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+															}
 															if rawList, ok := IPMatcherData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 																var PrefixSetsResult []ServicePolicyRuleListRulesSpecIPMatcherPrefixSetsModel
-																for _, PrefixSetsItem := range rawList {
+																for PrefixSetsIdx, PrefixSetsItem := range rawList {
+																	_ = PrefixSetsIdx
 																	if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 																		PrefixSetsResult = append(PrefixSetsResult, ServicePolicyRuleListRulesSpecIPMatcherPrefixSetsModel{
 																			Kind: func() types.String {
@@ -10061,9 +10894,15 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											IPPrefixList: func() *ServicePolicyRuleListRulesSpecIPPrefixListModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPPrefixList != nil {
+													return RulesExisting[RulesIdx].Spec.IPPrefixList
+												}
 												if IPPrefixListData, ok := SpecData["ip_prefix_list"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecIPPrefixListModel{
 														InvertMatch: func() types.Bool {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPPrefixList != nil && !RulesExisting[RulesIdx].Spec.IPPrefixList.InvertMatch.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.IPPrefixList.InvertMatch
+															}
 															if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -10087,6 +10926,9 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											IPThreatCategoryList: func() *ServicePolicyRuleListRulesSpecIPThreatCategoryListModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPThreatCategoryList != nil {
+													return RulesExisting[RulesIdx].Spec.IPThreatCategoryList
+												}
 												if IPThreatCategoryListData, ok := SpecData["ip_threat_category_list"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecIPThreatCategoryListModel{
 														IPThreatCategories: func() types.List {
@@ -10107,6 +10949,9 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											Ja4TLSFingerprint: func() *ServicePolicyRuleListRulesSpecJa4TLSFingerprintModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Ja4TLSFingerprint != nil {
+													return RulesExisting[RulesIdx].Spec.Ja4TLSFingerprint
+												}
 												if Ja4TLSFingerprintData, ok := SpecData["ja4_tls_fingerprint"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecJa4TLSFingerprintModel{
 														ExactValues: func() types.List {
@@ -10127,18 +10972,32 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											JWTClaims: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.JWTClaims.IsNull() || len(RulesExisting[RulesIdx].Spec.JWTClaims.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecJWTClaimsModelAttrTypes})
+												}
+												var JWTClaimsExisting []ServicePolicyRuleListRulesSpecJWTClaimsModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.JWTClaims.IsNull() && !RulesExisting[RulesIdx].Spec.JWTClaims.IsUnknown() {
+													RulesExisting[RulesIdx].Spec.JWTClaims.ElementsAs(ctx, &JWTClaimsExisting, false)
+												}
 												if rawList, ok := SpecData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 													var JWTClaimsResult []ServicePolicyRuleListRulesSpecJWTClaimsModel
-													for _, JWTClaimsItem := range rawList {
+													for JWTClaimsIdx, JWTClaimsItem := range rawList {
+														_ = JWTClaimsIdx
 														if JWTClaimsItemMap, ok := JWTClaimsItem.(map[string]interface{}); ok {
 															JWTClaimsResult = append(JWTClaimsResult, ServicePolicyRuleListRulesSpecJWTClaimsModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := JWTClaimsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := JWTClaimsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
@@ -10211,6 +11070,9 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecJWTClaimsModelAttrTypes})
 											}(),
 											LabelMatcher: func() *ServicePolicyRuleListRulesSpecLabelMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.LabelMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.LabelMatcher
+												}
 												if LabelMatcherData, ok := SpecData["label_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecLabelMatcherModel{
 														Keys: func() types.List {
@@ -10231,15 +11093,24 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											MumAction: func() *ServicePolicyRuleListRulesSpecMumActionModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil {
+													return RulesExisting[RulesIdx].Spec.MumAction
+												}
 												if MumActionData, ok := SpecData["mum_action"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecMumActionModel{
 														Default: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil {
+																return RulesExisting[RulesIdx].Spec.MumAction.Default
+															}
 															if _, ok := MumActionData["default"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														SkipProcessing: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil {
+																return RulesExisting[RulesIdx].Spec.MumAction.SkipProcessing
+															}
 															if _, ok := MumActionData["skip_processing"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
@@ -10250,6 +11121,9 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											Path: func() *ServicePolicyRuleListRulesSpecPathModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Path != nil {
+													return RulesExisting[RulesIdx].Spec.Path
+												}
 												if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecPathModel{
 														ExactValues: func() types.List {
@@ -10266,6 +11140,9 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															return types.ListNull(types.StringType)
 														}(),
 														InvertMatcher: func() types.Bool {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Path != nil && !RulesExisting[RulesIdx].Spec.Path.InvertMatcher.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.Path.InvertMatcher
+															}
 															if v, ok := PathData["invert_matcher"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -10328,9 +11205,15 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											PortMatcher: func() *ServicePolicyRuleListRulesSpecPortMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.PortMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.PortMatcher
+												}
 												if PortMatcherData, ok := SpecData["port_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecPortMatcherModel{
 														InvertMatcher: func() types.Bool {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.PortMatcher != nil && !RulesExisting[RulesIdx].Spec.PortMatcher.InvertMatcher.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.PortMatcher.InvertMatcher
+															}
 															if v, ok := PortMatcherData["invert_matcher"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -10354,18 +11237,32 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											QueryParams: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.QueryParams.IsNull() || len(RulesExisting[RulesIdx].Spec.QueryParams.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecQueryParamsModelAttrTypes})
+												}
+												var QueryParamsExisting []ServicePolicyRuleListRulesSpecQueryParamsModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.QueryParams.IsNull() && !RulesExisting[RulesIdx].Spec.QueryParams.IsUnknown() {
+													RulesExisting[RulesIdx].Spec.QueryParams.ElementsAs(ctx, &QueryParamsExisting, false)
+												}
 												if rawList, ok := SpecData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 													var QueryParamsResult []ServicePolicyRuleListRulesSpecQueryParamsModel
-													for _, QueryParamsItem := range rawList {
+													for QueryParamsIdx, QueryParamsItem := range rawList {
+														_ = QueryParamsIdx
 														if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 															QueryParamsResult = append(QueryParamsResult, ServicePolicyRuleListRulesSpecQueryParamsModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckNotPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := QueryParamsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckPresent != nil {
+																		return &ServicePolicyEmptyModel{}
+																	}
 																	if _, ok := QueryParamsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
 																	}
@@ -10438,159 +11335,240 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecQueryParamsModelAttrTypes})
 											}(),
 											RequestConstraints: func() *ServicePolicyRuleListRulesSpecRequestConstraintsModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+													return RulesExisting[RulesIdx].Spec.RequestConstraints
+												}
 												if RequestConstraintsData, ok := SpecData["request_constraints"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecRequestConstraintsModel{
 														MaxCookieCountExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieCountExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieCountExceeds
+															}
 															if v, ok := RequestConstraintsData["max_cookie_count_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxCookieCountNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieCountNone
+															}
 															if _, ok := RequestConstraintsData["max_cookie_count_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxCookieKeySizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieKeySizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieKeySizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_cookie_key_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxCookieKeySizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieKeySizeNone
+															}
 															if _, ok := RequestConstraintsData["max_cookie_key_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxCookieValueSizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieValueSizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieValueSizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_cookie_value_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxCookieValueSizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieValueSizeNone
+															}
 															if _, ok := RequestConstraintsData["max_cookie_value_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxHeaderCountExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderCountExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderCountExceeds
+															}
 															if v, ok := RequestConstraintsData["max_header_count_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxHeaderCountNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderCountNone
+															}
 															if _, ok := RequestConstraintsData["max_header_count_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxHeaderKeySizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderKeySizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderKeySizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_header_key_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxHeaderKeySizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderKeySizeNone
+															}
 															if _, ok := RequestConstraintsData["max_header_key_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxHeaderValueSizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderValueSizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderValueSizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_header_value_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxHeaderValueSizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderValueSizeNone
+															}
 															if _, ok := RequestConstraintsData["max_header_value_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxParameterCountExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterCountExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterCountExceeds
+															}
 															if v, ok := RequestConstraintsData["max_parameter_count_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxParameterCountNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterCountNone
+															}
 															if _, ok := RequestConstraintsData["max_parameter_count_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxParameterNameSizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterNameSizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterNameSizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_parameter_name_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxParameterNameSizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterNameSizeNone
+															}
 															if _, ok := RequestConstraintsData["max_parameter_name_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxParameterValueSizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterValueSizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterValueSizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_parameter_value_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxParameterValueSizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterValueSizeNone
+															}
 															if _, ok := RequestConstraintsData["max_parameter_value_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxQuerySizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxQuerySizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxQuerySizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_query_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxQuerySizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxQuerySizeNone
+															}
 															if _, ok := RequestConstraintsData["max_query_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxRequestLineSizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestLineSizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestLineSizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_request_line_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxRequestLineSizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestLineSizeNone
+															}
 															if _, ok := RequestConstraintsData["max_request_line_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxRequestSizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestSizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestSizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_request_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxRequestSizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestSizeNone
+															}
 															if _, ok := RequestConstraintsData["max_request_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														MaxURLSizeExceeds: func() types.Int64 {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxURLSizeExceeds.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxURLSizeExceeds
+															}
 															if v, ok := RequestConstraintsData["max_url_size_exceeds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxURLSizeNone: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxURLSizeNone
+															}
 															if _, ok := RequestConstraintsData["max_url_size_none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
@@ -10604,6 +11582,9 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												if SegmentPolicyData, ok := SpecData["segment_policy"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecSegmentPolicyModel{
 														DstAny: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil {
+																return RulesExisting[RulesIdx].Spec.SegmentPolicy.DstAny
+															}
 															if _, ok := SegmentPolicyData["dst_any"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
@@ -10613,9 +11594,17 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															if DstSegmentsData, ok := SegmentPolicyData["dst_segments"].(map[string]interface{}); ok {
 																return &ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsModel{
 																	Segments: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments != nil && (RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments.Segments.IsNull() || len(RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments.Segments.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsSegmentsModelAttrTypes})
+																		}
+																		var SegmentsExisting []ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsSegmentsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments != nil && !RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments.Segments.IsNull() && !RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments.Segments.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments.Segments.ElementsAs(ctx, &SegmentsExisting, false)
+																		}
 																		if rawList, ok := DstSegmentsData["segments"].([]interface{}); ok && len(rawList) > 0 {
 																			var SegmentsResult []ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsSegmentsModel
-																			for _, SegmentsItem := range rawList {
+																			for SegmentsIdx, SegmentsItem := range rawList {
+																				_ = SegmentsIdx
 																				if SegmentsItemMap, ok := SegmentsItem.(map[string]interface{}); ok {
 																					SegmentsResult = append(SegmentsResult, ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsSegmentsModel{
 																						Name: func() types.String {
@@ -10649,12 +11638,18 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															return nil
 														}(),
 														IntraSegment: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil {
+																return RulesExisting[RulesIdx].Spec.SegmentPolicy.IntraSegment
+															}
 															if _, ok := SegmentPolicyData["intra_segment"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														SrcAny: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil {
+																return RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcAny
+															}
 															if _, ok := SegmentPolicyData["src_any"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
@@ -10664,9 +11659,17 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															if SrcSegmentsData, ok := SegmentPolicyData["src_segments"].(map[string]interface{}); ok {
 																return &ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsModel{
 																	Segments: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments != nil && (RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments.Segments.IsNull() || len(RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments.Segments.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsSegmentsModelAttrTypes})
+																		}
+																		var SegmentsExisting []ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsSegmentsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments != nil && !RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments.Segments.IsNull() && !RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments.Segments.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments.Segments.ElementsAs(ctx, &SegmentsExisting, false)
+																		}
 																		if rawList, ok := SrcSegmentsData["segments"].([]interface{}); ok && len(rawList) > 0 {
 																			var SegmentsResult []ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsSegmentsModel
-																			for _, SegmentsItem := range rawList {
+																			for SegmentsIdx, SegmentsItem := range rawList {
+																				_ = SegmentsIdx
 																				if SegmentsItemMap, ok := SegmentsItem.(map[string]interface{}); ok {
 																					SegmentsResult = append(SegmentsResult, ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsSegmentsModel{
 																						Name: func() types.String {
@@ -10704,6 +11707,9 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											TLSFingerprintMatcher: func() *ServicePolicyRuleListRulesSpecTLSFingerprintMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.TLSFingerprintMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.TLSFingerprintMatcher
+												}
 												if TLSFingerprintMatcherData, ok := SpecData["tls_fingerprint_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecTLSFingerprintMatcherModel{
 														Classes: func() types.List {
@@ -10750,6 +11756,9 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											UserIdentityMatcher: func() *ServicePolicyRuleListRulesSpecUserIdentityMatcherModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.UserIdentityMatcher != nil {
+													return RulesExisting[RulesIdx].Spec.UserIdentityMatcher
+												}
 												if UserIdentityMatcherData, ok := SpecData["user_identity_matcher"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecUserIdentityMatcherModel{
 														ExactValues: func() types.List {
@@ -10783,15 +11792,29 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											WAFAction: func() *ServicePolicyRuleListRulesSpecWAFActionModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil {
+													return RulesExisting[RulesIdx].Spec.WAFAction
+												}
 												if WAFActionData, ok := SpecData["waf_action"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecWAFActionModel{
 														AppFirewallDetectionControl: func() *ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil {
+																return RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl
+															}
 															if AppFirewallDetectionControlData, ok := WAFActionData["app_firewall_detection_control"].(map[string]interface{}); ok {
 																return &ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlModel{
 																	ExcludeAttackTypeContexts: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() || len(RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
+																		}
+																		var ExcludeAttackTypeContextsExisting []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.ElementsAs(ctx, &ExcludeAttackTypeContextsExisting, false)
+																		}
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_attack_type_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeAttackTypeContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
-																			for _, ExcludeAttackTypeContextsItem := range rawList {
+																			for ExcludeAttackTypeContextsIdx, ExcludeAttackTypeContextsItem := range rawList {
+																				_ = ExcludeAttackTypeContextsIdx
 																				if ExcludeAttackTypeContextsItemMap, ok := ExcludeAttackTypeContextsItem.(map[string]interface{}); ok {
 																					ExcludeAttackTypeContextsResult = append(ExcludeAttackTypeContextsResult, ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel{
 																						Context: func() types.String {
@@ -10821,9 +11844,17 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
 																	}(),
 																	ExcludeBotNameContexts: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() || len(RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
+																		}
+																		var ExcludeBotNameContextsExisting []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.ElementsAs(ctx, &ExcludeBotNameContextsExisting, false)
+																		}
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_bot_name_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeBotNameContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
-																			for _, ExcludeBotNameContextsItem := range rawList {
+																			for ExcludeBotNameContextsIdx, ExcludeBotNameContextsItem := range rawList {
+																				_ = ExcludeBotNameContextsIdx
 																				if ExcludeBotNameContextsItemMap, ok := ExcludeBotNameContextsItem.(map[string]interface{}); ok {
 																					ExcludeBotNameContextsResult = append(ExcludeBotNameContextsResult, ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel{
 																						BotName: func() types.String {
@@ -10841,9 +11872,17 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
 																	}(),
 																	ExcludeSignatureContexts: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() || len(RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
+																		}
+																		var ExcludeSignatureContextsExisting []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.ElementsAs(ctx, &ExcludeSignatureContextsExisting, false)
+																		}
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_signature_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeSignatureContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
-																			for _, ExcludeSignatureContextsItem := range rawList {
+																			for ExcludeSignatureContextsIdx, ExcludeSignatureContextsItem := range rawList {
+																				_ = ExcludeSignatureContextsIdx
 																				if ExcludeSignatureContextsItemMap, ok := ExcludeSignatureContextsItem.(map[string]interface{}); ok {
 																					ExcludeSignatureContextsResult = append(ExcludeSignatureContextsResult, ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel{
 																						Context: func() types.String {
@@ -10873,9 +11912,17 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
 																	}(),
 																	ExcludeViolationContexts: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() || len(RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes})
+																		}
+																		var ExcludeViolationContextsExisting []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.ElementsAs(ctx, &ExcludeViolationContextsExisting, false)
+																		}
 																		if rawList, ok := AppFirewallDetectionControlData["exclude_violation_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																			var ExcludeViolationContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
-																			for _, ExcludeViolationContextsItem := range rawList {
+																			for ExcludeViolationContextsIdx, ExcludeViolationContextsItem := range rawList {
+																				_ = ExcludeViolationContextsIdx
 																				if ExcludeViolationContextsItemMap, ok := ExcludeViolationContextsItem.(map[string]interface{}); ok {
 																					ExcludeViolationContextsResult = append(ExcludeViolationContextsResult, ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModel{
 																						Context: func() types.String {
@@ -10909,12 +11956,18 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															return nil
 														}(),
 														None: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil {
+																return RulesExisting[RulesIdx].Spec.WAFAction.None
+															}
 															if _, ok := WAFActionData["none"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}
 															return nil
 														}(),
 														WAFSkipProcessing: func() *ServicePolicyEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil {
+																return RulesExisting[RulesIdx].Spec.WAFAction.WAFSkipProcessing
+															}
 															if _, ok := WAFActionData["waf_skip_processing"].(map[string]interface{}); ok {
 																return &ServicePolicyEmptyModel{}
 															}

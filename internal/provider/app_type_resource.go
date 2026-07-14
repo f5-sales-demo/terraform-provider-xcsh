@@ -360,6 +360,9 @@ func (r *AppTypeResource) Create(ctx context.Context, req resource.CreateRequest
 				if DiscoveredAPISettingsData, ok := blockData["discovered_api_settings"].(map[string]interface{}); ok {
 					return &AppTypeBusinessLogicMarkupSettingDiscoveredAPISettingsModel{
 						PurgeDurationForInactiveDiscoveredApis: func() types.Int64 {
+							if !isImport && data.BusinessLogicMarkupSetting != nil && data.BusinessLogicMarkupSetting.DiscoveredAPISettings != nil && !data.BusinessLogicMarkupSetting.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis.IsUnknown() {
+								return data.BusinessLogicMarkupSetting.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis
+							}
 							if v, ok := DiscoveredAPISettingsData["purge_duration_for_inactive_discovered_apis"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -520,6 +523,9 @@ func (r *AppTypeResource) Read(ctx context.Context, req resource.ReadRequest, re
 				if DiscoveredAPISettingsData, ok := blockData["discovered_api_settings"].(map[string]interface{}); ok {
 					return &AppTypeBusinessLogicMarkupSettingDiscoveredAPISettingsModel{
 						PurgeDurationForInactiveDiscoveredApis: func() types.Int64 {
+							if !isImport && data.BusinessLogicMarkupSetting != nil && data.BusinessLogicMarkupSetting.DiscoveredAPISettings != nil && !data.BusinessLogicMarkupSetting.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis.IsUnknown() {
+								return data.BusinessLogicMarkupSetting.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis
+							}
 							if v, ok := DiscoveredAPISettingsData["purge_duration_for_inactive_discovered_apis"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -703,6 +709,9 @@ func (r *AppTypeResource) Update(ctx context.Context, req resource.UpdateRequest
 				if DiscoveredAPISettingsData, ok := blockData["discovered_api_settings"].(map[string]interface{}); ok {
 					return &AppTypeBusinessLogicMarkupSettingDiscoveredAPISettingsModel{
 						PurgeDurationForInactiveDiscoveredApis: func() types.Int64 {
+							if !isImport && data.BusinessLogicMarkupSetting != nil && data.BusinessLogicMarkupSetting.DiscoveredAPISettings != nil && !data.BusinessLogicMarkupSetting.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis.IsUnknown() {
+								return data.BusinessLogicMarkupSetting.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis
+							}
 							if v, ok := DiscoveredAPISettingsData["purge_duration_for_inactive_discovered_apis"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}

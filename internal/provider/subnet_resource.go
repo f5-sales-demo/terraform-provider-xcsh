@@ -553,9 +553,17 @@ func (r *SubnetResource) Create(ctx context.Context, req resource.CreateRequest,
 						if SubnetDHCPServerParamsData, ok := itemMap["subnet_dhcp_server_params"].(map[string]interface{}); ok {
 							return &SubnetSiteSubnetParamsSubnetDHCPServerParamsModel{
 								DHCPNetworks: func() types.List {
+									if !isImport && len(existingSiteSubnetParamsItems) > listIdx && existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams != nil && (existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams.DHCPNetworks.IsNull() || len(existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams.DHCPNetworks.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModelAttrTypes})
+									}
+									var DHCPNetworksExisting []SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModel
+									if !isImport && len(existingSiteSubnetParamsItems) > listIdx && existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams != nil && !existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams.DHCPNetworks.IsNull() && !existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams.DHCPNetworks.IsUnknown() {
+										existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+									}
 									if rawList, ok := SubnetDHCPServerParamsData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 										var DHCPNetworksResult []SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModel
-										for _, DHCPNetworksItem := range rawList {
+										for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+											_ = DHCPNetworksIdx
 											if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
 												DHCPNetworksResult = append(DHCPNetworksResult, SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModel{
 													NetworkPrefix: func() types.String {
@@ -774,9 +782,17 @@ func (r *SubnetResource) Read(ctx context.Context, req resource.ReadRequest, res
 						if SubnetDHCPServerParamsData, ok := itemMap["subnet_dhcp_server_params"].(map[string]interface{}); ok {
 							return &SubnetSiteSubnetParamsSubnetDHCPServerParamsModel{
 								DHCPNetworks: func() types.List {
+									if !isImport && len(existingSiteSubnetParamsItems) > listIdx && existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams != nil && (existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams.DHCPNetworks.IsNull() || len(existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams.DHCPNetworks.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModelAttrTypes})
+									}
+									var DHCPNetworksExisting []SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModel
+									if !isImport && len(existingSiteSubnetParamsItems) > listIdx && existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams != nil && !existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams.DHCPNetworks.IsNull() && !existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams.DHCPNetworks.IsUnknown() {
+										existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+									}
 									if rawList, ok := SubnetDHCPServerParamsData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 										var DHCPNetworksResult []SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModel
-										for _, DHCPNetworksItem := range rawList {
+										for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+											_ = DHCPNetworksIdx
 											if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
 												DHCPNetworksResult = append(DHCPNetworksResult, SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModel{
 													NetworkPrefix: func() types.String {
@@ -1060,9 +1076,17 @@ func (r *SubnetResource) Update(ctx context.Context, req resource.UpdateRequest,
 						if SubnetDHCPServerParamsData, ok := itemMap["subnet_dhcp_server_params"].(map[string]interface{}); ok {
 							return &SubnetSiteSubnetParamsSubnetDHCPServerParamsModel{
 								DHCPNetworks: func() types.List {
+									if !isImport && len(existingSiteSubnetParamsItems) > listIdx && existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams != nil && (existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams.DHCPNetworks.IsNull() || len(existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams.DHCPNetworks.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModelAttrTypes})
+									}
+									var DHCPNetworksExisting []SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModel
+									if !isImport && len(existingSiteSubnetParamsItems) > listIdx && existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams != nil && !existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams.DHCPNetworks.IsNull() && !existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams.DHCPNetworks.IsUnknown() {
+										existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+									}
 									if rawList, ok := SubnetDHCPServerParamsData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 										var DHCPNetworksResult []SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModel
-										for _, DHCPNetworksItem := range rawList {
+										for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+											_ = DHCPNetworksIdx
 											if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
 												DHCPNetworksResult = append(DHCPNetworksResult, SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModel{
 													NetworkPrefix: func() types.String {

@@ -1326,18 +1326,27 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 						if BfdEnabledData, ok := itemMap["bfd_enabled"].(map[string]interface{}); ok {
 							return &BGPPeersBfdEnabledModel{
 								Multiplier: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].BfdEnabled != nil && !existingPeersItems[listIdx].BfdEnabled.Multiplier.IsUnknown() {
+										return existingPeersItems[listIdx].BfdEnabled.Multiplier
+									}
 									if v, ok := BfdEnabledData["multiplier"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								ReceiveIntervalMilliseconds: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].BfdEnabled != nil && !existingPeersItems[listIdx].BfdEnabled.ReceiveIntervalMilliseconds.IsUnknown() {
+										return existingPeersItems[listIdx].BfdEnabled.ReceiveIntervalMilliseconds
+									}
 									if v, ok := BfdEnabledData["receive_interval_milliseconds"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								TransmitIntervalMilliseconds: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].BfdEnabled != nil && !existingPeersItems[listIdx].BfdEnabled.TransmitIntervalMilliseconds.IsUnknown() {
+										return existingPeersItems[listIdx].BfdEnabled.TransmitIntervalMilliseconds
+									}
 									if v, ok := BfdEnabledData["transmit_interval_milliseconds"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
@@ -1372,51 +1381,78 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 									return types.StringNull()
 								}(),
 								Asn: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && !existingPeersItems[listIdx].External.Asn.IsUnknown() {
+										return existingPeersItems[listIdx].External.Asn
+									}
 									if v, ok := ExternalData["asn"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								DefaultGateway: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.DefaultGateway
+									}
 									if _, ok := ExternalData["default_gateway"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
 									return nil
 								}(),
 								DefaultGatewayV6: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.DefaultGatewayV6
+									}
 									if _, ok := ExternalData["default_gateway_v6"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
 									return nil
 								}(),
 								DisableSpec: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.DisableSpec
+									}
 									if _, ok := ExternalData["disable"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
 									return nil
 								}(),
 								DisableV6: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.DisableV6
+									}
 									if _, ok := ExternalData["disable_v6"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
 									return nil
 								}(),
 								ExternalConnector: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.ExternalConnector
+									}
 									if _, ok := ExternalData["external_connector"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
 									return nil
 								}(),
 								FamilyInet: func() *BGPPeersExternalFamilyInetModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.FamilyInet != nil {
+										return existingPeersItems[listIdx].External.FamilyInet
+									}
 									if FamilyInetData, ok := ExternalData["family_inet"].(map[string]interface{}); ok {
 										return &BGPPeersExternalFamilyInetModel{
 											DisableSpec: func() *BGPEmptyModel {
+												if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.FamilyInet != nil {
+													return existingPeersItems[listIdx].External.FamilyInet.DisableSpec
+												}
 												if _, ok := FamilyInetData["disable"].(map[string]interface{}); ok {
 													return &BGPEmptyModel{}
 												}
 												return nil
 											}(),
 											Enable: func() *BGPEmptyModel {
+												if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.FamilyInet != nil {
+													return existingPeersItems[listIdx].External.FamilyInet.Enable
+												}
 												if _, ok := FamilyInetData["enable"].(map[string]interface{}); ok {
 													return &BGPEmptyModel{}
 												}
@@ -1427,12 +1463,18 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 									return nil
 								}(),
 								FromSite: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.FromSite
+									}
 									if _, ok := ExternalData["from_site"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
 									return nil
 								}(),
 								FromSiteV6: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.FromSiteV6
+									}
 									if _, ok := ExternalData["from_site_v6"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
@@ -1467,9 +1509,17 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 									if InterfaceListData, ok := ExternalData["interface_list"].(map[string]interface{}); ok {
 										return &BGPPeersExternalInterfaceListModel{
 											Interfaces: func() types.List {
+												if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.InterfaceList != nil && (existingPeersItems[listIdx].External.InterfaceList.Interfaces.IsNull() || len(existingPeersItems[listIdx].External.InterfaceList.Interfaces.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: BGPPeersExternalInterfaceListInterfacesModelAttrTypes})
+												}
+												var InterfacesExisting []BGPPeersExternalInterfaceListInterfacesModel
+												if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.InterfaceList != nil && !existingPeersItems[listIdx].External.InterfaceList.Interfaces.IsNull() && !existingPeersItems[listIdx].External.InterfaceList.Interfaces.IsUnknown() {
+													existingPeersItems[listIdx].External.InterfaceList.Interfaces.ElementsAs(ctx, &InterfacesExisting, false)
+												}
 												if rawList, ok := InterfaceListData["interfaces"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfacesResult []BGPPeersExternalInterfaceListInterfacesModel
-													for _, InterfacesItem := range rawList {
+													for InterfacesIdx, InterfacesItem := range rawList {
+														_ = InterfacesIdx
 														if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
 															InterfacesResult = append(InterfacesResult, BGPPeersExternalInterfaceListInterfacesModel{
 																Name: func() types.String {
@@ -1509,36 +1559,54 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 									return types.StringNull()
 								}(),
 								NoAuthentication: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.NoAuthentication
+									}
 									if _, ok := ExternalData["no_authentication"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
 									return nil
 								}(),
 								Port: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && !existingPeersItems[listIdx].External.Port.IsUnknown() {
+										return existingPeersItems[listIdx].External.Port
+									}
 									if v, ok := ExternalData["port"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								SubnetBeginOffset: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && !existingPeersItems[listIdx].External.SubnetBeginOffset.IsUnknown() {
+										return existingPeersItems[listIdx].External.SubnetBeginOffset
+									}
 									if v, ok := ExternalData["subnet_begin_offset"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								SubnetBeginOffsetV6: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && !existingPeersItems[listIdx].External.SubnetBeginOffsetV6.IsUnknown() {
+										return existingPeersItems[listIdx].External.SubnetBeginOffsetV6
+									}
 									if v, ok := ExternalData["subnet_begin_offset_v6"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								SubnetEndOffset: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && !existingPeersItems[listIdx].External.SubnetEndOffset.IsUnknown() {
+										return existingPeersItems[listIdx].External.SubnetEndOffset
+									}
 									if v, ok := ExternalData["subnet_end_offset"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								SubnetEndOffsetV6: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && !existingPeersItems[listIdx].External.SubnetEndOffsetV6.IsUnknown() {
+										return existingPeersItems[listIdx].External.SubnetEndOffsetV6
+									}
 									if v, ok := ExternalData["subnet_end_offset_v6"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
@@ -1595,18 +1663,32 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 						if RoutingPoliciesData, ok := itemMap["routing_policies"].(map[string]interface{}); ok {
 							return &BGPPeersRoutingPoliciesModel{
 								RoutePolicy: func() types.List {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].RoutingPolicies != nil && (existingPeersItems[listIdx].RoutingPolicies.RoutePolicy.IsNull() || len(existingPeersItems[listIdx].RoutingPolicies.RoutePolicy.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: BGPPeersRoutingPoliciesRoutePolicyModelAttrTypes})
+									}
+									var RoutePolicyExisting []BGPPeersRoutingPoliciesRoutePolicyModel
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].RoutingPolicies != nil && !existingPeersItems[listIdx].RoutingPolicies.RoutePolicy.IsNull() && !existingPeersItems[listIdx].RoutingPolicies.RoutePolicy.IsUnknown() {
+										existingPeersItems[listIdx].RoutingPolicies.RoutePolicy.ElementsAs(ctx, &RoutePolicyExisting, false)
+									}
 									if rawList, ok := RoutingPoliciesData["route_policy"].([]interface{}); ok && len(rawList) > 0 {
 										var RoutePolicyResult []BGPPeersRoutingPoliciesRoutePolicyModel
-										for _, RoutePolicyItem := range rawList {
+										for RoutePolicyIdx, RoutePolicyItem := range rawList {
+											_ = RoutePolicyIdx
 											if RoutePolicyItemMap, ok := RoutePolicyItem.(map[string]interface{}); ok {
 												RoutePolicyResult = append(RoutePolicyResult, BGPPeersRoutingPoliciesRoutePolicyModel{
 													AllNodes: func() *BGPEmptyModel {
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].AllNodes != nil {
+															return &BGPEmptyModel{}
+														}
 														if _, ok := RoutePolicyItemMap["all_nodes"].(map[string]interface{}); ok {
 															return &BGPEmptyModel{}
 														}
 														return nil
 													}(),
 													Inbound: func() *BGPEmptyModel {
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Inbound != nil {
+															return &BGPEmptyModel{}
+														}
 														if _, ok := RoutePolicyItemMap["inbound"].(map[string]interface{}); ok {
 															return &BGPEmptyModel{}
 														}
@@ -1677,6 +1759,9 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 														return types.ListNull(types.ObjectType{AttrTypes: BGPPeersRoutingPoliciesRoutePolicyObjectRefsModelAttrTypes})
 													}(),
 													Outbound: func() *BGPEmptyModel {
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Outbound != nil {
+															return &BGPEmptyModel{}
+														}
 														if _, ok := RoutePolicyItemMap["outbound"].(map[string]interface{}); ok {
 															return &BGPEmptyModel{}
 														}
@@ -1748,12 +1833,18 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &BGPWhereSiteModel{
 						DisableInternetVIP: func() *BGPEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.DisableInternetVIP
+							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &BGPEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *BGPEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.EnableInternetVIP
+							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &BGPEmptyModel{}
 							}
@@ -1766,9 +1857,17 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.Site != nil && (data.Where.Site.Ref.IsNull() || len(data.Where.Site.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: BGPWhereSiteRefModelAttrTypes})
+							}
+							var RefExisting []BGPWhereSiteRefModel
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
+								data.Where.Site.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []BGPWhereSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, BGPWhereSiteRefModel{
 											Kind: func() types.String {
@@ -1817,12 +1916,18 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &BGPWhereVirtualSiteModel{
 						DisableInternetVIP: func() *BGPEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.DisableInternetVIP
+							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &BGPEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *BGPEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.EnableInternetVIP
+							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &BGPEmptyModel{}
 							}
@@ -1835,9 +1940,17 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && (data.Where.VirtualSite.Ref.IsNull() || len(data.Where.VirtualSite.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: BGPWhereVirtualSiteRefModelAttrTypes})
+							}
+							var RefExisting []BGPWhereVirtualSiteRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
+								data.Where.VirtualSite.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []BGPWhereVirtualSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, BGPWhereVirtualSiteRefModel{
 											Kind: func() types.String {
@@ -2002,18 +2115,27 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 						if BfdEnabledData, ok := itemMap["bfd_enabled"].(map[string]interface{}); ok {
 							return &BGPPeersBfdEnabledModel{
 								Multiplier: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].BfdEnabled != nil && !existingPeersItems[listIdx].BfdEnabled.Multiplier.IsUnknown() {
+										return existingPeersItems[listIdx].BfdEnabled.Multiplier
+									}
 									if v, ok := BfdEnabledData["multiplier"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								ReceiveIntervalMilliseconds: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].BfdEnabled != nil && !existingPeersItems[listIdx].BfdEnabled.ReceiveIntervalMilliseconds.IsUnknown() {
+										return existingPeersItems[listIdx].BfdEnabled.ReceiveIntervalMilliseconds
+									}
 									if v, ok := BfdEnabledData["receive_interval_milliseconds"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								TransmitIntervalMilliseconds: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].BfdEnabled != nil && !existingPeersItems[listIdx].BfdEnabled.TransmitIntervalMilliseconds.IsUnknown() {
+										return existingPeersItems[listIdx].BfdEnabled.TransmitIntervalMilliseconds
+									}
 									if v, ok := BfdEnabledData["transmit_interval_milliseconds"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
@@ -2048,51 +2170,78 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 									return types.StringNull()
 								}(),
 								Asn: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && !existingPeersItems[listIdx].External.Asn.IsUnknown() {
+										return existingPeersItems[listIdx].External.Asn
+									}
 									if v, ok := ExternalData["asn"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								DefaultGateway: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.DefaultGateway
+									}
 									if _, ok := ExternalData["default_gateway"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
 									return nil
 								}(),
 								DefaultGatewayV6: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.DefaultGatewayV6
+									}
 									if _, ok := ExternalData["default_gateway_v6"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
 									return nil
 								}(),
 								DisableSpec: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.DisableSpec
+									}
 									if _, ok := ExternalData["disable"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
 									return nil
 								}(),
 								DisableV6: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.DisableV6
+									}
 									if _, ok := ExternalData["disable_v6"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
 									return nil
 								}(),
 								ExternalConnector: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.ExternalConnector
+									}
 									if _, ok := ExternalData["external_connector"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
 									return nil
 								}(),
 								FamilyInet: func() *BGPPeersExternalFamilyInetModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.FamilyInet != nil {
+										return existingPeersItems[listIdx].External.FamilyInet
+									}
 									if FamilyInetData, ok := ExternalData["family_inet"].(map[string]interface{}); ok {
 										return &BGPPeersExternalFamilyInetModel{
 											DisableSpec: func() *BGPEmptyModel {
+												if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.FamilyInet != nil {
+													return existingPeersItems[listIdx].External.FamilyInet.DisableSpec
+												}
 												if _, ok := FamilyInetData["disable"].(map[string]interface{}); ok {
 													return &BGPEmptyModel{}
 												}
 												return nil
 											}(),
 											Enable: func() *BGPEmptyModel {
+												if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.FamilyInet != nil {
+													return existingPeersItems[listIdx].External.FamilyInet.Enable
+												}
 												if _, ok := FamilyInetData["enable"].(map[string]interface{}); ok {
 													return &BGPEmptyModel{}
 												}
@@ -2103,12 +2252,18 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 									return nil
 								}(),
 								FromSite: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.FromSite
+									}
 									if _, ok := ExternalData["from_site"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
 									return nil
 								}(),
 								FromSiteV6: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.FromSiteV6
+									}
 									if _, ok := ExternalData["from_site_v6"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
@@ -2143,9 +2298,17 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 									if InterfaceListData, ok := ExternalData["interface_list"].(map[string]interface{}); ok {
 										return &BGPPeersExternalInterfaceListModel{
 											Interfaces: func() types.List {
+												if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.InterfaceList != nil && (existingPeersItems[listIdx].External.InterfaceList.Interfaces.IsNull() || len(existingPeersItems[listIdx].External.InterfaceList.Interfaces.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: BGPPeersExternalInterfaceListInterfacesModelAttrTypes})
+												}
+												var InterfacesExisting []BGPPeersExternalInterfaceListInterfacesModel
+												if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.InterfaceList != nil && !existingPeersItems[listIdx].External.InterfaceList.Interfaces.IsNull() && !existingPeersItems[listIdx].External.InterfaceList.Interfaces.IsUnknown() {
+													existingPeersItems[listIdx].External.InterfaceList.Interfaces.ElementsAs(ctx, &InterfacesExisting, false)
+												}
 												if rawList, ok := InterfaceListData["interfaces"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfacesResult []BGPPeersExternalInterfaceListInterfacesModel
-													for _, InterfacesItem := range rawList {
+													for InterfacesIdx, InterfacesItem := range rawList {
+														_ = InterfacesIdx
 														if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
 															InterfacesResult = append(InterfacesResult, BGPPeersExternalInterfaceListInterfacesModel{
 																Name: func() types.String {
@@ -2185,36 +2348,54 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 									return types.StringNull()
 								}(),
 								NoAuthentication: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.NoAuthentication
+									}
 									if _, ok := ExternalData["no_authentication"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
 									return nil
 								}(),
 								Port: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && !existingPeersItems[listIdx].External.Port.IsUnknown() {
+										return existingPeersItems[listIdx].External.Port
+									}
 									if v, ok := ExternalData["port"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								SubnetBeginOffset: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && !existingPeersItems[listIdx].External.SubnetBeginOffset.IsUnknown() {
+										return existingPeersItems[listIdx].External.SubnetBeginOffset
+									}
 									if v, ok := ExternalData["subnet_begin_offset"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								SubnetBeginOffsetV6: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && !existingPeersItems[listIdx].External.SubnetBeginOffsetV6.IsUnknown() {
+										return existingPeersItems[listIdx].External.SubnetBeginOffsetV6
+									}
 									if v, ok := ExternalData["subnet_begin_offset_v6"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								SubnetEndOffset: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && !existingPeersItems[listIdx].External.SubnetEndOffset.IsUnknown() {
+										return existingPeersItems[listIdx].External.SubnetEndOffset
+									}
 									if v, ok := ExternalData["subnet_end_offset"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								SubnetEndOffsetV6: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && !existingPeersItems[listIdx].External.SubnetEndOffsetV6.IsUnknown() {
+										return existingPeersItems[listIdx].External.SubnetEndOffsetV6
+									}
 									if v, ok := ExternalData["subnet_end_offset_v6"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
@@ -2271,18 +2452,32 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 						if RoutingPoliciesData, ok := itemMap["routing_policies"].(map[string]interface{}); ok {
 							return &BGPPeersRoutingPoliciesModel{
 								RoutePolicy: func() types.List {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].RoutingPolicies != nil && (existingPeersItems[listIdx].RoutingPolicies.RoutePolicy.IsNull() || len(existingPeersItems[listIdx].RoutingPolicies.RoutePolicy.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: BGPPeersRoutingPoliciesRoutePolicyModelAttrTypes})
+									}
+									var RoutePolicyExisting []BGPPeersRoutingPoliciesRoutePolicyModel
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].RoutingPolicies != nil && !existingPeersItems[listIdx].RoutingPolicies.RoutePolicy.IsNull() && !existingPeersItems[listIdx].RoutingPolicies.RoutePolicy.IsUnknown() {
+										existingPeersItems[listIdx].RoutingPolicies.RoutePolicy.ElementsAs(ctx, &RoutePolicyExisting, false)
+									}
 									if rawList, ok := RoutingPoliciesData["route_policy"].([]interface{}); ok && len(rawList) > 0 {
 										var RoutePolicyResult []BGPPeersRoutingPoliciesRoutePolicyModel
-										for _, RoutePolicyItem := range rawList {
+										for RoutePolicyIdx, RoutePolicyItem := range rawList {
+											_ = RoutePolicyIdx
 											if RoutePolicyItemMap, ok := RoutePolicyItem.(map[string]interface{}); ok {
 												RoutePolicyResult = append(RoutePolicyResult, BGPPeersRoutingPoliciesRoutePolicyModel{
 													AllNodes: func() *BGPEmptyModel {
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].AllNodes != nil {
+															return &BGPEmptyModel{}
+														}
 														if _, ok := RoutePolicyItemMap["all_nodes"].(map[string]interface{}); ok {
 															return &BGPEmptyModel{}
 														}
 														return nil
 													}(),
 													Inbound: func() *BGPEmptyModel {
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Inbound != nil {
+															return &BGPEmptyModel{}
+														}
 														if _, ok := RoutePolicyItemMap["inbound"].(map[string]interface{}); ok {
 															return &BGPEmptyModel{}
 														}
@@ -2353,6 +2548,9 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 														return types.ListNull(types.ObjectType{AttrTypes: BGPPeersRoutingPoliciesRoutePolicyObjectRefsModelAttrTypes})
 													}(),
 													Outbound: func() *BGPEmptyModel {
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Outbound != nil {
+															return &BGPEmptyModel{}
+														}
 														if _, ok := RoutePolicyItemMap["outbound"].(map[string]interface{}); ok {
 															return &BGPEmptyModel{}
 														}
@@ -2424,12 +2622,18 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &BGPWhereSiteModel{
 						DisableInternetVIP: func() *BGPEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.DisableInternetVIP
+							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &BGPEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *BGPEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.EnableInternetVIP
+							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &BGPEmptyModel{}
 							}
@@ -2442,9 +2646,17 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.Site != nil && (data.Where.Site.Ref.IsNull() || len(data.Where.Site.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: BGPWhereSiteRefModelAttrTypes})
+							}
+							var RefExisting []BGPWhereSiteRefModel
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
+								data.Where.Site.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []BGPWhereSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, BGPWhereSiteRefModel{
 											Kind: func() types.String {
@@ -2493,12 +2705,18 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &BGPWhereVirtualSiteModel{
 						DisableInternetVIP: func() *BGPEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.DisableInternetVIP
+							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &BGPEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *BGPEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.EnableInternetVIP
+							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &BGPEmptyModel{}
 							}
@@ -2511,9 +2729,17 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && (data.Where.VirtualSite.Ref.IsNull() || len(data.Where.VirtualSite.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: BGPWhereVirtualSiteRefModelAttrTypes})
+							}
+							var RefExisting []BGPWhereVirtualSiteRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
+								data.Where.VirtualSite.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []BGPWhereVirtualSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, BGPWhereVirtualSiteRefModel{
 											Kind: func() types.String {
@@ -2990,18 +3216,27 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 						if BfdEnabledData, ok := itemMap["bfd_enabled"].(map[string]interface{}); ok {
 							return &BGPPeersBfdEnabledModel{
 								Multiplier: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].BfdEnabled != nil && !existingPeersItems[listIdx].BfdEnabled.Multiplier.IsUnknown() {
+										return existingPeersItems[listIdx].BfdEnabled.Multiplier
+									}
 									if v, ok := BfdEnabledData["multiplier"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								ReceiveIntervalMilliseconds: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].BfdEnabled != nil && !existingPeersItems[listIdx].BfdEnabled.ReceiveIntervalMilliseconds.IsUnknown() {
+										return existingPeersItems[listIdx].BfdEnabled.ReceiveIntervalMilliseconds
+									}
 									if v, ok := BfdEnabledData["receive_interval_milliseconds"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								TransmitIntervalMilliseconds: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].BfdEnabled != nil && !existingPeersItems[listIdx].BfdEnabled.TransmitIntervalMilliseconds.IsUnknown() {
+										return existingPeersItems[listIdx].BfdEnabled.TransmitIntervalMilliseconds
+									}
 									if v, ok := BfdEnabledData["transmit_interval_milliseconds"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
@@ -3036,51 +3271,78 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 									return types.StringNull()
 								}(),
 								Asn: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && !existingPeersItems[listIdx].External.Asn.IsUnknown() {
+										return existingPeersItems[listIdx].External.Asn
+									}
 									if v, ok := ExternalData["asn"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								DefaultGateway: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.DefaultGateway
+									}
 									if _, ok := ExternalData["default_gateway"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
 									return nil
 								}(),
 								DefaultGatewayV6: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.DefaultGatewayV6
+									}
 									if _, ok := ExternalData["default_gateway_v6"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
 									return nil
 								}(),
 								DisableSpec: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.DisableSpec
+									}
 									if _, ok := ExternalData["disable"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
 									return nil
 								}(),
 								DisableV6: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.DisableV6
+									}
 									if _, ok := ExternalData["disable_v6"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
 									return nil
 								}(),
 								ExternalConnector: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.ExternalConnector
+									}
 									if _, ok := ExternalData["external_connector"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
 									return nil
 								}(),
 								FamilyInet: func() *BGPPeersExternalFamilyInetModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.FamilyInet != nil {
+										return existingPeersItems[listIdx].External.FamilyInet
+									}
 									if FamilyInetData, ok := ExternalData["family_inet"].(map[string]interface{}); ok {
 										return &BGPPeersExternalFamilyInetModel{
 											DisableSpec: func() *BGPEmptyModel {
+												if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.FamilyInet != nil {
+													return existingPeersItems[listIdx].External.FamilyInet.DisableSpec
+												}
 												if _, ok := FamilyInetData["disable"].(map[string]interface{}); ok {
 													return &BGPEmptyModel{}
 												}
 												return nil
 											}(),
 											Enable: func() *BGPEmptyModel {
+												if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.FamilyInet != nil {
+													return existingPeersItems[listIdx].External.FamilyInet.Enable
+												}
 												if _, ok := FamilyInetData["enable"].(map[string]interface{}); ok {
 													return &BGPEmptyModel{}
 												}
@@ -3091,12 +3353,18 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 									return nil
 								}(),
 								FromSite: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.FromSite
+									}
 									if _, ok := ExternalData["from_site"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
 									return nil
 								}(),
 								FromSiteV6: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.FromSiteV6
+									}
 									if _, ok := ExternalData["from_site_v6"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
@@ -3131,9 +3399,17 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 									if InterfaceListData, ok := ExternalData["interface_list"].(map[string]interface{}); ok {
 										return &BGPPeersExternalInterfaceListModel{
 											Interfaces: func() types.List {
+												if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.InterfaceList != nil && (existingPeersItems[listIdx].External.InterfaceList.Interfaces.IsNull() || len(existingPeersItems[listIdx].External.InterfaceList.Interfaces.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: BGPPeersExternalInterfaceListInterfacesModelAttrTypes})
+												}
+												var InterfacesExisting []BGPPeersExternalInterfaceListInterfacesModel
+												if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.InterfaceList != nil && !existingPeersItems[listIdx].External.InterfaceList.Interfaces.IsNull() && !existingPeersItems[listIdx].External.InterfaceList.Interfaces.IsUnknown() {
+													existingPeersItems[listIdx].External.InterfaceList.Interfaces.ElementsAs(ctx, &InterfacesExisting, false)
+												}
 												if rawList, ok := InterfaceListData["interfaces"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfacesResult []BGPPeersExternalInterfaceListInterfacesModel
-													for _, InterfacesItem := range rawList {
+													for InterfacesIdx, InterfacesItem := range rawList {
+														_ = InterfacesIdx
 														if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
 															InterfacesResult = append(InterfacesResult, BGPPeersExternalInterfaceListInterfacesModel{
 																Name: func() types.String {
@@ -3173,36 +3449,54 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 									return types.StringNull()
 								}(),
 								NoAuthentication: func() *BGPEmptyModel {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil {
+										return existingPeersItems[listIdx].External.NoAuthentication
+									}
 									if _, ok := ExternalData["no_authentication"].(map[string]interface{}); ok {
 										return &BGPEmptyModel{}
 									}
 									return nil
 								}(),
 								Port: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && !existingPeersItems[listIdx].External.Port.IsUnknown() {
+										return existingPeersItems[listIdx].External.Port
+									}
 									if v, ok := ExternalData["port"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								SubnetBeginOffset: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && !existingPeersItems[listIdx].External.SubnetBeginOffset.IsUnknown() {
+										return existingPeersItems[listIdx].External.SubnetBeginOffset
+									}
 									if v, ok := ExternalData["subnet_begin_offset"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								SubnetBeginOffsetV6: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && !existingPeersItems[listIdx].External.SubnetBeginOffsetV6.IsUnknown() {
+										return existingPeersItems[listIdx].External.SubnetBeginOffsetV6
+									}
 									if v, ok := ExternalData["subnet_begin_offset_v6"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								SubnetEndOffset: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && !existingPeersItems[listIdx].External.SubnetEndOffset.IsUnknown() {
+										return existingPeersItems[listIdx].External.SubnetEndOffset
+									}
 									if v, ok := ExternalData["subnet_end_offset"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								SubnetEndOffsetV6: func() types.Int64 {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && !existingPeersItems[listIdx].External.SubnetEndOffsetV6.IsUnknown() {
+										return existingPeersItems[listIdx].External.SubnetEndOffsetV6
+									}
 									if v, ok := ExternalData["subnet_end_offset_v6"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
@@ -3259,18 +3553,32 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 						if RoutingPoliciesData, ok := itemMap["routing_policies"].(map[string]interface{}); ok {
 							return &BGPPeersRoutingPoliciesModel{
 								RoutePolicy: func() types.List {
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].RoutingPolicies != nil && (existingPeersItems[listIdx].RoutingPolicies.RoutePolicy.IsNull() || len(existingPeersItems[listIdx].RoutingPolicies.RoutePolicy.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: BGPPeersRoutingPoliciesRoutePolicyModelAttrTypes})
+									}
+									var RoutePolicyExisting []BGPPeersRoutingPoliciesRoutePolicyModel
+									if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].RoutingPolicies != nil && !existingPeersItems[listIdx].RoutingPolicies.RoutePolicy.IsNull() && !existingPeersItems[listIdx].RoutingPolicies.RoutePolicy.IsUnknown() {
+										existingPeersItems[listIdx].RoutingPolicies.RoutePolicy.ElementsAs(ctx, &RoutePolicyExisting, false)
+									}
 									if rawList, ok := RoutingPoliciesData["route_policy"].([]interface{}); ok && len(rawList) > 0 {
 										var RoutePolicyResult []BGPPeersRoutingPoliciesRoutePolicyModel
-										for _, RoutePolicyItem := range rawList {
+										for RoutePolicyIdx, RoutePolicyItem := range rawList {
+											_ = RoutePolicyIdx
 											if RoutePolicyItemMap, ok := RoutePolicyItem.(map[string]interface{}); ok {
 												RoutePolicyResult = append(RoutePolicyResult, BGPPeersRoutingPoliciesRoutePolicyModel{
 													AllNodes: func() *BGPEmptyModel {
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].AllNodes != nil {
+															return &BGPEmptyModel{}
+														}
 														if _, ok := RoutePolicyItemMap["all_nodes"].(map[string]interface{}); ok {
 															return &BGPEmptyModel{}
 														}
 														return nil
 													}(),
 													Inbound: func() *BGPEmptyModel {
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Inbound != nil {
+															return &BGPEmptyModel{}
+														}
 														if _, ok := RoutePolicyItemMap["inbound"].(map[string]interface{}); ok {
 															return &BGPEmptyModel{}
 														}
@@ -3341,6 +3649,9 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 														return types.ListNull(types.ObjectType{AttrTypes: BGPPeersRoutingPoliciesRoutePolicyObjectRefsModelAttrTypes})
 													}(),
 													Outbound: func() *BGPEmptyModel {
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Outbound != nil {
+															return &BGPEmptyModel{}
+														}
 														if _, ok := RoutePolicyItemMap["outbound"].(map[string]interface{}); ok {
 															return &BGPEmptyModel{}
 														}
@@ -3412,12 +3723,18 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &BGPWhereSiteModel{
 						DisableInternetVIP: func() *BGPEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.DisableInternetVIP
+							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &BGPEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *BGPEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.EnableInternetVIP
+							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &BGPEmptyModel{}
 							}
@@ -3430,9 +3747,17 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.Site != nil && (data.Where.Site.Ref.IsNull() || len(data.Where.Site.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: BGPWhereSiteRefModelAttrTypes})
+							}
+							var RefExisting []BGPWhereSiteRefModel
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
+								data.Where.Site.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []BGPWhereSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, BGPWhereSiteRefModel{
 											Kind: func() types.String {
@@ -3481,12 +3806,18 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &BGPWhereVirtualSiteModel{
 						DisableInternetVIP: func() *BGPEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.DisableInternetVIP
+							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &BGPEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *BGPEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.EnableInternetVIP
+							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &BGPEmptyModel{}
 							}
@@ -3499,9 +3830,17 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && (data.Where.VirtualSite.Ref.IsNull() || len(data.Where.VirtualSite.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: BGPWhereVirtualSiteRefModelAttrTypes})
+							}
+							var RefExisting []BGPWhereVirtualSiteRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
+								data.Where.VirtualSite.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []BGPWhereVirtualSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, BGPWhereVirtualSiteRefModel{
 											Kind: func() types.String {

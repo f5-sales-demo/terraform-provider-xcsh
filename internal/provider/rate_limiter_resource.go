@@ -540,9 +540,15 @@ func (r *RateLimiterResource) Create(ctx context.Context, req resource.CreateReq
 						if ActionBlockData, ok := itemMap["action_block"].(map[string]interface{}); ok {
 							return &RateLimiterLimitsActionBlockModel{
 								Hours: func() *RateLimiterLimitsActionBlockHoursModel {
+									if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].ActionBlock != nil && existingLimitsItems[listIdx].ActionBlock.Hours != nil {
+										return existingLimitsItems[listIdx].ActionBlock.Hours
+									}
 									if HoursData, ok := ActionBlockData["hours"].(map[string]interface{}); ok {
 										return &RateLimiterLimitsActionBlockHoursModel{
 											Duration: func() types.Int64 {
+												if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].ActionBlock != nil && existingLimitsItems[listIdx].ActionBlock.Hours != nil && !existingLimitsItems[listIdx].ActionBlock.Hours.Duration.IsUnknown() {
+													return existingLimitsItems[listIdx].ActionBlock.Hours.Duration
+												}
 												if v, ok := HoursData["duration"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -553,9 +559,15 @@ func (r *RateLimiterResource) Create(ctx context.Context, req resource.CreateReq
 									return nil
 								}(),
 								Minutes: func() *RateLimiterLimitsActionBlockMinutesModel {
+									if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].ActionBlock != nil && existingLimitsItems[listIdx].ActionBlock.Minutes != nil {
+										return existingLimitsItems[listIdx].ActionBlock.Minutes
+									}
 									if MinutesData, ok := ActionBlockData["minutes"].(map[string]interface{}); ok {
 										return &RateLimiterLimitsActionBlockMinutesModel{
 											Duration: func() types.Int64 {
+												if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].ActionBlock != nil && existingLimitsItems[listIdx].ActionBlock.Minutes != nil && !existingLimitsItems[listIdx].ActionBlock.Minutes.Duration.IsUnknown() {
+													return existingLimitsItems[listIdx].ActionBlock.Minutes.Duration
+												}
 												if v, ok := MinutesData["duration"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -566,9 +578,15 @@ func (r *RateLimiterResource) Create(ctx context.Context, req resource.CreateReq
 									return nil
 								}(),
 								Seconds: func() *RateLimiterLimitsActionBlockSecondsModel {
+									if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].ActionBlock != nil && existingLimitsItems[listIdx].ActionBlock.Seconds != nil {
+										return existingLimitsItems[listIdx].ActionBlock.Seconds
+									}
 									if SecondsData, ok := ActionBlockData["seconds"].(map[string]interface{}); ok {
 										return &RateLimiterLimitsActionBlockSecondsModel{
 											Duration: func() types.Int64 {
+												if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].ActionBlock != nil && existingLimitsItems[listIdx].ActionBlock.Seconds != nil && !existingLimitsItems[listIdx].ActionBlock.Seconds.Duration.IsUnknown() {
+													return existingLimitsItems[listIdx].ActionBlock.Seconds.Duration
+												}
 												if v, ok := SecondsData["duration"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -806,9 +824,15 @@ func (r *RateLimiterResource) Read(ctx context.Context, req resource.ReadRequest
 						if ActionBlockData, ok := itemMap["action_block"].(map[string]interface{}); ok {
 							return &RateLimiterLimitsActionBlockModel{
 								Hours: func() *RateLimiterLimitsActionBlockHoursModel {
+									if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].ActionBlock != nil && existingLimitsItems[listIdx].ActionBlock.Hours != nil {
+										return existingLimitsItems[listIdx].ActionBlock.Hours
+									}
 									if HoursData, ok := ActionBlockData["hours"].(map[string]interface{}); ok {
 										return &RateLimiterLimitsActionBlockHoursModel{
 											Duration: func() types.Int64 {
+												if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].ActionBlock != nil && existingLimitsItems[listIdx].ActionBlock.Hours != nil && !existingLimitsItems[listIdx].ActionBlock.Hours.Duration.IsUnknown() {
+													return existingLimitsItems[listIdx].ActionBlock.Hours.Duration
+												}
 												if v, ok := HoursData["duration"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -819,9 +843,15 @@ func (r *RateLimiterResource) Read(ctx context.Context, req resource.ReadRequest
 									return nil
 								}(),
 								Minutes: func() *RateLimiterLimitsActionBlockMinutesModel {
+									if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].ActionBlock != nil && existingLimitsItems[listIdx].ActionBlock.Minutes != nil {
+										return existingLimitsItems[listIdx].ActionBlock.Minutes
+									}
 									if MinutesData, ok := ActionBlockData["minutes"].(map[string]interface{}); ok {
 										return &RateLimiterLimitsActionBlockMinutesModel{
 											Duration: func() types.Int64 {
+												if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].ActionBlock != nil && existingLimitsItems[listIdx].ActionBlock.Minutes != nil && !existingLimitsItems[listIdx].ActionBlock.Minutes.Duration.IsUnknown() {
+													return existingLimitsItems[listIdx].ActionBlock.Minutes.Duration
+												}
 												if v, ok := MinutesData["duration"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -832,9 +862,15 @@ func (r *RateLimiterResource) Read(ctx context.Context, req resource.ReadRequest
 									return nil
 								}(),
 								Seconds: func() *RateLimiterLimitsActionBlockSecondsModel {
+									if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].ActionBlock != nil && existingLimitsItems[listIdx].ActionBlock.Seconds != nil {
+										return existingLimitsItems[listIdx].ActionBlock.Seconds
+									}
 									if SecondsData, ok := ActionBlockData["seconds"].(map[string]interface{}); ok {
 										return &RateLimiterLimitsActionBlockSecondsModel{
 											Duration: func() types.Int64 {
+												if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].ActionBlock != nil && existingLimitsItems[listIdx].ActionBlock.Seconds != nil && !existingLimitsItems[listIdx].ActionBlock.Seconds.Duration.IsUnknown() {
+													return existingLimitsItems[listIdx].ActionBlock.Seconds.Duration
+												}
 												if v, ok := SecondsData["duration"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -1149,9 +1185,15 @@ func (r *RateLimiterResource) Update(ctx context.Context, req resource.UpdateReq
 						if ActionBlockData, ok := itemMap["action_block"].(map[string]interface{}); ok {
 							return &RateLimiterLimitsActionBlockModel{
 								Hours: func() *RateLimiterLimitsActionBlockHoursModel {
+									if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].ActionBlock != nil && existingLimitsItems[listIdx].ActionBlock.Hours != nil {
+										return existingLimitsItems[listIdx].ActionBlock.Hours
+									}
 									if HoursData, ok := ActionBlockData["hours"].(map[string]interface{}); ok {
 										return &RateLimiterLimitsActionBlockHoursModel{
 											Duration: func() types.Int64 {
+												if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].ActionBlock != nil && existingLimitsItems[listIdx].ActionBlock.Hours != nil && !existingLimitsItems[listIdx].ActionBlock.Hours.Duration.IsUnknown() {
+													return existingLimitsItems[listIdx].ActionBlock.Hours.Duration
+												}
 												if v, ok := HoursData["duration"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -1162,9 +1204,15 @@ func (r *RateLimiterResource) Update(ctx context.Context, req resource.UpdateReq
 									return nil
 								}(),
 								Minutes: func() *RateLimiterLimitsActionBlockMinutesModel {
+									if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].ActionBlock != nil && existingLimitsItems[listIdx].ActionBlock.Minutes != nil {
+										return existingLimitsItems[listIdx].ActionBlock.Minutes
+									}
 									if MinutesData, ok := ActionBlockData["minutes"].(map[string]interface{}); ok {
 										return &RateLimiterLimitsActionBlockMinutesModel{
 											Duration: func() types.Int64 {
+												if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].ActionBlock != nil && existingLimitsItems[listIdx].ActionBlock.Minutes != nil && !existingLimitsItems[listIdx].ActionBlock.Minutes.Duration.IsUnknown() {
+													return existingLimitsItems[listIdx].ActionBlock.Minutes.Duration
+												}
 												if v, ok := MinutesData["duration"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -1175,9 +1223,15 @@ func (r *RateLimiterResource) Update(ctx context.Context, req resource.UpdateReq
 									return nil
 								}(),
 								Seconds: func() *RateLimiterLimitsActionBlockSecondsModel {
+									if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].ActionBlock != nil && existingLimitsItems[listIdx].ActionBlock.Seconds != nil {
+										return existingLimitsItems[listIdx].ActionBlock.Seconds
+									}
 									if SecondsData, ok := ActionBlockData["seconds"].(map[string]interface{}); ok {
 										return &RateLimiterLimitsActionBlockSecondsModel{
 											Duration: func() types.Int64 {
+												if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].ActionBlock != nil && existingLimitsItems[listIdx].ActionBlock.Seconds != nil && !existingLimitsItems[listIdx].ActionBlock.Seconds.Duration.IsUnknown() {
+													return existingLimitsItems[listIdx].ActionBlock.Seconds.Duration
+												}
 												if v, ok := SecondsData["duration"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}

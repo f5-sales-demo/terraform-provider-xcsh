@@ -1164,18 +1164,29 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 				if !isImport && data.ClusterWideAppList != nil && (data.ClusterWideAppList.ClusterWideApps.IsNull() || len(data.ClusterWideAppList.ClusterWideApps.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: K8SClusterClusterWideAppListClusterWideAppsModelAttrTypes})
 				}
+				var ClusterWideAppsExisting []K8SClusterClusterWideAppListClusterWideAppsModel
+				if !isImport && data.ClusterWideAppList != nil && !data.ClusterWideAppList.ClusterWideApps.IsNull() && !data.ClusterWideAppList.ClusterWideApps.IsUnknown() {
+					data.ClusterWideAppList.ClusterWideApps.ElementsAs(ctx, &ClusterWideAppsExisting, false)
+				}
 				if rawList, ok := blockData["cluster_wide_apps"].([]interface{}); ok && len(rawList) > 0 {
 					var ClusterWideAppsResult []K8SClusterClusterWideAppListClusterWideAppsModel
-					for _, ClusterWideAppsItem := range rawList {
+					for ClusterWideAppsIdx, ClusterWideAppsItem := range rawList {
+						_ = ClusterWideAppsIdx
 						if ClusterWideAppsItemMap, ok := ClusterWideAppsItem.(map[string]interface{}); ok {
 							ClusterWideAppsResult = append(ClusterWideAppsResult, K8SClusterClusterWideAppListClusterWideAppsModel{
 								ArgoCd: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdModel {
 									if ArgoCdData, ok := ClusterWideAppsItemMap["argo_cd"].(map[string]interface{}); ok {
 										return &K8SClusterClusterWideAppListClusterWideAppsArgoCdModel{
 											LocalDomain: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainModel {
+												if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil {
+													return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain
+												}
 												if LocalDomainData, ok := ArgoCdData["local_domain"].(map[string]interface{}); ok {
 													return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainModel{
 														DefaultPort: func() *K8SClusterEmptyModel {
+															if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil {
+																return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.DefaultPort
+															}
 															if _, ok := LocalDomainData["default_port"].(map[string]interface{}); ok {
 																return &K8SClusterEmptyModel{}
 															}
@@ -1188,9 +1199,15 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 															return types.StringNull()
 														}(),
 														Password: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordModel {
+															if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil {
+																return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password
+															}
 															if PasswordData, ok := LocalDomainData["password"].(map[string]interface{}); ok {
 																return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordModel{
 																	BlindfoldSecretInfo: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoModel {
+																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.BlindfoldSecretInfo != nil {
+																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -1216,6 +1233,9 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 																		return nil
 																	}(),
 																	BlindfoldSecretInfoInternal: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalModel {
+																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal != nil {
+																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal
+																		}
 																		if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalModel{
 																				DecryptionProvider: func() types.String {
@@ -1241,6 +1261,9 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoModel {
+																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.ClearSecretInfo != nil {
+																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -1266,6 +1289,9 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 																		return types.StringNull()
 																	}(),
 																	VaultSecretInfo: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoModel {
+																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo != nil {
+																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo
+																		}
 																		if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
 																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoModel{
 																				Key: func() types.String {
@@ -1293,6 +1319,9 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 																					return types.StringNull()
 																				}(),
 																				Version: func() types.Int64 {
+																					if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo != nil && !ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo.Version.IsUnknown() {
+																						return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo.Version
+																					}
 																					if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																						return types.Int64Value(int64(v))
 																					}
@@ -1303,6 +1332,9 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 																		return nil
 																	}(),
 																	WingmanSecretInfo: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoModel {
+																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.WingmanSecretInfo != nil {
+																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.WingmanSecretInfo
+																		}
 																		if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
 																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoModel{
 																				Name: func() types.String {
@@ -1320,6 +1352,9 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 															return nil
 														}(),
 														Port: func() types.Int64 {
+															if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && !ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Port.IsUnknown() {
+																return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Port
+															}
 															if v, ok := LocalDomainData["port"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -1334,18 +1369,27 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 									return nil
 								}(),
 								Dashboard: func() *K8SClusterEmptyModel {
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].Dashboard != nil {
+										return &K8SClusterEmptyModel{}
+									}
 									if _, ok := ClusterWideAppsItemMap["dashboard"].(map[string]interface{}); ok {
 										return &K8SClusterEmptyModel{}
 									}
 									return nil
 								}(),
 								MetricsServer: func() *K8SClusterEmptyModel {
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].MetricsServer != nil {
+										return &K8SClusterEmptyModel{}
+									}
 									if _, ok := ClusterWideAppsItemMap["metrics_server"].(map[string]interface{}); ok {
 										return &K8SClusterEmptyModel{}
 									}
 									return nil
 								}(),
 								Prometheus: func() *K8SClusterEmptyModel {
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].Prometheus != nil {
+										return &K8SClusterEmptyModel{}
+									}
 									if _, ok := ClusterWideAppsItemMap["prometheus"].(map[string]interface{}); ok {
 										return &K8SClusterEmptyModel{}
 									}
@@ -1415,9 +1459,14 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 				if !isImport && data.UseCustomClusterRoleBindings != nil && (data.UseCustomClusterRoleBindings.ClusterRoleBindings.IsNull() || len(data.UseCustomClusterRoleBindings.ClusterRoleBindings.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: K8SClusterUseCustomClusterRoleBindingsClusterRoleBindingsModelAttrTypes})
 				}
+				var ClusterRoleBindingsExisting []K8SClusterUseCustomClusterRoleBindingsClusterRoleBindingsModel
+				if !isImport && data.UseCustomClusterRoleBindings != nil && !data.UseCustomClusterRoleBindings.ClusterRoleBindings.IsNull() && !data.UseCustomClusterRoleBindings.ClusterRoleBindings.IsUnknown() {
+					data.UseCustomClusterRoleBindings.ClusterRoleBindings.ElementsAs(ctx, &ClusterRoleBindingsExisting, false)
+				}
 				if rawList, ok := blockData["cluster_role_bindings"].([]interface{}); ok && len(rawList) > 0 {
 					var ClusterRoleBindingsResult []K8SClusterUseCustomClusterRoleBindingsClusterRoleBindingsModel
-					for _, ClusterRoleBindingsItem := range rawList {
+					for ClusterRoleBindingsIdx, ClusterRoleBindingsItem := range rawList {
+						_ = ClusterRoleBindingsIdx
 						if ClusterRoleBindingsItemMap, ok := ClusterRoleBindingsItem.(map[string]interface{}); ok {
 							ClusterRoleBindingsResult = append(ClusterRoleBindingsResult, K8SClusterUseCustomClusterRoleBindingsClusterRoleBindingsModel{
 								Name: func() types.String {
@@ -1454,9 +1503,14 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 				if !isImport && data.UseCustomClusterRoleList != nil && (data.UseCustomClusterRoleList.ClusterRoles.IsNull() || len(data.UseCustomClusterRoleList.ClusterRoles.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: K8SClusterUseCustomClusterRoleListClusterRolesModelAttrTypes})
 				}
+				var ClusterRolesExisting []K8SClusterUseCustomClusterRoleListClusterRolesModel
+				if !isImport && data.UseCustomClusterRoleList != nil && !data.UseCustomClusterRoleList.ClusterRoles.IsNull() && !data.UseCustomClusterRoleList.ClusterRoles.IsUnknown() {
+					data.UseCustomClusterRoleList.ClusterRoles.ElementsAs(ctx, &ClusterRolesExisting, false)
+				}
 				if rawList, ok := blockData["cluster_roles"].([]interface{}); ok && len(rawList) > 0 {
 					var ClusterRolesResult []K8SClusterUseCustomClusterRoleListClusterRolesModel
-					for _, ClusterRolesItem := range rawList {
+					for ClusterRolesIdx, ClusterRolesItem := range rawList {
+						_ = ClusterRolesIdx
 						if ClusterRolesItemMap, ok := ClusterRolesItem.(map[string]interface{}); ok {
 							ClusterRolesResult = append(ClusterRolesResult, K8SClusterUseCustomClusterRoleListClusterRolesModel{
 								Name: func() types.String {
@@ -1515,9 +1569,14 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 				if !isImport && data.UseCustomPspList != nil && (data.UseCustomPspList.PodSecurityPolicies.IsNull() || len(data.UseCustomPspList.PodSecurityPolicies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: K8SClusterUseCustomPspListPodSecurityPoliciesModelAttrTypes})
 				}
+				var PodSecurityPoliciesExisting []K8SClusterUseCustomPspListPodSecurityPoliciesModel
+				if !isImport && data.UseCustomPspList != nil && !data.UseCustomPspList.PodSecurityPolicies.IsNull() && !data.UseCustomPspList.PodSecurityPolicies.IsUnknown() {
+					data.UseCustomPspList.PodSecurityPolicies.ElementsAs(ctx, &PodSecurityPoliciesExisting, false)
+				}
 				if rawList, ok := blockData["pod_security_policies"].([]interface{}); ok && len(rawList) > 0 {
 					var PodSecurityPoliciesResult []K8SClusterUseCustomPspListPodSecurityPoliciesModel
-					for _, PodSecurityPoliciesItem := range rawList {
+					for PodSecurityPoliciesIdx, PodSecurityPoliciesItem := range rawList {
+						_ = PodSecurityPoliciesIdx
 						if PodSecurityPoliciesItemMap, ok := PodSecurityPoliciesItem.(map[string]interface{}); ok {
 							PodSecurityPoliciesResult = append(PodSecurityPoliciesResult, K8SClusterUseCustomPspListPodSecurityPoliciesModel{
 								Name: func() types.String {
@@ -1683,18 +1742,29 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 				if !isImport && data.ClusterWideAppList != nil && (data.ClusterWideAppList.ClusterWideApps.IsNull() || len(data.ClusterWideAppList.ClusterWideApps.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: K8SClusterClusterWideAppListClusterWideAppsModelAttrTypes})
 				}
+				var ClusterWideAppsExisting []K8SClusterClusterWideAppListClusterWideAppsModel
+				if !isImport && data.ClusterWideAppList != nil && !data.ClusterWideAppList.ClusterWideApps.IsNull() && !data.ClusterWideAppList.ClusterWideApps.IsUnknown() {
+					data.ClusterWideAppList.ClusterWideApps.ElementsAs(ctx, &ClusterWideAppsExisting, false)
+				}
 				if rawList, ok := blockData["cluster_wide_apps"].([]interface{}); ok && len(rawList) > 0 {
 					var ClusterWideAppsResult []K8SClusterClusterWideAppListClusterWideAppsModel
-					for _, ClusterWideAppsItem := range rawList {
+					for ClusterWideAppsIdx, ClusterWideAppsItem := range rawList {
+						_ = ClusterWideAppsIdx
 						if ClusterWideAppsItemMap, ok := ClusterWideAppsItem.(map[string]interface{}); ok {
 							ClusterWideAppsResult = append(ClusterWideAppsResult, K8SClusterClusterWideAppListClusterWideAppsModel{
 								ArgoCd: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdModel {
 									if ArgoCdData, ok := ClusterWideAppsItemMap["argo_cd"].(map[string]interface{}); ok {
 										return &K8SClusterClusterWideAppListClusterWideAppsArgoCdModel{
 											LocalDomain: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainModel {
+												if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil {
+													return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain
+												}
 												if LocalDomainData, ok := ArgoCdData["local_domain"].(map[string]interface{}); ok {
 													return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainModel{
 														DefaultPort: func() *K8SClusterEmptyModel {
+															if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil {
+																return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.DefaultPort
+															}
 															if _, ok := LocalDomainData["default_port"].(map[string]interface{}); ok {
 																return &K8SClusterEmptyModel{}
 															}
@@ -1707,9 +1777,15 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 															return types.StringNull()
 														}(),
 														Password: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordModel {
+															if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil {
+																return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password
+															}
 															if PasswordData, ok := LocalDomainData["password"].(map[string]interface{}); ok {
 																return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordModel{
 																	BlindfoldSecretInfo: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoModel {
+																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.BlindfoldSecretInfo != nil {
+																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -1735,6 +1811,9 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 																		return nil
 																	}(),
 																	BlindfoldSecretInfoInternal: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalModel {
+																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal != nil {
+																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal
+																		}
 																		if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalModel{
 																				DecryptionProvider: func() types.String {
@@ -1760,6 +1839,9 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoModel {
+																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.ClearSecretInfo != nil {
+																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -1785,6 +1867,9 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 																		return types.StringNull()
 																	}(),
 																	VaultSecretInfo: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoModel {
+																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo != nil {
+																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo
+																		}
 																		if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
 																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoModel{
 																				Key: func() types.String {
@@ -1812,6 +1897,9 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 																					return types.StringNull()
 																				}(),
 																				Version: func() types.Int64 {
+																					if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo != nil && !ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo.Version.IsUnknown() {
+																						return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo.Version
+																					}
 																					if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																						return types.Int64Value(int64(v))
 																					}
@@ -1822,6 +1910,9 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 																		return nil
 																	}(),
 																	WingmanSecretInfo: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoModel {
+																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.WingmanSecretInfo != nil {
+																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.WingmanSecretInfo
+																		}
 																		if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
 																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoModel{
 																				Name: func() types.String {
@@ -1839,6 +1930,9 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 															return nil
 														}(),
 														Port: func() types.Int64 {
+															if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && !ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Port.IsUnknown() {
+																return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Port
+															}
 															if v, ok := LocalDomainData["port"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -1853,18 +1947,27 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 									return nil
 								}(),
 								Dashboard: func() *K8SClusterEmptyModel {
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].Dashboard != nil {
+										return &K8SClusterEmptyModel{}
+									}
 									if _, ok := ClusterWideAppsItemMap["dashboard"].(map[string]interface{}); ok {
 										return &K8SClusterEmptyModel{}
 									}
 									return nil
 								}(),
 								MetricsServer: func() *K8SClusterEmptyModel {
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].MetricsServer != nil {
+										return &K8SClusterEmptyModel{}
+									}
 									if _, ok := ClusterWideAppsItemMap["metrics_server"].(map[string]interface{}); ok {
 										return &K8SClusterEmptyModel{}
 									}
 									return nil
 								}(),
 								Prometheus: func() *K8SClusterEmptyModel {
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].Prometheus != nil {
+										return &K8SClusterEmptyModel{}
+									}
 									if _, ok := ClusterWideAppsItemMap["prometheus"].(map[string]interface{}); ok {
 										return &K8SClusterEmptyModel{}
 									}
@@ -1934,9 +2037,14 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 				if !isImport && data.UseCustomClusterRoleBindings != nil && (data.UseCustomClusterRoleBindings.ClusterRoleBindings.IsNull() || len(data.UseCustomClusterRoleBindings.ClusterRoleBindings.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: K8SClusterUseCustomClusterRoleBindingsClusterRoleBindingsModelAttrTypes})
 				}
+				var ClusterRoleBindingsExisting []K8SClusterUseCustomClusterRoleBindingsClusterRoleBindingsModel
+				if !isImport && data.UseCustomClusterRoleBindings != nil && !data.UseCustomClusterRoleBindings.ClusterRoleBindings.IsNull() && !data.UseCustomClusterRoleBindings.ClusterRoleBindings.IsUnknown() {
+					data.UseCustomClusterRoleBindings.ClusterRoleBindings.ElementsAs(ctx, &ClusterRoleBindingsExisting, false)
+				}
 				if rawList, ok := blockData["cluster_role_bindings"].([]interface{}); ok && len(rawList) > 0 {
 					var ClusterRoleBindingsResult []K8SClusterUseCustomClusterRoleBindingsClusterRoleBindingsModel
-					for _, ClusterRoleBindingsItem := range rawList {
+					for ClusterRoleBindingsIdx, ClusterRoleBindingsItem := range rawList {
+						_ = ClusterRoleBindingsIdx
 						if ClusterRoleBindingsItemMap, ok := ClusterRoleBindingsItem.(map[string]interface{}); ok {
 							ClusterRoleBindingsResult = append(ClusterRoleBindingsResult, K8SClusterUseCustomClusterRoleBindingsClusterRoleBindingsModel{
 								Name: func() types.String {
@@ -1973,9 +2081,14 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 				if !isImport && data.UseCustomClusterRoleList != nil && (data.UseCustomClusterRoleList.ClusterRoles.IsNull() || len(data.UseCustomClusterRoleList.ClusterRoles.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: K8SClusterUseCustomClusterRoleListClusterRolesModelAttrTypes})
 				}
+				var ClusterRolesExisting []K8SClusterUseCustomClusterRoleListClusterRolesModel
+				if !isImport && data.UseCustomClusterRoleList != nil && !data.UseCustomClusterRoleList.ClusterRoles.IsNull() && !data.UseCustomClusterRoleList.ClusterRoles.IsUnknown() {
+					data.UseCustomClusterRoleList.ClusterRoles.ElementsAs(ctx, &ClusterRolesExisting, false)
+				}
 				if rawList, ok := blockData["cluster_roles"].([]interface{}); ok && len(rawList) > 0 {
 					var ClusterRolesResult []K8SClusterUseCustomClusterRoleListClusterRolesModel
-					for _, ClusterRolesItem := range rawList {
+					for ClusterRolesIdx, ClusterRolesItem := range rawList {
+						_ = ClusterRolesIdx
 						if ClusterRolesItemMap, ok := ClusterRolesItem.(map[string]interface{}); ok {
 							ClusterRolesResult = append(ClusterRolesResult, K8SClusterUseCustomClusterRoleListClusterRolesModel{
 								Name: func() types.String {
@@ -2034,9 +2147,14 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 				if !isImport && data.UseCustomPspList != nil && (data.UseCustomPspList.PodSecurityPolicies.IsNull() || len(data.UseCustomPspList.PodSecurityPolicies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: K8SClusterUseCustomPspListPodSecurityPoliciesModelAttrTypes})
 				}
+				var PodSecurityPoliciesExisting []K8SClusterUseCustomPspListPodSecurityPoliciesModel
+				if !isImport && data.UseCustomPspList != nil && !data.UseCustomPspList.PodSecurityPolicies.IsNull() && !data.UseCustomPspList.PodSecurityPolicies.IsUnknown() {
+					data.UseCustomPspList.PodSecurityPolicies.ElementsAs(ctx, &PodSecurityPoliciesExisting, false)
+				}
 				if rawList, ok := blockData["pod_security_policies"].([]interface{}); ok && len(rawList) > 0 {
 					var PodSecurityPoliciesResult []K8SClusterUseCustomPspListPodSecurityPoliciesModel
-					for _, PodSecurityPoliciesItem := range rawList {
+					for PodSecurityPoliciesIdx, PodSecurityPoliciesItem := range rawList {
+						_ = PodSecurityPoliciesIdx
 						if PodSecurityPoliciesItemMap, ok := PodSecurityPoliciesItem.(map[string]interface{}); ok {
 							PodSecurityPoliciesResult = append(PodSecurityPoliciesResult, K8SClusterUseCustomPspListPodSecurityPoliciesModel{
 								Name: func() types.String {
@@ -2458,18 +2576,29 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 				if !isImport && data.ClusterWideAppList != nil && (data.ClusterWideAppList.ClusterWideApps.IsNull() || len(data.ClusterWideAppList.ClusterWideApps.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: K8SClusterClusterWideAppListClusterWideAppsModelAttrTypes})
 				}
+				var ClusterWideAppsExisting []K8SClusterClusterWideAppListClusterWideAppsModel
+				if !isImport && data.ClusterWideAppList != nil && !data.ClusterWideAppList.ClusterWideApps.IsNull() && !data.ClusterWideAppList.ClusterWideApps.IsUnknown() {
+					data.ClusterWideAppList.ClusterWideApps.ElementsAs(ctx, &ClusterWideAppsExisting, false)
+				}
 				if rawList, ok := blockData["cluster_wide_apps"].([]interface{}); ok && len(rawList) > 0 {
 					var ClusterWideAppsResult []K8SClusterClusterWideAppListClusterWideAppsModel
-					for _, ClusterWideAppsItem := range rawList {
+					for ClusterWideAppsIdx, ClusterWideAppsItem := range rawList {
+						_ = ClusterWideAppsIdx
 						if ClusterWideAppsItemMap, ok := ClusterWideAppsItem.(map[string]interface{}); ok {
 							ClusterWideAppsResult = append(ClusterWideAppsResult, K8SClusterClusterWideAppListClusterWideAppsModel{
 								ArgoCd: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdModel {
 									if ArgoCdData, ok := ClusterWideAppsItemMap["argo_cd"].(map[string]interface{}); ok {
 										return &K8SClusterClusterWideAppListClusterWideAppsArgoCdModel{
 											LocalDomain: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainModel {
+												if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil {
+													return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain
+												}
 												if LocalDomainData, ok := ArgoCdData["local_domain"].(map[string]interface{}); ok {
 													return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainModel{
 														DefaultPort: func() *K8SClusterEmptyModel {
+															if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil {
+																return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.DefaultPort
+															}
 															if _, ok := LocalDomainData["default_port"].(map[string]interface{}); ok {
 																return &K8SClusterEmptyModel{}
 															}
@@ -2482,9 +2611,15 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 															return types.StringNull()
 														}(),
 														Password: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordModel {
+															if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil {
+																return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password
+															}
 															if PasswordData, ok := LocalDomainData["password"].(map[string]interface{}); ok {
 																return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordModel{
 																	BlindfoldSecretInfo: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoModel {
+																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.BlindfoldSecretInfo != nil {
+																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -2510,6 +2645,9 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 																		return nil
 																	}(),
 																	BlindfoldSecretInfoInternal: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalModel {
+																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal != nil {
+																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal
+																		}
 																		if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalModel{
 																				DecryptionProvider: func() types.String {
@@ -2535,6 +2673,9 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoModel {
+																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.ClearSecretInfo != nil {
+																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -2560,6 +2701,9 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 																		return types.StringNull()
 																	}(),
 																	VaultSecretInfo: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoModel {
+																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo != nil {
+																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo
+																		}
 																		if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
 																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoModel{
 																				Key: func() types.String {
@@ -2587,6 +2731,9 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 																					return types.StringNull()
 																				}(),
 																				Version: func() types.Int64 {
+																					if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo != nil && !ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo.Version.IsUnknown() {
+																						return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo.Version
+																					}
 																					if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																						return types.Int64Value(int64(v))
 																					}
@@ -2597,6 +2744,9 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 																		return nil
 																	}(),
 																	WingmanSecretInfo: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoModel {
+																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.WingmanSecretInfo != nil {
+																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.WingmanSecretInfo
+																		}
 																		if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
 																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoModel{
 																				Name: func() types.String {
@@ -2614,6 +2764,9 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 															return nil
 														}(),
 														Port: func() types.Int64 {
+															if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && !ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Port.IsUnknown() {
+																return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Port
+															}
 															if v, ok := LocalDomainData["port"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -2628,18 +2781,27 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 									return nil
 								}(),
 								Dashboard: func() *K8SClusterEmptyModel {
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].Dashboard != nil {
+										return &K8SClusterEmptyModel{}
+									}
 									if _, ok := ClusterWideAppsItemMap["dashboard"].(map[string]interface{}); ok {
 										return &K8SClusterEmptyModel{}
 									}
 									return nil
 								}(),
 								MetricsServer: func() *K8SClusterEmptyModel {
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].MetricsServer != nil {
+										return &K8SClusterEmptyModel{}
+									}
 									if _, ok := ClusterWideAppsItemMap["metrics_server"].(map[string]interface{}); ok {
 										return &K8SClusterEmptyModel{}
 									}
 									return nil
 								}(),
 								Prometheus: func() *K8SClusterEmptyModel {
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].Prometheus != nil {
+										return &K8SClusterEmptyModel{}
+									}
 									if _, ok := ClusterWideAppsItemMap["prometheus"].(map[string]interface{}); ok {
 										return &K8SClusterEmptyModel{}
 									}
@@ -2709,9 +2871,14 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 				if !isImport && data.UseCustomClusterRoleBindings != nil && (data.UseCustomClusterRoleBindings.ClusterRoleBindings.IsNull() || len(data.UseCustomClusterRoleBindings.ClusterRoleBindings.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: K8SClusterUseCustomClusterRoleBindingsClusterRoleBindingsModelAttrTypes})
 				}
+				var ClusterRoleBindingsExisting []K8SClusterUseCustomClusterRoleBindingsClusterRoleBindingsModel
+				if !isImport && data.UseCustomClusterRoleBindings != nil && !data.UseCustomClusterRoleBindings.ClusterRoleBindings.IsNull() && !data.UseCustomClusterRoleBindings.ClusterRoleBindings.IsUnknown() {
+					data.UseCustomClusterRoleBindings.ClusterRoleBindings.ElementsAs(ctx, &ClusterRoleBindingsExisting, false)
+				}
 				if rawList, ok := blockData["cluster_role_bindings"].([]interface{}); ok && len(rawList) > 0 {
 					var ClusterRoleBindingsResult []K8SClusterUseCustomClusterRoleBindingsClusterRoleBindingsModel
-					for _, ClusterRoleBindingsItem := range rawList {
+					for ClusterRoleBindingsIdx, ClusterRoleBindingsItem := range rawList {
+						_ = ClusterRoleBindingsIdx
 						if ClusterRoleBindingsItemMap, ok := ClusterRoleBindingsItem.(map[string]interface{}); ok {
 							ClusterRoleBindingsResult = append(ClusterRoleBindingsResult, K8SClusterUseCustomClusterRoleBindingsClusterRoleBindingsModel{
 								Name: func() types.String {
@@ -2748,9 +2915,14 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 				if !isImport && data.UseCustomClusterRoleList != nil && (data.UseCustomClusterRoleList.ClusterRoles.IsNull() || len(data.UseCustomClusterRoleList.ClusterRoles.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: K8SClusterUseCustomClusterRoleListClusterRolesModelAttrTypes})
 				}
+				var ClusterRolesExisting []K8SClusterUseCustomClusterRoleListClusterRolesModel
+				if !isImport && data.UseCustomClusterRoleList != nil && !data.UseCustomClusterRoleList.ClusterRoles.IsNull() && !data.UseCustomClusterRoleList.ClusterRoles.IsUnknown() {
+					data.UseCustomClusterRoleList.ClusterRoles.ElementsAs(ctx, &ClusterRolesExisting, false)
+				}
 				if rawList, ok := blockData["cluster_roles"].([]interface{}); ok && len(rawList) > 0 {
 					var ClusterRolesResult []K8SClusterUseCustomClusterRoleListClusterRolesModel
-					for _, ClusterRolesItem := range rawList {
+					for ClusterRolesIdx, ClusterRolesItem := range rawList {
+						_ = ClusterRolesIdx
 						if ClusterRolesItemMap, ok := ClusterRolesItem.(map[string]interface{}); ok {
 							ClusterRolesResult = append(ClusterRolesResult, K8SClusterUseCustomClusterRoleListClusterRolesModel{
 								Name: func() types.String {
@@ -2809,9 +2981,14 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 				if !isImport && data.UseCustomPspList != nil && (data.UseCustomPspList.PodSecurityPolicies.IsNull() || len(data.UseCustomPspList.PodSecurityPolicies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: K8SClusterUseCustomPspListPodSecurityPoliciesModelAttrTypes})
 				}
+				var PodSecurityPoliciesExisting []K8SClusterUseCustomPspListPodSecurityPoliciesModel
+				if !isImport && data.UseCustomPspList != nil && !data.UseCustomPspList.PodSecurityPolicies.IsNull() && !data.UseCustomPspList.PodSecurityPolicies.IsUnknown() {
+					data.UseCustomPspList.PodSecurityPolicies.ElementsAs(ctx, &PodSecurityPoliciesExisting, false)
+				}
 				if rawList, ok := blockData["pod_security_policies"].([]interface{}); ok && len(rawList) > 0 {
 					var PodSecurityPoliciesResult []K8SClusterUseCustomPspListPodSecurityPoliciesModel
-					for _, PodSecurityPoliciesItem := range rawList {
+					for PodSecurityPoliciesIdx, PodSecurityPoliciesItem := range rawList {
+						_ = PodSecurityPoliciesIdx
 						if PodSecurityPoliciesItemMap, ok := PodSecurityPoliciesItem.(map[string]interface{}); ok {
 							PodSecurityPoliciesResult = append(PodSecurityPoliciesResult, K8SClusterUseCustomPspListPodSecurityPoliciesModel{
 								Name: func() types.String {

@@ -913,12 +913,18 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 						if CustomData, ok := itemMap["custom"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesCustomModel{
 								Alertlabel: func() *AlertPolicyEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil {
+										return existingRoutesItems[listIdx].Custom.Alertlabel
+									}
 									if _, ok := CustomData["alertlabel"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Alertname: func() *AlertPolicyRoutesCustomAlertnameModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && existingRoutesItems[listIdx].Custom.Alertname != nil {
+										return existingRoutesItems[listIdx].Custom.Alertname
+									}
 									if AlertnameData, ok := CustomData["alertname"].(map[string]interface{}); ok {
 										return &AlertPolicyRoutesCustomAlertnameModel{
 											ExactMatch: func() types.String {
@@ -938,6 +944,9 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 									return nil
 								}(),
 								Group: func() *AlertPolicyRoutesCustomGroupModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && existingRoutesItems[listIdx].Custom.Group != nil {
+										return existingRoutesItems[listIdx].Custom.Group
+									}
 									if GroupData, ok := CustomData["group"].(map[string]interface{}); ok {
 										return &AlertPolicyRoutesCustomGroupModel{
 											ExactMatch: func() types.String {
@@ -957,6 +966,9 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 									return nil
 								}(),
 								Severity: func() *AlertPolicyRoutesCustomSeverityModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && existingRoutesItems[listIdx].Custom.Severity != nil {
+										return existingRoutesItems[listIdx].Custom.Severity
+									}
 									if SeverityData, ok := CustomData["severity"].(map[string]interface{}); ok {
 										return &AlertPolicyRoutesCustomSeverityModel{
 											ExactMatch: func() types.String {
@@ -1012,6 +1024,9 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 						if NotificationParametersData, ok := itemMap["notification_parameters"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesNotificationParametersModel{
 								Custom: func() *AlertPolicyRoutesNotificationParametersCustomModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil && existingRoutesItems[listIdx].NotificationParameters.Custom != nil {
+										return existingRoutesItems[listIdx].NotificationParameters.Custom
+									}
 									if CustomData, ok := NotificationParametersData["custom"].(map[string]interface{}); ok {
 										return &AlertPolicyRoutesNotificationParametersCustomModel{
 											Labels: func() types.List {
@@ -1032,6 +1047,9 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 									return nil
 								}(),
 								Default: func() *AlertPolicyEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil {
+										return existingRoutesItems[listIdx].NotificationParameters.Default
+									}
 									if _, ok := NotificationParametersData["default"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
 									}
@@ -1050,6 +1068,9 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 									return types.StringNull()
 								}(),
 								Individual: func() *AlertPolicyEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil {
+										return existingRoutesItems[listIdx].NotificationParameters.Individual
+									}
 									if _, ok := NotificationParametersData["individual"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
 									}
@@ -1062,6 +1083,9 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 									return types.StringNull()
 								}(),
 								VesIoGroup: func() *AlertPolicyEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil {
+										return existingRoutesItems[listIdx].NotificationParameters.VesIoGroup
+									}
 									if _, ok := NotificationParametersData["ves_io_group"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
 									}
@@ -1366,12 +1390,18 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 						if CustomData, ok := itemMap["custom"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesCustomModel{
 								Alertlabel: func() *AlertPolicyEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil {
+										return existingRoutesItems[listIdx].Custom.Alertlabel
+									}
 									if _, ok := CustomData["alertlabel"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Alertname: func() *AlertPolicyRoutesCustomAlertnameModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && existingRoutesItems[listIdx].Custom.Alertname != nil {
+										return existingRoutesItems[listIdx].Custom.Alertname
+									}
 									if AlertnameData, ok := CustomData["alertname"].(map[string]interface{}); ok {
 										return &AlertPolicyRoutesCustomAlertnameModel{
 											ExactMatch: func() types.String {
@@ -1391,6 +1421,9 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 									return nil
 								}(),
 								Group: func() *AlertPolicyRoutesCustomGroupModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && existingRoutesItems[listIdx].Custom.Group != nil {
+										return existingRoutesItems[listIdx].Custom.Group
+									}
 									if GroupData, ok := CustomData["group"].(map[string]interface{}); ok {
 										return &AlertPolicyRoutesCustomGroupModel{
 											ExactMatch: func() types.String {
@@ -1410,6 +1443,9 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 									return nil
 								}(),
 								Severity: func() *AlertPolicyRoutesCustomSeverityModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && existingRoutesItems[listIdx].Custom.Severity != nil {
+										return existingRoutesItems[listIdx].Custom.Severity
+									}
 									if SeverityData, ok := CustomData["severity"].(map[string]interface{}); ok {
 										return &AlertPolicyRoutesCustomSeverityModel{
 											ExactMatch: func() types.String {
@@ -1465,6 +1501,9 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 						if NotificationParametersData, ok := itemMap["notification_parameters"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesNotificationParametersModel{
 								Custom: func() *AlertPolicyRoutesNotificationParametersCustomModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil && existingRoutesItems[listIdx].NotificationParameters.Custom != nil {
+										return existingRoutesItems[listIdx].NotificationParameters.Custom
+									}
 									if CustomData, ok := NotificationParametersData["custom"].(map[string]interface{}); ok {
 										return &AlertPolicyRoutesNotificationParametersCustomModel{
 											Labels: func() types.List {
@@ -1485,6 +1524,9 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 									return nil
 								}(),
 								Default: func() *AlertPolicyEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil {
+										return existingRoutesItems[listIdx].NotificationParameters.Default
+									}
 									if _, ok := NotificationParametersData["default"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
 									}
@@ -1503,6 +1545,9 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 									return types.StringNull()
 								}(),
 								Individual: func() *AlertPolicyEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil {
+										return existingRoutesItems[listIdx].NotificationParameters.Individual
+									}
 									if _, ok := NotificationParametersData["individual"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
 									}
@@ -1515,6 +1560,9 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 									return types.StringNull()
 								}(),
 								VesIoGroup: func() *AlertPolicyEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil {
+										return existingRoutesItems[listIdx].NotificationParameters.VesIoGroup
+									}
 									if _, ok := NotificationParametersData["ves_io_group"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
 									}
@@ -1990,12 +2038,18 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 						if CustomData, ok := itemMap["custom"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesCustomModel{
 								Alertlabel: func() *AlertPolicyEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil {
+										return existingRoutesItems[listIdx].Custom.Alertlabel
+									}
 									if _, ok := CustomData["alertlabel"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Alertname: func() *AlertPolicyRoutesCustomAlertnameModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && existingRoutesItems[listIdx].Custom.Alertname != nil {
+										return existingRoutesItems[listIdx].Custom.Alertname
+									}
 									if AlertnameData, ok := CustomData["alertname"].(map[string]interface{}); ok {
 										return &AlertPolicyRoutesCustomAlertnameModel{
 											ExactMatch: func() types.String {
@@ -2015,6 +2069,9 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 									return nil
 								}(),
 								Group: func() *AlertPolicyRoutesCustomGroupModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && existingRoutesItems[listIdx].Custom.Group != nil {
+										return existingRoutesItems[listIdx].Custom.Group
+									}
 									if GroupData, ok := CustomData["group"].(map[string]interface{}); ok {
 										return &AlertPolicyRoutesCustomGroupModel{
 											ExactMatch: func() types.String {
@@ -2034,6 +2091,9 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 									return nil
 								}(),
 								Severity: func() *AlertPolicyRoutesCustomSeverityModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && existingRoutesItems[listIdx].Custom.Severity != nil {
+										return existingRoutesItems[listIdx].Custom.Severity
+									}
 									if SeverityData, ok := CustomData["severity"].(map[string]interface{}); ok {
 										return &AlertPolicyRoutesCustomSeverityModel{
 											ExactMatch: func() types.String {
@@ -2089,6 +2149,9 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 						if NotificationParametersData, ok := itemMap["notification_parameters"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesNotificationParametersModel{
 								Custom: func() *AlertPolicyRoutesNotificationParametersCustomModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil && existingRoutesItems[listIdx].NotificationParameters.Custom != nil {
+										return existingRoutesItems[listIdx].NotificationParameters.Custom
+									}
 									if CustomData, ok := NotificationParametersData["custom"].(map[string]interface{}); ok {
 										return &AlertPolicyRoutesNotificationParametersCustomModel{
 											Labels: func() types.List {
@@ -2109,6 +2172,9 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 									return nil
 								}(),
 								Default: func() *AlertPolicyEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil {
+										return existingRoutesItems[listIdx].NotificationParameters.Default
+									}
 									if _, ok := NotificationParametersData["default"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
 									}
@@ -2127,6 +2193,9 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 									return types.StringNull()
 								}(),
 								Individual: func() *AlertPolicyEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil {
+										return existingRoutesItems[listIdx].NotificationParameters.Individual
+									}
 									if _, ok := NotificationParametersData["individual"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
 									}
@@ -2139,6 +2208,9 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 									return types.StringNull()
 								}(),
 								VesIoGroup: func() *AlertPolicyEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil {
+										return existingRoutesItems[listIdx].NotificationParameters.VesIoGroup
+									}
 									if _, ok := NotificationParametersData["ves_io_group"].(map[string]interface{}); ok {
 										return &AlertPolicyEmptyModel{}
 									}

@@ -996,9 +996,14 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 				if !isImport && data.APool != nil && (data.APool.Members.IsNull() || len(data.APool.Members.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolAPoolMembersModelAttrTypes})
 				}
+				var MembersExisting []DNSLBPoolAPoolMembersModel
+				if !isImport && data.APool != nil && !data.APool.Members.IsNull() && !data.APool.Members.IsUnknown() {
+					data.APool.Members.ElementsAs(ctx, &MembersExisting, false)
+				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolAPoolMembersModel
-					for _, MembersItem := range rawList {
+					for MembersIdx, MembersItem := range rawList {
+						_ = MembersIdx
 						if MembersItemMap, ok := MembersItem.(map[string]interface{}); ok {
 							MembersResult = append(MembersResult, DNSLBPoolAPoolMembersModel{
 								DisableSpec: func() types.Bool {
@@ -1056,9 +1061,14 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 				if !isImport && data.AaaaPool != nil && (data.AaaaPool.Members.IsNull() || len(data.AaaaPool.Members.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolAaaaPoolMembersModelAttrTypes})
 				}
+				var MembersExisting []DNSLBPoolAaaaPoolMembersModel
+				if !isImport && data.AaaaPool != nil && !data.AaaaPool.Members.IsNull() && !data.AaaaPool.Members.IsUnknown() {
+					data.AaaaPool.Members.ElementsAs(ctx, &MembersExisting, false)
+				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolAaaaPoolMembersModel
-					for _, MembersItem := range rawList {
+					for MembersIdx, MembersItem := range rawList {
+						_ = MembersIdx
 						if MembersItemMap, ok := MembersItem.(map[string]interface{}); ok {
 							MembersResult = append(MembersResult, DNSLBPoolAaaaPoolMembersModel{
 								DisableSpec: func() types.Bool {
@@ -1141,9 +1151,14 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 				if !isImport && data.CnamePool != nil && (data.CnamePool.Members.IsNull() || len(data.CnamePool.Members.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolCnamePoolMembersModelAttrTypes})
 				}
+				var MembersExisting []DNSLBPoolCnamePoolMembersModel
+				if !isImport && data.CnamePool != nil && !data.CnamePool.Members.IsNull() && !data.CnamePool.Members.IsUnknown() {
+					data.CnamePool.Members.ElementsAs(ctx, &MembersExisting, false)
+				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolCnamePoolMembersModel
-					for _, MembersItem := range rawList {
+					for MembersIdx, MembersItem := range rawList {
+						_ = MembersIdx
 						if MembersItemMap, ok := MembersItem.(map[string]interface{}); ok {
 							MembersResult = append(MembersResult, DNSLBPoolCnamePoolMembersModel{
 								Domain: func() types.String {
@@ -1195,9 +1210,14 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 				if !isImport && data.MxPool != nil && (data.MxPool.Members.IsNull() || len(data.MxPool.Members.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolMxPoolMembersModelAttrTypes})
 				}
+				var MembersExisting []DNSLBPoolMxPoolMembersModel
+				if !isImport && data.MxPool != nil && !data.MxPool.Members.IsNull() && !data.MxPool.Members.IsUnknown() {
+					data.MxPool.Members.ElementsAs(ctx, &MembersExisting, false)
+				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolMxPoolMembersModel
-					for _, MembersItem := range rawList {
+					for MembersIdx, MembersItem := range rawList {
+						_ = MembersIdx
 						if MembersItemMap, ok := MembersItem.(map[string]interface{}); ok {
 							MembersResult = append(MembersResult, DNSLBPoolMxPoolMembersModel{
 								Domain: func() types.String {
@@ -1249,9 +1269,14 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 				if !isImport && data.SrvPool != nil && (data.SrvPool.Members.IsNull() || len(data.SrvPool.Members.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolSrvPoolMembersModelAttrTypes})
 				}
+				var MembersExisting []DNSLBPoolSrvPoolMembersModel
+				if !isImport && data.SrvPool != nil && !data.SrvPool.Members.IsNull() && !data.SrvPool.Members.IsUnknown() {
+					data.SrvPool.Members.ElementsAs(ctx, &MembersExisting, false)
+				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolSrvPoolMembersModel
-					for _, MembersItem := range rawList {
+					for MembersIdx, MembersItem := range rawList {
+						_ = MembersIdx
 						if MembersItemMap, ok := MembersItem.(map[string]interface{}); ok {
 							MembersResult = append(MembersResult, DNSLBPoolSrvPoolMembersModel{
 								FinalTranslation: func() types.Bool {
@@ -1461,9 +1486,14 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 				if !isImport && data.APool != nil && (data.APool.Members.IsNull() || len(data.APool.Members.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolAPoolMembersModelAttrTypes})
 				}
+				var MembersExisting []DNSLBPoolAPoolMembersModel
+				if !isImport && data.APool != nil && !data.APool.Members.IsNull() && !data.APool.Members.IsUnknown() {
+					data.APool.Members.ElementsAs(ctx, &MembersExisting, false)
+				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolAPoolMembersModel
-					for _, MembersItem := range rawList {
+					for MembersIdx, MembersItem := range rawList {
+						_ = MembersIdx
 						if MembersItemMap, ok := MembersItem.(map[string]interface{}); ok {
 							MembersResult = append(MembersResult, DNSLBPoolAPoolMembersModel{
 								DisableSpec: func() types.Bool {
@@ -1521,9 +1551,14 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 				if !isImport && data.AaaaPool != nil && (data.AaaaPool.Members.IsNull() || len(data.AaaaPool.Members.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolAaaaPoolMembersModelAttrTypes})
 				}
+				var MembersExisting []DNSLBPoolAaaaPoolMembersModel
+				if !isImport && data.AaaaPool != nil && !data.AaaaPool.Members.IsNull() && !data.AaaaPool.Members.IsUnknown() {
+					data.AaaaPool.Members.ElementsAs(ctx, &MembersExisting, false)
+				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolAaaaPoolMembersModel
-					for _, MembersItem := range rawList {
+					for MembersIdx, MembersItem := range rawList {
+						_ = MembersIdx
 						if MembersItemMap, ok := MembersItem.(map[string]interface{}); ok {
 							MembersResult = append(MembersResult, DNSLBPoolAaaaPoolMembersModel{
 								DisableSpec: func() types.Bool {
@@ -1606,9 +1641,14 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 				if !isImport && data.CnamePool != nil && (data.CnamePool.Members.IsNull() || len(data.CnamePool.Members.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolCnamePoolMembersModelAttrTypes})
 				}
+				var MembersExisting []DNSLBPoolCnamePoolMembersModel
+				if !isImport && data.CnamePool != nil && !data.CnamePool.Members.IsNull() && !data.CnamePool.Members.IsUnknown() {
+					data.CnamePool.Members.ElementsAs(ctx, &MembersExisting, false)
+				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolCnamePoolMembersModel
-					for _, MembersItem := range rawList {
+					for MembersIdx, MembersItem := range rawList {
+						_ = MembersIdx
 						if MembersItemMap, ok := MembersItem.(map[string]interface{}); ok {
 							MembersResult = append(MembersResult, DNSLBPoolCnamePoolMembersModel{
 								Domain: func() types.String {
@@ -1660,9 +1700,14 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 				if !isImport && data.MxPool != nil && (data.MxPool.Members.IsNull() || len(data.MxPool.Members.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolMxPoolMembersModelAttrTypes})
 				}
+				var MembersExisting []DNSLBPoolMxPoolMembersModel
+				if !isImport && data.MxPool != nil && !data.MxPool.Members.IsNull() && !data.MxPool.Members.IsUnknown() {
+					data.MxPool.Members.ElementsAs(ctx, &MembersExisting, false)
+				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolMxPoolMembersModel
-					for _, MembersItem := range rawList {
+					for MembersIdx, MembersItem := range rawList {
+						_ = MembersIdx
 						if MembersItemMap, ok := MembersItem.(map[string]interface{}); ok {
 							MembersResult = append(MembersResult, DNSLBPoolMxPoolMembersModel{
 								Domain: func() types.String {
@@ -1714,9 +1759,14 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 				if !isImport && data.SrvPool != nil && (data.SrvPool.Members.IsNull() || len(data.SrvPool.Members.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolSrvPoolMembersModelAttrTypes})
 				}
+				var MembersExisting []DNSLBPoolSrvPoolMembersModel
+				if !isImport && data.SrvPool != nil && !data.SrvPool.Members.IsNull() && !data.SrvPool.Members.IsUnknown() {
+					data.SrvPool.Members.ElementsAs(ctx, &MembersExisting, false)
+				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolSrvPoolMembersModel
-					for _, MembersItem := range rawList {
+					for MembersIdx, MembersItem := range rawList {
+						_ = MembersIdx
 						if MembersItemMap, ok := MembersItem.(map[string]interface{}); ok {
 							MembersResult = append(MembersResult, DNSLBPoolSrvPoolMembersModel{
 								FinalTranslation: func() types.Bool {
@@ -2136,9 +2186,14 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 				if !isImport && data.APool != nil && (data.APool.Members.IsNull() || len(data.APool.Members.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolAPoolMembersModelAttrTypes})
 				}
+				var MembersExisting []DNSLBPoolAPoolMembersModel
+				if !isImport && data.APool != nil && !data.APool.Members.IsNull() && !data.APool.Members.IsUnknown() {
+					data.APool.Members.ElementsAs(ctx, &MembersExisting, false)
+				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolAPoolMembersModel
-					for _, MembersItem := range rawList {
+					for MembersIdx, MembersItem := range rawList {
+						_ = MembersIdx
 						if MembersItemMap, ok := MembersItem.(map[string]interface{}); ok {
 							MembersResult = append(MembersResult, DNSLBPoolAPoolMembersModel{
 								DisableSpec: func() types.Bool {
@@ -2196,9 +2251,14 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 				if !isImport && data.AaaaPool != nil && (data.AaaaPool.Members.IsNull() || len(data.AaaaPool.Members.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolAaaaPoolMembersModelAttrTypes})
 				}
+				var MembersExisting []DNSLBPoolAaaaPoolMembersModel
+				if !isImport && data.AaaaPool != nil && !data.AaaaPool.Members.IsNull() && !data.AaaaPool.Members.IsUnknown() {
+					data.AaaaPool.Members.ElementsAs(ctx, &MembersExisting, false)
+				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolAaaaPoolMembersModel
-					for _, MembersItem := range rawList {
+					for MembersIdx, MembersItem := range rawList {
+						_ = MembersIdx
 						if MembersItemMap, ok := MembersItem.(map[string]interface{}); ok {
 							MembersResult = append(MembersResult, DNSLBPoolAaaaPoolMembersModel{
 								DisableSpec: func() types.Bool {
@@ -2281,9 +2341,14 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 				if !isImport && data.CnamePool != nil && (data.CnamePool.Members.IsNull() || len(data.CnamePool.Members.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolCnamePoolMembersModelAttrTypes})
 				}
+				var MembersExisting []DNSLBPoolCnamePoolMembersModel
+				if !isImport && data.CnamePool != nil && !data.CnamePool.Members.IsNull() && !data.CnamePool.Members.IsUnknown() {
+					data.CnamePool.Members.ElementsAs(ctx, &MembersExisting, false)
+				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolCnamePoolMembersModel
-					for _, MembersItem := range rawList {
+					for MembersIdx, MembersItem := range rawList {
+						_ = MembersIdx
 						if MembersItemMap, ok := MembersItem.(map[string]interface{}); ok {
 							MembersResult = append(MembersResult, DNSLBPoolCnamePoolMembersModel{
 								Domain: func() types.String {
@@ -2335,9 +2400,14 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 				if !isImport && data.MxPool != nil && (data.MxPool.Members.IsNull() || len(data.MxPool.Members.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolMxPoolMembersModelAttrTypes})
 				}
+				var MembersExisting []DNSLBPoolMxPoolMembersModel
+				if !isImport && data.MxPool != nil && !data.MxPool.Members.IsNull() && !data.MxPool.Members.IsUnknown() {
+					data.MxPool.Members.ElementsAs(ctx, &MembersExisting, false)
+				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolMxPoolMembersModel
-					for _, MembersItem := range rawList {
+					for MembersIdx, MembersItem := range rawList {
+						_ = MembersIdx
 						if MembersItemMap, ok := MembersItem.(map[string]interface{}); ok {
 							MembersResult = append(MembersResult, DNSLBPoolMxPoolMembersModel{
 								Domain: func() types.String {
@@ -2389,9 +2459,14 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 				if !isImport && data.SrvPool != nil && (data.SrvPool.Members.IsNull() || len(data.SrvPool.Members.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolSrvPoolMembersModelAttrTypes})
 				}
+				var MembersExisting []DNSLBPoolSrvPoolMembersModel
+				if !isImport && data.SrvPool != nil && !data.SrvPool.Members.IsNull() && !data.SrvPool.Members.IsUnknown() {
+					data.SrvPool.Members.ElementsAs(ctx, &MembersExisting, false)
+				}
 				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
 					var MembersResult []DNSLBPoolSrvPoolMembersModel
-					for _, MembersItem := range rawList {
+					for MembersIdx, MembersItem := range rawList {
+						_ = MembersIdx
 						if MembersItemMap, ok := MembersItem.(map[string]interface{}); ok {
 							MembersResult = append(MembersResult, DNSLBPoolSrvPoolMembersModel{
 								FinalTranslation: func() types.Bool {

@@ -1323,9 +1323,14 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 				if !isImport && data.RuleList != nil && (data.RuleList.Rules.IsNull() || len(data.RuleList.Rules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesModelAttrTypes})
 				}
+				var RulesExisting []EnhancedFirewallPolicyRuleListRulesModel
+				if !isImport && data.RuleList != nil && !data.RuleList.Rules.IsNull() && !data.RuleList.Rules.IsUnknown() {
+					data.RuleList.Rules.ElementsAs(ctx, &RulesExisting, false)
+				}
 				if rawList, ok := blockData["rules"].([]interface{}); ok && len(rawList) > 0 {
 					var RulesResult []EnhancedFirewallPolicyRuleListRulesModel
-					for _, RulesItem := range rawList {
+					for RulesIdx, RulesItem := range rawList {
+						_ = RulesIdx
 						if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 							RulesResult = append(RulesResult, EnhancedFirewallPolicyRuleListRulesModel{
 								AdvancedAction: func() *EnhancedFirewallPolicyRuleListRulesAdvancedActionModel {
@@ -1342,48 +1347,72 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									return nil
 								}(),
 								AllDestinations: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllDestinations != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["all_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllSLIVips: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllSLIVips != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["all_sli_vips"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllSloVips: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllSloVips != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["all_slo_vips"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllSources: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllSources != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["all_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTCPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllTCPTraffic != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTraffic: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllTraffic != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllUDPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllUDPTraffic != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Allow: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Allow != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["allow"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
@@ -1410,6 +1439,9 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									return nil
 								}(),
 								Deny: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Deny != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["deny"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
@@ -1439,9 +1471,17 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									if DestinationIPPrefixSetData, ok := RulesItemMap["destination_ip_prefix_set"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetModel{
 											Ref: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].DestinationIPPrefixSet != nil && (RulesExisting[RulesIdx].DestinationIPPrefixSet.Ref.IsNull() || len(RulesExisting[RulesIdx].DestinationIPPrefixSet.Ref.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModelAttrTypes})
+												}
+												var RefExisting []EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].DestinationIPPrefixSet != nil && !RulesExisting[RulesIdx].DestinationIPPrefixSet.Ref.IsNull() && !RulesExisting[RulesIdx].DestinationIPPrefixSet.Ref.IsUnknown() {
+													RulesExisting[RulesIdx].DestinationIPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+												}
 												if rawList, ok := DestinationIPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
 													var RefResult []EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModel
-													for _, RefItem := range rawList {
+													for RefIdx, RefItem := range rawList {
+														_ = RefIdx
 														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 															RefResult = append(RefResult, EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModel{
 																Kind: func() types.String {
@@ -1559,12 +1599,18 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									return nil
 								}(),
 								InsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].InsideDestinations != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["inside_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								InsideSources: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].InsideSources != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["inside_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
@@ -1610,12 +1656,18 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									return nil
 								}(),
 								OutsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].OutsideDestinations != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["outside_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								OutsideSources: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].OutsideSources != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["outside_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
@@ -1671,9 +1723,17 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									if SourceIPPrefixSetData, ok := RulesItemMap["source_ip_prefix_set"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetModel{
 											Ref: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].SourceIPPrefixSet != nil && (RulesExisting[RulesIdx].SourceIPPrefixSet.Ref.IsNull() || len(RulesExisting[RulesIdx].SourceIPPrefixSet.Ref.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModelAttrTypes})
+												}
+												var RefExisting []EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].SourceIPPrefixSet != nil && !RulesExisting[RulesIdx].SourceIPPrefixSet.Ref.IsNull() && !RulesExisting[RulesIdx].SourceIPPrefixSet.Ref.IsUnknown() {
+													RulesExisting[RulesIdx].SourceIPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+												}
 												if rawList, ok := SourceIPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
 													var RefResult []EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModel
-													for _, RefItem := range rawList {
+													for RefIdx, RefItem := range rawList {
+														_ = RefIdx
 														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 															RefResult = append(RefResult, EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModel{
 																Kind: func() types.String {
@@ -1941,9 +2001,14 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 				if !isImport && data.RuleList != nil && (data.RuleList.Rules.IsNull() || len(data.RuleList.Rules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesModelAttrTypes})
 				}
+				var RulesExisting []EnhancedFirewallPolicyRuleListRulesModel
+				if !isImport && data.RuleList != nil && !data.RuleList.Rules.IsNull() && !data.RuleList.Rules.IsUnknown() {
+					data.RuleList.Rules.ElementsAs(ctx, &RulesExisting, false)
+				}
 				if rawList, ok := blockData["rules"].([]interface{}); ok && len(rawList) > 0 {
 					var RulesResult []EnhancedFirewallPolicyRuleListRulesModel
-					for _, RulesItem := range rawList {
+					for RulesIdx, RulesItem := range rawList {
+						_ = RulesIdx
 						if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 							RulesResult = append(RulesResult, EnhancedFirewallPolicyRuleListRulesModel{
 								AdvancedAction: func() *EnhancedFirewallPolicyRuleListRulesAdvancedActionModel {
@@ -1960,48 +2025,72 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									return nil
 								}(),
 								AllDestinations: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllDestinations != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["all_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllSLIVips: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllSLIVips != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["all_sli_vips"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllSloVips: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllSloVips != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["all_slo_vips"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllSources: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllSources != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["all_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTCPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllTCPTraffic != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTraffic: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllTraffic != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllUDPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllUDPTraffic != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Allow: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Allow != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["allow"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
@@ -2028,6 +2117,9 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									return nil
 								}(),
 								Deny: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Deny != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["deny"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
@@ -2057,9 +2149,17 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									if DestinationIPPrefixSetData, ok := RulesItemMap["destination_ip_prefix_set"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetModel{
 											Ref: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].DestinationIPPrefixSet != nil && (RulesExisting[RulesIdx].DestinationIPPrefixSet.Ref.IsNull() || len(RulesExisting[RulesIdx].DestinationIPPrefixSet.Ref.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModelAttrTypes})
+												}
+												var RefExisting []EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].DestinationIPPrefixSet != nil && !RulesExisting[RulesIdx].DestinationIPPrefixSet.Ref.IsNull() && !RulesExisting[RulesIdx].DestinationIPPrefixSet.Ref.IsUnknown() {
+													RulesExisting[RulesIdx].DestinationIPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+												}
 												if rawList, ok := DestinationIPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
 													var RefResult []EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModel
-													for _, RefItem := range rawList {
+													for RefIdx, RefItem := range rawList {
+														_ = RefIdx
 														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 															RefResult = append(RefResult, EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModel{
 																Kind: func() types.String {
@@ -2177,12 +2277,18 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									return nil
 								}(),
 								InsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].InsideDestinations != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["inside_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								InsideSources: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].InsideSources != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["inside_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
@@ -2228,12 +2334,18 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									return nil
 								}(),
 								OutsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].OutsideDestinations != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["outside_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								OutsideSources: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].OutsideSources != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["outside_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
@@ -2289,9 +2401,17 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									if SourceIPPrefixSetData, ok := RulesItemMap["source_ip_prefix_set"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetModel{
 											Ref: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].SourceIPPrefixSet != nil && (RulesExisting[RulesIdx].SourceIPPrefixSet.Ref.IsNull() || len(RulesExisting[RulesIdx].SourceIPPrefixSet.Ref.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModelAttrTypes})
+												}
+												var RefExisting []EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].SourceIPPrefixSet != nil && !RulesExisting[RulesIdx].SourceIPPrefixSet.Ref.IsNull() && !RulesExisting[RulesIdx].SourceIPPrefixSet.Ref.IsUnknown() {
+													RulesExisting[RulesIdx].SourceIPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+												}
 												if rawList, ok := SourceIPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
 													var RefResult []EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModel
-													for _, RefItem := range rawList {
+													for RefIdx, RefItem := range rawList {
+														_ = RefIdx
 														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 															RefResult = append(RefResult, EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModel{
 																Kind: func() types.String {
@@ -2855,9 +2975,14 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 				if !isImport && data.RuleList != nil && (data.RuleList.Rules.IsNull() || len(data.RuleList.Rules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesModelAttrTypes})
 				}
+				var RulesExisting []EnhancedFirewallPolicyRuleListRulesModel
+				if !isImport && data.RuleList != nil && !data.RuleList.Rules.IsNull() && !data.RuleList.Rules.IsUnknown() {
+					data.RuleList.Rules.ElementsAs(ctx, &RulesExisting, false)
+				}
 				if rawList, ok := blockData["rules"].([]interface{}); ok && len(rawList) > 0 {
 					var RulesResult []EnhancedFirewallPolicyRuleListRulesModel
-					for _, RulesItem := range rawList {
+					for RulesIdx, RulesItem := range rawList {
+						_ = RulesIdx
 						if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 							RulesResult = append(RulesResult, EnhancedFirewallPolicyRuleListRulesModel{
 								AdvancedAction: func() *EnhancedFirewallPolicyRuleListRulesAdvancedActionModel {
@@ -2874,48 +2999,72 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									return nil
 								}(),
 								AllDestinations: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllDestinations != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["all_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllSLIVips: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllSLIVips != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["all_sli_vips"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllSloVips: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllSloVips != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["all_slo_vips"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllSources: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllSources != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["all_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTCPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllTCPTraffic != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTraffic: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllTraffic != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllUDPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllUDPTraffic != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Allow: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Allow != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["allow"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
@@ -2942,6 +3091,9 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									return nil
 								}(),
 								Deny: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Deny != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["deny"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
@@ -2971,9 +3123,17 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									if DestinationIPPrefixSetData, ok := RulesItemMap["destination_ip_prefix_set"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetModel{
 											Ref: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].DestinationIPPrefixSet != nil && (RulesExisting[RulesIdx].DestinationIPPrefixSet.Ref.IsNull() || len(RulesExisting[RulesIdx].DestinationIPPrefixSet.Ref.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModelAttrTypes})
+												}
+												var RefExisting []EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].DestinationIPPrefixSet != nil && !RulesExisting[RulesIdx].DestinationIPPrefixSet.Ref.IsNull() && !RulesExisting[RulesIdx].DestinationIPPrefixSet.Ref.IsUnknown() {
+													RulesExisting[RulesIdx].DestinationIPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+												}
 												if rawList, ok := DestinationIPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
 													var RefResult []EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModel
-													for _, RefItem := range rawList {
+													for RefIdx, RefItem := range rawList {
+														_ = RefIdx
 														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 															RefResult = append(RefResult, EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModel{
 																Kind: func() types.String {
@@ -3091,12 +3251,18 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									return nil
 								}(),
 								InsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].InsideDestinations != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["inside_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								InsideSources: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].InsideSources != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["inside_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
@@ -3142,12 +3308,18 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									return nil
 								}(),
 								OutsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].OutsideDestinations != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["outside_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								OutsideSources: func() *EnhancedFirewallPolicyEmptyModel {
+									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].OutsideSources != nil {
+										return &EnhancedFirewallPolicyEmptyModel{}
+									}
 									if _, ok := RulesItemMap["outside_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
 									}
@@ -3203,9 +3375,17 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									if SourceIPPrefixSetData, ok := RulesItemMap["source_ip_prefix_set"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetModel{
 											Ref: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].SourceIPPrefixSet != nil && (RulesExisting[RulesIdx].SourceIPPrefixSet.Ref.IsNull() || len(RulesExisting[RulesIdx].SourceIPPrefixSet.Ref.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModelAttrTypes})
+												}
+												var RefExisting []EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].SourceIPPrefixSet != nil && !RulesExisting[RulesIdx].SourceIPPrefixSet.Ref.IsNull() && !RulesExisting[RulesIdx].SourceIPPrefixSet.Ref.IsUnknown() {
+													RulesExisting[RulesIdx].SourceIPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+												}
 												if rawList, ok := SourceIPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
 													var RefResult []EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModel
-													for _, RefItem := range rawList {
+													for RefIdx, RefItem := range rawList {
+														_ = RefIdx
 														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 															RefResult = append(RefResult, EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModel{
 																Kind: func() types.String {

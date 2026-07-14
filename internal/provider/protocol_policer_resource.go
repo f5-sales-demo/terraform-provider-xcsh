@@ -519,12 +519,18 @@ func (r *ProtocolPolicerResource) Create(ctx context.Context, req resource.Creat
 						if ProtocolData, ok := itemMap["protocol"].(map[string]interface{}); ok {
 							return &ProtocolPolicerProtocolPolicerProtocolModel{
 								DNS: func() *ProtocolPolicerEmptyModel {
+									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil {
+										return existingProtocolPolicerItems[listIdx].Protocol.DNS
+									}
 									if _, ok := ProtocolData["dns"].(map[string]interface{}); ok {
 										return &ProtocolPolicerEmptyModel{}
 									}
 									return nil
 								}(),
 								ICMP: func() *ProtocolPolicerProtocolPolicerProtocolICMPModel {
+									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil && existingProtocolPolicerItems[listIdx].Protocol.ICMP != nil {
+										return existingProtocolPolicerItems[listIdx].Protocol.ICMP
+									}
 									if ICMPData, ok := ProtocolData["icmp"].(map[string]interface{}); ok {
 										return &ProtocolPolicerProtocolPolicerProtocolICMPModel{
 											Type: func() types.List {
@@ -545,6 +551,9 @@ func (r *ProtocolPolicerResource) Create(ctx context.Context, req resource.Creat
 									return nil
 								}(),
 								TCP: func() *ProtocolPolicerProtocolPolicerProtocolTCPModel {
+									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil && existingProtocolPolicerItems[listIdx].Protocol.TCP != nil {
+										return existingProtocolPolicerItems[listIdx].Protocol.TCP
+									}
 									if TCPData, ok := ProtocolData["tcp"].(map[string]interface{}); ok {
 										return &ProtocolPolicerProtocolPolicerProtocolTCPModel{
 											Flags: func() types.List {
@@ -565,6 +574,9 @@ func (r *ProtocolPolicerResource) Create(ctx context.Context, req resource.Creat
 									return nil
 								}(),
 								UDP: func() *ProtocolPolicerEmptyModel {
+									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil {
+										return existingProtocolPolicerItems[listIdx].Protocol.UDP
+									}
 									if _, ok := ProtocolData["udp"].(map[string]interface{}); ok {
 										return &ProtocolPolicerEmptyModel{}
 									}
@@ -738,12 +750,18 @@ func (r *ProtocolPolicerResource) Read(ctx context.Context, req resource.ReadReq
 						if ProtocolData, ok := itemMap["protocol"].(map[string]interface{}); ok {
 							return &ProtocolPolicerProtocolPolicerProtocolModel{
 								DNS: func() *ProtocolPolicerEmptyModel {
+									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil {
+										return existingProtocolPolicerItems[listIdx].Protocol.DNS
+									}
 									if _, ok := ProtocolData["dns"].(map[string]interface{}); ok {
 										return &ProtocolPolicerEmptyModel{}
 									}
 									return nil
 								}(),
 								ICMP: func() *ProtocolPolicerProtocolPolicerProtocolICMPModel {
+									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil && existingProtocolPolicerItems[listIdx].Protocol.ICMP != nil {
+										return existingProtocolPolicerItems[listIdx].Protocol.ICMP
+									}
 									if ICMPData, ok := ProtocolData["icmp"].(map[string]interface{}); ok {
 										return &ProtocolPolicerProtocolPolicerProtocolICMPModel{
 											Type: func() types.List {
@@ -764,6 +782,9 @@ func (r *ProtocolPolicerResource) Read(ctx context.Context, req resource.ReadReq
 									return nil
 								}(),
 								TCP: func() *ProtocolPolicerProtocolPolicerProtocolTCPModel {
+									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil && existingProtocolPolicerItems[listIdx].Protocol.TCP != nil {
+										return existingProtocolPolicerItems[listIdx].Protocol.TCP
+									}
 									if TCPData, ok := ProtocolData["tcp"].(map[string]interface{}); ok {
 										return &ProtocolPolicerProtocolPolicerProtocolTCPModel{
 											Flags: func() types.List {
@@ -784,6 +805,9 @@ func (r *ProtocolPolicerResource) Read(ctx context.Context, req resource.ReadReq
 									return nil
 								}(),
 								UDP: func() *ProtocolPolicerEmptyModel {
+									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil {
+										return existingProtocolPolicerItems[listIdx].Protocol.UDP
+									}
 									if _, ok := ProtocolData["udp"].(map[string]interface{}); ok {
 										return &ProtocolPolicerEmptyModel{}
 									}
@@ -1020,12 +1044,18 @@ func (r *ProtocolPolicerResource) Update(ctx context.Context, req resource.Updat
 						if ProtocolData, ok := itemMap["protocol"].(map[string]interface{}); ok {
 							return &ProtocolPolicerProtocolPolicerProtocolModel{
 								DNS: func() *ProtocolPolicerEmptyModel {
+									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil {
+										return existingProtocolPolicerItems[listIdx].Protocol.DNS
+									}
 									if _, ok := ProtocolData["dns"].(map[string]interface{}); ok {
 										return &ProtocolPolicerEmptyModel{}
 									}
 									return nil
 								}(),
 								ICMP: func() *ProtocolPolicerProtocolPolicerProtocolICMPModel {
+									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil && existingProtocolPolicerItems[listIdx].Protocol.ICMP != nil {
+										return existingProtocolPolicerItems[listIdx].Protocol.ICMP
+									}
 									if ICMPData, ok := ProtocolData["icmp"].(map[string]interface{}); ok {
 										return &ProtocolPolicerProtocolPolicerProtocolICMPModel{
 											Type: func() types.List {
@@ -1046,6 +1076,9 @@ func (r *ProtocolPolicerResource) Update(ctx context.Context, req resource.Updat
 									return nil
 								}(),
 								TCP: func() *ProtocolPolicerProtocolPolicerProtocolTCPModel {
+									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil && existingProtocolPolicerItems[listIdx].Protocol.TCP != nil {
+										return existingProtocolPolicerItems[listIdx].Protocol.TCP
+									}
 									if TCPData, ok := ProtocolData["tcp"].(map[string]interface{}); ok {
 										return &ProtocolPolicerProtocolPolicerProtocolTCPModel{
 											Flags: func() types.List {
@@ -1066,6 +1099,9 @@ func (r *ProtocolPolicerResource) Update(ctx context.Context, req resource.Updat
 									return nil
 								}(),
 								UDP: func() *ProtocolPolicerEmptyModel {
+									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil {
+										return existingProtocolPolicerItems[listIdx].Protocol.UDP
+									}
 									if _, ok := ProtocolData["udp"].(map[string]interface{}); ok {
 										return &ProtocolPolicerEmptyModel{}
 									}

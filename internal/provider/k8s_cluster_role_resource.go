@@ -506,9 +506,14 @@ func (r *K8SClusterRoleResource) Create(ctx context.Context, req resource.Create
 				if !isImport && data.PolicyRuleList != nil && (data.PolicyRuleList.PolicyRule.IsNull() || len(data.PolicyRuleList.PolicyRule.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: K8SClusterRolePolicyRuleListPolicyRuleModelAttrTypes})
 				}
+				var PolicyRuleExisting []K8SClusterRolePolicyRuleListPolicyRuleModel
+				if !isImport && data.PolicyRuleList != nil && !data.PolicyRuleList.PolicyRule.IsNull() && !data.PolicyRuleList.PolicyRule.IsUnknown() {
+					data.PolicyRuleList.PolicyRule.ElementsAs(ctx, &PolicyRuleExisting, false)
+				}
 				if rawList, ok := blockData["policy_rule"].([]interface{}); ok && len(rawList) > 0 {
 					var PolicyRuleResult []K8SClusterRolePolicyRuleListPolicyRuleModel
-					for _, PolicyRuleItem := range rawList {
+					for PolicyRuleIdx, PolicyRuleItem := range rawList {
+						_ = PolicyRuleIdx
 						if PolicyRuleItemMap, ok := PolicyRuleItem.(map[string]interface{}); ok {
 							PolicyRuleResult = append(PolicyRuleResult, K8SClusterRolePolicyRuleListPolicyRuleModel{
 								NonResourceURLList: func() *K8SClusterRolePolicyRuleListPolicyRuleNonResourceURLListModel {
@@ -734,9 +739,14 @@ func (r *K8SClusterRoleResource) Read(ctx context.Context, req resource.ReadRequ
 				if !isImport && data.PolicyRuleList != nil && (data.PolicyRuleList.PolicyRule.IsNull() || len(data.PolicyRuleList.PolicyRule.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: K8SClusterRolePolicyRuleListPolicyRuleModelAttrTypes})
 				}
+				var PolicyRuleExisting []K8SClusterRolePolicyRuleListPolicyRuleModel
+				if !isImport && data.PolicyRuleList != nil && !data.PolicyRuleList.PolicyRule.IsNull() && !data.PolicyRuleList.PolicyRule.IsUnknown() {
+					data.PolicyRuleList.PolicyRule.ElementsAs(ctx, &PolicyRuleExisting, false)
+				}
 				if rawList, ok := blockData["policy_rule"].([]interface{}); ok && len(rawList) > 0 {
 					var PolicyRuleResult []K8SClusterRolePolicyRuleListPolicyRuleModel
-					for _, PolicyRuleItem := range rawList {
+					for PolicyRuleIdx, PolicyRuleItem := range rawList {
+						_ = PolicyRuleIdx
 						if PolicyRuleItemMap, ok := PolicyRuleItem.(map[string]interface{}); ok {
 							PolicyRuleResult = append(PolicyRuleResult, K8SClusterRolePolicyRuleListPolicyRuleModel{
 								NonResourceURLList: func() *K8SClusterRolePolicyRuleListPolicyRuleNonResourceURLListModel {
@@ -1040,9 +1050,14 @@ func (r *K8SClusterRoleResource) Update(ctx context.Context, req resource.Update
 				if !isImport && data.PolicyRuleList != nil && (data.PolicyRuleList.PolicyRule.IsNull() || len(data.PolicyRuleList.PolicyRule.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: K8SClusterRolePolicyRuleListPolicyRuleModelAttrTypes})
 				}
+				var PolicyRuleExisting []K8SClusterRolePolicyRuleListPolicyRuleModel
+				if !isImport && data.PolicyRuleList != nil && !data.PolicyRuleList.PolicyRule.IsNull() && !data.PolicyRuleList.PolicyRule.IsUnknown() {
+					data.PolicyRuleList.PolicyRule.ElementsAs(ctx, &PolicyRuleExisting, false)
+				}
 				if rawList, ok := blockData["policy_rule"].([]interface{}); ok && len(rawList) > 0 {
 					var PolicyRuleResult []K8SClusterRolePolicyRuleListPolicyRuleModel
-					for _, PolicyRuleItem := range rawList {
+					for PolicyRuleIdx, PolicyRuleItem := range rawList {
+						_ = PolicyRuleIdx
 						if PolicyRuleItemMap, ok := PolicyRuleItem.(map[string]interface{}); ok {
 							PolicyRuleResult = append(PolicyRuleResult, K8SClusterRolePolicyRuleListPolicyRuleModel{
 								NonResourceURLList: func() *K8SClusterRolePolicyRuleListPolicyRuleNonResourceURLListModel {

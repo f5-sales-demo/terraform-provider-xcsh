@@ -4073,9 +4073,14 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				if !isImport && data.Authentication != nil && (data.Authentication.AuthConfig.IsNull() || len(data.Authentication.AuthConfig.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: VirtualHostAuthenticationAuthConfigModelAttrTypes})
 				}
+				var AuthConfigExisting []VirtualHostAuthenticationAuthConfigModel
+				if !isImport && data.Authentication != nil && !data.Authentication.AuthConfig.IsNull() && !data.Authentication.AuthConfig.IsUnknown() {
+					data.Authentication.AuthConfig.ElementsAs(ctx, &AuthConfigExisting, false)
+				}
 				if rawList, ok := blockData["auth_config"].([]interface{}); ok && len(rawList) > 0 {
 					var AuthConfigResult []VirtualHostAuthenticationAuthConfigModel
-					for _, AuthConfigItem := range rawList {
+					for AuthConfigIdx, AuthConfigItem := range rawList {
+						_ = AuthConfigIdx
 						if AuthConfigItemMap, ok := AuthConfigItem.(map[string]interface{}); ok {
 							AuthConfigResult = append(AuthConfigResult, VirtualHostAuthenticationAuthConfigModel{
 								Kind: func() types.String {
@@ -4123,12 +4128,21 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				if CookieParamsData, ok := blockData["cookie_params"].(map[string]interface{}); ok {
 					return &VirtualHostAuthenticationCookieParamsModel{
 						AuthHMAC: func() *VirtualHostAuthenticationCookieParamsAuthHMACModel {
+							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && data.Authentication.CookieParams.AuthHMAC != nil {
+								return data.Authentication.CookieParams.AuthHMAC
+							}
 							if AuthHMACData, ok := CookieParamsData["auth_hmac"].(map[string]interface{}); ok {
 								return &VirtualHostAuthenticationCookieParamsAuthHMACModel{
 									PrimKey: func() *VirtualHostAuthenticationCookieParamsAuthHMACPrimKeyModel {
+										if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && data.Authentication.CookieParams.AuthHMAC != nil && data.Authentication.CookieParams.AuthHMAC.PrimKey != nil {
+											return data.Authentication.CookieParams.AuthHMAC.PrimKey
+										}
 										if PrimKeyData, ok := AuthHMACData["prim_key"].(map[string]interface{}); ok {
 											return &VirtualHostAuthenticationCookieParamsAuthHMACPrimKeyModel{
 												BlindfoldSecretInfo: func() *VirtualHostAuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoModel {
+													if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && data.Authentication.CookieParams.AuthHMAC != nil && data.Authentication.CookieParams.AuthHMAC.PrimKey != nil && data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo != nil {
+														return data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := PrimKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &VirtualHostAuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -4154,6 +4168,9 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 													return nil
 												}(),
 												ClearSecretInfo: func() *VirtualHostAuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoModel {
+													if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && data.Authentication.CookieParams.AuthHMAC != nil && data.Authentication.CookieParams.AuthHMAC.PrimKey != nil && data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo != nil {
+														return data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := PrimKeyData["clear_secret_info"].(map[string]interface{}); ok {
 														return &VirtualHostAuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoModel{
 															Provider: func() types.String {
@@ -4183,9 +4200,15 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 										return types.StringNull()
 									}(),
 									SecKey: func() *VirtualHostAuthenticationCookieParamsAuthHMACSecKeyModel {
+										if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && data.Authentication.CookieParams.AuthHMAC != nil && data.Authentication.CookieParams.AuthHMAC.SecKey != nil {
+											return data.Authentication.CookieParams.AuthHMAC.SecKey
+										}
 										if SecKeyData, ok := AuthHMACData["sec_key"].(map[string]interface{}); ok {
 											return &VirtualHostAuthenticationCookieParamsAuthHMACSecKeyModel{
 												BlindfoldSecretInfo: func() *VirtualHostAuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoModel {
+													if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && data.Authentication.CookieParams.AuthHMAC != nil && data.Authentication.CookieParams.AuthHMAC.SecKey != nil && data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo != nil {
+														return data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := SecKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &VirtualHostAuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -4211,6 +4234,9 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 													return nil
 												}(),
 												ClearSecretInfo: func() *VirtualHostAuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoModel {
+													if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && data.Authentication.CookieParams.AuthHMAC != nil && data.Authentication.CookieParams.AuthHMAC.SecKey != nil && data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo != nil {
+														return data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := SecKeyData["clear_secret_info"].(map[string]interface{}); ok {
 														return &VirtualHostAuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoModel{
 															Provider: func() types.String {
@@ -4244,24 +4270,36 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 							return nil
 						}(),
 						CookieExpiry: func() types.Int64 {
+							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && !data.Authentication.CookieParams.CookieExpiry.IsUnknown() {
+								return data.Authentication.CookieParams.CookieExpiry
+							}
 							if v, ok := CookieParamsData["cookie_expiry"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						CookieRefreshInterval: func() types.Int64 {
+							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && !data.Authentication.CookieParams.CookieRefreshInterval.IsUnknown() {
+								return data.Authentication.CookieParams.CookieRefreshInterval
+							}
 							if v, ok := CookieParamsData["cookie_refresh_interval"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						KmsKeyHMAC: func() *VirtualHostEmptyModel {
+							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil {
+								return data.Authentication.CookieParams.KmsKeyHMAC
+							}
 							if _, ok := CookieParamsData["kms_key_hmac"].(map[string]interface{}); ok {
 								return &VirtualHostEmptyModel{}
 							}
 							return nil
 						}(),
 						SessionExpiry: func() types.Int64 {
+							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && !data.Authentication.CookieParams.SessionExpiry.IsUnknown() {
+								return data.Authentication.CookieParams.SessionExpiry
+							}
 							if v, ok := CookieParamsData["session_expiry"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -4566,9 +4604,14 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				if !isImport && data.DynamicReverseProxy != nil && (data.DynamicReverseProxy.ResolutionNetwork.IsNull() || len(data.DynamicReverseProxy.ResolutionNetwork.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: VirtualHostDynamicReverseProxyResolutionNetworkModelAttrTypes})
 				}
+				var ResolutionNetworkExisting []VirtualHostDynamicReverseProxyResolutionNetworkModel
+				if !isImport && data.DynamicReverseProxy != nil && !data.DynamicReverseProxy.ResolutionNetwork.IsNull() && !data.DynamicReverseProxy.ResolutionNetwork.IsUnknown() {
+					data.DynamicReverseProxy.ResolutionNetwork.ElementsAs(ctx, &ResolutionNetworkExisting, false)
+				}
 				if rawList, ok := blockData["resolution_network"].([]interface{}); ok && len(rawList) > 0 {
 					var ResolutionNetworkResult []VirtualHostDynamicReverseProxyResolutionNetworkModel
-					for _, ResolutionNetworkItem := range rawList {
+					for ResolutionNetworkIdx, ResolutionNetworkItem := range rawList {
+						_ = ResolutionNetworkIdx
 						if ResolutionNetworkItemMap, ok := ResolutionNetworkItem.(map[string]interface{}); ok {
 							ResolutionNetworkResult = append(ResolutionNetworkResult, VirtualHostDynamicReverseProxyResolutionNetworkModel{
 								Kind: func() types.String {
@@ -4638,27 +4681,42 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				if HTTPProtocolEnableV1OnlyData, ok := blockData["http_protocol_enable_v1_only"].(map[string]interface{}); ok {
 					return &VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModel{
 						HeaderTransformation: func() *VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel {
+							if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+								return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation
+							}
 							if HeaderTransformationData, ok := HTTPProtocolEnableV1OnlyData["header_transformation"].(map[string]interface{}); ok {
 								return &VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel{
 									DefaultHeaderTransformation: func() *VirtualHostEmptyModel {
+										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
+										}
 										if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
 											return &VirtualHostEmptyModel{}
 										}
 										return nil
 									}(),
 									LegacyHeaderTransformation: func() *VirtualHostEmptyModel {
+										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
+										}
 										if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 											return &VirtualHostEmptyModel{}
 										}
 										return nil
 									}(),
 									PreserveCaseHeaderTransformation: func() *VirtualHostEmptyModel {
+										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
+										}
 										if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
 											return &VirtualHostEmptyModel{}
 										}
 										return nil
 									}(),
 									ProperCaseHeaderTransformation: func() *VirtualHostEmptyModel {
+										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation
+										}
 										if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
 											return &VirtualHostEmptyModel{}
 										}
@@ -4816,6 +4874,9 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						if SecretValueData, ok := itemMap["secret_value"].(map[string]interface{}); ok {
 							return &VirtualHostRequestCookiesToAddSecretValueModel{
 								BlindfoldSecretInfo: func() *VirtualHostRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+									if !isImport && len(existingRequestCookiesToAddItems) > listIdx && existingRequestCookiesToAddItems[listIdx].SecretValue != nil && existingRequestCookiesToAddItems[listIdx].SecretValue.BlindfoldSecretInfo != nil {
+										return existingRequestCookiesToAddItems[listIdx].SecretValue.BlindfoldSecretInfo
+									}
 									if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
 											DecryptionProvider: func() types.String {
@@ -4841,6 +4902,9 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 									return nil
 								}(),
 								ClearSecretInfo: func() *VirtualHostRequestCookiesToAddSecretValueClearSecretInfoModel {
+									if !isImport && len(existingRequestCookiesToAddItems) > listIdx && existingRequestCookiesToAddItems[listIdx].SecretValue != nil && existingRequestCookiesToAddItems[listIdx].SecretValue.ClearSecretInfo != nil {
+										return existingRequestCookiesToAddItems[listIdx].SecretValue.ClearSecretInfo
+									}
 									if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostRequestCookiesToAddSecretValueClearSecretInfoModel{
 											Provider: func() types.String {
@@ -4923,6 +4987,9 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						if SecretValueData, ok := itemMap["secret_value"].(map[string]interface{}); ok {
 							return &VirtualHostRequestHeadersToAddSecretValueModel{
 								BlindfoldSecretInfo: func() *VirtualHostRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+									if !isImport && len(existingRequestHeadersToAddItems) > listIdx && existingRequestHeadersToAddItems[listIdx].SecretValue != nil && existingRequestHeadersToAddItems[listIdx].SecretValue.BlindfoldSecretInfo != nil {
+										return existingRequestHeadersToAddItems[listIdx].SecretValue.BlindfoldSecretInfo
+									}
 									if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
 											DecryptionProvider: func() types.String {
@@ -4948,6 +5015,9 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 									return nil
 								}(),
 								ClearSecretInfo: func() *VirtualHostRequestHeadersToAddSecretValueClearSecretInfoModel {
+									if !isImport && len(existingRequestHeadersToAddItems) > listIdx && existingRequestHeadersToAddItems[listIdx].SecretValue != nil && existingRequestHeadersToAddItems[listIdx].SecretValue.ClearSecretInfo != nil {
+										return existingRequestHeadersToAddItems[listIdx].SecretValue.ClearSecretInfo
+									}
 									if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostRequestHeadersToAddSecretValueClearSecretInfoModel{
 											Provider: func() types.String {
@@ -5189,6 +5259,9 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						if SecretValueData, ok := itemMap["secret_value"].(map[string]interface{}); ok {
 							return &VirtualHostResponseCookiesToAddSecretValueModel{
 								BlindfoldSecretInfo: func() *VirtualHostResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+									if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].SecretValue != nil && existingResponseCookiesToAddItems[listIdx].SecretValue.BlindfoldSecretInfo != nil {
+										return existingResponseCookiesToAddItems[listIdx].SecretValue.BlindfoldSecretInfo
+									}
 									if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
 											DecryptionProvider: func() types.String {
@@ -5214,6 +5287,9 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 									return nil
 								}(),
 								ClearSecretInfo: func() *VirtualHostResponseCookiesToAddSecretValueClearSecretInfoModel {
+									if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].SecretValue != nil && existingResponseCookiesToAddItems[listIdx].SecretValue.ClearSecretInfo != nil {
+										return existingResponseCookiesToAddItems[listIdx].SecretValue.ClearSecretInfo
+									}
 									if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostResponseCookiesToAddSecretValueClearSecretInfoModel{
 											Provider: func() types.String {
@@ -5296,6 +5372,9 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						if SecretValueData, ok := itemMap["secret_value"].(map[string]interface{}); ok {
 							return &VirtualHostResponseHeadersToAddSecretValueModel{
 								BlindfoldSecretInfo: func() *VirtualHostResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+									if !isImport && len(existingResponseHeadersToAddItems) > listIdx && existingResponseHeadersToAddItems[listIdx].SecretValue != nil && existingResponseHeadersToAddItems[listIdx].SecretValue.BlindfoldSecretInfo != nil {
+										return existingResponseHeadersToAddItems[listIdx].SecretValue.BlindfoldSecretInfo
+									}
 									if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
 											DecryptionProvider: func() types.String {
@@ -5321,6 +5400,9 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 									return nil
 								}(),
 								ClearSecretInfo: func() *VirtualHostResponseHeadersToAddSecretValueClearSecretInfoModel {
+									if !isImport && len(existingResponseHeadersToAddItems) > listIdx && existingResponseHeadersToAddItems[listIdx].SecretValue != nil && existingResponseHeadersToAddItems[listIdx].SecretValue.ClearSecretInfo != nil {
+										return existingResponseHeadersToAddItems[listIdx].SecretValue.ClearSecretInfo
+									}
 									if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostResponseHeadersToAddSecretValueClearSecretInfoModel{
 											Provider: func() types.String {
@@ -5384,12 +5466,18 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				if BackOffData, ok := blockData["back_off"].(map[string]interface{}); ok {
 					return &VirtualHostRetryPolicyBackOffModel{
 						BaseInterval: func() types.Int64 {
+							if !isImport && data.RetryPolicy != nil && data.RetryPolicy.BackOff != nil && !data.RetryPolicy.BackOff.BaseInterval.IsUnknown() {
+								return data.RetryPolicy.BackOff.BaseInterval
+							}
 							if v, ok := BackOffData["base_interval"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxInterval: func() types.Int64 {
+							if !isImport && data.RetryPolicy != nil && data.RetryPolicy.BackOff != nil && !data.RetryPolicy.BackOff.MaxInterval.IsUnknown() {
+								return data.RetryPolicy.BackOff.MaxInterval
+							}
 							if v, ok := BackOffData["max_interval"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -5588,9 +5676,14 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				if !isImport && data.TLSCertParams != nil && (data.TLSCertParams.Certificates.IsNull() || len(data.TLSCertParams.Certificates.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: VirtualHostTLSCertParamsCertificatesModelAttrTypes})
 				}
+				var CertificatesExisting []VirtualHostTLSCertParamsCertificatesModel
+				if !isImport && data.TLSCertParams != nil && !data.TLSCertParams.Certificates.IsNull() && !data.TLSCertParams.Certificates.IsUnknown() {
+					data.TLSCertParams.Certificates.ElementsAs(ctx, &CertificatesExisting, false)
+				}
 				if rawList, ok := blockData["certificates"].([]interface{}); ok && len(rawList) > 0 {
 					var CertificatesResult []VirtualHostTLSCertParamsCertificatesModel
-					for _, CertificatesItem := range rawList {
+					for CertificatesIdx, CertificatesItem := range rawList {
+						_ = CertificatesIdx
 						if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
 							CertificatesResult = append(CertificatesResult, VirtualHostTLSCertParamsCertificatesModel{
 								Kind: func() types.String {
@@ -5687,6 +5780,9 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				if ValidationParamsData, ok := blockData["validation_params"].(map[string]interface{}); ok {
 					return &VirtualHostTLSCertParamsValidationParamsModel{
 						SkipHostnameVerification: func() types.Bool {
+							if !isImport && data.TLSCertParams != nil && data.TLSCertParams.ValidationParams != nil && !data.TLSCertParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+								return data.TLSCertParams.ValidationParams.SkipHostnameVerification
+							}
 							if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
 								return types.BoolValue(v)
 							}
@@ -5696,9 +5792,17 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 							if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
 								return &VirtualHostTLSCertParamsValidationParamsTrustedCAModel{
 									TrustedCAList: func() types.List {
+										if !isImport && data.TLSCertParams != nil && data.TLSCertParams.ValidationParams != nil && data.TLSCertParams.ValidationParams.TrustedCA != nil && (data.TLSCertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.TLSCertParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: VirtualHostTLSCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+										}
+										var TrustedCAListExisting []VirtualHostTLSCertParamsValidationParamsTrustedCATrustedCAListModel
+										if !isImport && data.TLSCertParams != nil && data.TLSCertParams.ValidationParams != nil && data.TLSCertParams.ValidationParams.TrustedCA != nil && !data.TLSCertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSCertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+											data.TLSCertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+										}
 										if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
 											var TrustedCAListResult []VirtualHostTLSCertParamsValidationParamsTrustedCATrustedCAListModel
-											for _, TrustedCAListItem := range rawList {
+											for TrustedCAListIdx, TrustedCAListItem := range rawList {
+												_ = TrustedCAListIdx
 												if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
 													TrustedCAListResult = append(TrustedCAListResult, VirtualHostTLSCertParamsValidationParamsTrustedCATrustedCAListModel{
 														Kind: func() types.String {
@@ -5830,9 +5934,17 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 							return types.StringNull()
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && (data.TLSParameters.CommonParams.TLSCertificates.IsNull() || len(data.TLSParameters.CommonParams.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VirtualHostTLSParametersCommonParamsTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []VirtualHostTLSParametersCommonParamsTLSCertificatesModel
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && !data.TLSParameters.CommonParams.TLSCertificates.IsNull() && !data.TLSParameters.CommonParams.TLSCertificates.IsUnknown() {
+								data.TLSParameters.CommonParams.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := CommonParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []VirtualHostTLSParametersCommonParamsTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, VirtualHostTLSParametersCommonParamsTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -5868,6 +5980,9 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *VirtualHostEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &VirtualHostEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &VirtualHostEmptyModel{}
 												}
@@ -5877,6 +5992,9 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -5902,6 +6020,9 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 															return nil
 														}(),
 														ClearSecretInfo: func() *VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -5925,6 +6046,9 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 												return nil
 											}(),
 											UseSystemDefaults: func() *VirtualHostEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &VirtualHostEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &VirtualHostEmptyModel{}
 												}
@@ -5942,6 +6066,9 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 							if ValidationParamsData, ok := CommonParamsData["validation_params"].(map[string]interface{}); ok {
 								return &VirtualHostTLSParametersCommonParamsValidationParamsModel{
 									SkipHostnameVerification: func() types.Bool {
+										if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && data.TLSParameters.CommonParams.ValidationParams != nil && !data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+											return data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification
+										}
 										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -5951,9 +6078,17 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
 											return &VirtualHostTLSParametersCommonParamsValidationParamsTrustedCAModel{
 												TrustedCAList: func() types.List {
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && data.TLSParameters.CommonParams.ValidationParams != nil && data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil && (data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: VirtualHostTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+													}
+													var TrustedCAListExisting []VirtualHostTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && data.TLSParameters.CommonParams.ValidationParams != nil && data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+														data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+													}
 													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
 														var TrustedCAListResult []VirtualHostTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
-														for _, TrustedCAListItem := range rawList {
+														for TrustedCAListIdx, TrustedCAListItem := range rawList {
+															_ = TrustedCAListIdx
 															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
 																TrustedCAListResult = append(TrustedCAListResult, VirtualHostTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel{
 																	Kind: func() types.String {
@@ -6108,9 +6243,17 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				if AppFirewallData, ok := blockData["app_firewall"].(map[string]interface{}); ok {
 					return &VirtualHostWAFTypeAppFirewallModel{
 						AppFirewall: func() types.List {
+							if !isImport && data.WAFType != nil && data.WAFType.AppFirewall != nil && (data.WAFType.AppFirewall.AppFirewall.IsNull() || len(data.WAFType.AppFirewall.AppFirewall.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VirtualHostWAFTypeAppFirewallAppFirewallModelAttrTypes})
+							}
+							var AppFirewallExisting []VirtualHostWAFTypeAppFirewallAppFirewallModel
+							if !isImport && data.WAFType != nil && data.WAFType.AppFirewall != nil && !data.WAFType.AppFirewall.AppFirewall.IsNull() && !data.WAFType.AppFirewall.AppFirewall.IsUnknown() {
+								data.WAFType.AppFirewall.AppFirewall.ElementsAs(ctx, &AppFirewallExisting, false)
+							}
 							if rawList, ok := AppFirewallData["app_firewall"].([]interface{}); ok && len(rawList) > 0 {
 								var AppFirewallResult []VirtualHostWAFTypeAppFirewallAppFirewallModel
-								for _, AppFirewallItem := range rawList {
+								for AppFirewallIdx, AppFirewallItem := range rawList {
+									_ = AppFirewallIdx
 									if AppFirewallItemMap, ok := AppFirewallItem.(map[string]interface{}); ok {
 										AppFirewallResult = append(AppFirewallResult, VirtualHostWAFTypeAppFirewallAppFirewallModel{
 											Kind: func() types.String {
@@ -6377,9 +6520,14 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				if !isImport && data.Authentication != nil && (data.Authentication.AuthConfig.IsNull() || len(data.Authentication.AuthConfig.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: VirtualHostAuthenticationAuthConfigModelAttrTypes})
 				}
+				var AuthConfigExisting []VirtualHostAuthenticationAuthConfigModel
+				if !isImport && data.Authentication != nil && !data.Authentication.AuthConfig.IsNull() && !data.Authentication.AuthConfig.IsUnknown() {
+					data.Authentication.AuthConfig.ElementsAs(ctx, &AuthConfigExisting, false)
+				}
 				if rawList, ok := blockData["auth_config"].([]interface{}); ok && len(rawList) > 0 {
 					var AuthConfigResult []VirtualHostAuthenticationAuthConfigModel
-					for _, AuthConfigItem := range rawList {
+					for AuthConfigIdx, AuthConfigItem := range rawList {
+						_ = AuthConfigIdx
 						if AuthConfigItemMap, ok := AuthConfigItem.(map[string]interface{}); ok {
 							AuthConfigResult = append(AuthConfigResult, VirtualHostAuthenticationAuthConfigModel{
 								Kind: func() types.String {
@@ -6427,12 +6575,21 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				if CookieParamsData, ok := blockData["cookie_params"].(map[string]interface{}); ok {
 					return &VirtualHostAuthenticationCookieParamsModel{
 						AuthHMAC: func() *VirtualHostAuthenticationCookieParamsAuthHMACModel {
+							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && data.Authentication.CookieParams.AuthHMAC != nil {
+								return data.Authentication.CookieParams.AuthHMAC
+							}
 							if AuthHMACData, ok := CookieParamsData["auth_hmac"].(map[string]interface{}); ok {
 								return &VirtualHostAuthenticationCookieParamsAuthHMACModel{
 									PrimKey: func() *VirtualHostAuthenticationCookieParamsAuthHMACPrimKeyModel {
+										if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && data.Authentication.CookieParams.AuthHMAC != nil && data.Authentication.CookieParams.AuthHMAC.PrimKey != nil {
+											return data.Authentication.CookieParams.AuthHMAC.PrimKey
+										}
 										if PrimKeyData, ok := AuthHMACData["prim_key"].(map[string]interface{}); ok {
 											return &VirtualHostAuthenticationCookieParamsAuthHMACPrimKeyModel{
 												BlindfoldSecretInfo: func() *VirtualHostAuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoModel {
+													if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && data.Authentication.CookieParams.AuthHMAC != nil && data.Authentication.CookieParams.AuthHMAC.PrimKey != nil && data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo != nil {
+														return data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := PrimKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &VirtualHostAuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -6458,6 +6615,9 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 													return nil
 												}(),
 												ClearSecretInfo: func() *VirtualHostAuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoModel {
+													if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && data.Authentication.CookieParams.AuthHMAC != nil && data.Authentication.CookieParams.AuthHMAC.PrimKey != nil && data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo != nil {
+														return data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := PrimKeyData["clear_secret_info"].(map[string]interface{}); ok {
 														return &VirtualHostAuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoModel{
 															Provider: func() types.String {
@@ -6487,9 +6647,15 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 										return types.StringNull()
 									}(),
 									SecKey: func() *VirtualHostAuthenticationCookieParamsAuthHMACSecKeyModel {
+										if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && data.Authentication.CookieParams.AuthHMAC != nil && data.Authentication.CookieParams.AuthHMAC.SecKey != nil {
+											return data.Authentication.CookieParams.AuthHMAC.SecKey
+										}
 										if SecKeyData, ok := AuthHMACData["sec_key"].(map[string]interface{}); ok {
 											return &VirtualHostAuthenticationCookieParamsAuthHMACSecKeyModel{
 												BlindfoldSecretInfo: func() *VirtualHostAuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoModel {
+													if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && data.Authentication.CookieParams.AuthHMAC != nil && data.Authentication.CookieParams.AuthHMAC.SecKey != nil && data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo != nil {
+														return data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := SecKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &VirtualHostAuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -6515,6 +6681,9 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 													return nil
 												}(),
 												ClearSecretInfo: func() *VirtualHostAuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoModel {
+													if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && data.Authentication.CookieParams.AuthHMAC != nil && data.Authentication.CookieParams.AuthHMAC.SecKey != nil && data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo != nil {
+														return data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := SecKeyData["clear_secret_info"].(map[string]interface{}); ok {
 														return &VirtualHostAuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoModel{
 															Provider: func() types.String {
@@ -6548,24 +6717,36 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 							return nil
 						}(),
 						CookieExpiry: func() types.Int64 {
+							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && !data.Authentication.CookieParams.CookieExpiry.IsUnknown() {
+								return data.Authentication.CookieParams.CookieExpiry
+							}
 							if v, ok := CookieParamsData["cookie_expiry"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						CookieRefreshInterval: func() types.Int64 {
+							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && !data.Authentication.CookieParams.CookieRefreshInterval.IsUnknown() {
+								return data.Authentication.CookieParams.CookieRefreshInterval
+							}
 							if v, ok := CookieParamsData["cookie_refresh_interval"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						KmsKeyHMAC: func() *VirtualHostEmptyModel {
+							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil {
+								return data.Authentication.CookieParams.KmsKeyHMAC
+							}
 							if _, ok := CookieParamsData["kms_key_hmac"].(map[string]interface{}); ok {
 								return &VirtualHostEmptyModel{}
 							}
 							return nil
 						}(),
 						SessionExpiry: func() types.Int64 {
+							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && !data.Authentication.CookieParams.SessionExpiry.IsUnknown() {
+								return data.Authentication.CookieParams.SessionExpiry
+							}
 							if v, ok := CookieParamsData["session_expiry"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -6870,9 +7051,14 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				if !isImport && data.DynamicReverseProxy != nil && (data.DynamicReverseProxy.ResolutionNetwork.IsNull() || len(data.DynamicReverseProxy.ResolutionNetwork.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: VirtualHostDynamicReverseProxyResolutionNetworkModelAttrTypes})
 				}
+				var ResolutionNetworkExisting []VirtualHostDynamicReverseProxyResolutionNetworkModel
+				if !isImport && data.DynamicReverseProxy != nil && !data.DynamicReverseProxy.ResolutionNetwork.IsNull() && !data.DynamicReverseProxy.ResolutionNetwork.IsUnknown() {
+					data.DynamicReverseProxy.ResolutionNetwork.ElementsAs(ctx, &ResolutionNetworkExisting, false)
+				}
 				if rawList, ok := blockData["resolution_network"].([]interface{}); ok && len(rawList) > 0 {
 					var ResolutionNetworkResult []VirtualHostDynamicReverseProxyResolutionNetworkModel
-					for _, ResolutionNetworkItem := range rawList {
+					for ResolutionNetworkIdx, ResolutionNetworkItem := range rawList {
+						_ = ResolutionNetworkIdx
 						if ResolutionNetworkItemMap, ok := ResolutionNetworkItem.(map[string]interface{}); ok {
 							ResolutionNetworkResult = append(ResolutionNetworkResult, VirtualHostDynamicReverseProxyResolutionNetworkModel{
 								Kind: func() types.String {
@@ -6942,27 +7128,42 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				if HTTPProtocolEnableV1OnlyData, ok := blockData["http_protocol_enable_v1_only"].(map[string]interface{}); ok {
 					return &VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModel{
 						HeaderTransformation: func() *VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel {
+							if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+								return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation
+							}
 							if HeaderTransformationData, ok := HTTPProtocolEnableV1OnlyData["header_transformation"].(map[string]interface{}); ok {
 								return &VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel{
 									DefaultHeaderTransformation: func() *VirtualHostEmptyModel {
+										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
+										}
 										if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
 											return &VirtualHostEmptyModel{}
 										}
 										return nil
 									}(),
 									LegacyHeaderTransformation: func() *VirtualHostEmptyModel {
+										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
+										}
 										if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 											return &VirtualHostEmptyModel{}
 										}
 										return nil
 									}(),
 									PreserveCaseHeaderTransformation: func() *VirtualHostEmptyModel {
+										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
+										}
 										if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
 											return &VirtualHostEmptyModel{}
 										}
 										return nil
 									}(),
 									ProperCaseHeaderTransformation: func() *VirtualHostEmptyModel {
+										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation
+										}
 										if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
 											return &VirtualHostEmptyModel{}
 										}
@@ -7120,6 +7321,9 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 						if SecretValueData, ok := itemMap["secret_value"].(map[string]interface{}); ok {
 							return &VirtualHostRequestCookiesToAddSecretValueModel{
 								BlindfoldSecretInfo: func() *VirtualHostRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+									if !isImport && len(existingRequestCookiesToAddItems) > listIdx && existingRequestCookiesToAddItems[listIdx].SecretValue != nil && existingRequestCookiesToAddItems[listIdx].SecretValue.BlindfoldSecretInfo != nil {
+										return existingRequestCookiesToAddItems[listIdx].SecretValue.BlindfoldSecretInfo
+									}
 									if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
 											DecryptionProvider: func() types.String {
@@ -7145,6 +7349,9 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 									return nil
 								}(),
 								ClearSecretInfo: func() *VirtualHostRequestCookiesToAddSecretValueClearSecretInfoModel {
+									if !isImport && len(existingRequestCookiesToAddItems) > listIdx && existingRequestCookiesToAddItems[listIdx].SecretValue != nil && existingRequestCookiesToAddItems[listIdx].SecretValue.ClearSecretInfo != nil {
+										return existingRequestCookiesToAddItems[listIdx].SecretValue.ClearSecretInfo
+									}
 									if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostRequestCookiesToAddSecretValueClearSecretInfoModel{
 											Provider: func() types.String {
@@ -7227,6 +7434,9 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 						if SecretValueData, ok := itemMap["secret_value"].(map[string]interface{}); ok {
 							return &VirtualHostRequestHeadersToAddSecretValueModel{
 								BlindfoldSecretInfo: func() *VirtualHostRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+									if !isImport && len(existingRequestHeadersToAddItems) > listIdx && existingRequestHeadersToAddItems[listIdx].SecretValue != nil && existingRequestHeadersToAddItems[listIdx].SecretValue.BlindfoldSecretInfo != nil {
+										return existingRequestHeadersToAddItems[listIdx].SecretValue.BlindfoldSecretInfo
+									}
 									if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
 											DecryptionProvider: func() types.String {
@@ -7252,6 +7462,9 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 									return nil
 								}(),
 								ClearSecretInfo: func() *VirtualHostRequestHeadersToAddSecretValueClearSecretInfoModel {
+									if !isImport && len(existingRequestHeadersToAddItems) > listIdx && existingRequestHeadersToAddItems[listIdx].SecretValue != nil && existingRequestHeadersToAddItems[listIdx].SecretValue.ClearSecretInfo != nil {
+										return existingRequestHeadersToAddItems[listIdx].SecretValue.ClearSecretInfo
+									}
 									if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostRequestHeadersToAddSecretValueClearSecretInfoModel{
 											Provider: func() types.String {
@@ -7493,6 +7706,9 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 						if SecretValueData, ok := itemMap["secret_value"].(map[string]interface{}); ok {
 							return &VirtualHostResponseCookiesToAddSecretValueModel{
 								BlindfoldSecretInfo: func() *VirtualHostResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+									if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].SecretValue != nil && existingResponseCookiesToAddItems[listIdx].SecretValue.BlindfoldSecretInfo != nil {
+										return existingResponseCookiesToAddItems[listIdx].SecretValue.BlindfoldSecretInfo
+									}
 									if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
 											DecryptionProvider: func() types.String {
@@ -7518,6 +7734,9 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 									return nil
 								}(),
 								ClearSecretInfo: func() *VirtualHostResponseCookiesToAddSecretValueClearSecretInfoModel {
+									if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].SecretValue != nil && existingResponseCookiesToAddItems[listIdx].SecretValue.ClearSecretInfo != nil {
+										return existingResponseCookiesToAddItems[listIdx].SecretValue.ClearSecretInfo
+									}
 									if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostResponseCookiesToAddSecretValueClearSecretInfoModel{
 											Provider: func() types.String {
@@ -7600,6 +7819,9 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 						if SecretValueData, ok := itemMap["secret_value"].(map[string]interface{}); ok {
 							return &VirtualHostResponseHeadersToAddSecretValueModel{
 								BlindfoldSecretInfo: func() *VirtualHostResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+									if !isImport && len(existingResponseHeadersToAddItems) > listIdx && existingResponseHeadersToAddItems[listIdx].SecretValue != nil && existingResponseHeadersToAddItems[listIdx].SecretValue.BlindfoldSecretInfo != nil {
+										return existingResponseHeadersToAddItems[listIdx].SecretValue.BlindfoldSecretInfo
+									}
 									if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
 											DecryptionProvider: func() types.String {
@@ -7625,6 +7847,9 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 									return nil
 								}(),
 								ClearSecretInfo: func() *VirtualHostResponseHeadersToAddSecretValueClearSecretInfoModel {
+									if !isImport && len(existingResponseHeadersToAddItems) > listIdx && existingResponseHeadersToAddItems[listIdx].SecretValue != nil && existingResponseHeadersToAddItems[listIdx].SecretValue.ClearSecretInfo != nil {
+										return existingResponseHeadersToAddItems[listIdx].SecretValue.ClearSecretInfo
+									}
 									if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostResponseHeadersToAddSecretValueClearSecretInfoModel{
 											Provider: func() types.String {
@@ -7688,12 +7913,18 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				if BackOffData, ok := blockData["back_off"].(map[string]interface{}); ok {
 					return &VirtualHostRetryPolicyBackOffModel{
 						BaseInterval: func() types.Int64 {
+							if !isImport && data.RetryPolicy != nil && data.RetryPolicy.BackOff != nil && !data.RetryPolicy.BackOff.BaseInterval.IsUnknown() {
+								return data.RetryPolicy.BackOff.BaseInterval
+							}
 							if v, ok := BackOffData["base_interval"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxInterval: func() types.Int64 {
+							if !isImport && data.RetryPolicy != nil && data.RetryPolicy.BackOff != nil && !data.RetryPolicy.BackOff.MaxInterval.IsUnknown() {
+								return data.RetryPolicy.BackOff.MaxInterval
+							}
 							if v, ok := BackOffData["max_interval"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -7892,9 +8123,14 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				if !isImport && data.TLSCertParams != nil && (data.TLSCertParams.Certificates.IsNull() || len(data.TLSCertParams.Certificates.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: VirtualHostTLSCertParamsCertificatesModelAttrTypes})
 				}
+				var CertificatesExisting []VirtualHostTLSCertParamsCertificatesModel
+				if !isImport && data.TLSCertParams != nil && !data.TLSCertParams.Certificates.IsNull() && !data.TLSCertParams.Certificates.IsUnknown() {
+					data.TLSCertParams.Certificates.ElementsAs(ctx, &CertificatesExisting, false)
+				}
 				if rawList, ok := blockData["certificates"].([]interface{}); ok && len(rawList) > 0 {
 					var CertificatesResult []VirtualHostTLSCertParamsCertificatesModel
-					for _, CertificatesItem := range rawList {
+					for CertificatesIdx, CertificatesItem := range rawList {
+						_ = CertificatesIdx
 						if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
 							CertificatesResult = append(CertificatesResult, VirtualHostTLSCertParamsCertificatesModel{
 								Kind: func() types.String {
@@ -7991,6 +8227,9 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				if ValidationParamsData, ok := blockData["validation_params"].(map[string]interface{}); ok {
 					return &VirtualHostTLSCertParamsValidationParamsModel{
 						SkipHostnameVerification: func() types.Bool {
+							if !isImport && data.TLSCertParams != nil && data.TLSCertParams.ValidationParams != nil && !data.TLSCertParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+								return data.TLSCertParams.ValidationParams.SkipHostnameVerification
+							}
 							if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
 								return types.BoolValue(v)
 							}
@@ -8000,9 +8239,17 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 							if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
 								return &VirtualHostTLSCertParamsValidationParamsTrustedCAModel{
 									TrustedCAList: func() types.List {
+										if !isImport && data.TLSCertParams != nil && data.TLSCertParams.ValidationParams != nil && data.TLSCertParams.ValidationParams.TrustedCA != nil && (data.TLSCertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.TLSCertParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: VirtualHostTLSCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+										}
+										var TrustedCAListExisting []VirtualHostTLSCertParamsValidationParamsTrustedCATrustedCAListModel
+										if !isImport && data.TLSCertParams != nil && data.TLSCertParams.ValidationParams != nil && data.TLSCertParams.ValidationParams.TrustedCA != nil && !data.TLSCertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSCertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+											data.TLSCertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+										}
 										if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
 											var TrustedCAListResult []VirtualHostTLSCertParamsValidationParamsTrustedCATrustedCAListModel
-											for _, TrustedCAListItem := range rawList {
+											for TrustedCAListIdx, TrustedCAListItem := range rawList {
+												_ = TrustedCAListIdx
 												if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
 													TrustedCAListResult = append(TrustedCAListResult, VirtualHostTLSCertParamsValidationParamsTrustedCATrustedCAListModel{
 														Kind: func() types.String {
@@ -8134,9 +8381,17 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 							return types.StringNull()
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && (data.TLSParameters.CommonParams.TLSCertificates.IsNull() || len(data.TLSParameters.CommonParams.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VirtualHostTLSParametersCommonParamsTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []VirtualHostTLSParametersCommonParamsTLSCertificatesModel
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && !data.TLSParameters.CommonParams.TLSCertificates.IsNull() && !data.TLSParameters.CommonParams.TLSCertificates.IsUnknown() {
+								data.TLSParameters.CommonParams.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := CommonParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []VirtualHostTLSParametersCommonParamsTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, VirtualHostTLSParametersCommonParamsTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -8172,6 +8427,9 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *VirtualHostEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &VirtualHostEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &VirtualHostEmptyModel{}
 												}
@@ -8181,6 +8439,9 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -8206,6 +8467,9 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 															return nil
 														}(),
 														ClearSecretInfo: func() *VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -8229,6 +8493,9 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 												return nil
 											}(),
 											UseSystemDefaults: func() *VirtualHostEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &VirtualHostEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &VirtualHostEmptyModel{}
 												}
@@ -8246,6 +8513,9 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 							if ValidationParamsData, ok := CommonParamsData["validation_params"].(map[string]interface{}); ok {
 								return &VirtualHostTLSParametersCommonParamsValidationParamsModel{
 									SkipHostnameVerification: func() types.Bool {
+										if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && data.TLSParameters.CommonParams.ValidationParams != nil && !data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+											return data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification
+										}
 										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -8255,9 +8525,17 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
 											return &VirtualHostTLSParametersCommonParamsValidationParamsTrustedCAModel{
 												TrustedCAList: func() types.List {
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && data.TLSParameters.CommonParams.ValidationParams != nil && data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil && (data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: VirtualHostTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+													}
+													var TrustedCAListExisting []VirtualHostTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && data.TLSParameters.CommonParams.ValidationParams != nil && data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+														data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+													}
 													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
 														var TrustedCAListResult []VirtualHostTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
-														for _, TrustedCAListItem := range rawList {
+														for TrustedCAListIdx, TrustedCAListItem := range rawList {
+															_ = TrustedCAListIdx
 															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
 																TrustedCAListResult = append(TrustedCAListResult, VirtualHostTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel{
 																	Kind: func() types.String {
@@ -8412,9 +8690,17 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				if AppFirewallData, ok := blockData["app_firewall"].(map[string]interface{}); ok {
 					return &VirtualHostWAFTypeAppFirewallModel{
 						AppFirewall: func() types.List {
+							if !isImport && data.WAFType != nil && data.WAFType.AppFirewall != nil && (data.WAFType.AppFirewall.AppFirewall.IsNull() || len(data.WAFType.AppFirewall.AppFirewall.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VirtualHostWAFTypeAppFirewallAppFirewallModelAttrTypes})
+							}
+							var AppFirewallExisting []VirtualHostWAFTypeAppFirewallAppFirewallModel
+							if !isImport && data.WAFType != nil && data.WAFType.AppFirewall != nil && !data.WAFType.AppFirewall.AppFirewall.IsNull() && !data.WAFType.AppFirewall.AppFirewall.IsUnknown() {
+								data.WAFType.AppFirewall.AppFirewall.ElementsAs(ctx, &AppFirewallExisting, false)
+							}
 							if rawList, ok := AppFirewallData["app_firewall"].([]interface{}); ok && len(rawList) > 0 {
 								var AppFirewallResult []VirtualHostWAFTypeAppFirewallAppFirewallModel
-								for _, AppFirewallItem := range rawList {
+								for AppFirewallIdx, AppFirewallItem := range rawList {
+									_ = AppFirewallIdx
 									if AppFirewallItemMap, ok := AppFirewallItem.(map[string]interface{}); ok {
 										AppFirewallResult = append(AppFirewallResult, VirtualHostWAFTypeAppFirewallAppFirewallModel{
 											Kind: func() types.String {
@@ -9840,9 +10126,14 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				if !isImport && data.Authentication != nil && (data.Authentication.AuthConfig.IsNull() || len(data.Authentication.AuthConfig.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: VirtualHostAuthenticationAuthConfigModelAttrTypes})
 				}
+				var AuthConfigExisting []VirtualHostAuthenticationAuthConfigModel
+				if !isImport && data.Authentication != nil && !data.Authentication.AuthConfig.IsNull() && !data.Authentication.AuthConfig.IsUnknown() {
+					data.Authentication.AuthConfig.ElementsAs(ctx, &AuthConfigExisting, false)
+				}
 				if rawList, ok := blockData["auth_config"].([]interface{}); ok && len(rawList) > 0 {
 					var AuthConfigResult []VirtualHostAuthenticationAuthConfigModel
-					for _, AuthConfigItem := range rawList {
+					for AuthConfigIdx, AuthConfigItem := range rawList {
+						_ = AuthConfigIdx
 						if AuthConfigItemMap, ok := AuthConfigItem.(map[string]interface{}); ok {
 							AuthConfigResult = append(AuthConfigResult, VirtualHostAuthenticationAuthConfigModel{
 								Kind: func() types.String {
@@ -9890,12 +10181,21 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				if CookieParamsData, ok := blockData["cookie_params"].(map[string]interface{}); ok {
 					return &VirtualHostAuthenticationCookieParamsModel{
 						AuthHMAC: func() *VirtualHostAuthenticationCookieParamsAuthHMACModel {
+							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && data.Authentication.CookieParams.AuthHMAC != nil {
+								return data.Authentication.CookieParams.AuthHMAC
+							}
 							if AuthHMACData, ok := CookieParamsData["auth_hmac"].(map[string]interface{}); ok {
 								return &VirtualHostAuthenticationCookieParamsAuthHMACModel{
 									PrimKey: func() *VirtualHostAuthenticationCookieParamsAuthHMACPrimKeyModel {
+										if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && data.Authentication.CookieParams.AuthHMAC != nil && data.Authentication.CookieParams.AuthHMAC.PrimKey != nil {
+											return data.Authentication.CookieParams.AuthHMAC.PrimKey
+										}
 										if PrimKeyData, ok := AuthHMACData["prim_key"].(map[string]interface{}); ok {
 											return &VirtualHostAuthenticationCookieParamsAuthHMACPrimKeyModel{
 												BlindfoldSecretInfo: func() *VirtualHostAuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoModel {
+													if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && data.Authentication.CookieParams.AuthHMAC != nil && data.Authentication.CookieParams.AuthHMAC.PrimKey != nil && data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo != nil {
+														return data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := PrimKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &VirtualHostAuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -9921,6 +10221,9 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 													return nil
 												}(),
 												ClearSecretInfo: func() *VirtualHostAuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoModel {
+													if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && data.Authentication.CookieParams.AuthHMAC != nil && data.Authentication.CookieParams.AuthHMAC.PrimKey != nil && data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo != nil {
+														return data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := PrimKeyData["clear_secret_info"].(map[string]interface{}); ok {
 														return &VirtualHostAuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoModel{
 															Provider: func() types.String {
@@ -9950,9 +10253,15 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 										return types.StringNull()
 									}(),
 									SecKey: func() *VirtualHostAuthenticationCookieParamsAuthHMACSecKeyModel {
+										if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && data.Authentication.CookieParams.AuthHMAC != nil && data.Authentication.CookieParams.AuthHMAC.SecKey != nil {
+											return data.Authentication.CookieParams.AuthHMAC.SecKey
+										}
 										if SecKeyData, ok := AuthHMACData["sec_key"].(map[string]interface{}); ok {
 											return &VirtualHostAuthenticationCookieParamsAuthHMACSecKeyModel{
 												BlindfoldSecretInfo: func() *VirtualHostAuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoModel {
+													if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && data.Authentication.CookieParams.AuthHMAC != nil && data.Authentication.CookieParams.AuthHMAC.SecKey != nil && data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo != nil {
+														return data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := SecKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &VirtualHostAuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -9978,6 +10287,9 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 													return nil
 												}(),
 												ClearSecretInfo: func() *VirtualHostAuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoModel {
+													if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && data.Authentication.CookieParams.AuthHMAC != nil && data.Authentication.CookieParams.AuthHMAC.SecKey != nil && data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo != nil {
+														return data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := SecKeyData["clear_secret_info"].(map[string]interface{}); ok {
 														return &VirtualHostAuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoModel{
 															Provider: func() types.String {
@@ -10011,24 +10323,36 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 							return nil
 						}(),
 						CookieExpiry: func() types.Int64 {
+							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && !data.Authentication.CookieParams.CookieExpiry.IsUnknown() {
+								return data.Authentication.CookieParams.CookieExpiry
+							}
 							if v, ok := CookieParamsData["cookie_expiry"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						CookieRefreshInterval: func() types.Int64 {
+							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && !data.Authentication.CookieParams.CookieRefreshInterval.IsUnknown() {
+								return data.Authentication.CookieParams.CookieRefreshInterval
+							}
 							if v, ok := CookieParamsData["cookie_refresh_interval"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						KmsKeyHMAC: func() *VirtualHostEmptyModel {
+							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil {
+								return data.Authentication.CookieParams.KmsKeyHMAC
+							}
 							if _, ok := CookieParamsData["kms_key_hmac"].(map[string]interface{}); ok {
 								return &VirtualHostEmptyModel{}
 							}
 							return nil
 						}(),
 						SessionExpiry: func() types.Int64 {
+							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && !data.Authentication.CookieParams.SessionExpiry.IsUnknown() {
+								return data.Authentication.CookieParams.SessionExpiry
+							}
 							if v, ok := CookieParamsData["session_expiry"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -10333,9 +10657,14 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				if !isImport && data.DynamicReverseProxy != nil && (data.DynamicReverseProxy.ResolutionNetwork.IsNull() || len(data.DynamicReverseProxy.ResolutionNetwork.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: VirtualHostDynamicReverseProxyResolutionNetworkModelAttrTypes})
 				}
+				var ResolutionNetworkExisting []VirtualHostDynamicReverseProxyResolutionNetworkModel
+				if !isImport && data.DynamicReverseProxy != nil && !data.DynamicReverseProxy.ResolutionNetwork.IsNull() && !data.DynamicReverseProxy.ResolutionNetwork.IsUnknown() {
+					data.DynamicReverseProxy.ResolutionNetwork.ElementsAs(ctx, &ResolutionNetworkExisting, false)
+				}
 				if rawList, ok := blockData["resolution_network"].([]interface{}); ok && len(rawList) > 0 {
 					var ResolutionNetworkResult []VirtualHostDynamicReverseProxyResolutionNetworkModel
-					for _, ResolutionNetworkItem := range rawList {
+					for ResolutionNetworkIdx, ResolutionNetworkItem := range rawList {
+						_ = ResolutionNetworkIdx
 						if ResolutionNetworkItemMap, ok := ResolutionNetworkItem.(map[string]interface{}); ok {
 							ResolutionNetworkResult = append(ResolutionNetworkResult, VirtualHostDynamicReverseProxyResolutionNetworkModel{
 								Kind: func() types.String {
@@ -10405,27 +10734,42 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				if HTTPProtocolEnableV1OnlyData, ok := blockData["http_protocol_enable_v1_only"].(map[string]interface{}); ok {
 					return &VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModel{
 						HeaderTransformation: func() *VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel {
+							if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+								return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation
+							}
 							if HeaderTransformationData, ok := HTTPProtocolEnableV1OnlyData["header_transformation"].(map[string]interface{}); ok {
 								return &VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel{
 									DefaultHeaderTransformation: func() *VirtualHostEmptyModel {
+										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
+										}
 										if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
 											return &VirtualHostEmptyModel{}
 										}
 										return nil
 									}(),
 									LegacyHeaderTransformation: func() *VirtualHostEmptyModel {
+										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
+										}
 										if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 											return &VirtualHostEmptyModel{}
 										}
 										return nil
 									}(),
 									PreserveCaseHeaderTransformation: func() *VirtualHostEmptyModel {
+										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
+										}
 										if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
 											return &VirtualHostEmptyModel{}
 										}
 										return nil
 									}(),
 									ProperCaseHeaderTransformation: func() *VirtualHostEmptyModel {
+										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation
+										}
 										if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
 											return &VirtualHostEmptyModel{}
 										}
@@ -10583,6 +10927,9 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						if SecretValueData, ok := itemMap["secret_value"].(map[string]interface{}); ok {
 							return &VirtualHostRequestCookiesToAddSecretValueModel{
 								BlindfoldSecretInfo: func() *VirtualHostRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+									if !isImport && len(existingRequestCookiesToAddItems) > listIdx && existingRequestCookiesToAddItems[listIdx].SecretValue != nil && existingRequestCookiesToAddItems[listIdx].SecretValue.BlindfoldSecretInfo != nil {
+										return existingRequestCookiesToAddItems[listIdx].SecretValue.BlindfoldSecretInfo
+									}
 									if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
 											DecryptionProvider: func() types.String {
@@ -10608,6 +10955,9 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 									return nil
 								}(),
 								ClearSecretInfo: func() *VirtualHostRequestCookiesToAddSecretValueClearSecretInfoModel {
+									if !isImport && len(existingRequestCookiesToAddItems) > listIdx && existingRequestCookiesToAddItems[listIdx].SecretValue != nil && existingRequestCookiesToAddItems[listIdx].SecretValue.ClearSecretInfo != nil {
+										return existingRequestCookiesToAddItems[listIdx].SecretValue.ClearSecretInfo
+									}
 									if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostRequestCookiesToAddSecretValueClearSecretInfoModel{
 											Provider: func() types.String {
@@ -10690,6 +11040,9 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						if SecretValueData, ok := itemMap["secret_value"].(map[string]interface{}); ok {
 							return &VirtualHostRequestHeadersToAddSecretValueModel{
 								BlindfoldSecretInfo: func() *VirtualHostRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+									if !isImport && len(existingRequestHeadersToAddItems) > listIdx && existingRequestHeadersToAddItems[listIdx].SecretValue != nil && existingRequestHeadersToAddItems[listIdx].SecretValue.BlindfoldSecretInfo != nil {
+										return existingRequestHeadersToAddItems[listIdx].SecretValue.BlindfoldSecretInfo
+									}
 									if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
 											DecryptionProvider: func() types.String {
@@ -10715,6 +11068,9 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 									return nil
 								}(),
 								ClearSecretInfo: func() *VirtualHostRequestHeadersToAddSecretValueClearSecretInfoModel {
+									if !isImport && len(existingRequestHeadersToAddItems) > listIdx && existingRequestHeadersToAddItems[listIdx].SecretValue != nil && existingRequestHeadersToAddItems[listIdx].SecretValue.ClearSecretInfo != nil {
+										return existingRequestHeadersToAddItems[listIdx].SecretValue.ClearSecretInfo
+									}
 									if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostRequestHeadersToAddSecretValueClearSecretInfoModel{
 											Provider: func() types.String {
@@ -10956,6 +11312,9 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						if SecretValueData, ok := itemMap["secret_value"].(map[string]interface{}); ok {
 							return &VirtualHostResponseCookiesToAddSecretValueModel{
 								BlindfoldSecretInfo: func() *VirtualHostResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+									if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].SecretValue != nil && existingResponseCookiesToAddItems[listIdx].SecretValue.BlindfoldSecretInfo != nil {
+										return existingResponseCookiesToAddItems[listIdx].SecretValue.BlindfoldSecretInfo
+									}
 									if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
 											DecryptionProvider: func() types.String {
@@ -10981,6 +11340,9 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 									return nil
 								}(),
 								ClearSecretInfo: func() *VirtualHostResponseCookiesToAddSecretValueClearSecretInfoModel {
+									if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].SecretValue != nil && existingResponseCookiesToAddItems[listIdx].SecretValue.ClearSecretInfo != nil {
+										return existingResponseCookiesToAddItems[listIdx].SecretValue.ClearSecretInfo
+									}
 									if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostResponseCookiesToAddSecretValueClearSecretInfoModel{
 											Provider: func() types.String {
@@ -11063,6 +11425,9 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						if SecretValueData, ok := itemMap["secret_value"].(map[string]interface{}); ok {
 							return &VirtualHostResponseHeadersToAddSecretValueModel{
 								BlindfoldSecretInfo: func() *VirtualHostResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+									if !isImport && len(existingResponseHeadersToAddItems) > listIdx && existingResponseHeadersToAddItems[listIdx].SecretValue != nil && existingResponseHeadersToAddItems[listIdx].SecretValue.BlindfoldSecretInfo != nil {
+										return existingResponseHeadersToAddItems[listIdx].SecretValue.BlindfoldSecretInfo
+									}
 									if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
 											DecryptionProvider: func() types.String {
@@ -11088,6 +11453,9 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 									return nil
 								}(),
 								ClearSecretInfo: func() *VirtualHostResponseHeadersToAddSecretValueClearSecretInfoModel {
+									if !isImport && len(existingResponseHeadersToAddItems) > listIdx && existingResponseHeadersToAddItems[listIdx].SecretValue != nil && existingResponseHeadersToAddItems[listIdx].SecretValue.ClearSecretInfo != nil {
+										return existingResponseHeadersToAddItems[listIdx].SecretValue.ClearSecretInfo
+									}
 									if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 										return &VirtualHostResponseHeadersToAddSecretValueClearSecretInfoModel{
 											Provider: func() types.String {
@@ -11151,12 +11519,18 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				if BackOffData, ok := blockData["back_off"].(map[string]interface{}); ok {
 					return &VirtualHostRetryPolicyBackOffModel{
 						BaseInterval: func() types.Int64 {
+							if !isImport && data.RetryPolicy != nil && data.RetryPolicy.BackOff != nil && !data.RetryPolicy.BackOff.BaseInterval.IsUnknown() {
+								return data.RetryPolicy.BackOff.BaseInterval
+							}
 							if v, ok := BackOffData["base_interval"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxInterval: func() types.Int64 {
+							if !isImport && data.RetryPolicy != nil && data.RetryPolicy.BackOff != nil && !data.RetryPolicy.BackOff.MaxInterval.IsUnknown() {
+								return data.RetryPolicy.BackOff.MaxInterval
+							}
 							if v, ok := BackOffData["max_interval"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -11355,9 +11729,14 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				if !isImport && data.TLSCertParams != nil && (data.TLSCertParams.Certificates.IsNull() || len(data.TLSCertParams.Certificates.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: VirtualHostTLSCertParamsCertificatesModelAttrTypes})
 				}
+				var CertificatesExisting []VirtualHostTLSCertParamsCertificatesModel
+				if !isImport && data.TLSCertParams != nil && !data.TLSCertParams.Certificates.IsNull() && !data.TLSCertParams.Certificates.IsUnknown() {
+					data.TLSCertParams.Certificates.ElementsAs(ctx, &CertificatesExisting, false)
+				}
 				if rawList, ok := blockData["certificates"].([]interface{}); ok && len(rawList) > 0 {
 					var CertificatesResult []VirtualHostTLSCertParamsCertificatesModel
-					for _, CertificatesItem := range rawList {
+					for CertificatesIdx, CertificatesItem := range rawList {
+						_ = CertificatesIdx
 						if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
 							CertificatesResult = append(CertificatesResult, VirtualHostTLSCertParamsCertificatesModel{
 								Kind: func() types.String {
@@ -11454,6 +11833,9 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				if ValidationParamsData, ok := blockData["validation_params"].(map[string]interface{}); ok {
 					return &VirtualHostTLSCertParamsValidationParamsModel{
 						SkipHostnameVerification: func() types.Bool {
+							if !isImport && data.TLSCertParams != nil && data.TLSCertParams.ValidationParams != nil && !data.TLSCertParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+								return data.TLSCertParams.ValidationParams.SkipHostnameVerification
+							}
 							if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
 								return types.BoolValue(v)
 							}
@@ -11463,9 +11845,17 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 							if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
 								return &VirtualHostTLSCertParamsValidationParamsTrustedCAModel{
 									TrustedCAList: func() types.List {
+										if !isImport && data.TLSCertParams != nil && data.TLSCertParams.ValidationParams != nil && data.TLSCertParams.ValidationParams.TrustedCA != nil && (data.TLSCertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.TLSCertParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: VirtualHostTLSCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+										}
+										var TrustedCAListExisting []VirtualHostTLSCertParamsValidationParamsTrustedCATrustedCAListModel
+										if !isImport && data.TLSCertParams != nil && data.TLSCertParams.ValidationParams != nil && data.TLSCertParams.ValidationParams.TrustedCA != nil && !data.TLSCertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSCertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+											data.TLSCertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+										}
 										if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
 											var TrustedCAListResult []VirtualHostTLSCertParamsValidationParamsTrustedCATrustedCAListModel
-											for _, TrustedCAListItem := range rawList {
+											for TrustedCAListIdx, TrustedCAListItem := range rawList {
+												_ = TrustedCAListIdx
 												if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
 													TrustedCAListResult = append(TrustedCAListResult, VirtualHostTLSCertParamsValidationParamsTrustedCATrustedCAListModel{
 														Kind: func() types.String {
@@ -11597,9 +11987,17 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 							return types.StringNull()
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && (data.TLSParameters.CommonParams.TLSCertificates.IsNull() || len(data.TLSParameters.CommonParams.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VirtualHostTLSParametersCommonParamsTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []VirtualHostTLSParametersCommonParamsTLSCertificatesModel
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && !data.TLSParameters.CommonParams.TLSCertificates.IsNull() && !data.TLSParameters.CommonParams.TLSCertificates.IsUnknown() {
+								data.TLSParameters.CommonParams.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := CommonParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []VirtualHostTLSParametersCommonParamsTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, VirtualHostTLSParametersCommonParamsTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -11635,6 +12033,9 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *VirtualHostEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &VirtualHostEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &VirtualHostEmptyModel{}
 												}
@@ -11644,6 +12045,9 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -11669,6 +12073,9 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 															return nil
 														}(),
 														ClearSecretInfo: func() *VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -11692,6 +12099,9 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 												return nil
 											}(),
 											UseSystemDefaults: func() *VirtualHostEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &VirtualHostEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &VirtualHostEmptyModel{}
 												}
@@ -11709,6 +12119,9 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 							if ValidationParamsData, ok := CommonParamsData["validation_params"].(map[string]interface{}); ok {
 								return &VirtualHostTLSParametersCommonParamsValidationParamsModel{
 									SkipHostnameVerification: func() types.Bool {
+										if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && data.TLSParameters.CommonParams.ValidationParams != nil && !data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
+											return data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification
+										}
 										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -11718,9 +12131,17 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
 											return &VirtualHostTLSParametersCommonParamsValidationParamsTrustedCAModel{
 												TrustedCAList: func() types.List {
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && data.TLSParameters.CommonParams.ValidationParams != nil && data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil && (data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: VirtualHostTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+													}
+													var TrustedCAListExisting []VirtualHostTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && data.TLSParameters.CommonParams.ValidationParams != nil && data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+														data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+													}
 													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
 														var TrustedCAListResult []VirtualHostTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
-														for _, TrustedCAListItem := range rawList {
+														for TrustedCAListIdx, TrustedCAListItem := range rawList {
+															_ = TrustedCAListIdx
 															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
 																TrustedCAListResult = append(TrustedCAListResult, VirtualHostTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel{
 																	Kind: func() types.String {
@@ -11875,9 +12296,17 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				if AppFirewallData, ok := blockData["app_firewall"].(map[string]interface{}); ok {
 					return &VirtualHostWAFTypeAppFirewallModel{
 						AppFirewall: func() types.List {
+							if !isImport && data.WAFType != nil && data.WAFType.AppFirewall != nil && (data.WAFType.AppFirewall.AppFirewall.IsNull() || len(data.WAFType.AppFirewall.AppFirewall.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VirtualHostWAFTypeAppFirewallAppFirewallModelAttrTypes})
+							}
+							var AppFirewallExisting []VirtualHostWAFTypeAppFirewallAppFirewallModel
+							if !isImport && data.WAFType != nil && data.WAFType.AppFirewall != nil && !data.WAFType.AppFirewall.AppFirewall.IsNull() && !data.WAFType.AppFirewall.AppFirewall.IsUnknown() {
+								data.WAFType.AppFirewall.AppFirewall.ElementsAs(ctx, &AppFirewallExisting, false)
+							}
 							if rawList, ok := AppFirewallData["app_firewall"].([]interface{}); ok && len(rawList) > 0 {
 								var AppFirewallResult []VirtualHostWAFTypeAppFirewallAppFirewallModel
-								for _, AppFirewallItem := range rawList {
+								for AppFirewallIdx, AppFirewallItem := range rawList {
+									_ = AppFirewallIdx
 									if AppFirewallItemMap, ok := AppFirewallItem.(map[string]interface{}); ok {
 										AppFirewallResult = append(AppFirewallResult, VirtualHostWAFTypeAppFirewallAppFirewallModel{
 											Kind: func() types.String {

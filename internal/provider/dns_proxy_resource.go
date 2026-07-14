@@ -2133,9 +2133,17 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 				if HealthChecksData, ok := blockData["health_checks"].(map[string]interface{}); ok {
 					return &DNSProxyOriginServersHealthChecksModel{
 						HealthCheck: func() types.List {
+							if !isImport && data.OriginServers != nil && data.OriginServers.HealthChecks != nil && (data.OriginServers.HealthChecks.HealthCheck.IsNull() || len(data.OriginServers.HealthChecks.HealthCheck.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersHealthChecksHealthCheckModelAttrTypes})
+							}
+							var HealthCheckExisting []DNSProxyOriginServersHealthChecksHealthCheckModel
+							if !isImport && data.OriginServers != nil && data.OriginServers.HealthChecks != nil && !data.OriginServers.HealthChecks.HealthCheck.IsNull() && !data.OriginServers.HealthChecks.HealthCheck.IsUnknown() {
+								data.OriginServers.HealthChecks.HealthCheck.ElementsAs(ctx, &HealthCheckExisting, false)
+							}
 							if rawList, ok := HealthChecksData["health_check"].([]interface{}); ok && len(rawList) > 0 {
 								var HealthCheckResult []DNSProxyOriginServersHealthChecksHealthCheckModel
-								for _, HealthCheckItem := range rawList {
+								for HealthCheckIdx, HealthCheckItem := range rawList {
+									_ = HealthCheckIdx
 									if HealthCheckItemMap, ok := HealthCheckItem.(map[string]interface{}); ok {
 										HealthCheckResult = append(HealthCheckResult, DNSProxyOriginServersHealthChecksHealthCheckModel{
 											DNSHealthCheck: func() *DNSProxyOriginServersHealthChecksHealthCheckDNSHealthCheckModel {
@@ -2172,6 +2180,9 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 															return types.StringNull()
 														}(),
 														Reverse: func() types.Bool {
+															if !isImport && len(HealthCheckExisting) > HealthCheckIdx && HealthCheckExisting[HealthCheckIdx].DNSHealthCheck != nil && !HealthCheckExisting[HealthCheckIdx].DNSHealthCheck.Reverse.IsUnknown() {
+																return HealthCheckExisting[HealthCheckIdx].DNSHealthCheck.Reverse
+															}
 															if v, ok := DNSHealthCheckData["reverse"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -2182,6 +2193,9 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 												return nil
 											}(),
 											ICMPHealthCheck: func() *DNSProxyEmptyModel {
+												if !isImport && len(HealthCheckExisting) > HealthCheckIdx && HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck != nil {
+													return &DNSProxyEmptyModel{}
+												}
 												if _, ok := HealthCheckItemMap["icmp_health_check"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
@@ -2215,24 +2229,36 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 							return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersHealthChecksHealthCheckModelAttrTypes})
 						}(),
 						HealthyThreshold: func() types.Int64 {
+							if !isImport && data.OriginServers != nil && data.OriginServers.HealthChecks != nil && !data.OriginServers.HealthChecks.HealthyThreshold.IsUnknown() {
+								return data.OriginServers.HealthChecks.HealthyThreshold
+							}
 							if v, ok := HealthChecksData["healthy_threshold"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Interval: func() types.Int64 {
+							if !isImport && data.OriginServers != nil && data.OriginServers.HealthChecks != nil && !data.OriginServers.HealthChecks.Interval.IsUnknown() {
+								return data.OriginServers.HealthChecks.Interval
+							}
 							if v, ok := HealthChecksData["interval"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Timeout: func() types.Int64 {
+							if !isImport && data.OriginServers != nil && data.OriginServers.HealthChecks != nil && !data.OriginServers.HealthChecks.Timeout.IsUnknown() {
+								return data.OriginServers.HealthChecks.Timeout
+							}
 							if v, ok := HealthChecksData["timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						UnhealthyThreshold: func() types.Int64 {
+							if !isImport && data.OriginServers != nil && data.OriginServers.HealthChecks != nil && !data.OriginServers.HealthChecks.UnhealthyThreshold.IsUnknown() {
+								return data.OriginServers.HealthChecks.UnhealthyThreshold
+							}
 							if v, ok := HealthChecksData["unhealthy_threshold"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -2246,21 +2272,32 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 				if !isImport && data.OriginServers != nil && (data.OriginServers.OriginServers.IsNull() || len(data.OriginServers.OriginServers.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersModelAttrTypes})
 				}
+				var OriginServersExisting []DNSProxyOriginServersOriginServersModel
+				if !isImport && data.OriginServers != nil && !data.OriginServers.OriginServers.IsNull() && !data.OriginServers.OriginServers.IsUnknown() {
+					data.OriginServers.OriginServers.ElementsAs(ctx, &OriginServersExisting, false)
+				}
 				if rawList, ok := blockData["origin_servers"].([]interface{}); ok && len(rawList) > 0 {
 					var OriginServersResult []DNSProxyOriginServersOriginServersModel
-					for _, OriginServersItem := range rawList {
+					for OriginServersIdx, OriginServersItem := range rawList {
+						_ = OriginServersIdx
 						if OriginServersItemMap, ok := OriginServersItem.(map[string]interface{}); ok {
 							OriginServersResult = append(OriginServersResult, DNSProxyOriginServersOriginServersModel{
 								K8SService: func() *DNSProxyOriginServersOriginServersK8SServiceModel {
 									if K8SServiceData, ok := OriginServersItemMap["k8s_service"].(map[string]interface{}); ok {
 										return &DNSProxyOriginServersOriginServersK8SServiceModel{
 											InsideNetwork: func() *DNSProxyEmptyModel {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+													return OriginServersExisting[OriginServersIdx].K8SService.InsideNetwork
+												}
 												if _, ok := K8SServiceData["inside_network"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											OutsideNetwork: func() *DNSProxyEmptyModel {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+													return OriginServersExisting[OriginServersIdx].K8SService.OutsideNetwork
+												}
 												if _, ok := K8SServiceData["outside_network"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
@@ -2336,15 +2373,24 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 												return nil
 											}(),
 											SnatPool: func() *DNSProxyOriginServersOriginServersK8SServiceSnatPoolModel {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil {
+													return OriginServersExisting[OriginServersIdx].K8SService.SnatPool
+												}
 												if SnatPoolData, ok := K8SServiceData["snat_pool"].(map[string]interface{}); ok {
 													return &DNSProxyOriginServersOriginServersK8SServiceSnatPoolModel{
 														NoSnatPool: func() *DNSProxyEmptyModel {
+															if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil {
+																return OriginServersExisting[OriginServersIdx].K8SService.SnatPool.NoSnatPool
+															}
 															if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
 																return &DNSProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														SnatPool: func() *DNSProxyOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel {
+															if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool.SnatPool != nil {
+																return OriginServersExisting[OriginServersIdx].K8SService.SnatPool.SnatPool
+															}
 															if SnatPoolData, ok := SnatPoolData["snat_pool"].(map[string]interface{}); ok {
 																return &DNSProxyOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel{
 																	Prefixes: func() types.List {
@@ -2369,6 +2415,9 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 												return nil
 											}(),
 											Vk8sNetworks: func() *DNSProxyEmptyModel {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+													return OriginServersExisting[OriginServersIdx].K8SService.Vk8sNetworks
+												}
 												if _, ok := K8SServiceData["vk8s_networks"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
@@ -2379,6 +2428,9 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 									return nil
 								}(),
 								NoPreference: func() *DNSProxyEmptyModel {
+									if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].NoPreference != nil {
+										return &DNSProxyEmptyModel{}
+									}
 									if _, ok := OriginServersItemMap["no_preference"].(map[string]interface{}); ok {
 										return &DNSProxyEmptyModel{}
 									}
@@ -2407,6 +2459,9 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 												return types.StringNull()
 											}(),
 											RefreshInterval: func() types.Int64 {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PublicName != nil && !OriginServersExisting[OriginServersIdx].PublicName.RefreshInterval.IsUnknown() {
+													return OriginServersExisting[OriginServersIdx].PublicName.RefreshInterval
+												}
 												if v, ok := PublicNameData["refresh_interval"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -2420,9 +2475,17 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 									if SitePreferencesData, ok := OriginServersItemMap["site_preferences"].(map[string]interface{}); ok {
 										return &DNSProxyOriginServersOriginServersSitePreferencesModel{
 											Refs: func() types.List {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].SitePreferences != nil && (OriginServersExisting[OriginServersIdx].SitePreferences.Refs.IsNull() || len(OriginServersExisting[OriginServersIdx].SitePreferences.Refs.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersSitePreferencesRefsModelAttrTypes})
+												}
+												var RefsExisting []DNSProxyOriginServersOriginServersSitePreferencesRefsModel
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].SitePreferences != nil && !OriginServersExisting[OriginServersIdx].SitePreferences.Refs.IsNull() && !OriginServersExisting[OriginServersIdx].SitePreferences.Refs.IsUnknown() {
+													OriginServersExisting[OriginServersIdx].SitePreferences.Refs.ElementsAs(ctx, &RefsExisting, false)
+												}
 												if rawList, ok := SitePreferencesData["refs"].([]interface{}); ok && len(rawList) > 0 {
 													var RefsResult []DNSProxyOriginServersOriginServersSitePreferencesRefsModel
-													for _, RefsItem := range rawList {
+													for RefsIdx, RefsItem := range rawList {
+														_ = RefsIdx
 														if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 															RefsResult = append(RefsResult, DNSProxyOriginServersOriginServersSitePreferencesRefsModel{
 																Name: func() types.String {
@@ -2493,9 +2556,17 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 				if AdvertiseCustomData, ok := blockData["advertise_custom"].(map[string]interface{}); ok {
 					return &DNSProxyProxyAdvertisementAdvertiseCustomModel{
 						AdvertiseWhere: func() types.List {
+							if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseCustom != nil && (data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsNull() || len(data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModelAttrTypes})
+							}
+							var AdvertiseWhereExisting []DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel
+							if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseCustom != nil && !data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsNull() && !data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsUnknown() {
+								data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereExisting, false)
+							}
 							if rawList, ok := AdvertiseCustomData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
 								var AdvertiseWhereResult []DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel
-								for _, AdvertiseWhereItem := range rawList {
+								for AdvertiseWhereIdx, AdvertiseWhereItem := range rawList {
+									_ = AdvertiseWhereIdx
 									if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
 										AdvertiseWhereResult = append(AdvertiseWhereResult, DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel{
 											AdvertiseOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
@@ -2587,6 +2658,9 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 												return nil
 											}(),
 											UseDefaultPort: func() *DNSProxyEmptyModel {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
+													return &DNSProxyEmptyModel{}
+												}
 												if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
@@ -2596,12 +2670,18 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 												if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
 														DefaultV6VIP: func() *DNSProxyEmptyModel {
+															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+																return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP
+															}
 															if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
 																return &DNSProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														DefaultVIP: func() *DNSProxyEmptyModel {
+															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+																return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP
+															}
 															if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
 																return &DNSProxyEmptyModel{}
 															}
@@ -3056,9 +3136,17 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 				if HealthChecksData, ok := blockData["health_checks"].(map[string]interface{}); ok {
 					return &DNSProxyOriginServersHealthChecksModel{
 						HealthCheck: func() types.List {
+							if !isImport && data.OriginServers != nil && data.OriginServers.HealthChecks != nil && (data.OriginServers.HealthChecks.HealthCheck.IsNull() || len(data.OriginServers.HealthChecks.HealthCheck.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersHealthChecksHealthCheckModelAttrTypes})
+							}
+							var HealthCheckExisting []DNSProxyOriginServersHealthChecksHealthCheckModel
+							if !isImport && data.OriginServers != nil && data.OriginServers.HealthChecks != nil && !data.OriginServers.HealthChecks.HealthCheck.IsNull() && !data.OriginServers.HealthChecks.HealthCheck.IsUnknown() {
+								data.OriginServers.HealthChecks.HealthCheck.ElementsAs(ctx, &HealthCheckExisting, false)
+							}
 							if rawList, ok := HealthChecksData["health_check"].([]interface{}); ok && len(rawList) > 0 {
 								var HealthCheckResult []DNSProxyOriginServersHealthChecksHealthCheckModel
-								for _, HealthCheckItem := range rawList {
+								for HealthCheckIdx, HealthCheckItem := range rawList {
+									_ = HealthCheckIdx
 									if HealthCheckItemMap, ok := HealthCheckItem.(map[string]interface{}); ok {
 										HealthCheckResult = append(HealthCheckResult, DNSProxyOriginServersHealthChecksHealthCheckModel{
 											DNSHealthCheck: func() *DNSProxyOriginServersHealthChecksHealthCheckDNSHealthCheckModel {
@@ -3095,6 +3183,9 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 															return types.StringNull()
 														}(),
 														Reverse: func() types.Bool {
+															if !isImport && len(HealthCheckExisting) > HealthCheckIdx && HealthCheckExisting[HealthCheckIdx].DNSHealthCheck != nil && !HealthCheckExisting[HealthCheckIdx].DNSHealthCheck.Reverse.IsUnknown() {
+																return HealthCheckExisting[HealthCheckIdx].DNSHealthCheck.Reverse
+															}
 															if v, ok := DNSHealthCheckData["reverse"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -3105,6 +3196,9 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 												return nil
 											}(),
 											ICMPHealthCheck: func() *DNSProxyEmptyModel {
+												if !isImport && len(HealthCheckExisting) > HealthCheckIdx && HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck != nil {
+													return &DNSProxyEmptyModel{}
+												}
 												if _, ok := HealthCheckItemMap["icmp_health_check"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
@@ -3138,24 +3232,36 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 							return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersHealthChecksHealthCheckModelAttrTypes})
 						}(),
 						HealthyThreshold: func() types.Int64 {
+							if !isImport && data.OriginServers != nil && data.OriginServers.HealthChecks != nil && !data.OriginServers.HealthChecks.HealthyThreshold.IsUnknown() {
+								return data.OriginServers.HealthChecks.HealthyThreshold
+							}
 							if v, ok := HealthChecksData["healthy_threshold"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Interval: func() types.Int64 {
+							if !isImport && data.OriginServers != nil && data.OriginServers.HealthChecks != nil && !data.OriginServers.HealthChecks.Interval.IsUnknown() {
+								return data.OriginServers.HealthChecks.Interval
+							}
 							if v, ok := HealthChecksData["interval"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Timeout: func() types.Int64 {
+							if !isImport && data.OriginServers != nil && data.OriginServers.HealthChecks != nil && !data.OriginServers.HealthChecks.Timeout.IsUnknown() {
+								return data.OriginServers.HealthChecks.Timeout
+							}
 							if v, ok := HealthChecksData["timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						UnhealthyThreshold: func() types.Int64 {
+							if !isImport && data.OriginServers != nil && data.OriginServers.HealthChecks != nil && !data.OriginServers.HealthChecks.UnhealthyThreshold.IsUnknown() {
+								return data.OriginServers.HealthChecks.UnhealthyThreshold
+							}
 							if v, ok := HealthChecksData["unhealthy_threshold"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -3169,21 +3275,32 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 				if !isImport && data.OriginServers != nil && (data.OriginServers.OriginServers.IsNull() || len(data.OriginServers.OriginServers.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersModelAttrTypes})
 				}
+				var OriginServersExisting []DNSProxyOriginServersOriginServersModel
+				if !isImport && data.OriginServers != nil && !data.OriginServers.OriginServers.IsNull() && !data.OriginServers.OriginServers.IsUnknown() {
+					data.OriginServers.OriginServers.ElementsAs(ctx, &OriginServersExisting, false)
+				}
 				if rawList, ok := blockData["origin_servers"].([]interface{}); ok && len(rawList) > 0 {
 					var OriginServersResult []DNSProxyOriginServersOriginServersModel
-					for _, OriginServersItem := range rawList {
+					for OriginServersIdx, OriginServersItem := range rawList {
+						_ = OriginServersIdx
 						if OriginServersItemMap, ok := OriginServersItem.(map[string]interface{}); ok {
 							OriginServersResult = append(OriginServersResult, DNSProxyOriginServersOriginServersModel{
 								K8SService: func() *DNSProxyOriginServersOriginServersK8SServiceModel {
 									if K8SServiceData, ok := OriginServersItemMap["k8s_service"].(map[string]interface{}); ok {
 										return &DNSProxyOriginServersOriginServersK8SServiceModel{
 											InsideNetwork: func() *DNSProxyEmptyModel {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+													return OriginServersExisting[OriginServersIdx].K8SService.InsideNetwork
+												}
 												if _, ok := K8SServiceData["inside_network"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											OutsideNetwork: func() *DNSProxyEmptyModel {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+													return OriginServersExisting[OriginServersIdx].K8SService.OutsideNetwork
+												}
 												if _, ok := K8SServiceData["outside_network"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
@@ -3259,15 +3376,24 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 												return nil
 											}(),
 											SnatPool: func() *DNSProxyOriginServersOriginServersK8SServiceSnatPoolModel {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil {
+													return OriginServersExisting[OriginServersIdx].K8SService.SnatPool
+												}
 												if SnatPoolData, ok := K8SServiceData["snat_pool"].(map[string]interface{}); ok {
 													return &DNSProxyOriginServersOriginServersK8SServiceSnatPoolModel{
 														NoSnatPool: func() *DNSProxyEmptyModel {
+															if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil {
+																return OriginServersExisting[OriginServersIdx].K8SService.SnatPool.NoSnatPool
+															}
 															if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
 																return &DNSProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														SnatPool: func() *DNSProxyOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel {
+															if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool.SnatPool != nil {
+																return OriginServersExisting[OriginServersIdx].K8SService.SnatPool.SnatPool
+															}
 															if SnatPoolData, ok := SnatPoolData["snat_pool"].(map[string]interface{}); ok {
 																return &DNSProxyOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel{
 																	Prefixes: func() types.List {
@@ -3292,6 +3418,9 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 												return nil
 											}(),
 											Vk8sNetworks: func() *DNSProxyEmptyModel {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+													return OriginServersExisting[OriginServersIdx].K8SService.Vk8sNetworks
+												}
 												if _, ok := K8SServiceData["vk8s_networks"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
@@ -3302,6 +3431,9 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 									return nil
 								}(),
 								NoPreference: func() *DNSProxyEmptyModel {
+									if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].NoPreference != nil {
+										return &DNSProxyEmptyModel{}
+									}
 									if _, ok := OriginServersItemMap["no_preference"].(map[string]interface{}); ok {
 										return &DNSProxyEmptyModel{}
 									}
@@ -3330,6 +3462,9 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 												return types.StringNull()
 											}(),
 											RefreshInterval: func() types.Int64 {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PublicName != nil && !OriginServersExisting[OriginServersIdx].PublicName.RefreshInterval.IsUnknown() {
+													return OriginServersExisting[OriginServersIdx].PublicName.RefreshInterval
+												}
 												if v, ok := PublicNameData["refresh_interval"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -3343,9 +3478,17 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 									if SitePreferencesData, ok := OriginServersItemMap["site_preferences"].(map[string]interface{}); ok {
 										return &DNSProxyOriginServersOriginServersSitePreferencesModel{
 											Refs: func() types.List {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].SitePreferences != nil && (OriginServersExisting[OriginServersIdx].SitePreferences.Refs.IsNull() || len(OriginServersExisting[OriginServersIdx].SitePreferences.Refs.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersSitePreferencesRefsModelAttrTypes})
+												}
+												var RefsExisting []DNSProxyOriginServersOriginServersSitePreferencesRefsModel
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].SitePreferences != nil && !OriginServersExisting[OriginServersIdx].SitePreferences.Refs.IsNull() && !OriginServersExisting[OriginServersIdx].SitePreferences.Refs.IsUnknown() {
+													OriginServersExisting[OriginServersIdx].SitePreferences.Refs.ElementsAs(ctx, &RefsExisting, false)
+												}
 												if rawList, ok := SitePreferencesData["refs"].([]interface{}); ok && len(rawList) > 0 {
 													var RefsResult []DNSProxyOriginServersOriginServersSitePreferencesRefsModel
-													for _, RefsItem := range rawList {
+													for RefsIdx, RefsItem := range rawList {
+														_ = RefsIdx
 														if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 															RefsResult = append(RefsResult, DNSProxyOriginServersOriginServersSitePreferencesRefsModel{
 																Name: func() types.String {
@@ -3416,9 +3559,17 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 				if AdvertiseCustomData, ok := blockData["advertise_custom"].(map[string]interface{}); ok {
 					return &DNSProxyProxyAdvertisementAdvertiseCustomModel{
 						AdvertiseWhere: func() types.List {
+							if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseCustom != nil && (data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsNull() || len(data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModelAttrTypes})
+							}
+							var AdvertiseWhereExisting []DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel
+							if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseCustom != nil && !data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsNull() && !data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsUnknown() {
+								data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereExisting, false)
+							}
 							if rawList, ok := AdvertiseCustomData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
 								var AdvertiseWhereResult []DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel
-								for _, AdvertiseWhereItem := range rawList {
+								for AdvertiseWhereIdx, AdvertiseWhereItem := range rawList {
+									_ = AdvertiseWhereIdx
 									if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
 										AdvertiseWhereResult = append(AdvertiseWhereResult, DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel{
 											AdvertiseOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
@@ -3510,6 +3661,9 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 												return nil
 											}(),
 											UseDefaultPort: func() *DNSProxyEmptyModel {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
+													return &DNSProxyEmptyModel{}
+												}
 												if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
@@ -3519,12 +3673,18 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 												if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
 														DefaultV6VIP: func() *DNSProxyEmptyModel {
+															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+																return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP
+															}
 															if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
 																return &DNSProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														DefaultVIP: func() *DNSProxyEmptyModel {
+															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+																return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP
+															}
 															if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
 																return &DNSProxyEmptyModel{}
 															}
@@ -4423,9 +4583,17 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 				if HealthChecksData, ok := blockData["health_checks"].(map[string]interface{}); ok {
 					return &DNSProxyOriginServersHealthChecksModel{
 						HealthCheck: func() types.List {
+							if !isImport && data.OriginServers != nil && data.OriginServers.HealthChecks != nil && (data.OriginServers.HealthChecks.HealthCheck.IsNull() || len(data.OriginServers.HealthChecks.HealthCheck.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersHealthChecksHealthCheckModelAttrTypes})
+							}
+							var HealthCheckExisting []DNSProxyOriginServersHealthChecksHealthCheckModel
+							if !isImport && data.OriginServers != nil && data.OriginServers.HealthChecks != nil && !data.OriginServers.HealthChecks.HealthCheck.IsNull() && !data.OriginServers.HealthChecks.HealthCheck.IsUnknown() {
+								data.OriginServers.HealthChecks.HealthCheck.ElementsAs(ctx, &HealthCheckExisting, false)
+							}
 							if rawList, ok := HealthChecksData["health_check"].([]interface{}); ok && len(rawList) > 0 {
 								var HealthCheckResult []DNSProxyOriginServersHealthChecksHealthCheckModel
-								for _, HealthCheckItem := range rawList {
+								for HealthCheckIdx, HealthCheckItem := range rawList {
+									_ = HealthCheckIdx
 									if HealthCheckItemMap, ok := HealthCheckItem.(map[string]interface{}); ok {
 										HealthCheckResult = append(HealthCheckResult, DNSProxyOriginServersHealthChecksHealthCheckModel{
 											DNSHealthCheck: func() *DNSProxyOriginServersHealthChecksHealthCheckDNSHealthCheckModel {
@@ -4462,6 +4630,9 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 															return types.StringNull()
 														}(),
 														Reverse: func() types.Bool {
+															if !isImport && len(HealthCheckExisting) > HealthCheckIdx && HealthCheckExisting[HealthCheckIdx].DNSHealthCheck != nil && !HealthCheckExisting[HealthCheckIdx].DNSHealthCheck.Reverse.IsUnknown() {
+																return HealthCheckExisting[HealthCheckIdx].DNSHealthCheck.Reverse
+															}
 															if v, ok := DNSHealthCheckData["reverse"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -4472,6 +4643,9 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 												return nil
 											}(),
 											ICMPHealthCheck: func() *DNSProxyEmptyModel {
+												if !isImport && len(HealthCheckExisting) > HealthCheckIdx && HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck != nil {
+													return &DNSProxyEmptyModel{}
+												}
 												if _, ok := HealthCheckItemMap["icmp_health_check"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
@@ -4505,24 +4679,36 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 							return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersHealthChecksHealthCheckModelAttrTypes})
 						}(),
 						HealthyThreshold: func() types.Int64 {
+							if !isImport && data.OriginServers != nil && data.OriginServers.HealthChecks != nil && !data.OriginServers.HealthChecks.HealthyThreshold.IsUnknown() {
+								return data.OriginServers.HealthChecks.HealthyThreshold
+							}
 							if v, ok := HealthChecksData["healthy_threshold"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Interval: func() types.Int64 {
+							if !isImport && data.OriginServers != nil && data.OriginServers.HealthChecks != nil && !data.OriginServers.HealthChecks.Interval.IsUnknown() {
+								return data.OriginServers.HealthChecks.Interval
+							}
 							if v, ok := HealthChecksData["interval"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Timeout: func() types.Int64 {
+							if !isImport && data.OriginServers != nil && data.OriginServers.HealthChecks != nil && !data.OriginServers.HealthChecks.Timeout.IsUnknown() {
+								return data.OriginServers.HealthChecks.Timeout
+							}
 							if v, ok := HealthChecksData["timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						UnhealthyThreshold: func() types.Int64 {
+							if !isImport && data.OriginServers != nil && data.OriginServers.HealthChecks != nil && !data.OriginServers.HealthChecks.UnhealthyThreshold.IsUnknown() {
+								return data.OriginServers.HealthChecks.UnhealthyThreshold
+							}
 							if v, ok := HealthChecksData["unhealthy_threshold"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -4536,21 +4722,32 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 				if !isImport && data.OriginServers != nil && (data.OriginServers.OriginServers.IsNull() || len(data.OriginServers.OriginServers.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersModelAttrTypes})
 				}
+				var OriginServersExisting []DNSProxyOriginServersOriginServersModel
+				if !isImport && data.OriginServers != nil && !data.OriginServers.OriginServers.IsNull() && !data.OriginServers.OriginServers.IsUnknown() {
+					data.OriginServers.OriginServers.ElementsAs(ctx, &OriginServersExisting, false)
+				}
 				if rawList, ok := blockData["origin_servers"].([]interface{}); ok && len(rawList) > 0 {
 					var OriginServersResult []DNSProxyOriginServersOriginServersModel
-					for _, OriginServersItem := range rawList {
+					for OriginServersIdx, OriginServersItem := range rawList {
+						_ = OriginServersIdx
 						if OriginServersItemMap, ok := OriginServersItem.(map[string]interface{}); ok {
 							OriginServersResult = append(OriginServersResult, DNSProxyOriginServersOriginServersModel{
 								K8SService: func() *DNSProxyOriginServersOriginServersK8SServiceModel {
 									if K8SServiceData, ok := OriginServersItemMap["k8s_service"].(map[string]interface{}); ok {
 										return &DNSProxyOriginServersOriginServersK8SServiceModel{
 											InsideNetwork: func() *DNSProxyEmptyModel {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+													return OriginServersExisting[OriginServersIdx].K8SService.InsideNetwork
+												}
 												if _, ok := K8SServiceData["inside_network"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
 												return nil
 											}(),
 											OutsideNetwork: func() *DNSProxyEmptyModel {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+													return OriginServersExisting[OriginServersIdx].K8SService.OutsideNetwork
+												}
 												if _, ok := K8SServiceData["outside_network"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
@@ -4626,15 +4823,24 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 												return nil
 											}(),
 											SnatPool: func() *DNSProxyOriginServersOriginServersK8SServiceSnatPoolModel {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil {
+													return OriginServersExisting[OriginServersIdx].K8SService.SnatPool
+												}
 												if SnatPoolData, ok := K8SServiceData["snat_pool"].(map[string]interface{}); ok {
 													return &DNSProxyOriginServersOriginServersK8SServiceSnatPoolModel{
 														NoSnatPool: func() *DNSProxyEmptyModel {
+															if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil {
+																return OriginServersExisting[OriginServersIdx].K8SService.SnatPool.NoSnatPool
+															}
 															if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
 																return &DNSProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														SnatPool: func() *DNSProxyOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel {
+															if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool.SnatPool != nil {
+																return OriginServersExisting[OriginServersIdx].K8SService.SnatPool.SnatPool
+															}
 															if SnatPoolData, ok := SnatPoolData["snat_pool"].(map[string]interface{}); ok {
 																return &DNSProxyOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel{
 																	Prefixes: func() types.List {
@@ -4659,6 +4865,9 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 												return nil
 											}(),
 											Vk8sNetworks: func() *DNSProxyEmptyModel {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+													return OriginServersExisting[OriginServersIdx].K8SService.Vk8sNetworks
+												}
 												if _, ok := K8SServiceData["vk8s_networks"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
@@ -4669,6 +4878,9 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 									return nil
 								}(),
 								NoPreference: func() *DNSProxyEmptyModel {
+									if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].NoPreference != nil {
+										return &DNSProxyEmptyModel{}
+									}
 									if _, ok := OriginServersItemMap["no_preference"].(map[string]interface{}); ok {
 										return &DNSProxyEmptyModel{}
 									}
@@ -4697,6 +4909,9 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 												return types.StringNull()
 											}(),
 											RefreshInterval: func() types.Int64 {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PublicName != nil && !OriginServersExisting[OriginServersIdx].PublicName.RefreshInterval.IsUnknown() {
+													return OriginServersExisting[OriginServersIdx].PublicName.RefreshInterval
+												}
 												if v, ok := PublicNameData["refresh_interval"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -4710,9 +4925,17 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 									if SitePreferencesData, ok := OriginServersItemMap["site_preferences"].(map[string]interface{}); ok {
 										return &DNSProxyOriginServersOriginServersSitePreferencesModel{
 											Refs: func() types.List {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].SitePreferences != nil && (OriginServersExisting[OriginServersIdx].SitePreferences.Refs.IsNull() || len(OriginServersExisting[OriginServersIdx].SitePreferences.Refs.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersSitePreferencesRefsModelAttrTypes})
+												}
+												var RefsExisting []DNSProxyOriginServersOriginServersSitePreferencesRefsModel
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].SitePreferences != nil && !OriginServersExisting[OriginServersIdx].SitePreferences.Refs.IsNull() && !OriginServersExisting[OriginServersIdx].SitePreferences.Refs.IsUnknown() {
+													OriginServersExisting[OriginServersIdx].SitePreferences.Refs.ElementsAs(ctx, &RefsExisting, false)
+												}
 												if rawList, ok := SitePreferencesData["refs"].([]interface{}); ok && len(rawList) > 0 {
 													var RefsResult []DNSProxyOriginServersOriginServersSitePreferencesRefsModel
-													for _, RefsItem := range rawList {
+													for RefsIdx, RefsItem := range rawList {
+														_ = RefsIdx
 														if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
 															RefsResult = append(RefsResult, DNSProxyOriginServersOriginServersSitePreferencesRefsModel{
 																Name: func() types.String {
@@ -4783,9 +5006,17 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 				if AdvertiseCustomData, ok := blockData["advertise_custom"].(map[string]interface{}); ok {
 					return &DNSProxyProxyAdvertisementAdvertiseCustomModel{
 						AdvertiseWhere: func() types.List {
+							if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseCustom != nil && (data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsNull() || len(data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModelAttrTypes})
+							}
+							var AdvertiseWhereExisting []DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel
+							if !isImport && data.ProxyAdvertisement != nil && data.ProxyAdvertisement.AdvertiseCustom != nil && !data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsNull() && !data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsUnknown() {
+								data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereExisting, false)
+							}
 							if rawList, ok := AdvertiseCustomData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
 								var AdvertiseWhereResult []DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel
-								for _, AdvertiseWhereItem := range rawList {
+								for AdvertiseWhereIdx, AdvertiseWhereItem := range rawList {
+									_ = AdvertiseWhereIdx
 									if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
 										AdvertiseWhereResult = append(AdvertiseWhereResult, DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel{
 											AdvertiseOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
@@ -4877,6 +5108,9 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 												return nil
 											}(),
 											UseDefaultPort: func() *DNSProxyEmptyModel {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
+													return &DNSProxyEmptyModel{}
+												}
 												if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
 												}
@@ -4886,12 +5120,18 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 												if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
 														DefaultV6VIP: func() *DNSProxyEmptyModel {
+															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+																return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP
+															}
 															if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
 																return &DNSProxyEmptyModel{}
 															}
 															return nil
 														}(),
 														DefaultVIP: func() *DNSProxyEmptyModel {
+															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+																return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP
+															}
 															if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
 																return &DNSProxyEmptyModel{}
 															}

@@ -2795,9 +2795,14 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if !isImport && data.ActiveServicePolicies != nil && (data.ActiveServicePolicies.Policies.IsNull() || len(data.ActiveServicePolicies.Policies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerActiveServicePoliciesPoliciesModelAttrTypes})
 				}
+				var PoliciesExisting []TCPLoadBalancerActiveServicePoliciesPoliciesModel
+				if !isImport && data.ActiveServicePolicies != nil && !data.ActiveServicePolicies.Policies.IsNull() && !data.ActiveServicePolicies.Policies.IsUnknown() {
+					data.ActiveServicePolicies.Policies.ElementsAs(ctx, &PoliciesExisting, false)
+				}
 				if rawList, ok := blockData["policies"].([]interface{}); ok && len(rawList) > 0 {
 					var PoliciesResult []TCPLoadBalancerActiveServicePoliciesPoliciesModel
-					for _, PoliciesItem := range rawList {
+					for PoliciesIdx, PoliciesItem := range rawList {
+						_ = PoliciesIdx
 						if PoliciesItemMap, ok := PoliciesItem.(map[string]interface{}); ok {
 							PoliciesResult = append(PoliciesResult, TCPLoadBalancerActiveServicePoliciesPoliciesModel{
 								Name: func() types.String {
@@ -2834,9 +2839,14 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if !isImport && data.AdvertiseCustom != nil && (data.AdvertiseCustom.AdvertiseWhere.IsNull() || len(data.AdvertiseCustom.AdvertiseWhere.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes})
 				}
+				var AdvertiseWhereExisting []TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel
+				if !isImport && data.AdvertiseCustom != nil && !data.AdvertiseCustom.AdvertiseWhere.IsNull() && !data.AdvertiseCustom.AdvertiseWhere.IsUnknown() {
+					data.AdvertiseCustom.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereExisting, false)
+				}
 				if rawList, ok := blockData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
 					var AdvertiseWhereResult []TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel
-					for _, AdvertiseWhereItem := range rawList {
+					for AdvertiseWhereIdx, AdvertiseWhereItem := range rawList {
+						_ = AdvertiseWhereIdx
 						if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
 							AdvertiseWhereResult = append(AdvertiseWhereResult, TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel{
 								AdvertiseOnPublic: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
@@ -2928,6 +2938,9 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									return nil
 								}(),
 								UseDefaultPort: func() *TCPLoadBalancerEmptyModel {
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
+										return &TCPLoadBalancerEmptyModel{}
+									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerEmptyModel{}
 									}
@@ -2937,12 +2950,18 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
 											DefaultV6VIP: func() *TCPLoadBalancerEmptyModel {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP
+												}
 												if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											DefaultVIP: func() *TCPLoadBalancerEmptyModel {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP
+												}
 												if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}
 												}
@@ -3309,9 +3328,17 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if TLSCertParamsData, ok := blockData["tls_cert_params"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPTLSCertParamsModel{
 						Certificates: func() types.List {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && (data.TLSTCP.TLSCertParams.Certificates.IsNull() || len(data.TLSTCP.TLSCertParams.Certificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModelAttrTypes})
+							}
+							var CertificatesExisting []TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModel
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && !data.TLSTCP.TLSCertParams.Certificates.IsNull() && !data.TLSTCP.TLSCertParams.Certificates.IsUnknown() {
+								data.TLSTCP.TLSCertParams.Certificates.ElementsAs(ctx, &CertificatesExisting, false)
+							}
 							if rawList, ok := TLSCertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var CertificatesResult []TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModel
-								for _, CertificatesItem := range rawList {
+								for CertificatesIdx, CertificatesItem := range rawList {
+									_ = CertificatesIdx
 									if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
 										CertificatesResult = append(CertificatesResult, TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModel{
 											Name: func() types.String {
@@ -3341,15 +3368,24 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModelAttrTypes})
 						}(),
 						NoMtls: func() *TCPLoadBalancerEmptyModel {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil {
+								return data.TLSTCP.TLSCertParams.NoMtls
+							}
 							if _, ok := TLSCertParamsData["no_mtls"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSConfig: func() *TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModel {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
+								return data.TLSTCP.TLSCertParams.TLSConfig
+							}
 							if TLSConfigData, ok := TLSCertParamsData["tls_config"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModel{
 									CustomSecurity: func() *TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigCustomSecurityModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil && data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity != nil {
+											return data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -3382,18 +3418,27 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										return nil
 									}(),
 									DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
+											return data.TLSTCP.TLSCertParams.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
+											return data.TLSTCP.TLSCertParams.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
+											return data.TLSTCP.TLSCertParams.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
@@ -3407,6 +3452,9 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							if UseMtlsData, ok := TLSCertParamsData["use_mtls"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil && !data.TLSTCP.TLSCertParams.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.TLSTCP.TLSCertParams.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -3438,6 +3486,9 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										return nil
 									}(),
 									NoCRL: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil {
+											return data.TLSTCP.TLSCertParams.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
@@ -3475,12 +3526,18 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil {
+											return data.TLSTCP.TLSCertParams.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsXfccOptionsModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil && data.TLSTCP.TLSCertParams.UseMtls.XfccOptions != nil {
+											return data.TLSTCP.TLSCertParams.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -3512,15 +3569,26 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if TLSParametersData, ok := blockData["tls_parameters"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPTLSParametersModel{
 						NoMtls: func() *TCPLoadBalancerEmptyModel {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil {
+								return data.TLSTCP.TLSParameters.NoMtls
+							}
 							if _, ok := TLSParametersData["no_mtls"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && (data.TLSTCP.TLSParameters.TLSCertificates.IsNull() || len(data.TLSTCP.TLSParameters.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModel
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && !data.TLSTCP.TLSParameters.TLSCertificates.IsNull() && !data.TLSTCP.TLSParameters.TLSCertificates.IsUnknown() {
+								data.TLSTCP.TLSParameters.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := TLSParametersData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -3556,6 +3624,9 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *TCPLoadBalancerEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &TCPLoadBalancerEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}
 												}
@@ -3565,6 +3636,9 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -3590,6 +3664,9 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														ClearSecretInfo: func() *TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -3613,6 +3690,9 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return nil
 											}(),
 											UseSystemDefaults: func() *TCPLoadBalancerEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &TCPLoadBalancerEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}
 												}
@@ -3627,9 +3707,15 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *TCPLoadBalancerTLSTCPTLSParametersTLSConfigModel {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil {
+								return data.TLSTCP.TLSParameters.TLSConfig
+							}
 							if TLSConfigData, ok := TLSParametersData["tls_config"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerTLSTCPTLSParametersTLSConfigModel{
 									CustomSecurity: func() *TCPLoadBalancerTLSTCPTLSParametersTLSConfigCustomSecurityModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil && data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity != nil {
+											return data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerTLSTCPTLSParametersTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -3662,18 +3748,27 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										return nil
 									}(),
 									DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil {
+											return data.TLSTCP.TLSParameters.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil {
+											return data.TLSTCP.TLSParameters.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil {
+											return data.TLSTCP.TLSParameters.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
@@ -3687,6 +3782,9 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							if UseMtlsData, ok := TLSParametersData["use_mtls"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerTLSTCPTLSParametersUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil && !data.TLSTCP.TLSParameters.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.TLSTCP.TLSParameters.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -3718,6 +3816,9 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										return nil
 									}(),
 									NoCRL: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil {
+											return data.TLSTCP.TLSParameters.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
@@ -3755,12 +3856,18 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil {
+											return data.TLSTCP.TLSParameters.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *TCPLoadBalancerTLSTCPTLSParametersUseMtlsXfccOptionsModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil && data.TLSTCP.TLSParameters.UseMtls.XfccOptions != nil {
+											return data.TLSTCP.TLSParameters.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerTLSTCPTLSParametersUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -3808,6 +3915,9 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if TLSConfigData, ok := blockData["tls_config"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPAutoCertTLSConfigModel{
 						CustomSecurity: func() *TCPLoadBalancerTLSTCPAutoCertTLSConfigCustomSecurityModel {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil && data.TLSTCPAutoCert.TLSConfig.CustomSecurity != nil {
+								return data.TLSTCPAutoCert.TLSConfig.CustomSecurity
+							}
 							if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerTLSTCPAutoCertTLSConfigCustomSecurityModel{
 									CipherSuites: func() types.List {
@@ -3840,18 +3950,27 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return nil
 						}(),
 						DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
+								return data.TLSTCPAutoCert.TLSConfig.DefaultSecurity
+							}
 							if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						LowSecurity: func() *TCPLoadBalancerEmptyModel {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
+								return data.TLSTCPAutoCert.TLSConfig.LowSecurity
+							}
 							if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						MediumSecurity: func() *TCPLoadBalancerEmptyModel {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
+								return data.TLSTCPAutoCert.TLSConfig.MediumSecurity
+							}
 							if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerEmptyModel{}
 							}
@@ -3865,6 +3984,9 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if UseMtlsData, ok := blockData["use_mtls"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPAutoCertUseMtlsModel{
 						ClientCertificateOptional: func() types.Bool {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil && !data.TLSTCPAutoCert.UseMtls.ClientCertificateOptional.IsUnknown() {
+								return data.TLSTCPAutoCert.UseMtls.ClientCertificateOptional
+							}
 							if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 								return types.BoolValue(v)
 							}
@@ -3896,6 +4018,9 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return nil
 						}(),
 						NoCRL: func() *TCPLoadBalancerEmptyModel {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil {
+								return data.TLSTCPAutoCert.UseMtls.NoCRL
+							}
 							if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerEmptyModel{}
 							}
@@ -3933,12 +4058,18 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return types.StringNull()
 						}(),
 						XfccDisabled: func() *TCPLoadBalancerEmptyModel {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil {
+								return data.TLSTCPAutoCert.UseMtls.XfccDisabled
+							}
 							if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						XfccOptions: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsXfccOptionsModel {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil && data.TLSTCPAutoCert.UseMtls.XfccOptions != nil {
+								return data.TLSTCPAutoCert.UseMtls.XfccOptions
+							}
 							if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerTLSTCPAutoCertUseMtlsXfccOptionsModel{
 									XfccHeaderElements: func() types.List {
@@ -4094,9 +4225,14 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if !isImport && data.ActiveServicePolicies != nil && (data.ActiveServicePolicies.Policies.IsNull() || len(data.ActiveServicePolicies.Policies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerActiveServicePoliciesPoliciesModelAttrTypes})
 				}
+				var PoliciesExisting []TCPLoadBalancerActiveServicePoliciesPoliciesModel
+				if !isImport && data.ActiveServicePolicies != nil && !data.ActiveServicePolicies.Policies.IsNull() && !data.ActiveServicePolicies.Policies.IsUnknown() {
+					data.ActiveServicePolicies.Policies.ElementsAs(ctx, &PoliciesExisting, false)
+				}
 				if rawList, ok := blockData["policies"].([]interface{}); ok && len(rawList) > 0 {
 					var PoliciesResult []TCPLoadBalancerActiveServicePoliciesPoliciesModel
-					for _, PoliciesItem := range rawList {
+					for PoliciesIdx, PoliciesItem := range rawList {
+						_ = PoliciesIdx
 						if PoliciesItemMap, ok := PoliciesItem.(map[string]interface{}); ok {
 							PoliciesResult = append(PoliciesResult, TCPLoadBalancerActiveServicePoliciesPoliciesModel{
 								Name: func() types.String {
@@ -4133,9 +4269,14 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if !isImport && data.AdvertiseCustom != nil && (data.AdvertiseCustom.AdvertiseWhere.IsNull() || len(data.AdvertiseCustom.AdvertiseWhere.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes})
 				}
+				var AdvertiseWhereExisting []TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel
+				if !isImport && data.AdvertiseCustom != nil && !data.AdvertiseCustom.AdvertiseWhere.IsNull() && !data.AdvertiseCustom.AdvertiseWhere.IsUnknown() {
+					data.AdvertiseCustom.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereExisting, false)
+				}
 				if rawList, ok := blockData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
 					var AdvertiseWhereResult []TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel
-					for _, AdvertiseWhereItem := range rawList {
+					for AdvertiseWhereIdx, AdvertiseWhereItem := range rawList {
+						_ = AdvertiseWhereIdx
 						if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
 							AdvertiseWhereResult = append(AdvertiseWhereResult, TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel{
 								AdvertiseOnPublic: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
@@ -4227,6 +4368,9 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 									return nil
 								}(),
 								UseDefaultPort: func() *TCPLoadBalancerEmptyModel {
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
+										return &TCPLoadBalancerEmptyModel{}
+									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerEmptyModel{}
 									}
@@ -4236,12 +4380,18 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 									if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
 											DefaultV6VIP: func() *TCPLoadBalancerEmptyModel {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP
+												}
 												if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											DefaultVIP: func() *TCPLoadBalancerEmptyModel {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP
+												}
 												if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}
 												}
@@ -4608,9 +4758,17 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if TLSCertParamsData, ok := blockData["tls_cert_params"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPTLSCertParamsModel{
 						Certificates: func() types.List {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && (data.TLSTCP.TLSCertParams.Certificates.IsNull() || len(data.TLSTCP.TLSCertParams.Certificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModelAttrTypes})
+							}
+							var CertificatesExisting []TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModel
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && !data.TLSTCP.TLSCertParams.Certificates.IsNull() && !data.TLSTCP.TLSCertParams.Certificates.IsUnknown() {
+								data.TLSTCP.TLSCertParams.Certificates.ElementsAs(ctx, &CertificatesExisting, false)
+							}
 							if rawList, ok := TLSCertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var CertificatesResult []TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModel
-								for _, CertificatesItem := range rawList {
+								for CertificatesIdx, CertificatesItem := range rawList {
+									_ = CertificatesIdx
 									if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
 										CertificatesResult = append(CertificatesResult, TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModel{
 											Name: func() types.String {
@@ -4640,15 +4798,24 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModelAttrTypes})
 						}(),
 						NoMtls: func() *TCPLoadBalancerEmptyModel {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil {
+								return data.TLSTCP.TLSCertParams.NoMtls
+							}
 							if _, ok := TLSCertParamsData["no_mtls"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSConfig: func() *TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModel {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
+								return data.TLSTCP.TLSCertParams.TLSConfig
+							}
 							if TLSConfigData, ok := TLSCertParamsData["tls_config"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModel{
 									CustomSecurity: func() *TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigCustomSecurityModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil && data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity != nil {
+											return data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -4681,18 +4848,27 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										return nil
 									}(),
 									DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
+											return data.TLSTCP.TLSCertParams.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
+											return data.TLSTCP.TLSCertParams.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
+											return data.TLSTCP.TLSCertParams.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
@@ -4706,6 +4882,9 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							if UseMtlsData, ok := TLSCertParamsData["use_mtls"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil && !data.TLSTCP.TLSCertParams.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.TLSTCP.TLSCertParams.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -4737,6 +4916,9 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										return nil
 									}(),
 									NoCRL: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil {
+											return data.TLSTCP.TLSCertParams.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
@@ -4774,12 +4956,18 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil {
+											return data.TLSTCP.TLSCertParams.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsXfccOptionsModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil && data.TLSTCP.TLSCertParams.UseMtls.XfccOptions != nil {
+											return data.TLSTCP.TLSCertParams.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -4811,15 +4999,26 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if TLSParametersData, ok := blockData["tls_parameters"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPTLSParametersModel{
 						NoMtls: func() *TCPLoadBalancerEmptyModel {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil {
+								return data.TLSTCP.TLSParameters.NoMtls
+							}
 							if _, ok := TLSParametersData["no_mtls"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && (data.TLSTCP.TLSParameters.TLSCertificates.IsNull() || len(data.TLSTCP.TLSParameters.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModel
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && !data.TLSTCP.TLSParameters.TLSCertificates.IsNull() && !data.TLSTCP.TLSParameters.TLSCertificates.IsUnknown() {
+								data.TLSTCP.TLSParameters.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := TLSParametersData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -4855,6 +5054,9 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *TCPLoadBalancerEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &TCPLoadBalancerEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}
 												}
@@ -4864,6 +5066,9 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -4889,6 +5094,9 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														ClearSecretInfo: func() *TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -4912,6 +5120,9 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return nil
 											}(),
 											UseSystemDefaults: func() *TCPLoadBalancerEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &TCPLoadBalancerEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}
 												}
@@ -4926,9 +5137,15 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *TCPLoadBalancerTLSTCPTLSParametersTLSConfigModel {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil {
+								return data.TLSTCP.TLSParameters.TLSConfig
+							}
 							if TLSConfigData, ok := TLSParametersData["tls_config"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerTLSTCPTLSParametersTLSConfigModel{
 									CustomSecurity: func() *TCPLoadBalancerTLSTCPTLSParametersTLSConfigCustomSecurityModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil && data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity != nil {
+											return data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerTLSTCPTLSParametersTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -4961,18 +5178,27 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										return nil
 									}(),
 									DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil {
+											return data.TLSTCP.TLSParameters.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil {
+											return data.TLSTCP.TLSParameters.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil {
+											return data.TLSTCP.TLSParameters.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
@@ -4986,6 +5212,9 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							if UseMtlsData, ok := TLSParametersData["use_mtls"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerTLSTCPTLSParametersUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil && !data.TLSTCP.TLSParameters.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.TLSTCP.TLSParameters.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -5017,6 +5246,9 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										return nil
 									}(),
 									NoCRL: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil {
+											return data.TLSTCP.TLSParameters.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
@@ -5054,12 +5286,18 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil {
+											return data.TLSTCP.TLSParameters.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *TCPLoadBalancerTLSTCPTLSParametersUseMtlsXfccOptionsModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil && data.TLSTCP.TLSParameters.UseMtls.XfccOptions != nil {
+											return data.TLSTCP.TLSParameters.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerTLSTCPTLSParametersUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -5107,6 +5345,9 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if TLSConfigData, ok := blockData["tls_config"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPAutoCertTLSConfigModel{
 						CustomSecurity: func() *TCPLoadBalancerTLSTCPAutoCertTLSConfigCustomSecurityModel {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil && data.TLSTCPAutoCert.TLSConfig.CustomSecurity != nil {
+								return data.TLSTCPAutoCert.TLSConfig.CustomSecurity
+							}
 							if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerTLSTCPAutoCertTLSConfigCustomSecurityModel{
 									CipherSuites: func() types.List {
@@ -5139,18 +5380,27 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return nil
 						}(),
 						DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
+								return data.TLSTCPAutoCert.TLSConfig.DefaultSecurity
+							}
 							if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						LowSecurity: func() *TCPLoadBalancerEmptyModel {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
+								return data.TLSTCPAutoCert.TLSConfig.LowSecurity
+							}
 							if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						MediumSecurity: func() *TCPLoadBalancerEmptyModel {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
+								return data.TLSTCPAutoCert.TLSConfig.MediumSecurity
+							}
 							if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerEmptyModel{}
 							}
@@ -5164,6 +5414,9 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if UseMtlsData, ok := blockData["use_mtls"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPAutoCertUseMtlsModel{
 						ClientCertificateOptional: func() types.Bool {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil && !data.TLSTCPAutoCert.UseMtls.ClientCertificateOptional.IsUnknown() {
+								return data.TLSTCPAutoCert.UseMtls.ClientCertificateOptional
+							}
 							if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 								return types.BoolValue(v)
 							}
@@ -5195,6 +5448,9 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return nil
 						}(),
 						NoCRL: func() *TCPLoadBalancerEmptyModel {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil {
+								return data.TLSTCPAutoCert.UseMtls.NoCRL
+							}
 							if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerEmptyModel{}
 							}
@@ -5232,12 +5488,18 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return types.StringNull()
 						}(),
 						XfccDisabled: func() *TCPLoadBalancerEmptyModel {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil {
+								return data.TLSTCPAutoCert.UseMtls.XfccDisabled
+							}
 							if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						XfccOptions: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsXfccOptionsModel {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil && data.TLSTCPAutoCert.UseMtls.XfccOptions != nil {
+								return data.TLSTCPAutoCert.UseMtls.XfccOptions
+							}
 							if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerTLSTCPAutoCertUseMtlsXfccOptionsModel{
 									XfccHeaderElements: func() types.List {
@@ -6090,9 +6352,14 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if !isImport && data.ActiveServicePolicies != nil && (data.ActiveServicePolicies.Policies.IsNull() || len(data.ActiveServicePolicies.Policies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerActiveServicePoliciesPoliciesModelAttrTypes})
 				}
+				var PoliciesExisting []TCPLoadBalancerActiveServicePoliciesPoliciesModel
+				if !isImport && data.ActiveServicePolicies != nil && !data.ActiveServicePolicies.Policies.IsNull() && !data.ActiveServicePolicies.Policies.IsUnknown() {
+					data.ActiveServicePolicies.Policies.ElementsAs(ctx, &PoliciesExisting, false)
+				}
 				if rawList, ok := blockData["policies"].([]interface{}); ok && len(rawList) > 0 {
 					var PoliciesResult []TCPLoadBalancerActiveServicePoliciesPoliciesModel
-					for _, PoliciesItem := range rawList {
+					for PoliciesIdx, PoliciesItem := range rawList {
+						_ = PoliciesIdx
 						if PoliciesItemMap, ok := PoliciesItem.(map[string]interface{}); ok {
 							PoliciesResult = append(PoliciesResult, TCPLoadBalancerActiveServicePoliciesPoliciesModel{
 								Name: func() types.String {
@@ -6129,9 +6396,14 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if !isImport && data.AdvertiseCustom != nil && (data.AdvertiseCustom.AdvertiseWhere.IsNull() || len(data.AdvertiseCustom.AdvertiseWhere.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes})
 				}
+				var AdvertiseWhereExisting []TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel
+				if !isImport && data.AdvertiseCustom != nil && !data.AdvertiseCustom.AdvertiseWhere.IsNull() && !data.AdvertiseCustom.AdvertiseWhere.IsUnknown() {
+					data.AdvertiseCustom.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereExisting, false)
+				}
 				if rawList, ok := blockData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
 					var AdvertiseWhereResult []TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel
-					for _, AdvertiseWhereItem := range rawList {
+					for AdvertiseWhereIdx, AdvertiseWhereItem := range rawList {
+						_ = AdvertiseWhereIdx
 						if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
 							AdvertiseWhereResult = append(AdvertiseWhereResult, TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel{
 								AdvertiseOnPublic: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
@@ -6223,6 +6495,9 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									return nil
 								}(),
 								UseDefaultPort: func() *TCPLoadBalancerEmptyModel {
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
+										return &TCPLoadBalancerEmptyModel{}
+									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerEmptyModel{}
 									}
@@ -6232,12 +6507,18 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
 											DefaultV6VIP: func() *TCPLoadBalancerEmptyModel {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP
+												}
 												if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											DefaultVIP: func() *TCPLoadBalancerEmptyModel {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP
+												}
 												if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}
 												}
@@ -6604,9 +6885,17 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if TLSCertParamsData, ok := blockData["tls_cert_params"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPTLSCertParamsModel{
 						Certificates: func() types.List {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && (data.TLSTCP.TLSCertParams.Certificates.IsNull() || len(data.TLSTCP.TLSCertParams.Certificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModelAttrTypes})
+							}
+							var CertificatesExisting []TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModel
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && !data.TLSTCP.TLSCertParams.Certificates.IsNull() && !data.TLSTCP.TLSCertParams.Certificates.IsUnknown() {
+								data.TLSTCP.TLSCertParams.Certificates.ElementsAs(ctx, &CertificatesExisting, false)
+							}
 							if rawList, ok := TLSCertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var CertificatesResult []TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModel
-								for _, CertificatesItem := range rawList {
+								for CertificatesIdx, CertificatesItem := range rawList {
+									_ = CertificatesIdx
 									if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
 										CertificatesResult = append(CertificatesResult, TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModel{
 											Name: func() types.String {
@@ -6636,15 +6925,24 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModelAttrTypes})
 						}(),
 						NoMtls: func() *TCPLoadBalancerEmptyModel {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil {
+								return data.TLSTCP.TLSCertParams.NoMtls
+							}
 							if _, ok := TLSCertParamsData["no_mtls"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSConfig: func() *TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModel {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
+								return data.TLSTCP.TLSCertParams.TLSConfig
+							}
 							if TLSConfigData, ok := TLSCertParamsData["tls_config"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModel{
 									CustomSecurity: func() *TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigCustomSecurityModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil && data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity != nil {
+											return data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -6677,18 +6975,27 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										return nil
 									}(),
 									DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
+											return data.TLSTCP.TLSCertParams.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
+											return data.TLSTCP.TLSCertParams.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
+											return data.TLSTCP.TLSCertParams.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
@@ -6702,6 +7009,9 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							if UseMtlsData, ok := TLSCertParamsData["use_mtls"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil && !data.TLSTCP.TLSCertParams.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.TLSTCP.TLSCertParams.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -6733,6 +7043,9 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										return nil
 									}(),
 									NoCRL: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil {
+											return data.TLSTCP.TLSCertParams.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
@@ -6770,12 +7083,18 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil {
+											return data.TLSTCP.TLSCertParams.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsXfccOptionsModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil && data.TLSTCP.TLSCertParams.UseMtls.XfccOptions != nil {
+											return data.TLSTCP.TLSCertParams.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -6807,15 +7126,26 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if TLSParametersData, ok := blockData["tls_parameters"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPTLSParametersModel{
 						NoMtls: func() *TCPLoadBalancerEmptyModel {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil {
+								return data.TLSTCP.TLSParameters.NoMtls
+							}
 							if _, ok := TLSParametersData["no_mtls"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && (data.TLSTCP.TLSParameters.TLSCertificates.IsNull() || len(data.TLSTCP.TLSParameters.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModel
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && !data.TLSTCP.TLSParameters.TLSCertificates.IsNull() && !data.TLSTCP.TLSParameters.TLSCertificates.IsUnknown() {
+								data.TLSTCP.TLSParameters.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := TLSParametersData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -6851,6 +7181,9 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *TCPLoadBalancerEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &TCPLoadBalancerEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}
 												}
@@ -6860,6 +7193,9 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -6885,6 +7221,9 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														ClearSecretInfo: func() *TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -6908,6 +7247,9 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return nil
 											}(),
 											UseSystemDefaults: func() *TCPLoadBalancerEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &TCPLoadBalancerEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}
 												}
@@ -6922,9 +7264,15 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *TCPLoadBalancerTLSTCPTLSParametersTLSConfigModel {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil {
+								return data.TLSTCP.TLSParameters.TLSConfig
+							}
 							if TLSConfigData, ok := TLSParametersData["tls_config"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerTLSTCPTLSParametersTLSConfigModel{
 									CustomSecurity: func() *TCPLoadBalancerTLSTCPTLSParametersTLSConfigCustomSecurityModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil && data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity != nil {
+											return data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerTLSTCPTLSParametersTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -6957,18 +7305,27 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										return nil
 									}(),
 									DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil {
+											return data.TLSTCP.TLSParameters.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil {
+											return data.TLSTCP.TLSParameters.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil {
+											return data.TLSTCP.TLSParameters.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
@@ -6982,6 +7339,9 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							if UseMtlsData, ok := TLSParametersData["use_mtls"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerTLSTCPTLSParametersUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil && !data.TLSTCP.TLSParameters.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.TLSTCP.TLSParameters.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -7013,6 +7373,9 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										return nil
 									}(),
 									NoCRL: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil {
+											return data.TLSTCP.TLSParameters.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
@@ -7050,12 +7413,18 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *TCPLoadBalancerEmptyModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil {
+											return data.TLSTCP.TLSParameters.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *TCPLoadBalancerTLSTCPTLSParametersUseMtlsXfccOptionsModel {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil && data.TLSTCP.TLSParameters.UseMtls.XfccOptions != nil {
+											return data.TLSTCP.TLSParameters.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &TCPLoadBalancerTLSTCPTLSParametersUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -7103,6 +7472,9 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if TLSConfigData, ok := blockData["tls_config"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPAutoCertTLSConfigModel{
 						CustomSecurity: func() *TCPLoadBalancerTLSTCPAutoCertTLSConfigCustomSecurityModel {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil && data.TLSTCPAutoCert.TLSConfig.CustomSecurity != nil {
+								return data.TLSTCPAutoCert.TLSConfig.CustomSecurity
+							}
 							if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerTLSTCPAutoCertTLSConfigCustomSecurityModel{
 									CipherSuites: func() types.List {
@@ -7135,18 +7507,27 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return nil
 						}(),
 						DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
+								return data.TLSTCPAutoCert.TLSConfig.DefaultSecurity
+							}
 							if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						LowSecurity: func() *TCPLoadBalancerEmptyModel {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
+								return data.TLSTCPAutoCert.TLSConfig.LowSecurity
+							}
 							if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						MediumSecurity: func() *TCPLoadBalancerEmptyModel {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
+								return data.TLSTCPAutoCert.TLSConfig.MediumSecurity
+							}
 							if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerEmptyModel{}
 							}
@@ -7160,6 +7541,9 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if UseMtlsData, ok := blockData["use_mtls"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPAutoCertUseMtlsModel{
 						ClientCertificateOptional: func() types.Bool {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil && !data.TLSTCPAutoCert.UseMtls.ClientCertificateOptional.IsUnknown() {
+								return data.TLSTCPAutoCert.UseMtls.ClientCertificateOptional
+							}
 							if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 								return types.BoolValue(v)
 							}
@@ -7191,6 +7575,9 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return nil
 						}(),
 						NoCRL: func() *TCPLoadBalancerEmptyModel {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil {
+								return data.TLSTCPAutoCert.UseMtls.NoCRL
+							}
 							if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerEmptyModel{}
 							}
@@ -7228,12 +7615,18 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return types.StringNull()
 						}(),
 						XfccDisabled: func() *TCPLoadBalancerEmptyModel {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil {
+								return data.TLSTCPAutoCert.UseMtls.XfccDisabled
+							}
 							if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						XfccOptions: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsXfccOptionsModel {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil && data.TLSTCPAutoCert.UseMtls.XfccOptions != nil {
+								return data.TLSTCPAutoCert.UseMtls.XfccOptions
+							}
 							if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 								return &TCPLoadBalancerTLSTCPAutoCertUseMtlsXfccOptionsModel{
 									XfccHeaderElements: func() types.List {

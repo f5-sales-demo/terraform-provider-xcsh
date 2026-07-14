@@ -2901,9 +2901,14 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if !isImport && data.AsnMatcher != nil && (data.AsnMatcher.AsnSets.IsNull() || len(data.AsnMatcher.AsnSets.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleAsnMatcherAsnSetsModelAttrTypes})
 				}
+				var AsnSetsExisting []ServicePolicyRuleAsnMatcherAsnSetsModel
+				if !isImport && data.AsnMatcher != nil && !data.AsnMatcher.AsnSets.IsNull() && !data.AsnMatcher.AsnSets.IsUnknown() {
+					data.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+				}
 				if rawList, ok := blockData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 					var AsnSetsResult []ServicePolicyRuleAsnMatcherAsnSetsModel
-					for _, AsnSetsItem := range rawList {
+					for AsnSetsIdx, AsnSetsItem := range rawList {
+						_ = AsnSetsIdx
 						if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 							AsnSetsResult = append(AsnSetsResult, ServicePolicyRuleAsnMatcherAsnSetsModel{
 								Kind: func() types.String {
@@ -3327,9 +3332,14 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if !isImport && data.IPMatcher != nil && (data.IPMatcher.PrefixSets.IsNull() || len(data.IPMatcher.PrefixSets.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleIPMatcherPrefixSetsModelAttrTypes})
 				}
+				var PrefixSetsExisting []ServicePolicyRuleIPMatcherPrefixSetsModel
+				if !isImport && data.IPMatcher != nil && !data.IPMatcher.PrefixSets.IsNull() && !data.IPMatcher.PrefixSets.IsUnknown() {
+					data.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+				}
 				if rawList, ok := blockData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 					var PrefixSetsResult []ServicePolicyRuleIPMatcherPrefixSetsModel
-					for _, PrefixSetsItem := range rawList {
+					for PrefixSetsIdx, PrefixSetsItem := range rawList {
+						_ = PrefixSetsIdx
 						if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 							PrefixSetsResult = append(PrefixSetsResult, ServicePolicyRuleIPMatcherPrefixSetsModel{
 								Kind: func() types.String {
@@ -4000,9 +4010,17 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if DstSegmentsData, ok := blockData["dst_segments"].(map[string]interface{}); ok {
 					return &ServicePolicyRuleSegmentPolicyDstSegmentsModel{
 						Segments: func() types.List {
+							if !isImport && data.SegmentPolicy != nil && data.SegmentPolicy.DstSegments != nil && (data.SegmentPolicy.DstSegments.Segments.IsNull() || len(data.SegmentPolicy.DstSegments.Segments.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleSegmentPolicyDstSegmentsSegmentsModelAttrTypes})
+							}
+							var SegmentsExisting []ServicePolicyRuleSegmentPolicyDstSegmentsSegmentsModel
+							if !isImport && data.SegmentPolicy != nil && data.SegmentPolicy.DstSegments != nil && !data.SegmentPolicy.DstSegments.Segments.IsNull() && !data.SegmentPolicy.DstSegments.Segments.IsUnknown() {
+								data.SegmentPolicy.DstSegments.Segments.ElementsAs(ctx, &SegmentsExisting, false)
+							}
 							if rawList, ok := DstSegmentsData["segments"].([]interface{}); ok && len(rawList) > 0 {
 								var SegmentsResult []ServicePolicyRuleSegmentPolicyDstSegmentsSegmentsModel
-								for _, SegmentsItem := range rawList {
+								for SegmentsIdx, SegmentsItem := range rawList {
+									_ = SegmentsIdx
 									if SegmentsItemMap, ok := SegmentsItem.(map[string]interface{}); ok {
 										SegmentsResult = append(SegmentsResult, ServicePolicyRuleSegmentPolicyDstSegmentsSegmentsModel{
 											Name: func() types.String {
@@ -4057,9 +4075,17 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if SrcSegmentsData, ok := blockData["src_segments"].(map[string]interface{}); ok {
 					return &ServicePolicyRuleSegmentPolicySrcSegmentsModel{
 						Segments: func() types.List {
+							if !isImport && data.SegmentPolicy != nil && data.SegmentPolicy.SrcSegments != nil && (data.SegmentPolicy.SrcSegments.Segments.IsNull() || len(data.SegmentPolicy.SrcSegments.Segments.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleSegmentPolicySrcSegmentsSegmentsModelAttrTypes})
+							}
+							var SegmentsExisting []ServicePolicyRuleSegmentPolicySrcSegmentsSegmentsModel
+							if !isImport && data.SegmentPolicy != nil && data.SegmentPolicy.SrcSegments != nil && !data.SegmentPolicy.SrcSegments.Segments.IsNull() && !data.SegmentPolicy.SrcSegments.Segments.IsUnknown() {
+								data.SegmentPolicy.SrcSegments.Segments.ElementsAs(ctx, &SegmentsExisting, false)
+							}
 							if rawList, ok := SrcSegmentsData["segments"].([]interface{}); ok && len(rawList) > 0 {
 								var SegmentsResult []ServicePolicyRuleSegmentPolicySrcSegmentsSegmentsModel
-								for _, SegmentsItem := range rawList {
+								for SegmentsIdx, SegmentsItem := range rawList {
+									_ = SegmentsIdx
 									if SegmentsItemMap, ok := SegmentsItem.(map[string]interface{}); ok {
 										SegmentsResult = append(SegmentsResult, ServicePolicyRuleSegmentPolicySrcSegmentsSegmentsModel{
 											Name: func() types.String {
@@ -4146,9 +4172,17 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if AppFirewallDetectionControlData, ok := blockData["app_firewall_detection_control"].(map[string]interface{}); ok {
 					return &ServicePolicyRuleWAFActionAppFirewallDetectionControlModel{
 						ExcludeAttackTypeContexts: func() types.List {
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && (data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() || len(data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
+							}
+							var ExcludeAttackTypeContextsExisting []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && !data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() && !data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsUnknown() {
+								data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.ElementsAs(ctx, &ExcludeAttackTypeContextsExisting, false)
+							}
 							if rawList, ok := AppFirewallDetectionControlData["exclude_attack_type_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeAttackTypeContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
-								for _, ExcludeAttackTypeContextsItem := range rawList {
+								for ExcludeAttackTypeContextsIdx, ExcludeAttackTypeContextsItem := range rawList {
+									_ = ExcludeAttackTypeContextsIdx
 									if ExcludeAttackTypeContextsItemMap, ok := ExcludeAttackTypeContextsItem.(map[string]interface{}); ok {
 										ExcludeAttackTypeContextsResult = append(ExcludeAttackTypeContextsResult, ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel{
 											Context: func() types.String {
@@ -4178,9 +4212,17 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
 						}(),
 						ExcludeBotNameContexts: func() types.List {
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && (data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() || len(data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
+							}
+							var ExcludeBotNameContextsExisting []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && !data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() && !data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsUnknown() {
+								data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.ElementsAs(ctx, &ExcludeBotNameContextsExisting, false)
+							}
 							if rawList, ok := AppFirewallDetectionControlData["exclude_bot_name_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeBotNameContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
-								for _, ExcludeBotNameContextsItem := range rawList {
+								for ExcludeBotNameContextsIdx, ExcludeBotNameContextsItem := range rawList {
+									_ = ExcludeBotNameContextsIdx
 									if ExcludeBotNameContextsItemMap, ok := ExcludeBotNameContextsItem.(map[string]interface{}); ok {
 										ExcludeBotNameContextsResult = append(ExcludeBotNameContextsResult, ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel{
 											BotName: func() types.String {
@@ -4198,9 +4240,17 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
 						}(),
 						ExcludeSignatureContexts: func() types.List {
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && (data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() || len(data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
+							}
+							var ExcludeSignatureContextsExisting []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && !data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() && !data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsUnknown() {
+								data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.ElementsAs(ctx, &ExcludeSignatureContextsExisting, false)
+							}
 							if rawList, ok := AppFirewallDetectionControlData["exclude_signature_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeSignatureContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
-								for _, ExcludeSignatureContextsItem := range rawList {
+								for ExcludeSignatureContextsIdx, ExcludeSignatureContextsItem := range rawList {
+									_ = ExcludeSignatureContextsIdx
 									if ExcludeSignatureContextsItemMap, ok := ExcludeSignatureContextsItem.(map[string]interface{}); ok {
 										ExcludeSignatureContextsResult = append(ExcludeSignatureContextsResult, ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel{
 											Context: func() types.String {
@@ -4230,9 +4280,17 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
 						}(),
 						ExcludeViolationContexts: func() types.List {
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && (data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() || len(data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes})
+							}
+							var ExcludeViolationContextsExisting []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && !data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() && !data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsUnknown() {
+								data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.ElementsAs(ctx, &ExcludeViolationContextsExisting, false)
+							}
 							if rawList, ok := AppFirewallDetectionControlData["exclude_violation_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeViolationContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
-								for _, ExcludeViolationContextsItem := range rawList {
+								for ExcludeViolationContextsIdx, ExcludeViolationContextsItem := range rawList {
+									_ = ExcludeViolationContextsIdx
 									if ExcludeViolationContextsItemMap, ok := ExcludeViolationContextsItem.(map[string]interface{}); ok {
 										ExcludeViolationContextsResult = append(ExcludeViolationContextsResult, ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModel{
 											Context: func() types.String {
@@ -4576,9 +4634,14 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if !isImport && data.AsnMatcher != nil && (data.AsnMatcher.AsnSets.IsNull() || len(data.AsnMatcher.AsnSets.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleAsnMatcherAsnSetsModelAttrTypes})
 				}
+				var AsnSetsExisting []ServicePolicyRuleAsnMatcherAsnSetsModel
+				if !isImport && data.AsnMatcher != nil && !data.AsnMatcher.AsnSets.IsNull() && !data.AsnMatcher.AsnSets.IsUnknown() {
+					data.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+				}
 				if rawList, ok := blockData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 					var AsnSetsResult []ServicePolicyRuleAsnMatcherAsnSetsModel
-					for _, AsnSetsItem := range rawList {
+					for AsnSetsIdx, AsnSetsItem := range rawList {
+						_ = AsnSetsIdx
 						if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 							AsnSetsResult = append(AsnSetsResult, ServicePolicyRuleAsnMatcherAsnSetsModel{
 								Kind: func() types.String {
@@ -5002,9 +5065,14 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if !isImport && data.IPMatcher != nil && (data.IPMatcher.PrefixSets.IsNull() || len(data.IPMatcher.PrefixSets.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleIPMatcherPrefixSetsModelAttrTypes})
 				}
+				var PrefixSetsExisting []ServicePolicyRuleIPMatcherPrefixSetsModel
+				if !isImport && data.IPMatcher != nil && !data.IPMatcher.PrefixSets.IsNull() && !data.IPMatcher.PrefixSets.IsUnknown() {
+					data.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+				}
 				if rawList, ok := blockData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 					var PrefixSetsResult []ServicePolicyRuleIPMatcherPrefixSetsModel
-					for _, PrefixSetsItem := range rawList {
+					for PrefixSetsIdx, PrefixSetsItem := range rawList {
+						_ = PrefixSetsIdx
 						if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 							PrefixSetsResult = append(PrefixSetsResult, ServicePolicyRuleIPMatcherPrefixSetsModel{
 								Kind: func() types.String {
@@ -5675,9 +5743,17 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if DstSegmentsData, ok := blockData["dst_segments"].(map[string]interface{}); ok {
 					return &ServicePolicyRuleSegmentPolicyDstSegmentsModel{
 						Segments: func() types.List {
+							if !isImport && data.SegmentPolicy != nil && data.SegmentPolicy.DstSegments != nil && (data.SegmentPolicy.DstSegments.Segments.IsNull() || len(data.SegmentPolicy.DstSegments.Segments.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleSegmentPolicyDstSegmentsSegmentsModelAttrTypes})
+							}
+							var SegmentsExisting []ServicePolicyRuleSegmentPolicyDstSegmentsSegmentsModel
+							if !isImport && data.SegmentPolicy != nil && data.SegmentPolicy.DstSegments != nil && !data.SegmentPolicy.DstSegments.Segments.IsNull() && !data.SegmentPolicy.DstSegments.Segments.IsUnknown() {
+								data.SegmentPolicy.DstSegments.Segments.ElementsAs(ctx, &SegmentsExisting, false)
+							}
 							if rawList, ok := DstSegmentsData["segments"].([]interface{}); ok && len(rawList) > 0 {
 								var SegmentsResult []ServicePolicyRuleSegmentPolicyDstSegmentsSegmentsModel
-								for _, SegmentsItem := range rawList {
+								for SegmentsIdx, SegmentsItem := range rawList {
+									_ = SegmentsIdx
 									if SegmentsItemMap, ok := SegmentsItem.(map[string]interface{}); ok {
 										SegmentsResult = append(SegmentsResult, ServicePolicyRuleSegmentPolicyDstSegmentsSegmentsModel{
 											Name: func() types.String {
@@ -5732,9 +5808,17 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if SrcSegmentsData, ok := blockData["src_segments"].(map[string]interface{}); ok {
 					return &ServicePolicyRuleSegmentPolicySrcSegmentsModel{
 						Segments: func() types.List {
+							if !isImport && data.SegmentPolicy != nil && data.SegmentPolicy.SrcSegments != nil && (data.SegmentPolicy.SrcSegments.Segments.IsNull() || len(data.SegmentPolicy.SrcSegments.Segments.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleSegmentPolicySrcSegmentsSegmentsModelAttrTypes})
+							}
+							var SegmentsExisting []ServicePolicyRuleSegmentPolicySrcSegmentsSegmentsModel
+							if !isImport && data.SegmentPolicy != nil && data.SegmentPolicy.SrcSegments != nil && !data.SegmentPolicy.SrcSegments.Segments.IsNull() && !data.SegmentPolicy.SrcSegments.Segments.IsUnknown() {
+								data.SegmentPolicy.SrcSegments.Segments.ElementsAs(ctx, &SegmentsExisting, false)
+							}
 							if rawList, ok := SrcSegmentsData["segments"].([]interface{}); ok && len(rawList) > 0 {
 								var SegmentsResult []ServicePolicyRuleSegmentPolicySrcSegmentsSegmentsModel
-								for _, SegmentsItem := range rawList {
+								for SegmentsIdx, SegmentsItem := range rawList {
+									_ = SegmentsIdx
 									if SegmentsItemMap, ok := SegmentsItem.(map[string]interface{}); ok {
 										SegmentsResult = append(SegmentsResult, ServicePolicyRuleSegmentPolicySrcSegmentsSegmentsModel{
 											Name: func() types.String {
@@ -5821,9 +5905,17 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if AppFirewallDetectionControlData, ok := blockData["app_firewall_detection_control"].(map[string]interface{}); ok {
 					return &ServicePolicyRuleWAFActionAppFirewallDetectionControlModel{
 						ExcludeAttackTypeContexts: func() types.List {
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && (data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() || len(data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
+							}
+							var ExcludeAttackTypeContextsExisting []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && !data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() && !data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsUnknown() {
+								data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.ElementsAs(ctx, &ExcludeAttackTypeContextsExisting, false)
+							}
 							if rawList, ok := AppFirewallDetectionControlData["exclude_attack_type_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeAttackTypeContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
-								for _, ExcludeAttackTypeContextsItem := range rawList {
+								for ExcludeAttackTypeContextsIdx, ExcludeAttackTypeContextsItem := range rawList {
+									_ = ExcludeAttackTypeContextsIdx
 									if ExcludeAttackTypeContextsItemMap, ok := ExcludeAttackTypeContextsItem.(map[string]interface{}); ok {
 										ExcludeAttackTypeContextsResult = append(ExcludeAttackTypeContextsResult, ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel{
 											Context: func() types.String {
@@ -5853,9 +5945,17 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
 						}(),
 						ExcludeBotNameContexts: func() types.List {
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && (data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() || len(data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
+							}
+							var ExcludeBotNameContextsExisting []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && !data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() && !data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsUnknown() {
+								data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.ElementsAs(ctx, &ExcludeBotNameContextsExisting, false)
+							}
 							if rawList, ok := AppFirewallDetectionControlData["exclude_bot_name_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeBotNameContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
-								for _, ExcludeBotNameContextsItem := range rawList {
+								for ExcludeBotNameContextsIdx, ExcludeBotNameContextsItem := range rawList {
+									_ = ExcludeBotNameContextsIdx
 									if ExcludeBotNameContextsItemMap, ok := ExcludeBotNameContextsItem.(map[string]interface{}); ok {
 										ExcludeBotNameContextsResult = append(ExcludeBotNameContextsResult, ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel{
 											BotName: func() types.String {
@@ -5873,9 +5973,17 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
 						}(),
 						ExcludeSignatureContexts: func() types.List {
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && (data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() || len(data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
+							}
+							var ExcludeSignatureContextsExisting []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && !data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() && !data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsUnknown() {
+								data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.ElementsAs(ctx, &ExcludeSignatureContextsExisting, false)
+							}
 							if rawList, ok := AppFirewallDetectionControlData["exclude_signature_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeSignatureContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
-								for _, ExcludeSignatureContextsItem := range rawList {
+								for ExcludeSignatureContextsIdx, ExcludeSignatureContextsItem := range rawList {
+									_ = ExcludeSignatureContextsIdx
 									if ExcludeSignatureContextsItemMap, ok := ExcludeSignatureContextsItem.(map[string]interface{}); ok {
 										ExcludeSignatureContextsResult = append(ExcludeSignatureContextsResult, ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel{
 											Context: func() types.String {
@@ -5905,9 +6013,17 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
 						}(),
 						ExcludeViolationContexts: func() types.List {
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && (data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() || len(data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes})
+							}
+							var ExcludeViolationContextsExisting []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && !data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() && !data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsUnknown() {
+								data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.ElementsAs(ctx, &ExcludeViolationContextsExisting, false)
+							}
 							if rawList, ok := AppFirewallDetectionControlData["exclude_violation_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeViolationContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
-								for _, ExcludeViolationContextsItem := range rawList {
+								for ExcludeViolationContextsIdx, ExcludeViolationContextsItem := range rawList {
+									_ = ExcludeViolationContextsIdx
 									if ExcludeViolationContextsItemMap, ok := ExcludeViolationContextsItem.(map[string]interface{}); ok {
 										ExcludeViolationContextsResult = append(ExcludeViolationContextsResult, ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModel{
 											Context: func() types.String {
@@ -7099,9 +7215,14 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if !isImport && data.AsnMatcher != nil && (data.AsnMatcher.AsnSets.IsNull() || len(data.AsnMatcher.AsnSets.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleAsnMatcherAsnSetsModelAttrTypes})
 				}
+				var AsnSetsExisting []ServicePolicyRuleAsnMatcherAsnSetsModel
+				if !isImport && data.AsnMatcher != nil && !data.AsnMatcher.AsnSets.IsNull() && !data.AsnMatcher.AsnSets.IsUnknown() {
+					data.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+				}
 				if rawList, ok := blockData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 					var AsnSetsResult []ServicePolicyRuleAsnMatcherAsnSetsModel
-					for _, AsnSetsItem := range rawList {
+					for AsnSetsIdx, AsnSetsItem := range rawList {
+						_ = AsnSetsIdx
 						if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 							AsnSetsResult = append(AsnSetsResult, ServicePolicyRuleAsnMatcherAsnSetsModel{
 								Kind: func() types.String {
@@ -7525,9 +7646,14 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if !isImport && data.IPMatcher != nil && (data.IPMatcher.PrefixSets.IsNull() || len(data.IPMatcher.PrefixSets.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleIPMatcherPrefixSetsModelAttrTypes})
 				}
+				var PrefixSetsExisting []ServicePolicyRuleIPMatcherPrefixSetsModel
+				if !isImport && data.IPMatcher != nil && !data.IPMatcher.PrefixSets.IsNull() && !data.IPMatcher.PrefixSets.IsUnknown() {
+					data.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+				}
 				if rawList, ok := blockData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 					var PrefixSetsResult []ServicePolicyRuleIPMatcherPrefixSetsModel
-					for _, PrefixSetsItem := range rawList {
+					for PrefixSetsIdx, PrefixSetsItem := range rawList {
+						_ = PrefixSetsIdx
 						if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 							PrefixSetsResult = append(PrefixSetsResult, ServicePolicyRuleIPMatcherPrefixSetsModel{
 								Kind: func() types.String {
@@ -8198,9 +8324,17 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if DstSegmentsData, ok := blockData["dst_segments"].(map[string]interface{}); ok {
 					return &ServicePolicyRuleSegmentPolicyDstSegmentsModel{
 						Segments: func() types.List {
+							if !isImport && data.SegmentPolicy != nil && data.SegmentPolicy.DstSegments != nil && (data.SegmentPolicy.DstSegments.Segments.IsNull() || len(data.SegmentPolicy.DstSegments.Segments.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleSegmentPolicyDstSegmentsSegmentsModelAttrTypes})
+							}
+							var SegmentsExisting []ServicePolicyRuleSegmentPolicyDstSegmentsSegmentsModel
+							if !isImport && data.SegmentPolicy != nil && data.SegmentPolicy.DstSegments != nil && !data.SegmentPolicy.DstSegments.Segments.IsNull() && !data.SegmentPolicy.DstSegments.Segments.IsUnknown() {
+								data.SegmentPolicy.DstSegments.Segments.ElementsAs(ctx, &SegmentsExisting, false)
+							}
 							if rawList, ok := DstSegmentsData["segments"].([]interface{}); ok && len(rawList) > 0 {
 								var SegmentsResult []ServicePolicyRuleSegmentPolicyDstSegmentsSegmentsModel
-								for _, SegmentsItem := range rawList {
+								for SegmentsIdx, SegmentsItem := range rawList {
+									_ = SegmentsIdx
 									if SegmentsItemMap, ok := SegmentsItem.(map[string]interface{}); ok {
 										SegmentsResult = append(SegmentsResult, ServicePolicyRuleSegmentPolicyDstSegmentsSegmentsModel{
 											Name: func() types.String {
@@ -8255,9 +8389,17 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if SrcSegmentsData, ok := blockData["src_segments"].(map[string]interface{}); ok {
 					return &ServicePolicyRuleSegmentPolicySrcSegmentsModel{
 						Segments: func() types.List {
+							if !isImport && data.SegmentPolicy != nil && data.SegmentPolicy.SrcSegments != nil && (data.SegmentPolicy.SrcSegments.Segments.IsNull() || len(data.SegmentPolicy.SrcSegments.Segments.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleSegmentPolicySrcSegmentsSegmentsModelAttrTypes})
+							}
+							var SegmentsExisting []ServicePolicyRuleSegmentPolicySrcSegmentsSegmentsModel
+							if !isImport && data.SegmentPolicy != nil && data.SegmentPolicy.SrcSegments != nil && !data.SegmentPolicy.SrcSegments.Segments.IsNull() && !data.SegmentPolicy.SrcSegments.Segments.IsUnknown() {
+								data.SegmentPolicy.SrcSegments.Segments.ElementsAs(ctx, &SegmentsExisting, false)
+							}
 							if rawList, ok := SrcSegmentsData["segments"].([]interface{}); ok && len(rawList) > 0 {
 								var SegmentsResult []ServicePolicyRuleSegmentPolicySrcSegmentsSegmentsModel
-								for _, SegmentsItem := range rawList {
+								for SegmentsIdx, SegmentsItem := range rawList {
+									_ = SegmentsIdx
 									if SegmentsItemMap, ok := SegmentsItem.(map[string]interface{}); ok {
 										SegmentsResult = append(SegmentsResult, ServicePolicyRuleSegmentPolicySrcSegmentsSegmentsModel{
 											Name: func() types.String {
@@ -8344,9 +8486,17 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if AppFirewallDetectionControlData, ok := blockData["app_firewall_detection_control"].(map[string]interface{}); ok {
 					return &ServicePolicyRuleWAFActionAppFirewallDetectionControlModel{
 						ExcludeAttackTypeContexts: func() types.List {
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && (data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() || len(data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
+							}
+							var ExcludeAttackTypeContextsExisting []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && !data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() && !data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsUnknown() {
+								data.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.ElementsAs(ctx, &ExcludeAttackTypeContextsExisting, false)
+							}
 							if rawList, ok := AppFirewallDetectionControlData["exclude_attack_type_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeAttackTypeContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
-								for _, ExcludeAttackTypeContextsItem := range rawList {
+								for ExcludeAttackTypeContextsIdx, ExcludeAttackTypeContextsItem := range rawList {
+									_ = ExcludeAttackTypeContextsIdx
 									if ExcludeAttackTypeContextsItemMap, ok := ExcludeAttackTypeContextsItem.(map[string]interface{}); ok {
 										ExcludeAttackTypeContextsResult = append(ExcludeAttackTypeContextsResult, ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel{
 											Context: func() types.String {
@@ -8376,9 +8526,17 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
 						}(),
 						ExcludeBotNameContexts: func() types.List {
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && (data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() || len(data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
+							}
+							var ExcludeBotNameContextsExisting []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && !data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() && !data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsUnknown() {
+								data.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.ElementsAs(ctx, &ExcludeBotNameContextsExisting, false)
+							}
 							if rawList, ok := AppFirewallDetectionControlData["exclude_bot_name_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeBotNameContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
-								for _, ExcludeBotNameContextsItem := range rawList {
+								for ExcludeBotNameContextsIdx, ExcludeBotNameContextsItem := range rawList {
+									_ = ExcludeBotNameContextsIdx
 									if ExcludeBotNameContextsItemMap, ok := ExcludeBotNameContextsItem.(map[string]interface{}); ok {
 										ExcludeBotNameContextsResult = append(ExcludeBotNameContextsResult, ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel{
 											BotName: func() types.String {
@@ -8396,9 +8554,17 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
 						}(),
 						ExcludeSignatureContexts: func() types.List {
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && (data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() || len(data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
+							}
+							var ExcludeSignatureContextsExisting []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && !data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() && !data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsUnknown() {
+								data.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.ElementsAs(ctx, &ExcludeSignatureContextsExisting, false)
+							}
 							if rawList, ok := AppFirewallDetectionControlData["exclude_signature_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeSignatureContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
-								for _, ExcludeSignatureContextsItem := range rawList {
+								for ExcludeSignatureContextsIdx, ExcludeSignatureContextsItem := range rawList {
+									_ = ExcludeSignatureContextsIdx
 									if ExcludeSignatureContextsItemMap, ok := ExcludeSignatureContextsItem.(map[string]interface{}); ok {
 										ExcludeSignatureContextsResult = append(ExcludeSignatureContextsResult, ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel{
 											Context: func() types.String {
@@ -8428,9 +8594,17 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
 						}(),
 						ExcludeViolationContexts: func() types.List {
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && (data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() || len(data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes})
+							}
+							var ExcludeViolationContextsExisting []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
+							if !isImport && data.WAFAction != nil && data.WAFAction.AppFirewallDetectionControl != nil && !data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() && !data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsUnknown() {
+								data.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.ElementsAs(ctx, &ExcludeViolationContextsExisting, false)
+							}
 							if rawList, ok := AppFirewallDetectionControlData["exclude_violation_contexts"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeViolationContextsResult []ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
-								for _, ExcludeViolationContextsItem := range rawList {
+								for ExcludeViolationContextsIdx, ExcludeViolationContextsItem := range rawList {
+									_ = ExcludeViolationContextsIdx
 									if ExcludeViolationContextsItemMap, ok := ExcludeViolationContextsItem.(map[string]interface{}); ok {
 										ExcludeViolationContextsResult = append(ExcludeViolationContextsResult, ServicePolicyRuleWAFActionAppFirewallDetectionControlExcludeViolationContextsModel{
 											Context: func() types.String {
