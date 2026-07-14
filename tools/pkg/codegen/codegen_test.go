@@ -423,29 +423,23 @@ func TestRenderUnmarshalScalarChild_ImportSuppressesDefaultBool(t *testing.T) {
 	}
 }
 
-func TestBlockHasComputedDescendant(t *testing.T) {
+// Every nested list block is modeled as types.List, regardless of whether it has a
+// Computed descendant: a native Go slice cannot represent the unknown values a config may
+// carry at plan time (a Computed descendant, or an element sourced from an unresolved
+// reference such as the inline API crawler domains[].simple_login.password). See #1083.
+func TestNestedListUsesTypesList(t *testing.T) {
 	tests := []struct {
 		name string
 		attr openapi.TerraformAttribute
 		want bool
 	}{
 		{
-			name: "direct computed child",
-			attr: openapi.TerraformAttribute{
-				IsBlock: true, NestedBlockType: "list",
-				NestedAttributes: []openapi.TerraformAttribute{
-					{GoName: "Uid", TfsdkTag: "uid", Type: "string", Computed: true},
-				},
-			},
-			want: true,
-		},
-		{
-			name: "computed deep at depth >= 3",
+			name: "list block with computed descendant",
 			attr: deepComputedTree(),
 			want: true,
 		},
 		{
-			name: "no computed descendant",
+			name: "list block with no computed descendant",
 			attr: openapi.TerraformAttribute{
 				IsBlock: true, NestedBlockType: "list",
 				NestedAttributes: []openapi.TerraformAttribute{
@@ -458,19 +452,24 @@ func TestBlockHasComputedDescendant(t *testing.T) {
 					},
 				},
 			},
-			want: false,
+			want: true,
 		},
 		{
-			name: "no nested attributes",
+			name: "empty list block",
 			attr: openapi.TerraformAttribute{IsBlock: true, NestedBlockType: "list"},
+			want: true,
+		},
+		{
+			name: "single nested block is not a list",
+			attr: openapi.TerraformAttribute{IsBlock: true, NestedBlockType: "single"},
 			want: false,
 		},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := blockHasComputedDescendant(tt.attr); got != tt.want {
-				t.Errorf("blockHasComputedDescendant() = %v, want %v", got, tt.want)
+			if got := nestedListUsesTypesList(tt.attr); got != tt.want {
+				t.Errorf("nestedListUsesTypesList() = %v, want %v", got, tt.want)
 			}
 		})
 	}
@@ -492,8 +491,10 @@ func TestRenderNestedModelTypes_ComputedDescendantList(t *testing.T) {
 	}
 }
 
-// A list block with NO computed descendant keeps the native slice representation.
-func TestRenderNestedModelTypes_NoComputedKeepsSlice(t *testing.T) {
+// A nested list block with NO computed descendant is still modeled as types.List: a
+// native slice cannot hold an unknown value a config may supply at plan time (e.g. an
+// element field sourced from an unresolved reference). See #1083.
+func TestRenderNestedModelTypes_NestedListAlwaysTypesList(t *testing.T) {
 	attrs := []openapi.TerraformAttribute{
 		{
 			GoName: "Outer", TfsdkTag: "outer", IsBlock: true, NestedBlockType: "single",
@@ -508,8 +509,11 @@ func TestRenderNestedModelTypes_NoComputedKeepsSlice(t *testing.T) {
 		},
 	}
 	got := RenderNestedModelTypes("Test", attrs)
-	if !strings.Contains(got, "Items []TestOuterItemsModel `tfsdk:\"items\"`") {
-		t.Errorf("expected items to remain a native slice, got:\n%s", got)
+	if !strings.Contains(got, "Items types.List `tfsdk:\"items\"`") {
+		t.Errorf("expected items to be types.List, got:\n%s", got)
+	}
+	if strings.Contains(got, "Items []TestOuterItemsModel") {
+		t.Errorf("expected no native slice for nested list items, got:\n%s", got)
 	}
 }
 

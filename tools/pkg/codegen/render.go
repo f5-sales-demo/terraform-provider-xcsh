@@ -62,22 +62,16 @@ type NestedModelInfo struct {
 	IsEmpty     bool
 }
 
-// blockHasComputedDescendant reports whether any descendant attribute (at any depth)
-// of the given block is Computed. Nested list blocks with a Computed descendant must be
-// modeled as types.List rather than a native Go slice, because a slice cannot represent
-// the unknown values that Computed fields carry during planning. The same predicate drives
-// both the model-type decision (RenderNestedModelTypes) and the marshal/unmarshal emitters,
-// so the two never diverge.
-func blockHasComputedDescendant(attr openapi.TerraformAttribute) bool {
-	for _, nested := range attr.NestedAttributes {
-		if nested.Computed {
-			return true
-		}
-		if nested.IsBlock && blockHasComputedDescendant(nested) {
-			return true
-		}
-	}
-	return false
+// nestedListUsesTypesList reports whether a nested block is a list block, which is always
+// modeled as types.List rather than a native Go slice. A native slice cannot represent the
+// unknown values a config may carry during planning — whether from a Computed descendant or
+// from an element field sourced by an unresolved reference (e.g. the inline API crawler
+// domains[].simple_login.password). This matches the top-level list representation
+// (RenderBlockFields), and the same predicate drives the model-type decision
+// (RenderNestedModelTypes) and the marshal/unmarshal emitters, so they never diverge.
+// See #1083.
+func nestedListUsesTypesList(attr openapi.TerraformAttribute) bool {
+	return attr.NestedBlockType == "list"
 }
 
 // EscapeGoString escapes a string for use in a Go string literal
@@ -259,7 +253,7 @@ func renderMarshalBlock(sb *strings.Builder, resourceTitleCase, prefixPath strin
 			for _, child := range attr.NestedAttributes {
 				childSrc := loopVar + "." + child.GoName
 				if child.IsBlock {
-					renderMarshalBlock(sb, resourceTitleCase, childPath, child, childSrc, mapVar, bodyIndent+"\t", blockHasComputedDescendant(child))
+					renderMarshalBlock(sb, resourceTitleCase, childPath, child, childSrc, mapVar, bodyIndent+"\t", nestedListUsesTypesList(child))
 				} else {
 					renderMarshalScalar(sb, child, childSrc, mapVar, bodyIndent+"\t")
 				}
@@ -304,7 +298,7 @@ func renderMarshalBlock(sb *strings.Builder, resourceTitleCase, prefixPath strin
 	for _, child := range attr.NestedAttributes {
 		childSrc := src + "." + child.GoName
 		if child.IsBlock {
-			renderMarshalBlock(sb, resourceTitleCase, childPath, child, childSrc, subVar, indent+"\t", blockHasComputedDescendant(child))
+			renderMarshalBlock(sb, resourceTitleCase, childPath, child, childSrc, subVar, indent+"\t", nestedListUsesTypesList(child))
 		} else {
 			renderMarshalScalar(sb, child, childSrc, subVar, indent+"\t")
 		}
@@ -780,15 +774,15 @@ func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr 
 	sb.WriteString(fmt.Sprintf("%s}(),\n", indent))
 }
 
-// renderUnmarshalListChild emits the closure entry for a list nested block child. It returns
-// types.List when the block has a Computed descendant (matching the Go model), else a native slice.
+// renderUnmarshalListChild emits the closure entry for a list nested block child. It always
+// returns types.List, matching the Go model (a native slice cannot hold unknown values).
 func renderUnmarshalListChild(sb *strings.Builder, rc, childPath string, attr openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string) {
 	fieldName := attr.GoName
 	jsonName := attr.JsonName
 	if jsonName == "" {
 		jsonName = attr.TfsdkTag
 	}
-	isTypesList := blockHasComputedDescendant(attr)
+	isTypesList := nestedListUsesTypesList(attr)
 	elemModel := nestedElemModel(rc, childPath, attr)
 	objType := nestedObjectTypeExpr(rc, childPath, attr)
 	loopVar := fieldName + "Item"
@@ -1117,16 +1111,12 @@ func RenderNestedModelTypes(resourceTitleCase string, attrs []openapi.TerraformA
 				nestedTypeName = resourceTitleCase + "EmptyModel"
 			}
 
-			// Nested list blocks with a Computed descendant must be modeled as types.List:
-			// a native slice cannot hold the unknown values Computed fields carry during
-			// planning. Lists without a Computed descendant stay native slices; single blocks
-			// stay pointers.
+			// Nested list blocks are always modeled as types.List (matching top-level lists):
+			// a native slice cannot hold the unknown values a config may carry during planning,
+			// whether from a Computed descendant or an element sourced by an unresolved
+			// reference. Single blocks stay pointers. See #1083.
 			if attr.NestedBlockType == "list" {
-				if blockHasComputedDescendant(attr) {
-					sb.WriteString(fmt.Sprintf("\t%s types.List `tfsdk:\"%s\"`\n", attr.GoName, attr.TfsdkTag))
-				} else {
-					sb.WriteString(fmt.Sprintf("\t%s []%s `tfsdk:\"%s\"`\n", attr.GoName, nestedTypeName, attr.TfsdkTag))
-				}
+				sb.WriteString(fmt.Sprintf("\t%s types.List `tfsdk:\"%s\"`\n", attr.GoName, attr.TfsdkTag))
 			} else {
 				sb.WriteString(fmt.Sprintf("\t%s *%s `tfsdk:\"%s\"`\n", attr.GoName, nestedTypeName, attr.TfsdkTag))
 			}
