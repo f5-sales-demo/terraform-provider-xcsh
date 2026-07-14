@@ -1500,6 +1500,9 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 				if APIKeyData, ok := blockData["api_key"].(map[string]interface{}); ok {
 					return &AlertReceiverOpsgenieAPIKeyModel{
 						BlindfoldSecretInfo: func() *AlertReceiverOpsgenieAPIKeyBlindfoldSecretInfoModel {
+							if !isImport && data.Opsgenie != nil && data.Opsgenie.APIKey != nil && data.Opsgenie.APIKey.BlindfoldSecretInfo != nil {
+								return data.Opsgenie.APIKey.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := APIKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverOpsgenieAPIKeyBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -1525,6 +1528,9 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 							return nil
 						}(),
 						ClearSecretInfo: func() *AlertReceiverOpsgenieAPIKeyClearSecretInfoModel {
+							if !isImport && data.Opsgenie != nil && data.Opsgenie.APIKey != nil && data.Opsgenie.APIKey.ClearSecretInfo != nil {
+								return data.Opsgenie.APIKey.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := APIKeyData["clear_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverOpsgenieAPIKeyClearSecretInfoModel{
 									Provider: func() types.String {
@@ -1564,6 +1570,9 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 				if RoutingKeyData, ok := blockData["routing_key"].(map[string]interface{}); ok {
 					return &AlertReceiverPagerdutyRoutingKeyModel{
 						BlindfoldSecretInfo: func() *AlertReceiverPagerdutyRoutingKeyBlindfoldSecretInfoModel {
+							if !isImport && data.Pagerduty != nil && data.Pagerduty.RoutingKey != nil && data.Pagerduty.RoutingKey.BlindfoldSecretInfo != nil {
+								return data.Pagerduty.RoutingKey.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := RoutingKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverPagerdutyRoutingKeyBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -1589,6 +1598,9 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 							return nil
 						}(),
 						ClearSecretInfo: func() *AlertReceiverPagerdutyRoutingKeyClearSecretInfoModel {
+							if !isImport && data.Pagerduty != nil && data.Pagerduty.RoutingKey != nil && data.Pagerduty.RoutingKey.ClearSecretInfo != nil {
+								return data.Pagerduty.RoutingKey.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := RoutingKeyData["clear_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverPagerdutyRoutingKeyClearSecretInfoModel{
 									Provider: func() types.String {
@@ -1634,6 +1646,9 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 				if URLData, ok := blockData["url"].(map[string]interface{}); ok {
 					return &AlertReceiverSlackURLModel{
 						BlindfoldSecretInfo: func() *AlertReceiverSlackURLBlindfoldSecretInfoModel {
+							if !isImport && data.Slack != nil && data.Slack.URL != nil && data.Slack.URL.BlindfoldSecretInfo != nil {
+								return data.Slack.URL.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := URLData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverSlackURLBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -1659,6 +1674,9 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 							return nil
 						}(),
 						ClearSecretInfo: func() *AlertReceiverSlackURLClearSecretInfoModel {
+							if !isImport && data.Slack != nil && data.Slack.URL != nil && data.Slack.URL.ClearSecretInfo != nil {
+								return data.Slack.URL.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := URLData["clear_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverSlackURLClearSecretInfoModel{
 									Provider: func() types.String {
@@ -1699,12 +1717,21 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 				if HTTPConfigData, ok := blockData["http_config"].(map[string]interface{}); ok {
 					return &AlertReceiverWebhookHTTPConfigModel{
 						AuthToken: func() *AlertReceiverWebhookHTTPConfigAuthTokenModel {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.AuthToken != nil {
+								return data.Webhook.HTTPConfig.AuthToken
+							}
 							if AuthTokenData, ok := HTTPConfigData["auth_token"].(map[string]interface{}); ok {
 								return &AlertReceiverWebhookHTTPConfigAuthTokenModel{
 									Token: func() *AlertReceiverWebhookHTTPConfigAuthTokenTokenModel {
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.AuthToken != nil && data.Webhook.HTTPConfig.AuthToken.Token != nil {
+											return data.Webhook.HTTPConfig.AuthToken.Token
+										}
 										if TokenData, ok := AuthTokenData["token"].(map[string]interface{}); ok {
 											return &AlertReceiverWebhookHTTPConfigAuthTokenTokenModel{
 												BlindfoldSecretInfo: func() *AlertReceiverWebhookHTTPConfigAuthTokenTokenBlindfoldSecretInfoModel {
+													if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.AuthToken != nil && data.Webhook.HTTPConfig.AuthToken.Token != nil && data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo != nil {
+														return data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := TokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &AlertReceiverWebhookHTTPConfigAuthTokenTokenBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -1730,6 +1757,9 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 													return nil
 												}(),
 												ClearSecretInfo: func() *AlertReceiverWebhookHTTPConfigAuthTokenTokenClearSecretInfoModel {
+													if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.AuthToken != nil && data.Webhook.HTTPConfig.AuthToken.Token != nil && data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo != nil {
+														return data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := TokenData["clear_secret_info"].(map[string]interface{}); ok {
 														return &AlertReceiverWebhookHTTPConfigAuthTokenTokenClearSecretInfoModel{
 															Provider: func() types.String {
@@ -1757,12 +1787,21 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 							return nil
 						}(),
 						BasicAuth: func() *AlertReceiverWebhookHTTPConfigBasicAuthModel {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.BasicAuth != nil {
+								return data.Webhook.HTTPConfig.BasicAuth
+							}
 							if BasicAuthData, ok := HTTPConfigData["basic_auth"].(map[string]interface{}); ok {
 								return &AlertReceiverWebhookHTTPConfigBasicAuthModel{
 									Password: func() *AlertReceiverWebhookHTTPConfigBasicAuthPasswordModel {
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.BasicAuth != nil && data.Webhook.HTTPConfig.BasicAuth.Password != nil {
+											return data.Webhook.HTTPConfig.BasicAuth.Password
+										}
 										if PasswordData, ok := BasicAuthData["password"].(map[string]interface{}); ok {
 											return &AlertReceiverWebhookHTTPConfigBasicAuthPasswordModel{
 												BlindfoldSecretInfo: func() *AlertReceiverWebhookHTTPConfigBasicAuthPasswordBlindfoldSecretInfoModel {
+													if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.BasicAuth != nil && data.Webhook.HTTPConfig.BasicAuth.Password != nil && data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo != nil {
+														return data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &AlertReceiverWebhookHTTPConfigBasicAuthPasswordBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -1788,6 +1827,9 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 													return nil
 												}(),
 												ClearSecretInfo: func() *AlertReceiverWebhookHTTPConfigBasicAuthPasswordClearSecretInfoModel {
+													if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.BasicAuth != nil && data.Webhook.HTTPConfig.BasicAuth.Password != nil && data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo != nil {
+														return data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 														return &AlertReceiverWebhookHTTPConfigBasicAuthPasswordClearSecretInfoModel{
 															Provider: func() types.String {
@@ -1824,9 +1866,17 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 							if ClientCertObjData, ok := HTTPConfigData["client_cert_obj"].(map[string]interface{}); ok {
 								return &AlertReceiverWebhookHTTPConfigClientCertObjModel{
 									UseTLSObj: func() types.List {
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.ClientCertObj != nil && (data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.IsNull() || len(data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModelAttrTypes})
+										}
+										var UseTLSObjExisting []AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModel
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.ClientCertObj != nil && !data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.IsNull() && !data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.IsUnknown() {
+											data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.ElementsAs(ctx, &UseTLSObjExisting, false)
+										}
 										if rawList, ok := ClientCertObjData["use_tls_obj"].([]interface{}); ok && len(rawList) > 0 {
 											var UseTLSObjResult []AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModel
-											for _, UseTLSObjItem := range rawList {
+											for UseTLSObjIdx, UseTLSObjItem := range rawList {
+												_ = UseTLSObjIdx
 												if UseTLSObjItemMap, ok := UseTLSObjItem.(map[string]interface{}); ok {
 													UseTLSObjResult = append(UseTLSObjResult, AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModel{
 														Kind: func() types.String {
@@ -1872,24 +1922,36 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 							return nil
 						}(),
 						EnableHttp2: func() types.Bool {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && !data.Webhook.HTTPConfig.EnableHttp2.IsUnknown() {
+								return data.Webhook.HTTPConfig.EnableHttp2
+							}
 							if v, ok := HTTPConfigData["enable_http2"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
 						FollowRedirects: func() types.Bool {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && !data.Webhook.HTTPConfig.FollowRedirects.IsUnknown() {
+								return data.Webhook.HTTPConfig.FollowRedirects
+							}
 							if v, ok := HTTPConfigData["follow_redirects"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
 						NoAuthorization: func() *AlertReceiverEmptyModel {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil {
+								return data.Webhook.HTTPConfig.NoAuthorization
+							}
 							if _, ok := HTTPConfigData["no_authorization"].(map[string]interface{}); ok {
 								return &AlertReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						NoTLS: func() *AlertReceiverEmptyModel {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil {
+								return data.Webhook.HTTPConfig.NoTLS
+							}
 							if _, ok := HTTPConfigData["no_tls"].(map[string]interface{}); ok {
 								return &AlertReceiverEmptyModel{}
 							}
@@ -1899,6 +1961,9 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 							if UseTLSData, ok := HTTPConfigData["use_tls"].(map[string]interface{}); ok {
 								return &AlertReceiverWebhookHTTPConfigUseTLSModel{
 									DisableSni: func() *AlertReceiverEmptyModel {
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil {
+											return data.Webhook.HTTPConfig.UseTLS.DisableSni
+										}
 										if _, ok := UseTLSData["disable_sni"].(map[string]interface{}); ok {
 											return &AlertReceiverEmptyModel{}
 										}
@@ -1929,9 +1994,17 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 													if CACertObjData, ok := UseServerVerificationData["ca_cert_obj"].(map[string]interface{}); ok {
 														return &AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjModel{
 															TrustedCA: func() types.List {
+																if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil && data.Webhook.HTTPConfig.UseTLS.UseServerVerification != nil && data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj != nil && (data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.IsNull() || len(data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.Elements()) == 0) {
+																	return types.ListNull(types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModelAttrTypes})
+																}
+																var TrustedCAExisting []AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModel
+																if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil && data.Webhook.HTTPConfig.UseTLS.UseServerVerification != nil && data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj != nil && !data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.IsNull() && !data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.IsUnknown() {
+																	data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.ElementsAs(ctx, &TrustedCAExisting, false)
+																}
 																if rawList, ok := CACertObjData["trusted_ca"].([]interface{}); ok && len(rawList) > 0 {
 																	var TrustedCAResult []AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModel
-																	for _, TrustedCAItem := range rawList {
+																	for TrustedCAIdx, TrustedCAItem := range rawList {
+																		_ = TrustedCAIdx
 																		if TrustedCAItemMap, ok := TrustedCAItem.(map[string]interface{}); ok {
 																			TrustedCAResult = append(TrustedCAResult, AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModel{
 																				Kind: func() types.String {
@@ -1981,6 +2054,9 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 										return nil
 									}(),
 									VolterraTrustedCA: func() *AlertReceiverEmptyModel {
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil {
+											return data.Webhook.HTTPConfig.UseTLS.VolterraTrustedCA
+										}
 										if _, ok := UseTLSData["volterra_trusted_ca"].(map[string]interface{}); ok {
 											return &AlertReceiverEmptyModel{}
 										}
@@ -2001,6 +2077,9 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 				if URLData, ok := blockData["url"].(map[string]interface{}); ok {
 					return &AlertReceiverWebhookURLModel{
 						BlindfoldSecretInfo: func() *AlertReceiverWebhookURLBlindfoldSecretInfoModel {
+							if !isImport && data.Webhook != nil && data.Webhook.URL != nil && data.Webhook.URL.BlindfoldSecretInfo != nil {
+								return data.Webhook.URL.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := URLData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverWebhookURLBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -2026,6 +2105,9 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 							return nil
 						}(),
 						ClearSecretInfo: func() *AlertReceiverWebhookURLClearSecretInfoModel {
+							if !isImport && data.Webhook != nil && data.Webhook.URL != nil && data.Webhook.URL.ClearSecretInfo != nil {
+								return data.Webhook.URL.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := URLData["clear_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverWebhookURLClearSecretInfoModel{
 									Provider: func() types.String {
@@ -2162,6 +2244,9 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 				if APIKeyData, ok := blockData["api_key"].(map[string]interface{}); ok {
 					return &AlertReceiverOpsgenieAPIKeyModel{
 						BlindfoldSecretInfo: func() *AlertReceiverOpsgenieAPIKeyBlindfoldSecretInfoModel {
+							if !isImport && data.Opsgenie != nil && data.Opsgenie.APIKey != nil && data.Opsgenie.APIKey.BlindfoldSecretInfo != nil {
+								return data.Opsgenie.APIKey.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := APIKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverOpsgenieAPIKeyBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -2187,6 +2272,9 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 							return nil
 						}(),
 						ClearSecretInfo: func() *AlertReceiverOpsgenieAPIKeyClearSecretInfoModel {
+							if !isImport && data.Opsgenie != nil && data.Opsgenie.APIKey != nil && data.Opsgenie.APIKey.ClearSecretInfo != nil {
+								return data.Opsgenie.APIKey.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := APIKeyData["clear_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverOpsgenieAPIKeyClearSecretInfoModel{
 									Provider: func() types.String {
@@ -2226,6 +2314,9 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 				if RoutingKeyData, ok := blockData["routing_key"].(map[string]interface{}); ok {
 					return &AlertReceiverPagerdutyRoutingKeyModel{
 						BlindfoldSecretInfo: func() *AlertReceiverPagerdutyRoutingKeyBlindfoldSecretInfoModel {
+							if !isImport && data.Pagerduty != nil && data.Pagerduty.RoutingKey != nil && data.Pagerduty.RoutingKey.BlindfoldSecretInfo != nil {
+								return data.Pagerduty.RoutingKey.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := RoutingKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverPagerdutyRoutingKeyBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -2251,6 +2342,9 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 							return nil
 						}(),
 						ClearSecretInfo: func() *AlertReceiverPagerdutyRoutingKeyClearSecretInfoModel {
+							if !isImport && data.Pagerduty != nil && data.Pagerduty.RoutingKey != nil && data.Pagerduty.RoutingKey.ClearSecretInfo != nil {
+								return data.Pagerduty.RoutingKey.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := RoutingKeyData["clear_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverPagerdutyRoutingKeyClearSecretInfoModel{
 									Provider: func() types.String {
@@ -2296,6 +2390,9 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 				if URLData, ok := blockData["url"].(map[string]interface{}); ok {
 					return &AlertReceiverSlackURLModel{
 						BlindfoldSecretInfo: func() *AlertReceiverSlackURLBlindfoldSecretInfoModel {
+							if !isImport && data.Slack != nil && data.Slack.URL != nil && data.Slack.URL.BlindfoldSecretInfo != nil {
+								return data.Slack.URL.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := URLData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverSlackURLBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -2321,6 +2418,9 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 							return nil
 						}(),
 						ClearSecretInfo: func() *AlertReceiverSlackURLClearSecretInfoModel {
+							if !isImport && data.Slack != nil && data.Slack.URL != nil && data.Slack.URL.ClearSecretInfo != nil {
+								return data.Slack.URL.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := URLData["clear_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverSlackURLClearSecretInfoModel{
 									Provider: func() types.String {
@@ -2361,12 +2461,21 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 				if HTTPConfigData, ok := blockData["http_config"].(map[string]interface{}); ok {
 					return &AlertReceiverWebhookHTTPConfigModel{
 						AuthToken: func() *AlertReceiverWebhookHTTPConfigAuthTokenModel {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.AuthToken != nil {
+								return data.Webhook.HTTPConfig.AuthToken
+							}
 							if AuthTokenData, ok := HTTPConfigData["auth_token"].(map[string]interface{}); ok {
 								return &AlertReceiverWebhookHTTPConfigAuthTokenModel{
 									Token: func() *AlertReceiverWebhookHTTPConfigAuthTokenTokenModel {
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.AuthToken != nil && data.Webhook.HTTPConfig.AuthToken.Token != nil {
+											return data.Webhook.HTTPConfig.AuthToken.Token
+										}
 										if TokenData, ok := AuthTokenData["token"].(map[string]interface{}); ok {
 											return &AlertReceiverWebhookHTTPConfigAuthTokenTokenModel{
 												BlindfoldSecretInfo: func() *AlertReceiverWebhookHTTPConfigAuthTokenTokenBlindfoldSecretInfoModel {
+													if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.AuthToken != nil && data.Webhook.HTTPConfig.AuthToken.Token != nil && data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo != nil {
+														return data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := TokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &AlertReceiverWebhookHTTPConfigAuthTokenTokenBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -2392,6 +2501,9 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 													return nil
 												}(),
 												ClearSecretInfo: func() *AlertReceiverWebhookHTTPConfigAuthTokenTokenClearSecretInfoModel {
+													if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.AuthToken != nil && data.Webhook.HTTPConfig.AuthToken.Token != nil && data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo != nil {
+														return data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := TokenData["clear_secret_info"].(map[string]interface{}); ok {
 														return &AlertReceiverWebhookHTTPConfigAuthTokenTokenClearSecretInfoModel{
 															Provider: func() types.String {
@@ -2419,12 +2531,21 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 							return nil
 						}(),
 						BasicAuth: func() *AlertReceiverWebhookHTTPConfigBasicAuthModel {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.BasicAuth != nil {
+								return data.Webhook.HTTPConfig.BasicAuth
+							}
 							if BasicAuthData, ok := HTTPConfigData["basic_auth"].(map[string]interface{}); ok {
 								return &AlertReceiverWebhookHTTPConfigBasicAuthModel{
 									Password: func() *AlertReceiverWebhookHTTPConfigBasicAuthPasswordModel {
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.BasicAuth != nil && data.Webhook.HTTPConfig.BasicAuth.Password != nil {
+											return data.Webhook.HTTPConfig.BasicAuth.Password
+										}
 										if PasswordData, ok := BasicAuthData["password"].(map[string]interface{}); ok {
 											return &AlertReceiverWebhookHTTPConfigBasicAuthPasswordModel{
 												BlindfoldSecretInfo: func() *AlertReceiverWebhookHTTPConfigBasicAuthPasswordBlindfoldSecretInfoModel {
+													if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.BasicAuth != nil && data.Webhook.HTTPConfig.BasicAuth.Password != nil && data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo != nil {
+														return data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &AlertReceiverWebhookHTTPConfigBasicAuthPasswordBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -2450,6 +2571,9 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 													return nil
 												}(),
 												ClearSecretInfo: func() *AlertReceiverWebhookHTTPConfigBasicAuthPasswordClearSecretInfoModel {
+													if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.BasicAuth != nil && data.Webhook.HTTPConfig.BasicAuth.Password != nil && data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo != nil {
+														return data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 														return &AlertReceiverWebhookHTTPConfigBasicAuthPasswordClearSecretInfoModel{
 															Provider: func() types.String {
@@ -2486,9 +2610,17 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 							if ClientCertObjData, ok := HTTPConfigData["client_cert_obj"].(map[string]interface{}); ok {
 								return &AlertReceiverWebhookHTTPConfigClientCertObjModel{
 									UseTLSObj: func() types.List {
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.ClientCertObj != nil && (data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.IsNull() || len(data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModelAttrTypes})
+										}
+										var UseTLSObjExisting []AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModel
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.ClientCertObj != nil && !data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.IsNull() && !data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.IsUnknown() {
+											data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.ElementsAs(ctx, &UseTLSObjExisting, false)
+										}
 										if rawList, ok := ClientCertObjData["use_tls_obj"].([]interface{}); ok && len(rawList) > 0 {
 											var UseTLSObjResult []AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModel
-											for _, UseTLSObjItem := range rawList {
+											for UseTLSObjIdx, UseTLSObjItem := range rawList {
+												_ = UseTLSObjIdx
 												if UseTLSObjItemMap, ok := UseTLSObjItem.(map[string]interface{}); ok {
 													UseTLSObjResult = append(UseTLSObjResult, AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModel{
 														Kind: func() types.String {
@@ -2534,24 +2666,36 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 							return nil
 						}(),
 						EnableHttp2: func() types.Bool {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && !data.Webhook.HTTPConfig.EnableHttp2.IsUnknown() {
+								return data.Webhook.HTTPConfig.EnableHttp2
+							}
 							if v, ok := HTTPConfigData["enable_http2"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
 						FollowRedirects: func() types.Bool {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && !data.Webhook.HTTPConfig.FollowRedirects.IsUnknown() {
+								return data.Webhook.HTTPConfig.FollowRedirects
+							}
 							if v, ok := HTTPConfigData["follow_redirects"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
 						NoAuthorization: func() *AlertReceiverEmptyModel {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil {
+								return data.Webhook.HTTPConfig.NoAuthorization
+							}
 							if _, ok := HTTPConfigData["no_authorization"].(map[string]interface{}); ok {
 								return &AlertReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						NoTLS: func() *AlertReceiverEmptyModel {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil {
+								return data.Webhook.HTTPConfig.NoTLS
+							}
 							if _, ok := HTTPConfigData["no_tls"].(map[string]interface{}); ok {
 								return &AlertReceiverEmptyModel{}
 							}
@@ -2561,6 +2705,9 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 							if UseTLSData, ok := HTTPConfigData["use_tls"].(map[string]interface{}); ok {
 								return &AlertReceiverWebhookHTTPConfigUseTLSModel{
 									DisableSni: func() *AlertReceiverEmptyModel {
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil {
+											return data.Webhook.HTTPConfig.UseTLS.DisableSni
+										}
 										if _, ok := UseTLSData["disable_sni"].(map[string]interface{}); ok {
 											return &AlertReceiverEmptyModel{}
 										}
@@ -2591,9 +2738,17 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 													if CACertObjData, ok := UseServerVerificationData["ca_cert_obj"].(map[string]interface{}); ok {
 														return &AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjModel{
 															TrustedCA: func() types.List {
+																if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil && data.Webhook.HTTPConfig.UseTLS.UseServerVerification != nil && data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj != nil && (data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.IsNull() || len(data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.Elements()) == 0) {
+																	return types.ListNull(types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModelAttrTypes})
+																}
+																var TrustedCAExisting []AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModel
+																if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil && data.Webhook.HTTPConfig.UseTLS.UseServerVerification != nil && data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj != nil && !data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.IsNull() && !data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.IsUnknown() {
+																	data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.ElementsAs(ctx, &TrustedCAExisting, false)
+																}
 																if rawList, ok := CACertObjData["trusted_ca"].([]interface{}); ok && len(rawList) > 0 {
 																	var TrustedCAResult []AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModel
-																	for _, TrustedCAItem := range rawList {
+																	for TrustedCAIdx, TrustedCAItem := range rawList {
+																		_ = TrustedCAIdx
 																		if TrustedCAItemMap, ok := TrustedCAItem.(map[string]interface{}); ok {
 																			TrustedCAResult = append(TrustedCAResult, AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModel{
 																				Kind: func() types.String {
@@ -2643,6 +2798,9 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 										return nil
 									}(),
 									VolterraTrustedCA: func() *AlertReceiverEmptyModel {
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil {
+											return data.Webhook.HTTPConfig.UseTLS.VolterraTrustedCA
+										}
 										if _, ok := UseTLSData["volterra_trusted_ca"].(map[string]interface{}); ok {
 											return &AlertReceiverEmptyModel{}
 										}
@@ -2663,6 +2821,9 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 				if URLData, ok := blockData["url"].(map[string]interface{}); ok {
 					return &AlertReceiverWebhookURLModel{
 						BlindfoldSecretInfo: func() *AlertReceiverWebhookURLBlindfoldSecretInfoModel {
+							if !isImport && data.Webhook != nil && data.Webhook.URL != nil && data.Webhook.URL.BlindfoldSecretInfo != nil {
+								return data.Webhook.URL.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := URLData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverWebhookURLBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -2688,6 +2849,9 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 							return nil
 						}(),
 						ClearSecretInfo: func() *AlertReceiverWebhookURLClearSecretInfoModel {
+							if !isImport && data.Webhook != nil && data.Webhook.URL != nil && data.Webhook.URL.ClearSecretInfo != nil {
+								return data.Webhook.URL.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := URLData["clear_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverWebhookURLClearSecretInfoModel{
 									Provider: func() types.String {
@@ -3129,6 +3293,9 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 				if APIKeyData, ok := blockData["api_key"].(map[string]interface{}); ok {
 					return &AlertReceiverOpsgenieAPIKeyModel{
 						BlindfoldSecretInfo: func() *AlertReceiverOpsgenieAPIKeyBlindfoldSecretInfoModel {
+							if !isImport && data.Opsgenie != nil && data.Opsgenie.APIKey != nil && data.Opsgenie.APIKey.BlindfoldSecretInfo != nil {
+								return data.Opsgenie.APIKey.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := APIKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverOpsgenieAPIKeyBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -3154,6 +3321,9 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 							return nil
 						}(),
 						ClearSecretInfo: func() *AlertReceiverOpsgenieAPIKeyClearSecretInfoModel {
+							if !isImport && data.Opsgenie != nil && data.Opsgenie.APIKey != nil && data.Opsgenie.APIKey.ClearSecretInfo != nil {
+								return data.Opsgenie.APIKey.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := APIKeyData["clear_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverOpsgenieAPIKeyClearSecretInfoModel{
 									Provider: func() types.String {
@@ -3193,6 +3363,9 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 				if RoutingKeyData, ok := blockData["routing_key"].(map[string]interface{}); ok {
 					return &AlertReceiverPagerdutyRoutingKeyModel{
 						BlindfoldSecretInfo: func() *AlertReceiverPagerdutyRoutingKeyBlindfoldSecretInfoModel {
+							if !isImport && data.Pagerduty != nil && data.Pagerduty.RoutingKey != nil && data.Pagerduty.RoutingKey.BlindfoldSecretInfo != nil {
+								return data.Pagerduty.RoutingKey.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := RoutingKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverPagerdutyRoutingKeyBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -3218,6 +3391,9 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 							return nil
 						}(),
 						ClearSecretInfo: func() *AlertReceiverPagerdutyRoutingKeyClearSecretInfoModel {
+							if !isImport && data.Pagerduty != nil && data.Pagerduty.RoutingKey != nil && data.Pagerduty.RoutingKey.ClearSecretInfo != nil {
+								return data.Pagerduty.RoutingKey.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := RoutingKeyData["clear_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverPagerdutyRoutingKeyClearSecretInfoModel{
 									Provider: func() types.String {
@@ -3263,6 +3439,9 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 				if URLData, ok := blockData["url"].(map[string]interface{}); ok {
 					return &AlertReceiverSlackURLModel{
 						BlindfoldSecretInfo: func() *AlertReceiverSlackURLBlindfoldSecretInfoModel {
+							if !isImport && data.Slack != nil && data.Slack.URL != nil && data.Slack.URL.BlindfoldSecretInfo != nil {
+								return data.Slack.URL.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := URLData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverSlackURLBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -3288,6 +3467,9 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 							return nil
 						}(),
 						ClearSecretInfo: func() *AlertReceiverSlackURLClearSecretInfoModel {
+							if !isImport && data.Slack != nil && data.Slack.URL != nil && data.Slack.URL.ClearSecretInfo != nil {
+								return data.Slack.URL.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := URLData["clear_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverSlackURLClearSecretInfoModel{
 									Provider: func() types.String {
@@ -3328,12 +3510,21 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 				if HTTPConfigData, ok := blockData["http_config"].(map[string]interface{}); ok {
 					return &AlertReceiverWebhookHTTPConfigModel{
 						AuthToken: func() *AlertReceiverWebhookHTTPConfigAuthTokenModel {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.AuthToken != nil {
+								return data.Webhook.HTTPConfig.AuthToken
+							}
 							if AuthTokenData, ok := HTTPConfigData["auth_token"].(map[string]interface{}); ok {
 								return &AlertReceiverWebhookHTTPConfigAuthTokenModel{
 									Token: func() *AlertReceiverWebhookHTTPConfigAuthTokenTokenModel {
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.AuthToken != nil && data.Webhook.HTTPConfig.AuthToken.Token != nil {
+											return data.Webhook.HTTPConfig.AuthToken.Token
+										}
 										if TokenData, ok := AuthTokenData["token"].(map[string]interface{}); ok {
 											return &AlertReceiverWebhookHTTPConfigAuthTokenTokenModel{
 												BlindfoldSecretInfo: func() *AlertReceiverWebhookHTTPConfigAuthTokenTokenBlindfoldSecretInfoModel {
+													if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.AuthToken != nil && data.Webhook.HTTPConfig.AuthToken.Token != nil && data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo != nil {
+														return data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := TokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &AlertReceiverWebhookHTTPConfigAuthTokenTokenBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -3359,6 +3550,9 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 													return nil
 												}(),
 												ClearSecretInfo: func() *AlertReceiverWebhookHTTPConfigAuthTokenTokenClearSecretInfoModel {
+													if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.AuthToken != nil && data.Webhook.HTTPConfig.AuthToken.Token != nil && data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo != nil {
+														return data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := TokenData["clear_secret_info"].(map[string]interface{}); ok {
 														return &AlertReceiverWebhookHTTPConfigAuthTokenTokenClearSecretInfoModel{
 															Provider: func() types.String {
@@ -3386,12 +3580,21 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 							return nil
 						}(),
 						BasicAuth: func() *AlertReceiverWebhookHTTPConfigBasicAuthModel {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.BasicAuth != nil {
+								return data.Webhook.HTTPConfig.BasicAuth
+							}
 							if BasicAuthData, ok := HTTPConfigData["basic_auth"].(map[string]interface{}); ok {
 								return &AlertReceiverWebhookHTTPConfigBasicAuthModel{
 									Password: func() *AlertReceiverWebhookHTTPConfigBasicAuthPasswordModel {
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.BasicAuth != nil && data.Webhook.HTTPConfig.BasicAuth.Password != nil {
+											return data.Webhook.HTTPConfig.BasicAuth.Password
+										}
 										if PasswordData, ok := BasicAuthData["password"].(map[string]interface{}); ok {
 											return &AlertReceiverWebhookHTTPConfigBasicAuthPasswordModel{
 												BlindfoldSecretInfo: func() *AlertReceiverWebhookHTTPConfigBasicAuthPasswordBlindfoldSecretInfoModel {
+													if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.BasicAuth != nil && data.Webhook.HTTPConfig.BasicAuth.Password != nil && data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo != nil {
+														return data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &AlertReceiverWebhookHTTPConfigBasicAuthPasswordBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -3417,6 +3620,9 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 													return nil
 												}(),
 												ClearSecretInfo: func() *AlertReceiverWebhookHTTPConfigBasicAuthPasswordClearSecretInfoModel {
+													if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.BasicAuth != nil && data.Webhook.HTTPConfig.BasicAuth.Password != nil && data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo != nil {
+														return data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 														return &AlertReceiverWebhookHTTPConfigBasicAuthPasswordClearSecretInfoModel{
 															Provider: func() types.String {
@@ -3453,9 +3659,17 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 							if ClientCertObjData, ok := HTTPConfigData["client_cert_obj"].(map[string]interface{}); ok {
 								return &AlertReceiverWebhookHTTPConfigClientCertObjModel{
 									UseTLSObj: func() types.List {
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.ClientCertObj != nil && (data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.IsNull() || len(data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModelAttrTypes})
+										}
+										var UseTLSObjExisting []AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModel
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.ClientCertObj != nil && !data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.IsNull() && !data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.IsUnknown() {
+											data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.ElementsAs(ctx, &UseTLSObjExisting, false)
+										}
 										if rawList, ok := ClientCertObjData["use_tls_obj"].([]interface{}); ok && len(rawList) > 0 {
 											var UseTLSObjResult []AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModel
-											for _, UseTLSObjItem := range rawList {
+											for UseTLSObjIdx, UseTLSObjItem := range rawList {
+												_ = UseTLSObjIdx
 												if UseTLSObjItemMap, ok := UseTLSObjItem.(map[string]interface{}); ok {
 													UseTLSObjResult = append(UseTLSObjResult, AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModel{
 														Kind: func() types.String {
@@ -3501,24 +3715,36 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 							return nil
 						}(),
 						EnableHttp2: func() types.Bool {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && !data.Webhook.HTTPConfig.EnableHttp2.IsUnknown() {
+								return data.Webhook.HTTPConfig.EnableHttp2
+							}
 							if v, ok := HTTPConfigData["enable_http2"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
 						FollowRedirects: func() types.Bool {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && !data.Webhook.HTTPConfig.FollowRedirects.IsUnknown() {
+								return data.Webhook.HTTPConfig.FollowRedirects
+							}
 							if v, ok := HTTPConfigData["follow_redirects"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
 						NoAuthorization: func() *AlertReceiverEmptyModel {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil {
+								return data.Webhook.HTTPConfig.NoAuthorization
+							}
 							if _, ok := HTTPConfigData["no_authorization"].(map[string]interface{}); ok {
 								return &AlertReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						NoTLS: func() *AlertReceiverEmptyModel {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil {
+								return data.Webhook.HTTPConfig.NoTLS
+							}
 							if _, ok := HTTPConfigData["no_tls"].(map[string]interface{}); ok {
 								return &AlertReceiverEmptyModel{}
 							}
@@ -3528,6 +3754,9 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 							if UseTLSData, ok := HTTPConfigData["use_tls"].(map[string]interface{}); ok {
 								return &AlertReceiverWebhookHTTPConfigUseTLSModel{
 									DisableSni: func() *AlertReceiverEmptyModel {
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil {
+											return data.Webhook.HTTPConfig.UseTLS.DisableSni
+										}
 										if _, ok := UseTLSData["disable_sni"].(map[string]interface{}); ok {
 											return &AlertReceiverEmptyModel{}
 										}
@@ -3558,9 +3787,17 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 													if CACertObjData, ok := UseServerVerificationData["ca_cert_obj"].(map[string]interface{}); ok {
 														return &AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjModel{
 															TrustedCA: func() types.List {
+																if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil && data.Webhook.HTTPConfig.UseTLS.UseServerVerification != nil && data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj != nil && (data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.IsNull() || len(data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.Elements()) == 0) {
+																	return types.ListNull(types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModelAttrTypes})
+																}
+																var TrustedCAExisting []AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModel
+																if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil && data.Webhook.HTTPConfig.UseTLS.UseServerVerification != nil && data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj != nil && !data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.IsNull() && !data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.IsUnknown() {
+																	data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.ElementsAs(ctx, &TrustedCAExisting, false)
+																}
 																if rawList, ok := CACertObjData["trusted_ca"].([]interface{}); ok && len(rawList) > 0 {
 																	var TrustedCAResult []AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModel
-																	for _, TrustedCAItem := range rawList {
+																	for TrustedCAIdx, TrustedCAItem := range rawList {
+																		_ = TrustedCAIdx
 																		if TrustedCAItemMap, ok := TrustedCAItem.(map[string]interface{}); ok {
 																			TrustedCAResult = append(TrustedCAResult, AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModel{
 																				Kind: func() types.String {
@@ -3610,6 +3847,9 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 										return nil
 									}(),
 									VolterraTrustedCA: func() *AlertReceiverEmptyModel {
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil {
+											return data.Webhook.HTTPConfig.UseTLS.VolterraTrustedCA
+										}
 										if _, ok := UseTLSData["volterra_trusted_ca"].(map[string]interface{}); ok {
 											return &AlertReceiverEmptyModel{}
 										}
@@ -3630,6 +3870,9 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 				if URLData, ok := blockData["url"].(map[string]interface{}); ok {
 					return &AlertReceiverWebhookURLModel{
 						BlindfoldSecretInfo: func() *AlertReceiverWebhookURLBlindfoldSecretInfoModel {
+							if !isImport && data.Webhook != nil && data.Webhook.URL != nil && data.Webhook.URL.BlindfoldSecretInfo != nil {
+								return data.Webhook.URL.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := URLData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverWebhookURLBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -3655,6 +3898,9 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 							return nil
 						}(),
 						ClearSecretInfo: func() *AlertReceiverWebhookURLClearSecretInfoModel {
+							if !isImport && data.Webhook != nil && data.Webhook.URL != nil && data.Webhook.URL.ClearSecretInfo != nil {
+								return data.Webhook.URL.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := URLData["clear_secret_info"].(map[string]interface{}); ok {
 								return &AlertReceiverWebhookURLClearSecretInfoModel{
 									Provider: func() types.String {

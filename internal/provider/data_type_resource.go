@@ -649,6 +649,9 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 						if KeyPatternData, ok := itemMap["key_pattern"].(map[string]interface{}); ok {
 							return &DataTypeRulesKeyPatternModel{
 								ExactValues: func() *DataTypeRulesKeyPatternExactValuesModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].KeyPattern != nil && existingRulesItems[listIdx].KeyPattern.ExactValues != nil {
+										return existingRulesItems[listIdx].KeyPattern.ExactValues
+									}
 									if ExactValuesData, ok := KeyPatternData["exact_values"].(map[string]interface{}); ok {
 										return &DataTypeRulesKeyPatternExactValuesModel{
 											ExactValues: func() types.List {
@@ -688,9 +691,15 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 						if KeyValuePatternData, ok := itemMap["key_value_pattern"].(map[string]interface{}); ok {
 							return &DataTypeRulesKeyValuePatternModel{
 								KeyPattern: func() *DataTypeRulesKeyValuePatternKeyPatternModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].KeyValuePattern != nil && existingRulesItems[listIdx].KeyValuePattern.KeyPattern != nil {
+										return existingRulesItems[listIdx].KeyValuePattern.KeyPattern
+									}
 									if KeyPatternData, ok := KeyValuePatternData["key_pattern"].(map[string]interface{}); ok {
 										return &DataTypeRulesKeyValuePatternKeyPatternModel{
 											ExactValues: func() *DataTypeRulesKeyValuePatternKeyPatternExactValuesModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].KeyValuePattern != nil && existingRulesItems[listIdx].KeyValuePattern.KeyPattern != nil && existingRulesItems[listIdx].KeyValuePattern.KeyPattern.ExactValues != nil {
+													return existingRulesItems[listIdx].KeyValuePattern.KeyPattern.ExactValues
+												}
 												if ExactValuesData, ok := KeyPatternData["exact_values"].(map[string]interface{}); ok {
 													return &DataTypeRulesKeyValuePatternKeyPatternExactValuesModel{
 														ExactValues: func() types.List {
@@ -727,9 +736,15 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 									return nil
 								}(),
 								ValuePattern: func() *DataTypeRulesKeyValuePatternValuePatternModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].KeyValuePattern != nil && existingRulesItems[listIdx].KeyValuePattern.ValuePattern != nil {
+										return existingRulesItems[listIdx].KeyValuePattern.ValuePattern
+									}
 									if ValuePatternData, ok := KeyValuePatternData["value_pattern"].(map[string]interface{}); ok {
 										return &DataTypeRulesKeyValuePatternValuePatternModel{
 											ExactValues: func() *DataTypeRulesKeyValuePatternValuePatternExactValuesModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].KeyValuePattern != nil && existingRulesItems[listIdx].KeyValuePattern.ValuePattern != nil && existingRulesItems[listIdx].KeyValuePattern.ValuePattern.ExactValues != nil {
+													return existingRulesItems[listIdx].KeyValuePattern.ValuePattern.ExactValues
+												}
 												if ExactValuesData, ok := ValuePatternData["exact_values"].(map[string]interface{}); ok {
 													return &DataTypeRulesKeyValuePatternValuePatternExactValuesModel{
 														ExactValues: func() types.List {
@@ -773,6 +788,9 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 						if ValuePatternData, ok := itemMap["value_pattern"].(map[string]interface{}); ok {
 							return &DataTypeRulesValuePatternModel{
 								ExactValues: func() *DataTypeRulesValuePatternExactValuesModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].ValuePattern != nil && existingRulesItems[listIdx].ValuePattern.ExactValues != nil {
+										return existingRulesItems[listIdx].ValuePattern.ExactValues
+									}
 									if ExactValuesData, ok := ValuePatternData["exact_values"].(map[string]interface{}); ok {
 										return &DataTypeRulesValuePatternExactValuesModel{
 											ExactValues: func() types.List {
@@ -953,6 +971,9 @@ func (r *DataTypeResource) Read(ctx context.Context, req resource.ReadRequest, r
 						if KeyPatternData, ok := itemMap["key_pattern"].(map[string]interface{}); ok {
 							return &DataTypeRulesKeyPatternModel{
 								ExactValues: func() *DataTypeRulesKeyPatternExactValuesModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].KeyPattern != nil && existingRulesItems[listIdx].KeyPattern.ExactValues != nil {
+										return existingRulesItems[listIdx].KeyPattern.ExactValues
+									}
 									if ExactValuesData, ok := KeyPatternData["exact_values"].(map[string]interface{}); ok {
 										return &DataTypeRulesKeyPatternExactValuesModel{
 											ExactValues: func() types.List {
@@ -992,9 +1013,15 @@ func (r *DataTypeResource) Read(ctx context.Context, req resource.ReadRequest, r
 						if KeyValuePatternData, ok := itemMap["key_value_pattern"].(map[string]interface{}); ok {
 							return &DataTypeRulesKeyValuePatternModel{
 								KeyPattern: func() *DataTypeRulesKeyValuePatternKeyPatternModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].KeyValuePattern != nil && existingRulesItems[listIdx].KeyValuePattern.KeyPattern != nil {
+										return existingRulesItems[listIdx].KeyValuePattern.KeyPattern
+									}
 									if KeyPatternData, ok := KeyValuePatternData["key_pattern"].(map[string]interface{}); ok {
 										return &DataTypeRulesKeyValuePatternKeyPatternModel{
 											ExactValues: func() *DataTypeRulesKeyValuePatternKeyPatternExactValuesModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].KeyValuePattern != nil && existingRulesItems[listIdx].KeyValuePattern.KeyPattern != nil && existingRulesItems[listIdx].KeyValuePattern.KeyPattern.ExactValues != nil {
+													return existingRulesItems[listIdx].KeyValuePattern.KeyPattern.ExactValues
+												}
 												if ExactValuesData, ok := KeyPatternData["exact_values"].(map[string]interface{}); ok {
 													return &DataTypeRulesKeyValuePatternKeyPatternExactValuesModel{
 														ExactValues: func() types.List {
@@ -1031,9 +1058,15 @@ func (r *DataTypeResource) Read(ctx context.Context, req resource.ReadRequest, r
 									return nil
 								}(),
 								ValuePattern: func() *DataTypeRulesKeyValuePatternValuePatternModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].KeyValuePattern != nil && existingRulesItems[listIdx].KeyValuePattern.ValuePattern != nil {
+										return existingRulesItems[listIdx].KeyValuePattern.ValuePattern
+									}
 									if ValuePatternData, ok := KeyValuePatternData["value_pattern"].(map[string]interface{}); ok {
 										return &DataTypeRulesKeyValuePatternValuePatternModel{
 											ExactValues: func() *DataTypeRulesKeyValuePatternValuePatternExactValuesModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].KeyValuePattern != nil && existingRulesItems[listIdx].KeyValuePattern.ValuePattern != nil && existingRulesItems[listIdx].KeyValuePattern.ValuePattern.ExactValues != nil {
+													return existingRulesItems[listIdx].KeyValuePattern.ValuePattern.ExactValues
+												}
 												if ExactValuesData, ok := ValuePatternData["exact_values"].(map[string]interface{}); ok {
 													return &DataTypeRulesKeyValuePatternValuePatternExactValuesModel{
 														ExactValues: func() types.List {
@@ -1077,6 +1110,9 @@ func (r *DataTypeResource) Read(ctx context.Context, req resource.ReadRequest, r
 						if ValuePatternData, ok := itemMap["value_pattern"].(map[string]interface{}); ok {
 							return &DataTypeRulesValuePatternModel{
 								ExactValues: func() *DataTypeRulesValuePatternExactValuesModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].ValuePattern != nil && existingRulesItems[listIdx].ValuePattern.ExactValues != nil {
+										return existingRulesItems[listIdx].ValuePattern.ExactValues
+									}
 									if ExactValuesData, ok := ValuePatternData["exact_values"].(map[string]interface{}); ok {
 										return &DataTypeRulesValuePatternExactValuesModel{
 											ExactValues: func() types.List {
@@ -1361,6 +1397,9 @@ func (r *DataTypeResource) Update(ctx context.Context, req resource.UpdateReques
 						if KeyPatternData, ok := itemMap["key_pattern"].(map[string]interface{}); ok {
 							return &DataTypeRulesKeyPatternModel{
 								ExactValues: func() *DataTypeRulesKeyPatternExactValuesModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].KeyPattern != nil && existingRulesItems[listIdx].KeyPattern.ExactValues != nil {
+										return existingRulesItems[listIdx].KeyPattern.ExactValues
+									}
 									if ExactValuesData, ok := KeyPatternData["exact_values"].(map[string]interface{}); ok {
 										return &DataTypeRulesKeyPatternExactValuesModel{
 											ExactValues: func() types.List {
@@ -1400,9 +1439,15 @@ func (r *DataTypeResource) Update(ctx context.Context, req resource.UpdateReques
 						if KeyValuePatternData, ok := itemMap["key_value_pattern"].(map[string]interface{}); ok {
 							return &DataTypeRulesKeyValuePatternModel{
 								KeyPattern: func() *DataTypeRulesKeyValuePatternKeyPatternModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].KeyValuePattern != nil && existingRulesItems[listIdx].KeyValuePattern.KeyPattern != nil {
+										return existingRulesItems[listIdx].KeyValuePattern.KeyPattern
+									}
 									if KeyPatternData, ok := KeyValuePatternData["key_pattern"].(map[string]interface{}); ok {
 										return &DataTypeRulesKeyValuePatternKeyPatternModel{
 											ExactValues: func() *DataTypeRulesKeyValuePatternKeyPatternExactValuesModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].KeyValuePattern != nil && existingRulesItems[listIdx].KeyValuePattern.KeyPattern != nil && existingRulesItems[listIdx].KeyValuePattern.KeyPattern.ExactValues != nil {
+													return existingRulesItems[listIdx].KeyValuePattern.KeyPattern.ExactValues
+												}
 												if ExactValuesData, ok := KeyPatternData["exact_values"].(map[string]interface{}); ok {
 													return &DataTypeRulesKeyValuePatternKeyPatternExactValuesModel{
 														ExactValues: func() types.List {
@@ -1439,9 +1484,15 @@ func (r *DataTypeResource) Update(ctx context.Context, req resource.UpdateReques
 									return nil
 								}(),
 								ValuePattern: func() *DataTypeRulesKeyValuePatternValuePatternModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].KeyValuePattern != nil && existingRulesItems[listIdx].KeyValuePattern.ValuePattern != nil {
+										return existingRulesItems[listIdx].KeyValuePattern.ValuePattern
+									}
 									if ValuePatternData, ok := KeyValuePatternData["value_pattern"].(map[string]interface{}); ok {
 										return &DataTypeRulesKeyValuePatternValuePatternModel{
 											ExactValues: func() *DataTypeRulesKeyValuePatternValuePatternExactValuesModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].KeyValuePattern != nil && existingRulesItems[listIdx].KeyValuePattern.ValuePattern != nil && existingRulesItems[listIdx].KeyValuePattern.ValuePattern.ExactValues != nil {
+													return existingRulesItems[listIdx].KeyValuePattern.ValuePattern.ExactValues
+												}
 												if ExactValuesData, ok := ValuePatternData["exact_values"].(map[string]interface{}); ok {
 													return &DataTypeRulesKeyValuePatternValuePatternExactValuesModel{
 														ExactValues: func() types.List {
@@ -1485,6 +1536,9 @@ func (r *DataTypeResource) Update(ctx context.Context, req resource.UpdateReques
 						if ValuePatternData, ok := itemMap["value_pattern"].(map[string]interface{}); ok {
 							return &DataTypeRulesValuePatternModel{
 								ExactValues: func() *DataTypeRulesValuePatternExactValuesModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].ValuePattern != nil && existingRulesItems[listIdx].ValuePattern.ExactValues != nil {
+										return existingRulesItems[listIdx].ValuePattern.ExactValues
+									}
 									if ExactValuesData, ok := ValuePatternData["exact_values"].(map[string]interface{}); ok {
 										return &DataTypeRulesValuePatternExactValuesModel{
 											ExactValues: func() types.List {

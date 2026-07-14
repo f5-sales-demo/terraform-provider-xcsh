@@ -767,9 +767,15 @@ func (r *AuthenticationResource) Create(ctx context.Context, req resource.Create
 				if AuthHMACData, ok := blockData["auth_hmac"].(map[string]interface{}); ok {
 					return &AuthenticationCookieParamsAuthHMACModel{
 						PrimKey: func() *AuthenticationCookieParamsAuthHMACPrimKeyModel {
+							if !isImport && data.CookieParams != nil && data.CookieParams.AuthHMAC != nil && data.CookieParams.AuthHMAC.PrimKey != nil {
+								return data.CookieParams.AuthHMAC.PrimKey
+							}
 							if PrimKeyData, ok := AuthHMACData["prim_key"].(map[string]interface{}); ok {
 								return &AuthenticationCookieParamsAuthHMACPrimKeyModel{
 									BlindfoldSecretInfo: func() *AuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoModel {
+										if !isImport && data.CookieParams != nil && data.CookieParams.AuthHMAC != nil && data.CookieParams.AuthHMAC.PrimKey != nil && data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo != nil {
+											return data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := PrimKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &AuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -795,6 +801,9 @@ func (r *AuthenticationResource) Create(ctx context.Context, req resource.Create
 										return nil
 									}(),
 									ClearSecretInfo: func() *AuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoModel {
+										if !isImport && data.CookieParams != nil && data.CookieParams.AuthHMAC != nil && data.CookieParams.AuthHMAC.PrimKey != nil && data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo != nil {
+											return data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := PrimKeyData["clear_secret_info"].(map[string]interface{}); ok {
 											return &AuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoModel{
 												Provider: func() types.String {
@@ -824,9 +833,15 @@ func (r *AuthenticationResource) Create(ctx context.Context, req resource.Create
 							return types.StringNull()
 						}(),
 						SecKey: func() *AuthenticationCookieParamsAuthHMACSecKeyModel {
+							if !isImport && data.CookieParams != nil && data.CookieParams.AuthHMAC != nil && data.CookieParams.AuthHMAC.SecKey != nil {
+								return data.CookieParams.AuthHMAC.SecKey
+							}
 							if SecKeyData, ok := AuthHMACData["sec_key"].(map[string]interface{}); ok {
 								return &AuthenticationCookieParamsAuthHMACSecKeyModel{
 									BlindfoldSecretInfo: func() *AuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoModel {
+										if !isImport && data.CookieParams != nil && data.CookieParams.AuthHMAC != nil && data.CookieParams.AuthHMAC.SecKey != nil && data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo != nil {
+											return data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := SecKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &AuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -852,6 +867,9 @@ func (r *AuthenticationResource) Create(ctx context.Context, req resource.Create
 										return nil
 									}(),
 									ClearSecretInfo: func() *AuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoModel {
+										if !isImport && data.CookieParams != nil && data.CookieParams.AuthHMAC != nil && data.CookieParams.AuthHMAC.SecKey != nil && data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo != nil {
+											return data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := SecKeyData["clear_secret_info"].(map[string]interface{}); ok {
 											return &AuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoModel{
 												Provider: func() types.String {
@@ -931,6 +949,9 @@ func (r *AuthenticationResource) Create(ctx context.Context, req resource.Create
 				if ClientSecretData, ok := blockData["client_secret"].(map[string]interface{}); ok {
 					return &AuthenticationOIDCAuthClientSecretModel{
 						BlindfoldSecretInfo: func() *AuthenticationOIDCAuthClientSecretBlindfoldSecretInfoModel {
+							if !isImport && data.OIDCAuth != nil && data.OIDCAuth.ClientSecret != nil && data.OIDCAuth.ClientSecret.BlindfoldSecretInfo != nil {
+								return data.OIDCAuth.ClientSecret.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := ClientSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &AuthenticationOIDCAuthClientSecretBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -956,6 +977,9 @@ func (r *AuthenticationResource) Create(ctx context.Context, req resource.Create
 							return nil
 						}(),
 						ClearSecretInfo: func() *AuthenticationOIDCAuthClientSecretClearSecretInfoModel {
+							if !isImport && data.OIDCAuth != nil && data.OIDCAuth.ClientSecret != nil && data.OIDCAuth.ClientSecret.ClearSecretInfo != nil {
+								return data.OIDCAuth.ClientSecret.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := ClientSecretData["clear_secret_info"].(map[string]interface{}); ok {
 								return &AuthenticationOIDCAuthClientSecretClearSecretInfoModel{
 									Provider: func() types.String {
@@ -1122,9 +1146,15 @@ func (r *AuthenticationResource) Read(ctx context.Context, req resource.ReadRequ
 				if AuthHMACData, ok := blockData["auth_hmac"].(map[string]interface{}); ok {
 					return &AuthenticationCookieParamsAuthHMACModel{
 						PrimKey: func() *AuthenticationCookieParamsAuthHMACPrimKeyModel {
+							if !isImport && data.CookieParams != nil && data.CookieParams.AuthHMAC != nil && data.CookieParams.AuthHMAC.PrimKey != nil {
+								return data.CookieParams.AuthHMAC.PrimKey
+							}
 							if PrimKeyData, ok := AuthHMACData["prim_key"].(map[string]interface{}); ok {
 								return &AuthenticationCookieParamsAuthHMACPrimKeyModel{
 									BlindfoldSecretInfo: func() *AuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoModel {
+										if !isImport && data.CookieParams != nil && data.CookieParams.AuthHMAC != nil && data.CookieParams.AuthHMAC.PrimKey != nil && data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo != nil {
+											return data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := PrimKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &AuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -1150,6 +1180,9 @@ func (r *AuthenticationResource) Read(ctx context.Context, req resource.ReadRequ
 										return nil
 									}(),
 									ClearSecretInfo: func() *AuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoModel {
+										if !isImport && data.CookieParams != nil && data.CookieParams.AuthHMAC != nil && data.CookieParams.AuthHMAC.PrimKey != nil && data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo != nil {
+											return data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := PrimKeyData["clear_secret_info"].(map[string]interface{}); ok {
 											return &AuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoModel{
 												Provider: func() types.String {
@@ -1179,9 +1212,15 @@ func (r *AuthenticationResource) Read(ctx context.Context, req resource.ReadRequ
 							return types.StringNull()
 						}(),
 						SecKey: func() *AuthenticationCookieParamsAuthHMACSecKeyModel {
+							if !isImport && data.CookieParams != nil && data.CookieParams.AuthHMAC != nil && data.CookieParams.AuthHMAC.SecKey != nil {
+								return data.CookieParams.AuthHMAC.SecKey
+							}
 							if SecKeyData, ok := AuthHMACData["sec_key"].(map[string]interface{}); ok {
 								return &AuthenticationCookieParamsAuthHMACSecKeyModel{
 									BlindfoldSecretInfo: func() *AuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoModel {
+										if !isImport && data.CookieParams != nil && data.CookieParams.AuthHMAC != nil && data.CookieParams.AuthHMAC.SecKey != nil && data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo != nil {
+											return data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := SecKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &AuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -1207,6 +1246,9 @@ func (r *AuthenticationResource) Read(ctx context.Context, req resource.ReadRequ
 										return nil
 									}(),
 									ClearSecretInfo: func() *AuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoModel {
+										if !isImport && data.CookieParams != nil && data.CookieParams.AuthHMAC != nil && data.CookieParams.AuthHMAC.SecKey != nil && data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo != nil {
+											return data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := SecKeyData["clear_secret_info"].(map[string]interface{}); ok {
 											return &AuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoModel{
 												Provider: func() types.String {
@@ -1286,6 +1328,9 @@ func (r *AuthenticationResource) Read(ctx context.Context, req resource.ReadRequ
 				if ClientSecretData, ok := blockData["client_secret"].(map[string]interface{}); ok {
 					return &AuthenticationOIDCAuthClientSecretModel{
 						BlindfoldSecretInfo: func() *AuthenticationOIDCAuthClientSecretBlindfoldSecretInfoModel {
+							if !isImport && data.OIDCAuth != nil && data.OIDCAuth.ClientSecret != nil && data.OIDCAuth.ClientSecret.BlindfoldSecretInfo != nil {
+								return data.OIDCAuth.ClientSecret.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := ClientSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &AuthenticationOIDCAuthClientSecretBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -1311,6 +1356,9 @@ func (r *AuthenticationResource) Read(ctx context.Context, req resource.ReadRequ
 							return nil
 						}(),
 						ClearSecretInfo: func() *AuthenticationOIDCAuthClientSecretClearSecretInfoModel {
+							if !isImport && data.OIDCAuth != nil && data.OIDCAuth.ClientSecret != nil && data.OIDCAuth.ClientSecret.ClearSecretInfo != nil {
+								return data.OIDCAuth.ClientSecret.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := ClientSecretData["clear_secret_info"].(map[string]interface{}); ok {
 								return &AuthenticationOIDCAuthClientSecretClearSecretInfoModel{
 									Provider: func() types.String {
@@ -1597,9 +1645,15 @@ func (r *AuthenticationResource) Update(ctx context.Context, req resource.Update
 				if AuthHMACData, ok := blockData["auth_hmac"].(map[string]interface{}); ok {
 					return &AuthenticationCookieParamsAuthHMACModel{
 						PrimKey: func() *AuthenticationCookieParamsAuthHMACPrimKeyModel {
+							if !isImport && data.CookieParams != nil && data.CookieParams.AuthHMAC != nil && data.CookieParams.AuthHMAC.PrimKey != nil {
+								return data.CookieParams.AuthHMAC.PrimKey
+							}
 							if PrimKeyData, ok := AuthHMACData["prim_key"].(map[string]interface{}); ok {
 								return &AuthenticationCookieParamsAuthHMACPrimKeyModel{
 									BlindfoldSecretInfo: func() *AuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoModel {
+										if !isImport && data.CookieParams != nil && data.CookieParams.AuthHMAC != nil && data.CookieParams.AuthHMAC.PrimKey != nil && data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo != nil {
+											return data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := PrimKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &AuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -1625,6 +1679,9 @@ func (r *AuthenticationResource) Update(ctx context.Context, req resource.Update
 										return nil
 									}(),
 									ClearSecretInfo: func() *AuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoModel {
+										if !isImport && data.CookieParams != nil && data.CookieParams.AuthHMAC != nil && data.CookieParams.AuthHMAC.PrimKey != nil && data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo != nil {
+											return data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := PrimKeyData["clear_secret_info"].(map[string]interface{}); ok {
 											return &AuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoModel{
 												Provider: func() types.String {
@@ -1654,9 +1711,15 @@ func (r *AuthenticationResource) Update(ctx context.Context, req resource.Update
 							return types.StringNull()
 						}(),
 						SecKey: func() *AuthenticationCookieParamsAuthHMACSecKeyModel {
+							if !isImport && data.CookieParams != nil && data.CookieParams.AuthHMAC != nil && data.CookieParams.AuthHMAC.SecKey != nil {
+								return data.CookieParams.AuthHMAC.SecKey
+							}
 							if SecKeyData, ok := AuthHMACData["sec_key"].(map[string]interface{}); ok {
 								return &AuthenticationCookieParamsAuthHMACSecKeyModel{
 									BlindfoldSecretInfo: func() *AuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoModel {
+										if !isImport && data.CookieParams != nil && data.CookieParams.AuthHMAC != nil && data.CookieParams.AuthHMAC.SecKey != nil && data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo != nil {
+											return data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := SecKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &AuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -1682,6 +1745,9 @@ func (r *AuthenticationResource) Update(ctx context.Context, req resource.Update
 										return nil
 									}(),
 									ClearSecretInfo: func() *AuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoModel {
+										if !isImport && data.CookieParams != nil && data.CookieParams.AuthHMAC != nil && data.CookieParams.AuthHMAC.SecKey != nil && data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo != nil {
+											return data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := SecKeyData["clear_secret_info"].(map[string]interface{}); ok {
 											return &AuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoModel{
 												Provider: func() types.String {
@@ -1761,6 +1827,9 @@ func (r *AuthenticationResource) Update(ctx context.Context, req resource.Update
 				if ClientSecretData, ok := blockData["client_secret"].(map[string]interface{}); ok {
 					return &AuthenticationOIDCAuthClientSecretModel{
 						BlindfoldSecretInfo: func() *AuthenticationOIDCAuthClientSecretBlindfoldSecretInfoModel {
+							if !isImport && data.OIDCAuth != nil && data.OIDCAuth.ClientSecret != nil && data.OIDCAuth.ClientSecret.BlindfoldSecretInfo != nil {
+								return data.OIDCAuth.ClientSecret.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := ClientSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &AuthenticationOIDCAuthClientSecretBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -1786,6 +1855,9 @@ func (r *AuthenticationResource) Update(ctx context.Context, req resource.Update
 							return nil
 						}(),
 						ClearSecretInfo: func() *AuthenticationOIDCAuthClientSecretClearSecretInfoModel {
+							if !isImport && data.OIDCAuth != nil && data.OIDCAuth.ClientSecret != nil && data.OIDCAuth.ClientSecret.ClearSecretInfo != nil {
+								return data.OIDCAuth.ClientSecret.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := ClientSecretData["clear_secret_info"].(map[string]interface{}); ok {
 								return &AuthenticationOIDCAuthClientSecretClearSecretInfoModel{
 									Provider: func() types.String {

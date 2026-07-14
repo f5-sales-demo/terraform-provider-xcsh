@@ -1649,6 +1649,9 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 				if AccessInfoData, ok := blockData["access_info"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryConsulAccessInfoModel{
 						ConnectionInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoModel {
+							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo != nil {
+								return data.DiscoveryConsul.AccessInfo.ConnectionInfo
+							}
 							if ConnectionInfoData, ok := AccessInfoData["connection_info"].(map[string]interface{}); ok {
 								return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoModel{
 									APIServer: func() types.String {
@@ -1658,6 +1661,9 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 										return types.StringNull()
 									}(),
 									TLSInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoModel {
+										if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo != nil {
+											return data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo
+										}
 										if TLSInfoData, ok := ConnectionInfoData["tls_info"].(map[string]interface{}); ok {
 											return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoModel{
 												Certificate: func() types.String {
@@ -1667,9 +1673,15 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 													return types.StringNull()
 												}(),
 												KeyURL: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLModel {
+													if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil {
+														return data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL
+													}
 													if KeyURLData, ok := TLSInfoData["key_url"].(map[string]interface{}); ok {
 														return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLModel{
 															BlindfoldSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel {
+																if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo != nil {
+																	return data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo
+																}
 																if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 																	return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel{
 																		DecryptionProvider: func() types.String {
@@ -1695,6 +1707,9 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 																return nil
 															}(),
 															ClearSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel {
+																if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo != nil {
+																	return data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo
+																}
 																if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 																	return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel{
 																		Provider: func() types.String {
@@ -1738,12 +1753,21 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 							return nil
 						}(),
 						HTTPBasicAuthInfo: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoModel {
+							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo != nil {
+								return data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo
+							}
 							if HTTPBasicAuthInfoData, ok := AccessInfoData["http_basic_auth_info"].(map[string]interface{}); ok {
 								return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoModel{
 									PasswdURL: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLModel {
+										if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL != nil {
+											return data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL
+										}
 										if PasswdURLData, ok := HTTPBasicAuthInfoData["passwd_url"].(map[string]interface{}); ok {
 											return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLModel{
 												BlindfoldSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLBlindfoldSecretInfoModel {
+													if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo != nil {
+														return data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := PasswdURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -1769,6 +1793,9 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 													return nil
 												}(),
 												ClearSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLClearSecretInfoModel {
+													if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo != nil {
+														return data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := PasswdURLData["clear_secret_info"].(map[string]interface{}); ok {
 														return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLClearSecretInfoModel{
 															Provider: func() types.String {
@@ -1812,12 +1839,18 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 				if PublishInfoData, ok := blockData["publish_info"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryConsulPublishInfoModel{
 						DisableSpec: func() *DiscoveryEmptyModel {
+							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.PublishInfo != nil {
+								return data.DiscoveryConsul.PublishInfo.DisableSpec
+							}
 							if _, ok := PublishInfoData["disable"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
 							return nil
 						}(),
 						Publish: func() *DiscoveryEmptyModel {
+							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.PublishInfo != nil {
+								return data.DiscoveryConsul.PublishInfo.Publish
+							}
 							if _, ok := PublishInfoData["publish"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
@@ -1838,6 +1871,9 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 				if AccessInfoData, ok := blockData["access_info"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryK8SAccessInfoModel{
 						ConnectionInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo != nil {
+								return data.DiscoveryK8S.AccessInfo.ConnectionInfo
+							}
 							if ConnectionInfoData, ok := AccessInfoData["connection_info"].(map[string]interface{}); ok {
 								return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoModel{
 									APIServer: func() types.String {
@@ -1847,6 +1883,9 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 										return types.StringNull()
 									}(),
 									TLSInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoModel {
+										if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo != nil {
+											return data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo
+										}
 										if TLSInfoData, ok := ConnectionInfoData["tls_info"].(map[string]interface{}); ok {
 											return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoModel{
 												Certificate: func() types.String {
@@ -1856,9 +1895,15 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 													return types.StringNull()
 												}(),
 												KeyURL: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLModel {
+													if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil {
+														return data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL
+													}
 													if KeyURLData, ok := TLSInfoData["key_url"].(map[string]interface{}); ok {
 														return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLModel{
 															BlindfoldSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel {
+																if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo != nil {
+																	return data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo
+																}
 																if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 																	return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel{
 																		DecryptionProvider: func() types.String {
@@ -1884,6 +1929,9 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 																return nil
 															}(),
 															ClearSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel {
+																if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo != nil {
+																	return data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo
+																}
 																if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 																	return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel{
 																		Provider: func() types.String {
@@ -1927,15 +1975,24 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 							return nil
 						}(),
 						Isolated: func() *DiscoveryEmptyModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil {
+								return data.DiscoveryK8S.AccessInfo.Isolated
+							}
 							if _, ok := AccessInfoData["isolated"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
 							return nil
 						}(),
 						KubeconfigURL: func() *DiscoveryDiscoveryK8SAccessInfoKubeconfigURLModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.KubeconfigURL != nil {
+								return data.DiscoveryK8S.AccessInfo.KubeconfigURL
+							}
 							if KubeconfigURLData, ok := AccessInfoData["kubeconfig_url"].(map[string]interface{}); ok {
 								return &DiscoveryDiscoveryK8SAccessInfoKubeconfigURLModel{
 									BlindfoldSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoKubeconfigURLBlindfoldSecretInfoModel {
+										if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.KubeconfigURL != nil && data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo != nil {
+											return data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := KubeconfigURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &DiscoveryDiscoveryK8SAccessInfoKubeconfigURLBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -1961,6 +2018,9 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 										return nil
 									}(),
 									ClearSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoKubeconfigURLClearSecretInfoModel {
+										if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.KubeconfigURL != nil && data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo != nil {
+											return data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := KubeconfigURLData["clear_secret_info"].(map[string]interface{}); ok {
 											return &DiscoveryDiscoveryK8SAccessInfoKubeconfigURLClearSecretInfoModel{
 												Provider: func() types.String {
@@ -1984,6 +2044,9 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 							return nil
 						}(),
 						Reachable: func() *DiscoveryEmptyModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil {
+								return data.DiscoveryK8S.AccessInfo.Reachable
+							}
 							if _, ok := AccessInfoData["reachable"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
@@ -2009,9 +2072,17 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 				if NamespaceMappingData, ok := blockData["namespace_mapping"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryK8SNamespaceMappingModel{
 						Items: func() types.List {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.NamespaceMapping != nil && (data.DiscoveryK8S.NamespaceMapping.Items.IsNull() || len(data.DiscoveryK8S.NamespaceMapping.Items.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: DiscoveryDiscoveryK8SNamespaceMappingItemsModelAttrTypes})
+							}
+							var ItemsExisting []DiscoveryDiscoveryK8SNamespaceMappingItemsModel
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.NamespaceMapping != nil && !data.DiscoveryK8S.NamespaceMapping.Items.IsNull() && !data.DiscoveryK8S.NamespaceMapping.Items.IsUnknown() {
+								data.DiscoveryK8S.NamespaceMapping.Items.ElementsAs(ctx, &ItemsExisting, false)
+							}
 							if rawList, ok := NamespaceMappingData["items"].([]interface{}); ok && len(rawList) > 0 {
 								var ItemsResult []DiscoveryDiscoveryK8SNamespaceMappingItemsModel
-								for _, ItemsItem := range rawList {
+								for ItemsIdx, ItemsItem := range rawList {
+									_ = ItemsIdx
 									if ItemsItemMap, ok := ItemsItem.(map[string]interface{}); ok {
 										ItemsResult = append(ItemsResult, DiscoveryDiscoveryK8SNamespaceMappingItemsModel{
 											Namespace: func() types.String {
@@ -2045,12 +2116,18 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 				if PublishInfoData, ok := blockData["publish_info"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryK8SPublishInfoModel{
 						DisableSpec: func() *DiscoveryEmptyModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil {
+								return data.DiscoveryK8S.PublishInfo.DisableSpec
+							}
 							if _, ok := PublishInfoData["disable"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
 							return nil
 						}(),
 						DNSDelegation: func() *DiscoveryDiscoveryK8SPublishInfoDNSDelegationModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil && data.DiscoveryK8S.PublishInfo.DNSDelegation != nil {
+								return data.DiscoveryK8S.PublishInfo.DNSDelegation
+							}
 							if DNSDelegationData, ok := PublishInfoData["dns_delegation"].(map[string]interface{}); ok {
 								return &DiscoveryDiscoveryK8SPublishInfoDNSDelegationModel{
 									DNSMode: func() types.String {
@@ -2070,6 +2147,9 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 							return nil
 						}(),
 						Publish: func() *DiscoveryDiscoveryK8SPublishInfoPublishModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil && data.DiscoveryK8S.PublishInfo.Publish != nil {
+								return data.DiscoveryK8S.PublishInfo.Publish
+							}
 							if PublishData, ok := PublishInfoData["publish"].(map[string]interface{}); ok {
 								return &DiscoveryDiscoveryK8SPublishInfoPublishModel{
 									Namespace: func() types.String {
@@ -2083,6 +2163,9 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 							return nil
 						}(),
 						PublishFqdns: func() *DiscoveryEmptyModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil {
+								return data.DiscoveryK8S.PublishInfo.PublishFqdns
+							}
 							if _, ok := PublishInfoData["publish_fqdns"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
@@ -2103,12 +2186,18 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &DiscoveryWhereSiteModel{
 						DisableInternetVIP: func() *DiscoveryEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.DisableInternetVIP
+							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *DiscoveryEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.EnableInternetVIP
+							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
@@ -2121,9 +2210,17 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.Site != nil && (data.Where.Site.Ref.IsNull() || len(data.Where.Site.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: DiscoveryWhereSiteRefModelAttrTypes})
+							}
+							var RefExisting []DiscoveryWhereSiteRefModel
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
+								data.Where.Site.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []DiscoveryWhereSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, DiscoveryWhereSiteRefModel{
 											Kind: func() types.String {
@@ -2172,9 +2269,17 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
 					return &DiscoveryWhereVirtualNetworkModel{
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil && (data.Where.VirtualNetwork.Ref.IsNull() || len(data.Where.VirtualNetwork.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: DiscoveryWhereVirtualNetworkRefModelAttrTypes})
+							}
+							var RefExisting []DiscoveryWhereVirtualNetworkRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil && !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
+								data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := VirtualNetworkData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []DiscoveryWhereVirtualNetworkRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, DiscoveryWhereVirtualNetworkRefModel{
 											Kind: func() types.String {
@@ -2223,12 +2328,18 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &DiscoveryWhereVirtualSiteModel{
 						DisableInternetVIP: func() *DiscoveryEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.DisableInternetVIP
+							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *DiscoveryEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.EnableInternetVIP
+							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
@@ -2241,9 +2352,17 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && (data.Where.VirtualSite.Ref.IsNull() || len(data.Where.VirtualSite.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: DiscoveryWhereVirtualSiteRefModelAttrTypes})
+							}
+							var RefExisting []DiscoveryWhereVirtualSiteRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
+								data.Where.VirtualSite.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []DiscoveryWhereVirtualSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, DiscoveryWhereVirtualSiteRefModel{
 											Kind: func() types.String {
@@ -2397,6 +2516,9 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 				if AccessInfoData, ok := blockData["access_info"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryConsulAccessInfoModel{
 						ConnectionInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoModel {
+							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo != nil {
+								return data.DiscoveryConsul.AccessInfo.ConnectionInfo
+							}
 							if ConnectionInfoData, ok := AccessInfoData["connection_info"].(map[string]interface{}); ok {
 								return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoModel{
 									APIServer: func() types.String {
@@ -2406,6 +2528,9 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 										return types.StringNull()
 									}(),
 									TLSInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoModel {
+										if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo != nil {
+											return data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo
+										}
 										if TLSInfoData, ok := ConnectionInfoData["tls_info"].(map[string]interface{}); ok {
 											return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoModel{
 												Certificate: func() types.String {
@@ -2415,9 +2540,15 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 													return types.StringNull()
 												}(),
 												KeyURL: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLModel {
+													if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil {
+														return data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL
+													}
 													if KeyURLData, ok := TLSInfoData["key_url"].(map[string]interface{}); ok {
 														return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLModel{
 															BlindfoldSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel {
+																if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo != nil {
+																	return data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo
+																}
 																if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 																	return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel{
 																		DecryptionProvider: func() types.String {
@@ -2443,6 +2574,9 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 																return nil
 															}(),
 															ClearSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel {
+																if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo != nil {
+																	return data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo
+																}
 																if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 																	return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel{
 																		Provider: func() types.String {
@@ -2486,12 +2620,21 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 							return nil
 						}(),
 						HTTPBasicAuthInfo: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoModel {
+							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo != nil {
+								return data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo
+							}
 							if HTTPBasicAuthInfoData, ok := AccessInfoData["http_basic_auth_info"].(map[string]interface{}); ok {
 								return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoModel{
 									PasswdURL: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLModel {
+										if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL != nil {
+											return data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL
+										}
 										if PasswdURLData, ok := HTTPBasicAuthInfoData["passwd_url"].(map[string]interface{}); ok {
 											return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLModel{
 												BlindfoldSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLBlindfoldSecretInfoModel {
+													if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo != nil {
+														return data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := PasswdURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -2517,6 +2660,9 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 													return nil
 												}(),
 												ClearSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLClearSecretInfoModel {
+													if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo != nil {
+														return data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := PasswdURLData["clear_secret_info"].(map[string]interface{}); ok {
 														return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLClearSecretInfoModel{
 															Provider: func() types.String {
@@ -2560,12 +2706,18 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 				if PublishInfoData, ok := blockData["publish_info"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryConsulPublishInfoModel{
 						DisableSpec: func() *DiscoveryEmptyModel {
+							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.PublishInfo != nil {
+								return data.DiscoveryConsul.PublishInfo.DisableSpec
+							}
 							if _, ok := PublishInfoData["disable"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
 							return nil
 						}(),
 						Publish: func() *DiscoveryEmptyModel {
+							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.PublishInfo != nil {
+								return data.DiscoveryConsul.PublishInfo.Publish
+							}
 							if _, ok := PublishInfoData["publish"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
@@ -2586,6 +2738,9 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 				if AccessInfoData, ok := blockData["access_info"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryK8SAccessInfoModel{
 						ConnectionInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo != nil {
+								return data.DiscoveryK8S.AccessInfo.ConnectionInfo
+							}
 							if ConnectionInfoData, ok := AccessInfoData["connection_info"].(map[string]interface{}); ok {
 								return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoModel{
 									APIServer: func() types.String {
@@ -2595,6 +2750,9 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 										return types.StringNull()
 									}(),
 									TLSInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoModel {
+										if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo != nil {
+											return data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo
+										}
 										if TLSInfoData, ok := ConnectionInfoData["tls_info"].(map[string]interface{}); ok {
 											return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoModel{
 												Certificate: func() types.String {
@@ -2604,9 +2762,15 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 													return types.StringNull()
 												}(),
 												KeyURL: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLModel {
+													if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil {
+														return data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL
+													}
 													if KeyURLData, ok := TLSInfoData["key_url"].(map[string]interface{}); ok {
 														return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLModel{
 															BlindfoldSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel {
+																if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo != nil {
+																	return data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo
+																}
 																if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 																	return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel{
 																		DecryptionProvider: func() types.String {
@@ -2632,6 +2796,9 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 																return nil
 															}(),
 															ClearSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel {
+																if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo != nil {
+																	return data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo
+																}
 																if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 																	return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel{
 																		Provider: func() types.String {
@@ -2675,15 +2842,24 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 							return nil
 						}(),
 						Isolated: func() *DiscoveryEmptyModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil {
+								return data.DiscoveryK8S.AccessInfo.Isolated
+							}
 							if _, ok := AccessInfoData["isolated"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
 							return nil
 						}(),
 						KubeconfigURL: func() *DiscoveryDiscoveryK8SAccessInfoKubeconfigURLModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.KubeconfigURL != nil {
+								return data.DiscoveryK8S.AccessInfo.KubeconfigURL
+							}
 							if KubeconfigURLData, ok := AccessInfoData["kubeconfig_url"].(map[string]interface{}); ok {
 								return &DiscoveryDiscoveryK8SAccessInfoKubeconfigURLModel{
 									BlindfoldSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoKubeconfigURLBlindfoldSecretInfoModel {
+										if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.KubeconfigURL != nil && data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo != nil {
+											return data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := KubeconfigURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &DiscoveryDiscoveryK8SAccessInfoKubeconfigURLBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -2709,6 +2885,9 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 										return nil
 									}(),
 									ClearSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoKubeconfigURLClearSecretInfoModel {
+										if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.KubeconfigURL != nil && data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo != nil {
+											return data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := KubeconfigURLData["clear_secret_info"].(map[string]interface{}); ok {
 											return &DiscoveryDiscoveryK8SAccessInfoKubeconfigURLClearSecretInfoModel{
 												Provider: func() types.String {
@@ -2732,6 +2911,9 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 							return nil
 						}(),
 						Reachable: func() *DiscoveryEmptyModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil {
+								return data.DiscoveryK8S.AccessInfo.Reachable
+							}
 							if _, ok := AccessInfoData["reachable"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
@@ -2757,9 +2939,17 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 				if NamespaceMappingData, ok := blockData["namespace_mapping"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryK8SNamespaceMappingModel{
 						Items: func() types.List {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.NamespaceMapping != nil && (data.DiscoveryK8S.NamespaceMapping.Items.IsNull() || len(data.DiscoveryK8S.NamespaceMapping.Items.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: DiscoveryDiscoveryK8SNamespaceMappingItemsModelAttrTypes})
+							}
+							var ItemsExisting []DiscoveryDiscoveryK8SNamespaceMappingItemsModel
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.NamespaceMapping != nil && !data.DiscoveryK8S.NamespaceMapping.Items.IsNull() && !data.DiscoveryK8S.NamespaceMapping.Items.IsUnknown() {
+								data.DiscoveryK8S.NamespaceMapping.Items.ElementsAs(ctx, &ItemsExisting, false)
+							}
 							if rawList, ok := NamespaceMappingData["items"].([]interface{}); ok && len(rawList) > 0 {
 								var ItemsResult []DiscoveryDiscoveryK8SNamespaceMappingItemsModel
-								for _, ItemsItem := range rawList {
+								for ItemsIdx, ItemsItem := range rawList {
+									_ = ItemsIdx
 									if ItemsItemMap, ok := ItemsItem.(map[string]interface{}); ok {
 										ItemsResult = append(ItemsResult, DiscoveryDiscoveryK8SNamespaceMappingItemsModel{
 											Namespace: func() types.String {
@@ -2793,12 +2983,18 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 				if PublishInfoData, ok := blockData["publish_info"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryK8SPublishInfoModel{
 						DisableSpec: func() *DiscoveryEmptyModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil {
+								return data.DiscoveryK8S.PublishInfo.DisableSpec
+							}
 							if _, ok := PublishInfoData["disable"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
 							return nil
 						}(),
 						DNSDelegation: func() *DiscoveryDiscoveryK8SPublishInfoDNSDelegationModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil && data.DiscoveryK8S.PublishInfo.DNSDelegation != nil {
+								return data.DiscoveryK8S.PublishInfo.DNSDelegation
+							}
 							if DNSDelegationData, ok := PublishInfoData["dns_delegation"].(map[string]interface{}); ok {
 								return &DiscoveryDiscoveryK8SPublishInfoDNSDelegationModel{
 									DNSMode: func() types.String {
@@ -2818,6 +3014,9 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 							return nil
 						}(),
 						Publish: func() *DiscoveryDiscoveryK8SPublishInfoPublishModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil && data.DiscoveryK8S.PublishInfo.Publish != nil {
+								return data.DiscoveryK8S.PublishInfo.Publish
+							}
 							if PublishData, ok := PublishInfoData["publish"].(map[string]interface{}); ok {
 								return &DiscoveryDiscoveryK8SPublishInfoPublishModel{
 									Namespace: func() types.String {
@@ -2831,6 +3030,9 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 							return nil
 						}(),
 						PublishFqdns: func() *DiscoveryEmptyModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil {
+								return data.DiscoveryK8S.PublishInfo.PublishFqdns
+							}
 							if _, ok := PublishInfoData["publish_fqdns"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
@@ -2851,12 +3053,18 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &DiscoveryWhereSiteModel{
 						DisableInternetVIP: func() *DiscoveryEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.DisableInternetVIP
+							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *DiscoveryEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.EnableInternetVIP
+							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
@@ -2869,9 +3077,17 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.Site != nil && (data.Where.Site.Ref.IsNull() || len(data.Where.Site.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: DiscoveryWhereSiteRefModelAttrTypes})
+							}
+							var RefExisting []DiscoveryWhereSiteRefModel
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
+								data.Where.Site.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []DiscoveryWhereSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, DiscoveryWhereSiteRefModel{
 											Kind: func() types.String {
@@ -2920,9 +3136,17 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
 					return &DiscoveryWhereVirtualNetworkModel{
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil && (data.Where.VirtualNetwork.Ref.IsNull() || len(data.Where.VirtualNetwork.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: DiscoveryWhereVirtualNetworkRefModelAttrTypes})
+							}
+							var RefExisting []DiscoveryWhereVirtualNetworkRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil && !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
+								data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := VirtualNetworkData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []DiscoveryWhereVirtualNetworkRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, DiscoveryWhereVirtualNetworkRefModel{
 											Kind: func() types.String {
@@ -2971,12 +3195,18 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &DiscoveryWhereVirtualSiteModel{
 						DisableInternetVIP: func() *DiscoveryEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.DisableInternetVIP
+							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *DiscoveryEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.EnableInternetVIP
+							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
@@ -2989,9 +3219,17 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && (data.Where.VirtualSite.Ref.IsNull() || len(data.Where.VirtualSite.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: DiscoveryWhereVirtualSiteRefModelAttrTypes})
+							}
+							var RefExisting []DiscoveryWhereVirtualSiteRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
+								data.Where.VirtualSite.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []DiscoveryWhereVirtualSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, DiscoveryWhereVirtualSiteRefModel{
 											Kind: func() types.String {
@@ -3506,6 +3744,9 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 				if AccessInfoData, ok := blockData["access_info"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryConsulAccessInfoModel{
 						ConnectionInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoModel {
+							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo != nil {
+								return data.DiscoveryConsul.AccessInfo.ConnectionInfo
+							}
 							if ConnectionInfoData, ok := AccessInfoData["connection_info"].(map[string]interface{}); ok {
 								return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoModel{
 									APIServer: func() types.String {
@@ -3515,6 +3756,9 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 										return types.StringNull()
 									}(),
 									TLSInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoModel {
+										if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo != nil {
+											return data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo
+										}
 										if TLSInfoData, ok := ConnectionInfoData["tls_info"].(map[string]interface{}); ok {
 											return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoModel{
 												Certificate: func() types.String {
@@ -3524,9 +3768,15 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 													return types.StringNull()
 												}(),
 												KeyURL: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLModel {
+													if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil {
+														return data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL
+													}
 													if KeyURLData, ok := TLSInfoData["key_url"].(map[string]interface{}); ok {
 														return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLModel{
 															BlindfoldSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel {
+																if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo != nil {
+																	return data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo
+																}
 																if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 																	return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel{
 																		DecryptionProvider: func() types.String {
@@ -3552,6 +3802,9 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 																return nil
 															}(),
 															ClearSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel {
+																if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil && data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo != nil {
+																	return data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo
+																}
 																if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 																	return &DiscoveryDiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel{
 																		Provider: func() types.String {
@@ -3595,12 +3848,21 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 							return nil
 						}(),
 						HTTPBasicAuthInfo: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoModel {
+							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo != nil {
+								return data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo
+							}
 							if HTTPBasicAuthInfoData, ok := AccessInfoData["http_basic_auth_info"].(map[string]interface{}); ok {
 								return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoModel{
 									PasswdURL: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLModel {
+										if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL != nil {
+											return data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL
+										}
 										if PasswdURLData, ok := HTTPBasicAuthInfoData["passwd_url"].(map[string]interface{}); ok {
 											return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLModel{
 												BlindfoldSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLBlindfoldSecretInfoModel {
+													if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo != nil {
+														return data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := PasswdURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -3626,6 +3888,9 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 													return nil
 												}(),
 												ClearSecretInfo: func() *DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLClearSecretInfoModel {
+													if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.AccessInfo != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL != nil && data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo != nil {
+														return data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := PasswdURLData["clear_secret_info"].(map[string]interface{}); ok {
 														return &DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLClearSecretInfoModel{
 															Provider: func() types.String {
@@ -3669,12 +3934,18 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 				if PublishInfoData, ok := blockData["publish_info"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryConsulPublishInfoModel{
 						DisableSpec: func() *DiscoveryEmptyModel {
+							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.PublishInfo != nil {
+								return data.DiscoveryConsul.PublishInfo.DisableSpec
+							}
 							if _, ok := PublishInfoData["disable"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
 							return nil
 						}(),
 						Publish: func() *DiscoveryEmptyModel {
+							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.PublishInfo != nil {
+								return data.DiscoveryConsul.PublishInfo.Publish
+							}
 							if _, ok := PublishInfoData["publish"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
@@ -3695,6 +3966,9 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 				if AccessInfoData, ok := blockData["access_info"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryK8SAccessInfoModel{
 						ConnectionInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo != nil {
+								return data.DiscoveryK8S.AccessInfo.ConnectionInfo
+							}
 							if ConnectionInfoData, ok := AccessInfoData["connection_info"].(map[string]interface{}); ok {
 								return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoModel{
 									APIServer: func() types.String {
@@ -3704,6 +3978,9 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 										return types.StringNull()
 									}(),
 									TLSInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoModel {
+										if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo != nil {
+											return data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo
+										}
 										if TLSInfoData, ok := ConnectionInfoData["tls_info"].(map[string]interface{}); ok {
 											return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoModel{
 												Certificate: func() types.String {
@@ -3713,9 +3990,15 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 													return types.StringNull()
 												}(),
 												KeyURL: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLModel {
+													if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil {
+														return data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL
+													}
 													if KeyURLData, ok := TLSInfoData["key_url"].(map[string]interface{}); ok {
 														return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLModel{
 															BlindfoldSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel {
+																if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo != nil {
+																	return data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo
+																}
 																if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 																	return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoModel{
 																		DecryptionProvider: func() types.String {
@@ -3741,6 +4024,9 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 																return nil
 															}(),
 															ClearSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel {
+																if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil && data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo != nil {
+																	return data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo
+																}
 																if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 																	return &DiscoveryDiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoModel{
 																		Provider: func() types.String {
@@ -3784,15 +4070,24 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 							return nil
 						}(),
 						Isolated: func() *DiscoveryEmptyModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil {
+								return data.DiscoveryK8S.AccessInfo.Isolated
+							}
 							if _, ok := AccessInfoData["isolated"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
 							return nil
 						}(),
 						KubeconfigURL: func() *DiscoveryDiscoveryK8SAccessInfoKubeconfigURLModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.KubeconfigURL != nil {
+								return data.DiscoveryK8S.AccessInfo.KubeconfigURL
+							}
 							if KubeconfigURLData, ok := AccessInfoData["kubeconfig_url"].(map[string]interface{}); ok {
 								return &DiscoveryDiscoveryK8SAccessInfoKubeconfigURLModel{
 									BlindfoldSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoKubeconfigURLBlindfoldSecretInfoModel {
+										if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.KubeconfigURL != nil && data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo != nil {
+											return data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := KubeconfigURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &DiscoveryDiscoveryK8SAccessInfoKubeconfigURLBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -3818,6 +4113,9 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 										return nil
 									}(),
 									ClearSecretInfo: func() *DiscoveryDiscoveryK8SAccessInfoKubeconfigURLClearSecretInfoModel {
+										if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.KubeconfigURL != nil && data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo != nil {
+											return data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := KubeconfigURLData["clear_secret_info"].(map[string]interface{}); ok {
 											return &DiscoveryDiscoveryK8SAccessInfoKubeconfigURLClearSecretInfoModel{
 												Provider: func() types.String {
@@ -3841,6 +4139,9 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 							return nil
 						}(),
 						Reachable: func() *DiscoveryEmptyModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil {
+								return data.DiscoveryK8S.AccessInfo.Reachable
+							}
 							if _, ok := AccessInfoData["reachable"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
@@ -3866,9 +4167,17 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 				if NamespaceMappingData, ok := blockData["namespace_mapping"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryK8SNamespaceMappingModel{
 						Items: func() types.List {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.NamespaceMapping != nil && (data.DiscoveryK8S.NamespaceMapping.Items.IsNull() || len(data.DiscoveryK8S.NamespaceMapping.Items.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: DiscoveryDiscoveryK8SNamespaceMappingItemsModelAttrTypes})
+							}
+							var ItemsExisting []DiscoveryDiscoveryK8SNamespaceMappingItemsModel
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.NamespaceMapping != nil && !data.DiscoveryK8S.NamespaceMapping.Items.IsNull() && !data.DiscoveryK8S.NamespaceMapping.Items.IsUnknown() {
+								data.DiscoveryK8S.NamespaceMapping.Items.ElementsAs(ctx, &ItemsExisting, false)
+							}
 							if rawList, ok := NamespaceMappingData["items"].([]interface{}); ok && len(rawList) > 0 {
 								var ItemsResult []DiscoveryDiscoveryK8SNamespaceMappingItemsModel
-								for _, ItemsItem := range rawList {
+								for ItemsIdx, ItemsItem := range rawList {
+									_ = ItemsIdx
 									if ItemsItemMap, ok := ItemsItem.(map[string]interface{}); ok {
 										ItemsResult = append(ItemsResult, DiscoveryDiscoveryK8SNamespaceMappingItemsModel{
 											Namespace: func() types.String {
@@ -3902,12 +4211,18 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 				if PublishInfoData, ok := blockData["publish_info"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryK8SPublishInfoModel{
 						DisableSpec: func() *DiscoveryEmptyModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil {
+								return data.DiscoveryK8S.PublishInfo.DisableSpec
+							}
 							if _, ok := PublishInfoData["disable"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
 							return nil
 						}(),
 						DNSDelegation: func() *DiscoveryDiscoveryK8SPublishInfoDNSDelegationModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil && data.DiscoveryK8S.PublishInfo.DNSDelegation != nil {
+								return data.DiscoveryK8S.PublishInfo.DNSDelegation
+							}
 							if DNSDelegationData, ok := PublishInfoData["dns_delegation"].(map[string]interface{}); ok {
 								return &DiscoveryDiscoveryK8SPublishInfoDNSDelegationModel{
 									DNSMode: func() types.String {
@@ -3927,6 +4242,9 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 							return nil
 						}(),
 						Publish: func() *DiscoveryDiscoveryK8SPublishInfoPublishModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil && data.DiscoveryK8S.PublishInfo.Publish != nil {
+								return data.DiscoveryK8S.PublishInfo.Publish
+							}
 							if PublishData, ok := PublishInfoData["publish"].(map[string]interface{}); ok {
 								return &DiscoveryDiscoveryK8SPublishInfoPublishModel{
 									Namespace: func() types.String {
@@ -3940,6 +4258,9 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 							return nil
 						}(),
 						PublishFqdns: func() *DiscoveryEmptyModel {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil {
+								return data.DiscoveryK8S.PublishInfo.PublishFqdns
+							}
 							if _, ok := PublishInfoData["publish_fqdns"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
@@ -3960,12 +4281,18 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &DiscoveryWhereSiteModel{
 						DisableInternetVIP: func() *DiscoveryEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.DisableInternetVIP
+							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *DiscoveryEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.EnableInternetVIP
+							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
@@ -3978,9 +4305,17 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.Site != nil && (data.Where.Site.Ref.IsNull() || len(data.Where.Site.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: DiscoveryWhereSiteRefModelAttrTypes})
+							}
+							var RefExisting []DiscoveryWhereSiteRefModel
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
+								data.Where.Site.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []DiscoveryWhereSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, DiscoveryWhereSiteRefModel{
 											Kind: func() types.String {
@@ -4029,9 +4364,17 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
 					return &DiscoveryWhereVirtualNetworkModel{
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil && (data.Where.VirtualNetwork.Ref.IsNull() || len(data.Where.VirtualNetwork.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: DiscoveryWhereVirtualNetworkRefModelAttrTypes})
+							}
+							var RefExisting []DiscoveryWhereVirtualNetworkRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil && !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
+								data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := VirtualNetworkData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []DiscoveryWhereVirtualNetworkRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, DiscoveryWhereVirtualNetworkRefModel{
 											Kind: func() types.String {
@@ -4080,12 +4423,18 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &DiscoveryWhereVirtualSiteModel{
 						DisableInternetVIP: func() *DiscoveryEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.DisableInternetVIP
+							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *DiscoveryEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.EnableInternetVIP
+							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &DiscoveryEmptyModel{}
 							}
@@ -4098,9 +4447,17 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && (data.Where.VirtualSite.Ref.IsNull() || len(data.Where.VirtualSite.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: DiscoveryWhereVirtualSiteRefModelAttrTypes})
+							}
+							var RefExisting []DiscoveryWhereVirtualSiteRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
+								data.Where.VirtualSite.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []DiscoveryWhereVirtualSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, DiscoveryWhereVirtualSiteRefModel{
 											Kind: func() types.String {

@@ -3896,9 +3896,15 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 				if APMAWSSiteData, ok := blockData["apm_aws_site"].(map[string]interface{}); ok {
 					return &APMAWSSiteTypeChoiceAPMAWSSiteModel{
 						AdminPassword: func() *APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordModel {
+							if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.AdminPassword != nil {
+								return data.AWSSiteTypeChoice.APMAWSSite.AdminPassword
+							}
 							if AdminPasswordData, ok := APMAWSSiteData["admin_password"].(map[string]interface{}); ok {
 								return &APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordModel{
 									BlindfoldSecretInfo: func() *APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordBlindfoldSecretInfoModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.AdminPassword != nil && data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AdminPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -3924,6 +3930,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 										return nil
 									}(),
 									ClearSecretInfo: func() *APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordClearSecretInfoModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.AdminPassword != nil && data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.ClearSecretInfo != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AdminPasswordData["clear_secret_info"].(map[string]interface{}); ok {
 											return &APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordClearSecretInfoModel{
 												Provider: func() types.String {
@@ -3985,21 +3994,33 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 							return nil
 						}(),
 						EndpointService: func() *APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceModel {
+							if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+								return data.AWSSiteTypeChoice.APMAWSSite.EndpointService
+							}
 							if EndpointServiceData, ok := APMAWSSiteData["endpoint_service"].(map[string]interface{}); ok {
 								return &APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceModel{
 									AdvertiseOnSloIP: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.AdvertiseOnSloIP
+										}
 										if _, ok := EndpointServiceData["advertise_on_slo_ip"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									AdvertiseOnSloIPExternal: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.AdvertiseOnSloIPExternal
+										}
 										if _, ok := EndpointServiceData["advertise_on_slo_ip_external"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									AutomaticVIP: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.AutomaticVIP
+										}
 										if _, ok := EndpointServiceData["automatic_vip"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -4012,6 +4033,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 										return types.StringNull()
 									}(),
 									CustomTCPPorts: func() *APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomTCPPortsModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomTCPPorts != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomTCPPorts
+										}
 										if CustomTCPPortsData, ok := EndpointServiceData["custom_tcp_ports"].(map[string]interface{}); ok {
 											return &APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomTCPPortsModel{
 												Ports: func() types.List {
@@ -4032,6 +4056,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 										return nil
 									}(),
 									CustomUDPPorts: func() *APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomUDPPortsModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomUDPPorts != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomUDPPorts
+										}
 										if CustomUDPPortsData, ok := EndpointServiceData["custom_udp_ports"].(map[string]interface{}); ok {
 											return &APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomUDPPortsModel{
 												Ports: func() types.List {
@@ -4052,36 +4079,54 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 										return nil
 									}(),
 									DefaultTCPPorts: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.DefaultTCPPorts
+										}
 										if _, ok := EndpointServiceData["default_tcp_ports"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									DisableAdvertiseOnSloIP: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.DisableAdvertiseOnSloIP
+										}
 										if _, ok := EndpointServiceData["disable_advertise_on_slo_ip"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									HTTPPort: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.HTTPPort
+										}
 										if _, ok := EndpointServiceData["http_port"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									HTTPSPort: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.HTTPSPort
+										}
 										if _, ok := EndpointServiceData["https_port"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									NoTCPPorts: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.NoTCPPorts
+										}
 										if _, ok := EndpointServiceData["no_tcp_ports"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									NoUDPPorts: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.NoUDPPorts
+										}
 										if _, ok := EndpointServiceData["no_udp_ports"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -4092,12 +4137,23 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 							return nil
 						}(),
 						Nodes: func() types.List {
+							if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && (data.AWSSiteTypeChoice.APMAWSSite.Nodes.IsNull() || len(data.AWSSiteTypeChoice.APMAWSSite.Nodes.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: APMAWSSiteTypeChoiceAPMAWSSiteNodesModelAttrTypes})
+							}
+							var NodesExisting []APMAWSSiteTypeChoiceAPMAWSSiteNodesModel
+							if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && !data.AWSSiteTypeChoice.APMAWSSite.Nodes.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.Nodes.IsUnknown() {
+								data.AWSSiteTypeChoice.APMAWSSite.Nodes.ElementsAs(ctx, &NodesExisting, false)
+							}
 							if rawList, ok := APMAWSSiteData["nodes"].([]interface{}); ok && len(rawList) > 0 {
 								var NodesResult []APMAWSSiteTypeChoiceAPMAWSSiteNodesModel
-								for _, NodesItem := range rawList {
+								for NodesIdx, NodesItem := range rawList {
+									_ = NodesIdx
 									if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
 										NodesResult = append(NodesResult, APMAWSSiteTypeChoiceAPMAWSSiteNodesModel{
 											AutomaticPrefix: func() *APMEmptyModel {
+												if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].AutomaticPrefix != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := NodesItemMap["automatic_prefix"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -4119,6 +4175,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 															return types.StringNull()
 														}(),
 														SubnetParam: func() *APMAWSSiteTypeChoiceAPMAWSSiteNodesMgmtSubnetSubnetParamModel {
+															if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].MgmtSubnet != nil && NodesExisting[NodesIdx].MgmtSubnet.SubnetParam != nil {
+																return NodesExisting[NodesIdx].MgmtSubnet.SubnetParam
+															}
 															if SubnetParamData, ok := MgmtSubnetData["subnet_param"].(map[string]interface{}); ok {
 																return &APMAWSSiteTypeChoiceAPMAWSSiteNodesMgmtSubnetSubnetParamModel{
 																	Ipv4: func() types.String {
@@ -4142,6 +4201,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 												return types.StringNull()
 											}(),
 											ReservedMgmtSubnet: func() *APMEmptyModel {
+												if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].ReservedMgmtSubnet != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := NodesItemMap["reserved_mgmt_subnet"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -4168,6 +4230,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 							return types.StringNull()
 						}(),
 						Tags: func() *APMEmptyModel {
+							if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil {
+								return data.AWSSiteTypeChoice.APMAWSSite.Tags
+							}
 							if _, ok := APMAWSSiteData["tags"].(map[string]interface{}); ok {
 								return &APMEmptyModel{}
 							}
@@ -4184,12 +4249,18 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 				if MarketPlaceImageData, ok := blockData["market_place_image"].(map[string]interface{}); ok {
 					return &APMAWSSiteTypeChoiceMarketPlaceImageModel{
 						Bestpluspayg200mbps: func() *APMEmptyModel {
+							if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.MarketPlaceImage != nil {
+								return data.AWSSiteTypeChoice.MarketPlaceImage.Bestpluspayg200mbps
+							}
 							if _, ok := MarketPlaceImageData["BestPlusPayG200Mbps"].(map[string]interface{}); ok {
 								return &APMEmptyModel{}
 							}
 							return nil
 						}(),
 						BestPlusPayg1gbps: func() *APMEmptyModel {
+							if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.MarketPlaceImage != nil {
+								return data.AWSSiteTypeChoice.MarketPlaceImage.BestPlusPayg1gbps
+							}
 							if _, ok := MarketPlaceImageData["best_plus_payg_1gbps"].(map[string]interface{}); ok {
 								return &APMEmptyModel{}
 							}
@@ -4207,9 +4278,15 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 				if F5BareMetalSiteData, ok := blockData["f5_bare_metal_site"].(map[string]interface{}); ok {
 					return &APMBaremetalSiteTypeChoiceF5BareMetalSiteModel{
 						AdminPassword: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordModel {
+							if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword != nil {
+								return data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword
+							}
 							if AdminPasswordData, ok := F5BareMetalSiteData["admin_password"].(map[string]interface{}); ok {
 								return &APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordModel{
 									BlindfoldSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordBlindfoldSecretInfoModel {
+										if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo != nil {
+											return data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AdminPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -4235,6 +4312,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 										return nil
 									}(),
 									ClearSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordClearSecretInfoModel {
+										if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.ClearSecretInfo != nil {
+											return data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AdminPasswordData["clear_secret_info"].(map[string]interface{}); ok {
 											return &APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordClearSecretInfoModel{
 												Provider: func() types.String {
@@ -4289,6 +4369,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 							return nil
 						}(),
 						BigiqInstance: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstanceModel {
+							if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance != nil {
+								return data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance
+							}
 							if BigiqInstanceData, ok := F5BareMetalSiteData["bigiq_instance"].(map[string]interface{}); ok {
 								return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstanceModel{
 									LicensePoolName: func() types.String {
@@ -4304,9 +4387,15 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 										return types.StringNull()
 									}(),
 									Password: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordModel {
+										if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password != nil {
+											return data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password
+										}
 										if PasswordData, ok := BigiqInstanceData["password"].(map[string]interface{}); ok {
 											return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordModel{
 												BlindfoldSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordBlindfoldSecretInfoModel {
+													if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo != nil {
+														return data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -4332,6 +4421,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 													return nil
 												}(),
 												ClearSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordClearSecretInfoModel {
+													if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.ClearSecretInfo != nil {
+														return data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 														return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordClearSecretInfoModel{
 															Provider: func() types.String {
@@ -4371,9 +4463,17 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 							return nil
 						}(),
 						Nodes: func() types.List {
+							if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && (data.BaremetalSiteTypeChoice.F5BareMetalSite.Nodes.IsNull() || len(data.BaremetalSiteTypeChoice.F5BareMetalSite.Nodes.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModelAttrTypes})
+							}
+							var NodesExisting []APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModel
+							if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && !data.BaremetalSiteTypeChoice.F5BareMetalSite.Nodes.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.Nodes.IsUnknown() {
+								data.BaremetalSiteTypeChoice.F5BareMetalSite.Nodes.ElementsAs(ctx, &NodesExisting, false)
+							}
 							if rawList, ok := F5BareMetalSiteData["nodes"].([]interface{}); ok && len(rawList) > 0 {
 								var NodesResult []APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModel
-								for _, NodesItem := range rawList {
+								for NodesIdx, NodesItem := range rawList {
+									_ = NodesIdx
 									if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
 										NodesResult = append(NodesResult, APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModel{
 											BmNodeMemorySize: func() types.String {
@@ -4555,15 +4655,26 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 				if AdvertiseOnSLIVIPData, ok := blockData["advertise_on_sli_vip"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSLIVIPModel{
 						NoMtls: func() *APMEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil {
+								return data.HTTPSManagement.AdvertiseOnSLIVIP.NoMtls
+							}
 							if _, ok := AdvertiseOnSLIVIPData["no_mtls"].(map[string]interface{}); ok {
 								return &APMEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && (data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSLIVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -4599,6 +4710,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -4608,6 +4722,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -4633,6 +4750,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 															return nil
 														}(),
 														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -4656,6 +4776,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -4670,9 +4793,15 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 							return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSLIVIPData["tls_config"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigModel{
 									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -4705,18 +4834,27 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 										return nil
 									}(),
 									DefaultSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -4730,6 +4868,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 							if UseMtlsData, ok := AdvertiseOnSLIVIPData["use_mtls"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -4761,6 +4902,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 										return nil
 									}(),
 									NoCRL: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -4798,12 +4942,18 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -4835,15 +4985,26 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 				if AdvertiseOnSloInternetVIPData, ok := blockData["advertise_on_slo_internet_vip"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSloInternetVIPModel{
 						NoMtls: func() *APMEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil {
+								return data.HTTPSManagement.AdvertiseOnSloInternetVIP.NoMtls
+							}
 							if _, ok := AdvertiseOnSloInternetVIPData["no_mtls"].(map[string]interface{}); ok {
 								return &APMEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && (data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSloInternetVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -4879,6 +5040,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -4888,6 +5052,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -4913,6 +5080,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 															return nil
 														}(),
 														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -4936,6 +5106,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -4950,9 +5123,15 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 							return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSloInternetVIPData["tls_config"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigModel{
 									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -4985,18 +5164,27 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 										return nil
 									}(),
 									DefaultSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -5010,6 +5198,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 							if UseMtlsData, ok := AdvertiseOnSloInternetVIPData["use_mtls"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -5041,6 +5232,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 										return nil
 									}(),
 									NoCRL: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -5078,12 +5272,18 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -5115,15 +5315,26 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 				if AdvertiseOnSloSLIData, ok := blockData["advertise_on_slo_sli"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSloSLIModel{
 						NoMtls: func() *APMEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil {
+								return data.HTTPSManagement.AdvertiseOnSloSLI.NoMtls
+							}
 							if _, ok := AdvertiseOnSloSLIData["no_mtls"].(map[string]interface{}); ok {
 								return &APMEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && (data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSloSLIData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -5159,6 +5370,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -5168,6 +5382,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -5193,6 +5410,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 															return nil
 														}(),
 														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -5216,6 +5436,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -5230,9 +5453,15 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 							return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSloSLITLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSloSLIData["tls_config"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSloSLITLSConfigModel{
 									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -5265,18 +5494,27 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 										return nil
 									}(),
 									DefaultSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -5290,6 +5528,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 							if UseMtlsData, ok := AdvertiseOnSloSLIData["use_mtls"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSloSLIUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -5321,6 +5562,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 										return nil
 									}(),
 									NoCRL: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -5358,12 +5602,18 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -5395,15 +5645,26 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 				if AdvertiseOnSloVIPData, ok := blockData["advertise_on_slo_vip"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSloVIPModel{
 						NoMtls: func() *APMEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil {
+								return data.HTTPSManagement.AdvertiseOnSloVIP.NoMtls
+							}
 							if _, ok := AdvertiseOnSloVIPData["no_mtls"].(map[string]interface{}); ok {
 								return &APMEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && (data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSloVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -5439,6 +5700,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -5448,6 +5712,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -5473,6 +5740,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 															return nil
 														}(),
 														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -5496,6 +5766,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -5510,9 +5783,15 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 							return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSloVIPData["tls_config"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSloVIPTLSConfigModel{
 									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -5545,18 +5824,27 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 										return nil
 									}(),
 									DefaultSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -5570,6 +5858,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 							if UseMtlsData, ok := AdvertiseOnSloVIPData["use_mtls"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSloVIPUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -5601,6 +5892,9 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 										return nil
 									}(),
 									NoCRL: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -5638,12 +5932,18 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -5796,9 +6096,15 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 				if APMAWSSiteData, ok := blockData["apm_aws_site"].(map[string]interface{}); ok {
 					return &APMAWSSiteTypeChoiceAPMAWSSiteModel{
 						AdminPassword: func() *APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordModel {
+							if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.AdminPassword != nil {
+								return data.AWSSiteTypeChoice.APMAWSSite.AdminPassword
+							}
 							if AdminPasswordData, ok := APMAWSSiteData["admin_password"].(map[string]interface{}); ok {
 								return &APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordModel{
 									BlindfoldSecretInfo: func() *APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordBlindfoldSecretInfoModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.AdminPassword != nil && data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AdminPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -5824,6 +6130,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 										return nil
 									}(),
 									ClearSecretInfo: func() *APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordClearSecretInfoModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.AdminPassword != nil && data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.ClearSecretInfo != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AdminPasswordData["clear_secret_info"].(map[string]interface{}); ok {
 											return &APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordClearSecretInfoModel{
 												Provider: func() types.String {
@@ -5885,21 +6194,33 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 							return nil
 						}(),
 						EndpointService: func() *APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceModel {
+							if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+								return data.AWSSiteTypeChoice.APMAWSSite.EndpointService
+							}
 							if EndpointServiceData, ok := APMAWSSiteData["endpoint_service"].(map[string]interface{}); ok {
 								return &APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceModel{
 									AdvertiseOnSloIP: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.AdvertiseOnSloIP
+										}
 										if _, ok := EndpointServiceData["advertise_on_slo_ip"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									AdvertiseOnSloIPExternal: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.AdvertiseOnSloIPExternal
+										}
 										if _, ok := EndpointServiceData["advertise_on_slo_ip_external"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									AutomaticVIP: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.AutomaticVIP
+										}
 										if _, ok := EndpointServiceData["automatic_vip"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -5912,6 +6233,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 										return types.StringNull()
 									}(),
 									CustomTCPPorts: func() *APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomTCPPortsModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomTCPPorts != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomTCPPorts
+										}
 										if CustomTCPPortsData, ok := EndpointServiceData["custom_tcp_ports"].(map[string]interface{}); ok {
 											return &APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomTCPPortsModel{
 												Ports: func() types.List {
@@ -5932,6 +6256,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 										return nil
 									}(),
 									CustomUDPPorts: func() *APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomUDPPortsModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomUDPPorts != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomUDPPorts
+										}
 										if CustomUDPPortsData, ok := EndpointServiceData["custom_udp_ports"].(map[string]interface{}); ok {
 											return &APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomUDPPortsModel{
 												Ports: func() types.List {
@@ -5952,36 +6279,54 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 										return nil
 									}(),
 									DefaultTCPPorts: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.DefaultTCPPorts
+										}
 										if _, ok := EndpointServiceData["default_tcp_ports"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									DisableAdvertiseOnSloIP: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.DisableAdvertiseOnSloIP
+										}
 										if _, ok := EndpointServiceData["disable_advertise_on_slo_ip"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									HTTPPort: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.HTTPPort
+										}
 										if _, ok := EndpointServiceData["http_port"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									HTTPSPort: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.HTTPSPort
+										}
 										if _, ok := EndpointServiceData["https_port"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									NoTCPPorts: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.NoTCPPorts
+										}
 										if _, ok := EndpointServiceData["no_tcp_ports"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									NoUDPPorts: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.NoUDPPorts
+										}
 										if _, ok := EndpointServiceData["no_udp_ports"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -5992,12 +6337,23 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 							return nil
 						}(),
 						Nodes: func() types.List {
+							if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && (data.AWSSiteTypeChoice.APMAWSSite.Nodes.IsNull() || len(data.AWSSiteTypeChoice.APMAWSSite.Nodes.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: APMAWSSiteTypeChoiceAPMAWSSiteNodesModelAttrTypes})
+							}
+							var NodesExisting []APMAWSSiteTypeChoiceAPMAWSSiteNodesModel
+							if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && !data.AWSSiteTypeChoice.APMAWSSite.Nodes.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.Nodes.IsUnknown() {
+								data.AWSSiteTypeChoice.APMAWSSite.Nodes.ElementsAs(ctx, &NodesExisting, false)
+							}
 							if rawList, ok := APMAWSSiteData["nodes"].([]interface{}); ok && len(rawList) > 0 {
 								var NodesResult []APMAWSSiteTypeChoiceAPMAWSSiteNodesModel
-								for _, NodesItem := range rawList {
+								for NodesIdx, NodesItem := range rawList {
+									_ = NodesIdx
 									if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
 										NodesResult = append(NodesResult, APMAWSSiteTypeChoiceAPMAWSSiteNodesModel{
 											AutomaticPrefix: func() *APMEmptyModel {
+												if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].AutomaticPrefix != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := NodesItemMap["automatic_prefix"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -6019,6 +6375,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 															return types.StringNull()
 														}(),
 														SubnetParam: func() *APMAWSSiteTypeChoiceAPMAWSSiteNodesMgmtSubnetSubnetParamModel {
+															if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].MgmtSubnet != nil && NodesExisting[NodesIdx].MgmtSubnet.SubnetParam != nil {
+																return NodesExisting[NodesIdx].MgmtSubnet.SubnetParam
+															}
 															if SubnetParamData, ok := MgmtSubnetData["subnet_param"].(map[string]interface{}); ok {
 																return &APMAWSSiteTypeChoiceAPMAWSSiteNodesMgmtSubnetSubnetParamModel{
 																	Ipv4: func() types.String {
@@ -6042,6 +6401,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 												return types.StringNull()
 											}(),
 											ReservedMgmtSubnet: func() *APMEmptyModel {
+												if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].ReservedMgmtSubnet != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := NodesItemMap["reserved_mgmt_subnet"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -6068,6 +6430,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 							return types.StringNull()
 						}(),
 						Tags: func() *APMEmptyModel {
+							if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil {
+								return data.AWSSiteTypeChoice.APMAWSSite.Tags
+							}
 							if _, ok := APMAWSSiteData["tags"].(map[string]interface{}); ok {
 								return &APMEmptyModel{}
 							}
@@ -6084,12 +6449,18 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 				if MarketPlaceImageData, ok := blockData["market_place_image"].(map[string]interface{}); ok {
 					return &APMAWSSiteTypeChoiceMarketPlaceImageModel{
 						Bestpluspayg200mbps: func() *APMEmptyModel {
+							if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.MarketPlaceImage != nil {
+								return data.AWSSiteTypeChoice.MarketPlaceImage.Bestpluspayg200mbps
+							}
 							if _, ok := MarketPlaceImageData["BestPlusPayG200Mbps"].(map[string]interface{}); ok {
 								return &APMEmptyModel{}
 							}
 							return nil
 						}(),
 						BestPlusPayg1gbps: func() *APMEmptyModel {
+							if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.MarketPlaceImage != nil {
+								return data.AWSSiteTypeChoice.MarketPlaceImage.BestPlusPayg1gbps
+							}
 							if _, ok := MarketPlaceImageData["best_plus_payg_1gbps"].(map[string]interface{}); ok {
 								return &APMEmptyModel{}
 							}
@@ -6107,9 +6478,15 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 				if F5BareMetalSiteData, ok := blockData["f5_bare_metal_site"].(map[string]interface{}); ok {
 					return &APMBaremetalSiteTypeChoiceF5BareMetalSiteModel{
 						AdminPassword: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordModel {
+							if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword != nil {
+								return data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword
+							}
 							if AdminPasswordData, ok := F5BareMetalSiteData["admin_password"].(map[string]interface{}); ok {
 								return &APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordModel{
 									BlindfoldSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordBlindfoldSecretInfoModel {
+										if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo != nil {
+											return data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AdminPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -6135,6 +6512,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 										return nil
 									}(),
 									ClearSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordClearSecretInfoModel {
+										if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.ClearSecretInfo != nil {
+											return data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AdminPasswordData["clear_secret_info"].(map[string]interface{}); ok {
 											return &APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordClearSecretInfoModel{
 												Provider: func() types.String {
@@ -6189,6 +6569,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 							return nil
 						}(),
 						BigiqInstance: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstanceModel {
+							if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance != nil {
+								return data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance
+							}
 							if BigiqInstanceData, ok := F5BareMetalSiteData["bigiq_instance"].(map[string]interface{}); ok {
 								return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstanceModel{
 									LicensePoolName: func() types.String {
@@ -6204,9 +6587,15 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 										return types.StringNull()
 									}(),
 									Password: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordModel {
+										if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password != nil {
+											return data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password
+										}
 										if PasswordData, ok := BigiqInstanceData["password"].(map[string]interface{}); ok {
 											return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordModel{
 												BlindfoldSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordBlindfoldSecretInfoModel {
+													if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo != nil {
+														return data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -6232,6 +6621,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 													return nil
 												}(),
 												ClearSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordClearSecretInfoModel {
+													if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.ClearSecretInfo != nil {
+														return data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 														return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordClearSecretInfoModel{
 															Provider: func() types.String {
@@ -6271,9 +6663,17 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 							return nil
 						}(),
 						Nodes: func() types.List {
+							if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && (data.BaremetalSiteTypeChoice.F5BareMetalSite.Nodes.IsNull() || len(data.BaremetalSiteTypeChoice.F5BareMetalSite.Nodes.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModelAttrTypes})
+							}
+							var NodesExisting []APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModel
+							if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && !data.BaremetalSiteTypeChoice.F5BareMetalSite.Nodes.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.Nodes.IsUnknown() {
+								data.BaremetalSiteTypeChoice.F5BareMetalSite.Nodes.ElementsAs(ctx, &NodesExisting, false)
+							}
 							if rawList, ok := F5BareMetalSiteData["nodes"].([]interface{}); ok && len(rawList) > 0 {
 								var NodesResult []APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModel
-								for _, NodesItem := range rawList {
+								for NodesIdx, NodesItem := range rawList {
+									_ = NodesIdx
 									if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
 										NodesResult = append(NodesResult, APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModel{
 											BmNodeMemorySize: func() types.String {
@@ -6455,15 +6855,26 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 				if AdvertiseOnSLIVIPData, ok := blockData["advertise_on_sli_vip"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSLIVIPModel{
 						NoMtls: func() *APMEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil {
+								return data.HTTPSManagement.AdvertiseOnSLIVIP.NoMtls
+							}
 							if _, ok := AdvertiseOnSLIVIPData["no_mtls"].(map[string]interface{}); ok {
 								return &APMEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && (data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSLIVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -6499,6 +6910,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -6508,6 +6922,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -6533,6 +6950,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 															return nil
 														}(),
 														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -6556,6 +6976,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -6570,9 +6993,15 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 							return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSLIVIPData["tls_config"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigModel{
 									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -6605,18 +7034,27 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 										return nil
 									}(),
 									DefaultSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -6630,6 +7068,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 							if UseMtlsData, ok := AdvertiseOnSLIVIPData["use_mtls"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -6661,6 +7102,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 										return nil
 									}(),
 									NoCRL: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -6698,12 +7142,18 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -6735,15 +7185,26 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 				if AdvertiseOnSloInternetVIPData, ok := blockData["advertise_on_slo_internet_vip"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSloInternetVIPModel{
 						NoMtls: func() *APMEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil {
+								return data.HTTPSManagement.AdvertiseOnSloInternetVIP.NoMtls
+							}
 							if _, ok := AdvertiseOnSloInternetVIPData["no_mtls"].(map[string]interface{}); ok {
 								return &APMEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && (data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSloInternetVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -6779,6 +7240,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -6788,6 +7252,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -6813,6 +7280,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 															return nil
 														}(),
 														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -6836,6 +7306,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -6850,9 +7323,15 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 							return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSloInternetVIPData["tls_config"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigModel{
 									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -6885,18 +7364,27 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 										return nil
 									}(),
 									DefaultSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -6910,6 +7398,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 							if UseMtlsData, ok := AdvertiseOnSloInternetVIPData["use_mtls"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -6941,6 +7432,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 										return nil
 									}(),
 									NoCRL: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -6978,12 +7472,18 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -7015,15 +7515,26 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 				if AdvertiseOnSloSLIData, ok := blockData["advertise_on_slo_sli"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSloSLIModel{
 						NoMtls: func() *APMEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil {
+								return data.HTTPSManagement.AdvertiseOnSloSLI.NoMtls
+							}
 							if _, ok := AdvertiseOnSloSLIData["no_mtls"].(map[string]interface{}); ok {
 								return &APMEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && (data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSloSLIData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -7059,6 +7570,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -7068,6 +7582,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -7093,6 +7610,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 															return nil
 														}(),
 														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -7116,6 +7636,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -7130,9 +7653,15 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 							return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSloSLITLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSloSLIData["tls_config"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSloSLITLSConfigModel{
 									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -7165,18 +7694,27 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 										return nil
 									}(),
 									DefaultSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -7190,6 +7728,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 							if UseMtlsData, ok := AdvertiseOnSloSLIData["use_mtls"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSloSLIUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -7221,6 +7762,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 										return nil
 									}(),
 									NoCRL: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -7258,12 +7802,18 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -7295,15 +7845,26 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 				if AdvertiseOnSloVIPData, ok := blockData["advertise_on_slo_vip"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSloVIPModel{
 						NoMtls: func() *APMEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil {
+								return data.HTTPSManagement.AdvertiseOnSloVIP.NoMtls
+							}
 							if _, ok := AdvertiseOnSloVIPData["no_mtls"].(map[string]interface{}); ok {
 								return &APMEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && (data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSloVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -7339,6 +7900,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -7348,6 +7912,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -7373,6 +7940,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 															return nil
 														}(),
 														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -7396,6 +7966,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -7410,9 +7983,15 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 							return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSloVIPData["tls_config"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSloVIPTLSConfigModel{
 									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -7445,18 +8024,27 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 										return nil
 									}(),
 									DefaultSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -7470,6 +8058,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 							if UseMtlsData, ok := AdvertiseOnSloVIPData["use_mtls"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSloVIPUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -7501,6 +8092,9 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 										return nil
 									}(),
 									NoCRL: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -7538,12 +8132,18 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -8668,9 +9268,15 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 				if APMAWSSiteData, ok := blockData["apm_aws_site"].(map[string]interface{}); ok {
 					return &APMAWSSiteTypeChoiceAPMAWSSiteModel{
 						AdminPassword: func() *APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordModel {
+							if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.AdminPassword != nil {
+								return data.AWSSiteTypeChoice.APMAWSSite.AdminPassword
+							}
 							if AdminPasswordData, ok := APMAWSSiteData["admin_password"].(map[string]interface{}); ok {
 								return &APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordModel{
 									BlindfoldSecretInfo: func() *APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordBlindfoldSecretInfoModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.AdminPassword != nil && data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AdminPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -8696,6 +9302,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 										return nil
 									}(),
 									ClearSecretInfo: func() *APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordClearSecretInfoModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.AdminPassword != nil && data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.ClearSecretInfo != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.AdminPassword.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AdminPasswordData["clear_secret_info"].(map[string]interface{}); ok {
 											return &APMAWSSiteTypeChoiceAPMAWSSiteAdminPasswordClearSecretInfoModel{
 												Provider: func() types.String {
@@ -8757,21 +9366,33 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 							return nil
 						}(),
 						EndpointService: func() *APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceModel {
+							if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+								return data.AWSSiteTypeChoice.APMAWSSite.EndpointService
+							}
 							if EndpointServiceData, ok := APMAWSSiteData["endpoint_service"].(map[string]interface{}); ok {
 								return &APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceModel{
 									AdvertiseOnSloIP: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.AdvertiseOnSloIP
+										}
 										if _, ok := EndpointServiceData["advertise_on_slo_ip"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									AdvertiseOnSloIPExternal: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.AdvertiseOnSloIPExternal
+										}
 										if _, ok := EndpointServiceData["advertise_on_slo_ip_external"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									AutomaticVIP: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.AutomaticVIP
+										}
 										if _, ok := EndpointServiceData["automatic_vip"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -8784,6 +9405,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 										return types.StringNull()
 									}(),
 									CustomTCPPorts: func() *APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomTCPPortsModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomTCPPorts != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomTCPPorts
+										}
 										if CustomTCPPortsData, ok := EndpointServiceData["custom_tcp_ports"].(map[string]interface{}); ok {
 											return &APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomTCPPortsModel{
 												Ports: func() types.List {
@@ -8804,6 +9428,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 										return nil
 									}(),
 									CustomUDPPorts: func() *APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomUDPPortsModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomUDPPorts != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.CustomUDPPorts
+										}
 										if CustomUDPPortsData, ok := EndpointServiceData["custom_udp_ports"].(map[string]interface{}); ok {
 											return &APMAWSSiteTypeChoiceAPMAWSSiteEndpointServiceCustomUDPPortsModel{
 												Ports: func() types.List {
@@ -8824,36 +9451,54 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 										return nil
 									}(),
 									DefaultTCPPorts: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.DefaultTCPPorts
+										}
 										if _, ok := EndpointServiceData["default_tcp_ports"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									DisableAdvertiseOnSloIP: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.DisableAdvertiseOnSloIP
+										}
 										if _, ok := EndpointServiceData["disable_advertise_on_slo_ip"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									HTTPPort: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.HTTPPort
+										}
 										if _, ok := EndpointServiceData["http_port"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									HTTPSPort: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.HTTPSPort
+										}
 										if _, ok := EndpointServiceData["https_port"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									NoTCPPorts: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.NoTCPPorts
+										}
 										if _, ok := EndpointServiceData["no_tcp_ports"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									NoUDPPorts: func() *APMEmptyModel {
+										if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && data.AWSSiteTypeChoice.APMAWSSite.EndpointService != nil {
+											return data.AWSSiteTypeChoice.APMAWSSite.EndpointService.NoUDPPorts
+										}
 										if _, ok := EndpointServiceData["no_udp_ports"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -8864,12 +9509,23 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 							return nil
 						}(),
 						Nodes: func() types.List {
+							if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && (data.AWSSiteTypeChoice.APMAWSSite.Nodes.IsNull() || len(data.AWSSiteTypeChoice.APMAWSSite.Nodes.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: APMAWSSiteTypeChoiceAPMAWSSiteNodesModelAttrTypes})
+							}
+							var NodesExisting []APMAWSSiteTypeChoiceAPMAWSSiteNodesModel
+							if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil && !data.AWSSiteTypeChoice.APMAWSSite.Nodes.IsNull() && !data.AWSSiteTypeChoice.APMAWSSite.Nodes.IsUnknown() {
+								data.AWSSiteTypeChoice.APMAWSSite.Nodes.ElementsAs(ctx, &NodesExisting, false)
+							}
 							if rawList, ok := APMAWSSiteData["nodes"].([]interface{}); ok && len(rawList) > 0 {
 								var NodesResult []APMAWSSiteTypeChoiceAPMAWSSiteNodesModel
-								for _, NodesItem := range rawList {
+								for NodesIdx, NodesItem := range rawList {
+									_ = NodesIdx
 									if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
 										NodesResult = append(NodesResult, APMAWSSiteTypeChoiceAPMAWSSiteNodesModel{
 											AutomaticPrefix: func() *APMEmptyModel {
+												if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].AutomaticPrefix != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := NodesItemMap["automatic_prefix"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -8891,6 +9547,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 															return types.StringNull()
 														}(),
 														SubnetParam: func() *APMAWSSiteTypeChoiceAPMAWSSiteNodesMgmtSubnetSubnetParamModel {
+															if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].MgmtSubnet != nil && NodesExisting[NodesIdx].MgmtSubnet.SubnetParam != nil {
+																return NodesExisting[NodesIdx].MgmtSubnet.SubnetParam
+															}
 															if SubnetParamData, ok := MgmtSubnetData["subnet_param"].(map[string]interface{}); ok {
 																return &APMAWSSiteTypeChoiceAPMAWSSiteNodesMgmtSubnetSubnetParamModel{
 																	Ipv4: func() types.String {
@@ -8914,6 +9573,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 												return types.StringNull()
 											}(),
 											ReservedMgmtSubnet: func() *APMEmptyModel {
+												if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].ReservedMgmtSubnet != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := NodesItemMap["reserved_mgmt_subnet"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -8940,6 +9602,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 							return types.StringNull()
 						}(),
 						Tags: func() *APMEmptyModel {
+							if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.APMAWSSite != nil {
+								return data.AWSSiteTypeChoice.APMAWSSite.Tags
+							}
 							if _, ok := APMAWSSiteData["tags"].(map[string]interface{}); ok {
 								return &APMEmptyModel{}
 							}
@@ -8956,12 +9621,18 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 				if MarketPlaceImageData, ok := blockData["market_place_image"].(map[string]interface{}); ok {
 					return &APMAWSSiteTypeChoiceMarketPlaceImageModel{
 						Bestpluspayg200mbps: func() *APMEmptyModel {
+							if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.MarketPlaceImage != nil {
+								return data.AWSSiteTypeChoice.MarketPlaceImage.Bestpluspayg200mbps
+							}
 							if _, ok := MarketPlaceImageData["BestPlusPayG200Mbps"].(map[string]interface{}); ok {
 								return &APMEmptyModel{}
 							}
 							return nil
 						}(),
 						BestPlusPayg1gbps: func() *APMEmptyModel {
+							if !isImport && data.AWSSiteTypeChoice != nil && data.AWSSiteTypeChoice.MarketPlaceImage != nil {
+								return data.AWSSiteTypeChoice.MarketPlaceImage.BestPlusPayg1gbps
+							}
 							if _, ok := MarketPlaceImageData["best_plus_payg_1gbps"].(map[string]interface{}); ok {
 								return &APMEmptyModel{}
 							}
@@ -8979,9 +9650,15 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 				if F5BareMetalSiteData, ok := blockData["f5_bare_metal_site"].(map[string]interface{}); ok {
 					return &APMBaremetalSiteTypeChoiceF5BareMetalSiteModel{
 						AdminPassword: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordModel {
+							if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword != nil {
+								return data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword
+							}
 							if AdminPasswordData, ok := F5BareMetalSiteData["admin_password"].(map[string]interface{}); ok {
 								return &APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordModel{
 									BlindfoldSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordBlindfoldSecretInfoModel {
+										if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo != nil {
+											return data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AdminPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -9007,6 +9684,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 										return nil
 									}(),
 									ClearSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordClearSecretInfoModel {
+										if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.ClearSecretInfo != nil {
+											return data.BaremetalSiteTypeChoice.F5BareMetalSite.AdminPassword.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AdminPasswordData["clear_secret_info"].(map[string]interface{}); ok {
 											return &APMBaremetalSiteTypeChoiceF5BareMetalSiteAdminPasswordClearSecretInfoModel{
 												Provider: func() types.String {
@@ -9061,6 +9741,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 							return nil
 						}(),
 						BigiqInstance: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstanceModel {
+							if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance != nil {
+								return data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance
+							}
 							if BigiqInstanceData, ok := F5BareMetalSiteData["bigiq_instance"].(map[string]interface{}); ok {
 								return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstanceModel{
 									LicensePoolName: func() types.String {
@@ -9076,9 +9759,15 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 										return types.StringNull()
 									}(),
 									Password: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordModel {
+										if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password != nil {
+											return data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password
+										}
 										if PasswordData, ok := BigiqInstanceData["password"].(map[string]interface{}); ok {
 											return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordModel{
 												BlindfoldSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordBlindfoldSecretInfoModel {
+													if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo != nil {
+														return data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -9104,6 +9793,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 													return nil
 												}(),
 												ClearSecretInfo: func() *APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordClearSecretInfoModel {
+													if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.ClearSecretInfo != nil {
+														return data.BaremetalSiteTypeChoice.F5BareMetalSite.BigiqInstance.Password.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 														return &APMBaremetalSiteTypeChoiceF5BareMetalSiteBigiqInstancePasswordClearSecretInfoModel{
 															Provider: func() types.String {
@@ -9143,9 +9835,17 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 							return nil
 						}(),
 						Nodes: func() types.List {
+							if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && (data.BaremetalSiteTypeChoice.F5BareMetalSite.Nodes.IsNull() || len(data.BaremetalSiteTypeChoice.F5BareMetalSite.Nodes.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModelAttrTypes})
+							}
+							var NodesExisting []APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModel
+							if !isImport && data.BaremetalSiteTypeChoice != nil && data.BaremetalSiteTypeChoice.F5BareMetalSite != nil && !data.BaremetalSiteTypeChoice.F5BareMetalSite.Nodes.IsNull() && !data.BaremetalSiteTypeChoice.F5BareMetalSite.Nodes.IsUnknown() {
+								data.BaremetalSiteTypeChoice.F5BareMetalSite.Nodes.ElementsAs(ctx, &NodesExisting, false)
+							}
 							if rawList, ok := F5BareMetalSiteData["nodes"].([]interface{}); ok && len(rawList) > 0 {
 								var NodesResult []APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModel
-								for _, NodesItem := range rawList {
+								for NodesIdx, NodesItem := range rawList {
+									_ = NodesIdx
 									if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
 										NodesResult = append(NodesResult, APMBaremetalSiteTypeChoiceF5BareMetalSiteNodesModel{
 											BmNodeMemorySize: func() types.String {
@@ -9327,15 +10027,26 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 				if AdvertiseOnSLIVIPData, ok := blockData["advertise_on_sli_vip"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSLIVIPModel{
 						NoMtls: func() *APMEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil {
+								return data.HTTPSManagement.AdvertiseOnSLIVIP.NoMtls
+							}
 							if _, ok := AdvertiseOnSLIVIPData["no_mtls"].(map[string]interface{}); ok {
 								return &APMEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && (data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSLIVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -9371,6 +10082,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -9380,6 +10094,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -9405,6 +10122,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 															return nil
 														}(),
 														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -9428,6 +10148,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -9442,9 +10165,15 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 							return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSLIVIPData["tls_config"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigModel{
 									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -9477,18 +10206,27 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 										return nil
 									}(),
 									DefaultSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -9502,6 +10240,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 							if UseMtlsData, ok := AdvertiseOnSLIVIPData["use_mtls"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -9533,6 +10274,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 										return nil
 									}(),
 									NoCRL: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -9570,12 +10314,18 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -9607,15 +10357,26 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 				if AdvertiseOnSloInternetVIPData, ok := blockData["advertise_on_slo_internet_vip"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSloInternetVIPModel{
 						NoMtls: func() *APMEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil {
+								return data.HTTPSManagement.AdvertiseOnSloInternetVIP.NoMtls
+							}
 							if _, ok := AdvertiseOnSloInternetVIPData["no_mtls"].(map[string]interface{}); ok {
 								return &APMEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && (data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSloInternetVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -9651,6 +10412,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -9660,6 +10424,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -9685,6 +10452,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 															return nil
 														}(),
 														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -9708,6 +10478,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -9722,9 +10495,15 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 							return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSloInternetVIPData["tls_config"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigModel{
 									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -9757,18 +10536,27 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 										return nil
 									}(),
 									DefaultSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -9782,6 +10570,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 							if UseMtlsData, ok := AdvertiseOnSloInternetVIPData["use_mtls"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -9813,6 +10604,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 										return nil
 									}(),
 									NoCRL: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -9850,12 +10644,18 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -9887,15 +10687,26 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 				if AdvertiseOnSloSLIData, ok := blockData["advertise_on_slo_sli"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSloSLIModel{
 						NoMtls: func() *APMEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil {
+								return data.HTTPSManagement.AdvertiseOnSloSLI.NoMtls
+							}
 							if _, ok := AdvertiseOnSloSLIData["no_mtls"].(map[string]interface{}); ok {
 								return &APMEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && (data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSloSLIData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -9931,6 +10742,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -9940,6 +10754,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -9965,6 +10782,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 															return nil
 														}(),
 														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -9988,6 +10808,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -10002,9 +10825,15 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 							return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSloSLITLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSloSLITLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSloSLIData["tls_config"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSloSLITLSConfigModel{
 									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -10037,18 +10866,27 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 										return nil
 									}(),
 									DefaultSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -10062,6 +10900,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 							if UseMtlsData, ok := AdvertiseOnSloSLIData["use_mtls"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSloSLIUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -10093,6 +10934,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 										return nil
 									}(),
 									NoCRL: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -10130,12 +10974,18 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -10167,15 +11017,26 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 				if AdvertiseOnSloVIPData, ok := blockData["advertise_on_slo_vip"].(map[string]interface{}); ok {
 					return &APMHTTPSManagementAdvertiseOnSloVIPModel{
 						NoMtls: func() *APMEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil {
+								return data.HTTPSManagement.AdvertiseOnSloVIP.NoMtls
+							}
 							if _, ok := AdvertiseOnSloVIPData["no_mtls"].(map[string]interface{}); ok {
 								return &APMEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && (data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSloVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -10211,6 +11072,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -10220,6 +11084,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -10245,6 +11112,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 															return nil
 														}(),
 														ClearSecretInfo: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -10268,6 +11138,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &APMEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
 												}
@@ -10282,9 +11155,15 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 							return types.ListNull(types.ObjectType{AttrTypes: APMHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSloVIPData["tls_config"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSloVIPTLSConfigModel{
 									CustomSecurity: func() *APMHTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -10317,18 +11196,27 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 										return nil
 									}(),
 									DefaultSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -10342,6 +11230,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 							if UseMtlsData, ok := AdvertiseOnSloVIPData["use_mtls"].(map[string]interface{}); ok {
 								return &APMHTTPSManagementAdvertiseOnSloVIPUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -10373,6 +11264,9 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 										return nil
 									}(),
 									NoCRL: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
@@ -10410,12 +11304,18 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *APMEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &APMEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *APMHTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &APMHTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {

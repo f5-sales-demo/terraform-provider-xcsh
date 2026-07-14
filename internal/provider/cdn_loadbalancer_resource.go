@@ -17040,9 +17040,14 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if !isImport && data.ActiveServicePolicies != nil && (data.ActiveServicePolicies.Policies.IsNull() || len(data.ActiveServicePolicies.Policies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerActiveServicePoliciesPoliciesModelAttrTypes})
 				}
+				var PoliciesExisting []CDNLoadBalancerActiveServicePoliciesPoliciesModel
+				if !isImport && data.ActiveServicePolicies != nil && !data.ActiveServicePolicies.Policies.IsNull() && !data.ActiveServicePolicies.Policies.IsUnknown() {
+					data.ActiveServicePolicies.Policies.ElementsAs(ctx, &PoliciesExisting, false)
+				}
 				if rawList, ok := blockData["policies"].([]interface{}); ok && len(rawList) > 0 {
 					var PoliciesResult []CDNLoadBalancerActiveServicePoliciesPoliciesModel
-					for _, PoliciesItem := range rawList {
+					for PoliciesIdx, PoliciesItem := range rawList {
+						_ = PoliciesIdx
 						if PoliciesItemMap, ok := PoliciesItem.(map[string]interface{}); ok {
 							PoliciesResult = append(PoliciesResult, CDNLoadBalancerActiveServicePoliciesPoliciesModel{
 								Name: func() types.String {
@@ -17079,12 +17084,20 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if !isImport && data.APIRateLimit != nil && (data.APIRateLimit.APIEndpointRules.IsNull() || len(data.APIRateLimit.APIEndpointRules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesModelAttrTypes})
 				}
+				var APIEndpointRulesExisting []CDNLoadBalancerAPIRateLimitAPIEndpointRulesModel
+				if !isImport && data.APIRateLimit != nil && !data.APIRateLimit.APIEndpointRules.IsNull() && !data.APIRateLimit.APIEndpointRules.IsUnknown() {
+					data.APIRateLimit.APIEndpointRules.ElementsAs(ctx, &APIEndpointRulesExisting, false)
+				}
 				if rawList, ok := blockData["api_endpoint_rules"].([]interface{}); ok && len(rawList) > 0 {
 					var APIEndpointRulesResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesModel
-					for _, APIEndpointRulesItem := range rawList {
+					for APIEndpointRulesIdx, APIEndpointRulesItem := range rawList {
+						_ = APIEndpointRulesIdx
 						if APIEndpointRulesItemMap, ok := APIEndpointRulesItem.(map[string]interface{}); ok {
 							APIEndpointRulesResult = append(APIEndpointRulesResult, CDNLoadBalancerAPIRateLimitAPIEndpointRulesModel{
 								AnyDomain: func() *CDNLoadBalancerEmptyModel {
+									if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].AnyDomain != nil {
+										return &CDNLoadBalancerEmptyModel{}
+									}
 									if _, ok := APIEndpointRulesItemMap["any_domain"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerEmptyModel{}
 									}
@@ -17094,6 +17107,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									if APIEndpointMethodData, ok := APIEndpointRulesItemMap["api_endpoint_method"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesAPIEndpointMethodModel{
 											InvertMatcher: func() types.Bool {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].APIEndpointMethod != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].APIEndpointMethod.InvertMatcher.IsUnknown() {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].APIEndpointMethod.InvertMatcher
+												}
 												if v, ok := APIEndpointMethodData["invert_matcher"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -17126,18 +17142,27 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									if ClientMatcherData, ok := APIEndpointRulesItemMap["client_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherModel{
 											AnyClient: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AnyClient
+												}
 												if _, ok := ClientMatcherData["any_client"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											AnyIP: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AnyIP
+												}
 												if _, ok := ClientMatcherData["any_ip"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											AsnList: func() *CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherAsnListModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnList != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnList
+												}
 												if AsnListData, ok := ClientMatcherData["asn_list"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherAsnListModel{
 														AsNumbers: func() types.List {
@@ -17161,9 +17186,17 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												if AsnMatcherData, ok := ClientMatcherData["asn_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherAsnMatcherModel{
 														AsnSets: func() types.List {
+															if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnMatcher != nil && (APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsNull() || len(APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnMatcher.AsnSets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherAsnMatcherAsnSetsModelAttrTypes})
+															}
+															var AsnSetsExisting []CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherAsnMatcherAsnSetsModel
+															if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnMatcher != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsNull() && !APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsUnknown() {
+																APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+															}
 															if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 																var AsnSetsResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherAsnMatcherAsnSetsModel
-																for _, AsnSetsItem := range rawList {
+																for AsnSetsIdx, AsnSetsItem := range rawList {
+																	_ = AsnSetsIdx
 																	if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 																		AsnSetsResult = append(AsnSetsResult, CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherAsnMatcherAsnSetsModel{
 																			Kind: func() types.String {
@@ -17209,6 +17242,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return nil
 											}(),
 											ClientSelector: func() *CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherClientSelectorModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.ClientSelector != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.ClientSelector
+												}
 												if ClientSelectorData, ok := ClientMatcherData["client_selector"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherClientSelectorModel{
 														Expressions: func() types.List {
@@ -17232,15 +17268,26 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												if IPMatcherData, ok := ClientMatcherData["ip_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPMatcherModel{
 														InvertMatcher: func() types.Bool {
+															if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher.InvertMatcher.IsUnknown() {
+																return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher.InvertMatcher
+															}
 															if v, ok := IPMatcherData["invert_matcher"].(bool); ok {
 																return types.BoolValue(v)
 															}
 															return types.BoolNull()
 														}(),
 														PrefixSets: func() types.List {
+															if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher != nil && (APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsNull() || len(APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher.PrefixSets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPMatcherPrefixSetsModelAttrTypes})
+															}
+															var PrefixSetsExisting []CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPMatcherPrefixSetsModel
+															if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsNull() && !APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsUnknown() {
+																APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+															}
 															if rawList, ok := IPMatcherData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 																var PrefixSetsResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPMatcherPrefixSetsModel
-																for _, PrefixSetsItem := range rawList {
+																for PrefixSetsIdx, PrefixSetsItem := range rawList {
+																	_ = PrefixSetsIdx
 																	if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 																		PrefixSetsResult = append(PrefixSetsResult, CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPMatcherPrefixSetsModel{
 																			Kind: func() types.String {
@@ -17286,9 +17333,15 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return nil
 											}(),
 											IPPrefixList: func() *CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPPrefixListModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPPrefixList != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPPrefixList
+												}
 												if IPPrefixListData, ok := ClientMatcherData["ip_prefix_list"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPPrefixListModel{
 														InvertMatch: func() types.Bool {
+															if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPPrefixList != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPPrefixList.InvertMatch.IsUnknown() {
+																return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPPrefixList.InvertMatch
+															}
 															if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -17312,6 +17365,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return nil
 											}(),
 											IPThreatCategoryList: func() *CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPThreatCategoryListModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPThreatCategoryList != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPThreatCategoryList
+												}
 												if IPThreatCategoryListData, ok := ClientMatcherData["ip_threat_category_list"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPThreatCategoryListModel{
 														IPThreatCategories: func() types.List {
@@ -17332,6 +17388,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return nil
 											}(),
 											TLSFingerprintMatcher: func() *CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherTLSFingerprintMatcherModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.TLSFingerprintMatcher != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.TLSFingerprintMatcher
+												}
 												if TLSFingerprintMatcherData, ok := ClientMatcherData["tls_fingerprint_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherTLSFingerprintMatcherModel{
 														Classes: func() types.List {
@@ -17410,6 +17469,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return nil
 											}(),
 											Threshold: func() types.Int64 {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].InlineRateLimiter != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].InlineRateLimiter.Threshold.IsUnknown() {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].InlineRateLimiter.Threshold
+												}
 												if v, ok := InlineRateLimiterData["threshold"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -17422,6 +17484,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return types.StringNull()
 											}(),
 											UseHTTPLBUserID: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].InlineRateLimiter != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].InlineRateLimiter.UseHTTPLBUserID
+												}
 												if _, ok := InlineRateLimiterData["use_http_lb_user_id"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -17460,18 +17525,32 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									if RequestMatcherData, ok := APIEndpointRulesItemMap["request_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherModel{
 											CookieMatchers: func() types.List {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && (APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.CookieMatchers.IsNull() || len(APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.CookieMatchers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModelAttrTypes})
+												}
+												var CookieMatchersExisting []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModel
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.CookieMatchers.IsNull() && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.CookieMatchers.IsUnknown() {
+													APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.CookieMatchers.ElementsAs(ctx, &CookieMatchersExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var CookieMatchersResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModel
-													for _, CookieMatchersItem := range rawList {
+													for CookieMatchersIdx, CookieMatchersItem := range rawList {
+														_ = CookieMatchersIdx
 														if CookieMatchersItemMap, ok := CookieMatchersItem.(map[string]interface{}); ok {
 															CookieMatchersResult = append(CookieMatchersResult, CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := CookieMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := CookieMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -17544,18 +17623,32 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModelAttrTypes})
 											}(),
 											Headers: func() types.List {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && (APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.Headers.IsNull() || len(APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.Headers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModelAttrTypes})
+												}
+												var HeadersExisting []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModel
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.Headers.IsNull() && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.Headers.IsUnknown() {
+													APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.Headers.ElementsAs(ctx, &HeadersExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModel
-													for _, HeadersItem := range rawList {
+													for HeadersIdx, HeadersItem := range rawList {
+														_ = HeadersIdx
 														if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 															HeadersResult = append(HeadersResult, CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -17628,18 +17721,32 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModelAttrTypes})
 											}(),
 											JWTClaims: func() types.List {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && (APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.JWTClaims.IsNull() || len(APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.JWTClaims.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModelAttrTypes})
+												}
+												var JWTClaimsExisting []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModel
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.JWTClaims.IsNull() && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.JWTClaims.IsUnknown() {
+													APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.JWTClaims.ElementsAs(ctx, &JWTClaimsExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 													var JWTClaimsResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModel
-													for _, JWTClaimsItem := range rawList {
+													for JWTClaimsIdx, JWTClaimsItem := range rawList {
+														_ = JWTClaimsIdx
 														if JWTClaimsItemMap, ok := JWTClaimsItem.(map[string]interface{}); ok {
 															JWTClaimsResult = append(JWTClaimsResult, CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := JWTClaimsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := JWTClaimsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -17712,18 +17819,32 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModelAttrTypes})
 											}(),
 											QueryParams: func() types.List {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && (APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.QueryParams.IsNull() || len(APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.QueryParams.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModelAttrTypes})
+												}
+												var QueryParamsExisting []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModel
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.QueryParams.IsNull() && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.QueryParams.IsUnknown() {
+													APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.QueryParams.ElementsAs(ctx, &QueryParamsExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 													var QueryParamsResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModel
-													for _, QueryParamsItem := range rawList {
+													for QueryParamsIdx, QueryParamsItem := range rawList {
+														_ = QueryParamsIdx
 														if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 															QueryParamsResult = append(QueryParamsResult, CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := QueryParamsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := QueryParamsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -17817,18 +17938,32 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if BypassRateLimitingRulesData, ok := blockData["bypass_rate_limiting_rules"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesModel{
 						BypassRateLimitingRules: func() types.List {
+							if !isImport && data.APIRateLimit != nil && data.APIRateLimit.BypassRateLimitingRules != nil && (data.APIRateLimit.BypassRateLimitingRules.BypassRateLimitingRules.IsNull() || len(data.APIRateLimit.BypassRateLimitingRules.BypassRateLimitingRules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesModelAttrTypes})
+							}
+							var BypassRateLimitingRulesExisting []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesModel
+							if !isImport && data.APIRateLimit != nil && data.APIRateLimit.BypassRateLimitingRules != nil && !data.APIRateLimit.BypassRateLimitingRules.BypassRateLimitingRules.IsNull() && !data.APIRateLimit.BypassRateLimitingRules.BypassRateLimitingRules.IsUnknown() {
+								data.APIRateLimit.BypassRateLimitingRules.BypassRateLimitingRules.ElementsAs(ctx, &BypassRateLimitingRulesExisting, false)
+							}
 							if rawList, ok := BypassRateLimitingRulesData["bypass_rate_limiting_rules"].([]interface{}); ok && len(rawList) > 0 {
 								var BypassRateLimitingRulesResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesModel
-								for _, BypassRateLimitingRulesItem := range rawList {
+								for BypassRateLimitingRulesIdx, BypassRateLimitingRulesItem := range rawList {
+									_ = BypassRateLimitingRulesIdx
 									if BypassRateLimitingRulesItemMap, ok := BypassRateLimitingRulesItem.(map[string]interface{}); ok {
 										BypassRateLimitingRulesResult = append(BypassRateLimitingRulesResult, CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesModel{
 											AnyDomain: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].AnyDomain != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := BypassRateLimitingRulesItemMap["any_domain"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											AnyURL: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].AnyURL != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := BypassRateLimitingRulesItemMap["any_url"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -17890,18 +18025,27 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												if ClientMatcherData, ok := BypassRateLimitingRulesItemMap["client_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherModel{
 														AnyClient: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil {
+																return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AnyClient
+															}
 															if _, ok := ClientMatcherData["any_client"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														AnyIP: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil {
+																return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AnyIP
+															}
 															if _, ok := ClientMatcherData["any_ip"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														AsnList: func() *CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherAsnListModel {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnList != nil {
+																return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnList
+															}
 															if AsnListData, ok := ClientMatcherData["asn_list"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherAsnListModel{
 																	AsNumbers: func() types.List {
@@ -17925,9 +18069,17 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															if AsnMatcherData, ok := ClientMatcherData["asn_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherAsnMatcherModel{
 																	AsnSets: func() types.List {
+																		if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnMatcher != nil && (BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsNull() || len(BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnMatcher.AsnSets.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherAsnMatcherAsnSetsModelAttrTypes})
+																		}
+																		var AsnSetsExisting []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherAsnMatcherAsnSetsModel
+																		if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnMatcher != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsNull() && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsUnknown() {
+																			BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+																		}
 																		if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 																			var AsnSetsResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherAsnMatcherAsnSetsModel
-																			for _, AsnSetsItem := range rawList {
+																			for AsnSetsIdx, AsnSetsItem := range rawList {
+																				_ = AsnSetsIdx
 																				if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 																					AsnSetsResult = append(AsnSetsResult, CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherAsnMatcherAsnSetsModel{
 																						Kind: func() types.String {
@@ -17973,6 +18125,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														ClientSelector: func() *CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherClientSelectorModel {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.ClientSelector != nil {
+																return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.ClientSelector
+															}
 															if ClientSelectorData, ok := ClientMatcherData["client_selector"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherClientSelectorModel{
 																	Expressions: func() types.List {
@@ -17996,15 +18151,26 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															if IPMatcherData, ok := ClientMatcherData["ip_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPMatcherModel{
 																	InvertMatcher: func() types.Bool {
+																		if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher.InvertMatcher.IsUnknown() {
+																			return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher.InvertMatcher
+																		}
 																		if v, ok := IPMatcherData["invert_matcher"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
 																		return types.BoolNull()
 																	}(),
 																	PrefixSets: func() types.List {
+																		if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher != nil && (BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsNull() || len(BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher.PrefixSets.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPMatcherPrefixSetsModelAttrTypes})
+																		}
+																		var PrefixSetsExisting []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPMatcherPrefixSetsModel
+																		if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsNull() && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsUnknown() {
+																			BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+																		}
 																		if rawList, ok := IPMatcherData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 																			var PrefixSetsResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPMatcherPrefixSetsModel
-																			for _, PrefixSetsItem := range rawList {
+																			for PrefixSetsIdx, PrefixSetsItem := range rawList {
+																				_ = PrefixSetsIdx
 																				if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 																					PrefixSetsResult = append(PrefixSetsResult, CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPMatcherPrefixSetsModel{
 																						Kind: func() types.String {
@@ -18050,9 +18216,15 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														IPPrefixList: func() *CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPPrefixListModel {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPPrefixList != nil {
+																return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPPrefixList
+															}
 															if IPPrefixListData, ok := ClientMatcherData["ip_prefix_list"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPPrefixListModel{
 																	InvertMatch: func() types.Bool {
+																		if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPPrefixList != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPPrefixList.InvertMatch.IsUnknown() {
+																			return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPPrefixList.InvertMatch
+																		}
 																		if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -18076,6 +18248,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														IPThreatCategoryList: func() *CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPThreatCategoryListModel {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPThreatCategoryList != nil {
+																return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPThreatCategoryList
+															}
 															if IPThreatCategoryListData, ok := ClientMatcherData["ip_threat_category_list"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPThreatCategoryListModel{
 																	IPThreatCategories: func() types.List {
@@ -18096,6 +18271,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														TLSFingerprintMatcher: func() *CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherTLSFingerprintMatcherModel {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.TLSFingerprintMatcher != nil {
+																return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.TLSFingerprintMatcher
+															}
 															if TLSFingerprintMatcherData, ok := ClientMatcherData["tls_fingerprint_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherTLSFingerprintMatcherModel{
 																	Classes: func() types.List {
@@ -18149,18 +18327,32 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												if RequestMatcherData, ok := BypassRateLimitingRulesItemMap["request_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherModel{
 														CookieMatchers: func() types.List {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && (BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.CookieMatchers.IsNull() || len(BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.CookieMatchers.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModelAttrTypes})
+															}
+															var CookieMatchersExisting []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModel
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.CookieMatchers.IsNull() && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.CookieMatchers.IsUnknown() {
+																BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.CookieMatchers.ElementsAs(ctx, &CookieMatchersExisting, false)
+															}
 															if rawList, ok := RequestMatcherData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 																var CookieMatchersResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModel
-																for _, CookieMatchersItem := range rawList {
+																for CookieMatchersIdx, CookieMatchersItem := range rawList {
+																	_ = CookieMatchersIdx
 																	if CookieMatchersItemMap, ok := CookieMatchersItem.(map[string]interface{}); ok {
 																		CookieMatchersResult = append(CookieMatchersResult, CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := CookieMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := CookieMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -18233,18 +18425,32 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModelAttrTypes})
 														}(),
 														Headers: func() types.List {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && (BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.Headers.IsNull() || len(BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.Headers.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModelAttrTypes})
+															}
+															var HeadersExisting []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModel
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.Headers.IsNull() && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.Headers.IsUnknown() {
+																BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.Headers.ElementsAs(ctx, &HeadersExisting, false)
+															}
 															if rawList, ok := RequestMatcherData["headers"].([]interface{}); ok && len(rawList) > 0 {
 																var HeadersResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModel
-																for _, HeadersItem := range rawList {
+																for HeadersIdx, HeadersItem := range rawList {
+																	_ = HeadersIdx
 																	if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 																		HeadersResult = append(HeadersResult, CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -18317,18 +18523,32 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModelAttrTypes})
 														}(),
 														JWTClaims: func() types.List {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && (BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.JWTClaims.IsNull() || len(BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.JWTClaims.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModelAttrTypes})
+															}
+															var JWTClaimsExisting []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModel
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.JWTClaims.IsNull() && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.JWTClaims.IsUnknown() {
+																BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.JWTClaims.ElementsAs(ctx, &JWTClaimsExisting, false)
+															}
 															if rawList, ok := RequestMatcherData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 																var JWTClaimsResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModel
-																for _, JWTClaimsItem := range rawList {
+																for JWTClaimsIdx, JWTClaimsItem := range rawList {
+																	_ = JWTClaimsIdx
 																	if JWTClaimsItemMap, ok := JWTClaimsItem.(map[string]interface{}); ok {
 																		JWTClaimsResult = append(JWTClaimsResult, CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := JWTClaimsItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := JWTClaimsItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -18401,18 +18621,32 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModelAttrTypes})
 														}(),
 														QueryParams: func() types.List {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && (BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.QueryParams.IsNull() || len(BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.QueryParams.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModelAttrTypes})
+															}
+															var QueryParamsExisting []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModel
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.QueryParams.IsNull() && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.QueryParams.IsUnknown() {
+																BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.QueryParams.ElementsAs(ctx, &QueryParamsExisting, false)
+															}
 															if rawList, ok := RequestMatcherData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 																var QueryParamsResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModel
-																for _, QueryParamsItem := range rawList {
+																for QueryParamsIdx, QueryParamsItem := range rawList {
+																	_ = QueryParamsIdx
 																	if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 																		QueryParamsResult = append(QueryParamsResult, CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := QueryParamsItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := QueryParamsItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -18510,9 +18744,17 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if CustomIPAllowedListData, ok := blockData["custom_ip_allowed_list"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerAPIRateLimitCustomIPAllowedListModel{
 						RateLimiterAllowedPrefixes: func() types.List {
+							if !isImport && data.APIRateLimit != nil && data.APIRateLimit.CustomIPAllowedList != nil && (data.APIRateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.IsNull() || len(data.APIRateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModelAttrTypes})
+							}
+							var RateLimiterAllowedPrefixesExisting []CDNLoadBalancerAPIRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModel
+							if !isImport && data.APIRateLimit != nil && data.APIRateLimit.CustomIPAllowedList != nil && !data.APIRateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.IsNull() && !data.APIRateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.IsUnknown() {
+								data.APIRateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.ElementsAs(ctx, &RateLimiterAllowedPrefixesExisting, false)
+							}
 							if rawList, ok := CustomIPAllowedListData["rate_limiter_allowed_prefixes"].([]interface{}); ok && len(rawList) > 0 {
 								var RateLimiterAllowedPrefixesResult []CDNLoadBalancerAPIRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModel
-								for _, RateLimiterAllowedPrefixesItem := range rawList {
+								for RateLimiterAllowedPrefixesIdx, RateLimiterAllowedPrefixesItem := range rawList {
+									_ = RateLimiterAllowedPrefixesIdx
 									if RateLimiterAllowedPrefixesItemMap, ok := RateLimiterAllowedPrefixesItem.(map[string]interface{}); ok {
 										RateLimiterAllowedPrefixesResult = append(RateLimiterAllowedPrefixesResult, CDNLoadBalancerAPIRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModel{
 											Name: func() types.String {
@@ -18581,12 +18823,20 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if !isImport && data.APIRateLimit != nil && (data.APIRateLimit.ServerURLRules.IsNull() || len(data.APIRateLimit.ServerURLRules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesModelAttrTypes})
 				}
+				var ServerURLRulesExisting []CDNLoadBalancerAPIRateLimitServerURLRulesModel
+				if !isImport && data.APIRateLimit != nil && !data.APIRateLimit.ServerURLRules.IsNull() && !data.APIRateLimit.ServerURLRules.IsUnknown() {
+					data.APIRateLimit.ServerURLRules.ElementsAs(ctx, &ServerURLRulesExisting, false)
+				}
 				if rawList, ok := blockData["server_url_rules"].([]interface{}); ok && len(rawList) > 0 {
 					var ServerURLRulesResult []CDNLoadBalancerAPIRateLimitServerURLRulesModel
-					for _, ServerURLRulesItem := range rawList {
+					for ServerURLRulesIdx, ServerURLRulesItem := range rawList {
+						_ = ServerURLRulesIdx
 						if ServerURLRulesItemMap, ok := ServerURLRulesItem.(map[string]interface{}); ok {
 							ServerURLRulesResult = append(ServerURLRulesResult, CDNLoadBalancerAPIRateLimitServerURLRulesModel{
 								AnyDomain: func() *CDNLoadBalancerEmptyModel {
+									if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].AnyDomain != nil {
+										return &CDNLoadBalancerEmptyModel{}
+									}
 									if _, ok := ServerURLRulesItemMap["any_domain"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerEmptyModel{}
 									}
@@ -18608,18 +18858,27 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									if ClientMatcherData, ok := ServerURLRulesItemMap["client_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherModel{
 											AnyClient: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AnyClient
+												}
 												if _, ok := ClientMatcherData["any_client"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											AnyIP: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AnyIP
+												}
 												if _, ok := ClientMatcherData["any_ip"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											AsnList: func() *CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherAsnListModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnList != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnList
+												}
 												if AsnListData, ok := ClientMatcherData["asn_list"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherAsnListModel{
 														AsNumbers: func() types.List {
@@ -18643,9 +18902,17 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												if AsnMatcherData, ok := ClientMatcherData["asn_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherAsnMatcherModel{
 														AsnSets: func() types.List {
+															if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnMatcher != nil && (ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsNull() || len(ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnMatcher.AsnSets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherAsnMatcherAsnSetsModelAttrTypes})
+															}
+															var AsnSetsExisting []CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherAsnMatcherAsnSetsModel
+															if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnMatcher != nil && !ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsNull() && !ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsUnknown() {
+																ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+															}
 															if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 																var AsnSetsResult []CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherAsnMatcherAsnSetsModel
-																for _, AsnSetsItem := range rawList {
+																for AsnSetsIdx, AsnSetsItem := range rawList {
+																	_ = AsnSetsIdx
 																	if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 																		AsnSetsResult = append(AsnSetsResult, CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherAsnMatcherAsnSetsModel{
 																			Kind: func() types.String {
@@ -18691,6 +18958,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return nil
 											}(),
 											ClientSelector: func() *CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherClientSelectorModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.ClientSelector != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.ClientSelector
+												}
 												if ClientSelectorData, ok := ClientMatcherData["client_selector"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherClientSelectorModel{
 														Expressions: func() types.List {
@@ -18714,15 +18984,26 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												if IPMatcherData, ok := ClientMatcherData["ip_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPMatcherModel{
 														InvertMatcher: func() types.Bool {
+															if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher != nil && !ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher.InvertMatcher.IsUnknown() {
+																return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher.InvertMatcher
+															}
 															if v, ok := IPMatcherData["invert_matcher"].(bool); ok {
 																return types.BoolValue(v)
 															}
 															return types.BoolNull()
 														}(),
 														PrefixSets: func() types.List {
+															if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher != nil && (ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsNull() || len(ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher.PrefixSets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPMatcherPrefixSetsModelAttrTypes})
+															}
+															var PrefixSetsExisting []CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPMatcherPrefixSetsModel
+															if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher != nil && !ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsNull() && !ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsUnknown() {
+																ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+															}
 															if rawList, ok := IPMatcherData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 																var PrefixSetsResult []CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPMatcherPrefixSetsModel
-																for _, PrefixSetsItem := range rawList {
+																for PrefixSetsIdx, PrefixSetsItem := range rawList {
+																	_ = PrefixSetsIdx
 																	if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 																		PrefixSetsResult = append(PrefixSetsResult, CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPMatcherPrefixSetsModel{
 																			Kind: func() types.String {
@@ -18768,9 +19049,15 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return nil
 											}(),
 											IPPrefixList: func() *CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPPrefixListModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPPrefixList != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPPrefixList
+												}
 												if IPPrefixListData, ok := ClientMatcherData["ip_prefix_list"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPPrefixListModel{
 														InvertMatch: func() types.Bool {
+															if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPPrefixList != nil && !ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPPrefixList.InvertMatch.IsUnknown() {
+																return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPPrefixList.InvertMatch
+															}
 															if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -18794,6 +19081,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return nil
 											}(),
 											IPThreatCategoryList: func() *CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPThreatCategoryListModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPThreatCategoryList != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPThreatCategoryList
+												}
 												if IPThreatCategoryListData, ok := ClientMatcherData["ip_threat_category_list"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPThreatCategoryListModel{
 														IPThreatCategories: func() types.List {
@@ -18814,6 +19104,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return nil
 											}(),
 											TLSFingerprintMatcher: func() *CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherTLSFingerprintMatcherModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.TLSFingerprintMatcher != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.TLSFingerprintMatcher
+												}
 												if TLSFingerprintMatcherData, ok := ClientMatcherData["tls_fingerprint_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherTLSFingerprintMatcherModel{
 														Classes: func() types.List {
@@ -18892,6 +19185,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return nil
 											}(),
 											Threshold: func() types.Int64 {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].InlineRateLimiter != nil && !ServerURLRulesExisting[ServerURLRulesIdx].InlineRateLimiter.Threshold.IsUnknown() {
+													return ServerURLRulesExisting[ServerURLRulesIdx].InlineRateLimiter.Threshold
+												}
 												if v, ok := InlineRateLimiterData["threshold"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -18904,6 +19200,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return types.StringNull()
 											}(),
 											UseHTTPLBUserID: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].InlineRateLimiter != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].InlineRateLimiter.UseHTTPLBUserID
+												}
 												if _, ok := InlineRateLimiterData["use_http_lb_user_id"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -18942,18 +19241,32 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									if RequestMatcherData, ok := ServerURLRulesItemMap["request_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherModel{
 											CookieMatchers: func() types.List {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && (ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.CookieMatchers.IsNull() || len(ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.CookieMatchers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModelAttrTypes})
+												}
+												var CookieMatchersExisting []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModel
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.CookieMatchers.IsNull() && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.CookieMatchers.IsUnknown() {
+													ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.CookieMatchers.ElementsAs(ctx, &CookieMatchersExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var CookieMatchersResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModel
-													for _, CookieMatchersItem := range rawList {
+													for CookieMatchersIdx, CookieMatchersItem := range rawList {
+														_ = CookieMatchersIdx
 														if CookieMatchersItemMap, ok := CookieMatchersItem.(map[string]interface{}); ok {
 															CookieMatchersResult = append(CookieMatchersResult, CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := CookieMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := CookieMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -19026,18 +19339,32 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModelAttrTypes})
 											}(),
 											Headers: func() types.List {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && (ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.Headers.IsNull() || len(ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.Headers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModelAttrTypes})
+												}
+												var HeadersExisting []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModel
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.Headers.IsNull() && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.Headers.IsUnknown() {
+													ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.Headers.ElementsAs(ctx, &HeadersExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModel
-													for _, HeadersItem := range rawList {
+													for HeadersIdx, HeadersItem := range rawList {
+														_ = HeadersIdx
 														if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 															HeadersResult = append(HeadersResult, CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -19110,18 +19437,32 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModelAttrTypes})
 											}(),
 											JWTClaims: func() types.List {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && (ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.JWTClaims.IsNull() || len(ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.JWTClaims.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModelAttrTypes})
+												}
+												var JWTClaimsExisting []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModel
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.JWTClaims.IsNull() && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.JWTClaims.IsUnknown() {
+													ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.JWTClaims.ElementsAs(ctx, &JWTClaimsExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 													var JWTClaimsResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModel
-													for _, JWTClaimsItem := range rawList {
+													for JWTClaimsIdx, JWTClaimsItem := range rawList {
+														_ = JWTClaimsIdx
 														if JWTClaimsItemMap, ok := JWTClaimsItem.(map[string]interface{}); ok {
 															JWTClaimsResult = append(JWTClaimsResult, CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := JWTClaimsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := JWTClaimsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -19194,18 +19535,32 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModelAttrTypes})
 											}(),
 											QueryParams: func() types.List {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && (ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.QueryParams.IsNull() || len(ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.QueryParams.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModelAttrTypes})
+												}
+												var QueryParamsExisting []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModel
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.QueryParams.IsNull() && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.QueryParams.IsUnknown() {
+													ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.QueryParams.ElementsAs(ctx, &QueryParamsExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 													var QueryParamsResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModel
-													for _, QueryParamsItem := range rawList {
+													for QueryParamsIdx, QueryParamsItem := range rawList {
+														_ = QueryParamsIdx
 														if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 															QueryParamsResult = append(QueryParamsResult, CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := QueryParamsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := QueryParamsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -19331,36 +19686,62 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if ValidationAllSpecEndpointsData, ok := blockData["validation_all_spec_endpoints"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsModel{
 						FallThroughMode: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeModel {
+							if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode != nil {
+								return data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode
+							}
 							if FallThroughModeData, ok := ValidationAllSpecEndpointsData["fall_through_mode"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeModel{
 									FallThroughModeAllow: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeAllow
+										}
 										if _, ok := FallThroughModeData["fall_through_mode_allow"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									FallThroughModeCustom: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom
+										}
 										if FallThroughModeCustomData, ok := FallThroughModeData["fall_through_mode_custom"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModel{
 												OpenAPIValidationRules: func() types.List {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom != nil && (data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsNull() || len(data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes})
+													}
+													var OpenAPIValidationRulesExisting []CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom != nil && !data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsNull() && !data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsUnknown() {
+														data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.ElementsAs(ctx, &OpenAPIValidationRulesExisting, false)
+													}
 													if rawList, ok := FallThroughModeCustomData["open_api_validation_rules"].([]interface{}); ok && len(rawList) > 0 {
 														var OpenAPIValidationRulesResult []CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
-														for _, OpenAPIValidationRulesItem := range rawList {
+														for OpenAPIValidationRulesIdx, OpenAPIValidationRulesItem := range rawList {
+															_ = OpenAPIValidationRulesIdx
 															if OpenAPIValidationRulesItemMap, ok := OpenAPIValidationRulesItem.(map[string]interface{}); ok {
 																OpenAPIValidationRulesResult = append(OpenAPIValidationRulesResult, CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel{
 																	ActionBlock: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionBlock != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := OpenAPIValidationRulesItemMap["action_block"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ActionReport: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionReport != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := OpenAPIValidationRulesItemMap["action_report"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ActionSkip: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionSkip != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := OpenAPIValidationRulesItemMap["action_skip"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -19440,33 +19821,54 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return nil
 						}(),
 						Settings: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsSettingsModel {
+							if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil {
+								return data.APISpecification.ValidationAllSpecEndpoints.Settings
+							}
 							if SettingsData, ok := ValidationAllSpecEndpointsData["settings"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsSettingsModel{
 									OversizedBodyFailValidation: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.Settings.OversizedBodyFailValidation
+										}
 										if _, ok := SettingsData["oversized_body_fail_validation"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									OversizedBodySkipValidation: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.Settings.OversizedBodySkipValidation
+										}
 										if _, ok := SettingsData["oversized_body_skip_validation"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									PropertyValidationSettingsCustom: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom
+										}
 										if PropertyValidationSettingsCustomData, ok := SettingsData["property_validation_settings_custom"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomModel{
 												Queryparameters: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomQueryParametersModel {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters != nil {
+														return data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters
+													}
 													if QueryparametersData, ok := PropertyValidationSettingsCustomData["queryParameters"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomQueryParametersModel{
 															AllowAdditionalParameters: func() *CDNLoadBalancerEmptyModel {
+																if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters != nil {
+																	return data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters.AllowAdditionalParameters
+																}
 																if _, ok := QueryparametersData["allow_additional_parameters"].(map[string]interface{}); ok {
 																	return &CDNLoadBalancerEmptyModel{}
 																}
 																return nil
 															}(),
 															DisallowAdditionalParameters: func() *CDNLoadBalancerEmptyModel {
+																if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters != nil {
+																	return data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters.DisallowAdditionalParameters
+																}
 																if _, ok := QueryparametersData["disallow_additional_parameters"].(map[string]interface{}); ok {
 																	return &CDNLoadBalancerEmptyModel{}
 																}
@@ -19481,6 +19883,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										return nil
 									}(),
 									PropertyValidationSettingsDefault: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsDefault
+										}
 										if _, ok := SettingsData["property_validation_settings_default"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
@@ -19491,18 +19896,30 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return nil
 						}(),
 						ValidationMode: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsValidationModeModel {
+							if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil {
+								return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode
+							}
 							if ValidationModeData, ok := ValidationAllSpecEndpointsData["validation_mode"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsValidationModeModel{
 									ResponseValidationModeActive: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsValidationModeResponseValidationModeActiveModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive
+										}
 										if ResponseValidationModeActiveData, ok := ValidationModeData["response_validation_mode_active"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsValidationModeResponseValidationModeActiveModel{
 												EnforcementBlock: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive != nil {
+														return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive.EnforcementBlock
+													}
 													if _, ok := ResponseValidationModeActiveData["enforcement_block"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												EnforcementReport: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive != nil {
+														return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive.EnforcementReport
+													}
 													if _, ok := ResponseValidationModeActiveData["enforcement_report"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
@@ -19526,27 +19943,42 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										return nil
 									}(),
 									SkipResponseValidation: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.SkipResponseValidation
+										}
 										if _, ok := ValidationModeData["skip_response_validation"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									SkipValidation: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.SkipValidation
+										}
 										if _, ok := ValidationModeData["skip_validation"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									ValidationModeActive: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsValidationModeValidationModeActiveModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive
+										}
 										if ValidationModeActiveData, ok := ValidationModeData["validation_mode_active"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsValidationModeValidationModeActiveModel{
 												EnforcementBlock: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive != nil {
+														return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive.EnforcementBlock
+													}
 													if _, ok := ValidationModeActiveData["enforcement_block"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												EnforcementReport: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive != nil {
+														return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive.EnforcementReport
+													}
 													if _, ok := ValidationModeActiveData["enforcement_report"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
@@ -19584,36 +20016,62 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if ValidationCustomListData, ok := blockData["validation_custom_list"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerAPISpecificationValidationCustomListModel{
 						FallThroughMode: func() *CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeModel {
+							if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.FallThroughMode != nil {
+								return data.APISpecification.ValidationCustomList.FallThroughMode
+							}
 							if FallThroughModeData, ok := ValidationCustomListData["fall_through_mode"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeModel{
 									FallThroughModeAllow: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.FallThroughMode != nil {
+											return data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeAllow
+										}
 										if _, ok := FallThroughModeData["fall_through_mode_allow"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									FallThroughModeCustom: func() *CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.FallThroughMode != nil && data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom != nil {
+											return data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom
+										}
 										if FallThroughModeCustomData, ok := FallThroughModeData["fall_through_mode_custom"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModel{
 												OpenAPIValidationRules: func() types.List {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.FallThroughMode != nil && data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom != nil && (data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsNull() || len(data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes})
+													}
+													var OpenAPIValidationRulesExisting []CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.FallThroughMode != nil && data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom != nil && !data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsNull() && !data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsUnknown() {
+														data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.ElementsAs(ctx, &OpenAPIValidationRulesExisting, false)
+													}
 													if rawList, ok := FallThroughModeCustomData["open_api_validation_rules"].([]interface{}); ok && len(rawList) > 0 {
 														var OpenAPIValidationRulesResult []CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
-														for _, OpenAPIValidationRulesItem := range rawList {
+														for OpenAPIValidationRulesIdx, OpenAPIValidationRulesItem := range rawList {
+															_ = OpenAPIValidationRulesIdx
 															if OpenAPIValidationRulesItemMap, ok := OpenAPIValidationRulesItem.(map[string]interface{}); ok {
 																OpenAPIValidationRulesResult = append(OpenAPIValidationRulesResult, CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel{
 																	ActionBlock: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionBlock != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := OpenAPIValidationRulesItemMap["action_block"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ActionReport: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionReport != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := OpenAPIValidationRulesItemMap["action_report"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ActionSkip: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionSkip != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := OpenAPIValidationRulesItemMap["action_skip"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -19693,12 +20151,23 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return nil
 						}(),
 						OpenAPIValidationRules: func() types.List {
+							if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && (data.APISpecification.ValidationCustomList.OpenAPIValidationRules.IsNull() || len(data.APISpecification.ValidationCustomList.OpenAPIValidationRules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModelAttrTypes})
+							}
+							var OpenAPIValidationRulesExisting []CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModel
+							if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && !data.APISpecification.ValidationCustomList.OpenAPIValidationRules.IsNull() && !data.APISpecification.ValidationCustomList.OpenAPIValidationRules.IsUnknown() {
+								data.APISpecification.ValidationCustomList.OpenAPIValidationRules.ElementsAs(ctx, &OpenAPIValidationRulesExisting, false)
+							}
 							if rawList, ok := ValidationCustomListData["open_api_validation_rules"].([]interface{}); ok && len(rawList) > 0 {
 								var OpenAPIValidationRulesResult []CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModel
-								for _, OpenAPIValidationRulesItem := range rawList {
+								for OpenAPIValidationRulesIdx, OpenAPIValidationRulesItem := range rawList {
+									_ = OpenAPIValidationRulesIdx
 									if OpenAPIValidationRulesItemMap, ok := OpenAPIValidationRulesItem.(map[string]interface{}); ok {
 										OpenAPIValidationRulesResult = append(OpenAPIValidationRulesResult, CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModel{
 											AnyDomain: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].AnyDomain != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := OpenAPIValidationRulesItemMap["any_domain"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -19771,15 +20240,24 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												if ValidationModeData, ok := OpenAPIValidationRulesItemMap["validation_mode"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeModel{
 														ResponseValidationModeActive: func() *CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeResponseValidationModeActiveModel {
+															if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive != nil {
+																return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive
+															}
 															if ResponseValidationModeActiveData, ok := ValidationModeData["response_validation_mode_active"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeResponseValidationModeActiveModel{
 																	EnforcementBlock: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive != nil {
+																			return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive.EnforcementBlock
+																		}
 																		if _, ok := ResponseValidationModeActiveData["enforcement_block"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	EnforcementReport: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive != nil {
+																			return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive.EnforcementReport
+																		}
 																		if _, ok := ResponseValidationModeActiveData["enforcement_report"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -19803,27 +20281,42 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														SkipResponseValidation: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil {
+																return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.SkipResponseValidation
+															}
 															if _, ok := ValidationModeData["skip_response_validation"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														SkipValidation: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil {
+																return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.SkipValidation
+															}
 															if _, ok := ValidationModeData["skip_validation"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														ValidationModeActive: func() *CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeValidationModeActiveModel {
+															if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive != nil {
+																return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive
+															}
 															if ValidationModeActiveData, ok := ValidationModeData["validation_mode_active"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeValidationModeActiveModel{
 																	EnforcementBlock: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive != nil {
+																			return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive.EnforcementBlock
+																		}
 																		if _, ok := ValidationModeActiveData["enforcement_block"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	EnforcementReport: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive != nil {
+																			return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive.EnforcementReport
+																		}
 																		if _, ok := ValidationModeActiveData["enforcement_report"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -19859,33 +20352,54 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModelAttrTypes})
 						}(),
 						Settings: func() *CDNLoadBalancerAPISpecificationValidationCustomListSettingsModel {
+							if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil {
+								return data.APISpecification.ValidationCustomList.Settings
+							}
 							if SettingsData, ok := ValidationCustomListData["settings"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerAPISpecificationValidationCustomListSettingsModel{
 									OversizedBodyFailValidation: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil {
+											return data.APISpecification.ValidationCustomList.Settings.OversizedBodyFailValidation
+										}
 										if _, ok := SettingsData["oversized_body_fail_validation"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									OversizedBodySkipValidation: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil {
+											return data.APISpecification.ValidationCustomList.Settings.OversizedBodySkipValidation
+										}
 										if _, ok := SettingsData["oversized_body_skip_validation"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									PropertyValidationSettingsCustom: func() *CDNLoadBalancerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom != nil {
+											return data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom
+										}
 										if PropertyValidationSettingsCustomData, ok := SettingsData["property_validation_settings_custom"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomModel{
 												Queryparameters: func() *CDNLoadBalancerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomQueryParametersModel {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters != nil {
+														return data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters
+													}
 													if QueryparametersData, ok := PropertyValidationSettingsCustomData["queryParameters"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomQueryParametersModel{
 															AllowAdditionalParameters: func() *CDNLoadBalancerEmptyModel {
+																if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters != nil {
+																	return data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters.AllowAdditionalParameters
+																}
 																if _, ok := QueryparametersData["allow_additional_parameters"].(map[string]interface{}); ok {
 																	return &CDNLoadBalancerEmptyModel{}
 																}
 																return nil
 															}(),
 															DisallowAdditionalParameters: func() *CDNLoadBalancerEmptyModel {
+																if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters != nil {
+																	return data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters.DisallowAdditionalParameters
+																}
 																if _, ok := QueryparametersData["disallow_additional_parameters"].(map[string]interface{}); ok {
 																	return &CDNLoadBalancerEmptyModel{}
 																}
@@ -19900,6 +20414,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										return nil
 									}(),
 									PropertyValidationSettingsDefault: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil {
+											return data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsDefault
+										}
 										if _, ok := SettingsData["property_validation_settings_default"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
@@ -19996,9 +20513,17 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						if HTTPHeaderData, ok := itemMap["http_header"].(map[string]interface{}); ok {
 							return &CDNLoadBalancerBlockedClientsHTTPHeaderModel{
 								Headers: func() types.List {
+									if !isImport && len(existingBlockedClientsItems) > listIdx && existingBlockedClientsItems[listIdx].HTTPHeader != nil && (existingBlockedClientsItems[listIdx].HTTPHeader.Headers.IsNull() || len(existingBlockedClientsItems[listIdx].HTTPHeader.Headers.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModelAttrTypes})
+									}
+									var HeadersExisting []CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModel
+									if !isImport && len(existingBlockedClientsItems) > listIdx && existingBlockedClientsItems[listIdx].HTTPHeader != nil && !existingBlockedClientsItems[listIdx].HTTPHeader.Headers.IsNull() && !existingBlockedClientsItems[listIdx].HTTPHeader.Headers.IsUnknown() {
+										existingBlockedClientsItems[listIdx].HTTPHeader.Headers.ElementsAs(ctx, &HeadersExisting, false)
+									}
 									if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 										var HeadersResult []CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModel
-										for _, HeadersItem := range rawList {
+										for HeadersIdx, HeadersItem := range rawList {
+											_ = HeadersIdx
 											if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 												HeadersResult = append(HeadersResult, CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModel{
 													Exact: func() types.String {
@@ -20136,12 +20661,18 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if PolicyData, ok := blockData["policy"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerBotDefensePolicyModel{
 						DisableJsInsert: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil {
+								return data.BotDefense.Policy.DisableJsInsert
+							}
 							if _, ok := PolicyData["disable_js_insert"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableMobileSdk: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil {
+								return data.BotDefense.Policy.DisableMobileSdk
+							}
 							if _, ok := PolicyData["disable_mobile_sdk"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -20160,6 +20691,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return types.StringNull()
 						}(),
 						JsInsertAllPages: func() *CDNLoadBalancerBotDefensePolicyJsInsertAllPagesModel {
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertAllPages != nil {
+								return data.BotDefense.Policy.JsInsertAllPages
+							}
 							if JsInsertAllPagesData, ok := PolicyData["js_insert_all_pages"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerBotDefensePolicyJsInsertAllPagesModel{
 									JavascriptLocation: func() types.String {
@@ -20173,15 +20707,29 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return nil
 						}(),
 						JsInsertAllPagesExcept: func() *CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptModel {
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertAllPagesExcept != nil {
+								return data.BotDefense.Policy.JsInsertAllPagesExcept
+							}
 							if JsInsertAllPagesExceptData, ok := PolicyData["js_insert_all_pages_except"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptModel{
 									ExcludeList: func() types.List {
+										if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertAllPagesExcept != nil && (data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsNull() || len(data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModelAttrTypes})
+										}
+										var ExcludeListExisting []CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModel
+										if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertAllPagesExcept != nil && !data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
+											data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
 										if rawList, ok := JsInsertAllPagesExceptData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModel
-											for _, ExcludeListItem := range rawList {
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
 												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 													ExcludeListResult = append(ExcludeListResult, CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModel{
 														AnyDomain: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -20275,15 +20823,29 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return nil
 						}(),
 						JsInsertionRules: func() *CDNLoadBalancerBotDefensePolicyJsInsertionRulesModel {
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertionRules != nil {
+								return data.BotDefense.Policy.JsInsertionRules
+							}
 							if JsInsertionRulesData, ok := PolicyData["js_insertion_rules"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerBotDefensePolicyJsInsertionRulesModel{
 									ExcludeList: func() types.List {
+										if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertionRules != nil && (data.BotDefense.Policy.JsInsertionRules.ExcludeList.IsNull() || len(data.BotDefense.Policy.JsInsertionRules.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModelAttrTypes})
+										}
+										var ExcludeListExisting []CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModel
+										if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertionRules != nil && !data.BotDefense.Policy.JsInsertionRules.ExcludeList.IsNull() && !data.BotDefense.Policy.JsInsertionRules.ExcludeList.IsUnknown() {
+											data.BotDefense.Policy.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
 										if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModel
-											for _, ExcludeListItem := range rawList {
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
 												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 													ExcludeListResult = append(ExcludeListResult, CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModel{
 														AnyDomain: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -20367,12 +20929,23 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModelAttrTypes})
 									}(),
 									Rules: func() types.List {
+										if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertionRules != nil && (data.BotDefense.Policy.JsInsertionRules.Rules.IsNull() || len(data.BotDefense.Policy.JsInsertionRules.Rules.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModelAttrTypes})
+										}
+										var RulesExisting []CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModel
+										if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertionRules != nil && !data.BotDefense.Policy.JsInsertionRules.Rules.IsNull() && !data.BotDefense.Policy.JsInsertionRules.Rules.IsUnknown() {
+											data.BotDefense.Policy.JsInsertionRules.Rules.ElementsAs(ctx, &RulesExisting, false)
+										}
 										if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 											var RulesResult []CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModel
-											for _, RulesItem := range rawList {
+											for RulesIdx, RulesItem := range rawList {
+												_ = RulesIdx
 												if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 													RulesResult = append(RulesResult, CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModel{
 														AnyDomain: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyDomain != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -20466,24 +21039,44 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return nil
 						}(),
 						MobileSdkConfig: func() *CDNLoadBalancerBotDefensePolicyMobileSdkConfigModel {
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.MobileSdkConfig != nil {
+								return data.BotDefense.Policy.MobileSdkConfig
+							}
 							if MobileSdkConfigData, ok := PolicyData["mobile_sdk_config"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerBotDefensePolicyMobileSdkConfigModel{
 									MobileIdentifier: func() *CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierModel {
+										if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.MobileSdkConfig != nil && data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier != nil {
+											return data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier
+										}
 										if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierModel{
 												Headers: func() types.List {
+													if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.MobileSdkConfig != nil && data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier != nil && (data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers.IsNull() || len(data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
+													}
+													var HeadersExisting []CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModel
+													if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.MobileSdkConfig != nil && data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier != nil && !data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
+														data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersExisting, false)
+													}
 													if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
 														var HeadersResult []CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModel
-														for _, HeadersItem := range rawList {
+														for HeadersIdx, HeadersItem := range rawList {
+															_ = HeadersIdx
 															if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 																HeadersResult = append(HeadersResult, CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModel{
 																	CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -20558,18 +21151,32 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return nil
 						}(),
 						ProtectedAppEndpoints: func() types.List {
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && (data.BotDefense.Policy.ProtectedAppEndpoints.IsNull() || len(data.BotDefense.Policy.ProtectedAppEndpoints.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModelAttrTypes})
+							}
+							var ProtectedAppEndpointsExisting []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModel
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && !data.BotDefense.Policy.ProtectedAppEndpoints.IsNull() && !data.BotDefense.Policy.ProtectedAppEndpoints.IsUnknown() {
+								data.BotDefense.Policy.ProtectedAppEndpoints.ElementsAs(ctx, &ProtectedAppEndpointsExisting, false)
+							}
 							if rawList, ok := PolicyData["protected_app_endpoints"].([]interface{}); ok && len(rawList) > 0 {
 								var ProtectedAppEndpointsResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModel
-								for _, ProtectedAppEndpointsItem := range rawList {
+								for ProtectedAppEndpointsIdx, ProtectedAppEndpointsItem := range rawList {
+									_ = ProtectedAppEndpointsIdx
 									if ProtectedAppEndpointsItemMap, ok := ProtectedAppEndpointsItem.(map[string]interface{}); ok {
 										ProtectedAppEndpointsResult = append(ProtectedAppEndpointsResult, CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModel{
 											AllowGoodBots: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].AllowGoodBots != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := ProtectedAppEndpointsItemMap["allow_good_bots"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											AnyDomain: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].AnyDomain != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := ProtectedAppEndpointsItemMap["any_domain"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -20604,15 +21211,24 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												if FlowLabelData, ok := ProtectedAppEndpointsItemMap["flow_label"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelModel{
 														AccountManagement: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAccountManagementModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.AccountManagement != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.AccountManagement
+															}
 															if AccountManagementData, ok := FlowLabelData["account_management"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAccountManagementModel{
 																	Create: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.AccountManagement != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.AccountManagement.Create
+																		}
 																		if _, ok := AccountManagementData["create"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	PasswordReset: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.AccountManagement != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.AccountManagement.PasswordReset
+																		}
 																		if _, ok := AccountManagementData["password_reset"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -20623,24 +21239,44 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														Authentication: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication
+															}
 															if AuthenticationData, ok := FlowLabelData["authentication"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationModel{
 																	Login: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login
+																		}
 																		if LoginData, ok := AuthenticationData["login"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginModel{
 																				DisableTransactionResult: func() *CDNLoadBalancerEmptyModel {
+																					if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login != nil {
+																						return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.DisableTransactionResult
+																					}
 																					if _, ok := LoginData["disable_transaction_result"].(map[string]interface{}); ok {
 																						return &CDNLoadBalancerEmptyModel{}
 																					}
 																					return nil
 																				}(),
 																				TransactionResult: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultModel {
+																					if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil {
+																						return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult
+																					}
 																					if TransactionResultData, ok := LoginData["transaction_result"].(map[string]interface{}); ok {
 																						return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultModel{
 																							FailureConditions: func() types.List {
+																								if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && (ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsNull() || len(ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.Elements()) == 0) {
+																									return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes})
+																								}
+																								var FailureConditionsExisting []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel
+																								if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && !ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsNull() && !ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsUnknown() {
+																									ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.ElementsAs(ctx, &FailureConditionsExisting, false)
+																								}
 																								if rawList, ok := TransactionResultData["failure_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																									var FailureConditionsResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel
-																									for _, FailureConditionsItem := range rawList {
+																									for FailureConditionsIdx, FailureConditionsItem := range rawList {
+																										_ = FailureConditionsIdx
 																										if FailureConditionsItemMap, ok := FailureConditionsItem.(map[string]interface{}); ok {
 																											FailureConditionsResult = append(FailureConditionsResult, CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel{
 																												Name: func() types.String {
@@ -20677,9 +21313,17 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes})
 																							}(),
 																							SuccessConditions: func() types.List {
+																								if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && (ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsNull() || len(ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.Elements()) == 0) {
+																									return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModelAttrTypes})
+																								}
+																								var SuccessConditionsExisting []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel
+																								if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && !ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsNull() && !ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsUnknown() {
+																									ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.ElementsAs(ctx, &SuccessConditionsExisting, false)
+																								}
 																								if rawList, ok := TransactionResultData["success_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																									var SuccessConditionsResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel
-																									for _, SuccessConditionsItem := range rawList {
+																									for SuccessConditionsIdx, SuccessConditionsItem := range rawList {
+																										_ = SuccessConditionsIdx
 																										if SuccessConditionsItemMap, ok := SuccessConditionsItem.(map[string]interface{}); ok {
 																											SuccessConditionsResult = append(SuccessConditionsResult, CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel{
 																												Name: func() types.String {
@@ -20724,24 +21368,36 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																		return nil
 																	}(),
 																	LoginMFA: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.LoginMFA
+																		}
 																		if _, ok := AuthenticationData["login_mfa"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	LoginPartner: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.LoginPartner
+																		}
 																		if _, ok := AuthenticationData["login_partner"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	Logout: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Logout
+																		}
 																		if _, ok := AuthenticationData["logout"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	TokenRefresh: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.TokenRefresh
+																		}
 																		if _, ok := AuthenticationData["token_refresh"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -20752,15 +21408,24 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														FinancialServices: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFinancialServicesModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.FinancialServices != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.FinancialServices
+															}
 															if FinancialServicesData, ok := FlowLabelData["financial_services"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFinancialServicesModel{
 																	Apply: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.FinancialServices != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.FinancialServices.Apply
+																		}
 																		if _, ok := FinancialServicesData["apply"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	MoneyTransfer: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.FinancialServices != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.FinancialServices.MoneyTransfer
+																		}
 																		if _, ok := FinancialServicesData["money_transfer"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -20771,9 +21436,15 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														Flight: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight
+															}
 															if FlightData, ok := FlowLabelData["flight"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel{
 																	Checking: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight.Checking
+																		}
 																		if _, ok := FlightData["checking"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -20784,21 +21455,33 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														ProfileManagement: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelProfileManagementModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement
+															}
 															if ProfileManagementData, ok := FlowLabelData["profile_management"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelProfileManagementModel{
 																	Create: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement.Create
+																		}
 																		if _, ok := ProfileManagementData["create"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	Update: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement.Update
+																		}
 																		if _, ok := ProfileManagementData["update"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	View: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement.View
+																		}
 																		if _, ok := ProfileManagementData["view"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -20809,27 +21492,42 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														Search: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelSearchModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search
+															}
 															if SearchData, ok := FlowLabelData["search"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelSearchModel{
 																	FlightSearch: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search.FlightSearch
+																		}
 																		if _, ok := SearchData["flight_search"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ProductSearch: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search.ProductSearch
+																		}
 																		if _, ok := SearchData["product_search"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ReservationSearch: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search.ReservationSearch
+																		}
 																		if _, ok := SearchData["reservation_search"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	RoomSearch: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search.RoomSearch
+																		}
 																		if _, ok := SearchData["room_search"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -20840,75 +21538,114 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														ShoppingGiftCards: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelShoppingGiftCardsModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards
+															}
 															if ShoppingGiftCardsData, ok := FlowLabelData["shopping_gift_cards"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelShoppingGiftCardsModel{
 																	GiftCardMakePurchaseWithGiftCard: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard
+																		}
 																		if _, ok := ShoppingGiftCardsData["gift_card_make_purchase_with_gift_card"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	GiftCardValidation: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardValidation
+																		}
 																		if _, ok := ShoppingGiftCardsData["gift_card_validation"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopAddToCart: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopAddToCart
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_add_to_cart"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopCheckout: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopCheckout
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_checkout"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopChooseSeat: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopChooseSeat
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_choose_seat"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopEnterDrawingSubmission: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_enter_drawing_submission"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopMakePayment: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopMakePayment
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_make_payment"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopOrder: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopOrder
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_order"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopPriceInquiry: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPriceInquiry
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_price_inquiry"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopPromoCodeValidation: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_promo_code_validation"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopPurchaseGiftCard: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_purchase_gift_card"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopUpdateQuantity: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopUpdateQuantity
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_update_quantity"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -21039,6 +21776,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return nil
 											}(),
 											MitigateGoodBots: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].MitigateGoodBots != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := ProtectedAppEndpointsItemMap["mitigate_good_bots"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -21048,6 +21788,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												if MitigationData, ok := ProtectedAppEndpointsItemMap["mitigation"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationModel{
 														Block: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationBlockModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Block != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Block
+															}
 															if BlockData, ok := MitigationData["block"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationBlockModel{
 																	Body: func() types.String {
@@ -21067,9 +21810,15 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														Flag: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationFlagModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Flag != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Flag
+															}
 															if FlagData, ok := MitigationData["flag"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationFlagModel{
 																	AppendHeaders: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationFlagAppendHeadersModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Flag != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Flag.AppendHeaders != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Flag.AppendHeaders
+																		}
 																		if AppendHeadersData, ok := FlagData["append_headers"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationFlagAppendHeadersModel{
 																				AutoTypeHeaderName: func() types.String {
@@ -21089,6 +21838,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																		return nil
 																	}(),
 																	NoHeaders: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Flag != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Flag.NoHeaders
+																		}
 																		if _, ok := FlagData["no_headers"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -21099,6 +21851,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														Redirect: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationRedirectModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Redirect != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Redirect
+															}
 															if RedirectData, ok := MitigationData["redirect"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationRedirectModel{
 																	URI: func() types.String {
@@ -21116,6 +21871,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return nil
 											}(),
 											Mobile: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mobile != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := ProtectedAppEndpointsItemMap["mobile"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -21237,12 +21995,18 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsQueryParamsModelAttrTypes})
 											}(),
 											UndefinedFlowLabel: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].UndefinedFlowLabel != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := ProtectedAppEndpointsItemMap["undefined_flow_label"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											Web: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Web != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := ProtectedAppEndpointsItemMap["web"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -21318,27 +22082,47 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if PolicyData, ok := blockData["policy"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerClientSideDefensePolicyModel{
 						DisableJsInsert: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil {
+								return data.ClientSideDefense.Policy.DisableJsInsert
+							}
 							if _, ok := PolicyData["disable_js_insert"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						JsInsertAllPages: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil {
+								return data.ClientSideDefense.Policy.JsInsertAllPages
+							}
 							if _, ok := PolicyData["js_insert_all_pages"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						JsInsertAllPagesExcept: func() *CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptModel {
+							if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertAllPagesExcept != nil {
+								return data.ClientSideDefense.Policy.JsInsertAllPagesExcept
+							}
 							if JsInsertAllPagesExceptData, ok := PolicyData["js_insert_all_pages_except"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptModel{
 									ExcludeList: func() types.List {
+										if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertAllPagesExcept != nil && (data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsNull() || len(data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModelAttrTypes})
+										}
+										var ExcludeListExisting []CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModel
+										if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertAllPagesExcept != nil && !data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
+											data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
 										if rawList, ok := JsInsertAllPagesExceptData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModel
-											for _, ExcludeListItem := range rawList {
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
 												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 													ExcludeListResult = append(ExcludeListResult, CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModel{
 														AnyDomain: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -21426,15 +22210,29 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return nil
 						}(),
 						JsInsertionRules: func() *CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesModel {
+							if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertionRules != nil {
+								return data.ClientSideDefense.Policy.JsInsertionRules
+							}
 							if JsInsertionRulesData, ok := PolicyData["js_insertion_rules"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesModel{
 									ExcludeList: func() types.List {
+										if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertionRules != nil && (data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList.IsNull() || len(data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModelAttrTypes})
+										}
+										var ExcludeListExisting []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModel
+										if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertionRules != nil && !data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList.IsNull() && !data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList.IsUnknown() {
+											data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
 										if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModel
-											for _, ExcludeListItem := range rawList {
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
 												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 													ExcludeListResult = append(ExcludeListResult, CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModel{
 														AnyDomain: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -21518,12 +22316,23 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModelAttrTypes})
 									}(),
 									Rules: func() types.List {
+										if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertionRules != nil && (data.ClientSideDefense.Policy.JsInsertionRules.Rules.IsNull() || len(data.ClientSideDefense.Policy.JsInsertionRules.Rules.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModelAttrTypes})
+										}
+										var RulesExisting []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModel
+										if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertionRules != nil && !data.ClientSideDefense.Policy.JsInsertionRules.Rules.IsNull() && !data.ClientSideDefense.Policy.JsInsertionRules.Rules.IsUnknown() {
+											data.ClientSideDefense.Policy.JsInsertionRules.Rules.ElementsAs(ctx, &RulesExisting, false)
+										}
 										if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 											var RulesResult []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModel
-											for _, RulesItem := range rawList {
+											for RulesIdx, RulesItem := range rawList {
+												_ = RulesIdx
 												if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 													RulesResult = append(RulesResult, CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModel{
 														AnyDomain: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyDomain != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -21742,9 +22551,14 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if !isImport && data.CustomCacheRule != nil && (data.CustomCacheRule.CDNCacheRules.IsNull() || len(data.CustomCacheRule.CDNCacheRules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerCustomCacheRuleCDNCacheRulesModelAttrTypes})
 				}
+				var CDNCacheRulesExisting []CDNLoadBalancerCustomCacheRuleCDNCacheRulesModel
+				if !isImport && data.CustomCacheRule != nil && !data.CustomCacheRule.CDNCacheRules.IsNull() && !data.CustomCacheRule.CDNCacheRules.IsUnknown() {
+					data.CustomCacheRule.CDNCacheRules.ElementsAs(ctx, &CDNCacheRulesExisting, false)
+				}
 				if rawList, ok := blockData["cdn_cache_rules"].([]interface{}); ok && len(rawList) > 0 {
 					var CDNCacheRulesResult []CDNLoadBalancerCustomCacheRuleCDNCacheRulesModel
-					for _, CDNCacheRulesItem := range rawList {
+					for CDNCacheRulesIdx, CDNCacheRulesItem := range rawList {
+						_ = CDNCacheRulesIdx
 						if CDNCacheRulesItemMap, ok := CDNCacheRulesItem.(map[string]interface{}); ok {
 							CDNCacheRulesResult = append(CDNCacheRulesResult, CDNLoadBalancerCustomCacheRuleCDNCacheRulesModel{
 								Name: func() types.String {
@@ -21906,6 +22720,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						if DDOSClientSourceData, ok := itemMap["ddos_client_source"].(map[string]interface{}); ok {
 							return &CDNLoadBalancerDDOSMitigationRulesDDOSClientSourceModel{
 								AsnList: func() *CDNLoadBalancerDDOSMitigationRulesDDOSClientSourceAsnListModel {
+									if !isImport && len(existingDDOSMitigationRulesItems) > listIdx && existingDDOSMitigationRulesItems[listIdx].DDOSClientSource != nil && existingDDOSMitigationRulesItems[listIdx].DDOSClientSource.AsnList != nil {
+										return existingDDOSMitigationRulesItems[listIdx].DDOSClientSource.AsnList
+									}
 									if AsnListData, ok := DDOSClientSourceData["asn_list"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerDDOSMitigationRulesDDOSClientSourceAsnListModel{
 											AsNumbers: func() types.List {
@@ -21939,6 +22756,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									return types.ListNull(types.StringType)
 								}(),
 								Ja4TLSFingerprintMatcher: func() *CDNLoadBalancerDDOSMitigationRulesDDOSClientSourceJa4TLSFingerprintMatcherModel {
+									if !isImport && len(existingDDOSMitigationRulesItems) > listIdx && existingDDOSMitigationRulesItems[listIdx].DDOSClientSource != nil && existingDDOSMitigationRulesItems[listIdx].DDOSClientSource.Ja4TLSFingerprintMatcher != nil {
+										return existingDDOSMitigationRulesItems[listIdx].DDOSClientSource.Ja4TLSFingerprintMatcher
+									}
 									if Ja4TLSFingerprintMatcherData, ok := DDOSClientSourceData["ja4_tls_fingerprint_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerDDOSMitigationRulesDDOSClientSourceJa4TLSFingerprintMatcherModel{
 											ExactValues: func() types.List {
@@ -21959,6 +22779,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									return nil
 								}(),
 								TLSFingerprintMatcher: func() *CDNLoadBalancerDDOSMitigationRulesDDOSClientSourceTLSFingerprintMatcherModel {
+									if !isImport && len(existingDDOSMitigationRulesItems) > listIdx && existingDDOSMitigationRulesItems[listIdx].DDOSClientSource != nil && existingDDOSMitigationRulesItems[listIdx].DDOSClientSource.TLSFingerprintMatcher != nil {
+										return existingDDOSMitigationRulesItems[listIdx].DDOSClientSource.TLSFingerprintMatcher
+									}
 									if TLSFingerprintMatcherData, ok := DDOSClientSourceData["tls_fingerprint_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerDDOSMitigationRulesDDOSClientSourceTLSFingerprintMatcherModel{
 											Classes: func() types.List {
@@ -22018,6 +22841,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						if IPPrefixListData, ok := itemMap["ip_prefix_list"].(map[string]interface{}); ok {
 							return &CDNLoadBalancerDDOSMitigationRulesIPPrefixListModel{
 								InvertMatch: func() types.Bool {
+									if !isImport && len(existingDDOSMitigationRulesItems) > listIdx && existingDDOSMitigationRulesItems[listIdx].IPPrefixList != nil && !existingDDOSMitigationRulesItems[listIdx].IPPrefixList.InvertMatch.IsUnknown() {
+										return existingDDOSMitigationRulesItems[listIdx].IPPrefixList.InvertMatch
+									}
 									if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 										return types.BoolValue(v)
 									}
@@ -22131,12 +22957,23 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if APICrawlerData, ok := blockData["api_crawler"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableAPIDiscoveryAPICrawlerModel{
 						APICrawlerConfig: func() *CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModel {
+							if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APICrawler != nil && data.EnableAPIDiscovery.APICrawler.APICrawlerConfig != nil {
+								return data.EnableAPIDiscovery.APICrawler.APICrawlerConfig
+							}
 							if APICrawlerConfigData, ok := APICrawlerData["api_crawler_config"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModel{
 									Domains: func() types.List {
+										if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APICrawler != nil && data.EnableAPIDiscovery.APICrawler.APICrawlerConfig != nil && (data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.IsNull() || len(data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModelAttrTypes})
+										}
+										var DomainsExisting []CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel
+										if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APICrawler != nil && data.EnableAPIDiscovery.APICrawler.APICrawlerConfig != nil && !data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.IsNull() && !data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.IsUnknown() {
+											data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.ElementsAs(ctx, &DomainsExisting, false)
+										}
 										if rawList, ok := APICrawlerConfigData["domains"].([]interface{}); ok && len(rawList) > 0 {
 											var DomainsResult []CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel
-											for _, DomainsItem := range rawList {
+											for DomainsIdx, DomainsItem := range rawList {
+												_ = DomainsIdx
 												if DomainsItemMap, ok := DomainsItem.(map[string]interface{}); ok {
 													DomainsResult = append(DomainsResult, CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel{
 														Domain: func() types.String {
@@ -22149,9 +22986,15 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															if SimpleLoginData, ok := DomainsItemMap["simple_login"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginModel{
 																	Password: func() *CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordModel {
+																		if !isImport && len(DomainsExisting) > DomainsIdx && DomainsExisting[DomainsIdx].SimpleLogin != nil && DomainsExisting[DomainsIdx].SimpleLogin.Password != nil {
+																			return DomainsExisting[DomainsIdx].SimpleLogin.Password
+																		}
 																		if PasswordData, ok := SimpleLoginData["password"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordModel{
 																				BlindfoldSecretInfo: func() *CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordBlindfoldSecretInfoModel {
+																					if !isImport && len(DomainsExisting) > DomainsIdx && DomainsExisting[DomainsIdx].SimpleLogin != nil && DomainsExisting[DomainsIdx].SimpleLogin.Password != nil && DomainsExisting[DomainsIdx].SimpleLogin.Password.BlindfoldSecretInfo != nil {
+																						return DomainsExisting[DomainsIdx].SimpleLogin.Password.BlindfoldSecretInfo
+																					}
 																					if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																						return &CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordBlindfoldSecretInfoModel{
 																							DecryptionProvider: func() types.String {
@@ -22177,6 +23020,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																					return nil
 																				}(),
 																				ClearSecretInfo: func() *CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordClearSecretInfoModel {
+																					if !isImport && len(DomainsExisting) > DomainsIdx && DomainsExisting[DomainsIdx].SimpleLogin != nil && DomainsExisting[DomainsIdx].SimpleLogin.Password != nil && DomainsExisting[DomainsIdx].SimpleLogin.Password.ClearSecretInfo != nil {
+																						return DomainsExisting[DomainsIdx].SimpleLogin.Password.ClearSecretInfo
+																					}
 																					if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																						return &CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordClearSecretInfoModel{
 																							Provider: func() types.String {
@@ -22222,6 +23068,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return nil
 						}(),
 						DisableAPICrawler: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APICrawler != nil {
+								return data.EnableAPIDiscovery.APICrawler.DisableAPICrawler
+							}
 							if _, ok := APICrawlerData["disable_api_crawler"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -22235,12 +23084,23 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if APIDiscoveryFromCodeScanData, ok := blockData["api_discovery_from_code_scan"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableAPIDiscoveryAPIDiscoveryFromCodeScanModel{
 						CodeBaseIntegrations: func() types.List {
+							if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APIDiscoveryFromCodeScan != nil && (data.EnableAPIDiscovery.APIDiscoveryFromCodeScan.CodeBaseIntegrations.IsNull() || len(data.EnableAPIDiscovery.APIDiscoveryFromCodeScan.CodeBaseIntegrations.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModelAttrTypes})
+							}
+							var CodeBaseIntegrationsExisting []CDNLoadBalancerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModel
+							if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APIDiscoveryFromCodeScan != nil && !data.EnableAPIDiscovery.APIDiscoveryFromCodeScan.CodeBaseIntegrations.IsNull() && !data.EnableAPIDiscovery.APIDiscoveryFromCodeScan.CodeBaseIntegrations.IsUnknown() {
+								data.EnableAPIDiscovery.APIDiscoveryFromCodeScan.CodeBaseIntegrations.ElementsAs(ctx, &CodeBaseIntegrationsExisting, false)
+							}
 							if rawList, ok := APIDiscoveryFromCodeScanData["code_base_integrations"].([]interface{}); ok && len(rawList) > 0 {
 								var CodeBaseIntegrationsResult []CDNLoadBalancerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModel
-								for _, CodeBaseIntegrationsItem := range rawList {
+								for CodeBaseIntegrationsIdx, CodeBaseIntegrationsItem := range rawList {
+									_ = CodeBaseIntegrationsIdx
 									if CodeBaseIntegrationsItemMap, ok := CodeBaseIntegrationsItem.(map[string]interface{}); ok {
 										CodeBaseIntegrationsResult = append(CodeBaseIntegrationsResult, CDNLoadBalancerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModel{
 											AllRepos: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(CodeBaseIntegrationsExisting) > CodeBaseIntegrationsIdx && CodeBaseIntegrationsExisting[CodeBaseIntegrationsIdx].AllRepos != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := CodeBaseIntegrationsItemMap["all_repos"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -22360,6 +23220,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if DiscoveredAPISettingsData, ok := blockData["discovered_api_settings"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableAPIDiscoveryDiscoveredAPISettingsModel{
 						PurgeDurationForInactiveDiscoveredApis: func() types.Int64 {
+							if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.DiscoveredAPISettings != nil && !data.EnableAPIDiscovery.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis.IsUnknown() {
+								return data.EnableAPIDiscovery.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis
+							}
 							if v, ok := DiscoveredAPISettingsData["purge_duration_for_inactive_discovered_apis"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -22389,6 +23252,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if CaptchaChallengeParametersData, ok := blockData["captcha_challenge_parameters"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableChallengeCaptchaChallengeParametersModel{
 						CookieExpiry: func() types.Int64 {
+							if !isImport && data.EnableChallenge != nil && data.EnableChallenge.CaptchaChallengeParameters != nil && !data.EnableChallenge.CaptchaChallengeParameters.CookieExpiry.IsUnknown() {
+								return data.EnableChallenge.CaptchaChallengeParameters.CookieExpiry
+							}
 							if v, ok := CaptchaChallengeParametersData["cookie_expiry"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -22438,6 +23304,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if JsChallengeParametersData, ok := blockData["js_challenge_parameters"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableChallengeJsChallengeParametersModel{
 						CookieExpiry: func() types.Int64 {
+							if !isImport && data.EnableChallenge != nil && data.EnableChallenge.JsChallengeParameters != nil && !data.EnableChallenge.JsChallengeParameters.CookieExpiry.IsUnknown() {
+								return data.EnableChallenge.JsChallengeParameters.CookieExpiry
+							}
 							if v, ok := JsChallengeParametersData["cookie_expiry"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -22450,6 +23319,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return types.StringNull()
 						}(),
 						JsScriptDelay: func() types.Int64 {
+							if !isImport && data.EnableChallenge != nil && data.EnableChallenge.JsChallengeParameters != nil && !data.EnableChallenge.JsChallengeParameters.JsScriptDelay.IsUnknown() {
+								return data.EnableChallenge.JsChallengeParameters.JsScriptDelay
+							}
 							if v, ok := JsChallengeParametersData["js_script_delay"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -22546,30 +23418,45 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						if GraphqlSettingsData, ok := itemMap["graphql_settings"].(map[string]interface{}); ok {
 							return &CDNLoadBalancerGraphqlRulesGraphqlSettingsModel{
 								DisableIntrospection: func() *CDNLoadBalancerEmptyModel {
+									if !isImport && len(existingGraphqlRulesItems) > listIdx && existingGraphqlRulesItems[listIdx].GraphqlSettings != nil {
+										return existingGraphqlRulesItems[listIdx].GraphqlSettings.DisableIntrospection
+									}
 									if _, ok := GraphqlSettingsData["disable_introspection"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerEmptyModel{}
 									}
 									return nil
 								}(),
 								EnableIntrospection: func() *CDNLoadBalancerEmptyModel {
+									if !isImport && len(existingGraphqlRulesItems) > listIdx && existingGraphqlRulesItems[listIdx].GraphqlSettings != nil {
+										return existingGraphqlRulesItems[listIdx].GraphqlSettings.EnableIntrospection
+									}
 									if _, ok := GraphqlSettingsData["enable_introspection"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerEmptyModel{}
 									}
 									return nil
 								}(),
 								MaxBatchedQueries: func() types.Int64 {
+									if !isImport && len(existingGraphqlRulesItems) > listIdx && existingGraphqlRulesItems[listIdx].GraphqlSettings != nil && !existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxBatchedQueries.IsUnknown() {
+										return existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxBatchedQueries
+									}
 									if v, ok := GraphqlSettingsData["max_batched_queries"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								MaxDepth: func() types.Int64 {
+									if !isImport && len(existingGraphqlRulesItems) > listIdx && existingGraphqlRulesItems[listIdx].GraphqlSettings != nil && !existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxDepth.IsUnknown() {
+										return existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxDepth
+									}
 									if v, ok := GraphqlSettingsData["max_depth"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								MaxTotalLength: func() types.Int64 {
+									if !isImport && len(existingGraphqlRulesItems) > listIdx && existingGraphqlRulesItems[listIdx].GraphqlSettings != nil && !existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxTotalLength.IsUnknown() {
+										return existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxTotalLength
+									}
 									if v, ok := GraphqlSettingsData["max_total_length"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
@@ -22688,9 +23575,17 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							if TLSCertParamsData, ok := TLSCertOptionsData["tls_cert_params"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsModel{
 									Certificates: func() types.List {
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && (data.HTTPS.TLSCertOptions.TLSCertParams.Certificates.IsNull() || len(data.HTTPS.TLSCertOptions.TLSCertParams.Certificates.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsCertificatesModelAttrTypes})
+										}
+										var CertificatesExisting []CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsCertificatesModel
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && !data.HTTPS.TLSCertOptions.TLSCertParams.Certificates.IsNull() && !data.HTTPS.TLSCertOptions.TLSCertParams.Certificates.IsUnknown() {
+											data.HTTPS.TLSCertOptions.TLSCertParams.Certificates.ElementsAs(ctx, &CertificatesExisting, false)
+										}
 										if rawList, ok := TLSCertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var CertificatesResult []CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsCertificatesModel
-											for _, CertificatesItem := range rawList {
+											for CertificatesIdx, CertificatesItem := range rawList {
+												_ = CertificatesIdx
 												if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
 													CertificatesResult = append(CertificatesResult, CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsCertificatesModel{
 														Name: func() types.String {
@@ -22720,15 +23615,24 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsCertificatesModelAttrTypes})
 									}(),
 									NoMtls: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil {
+											return data.HTTPS.TLSCertOptions.TLSCertParams.NoMtls
+										}
 										if _, ok := TLSCertParamsData["no_mtls"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									TLSConfig: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsTLSConfigModel {
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig != nil {
+											return data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig
+										}
 										if TLSConfigData, ok := TLSCertParamsData["tls_config"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsTLSConfigModel{
 												CustomSecurity: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsTLSConfigCustomSecurityModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig != nil && data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig.CustomSecurity != nil {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig.CustomSecurity
+													}
 													if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsTLSConfigCustomSecurityModel{
 															CipherSuites: func() types.List {
@@ -22761,18 +23665,27 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 													return nil
 												}(),
 												DefaultSecurity: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig != nil {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig.DefaultSecurity
+													}
 													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												LowSecurity: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig != nil {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig.LowSecurity
+													}
 													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												MediumSecurity: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig != nil {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig.MediumSecurity
+													}
 													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
@@ -22786,6 +23699,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										if UseMtlsData, ok := TLSCertParamsData["use_mtls"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsUseMtlsModel{
 												ClientCertificateOptional: func() types.Bool {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls != nil && !data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.ClientCertificateOptional.IsUnknown() {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.ClientCertificateOptional
+													}
 													if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 														return types.BoolValue(v)
 													}
@@ -22817,6 +23733,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 													return nil
 												}(),
 												NoCRL: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls != nil {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.NoCRL
+													}
 													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
@@ -22854,12 +23773,18 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 													return types.StringNull()
 												}(),
 												XfccDisabled: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls != nil {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.XfccDisabled
+													}
 													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												XfccOptions: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsUseMtlsXfccOptionsModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls != nil && data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.XfccOptions != nil {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.XfccOptions
+													}
 													if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsUseMtlsXfccOptionsModel{
 															XfccHeaderElements: func() types.List {
@@ -22891,15 +23816,26 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							if TLSInlineParamsData, ok := TLSCertOptionsData["tls_inline_params"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsModel{
 									NoMtls: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil {
+											return data.HTTPS.TLSCertOptions.TLSInlineParams.NoMtls
+										}
 										if _, ok := TLSInlineParamsData["no_mtls"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									TLSCertificates: func() types.List {
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && (data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates.IsNull() || len(data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModelAttrTypes})
+										}
+										var TLSCertificatesExisting []CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModel
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && !data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates.IsNull() && !data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates.IsUnknown() {
+											data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+										}
 										if rawList, ok := TLSInlineParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var TLSCertificatesResult []CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModel
-											for _, TLSCertificatesItem := range rawList {
+											for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+												_ = TLSCertificatesIdx
 												if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 													TLSCertificatesResult = append(TLSCertificatesResult, CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModel{
 														CertificateURL: func() types.String {
@@ -22935,6 +23871,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return types.StringNull()
 														}(),
 														DisableOCSPStapling: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -22944,6 +23883,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -22969,6 +23911,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -22992,6 +23937,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														UseSystemDefaults: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -23006,9 +23954,15 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModelAttrTypes})
 									}(),
 									TLSConfig: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSConfigModel {
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig != nil {
+											return data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig
+										}
 										if TLSConfigData, ok := TLSInlineParamsData["tls_config"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSConfigModel{
 												CustomSecurity: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSConfigCustomSecurityModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig.CustomSecurity != nil {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig.CustomSecurity
+													}
 													if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSConfigCustomSecurityModel{
 															CipherSuites: func() types.List {
@@ -23041,18 +23995,27 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 													return nil
 												}(),
 												DefaultSecurity: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig != nil {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig.DefaultSecurity
+													}
 													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												LowSecurity: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig != nil {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig.LowSecurity
+													}
 													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												MediumSecurity: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig != nil {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig.MediumSecurity
+													}
 													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
@@ -23066,6 +24029,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										if UseMtlsData, ok := TLSInlineParamsData["use_mtls"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsUseMtlsModel{
 												ClientCertificateOptional: func() types.Bool {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls != nil && !data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.ClientCertificateOptional.IsUnknown() {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.ClientCertificateOptional
+													}
 													if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 														return types.BoolValue(v)
 													}
@@ -23097,6 +24063,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 													return nil
 												}(),
 												NoCRL: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls != nil {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.NoCRL
+													}
 													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
@@ -23134,12 +24103,18 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 													return types.StringNull()
 												}(),
 												XfccDisabled: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls != nil {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.XfccDisabled
+													}
 													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												XfccOptions: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsUseMtlsXfccOptionsModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.XfccOptions != nil {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.XfccOptions
+													}
 													if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsUseMtlsXfccOptionsModel{
 															XfccHeaderElements: func() types.List {
@@ -23200,12 +24175,18 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if TLSConfigData, ok := blockData["tls_config"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerHTTPSAutoCertTLSConfigModel{
 						TLS11Plus: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.HTTPSAutoCert != nil && data.HTTPSAutoCert.TLSConfig != nil {
+								return data.HTTPSAutoCert.TLSConfig.TLS11Plus
+							}
 							if _, ok := TLSConfigData["tls_11_plus"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						TLS12Plus: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.HTTPSAutoCert != nil && data.HTTPSAutoCert.TLSConfig != nil {
+								return data.HTTPSAutoCert.TLSConfig.TLS12Plus
+							}
 							if _, ok := TLSConfigData["tls_12_plus"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -23254,12 +24235,18 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if ActionData, ok := blockData["action"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerJWTValidationActionModel{
 						Block: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.Action != nil {
+								return data.JWTValidation.Action.Block
+							}
 							if _, ok := ActionData["block"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						Report: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.Action != nil {
+								return data.JWTValidation.Action.Report
+							}
 							if _, ok := ActionData["report"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -23273,9 +24260,17 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if AuthorizationServerData, ok := blockData["authorization_server"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerJWTValidationAuthorizationServerModel{
 						AuthorizationServers: func() types.List {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.AuthorizationServer != nil && (data.JWTValidation.AuthorizationServer.AuthorizationServers.IsNull() || len(data.JWTValidation.AuthorizationServer.AuthorizationServers.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerJWTValidationAuthorizationServerAuthorizationServersModelAttrTypes})
+							}
+							var AuthorizationServersExisting []CDNLoadBalancerJWTValidationAuthorizationServerAuthorizationServersModel
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.AuthorizationServer != nil && !data.JWTValidation.AuthorizationServer.AuthorizationServers.IsNull() && !data.JWTValidation.AuthorizationServer.AuthorizationServers.IsUnknown() {
+								data.JWTValidation.AuthorizationServer.AuthorizationServers.ElementsAs(ctx, &AuthorizationServersExisting, false)
+							}
 							if rawList, ok := AuthorizationServerData["authorization_servers"].([]interface{}); ok && len(rawList) > 0 {
 								var AuthorizationServersResult []CDNLoadBalancerJWTValidationAuthorizationServerAuthorizationServersModel
-								for _, AuthorizationServersItem := range rawList {
+								for AuthorizationServersIdx, AuthorizationServersItem := range rawList {
+									_ = AuthorizationServersIdx
 									if AuthorizationServersItemMap, ok := AuthorizationServersItem.(map[string]interface{}); ok {
 										AuthorizationServersResult = append(AuthorizationServersResult, CDNLoadBalancerJWTValidationAuthorizationServerAuthorizationServersModel{
 											Name: func() types.String {
@@ -23354,6 +24349,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if ReservedClaimsData, ok := blockData["reserved_claims"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerJWTValidationReservedClaimsModel{
 						Audience: func() *CDNLoadBalancerJWTValidationReservedClaimsAudienceModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.ReservedClaims != nil && data.JWTValidation.ReservedClaims.Audience != nil {
+								return data.JWTValidation.ReservedClaims.Audience
+							}
 							if AudienceData, ok := ReservedClaimsData["audience"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerJWTValidationReservedClaimsAudienceModel{
 									Audiences: func() types.List {
@@ -23374,6 +24372,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return nil
 						}(),
 						AudienceDisable: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.ReservedClaims != nil {
+								return data.JWTValidation.ReservedClaims.AudienceDisable
+							}
 							if _, ok := ReservedClaimsData["audience_disable"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -23386,18 +24387,27 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return types.StringNull()
 						}(),
 						IssuerDisable: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.ReservedClaims != nil {
+								return data.JWTValidation.ReservedClaims.IssuerDisable
+							}
 							if _, ok := ReservedClaimsData["issuer_disable"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						ValidatePeriodDisable: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.ReservedClaims != nil {
+								return data.JWTValidation.ReservedClaims.ValidatePeriodDisable
+							}
 							if _, ok := ReservedClaimsData["validate_period_disable"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						ValidatePeriodEnable: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.ReservedClaims != nil {
+								return data.JWTValidation.ReservedClaims.ValidatePeriodEnable
+							}
 							if _, ok := ReservedClaimsData["validate_period_enable"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -23414,12 +24424,18 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if TargetData, ok := blockData["target"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerJWTValidationTargetModel{
 						AllEndpoint: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.Target != nil {
+								return data.JWTValidation.Target.AllEndpoint
+							}
 							if _, ok := TargetData["all_endpoint"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						APIGroups: func() *CDNLoadBalancerJWTValidationTargetAPIGroupsModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.Target != nil && data.JWTValidation.Target.APIGroups != nil {
+								return data.JWTValidation.Target.APIGroups
+							}
 							if APIGroupsData, ok := TargetData["api_groups"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerJWTValidationTargetAPIGroupsModel{
 									APIGroups: func() types.List {
@@ -23440,6 +24456,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return nil
 						}(),
 						BasePaths: func() *CDNLoadBalancerJWTValidationTargetBasePathsModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.Target != nil && data.JWTValidation.Target.BasePaths != nil {
+								return data.JWTValidation.Target.BasePaths
+							}
 							if BasePathsData, ok := TargetData["base_paths"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerJWTValidationTargetBasePathsModel{
 									BasePaths: func() types.List {
@@ -23470,6 +24489,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if TokenLocationData, ok := blockData["token_location"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerJWTValidationTokenLocationModel{
 						BearerToken: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.TokenLocation != nil {
+								return data.JWTValidation.TokenLocation.BearerToken
+							}
 							if _, ok := TokenLocationData["bearer_token"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -23530,12 +24552,18 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if MoreOriginOptionsData, ok := blockData["more_origin_options"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerOriginPoolMoreOriginOptionsModel{
 						EnableByteRangeRequest: func() types.Bool {
+							if !isImport && data.OriginPool != nil && data.OriginPool.MoreOriginOptions != nil && !data.OriginPool.MoreOriginOptions.EnableByteRangeRequest.IsUnknown() {
+								return data.OriginPool.MoreOriginOptions.EnableByteRangeRequest
+							}
 							if v, ok := MoreOriginOptionsData["enable_byte_range_request"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
 						WebSocketProxy: func() types.Bool {
+							if !isImport && data.OriginPool != nil && data.OriginPool.MoreOriginOptions != nil && !data.OriginPool.MoreOriginOptions.WebSocketProxy.IsUnknown() {
+								return data.OriginPool.MoreOriginOptions.WebSocketProxy
+							}
 							if v, ok := MoreOriginOptionsData["websocket_proxy"].(bool); ok {
 								return types.BoolValue(v)
 							}
@@ -23564,9 +24592,14 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if !isImport && data.OriginPool != nil && (data.OriginPool.OriginServers.IsNull() || len(data.OriginPool.OriginServers.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOriginPoolOriginServersModelAttrTypes})
 				}
+				var OriginServersExisting []CDNLoadBalancerOriginPoolOriginServersModel
+				if !isImport && data.OriginPool != nil && !data.OriginPool.OriginServers.IsNull() && !data.OriginPool.OriginServers.IsUnknown() {
+					data.OriginPool.OriginServers.ElementsAs(ctx, &OriginServersExisting, false)
+				}
 				if rawList, ok := blockData["origin_servers"].([]interface{}); ok && len(rawList) > 0 {
 					var OriginServersResult []CDNLoadBalancerOriginPoolOriginServersModel
-					for _, OriginServersItem := range rawList {
+					for OriginServersIdx, OriginServersItem := range rawList {
+						_ = OriginServersIdx
 						if OriginServersItemMap, ok := OriginServersItem.(map[string]interface{}); ok {
 							OriginServersResult = append(OriginServersResult, CDNLoadBalancerOriginPoolOriginServersModel{
 								Port: func() types.Int64 {
@@ -23598,6 +24631,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return types.StringNull()
 											}(),
 											RefreshInterval: func() types.Int64 {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PublicName != nil && !OriginServersExisting[OriginServersIdx].PublicName.RefreshInterval.IsUnknown() {
+													return OriginServersExisting[OriginServersIdx].PublicName.RefreshInterval
+												}
 												if v, ok := PublicNameData["refresh_interval"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -23628,6 +24664,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return types.StringNull()
 						}(),
 						RefreshInterval: func() types.Int64 {
+							if !isImport && data.OriginPool != nil && data.OriginPool.PublicName != nil && !data.OriginPool.PublicName.RefreshInterval.IsUnknown() {
+								return data.OriginPool.PublicName.RefreshInterval
+							}
 							if v, ok := PublicNameData["refresh_interval"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -23641,36 +24680,54 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerOriginPoolUseTLSModel{
 						DefaultSessionKeyCaching: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
+								return data.OriginPool.UseTLS.DefaultSessionKeyCaching
+							}
 							if _, ok := UseTLSData["default_session_key_caching"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableSessionKeyCaching: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
+								return data.OriginPool.UseTLS.DisableSessionKeyCaching
+							}
 							if _, ok := UseTLSData["disable_session_key_caching"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableSni: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
+								return data.OriginPool.UseTLS.DisableSni
+							}
 							if _, ok := UseTLSData["disable_sni"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxSessionKeys: func() types.Int64 {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && !data.OriginPool.UseTLS.MaxSessionKeys.IsUnknown() {
+								return data.OriginPool.UseTLS.MaxSessionKeys
+							}
 							if v, ok := UseTLSData["max_session_keys"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						NoMtls: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
+								return data.OriginPool.UseTLS.NoMtls
+							}
 							if _, ok := UseTLSData["no_mtls"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						SkipServerVerification: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
+								return data.OriginPool.UseTLS.SkipServerVerification
+							}
 							if _, ok := UseTLSData["skip_server_verification"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -23683,9 +24740,15 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return types.StringNull()
 						}(),
 						TLSConfig: func() *CDNLoadBalancerOriginPoolUseTLSTLSConfigModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.TLSConfig != nil {
+								return data.OriginPool.UseTLS.TLSConfig
+							}
 							if TLSConfigData, ok := UseTLSData["tls_config"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerOriginPoolUseTLSTLSConfigModel{
 									CustomSecurity: func() *CDNLoadBalancerOriginPoolUseTLSTLSConfigCustomSecurityModel {
+										if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.TLSConfig != nil && data.OriginPool.UseTLS.TLSConfig.CustomSecurity != nil {
+											return data.OriginPool.UseTLS.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerOriginPoolUseTLSTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -23718,18 +24781,27 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										return nil
 									}(),
 									DefaultSecurity: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.TLSConfig != nil {
+											return data.OriginPool.UseTLS.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.TLSConfig != nil {
+											return data.OriginPool.UseTLS.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.TLSConfig != nil {
+											return data.OriginPool.UseTLS.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
@@ -23740,18 +24812,32 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return nil
 						}(),
 						UseHostHeaderAsSni: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
+								return data.OriginPool.UseTLS.UseHostHeaderAsSni
+							}
 							if _, ok := UseTLSData["use_host_header_as_sni"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						UseMtls: func() *CDNLoadBalancerOriginPoolUseTLSUseMtlsModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.UseMtls != nil {
+								return data.OriginPool.UseTLS.UseMtls
+							}
 							if UseMtlsData, ok := UseTLSData["use_mtls"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerOriginPoolUseTLSUseMtlsModel{
 									TLSCertificates: func() types.List {
+										if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.UseMtls != nil && (data.OriginPool.UseTLS.UseMtls.TLSCertificates.IsNull() || len(data.OriginPool.UseTLS.UseMtls.TLSCertificates.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModelAttrTypes})
+										}
+										var TLSCertificatesExisting []CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModel
+										if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.UseMtls != nil && !data.OriginPool.UseTLS.UseMtls.TLSCertificates.IsNull() && !data.OriginPool.UseTLS.UseMtls.TLSCertificates.IsUnknown() {
+											data.OriginPool.UseTLS.UseMtls.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+										}
 										if rawList, ok := UseMtlsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var TLSCertificatesResult []CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModel
-											for _, TLSCertificatesItem := range rawList {
+											for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+												_ = TLSCertificatesIdx
 												if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 													TLSCertificatesResult = append(TLSCertificatesResult, CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModel{
 														CertificateURL: func() types.String {
@@ -23787,6 +24873,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return types.StringNull()
 														}(),
 														DisableOCSPStapling: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -23796,6 +24885,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -23821,6 +24913,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -23844,6 +24939,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														UseSystemDefaults: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -23925,6 +25023,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return nil
 						}(),
 						VolterraTrustedCA: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
+								return data.OriginPool.UseTLS.VolterraTrustedCA
+							}
 							if _, ok := UseTLSData["volterra_trusted_ca"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -23954,9 +25055,17 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if HeaderOptionsData, ok := blockData["header_options"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerOtherSettingsHeaderOptionsModel{
 						RequestHeadersToAdd: func() types.List {
+							if !isImport && data.OtherSettings != nil && data.OtherSettings.HeaderOptions != nil && (data.OtherSettings.HeaderOptions.RequestHeadersToAdd.IsNull() || len(data.OtherSettings.HeaderOptions.RequestHeadersToAdd.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModelAttrTypes})
+							}
+							var RequestHeadersToAddExisting []CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModel
+							if !isImport && data.OtherSettings != nil && data.OtherSettings.HeaderOptions != nil && !data.OtherSettings.HeaderOptions.RequestHeadersToAdd.IsNull() && !data.OtherSettings.HeaderOptions.RequestHeadersToAdd.IsUnknown() {
+								data.OtherSettings.HeaderOptions.RequestHeadersToAdd.ElementsAs(ctx, &RequestHeadersToAddExisting, false)
+							}
 							if rawList, ok := HeaderOptionsData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var RequestHeadersToAddResult []CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModel
-								for _, RequestHeadersToAddItem := range rawList {
+								for RequestHeadersToAddIdx, RequestHeadersToAddItem := range rawList {
+									_ = RequestHeadersToAddIdx
 									if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
 										RequestHeadersToAddResult = append(RequestHeadersToAddResult, CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModel{
 											Append: func() types.Bool {
@@ -23975,6 +25084,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddSecretValueModel{
 														BlindfoldSecretInfo: func() *CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+															if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -24000,6 +25112,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														ClearSecretInfo: func() *CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddSecretValueClearSecretInfoModel {
+															if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddSecretValueClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -24050,9 +25165,17 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return types.ListNull(types.StringType)
 						}(),
 						ResponseHeadersToAdd: func() types.List {
+							if !isImport && data.OtherSettings != nil && data.OtherSettings.HeaderOptions != nil && (data.OtherSettings.HeaderOptions.ResponseHeadersToAdd.IsNull() || len(data.OtherSettings.HeaderOptions.ResponseHeadersToAdd.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModelAttrTypes})
+							}
+							var ResponseHeadersToAddExisting []CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModel
+							if !isImport && data.OtherSettings != nil && data.OtherSettings.HeaderOptions != nil && !data.OtherSettings.HeaderOptions.ResponseHeadersToAdd.IsNull() && !data.OtherSettings.HeaderOptions.ResponseHeadersToAdd.IsUnknown() {
+								data.OtherSettings.HeaderOptions.ResponseHeadersToAdd.ElementsAs(ctx, &ResponseHeadersToAddExisting, false)
+							}
 							if rawList, ok := HeaderOptionsData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var ResponseHeadersToAddResult []CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModel
-								for _, ResponseHeadersToAddItem := range rawList {
+								for ResponseHeadersToAddIdx, ResponseHeadersToAddItem := range rawList {
+									_ = ResponseHeadersToAddIdx
 									if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
 										ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModel{
 											Append: func() types.Bool {
@@ -24071,6 +25194,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddSecretValueModel{
 														BlindfoldSecretInfo: func() *CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+															if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -24096,6 +25222,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														ClearSecretInfo: func() *CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddSecretValueClearSecretInfoModel {
+															if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddSecretValueClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -24156,6 +25285,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if LoggingOptionsData, ok := blockData["logging_options"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerOtherSettingsLoggingOptionsModel{
 						ClientLogOptions: func() *CDNLoadBalancerOtherSettingsLoggingOptionsClientLogOptionsModel {
+							if !isImport && data.OtherSettings != nil && data.OtherSettings.LoggingOptions != nil && data.OtherSettings.LoggingOptions.ClientLogOptions != nil {
+								return data.OtherSettings.LoggingOptions.ClientLogOptions
+							}
 							if ClientLogOptionsData, ok := LoggingOptionsData["client_log_options"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerOtherSettingsLoggingOptionsClientLogOptionsModel{
 									HeaderList: func() types.List {
@@ -24176,6 +25308,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return nil
 						}(),
 						OriginLogOptions: func() *CDNLoadBalancerOtherSettingsLoggingOptionsOriginLogOptionsModel {
+							if !isImport && data.OtherSettings != nil && data.OtherSettings.LoggingOptions != nil && data.OtherSettings.LoggingOptions.OriginLogOptions != nil {
+								return data.OtherSettings.LoggingOptions.OriginLogOptions
+							}
 							if OriginLogOptionsData, ok := LoggingOptionsData["origin_log_options"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerOtherSettingsLoggingOptionsOriginLogOptionsModel{
 									HeaderList: func() types.List {
@@ -24228,6 +25363,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if CaptchaChallengeParametersData, ok := blockData["captcha_challenge_parameters"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerPolicyBasedChallengeCaptchaChallengeParametersModel{
 						CookieExpiry: func() types.Int64 {
+							if !isImport && data.PolicyBasedChallenge != nil && data.PolicyBasedChallenge.CaptchaChallengeParameters != nil && !data.PolicyBasedChallenge.CaptchaChallengeParameters.CookieExpiry.IsUnknown() {
+								return data.PolicyBasedChallenge.CaptchaChallengeParameters.CookieExpiry
+							}
 							if v, ok := CaptchaChallengeParametersData["cookie_expiry"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -24286,6 +25424,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if JsChallengeParametersData, ok := blockData["js_challenge_parameters"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerPolicyBasedChallengeJsChallengeParametersModel{
 						CookieExpiry: func() types.Int64 {
+							if !isImport && data.PolicyBasedChallenge != nil && data.PolicyBasedChallenge.JsChallengeParameters != nil && !data.PolicyBasedChallenge.JsChallengeParameters.CookieExpiry.IsUnknown() {
+								return data.PolicyBasedChallenge.JsChallengeParameters.CookieExpiry
+							}
 							if v, ok := JsChallengeParametersData["cookie_expiry"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -24298,6 +25439,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return types.StringNull()
 						}(),
 						JsScriptDelay: func() types.Int64 {
+							if !isImport && data.PolicyBasedChallenge != nil && data.PolicyBasedChallenge.JsChallengeParameters != nil && !data.PolicyBasedChallenge.JsChallengeParameters.JsScriptDelay.IsUnknown() {
+								return data.PolicyBasedChallenge.JsChallengeParameters.JsScriptDelay
+							}
 							if v, ok := JsChallengeParametersData["js_script_delay"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -24345,9 +25489,17 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if RuleListData, ok := blockData["rule_list"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerPolicyBasedChallengeRuleListModel{
 						Rules: func() types.List {
+							if !isImport && data.PolicyBasedChallenge != nil && data.PolicyBasedChallenge.RuleList != nil && (data.PolicyBasedChallenge.RuleList.Rules.IsNull() || len(data.PolicyBasedChallenge.RuleList.Rules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesModelAttrTypes})
+							}
+							var RulesExisting []CDNLoadBalancerPolicyBasedChallengeRuleListRulesModel
+							if !isImport && data.PolicyBasedChallenge != nil && data.PolicyBasedChallenge.RuleList != nil && !data.PolicyBasedChallenge.RuleList.Rules.IsNull() && !data.PolicyBasedChallenge.RuleList.Rules.IsUnknown() {
+								data.PolicyBasedChallenge.RuleList.Rules.ElementsAs(ctx, &RulesExisting, false)
+							}
 							if rawList, ok := RuleListData["rules"].([]interface{}); ok && len(rawList) > 0 {
 								var RulesResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesModel
-								for _, RulesItem := range rawList {
+								for RulesIdx, RulesItem := range rawList {
+									_ = RulesIdx
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, CDNLoadBalancerPolicyBasedChallengeRuleListRulesModel{
 											Metadata: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesMetadataModel {
@@ -24373,36 +25525,59 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												if SpecData, ok := RulesItemMap["spec"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecModel{
 														AnyAsn: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+																return RulesExisting[RulesIdx].Spec.AnyAsn
+															}
 															if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														AnyClient: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+																return RulesExisting[RulesIdx].Spec.AnyClient
+															}
 															if _, ok := SpecData["any_client"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														AnyIP: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+																return RulesExisting[RulesIdx].Spec.AnyIP
+															}
 															if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														ArgMatchers: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.ArgMatchers.IsNull() || len(RulesExisting[RulesIdx].Spec.ArgMatchers.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModelAttrTypes})
+															}
+															var ArgMatchersExisting []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.ArgMatchers.IsNull() && !RulesExisting[RulesIdx].Spec.ArgMatchers.IsUnknown() {
+																RulesExisting[RulesIdx].Spec.ArgMatchers.ElementsAs(ctx, &ArgMatchersExisting, false)
+															}
 															if rawList, ok := SpecData["arg_matchers"].([]interface{}); ok && len(rawList) > 0 {
 																var ArgMatchersResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModel
-																for _, ArgMatchersItem := range rawList {
+																for ArgMatchersIdx, ArgMatchersItem := range rawList {
+																	_ = ArgMatchersIdx
 																	if ArgMatchersItemMap, ok := ArgMatchersItem.(map[string]interface{}); ok {
 																		ArgMatchersResult = append(ArgMatchersResult, CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && ArgMatchersExisting[ArgMatchersIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := ArgMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && ArgMatchersExisting[ArgMatchersIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := ArgMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -24475,6 +25650,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModelAttrTypes})
 														}(),
 														AsnList: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnListModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.AsnList != nil {
+																return RulesExisting[RulesIdx].Spec.AsnList
+															}
 															if AsnListData, ok := SpecData["asn_list"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnListModel{
 																	AsNumbers: func() types.List {
@@ -24498,9 +25676,17 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															if AsnMatcherData, ok := SpecData["asn_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnMatcherModel{
 																	AsnSets: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.AsnMatcher != nil && (RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.IsNull() || len(RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnMatcherAsnSetsModelAttrTypes})
+																		}
+																		var AsnSetsExisting []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnMatcherAsnSetsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.AsnMatcher != nil && !RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.IsNull() && !RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+																		}
 																		if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 																			var AsnSetsResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnMatcherAsnSetsModel
-																			for _, AsnSetsItem := range rawList {
+																			for AsnSetsIdx, AsnSetsItem := range rawList {
+																				_ = AsnSetsIdx
 																				if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 																					AsnSetsResult = append(AsnSetsResult, CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnMatcherAsnSetsModel{
 																						Kind: func() types.String {
@@ -24546,6 +25732,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														BodyMatcher: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecBodyMatcherModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BodyMatcher != nil {
+																return RulesExisting[RulesIdx].Spec.BodyMatcher
+															}
 															if BodyMatcherData, ok := SpecData["body_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecBodyMatcherModel{
 																	ExactValues: func() types.List {
@@ -24592,6 +25781,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														ClientSelector: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecClientSelectorModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.ClientSelector != nil {
+																return RulesExisting[RulesIdx].Spec.ClientSelector
+															}
 															if ClientSelectorData, ok := SpecData["client_selector"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecClientSelectorModel{
 																	Expressions: func() types.List {
@@ -24612,18 +25804,32 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														CookieMatchers: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.CookieMatchers.IsNull() || len(RulesExisting[RulesIdx].Spec.CookieMatchers.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModelAttrTypes})
+															}
+															var CookieMatchersExisting []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.CookieMatchers.IsNull() && !RulesExisting[RulesIdx].Spec.CookieMatchers.IsUnknown() {
+																RulesExisting[RulesIdx].Spec.CookieMatchers.ElementsAs(ctx, &CookieMatchersExisting, false)
+															}
 															if rawList, ok := SpecData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 																var CookieMatchersResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModel
-																for _, CookieMatchersItem := range rawList {
+																for CookieMatchersIdx, CookieMatchersItem := range rawList {
+																	_ = CookieMatchersIdx
 																	if CookieMatchersItemMap, ok := CookieMatchersItem.(map[string]interface{}); ok {
 																		CookieMatchersResult = append(CookieMatchersResult, CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := CookieMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := CookieMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -24696,12 +25902,18 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModelAttrTypes})
 														}(),
 														DisableChallenge: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+																return RulesExisting[RulesIdx].Spec.DisableChallenge
+															}
 															if _, ok := SpecData["disable_challenge"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														DomainMatcher: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecDomainMatcherModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.DomainMatcher != nil {
+																return RulesExisting[RulesIdx].Spec.DomainMatcher
+															}
 															if DomainMatcherData, ok := SpecData["domain_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecDomainMatcherModel{
 																	ExactValues: func() types.List {
@@ -24735,12 +25947,18 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														EnableCaptchaChallenge: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+																return RulesExisting[RulesIdx].Spec.EnableCaptchaChallenge
+															}
 															if _, ok := SpecData["enable_captcha_challenge"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														EnableJavascriptChallenge: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+																return RulesExisting[RulesIdx].Spec.EnableJavascriptChallenge
+															}
 															if _, ok := SpecData["enable_javascript_challenge"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -24753,18 +25971,32 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return types.StringNull()
 														}(),
 														Headers: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.Headers.IsNull() || len(RulesExisting[RulesIdx].Spec.Headers.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModelAttrTypes})
+															}
+															var HeadersExisting []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.Headers.IsNull() && !RulesExisting[RulesIdx].Spec.Headers.IsUnknown() {
+																RulesExisting[RulesIdx].Spec.Headers.ElementsAs(ctx, &HeadersExisting, false)
+															}
 															if rawList, ok := SpecData["headers"].([]interface{}); ok && len(rawList) > 0 {
 																var HeadersResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModel
-																for _, HeadersItem := range rawList {
+																for HeadersIdx, HeadersItem := range rawList {
+																	_ = HeadersIdx
 																	if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 																		HeadersResult = append(HeadersResult, CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -24837,9 +26069,15 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModelAttrTypes})
 														}(),
 														HTTPMethod: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHTTPMethodModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.HTTPMethod != nil {
+																return RulesExisting[RulesIdx].Spec.HTTPMethod
+															}
 															if HTTPMethodData, ok := SpecData["http_method"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHTTPMethodModel{
 																	InvertMatcher: func() types.Bool {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.HTTPMethod != nil && !RulesExisting[RulesIdx].Spec.HTTPMethod.InvertMatcher.IsUnknown() {
+																			return RulesExisting[RulesIdx].Spec.HTTPMethod.InvertMatcher
+																		}
 																		if v, ok := HTTPMethodData["invert_matcher"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -24866,15 +26104,26 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															if IPMatcherData, ok := SpecData["ip_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPMatcherModel{
 																	InvertMatcher: func() types.Bool {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPMatcher != nil && !RulesExisting[RulesIdx].Spec.IPMatcher.InvertMatcher.IsUnknown() {
+																			return RulesExisting[RulesIdx].Spec.IPMatcher.InvertMatcher
+																		}
 																		if v, ok := IPMatcherData["invert_matcher"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
 																		return types.BoolNull()
 																	}(),
 																	PrefixSets: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPMatcher != nil && (RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.IsNull() || len(RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPMatcherPrefixSetsModelAttrTypes})
+																		}
+																		var PrefixSetsExisting []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPMatcherPrefixSetsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPMatcher != nil && !RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.IsNull() && !RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+																		}
 																		if rawList, ok := IPMatcherData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 																			var PrefixSetsResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPMatcherPrefixSetsModel
-																			for _, PrefixSetsItem := range rawList {
+																			for PrefixSetsIdx, PrefixSetsItem := range rawList {
+																				_ = PrefixSetsIdx
 																				if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 																					PrefixSetsResult = append(PrefixSetsResult, CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPMatcherPrefixSetsModel{
 																						Kind: func() types.String {
@@ -24920,9 +26169,15 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														IPPrefixList: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPPrefixListModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPPrefixList != nil {
+																return RulesExisting[RulesIdx].Spec.IPPrefixList
+															}
 															if IPPrefixListData, ok := SpecData["ip_prefix_list"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPPrefixListModel{
 																	InvertMatch: func() types.Bool {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPPrefixList != nil && !RulesExisting[RulesIdx].Spec.IPPrefixList.InvertMatch.IsUnknown() {
+																			return RulesExisting[RulesIdx].Spec.IPPrefixList.InvertMatch
+																		}
 																		if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -24946,6 +26201,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														Path: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecPathModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Path != nil {
+																return RulesExisting[RulesIdx].Spec.Path
+															}
 															if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecPathModel{
 																	ExactValues: func() types.List {
@@ -24962,6 +26220,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																		return types.ListNull(types.StringType)
 																	}(),
 																	InvertMatcher: func() types.Bool {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Path != nil && !RulesExisting[RulesIdx].Spec.Path.InvertMatcher.IsUnknown() {
+																			return RulesExisting[RulesIdx].Spec.Path.InvertMatcher
+																		}
 																		if v, ok := PathData["invert_matcher"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -25024,18 +26285,32 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														QueryParams: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.QueryParams.IsNull() || len(RulesExisting[RulesIdx].Spec.QueryParams.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModelAttrTypes})
+															}
+															var QueryParamsExisting []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.QueryParams.IsNull() && !RulesExisting[RulesIdx].Spec.QueryParams.IsUnknown() {
+																RulesExisting[RulesIdx].Spec.QueryParams.ElementsAs(ctx, &QueryParamsExisting, false)
+															}
 															if rawList, ok := SpecData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 																var QueryParamsResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModel
-																for _, QueryParamsItem := range rawList {
+																for QueryParamsIdx, QueryParamsItem := range rawList {
+																	_ = QueryParamsIdx
 																	if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 																		QueryParamsResult = append(QueryParamsResult, CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := QueryParamsItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := QueryParamsItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -25108,6 +26383,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModelAttrTypes})
 														}(),
 														TLSFingerprintMatcher: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecTLSFingerprintMatcherModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.TLSFingerprintMatcher != nil {
+																return RulesExisting[RulesIdx].Spec.TLSFingerprintMatcher
+															}
 															if TLSFingerprintMatcherData, ok := SpecData["tls_fingerprint_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecTLSFingerprintMatcherModel{
 																	Classes: func() types.List {
@@ -25327,9 +26605,17 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if CustomIPAllowedListData, ok := blockData["custom_ip_allowed_list"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitCustomIPAllowedListModel{
 						RateLimiterAllowedPrefixes: func() types.List {
+							if !isImport && data.RateLimit != nil && data.RateLimit.CustomIPAllowedList != nil && (data.RateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.IsNull() || len(data.RateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModelAttrTypes})
+							}
+							var RateLimiterAllowedPrefixesExisting []CDNLoadBalancerRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModel
+							if !isImport && data.RateLimit != nil && data.RateLimit.CustomIPAllowedList != nil && !data.RateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.IsNull() && !data.RateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.IsUnknown() {
+								data.RateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.ElementsAs(ctx, &RateLimiterAllowedPrefixesExisting, false)
+							}
 							if rawList, ok := CustomIPAllowedListData["rate_limiter_allowed_prefixes"].([]interface{}); ok && len(rawList) > 0 {
 								var RateLimiterAllowedPrefixesResult []CDNLoadBalancerRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModel
-								for _, RateLimiterAllowedPrefixesItem := range rawList {
+								for RateLimiterAllowedPrefixesIdx, RateLimiterAllowedPrefixesItem := range rawList {
+									_ = RateLimiterAllowedPrefixesIdx
 									if RateLimiterAllowedPrefixesItemMap, ok := RateLimiterAllowedPrefixesItem.(map[string]interface{}); ok {
 										RateLimiterAllowedPrefixesResult = append(RateLimiterAllowedPrefixesResult, CDNLoadBalancerRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModel{
 											Name: func() types.String {
@@ -25407,9 +26693,17 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if PoliciesData, ok := blockData["policies"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitPoliciesModel{
 						Policies: func() types.List {
+							if !isImport && data.RateLimit != nil && data.RateLimit.Policies != nil && (data.RateLimit.Policies.Policies.IsNull() || len(data.RateLimit.Policies.Policies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerRateLimitPoliciesPoliciesModelAttrTypes})
+							}
+							var PoliciesExisting []CDNLoadBalancerRateLimitPoliciesPoliciesModel
+							if !isImport && data.RateLimit != nil && data.RateLimit.Policies != nil && !data.RateLimit.Policies.Policies.IsNull() && !data.RateLimit.Policies.Policies.IsUnknown() {
+								data.RateLimit.Policies.Policies.ElementsAs(ctx, &PoliciesExisting, false)
+							}
 							if rawList, ok := PoliciesData["policies"].([]interface{}); ok && len(rawList) > 0 {
 								var PoliciesResult []CDNLoadBalancerRateLimitPoliciesPoliciesModel
-								for _, PoliciesItem := range rawList {
+								for PoliciesIdx, PoliciesItem := range rawList {
+									_ = PoliciesIdx
 									if PoliciesItemMap, ok := PoliciesItem.(map[string]interface{}); ok {
 										PoliciesResult = append(PoliciesResult, CDNLoadBalancerRateLimitPoliciesPoliciesModel{
 											Name: func() types.String {
@@ -25449,12 +26743,21 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if RateLimiterData, ok := blockData["rate_limiter"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitRateLimiterModel{
 						ActionBlock: func() *CDNLoadBalancerRateLimitRateLimiterActionBlockModel {
+							if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && data.RateLimit.RateLimiter.ActionBlock != nil {
+								return data.RateLimit.RateLimiter.ActionBlock
+							}
 							if ActionBlockData, ok := RateLimiterData["action_block"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerRateLimitRateLimiterActionBlockModel{
 									Hours: func() *CDNLoadBalancerRateLimitRateLimiterActionBlockHoursModel {
+										if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && data.RateLimit.RateLimiter.ActionBlock != nil && data.RateLimit.RateLimiter.ActionBlock.Hours != nil {
+											return data.RateLimit.RateLimiter.ActionBlock.Hours
+										}
 										if HoursData, ok := ActionBlockData["hours"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerRateLimitRateLimiterActionBlockHoursModel{
 												Duration: func() types.Int64 {
+													if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && data.RateLimit.RateLimiter.ActionBlock != nil && data.RateLimit.RateLimiter.ActionBlock.Hours != nil && !data.RateLimit.RateLimiter.ActionBlock.Hours.Duration.IsUnknown() {
+														return data.RateLimit.RateLimiter.ActionBlock.Hours.Duration
+													}
 													if v, ok := HoursData["duration"].(float64); ok && v != 0 {
 														return types.Int64Value(int64(v))
 													}
@@ -25465,9 +26768,15 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										return nil
 									}(),
 									Minutes: func() *CDNLoadBalancerRateLimitRateLimiterActionBlockMinutesModel {
+										if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && data.RateLimit.RateLimiter.ActionBlock != nil && data.RateLimit.RateLimiter.ActionBlock.Minutes != nil {
+											return data.RateLimit.RateLimiter.ActionBlock.Minutes
+										}
 										if MinutesData, ok := ActionBlockData["minutes"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerRateLimitRateLimiterActionBlockMinutesModel{
 												Duration: func() types.Int64 {
+													if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && data.RateLimit.RateLimiter.ActionBlock != nil && data.RateLimit.RateLimiter.ActionBlock.Minutes != nil && !data.RateLimit.RateLimiter.ActionBlock.Minutes.Duration.IsUnknown() {
+														return data.RateLimit.RateLimiter.ActionBlock.Minutes.Duration
+													}
 													if v, ok := MinutesData["duration"].(float64); ok && v != 0 {
 														return types.Int64Value(int64(v))
 													}
@@ -25478,9 +26787,15 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										return nil
 									}(),
 									Seconds: func() *CDNLoadBalancerRateLimitRateLimiterActionBlockSecondsModel {
+										if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && data.RateLimit.RateLimiter.ActionBlock != nil && data.RateLimit.RateLimiter.ActionBlock.Seconds != nil {
+											return data.RateLimit.RateLimiter.ActionBlock.Seconds
+										}
 										if SecondsData, ok := ActionBlockData["seconds"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerRateLimitRateLimiterActionBlockSecondsModel{
 												Duration: func() types.Int64 {
+													if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && data.RateLimit.RateLimiter.ActionBlock != nil && data.RateLimit.RateLimiter.ActionBlock.Seconds != nil && !data.RateLimit.RateLimiter.ActionBlock.Seconds.Duration.IsUnknown() {
+														return data.RateLimit.RateLimiter.ActionBlock.Seconds.Duration
+													}
 													if v, ok := SecondsData["duration"].(float64); ok && v != 0 {
 														return types.Int64Value(int64(v))
 													}
@@ -25495,36 +26810,54 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							return nil
 						}(),
 						BurstMultiplier: func() types.Int64 {
+							if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && !data.RateLimit.RateLimiter.BurstMultiplier.IsUnknown() {
+								return data.RateLimit.RateLimiter.BurstMultiplier
+							}
 							if v, ok := RateLimiterData["burst_multiplier"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Disabled: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil {
+								return data.RateLimit.RateLimiter.Disabled
+							}
 							if _, ok := RateLimiterData["disabled"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						LeakyBucket: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil {
+								return data.RateLimit.RateLimiter.LeakyBucket
+							}
 							if _, ok := RateLimiterData["leaky_bucket"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						PeriodMultiplier: func() types.Int64 {
+							if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && !data.RateLimit.RateLimiter.PeriodMultiplier.IsUnknown() {
+								return data.RateLimit.RateLimiter.PeriodMultiplier
+							}
 							if v, ok := RateLimiterData["period_multiplier"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						TokenBucket: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil {
+								return data.RateLimit.RateLimiter.TokenBucket
+							}
 							if _, ok := RateLimiterData["token_bucket"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						TotalNumber: func() types.Int64 {
+							if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && !data.RateLimit.RateLimiter.TotalNumber.IsUnknown() {
+								return data.RateLimit.RateLimiter.TotalNumber
+							}
 							if v, ok := RateLimiterData["total_number"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -25658,9 +26991,17 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						if HTTPHeaderData, ok := itemMap["http_header"].(map[string]interface{}); ok {
 							return &CDNLoadBalancerTrustedClientsHTTPHeaderModel{
 								Headers: func() types.List {
+									if !isImport && len(existingTrustedClientsItems) > listIdx && existingTrustedClientsItems[listIdx].HTTPHeader != nil && (existingTrustedClientsItems[listIdx].HTTPHeader.Headers.IsNull() || len(existingTrustedClientsItems[listIdx].HTTPHeader.Headers.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModelAttrTypes})
+									}
+									var HeadersExisting []CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModel
+									if !isImport && len(existingTrustedClientsItems) > listIdx && existingTrustedClientsItems[listIdx].HTTPHeader != nil && !existingTrustedClientsItems[listIdx].HTTPHeader.Headers.IsNull() && !existingTrustedClientsItems[listIdx].HTTPHeader.Headers.IsUnknown() {
+										existingTrustedClientsItems[listIdx].HTTPHeader.Headers.ElementsAs(ctx, &HeadersExisting, false)
+									}
 									if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 										var HeadersResult []CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModel
-										for _, HeadersItem := range rawList {
+										for HeadersIdx, HeadersItem := range rawList {
+											_ = HeadersIdx
 											if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 												HeadersResult = append(HeadersResult, CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModel{
 													Exact: func() types.String {
@@ -25805,18 +27146,32 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if WAFExclusionInlineRulesData, ok := blockData["waf_exclusion_inline_rules"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesModel{
 						Rules: func() types.List {
+							if !isImport && data.WAFExclusion != nil && data.WAFExclusion.WAFExclusionInlineRules != nil && (data.WAFExclusion.WAFExclusionInlineRules.Rules.IsNull() || len(data.WAFExclusion.WAFExclusionInlineRules.Rules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModelAttrTypes})
+							}
+							var RulesExisting []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModel
+							if !isImport && data.WAFExclusion != nil && data.WAFExclusion.WAFExclusionInlineRules != nil && !data.WAFExclusion.WAFExclusionInlineRules.Rules.IsNull() && !data.WAFExclusion.WAFExclusionInlineRules.Rules.IsUnknown() {
+								data.WAFExclusion.WAFExclusionInlineRules.Rules.ElementsAs(ctx, &RulesExisting, false)
+							}
 							if rawList, ok := WAFExclusionInlineRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 								var RulesResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModel
-								for _, RulesItem := range rawList {
+								for RulesIdx, RulesItem := range rawList {
+									_ = RulesIdx
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModel{
 											AnyDomain: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyDomain != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											AnyPath: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyPath != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := RulesItemMap["any_path"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -25826,9 +27181,17 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												if AppFirewallDetectionControlData, ok := RulesItemMap["app_firewall_detection_control"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlModel{
 														ExcludeAttackTypeContexts: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() || len(RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeAttackTypeContexts.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
+															}
+															var ExcludeAttackTypeContextsExisting []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsUnknown() {
+																RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeAttackTypeContexts.ElementsAs(ctx, &ExcludeAttackTypeContextsExisting, false)
+															}
 															if rawList, ok := AppFirewallDetectionControlData["exclude_attack_type_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeAttackTypeContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel
-																for _, ExcludeAttackTypeContextsItem := range rawList {
+																for ExcludeAttackTypeContextsIdx, ExcludeAttackTypeContextsItem := range rawList {
+																	_ = ExcludeAttackTypeContextsIdx
 																	if ExcludeAttackTypeContextsItemMap, ok := ExcludeAttackTypeContextsItem.(map[string]interface{}); ok {
 																		ExcludeAttackTypeContextsResult = append(ExcludeAttackTypeContextsResult, CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel{
 																			Context: func() types.String {
@@ -25858,9 +27221,17 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
 														}(),
 														ExcludeBotNameContexts: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() || len(RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeBotNameContexts.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
+															}
+															var ExcludeBotNameContextsExisting []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeBotNameContexts.IsUnknown() {
+																RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeBotNameContexts.ElementsAs(ctx, &ExcludeBotNameContextsExisting, false)
+															}
 															if rawList, ok := AppFirewallDetectionControlData["exclude_bot_name_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeBotNameContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModel
-																for _, ExcludeBotNameContextsItem := range rawList {
+																for ExcludeBotNameContextsIdx, ExcludeBotNameContextsItem := range rawList {
+																	_ = ExcludeBotNameContextsIdx
 																	if ExcludeBotNameContextsItemMap, ok := ExcludeBotNameContextsItem.(map[string]interface{}); ok {
 																		ExcludeBotNameContextsResult = append(ExcludeBotNameContextsResult, CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModel{
 																			BotName: func() types.String {
@@ -25878,9 +27249,17 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
 														}(),
 														ExcludeSignatureContexts: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() || len(RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeSignatureContexts.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
+															}
+															var ExcludeSignatureContextsExisting []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeSignatureContexts.IsUnknown() {
+																RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeSignatureContexts.ElementsAs(ctx, &ExcludeSignatureContextsExisting, false)
+															}
 															if rawList, ok := AppFirewallDetectionControlData["exclude_signature_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeSignatureContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModel
-																for _, ExcludeSignatureContextsItem := range rawList {
+																for ExcludeSignatureContextsIdx, ExcludeSignatureContextsItem := range rawList {
+																	_ = ExcludeSignatureContextsIdx
 																	if ExcludeSignatureContextsItemMap, ok := ExcludeSignatureContextsItem.(map[string]interface{}); ok {
 																		ExcludeSignatureContextsResult = append(ExcludeSignatureContextsResult, CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModel{
 																			Context: func() types.String {
@@ -25910,9 +27289,17 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
 														}(),
 														ExcludeViolationContexts: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() || len(RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeViolationContexts.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes})
+															}
+															var ExcludeViolationContextsExisting []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeViolationContexts.IsUnknown() {
+																RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeViolationContexts.ElementsAs(ctx, &ExcludeViolationContextsExisting, false)
+															}
 															if rawList, ok := AppFirewallDetectionControlData["exclude_violation_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeViolationContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModel
-																for _, ExcludeViolationContextsItem := range rawList {
+																for ExcludeViolationContextsIdx, ExcludeViolationContextsItem := range rawList {
+																	_ = ExcludeViolationContextsIdx
 																	if ExcludeViolationContextsItemMap, ok := ExcludeViolationContextsItem.(map[string]interface{}); ok {
 																		ExcludeViolationContextsResult = append(ExcludeViolationContextsResult, CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModel{
 																			Context: func() types.String {
@@ -26008,6 +27395,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return types.StringNull()
 											}(),
 											WAFSkipProcessing: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].WAFSkipProcessing != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := RulesItemMap["waf_skip_processing"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -26166,9 +27556,14 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if !isImport && data.ActiveServicePolicies != nil && (data.ActiveServicePolicies.Policies.IsNull() || len(data.ActiveServicePolicies.Policies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerActiveServicePoliciesPoliciesModelAttrTypes})
 				}
+				var PoliciesExisting []CDNLoadBalancerActiveServicePoliciesPoliciesModel
+				if !isImport && data.ActiveServicePolicies != nil && !data.ActiveServicePolicies.Policies.IsNull() && !data.ActiveServicePolicies.Policies.IsUnknown() {
+					data.ActiveServicePolicies.Policies.ElementsAs(ctx, &PoliciesExisting, false)
+				}
 				if rawList, ok := blockData["policies"].([]interface{}); ok && len(rawList) > 0 {
 					var PoliciesResult []CDNLoadBalancerActiveServicePoliciesPoliciesModel
-					for _, PoliciesItem := range rawList {
+					for PoliciesIdx, PoliciesItem := range rawList {
+						_ = PoliciesIdx
 						if PoliciesItemMap, ok := PoliciesItem.(map[string]interface{}); ok {
 							PoliciesResult = append(PoliciesResult, CDNLoadBalancerActiveServicePoliciesPoliciesModel{
 								Name: func() types.String {
@@ -26205,12 +27600,20 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if !isImport && data.APIRateLimit != nil && (data.APIRateLimit.APIEndpointRules.IsNull() || len(data.APIRateLimit.APIEndpointRules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesModelAttrTypes})
 				}
+				var APIEndpointRulesExisting []CDNLoadBalancerAPIRateLimitAPIEndpointRulesModel
+				if !isImport && data.APIRateLimit != nil && !data.APIRateLimit.APIEndpointRules.IsNull() && !data.APIRateLimit.APIEndpointRules.IsUnknown() {
+					data.APIRateLimit.APIEndpointRules.ElementsAs(ctx, &APIEndpointRulesExisting, false)
+				}
 				if rawList, ok := blockData["api_endpoint_rules"].([]interface{}); ok && len(rawList) > 0 {
 					var APIEndpointRulesResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesModel
-					for _, APIEndpointRulesItem := range rawList {
+					for APIEndpointRulesIdx, APIEndpointRulesItem := range rawList {
+						_ = APIEndpointRulesIdx
 						if APIEndpointRulesItemMap, ok := APIEndpointRulesItem.(map[string]interface{}); ok {
 							APIEndpointRulesResult = append(APIEndpointRulesResult, CDNLoadBalancerAPIRateLimitAPIEndpointRulesModel{
 								AnyDomain: func() *CDNLoadBalancerEmptyModel {
+									if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].AnyDomain != nil {
+										return &CDNLoadBalancerEmptyModel{}
+									}
 									if _, ok := APIEndpointRulesItemMap["any_domain"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerEmptyModel{}
 									}
@@ -26220,6 +27623,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 									if APIEndpointMethodData, ok := APIEndpointRulesItemMap["api_endpoint_method"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesAPIEndpointMethodModel{
 											InvertMatcher: func() types.Bool {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].APIEndpointMethod != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].APIEndpointMethod.InvertMatcher.IsUnknown() {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].APIEndpointMethod.InvertMatcher
+												}
 												if v, ok := APIEndpointMethodData["invert_matcher"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -26252,18 +27658,27 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 									if ClientMatcherData, ok := APIEndpointRulesItemMap["client_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherModel{
 											AnyClient: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AnyClient
+												}
 												if _, ok := ClientMatcherData["any_client"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											AnyIP: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AnyIP
+												}
 												if _, ok := ClientMatcherData["any_ip"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											AsnList: func() *CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherAsnListModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnList != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnList
+												}
 												if AsnListData, ok := ClientMatcherData["asn_list"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherAsnListModel{
 														AsNumbers: func() types.List {
@@ -26287,9 +27702,17 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												if AsnMatcherData, ok := ClientMatcherData["asn_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherAsnMatcherModel{
 														AsnSets: func() types.List {
+															if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnMatcher != nil && (APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsNull() || len(APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnMatcher.AsnSets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherAsnMatcherAsnSetsModelAttrTypes})
+															}
+															var AsnSetsExisting []CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherAsnMatcherAsnSetsModel
+															if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnMatcher != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsNull() && !APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsUnknown() {
+																APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+															}
 															if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 																var AsnSetsResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherAsnMatcherAsnSetsModel
-																for _, AsnSetsItem := range rawList {
+																for AsnSetsIdx, AsnSetsItem := range rawList {
+																	_ = AsnSetsIdx
 																	if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 																		AsnSetsResult = append(AsnSetsResult, CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherAsnMatcherAsnSetsModel{
 																			Kind: func() types.String {
@@ -26335,6 +27758,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return nil
 											}(),
 											ClientSelector: func() *CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherClientSelectorModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.ClientSelector != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.ClientSelector
+												}
 												if ClientSelectorData, ok := ClientMatcherData["client_selector"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherClientSelectorModel{
 														Expressions: func() types.List {
@@ -26358,15 +27784,26 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												if IPMatcherData, ok := ClientMatcherData["ip_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPMatcherModel{
 														InvertMatcher: func() types.Bool {
+															if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher.InvertMatcher.IsUnknown() {
+																return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher.InvertMatcher
+															}
 															if v, ok := IPMatcherData["invert_matcher"].(bool); ok {
 																return types.BoolValue(v)
 															}
 															return types.BoolNull()
 														}(),
 														PrefixSets: func() types.List {
+															if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher != nil && (APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsNull() || len(APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher.PrefixSets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPMatcherPrefixSetsModelAttrTypes})
+															}
+															var PrefixSetsExisting []CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPMatcherPrefixSetsModel
+															if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsNull() && !APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsUnknown() {
+																APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+															}
 															if rawList, ok := IPMatcherData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 																var PrefixSetsResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPMatcherPrefixSetsModel
-																for _, PrefixSetsItem := range rawList {
+																for PrefixSetsIdx, PrefixSetsItem := range rawList {
+																	_ = PrefixSetsIdx
 																	if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 																		PrefixSetsResult = append(PrefixSetsResult, CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPMatcherPrefixSetsModel{
 																			Kind: func() types.String {
@@ -26412,9 +27849,15 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return nil
 											}(),
 											IPPrefixList: func() *CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPPrefixListModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPPrefixList != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPPrefixList
+												}
 												if IPPrefixListData, ok := ClientMatcherData["ip_prefix_list"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPPrefixListModel{
 														InvertMatch: func() types.Bool {
+															if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPPrefixList != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPPrefixList.InvertMatch.IsUnknown() {
+																return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPPrefixList.InvertMatch
+															}
 															if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -26438,6 +27881,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return nil
 											}(),
 											IPThreatCategoryList: func() *CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPThreatCategoryListModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPThreatCategoryList != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPThreatCategoryList
+												}
 												if IPThreatCategoryListData, ok := ClientMatcherData["ip_threat_category_list"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPThreatCategoryListModel{
 														IPThreatCategories: func() types.List {
@@ -26458,6 +27904,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return nil
 											}(),
 											TLSFingerprintMatcher: func() *CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherTLSFingerprintMatcherModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.TLSFingerprintMatcher != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.TLSFingerprintMatcher
+												}
 												if TLSFingerprintMatcherData, ok := ClientMatcherData["tls_fingerprint_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherTLSFingerprintMatcherModel{
 														Classes: func() types.List {
@@ -26536,6 +27985,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return nil
 											}(),
 											Threshold: func() types.Int64 {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].InlineRateLimiter != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].InlineRateLimiter.Threshold.IsUnknown() {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].InlineRateLimiter.Threshold
+												}
 												if v, ok := InlineRateLimiterData["threshold"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -26548,6 +28000,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return types.StringNull()
 											}(),
 											UseHTTPLBUserID: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].InlineRateLimiter != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].InlineRateLimiter.UseHTTPLBUserID
+												}
 												if _, ok := InlineRateLimiterData["use_http_lb_user_id"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -26586,18 +28041,32 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 									if RequestMatcherData, ok := APIEndpointRulesItemMap["request_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherModel{
 											CookieMatchers: func() types.List {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && (APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.CookieMatchers.IsNull() || len(APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.CookieMatchers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModelAttrTypes})
+												}
+												var CookieMatchersExisting []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModel
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.CookieMatchers.IsNull() && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.CookieMatchers.IsUnknown() {
+													APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.CookieMatchers.ElementsAs(ctx, &CookieMatchersExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var CookieMatchersResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModel
-													for _, CookieMatchersItem := range rawList {
+													for CookieMatchersIdx, CookieMatchersItem := range rawList {
+														_ = CookieMatchersIdx
 														if CookieMatchersItemMap, ok := CookieMatchersItem.(map[string]interface{}); ok {
 															CookieMatchersResult = append(CookieMatchersResult, CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := CookieMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := CookieMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -26670,18 +28139,32 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModelAttrTypes})
 											}(),
 											Headers: func() types.List {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && (APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.Headers.IsNull() || len(APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.Headers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModelAttrTypes})
+												}
+												var HeadersExisting []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModel
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.Headers.IsNull() && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.Headers.IsUnknown() {
+													APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.Headers.ElementsAs(ctx, &HeadersExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModel
-													for _, HeadersItem := range rawList {
+													for HeadersIdx, HeadersItem := range rawList {
+														_ = HeadersIdx
 														if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 															HeadersResult = append(HeadersResult, CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -26754,18 +28237,32 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModelAttrTypes})
 											}(),
 											JWTClaims: func() types.List {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && (APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.JWTClaims.IsNull() || len(APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.JWTClaims.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModelAttrTypes})
+												}
+												var JWTClaimsExisting []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModel
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.JWTClaims.IsNull() && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.JWTClaims.IsUnknown() {
+													APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.JWTClaims.ElementsAs(ctx, &JWTClaimsExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 													var JWTClaimsResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModel
-													for _, JWTClaimsItem := range rawList {
+													for JWTClaimsIdx, JWTClaimsItem := range rawList {
+														_ = JWTClaimsIdx
 														if JWTClaimsItemMap, ok := JWTClaimsItem.(map[string]interface{}); ok {
 															JWTClaimsResult = append(JWTClaimsResult, CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := JWTClaimsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := JWTClaimsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -26838,18 +28335,32 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModelAttrTypes})
 											}(),
 											QueryParams: func() types.List {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && (APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.QueryParams.IsNull() || len(APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.QueryParams.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModelAttrTypes})
+												}
+												var QueryParamsExisting []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModel
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.QueryParams.IsNull() && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.QueryParams.IsUnknown() {
+													APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.QueryParams.ElementsAs(ctx, &QueryParamsExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 													var QueryParamsResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModel
-													for _, QueryParamsItem := range rawList {
+													for QueryParamsIdx, QueryParamsItem := range rawList {
+														_ = QueryParamsIdx
 														if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 															QueryParamsResult = append(QueryParamsResult, CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := QueryParamsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := QueryParamsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -26943,18 +28454,32 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if BypassRateLimitingRulesData, ok := blockData["bypass_rate_limiting_rules"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesModel{
 						BypassRateLimitingRules: func() types.List {
+							if !isImport && data.APIRateLimit != nil && data.APIRateLimit.BypassRateLimitingRules != nil && (data.APIRateLimit.BypassRateLimitingRules.BypassRateLimitingRules.IsNull() || len(data.APIRateLimit.BypassRateLimitingRules.BypassRateLimitingRules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesModelAttrTypes})
+							}
+							var BypassRateLimitingRulesExisting []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesModel
+							if !isImport && data.APIRateLimit != nil && data.APIRateLimit.BypassRateLimitingRules != nil && !data.APIRateLimit.BypassRateLimitingRules.BypassRateLimitingRules.IsNull() && !data.APIRateLimit.BypassRateLimitingRules.BypassRateLimitingRules.IsUnknown() {
+								data.APIRateLimit.BypassRateLimitingRules.BypassRateLimitingRules.ElementsAs(ctx, &BypassRateLimitingRulesExisting, false)
+							}
 							if rawList, ok := BypassRateLimitingRulesData["bypass_rate_limiting_rules"].([]interface{}); ok && len(rawList) > 0 {
 								var BypassRateLimitingRulesResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesModel
-								for _, BypassRateLimitingRulesItem := range rawList {
+								for BypassRateLimitingRulesIdx, BypassRateLimitingRulesItem := range rawList {
+									_ = BypassRateLimitingRulesIdx
 									if BypassRateLimitingRulesItemMap, ok := BypassRateLimitingRulesItem.(map[string]interface{}); ok {
 										BypassRateLimitingRulesResult = append(BypassRateLimitingRulesResult, CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesModel{
 											AnyDomain: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].AnyDomain != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := BypassRateLimitingRulesItemMap["any_domain"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											AnyURL: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].AnyURL != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := BypassRateLimitingRulesItemMap["any_url"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -27016,18 +28541,27 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												if ClientMatcherData, ok := BypassRateLimitingRulesItemMap["client_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherModel{
 														AnyClient: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil {
+																return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AnyClient
+															}
 															if _, ok := ClientMatcherData["any_client"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														AnyIP: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil {
+																return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AnyIP
+															}
 															if _, ok := ClientMatcherData["any_ip"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														AsnList: func() *CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherAsnListModel {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnList != nil {
+																return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnList
+															}
 															if AsnListData, ok := ClientMatcherData["asn_list"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherAsnListModel{
 																	AsNumbers: func() types.List {
@@ -27051,9 +28585,17 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															if AsnMatcherData, ok := ClientMatcherData["asn_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherAsnMatcherModel{
 																	AsnSets: func() types.List {
+																		if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnMatcher != nil && (BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsNull() || len(BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnMatcher.AsnSets.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherAsnMatcherAsnSetsModelAttrTypes})
+																		}
+																		var AsnSetsExisting []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherAsnMatcherAsnSetsModel
+																		if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnMatcher != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsNull() && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsUnknown() {
+																			BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+																		}
 																		if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 																			var AsnSetsResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherAsnMatcherAsnSetsModel
-																			for _, AsnSetsItem := range rawList {
+																			for AsnSetsIdx, AsnSetsItem := range rawList {
+																				_ = AsnSetsIdx
 																				if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 																					AsnSetsResult = append(AsnSetsResult, CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherAsnMatcherAsnSetsModel{
 																						Kind: func() types.String {
@@ -27099,6 +28641,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														ClientSelector: func() *CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherClientSelectorModel {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.ClientSelector != nil {
+																return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.ClientSelector
+															}
 															if ClientSelectorData, ok := ClientMatcherData["client_selector"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherClientSelectorModel{
 																	Expressions: func() types.List {
@@ -27122,15 +28667,26 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															if IPMatcherData, ok := ClientMatcherData["ip_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPMatcherModel{
 																	InvertMatcher: func() types.Bool {
+																		if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher.InvertMatcher.IsUnknown() {
+																			return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher.InvertMatcher
+																		}
 																		if v, ok := IPMatcherData["invert_matcher"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
 																		return types.BoolNull()
 																	}(),
 																	PrefixSets: func() types.List {
+																		if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher != nil && (BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsNull() || len(BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher.PrefixSets.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPMatcherPrefixSetsModelAttrTypes})
+																		}
+																		var PrefixSetsExisting []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPMatcherPrefixSetsModel
+																		if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsNull() && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsUnknown() {
+																			BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+																		}
 																		if rawList, ok := IPMatcherData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 																			var PrefixSetsResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPMatcherPrefixSetsModel
-																			for _, PrefixSetsItem := range rawList {
+																			for PrefixSetsIdx, PrefixSetsItem := range rawList {
+																				_ = PrefixSetsIdx
 																				if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 																					PrefixSetsResult = append(PrefixSetsResult, CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPMatcherPrefixSetsModel{
 																						Kind: func() types.String {
@@ -27176,9 +28732,15 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														IPPrefixList: func() *CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPPrefixListModel {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPPrefixList != nil {
+																return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPPrefixList
+															}
 															if IPPrefixListData, ok := ClientMatcherData["ip_prefix_list"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPPrefixListModel{
 																	InvertMatch: func() types.Bool {
+																		if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPPrefixList != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPPrefixList.InvertMatch.IsUnknown() {
+																			return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPPrefixList.InvertMatch
+																		}
 																		if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -27202,6 +28764,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														IPThreatCategoryList: func() *CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPThreatCategoryListModel {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPThreatCategoryList != nil {
+																return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPThreatCategoryList
+															}
 															if IPThreatCategoryListData, ok := ClientMatcherData["ip_threat_category_list"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPThreatCategoryListModel{
 																	IPThreatCategories: func() types.List {
@@ -27222,6 +28787,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														TLSFingerprintMatcher: func() *CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherTLSFingerprintMatcherModel {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.TLSFingerprintMatcher != nil {
+																return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.TLSFingerprintMatcher
+															}
 															if TLSFingerprintMatcherData, ok := ClientMatcherData["tls_fingerprint_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherTLSFingerprintMatcherModel{
 																	Classes: func() types.List {
@@ -27275,18 +28843,32 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												if RequestMatcherData, ok := BypassRateLimitingRulesItemMap["request_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherModel{
 														CookieMatchers: func() types.List {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && (BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.CookieMatchers.IsNull() || len(BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.CookieMatchers.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModelAttrTypes})
+															}
+															var CookieMatchersExisting []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModel
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.CookieMatchers.IsNull() && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.CookieMatchers.IsUnknown() {
+																BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.CookieMatchers.ElementsAs(ctx, &CookieMatchersExisting, false)
+															}
 															if rawList, ok := RequestMatcherData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 																var CookieMatchersResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModel
-																for _, CookieMatchersItem := range rawList {
+																for CookieMatchersIdx, CookieMatchersItem := range rawList {
+																	_ = CookieMatchersIdx
 																	if CookieMatchersItemMap, ok := CookieMatchersItem.(map[string]interface{}); ok {
 																		CookieMatchersResult = append(CookieMatchersResult, CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := CookieMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := CookieMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -27359,18 +28941,32 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModelAttrTypes})
 														}(),
 														Headers: func() types.List {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && (BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.Headers.IsNull() || len(BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.Headers.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModelAttrTypes})
+															}
+															var HeadersExisting []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModel
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.Headers.IsNull() && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.Headers.IsUnknown() {
+																BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.Headers.ElementsAs(ctx, &HeadersExisting, false)
+															}
 															if rawList, ok := RequestMatcherData["headers"].([]interface{}); ok && len(rawList) > 0 {
 																var HeadersResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModel
-																for _, HeadersItem := range rawList {
+																for HeadersIdx, HeadersItem := range rawList {
+																	_ = HeadersIdx
 																	if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 																		HeadersResult = append(HeadersResult, CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -27443,18 +29039,32 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModelAttrTypes})
 														}(),
 														JWTClaims: func() types.List {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && (BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.JWTClaims.IsNull() || len(BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.JWTClaims.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModelAttrTypes})
+															}
+															var JWTClaimsExisting []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModel
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.JWTClaims.IsNull() && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.JWTClaims.IsUnknown() {
+																BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.JWTClaims.ElementsAs(ctx, &JWTClaimsExisting, false)
+															}
 															if rawList, ok := RequestMatcherData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 																var JWTClaimsResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModel
-																for _, JWTClaimsItem := range rawList {
+																for JWTClaimsIdx, JWTClaimsItem := range rawList {
+																	_ = JWTClaimsIdx
 																	if JWTClaimsItemMap, ok := JWTClaimsItem.(map[string]interface{}); ok {
 																		JWTClaimsResult = append(JWTClaimsResult, CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := JWTClaimsItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := JWTClaimsItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -27527,18 +29137,32 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModelAttrTypes})
 														}(),
 														QueryParams: func() types.List {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && (BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.QueryParams.IsNull() || len(BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.QueryParams.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModelAttrTypes})
+															}
+															var QueryParamsExisting []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModel
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.QueryParams.IsNull() && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.QueryParams.IsUnknown() {
+																BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.QueryParams.ElementsAs(ctx, &QueryParamsExisting, false)
+															}
 															if rawList, ok := RequestMatcherData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 																var QueryParamsResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModel
-																for _, QueryParamsItem := range rawList {
+																for QueryParamsIdx, QueryParamsItem := range rawList {
+																	_ = QueryParamsIdx
 																	if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 																		QueryParamsResult = append(QueryParamsResult, CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := QueryParamsItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := QueryParamsItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -27636,9 +29260,17 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if CustomIPAllowedListData, ok := blockData["custom_ip_allowed_list"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerAPIRateLimitCustomIPAllowedListModel{
 						RateLimiterAllowedPrefixes: func() types.List {
+							if !isImport && data.APIRateLimit != nil && data.APIRateLimit.CustomIPAllowedList != nil && (data.APIRateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.IsNull() || len(data.APIRateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModelAttrTypes})
+							}
+							var RateLimiterAllowedPrefixesExisting []CDNLoadBalancerAPIRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModel
+							if !isImport && data.APIRateLimit != nil && data.APIRateLimit.CustomIPAllowedList != nil && !data.APIRateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.IsNull() && !data.APIRateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.IsUnknown() {
+								data.APIRateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.ElementsAs(ctx, &RateLimiterAllowedPrefixesExisting, false)
+							}
 							if rawList, ok := CustomIPAllowedListData["rate_limiter_allowed_prefixes"].([]interface{}); ok && len(rawList) > 0 {
 								var RateLimiterAllowedPrefixesResult []CDNLoadBalancerAPIRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModel
-								for _, RateLimiterAllowedPrefixesItem := range rawList {
+								for RateLimiterAllowedPrefixesIdx, RateLimiterAllowedPrefixesItem := range rawList {
+									_ = RateLimiterAllowedPrefixesIdx
 									if RateLimiterAllowedPrefixesItemMap, ok := RateLimiterAllowedPrefixesItem.(map[string]interface{}); ok {
 										RateLimiterAllowedPrefixesResult = append(RateLimiterAllowedPrefixesResult, CDNLoadBalancerAPIRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModel{
 											Name: func() types.String {
@@ -27707,12 +29339,20 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if !isImport && data.APIRateLimit != nil && (data.APIRateLimit.ServerURLRules.IsNull() || len(data.APIRateLimit.ServerURLRules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesModelAttrTypes})
 				}
+				var ServerURLRulesExisting []CDNLoadBalancerAPIRateLimitServerURLRulesModel
+				if !isImport && data.APIRateLimit != nil && !data.APIRateLimit.ServerURLRules.IsNull() && !data.APIRateLimit.ServerURLRules.IsUnknown() {
+					data.APIRateLimit.ServerURLRules.ElementsAs(ctx, &ServerURLRulesExisting, false)
+				}
 				if rawList, ok := blockData["server_url_rules"].([]interface{}); ok && len(rawList) > 0 {
 					var ServerURLRulesResult []CDNLoadBalancerAPIRateLimitServerURLRulesModel
-					for _, ServerURLRulesItem := range rawList {
+					for ServerURLRulesIdx, ServerURLRulesItem := range rawList {
+						_ = ServerURLRulesIdx
 						if ServerURLRulesItemMap, ok := ServerURLRulesItem.(map[string]interface{}); ok {
 							ServerURLRulesResult = append(ServerURLRulesResult, CDNLoadBalancerAPIRateLimitServerURLRulesModel{
 								AnyDomain: func() *CDNLoadBalancerEmptyModel {
+									if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].AnyDomain != nil {
+										return &CDNLoadBalancerEmptyModel{}
+									}
 									if _, ok := ServerURLRulesItemMap["any_domain"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerEmptyModel{}
 									}
@@ -27734,18 +29374,27 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 									if ClientMatcherData, ok := ServerURLRulesItemMap["client_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherModel{
 											AnyClient: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AnyClient
+												}
 												if _, ok := ClientMatcherData["any_client"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											AnyIP: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AnyIP
+												}
 												if _, ok := ClientMatcherData["any_ip"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											AsnList: func() *CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherAsnListModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnList != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnList
+												}
 												if AsnListData, ok := ClientMatcherData["asn_list"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherAsnListModel{
 														AsNumbers: func() types.List {
@@ -27769,9 +29418,17 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												if AsnMatcherData, ok := ClientMatcherData["asn_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherAsnMatcherModel{
 														AsnSets: func() types.List {
+															if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnMatcher != nil && (ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsNull() || len(ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnMatcher.AsnSets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherAsnMatcherAsnSetsModelAttrTypes})
+															}
+															var AsnSetsExisting []CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherAsnMatcherAsnSetsModel
+															if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnMatcher != nil && !ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsNull() && !ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsUnknown() {
+																ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+															}
 															if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 																var AsnSetsResult []CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherAsnMatcherAsnSetsModel
-																for _, AsnSetsItem := range rawList {
+																for AsnSetsIdx, AsnSetsItem := range rawList {
+																	_ = AsnSetsIdx
 																	if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 																		AsnSetsResult = append(AsnSetsResult, CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherAsnMatcherAsnSetsModel{
 																			Kind: func() types.String {
@@ -27817,6 +29474,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return nil
 											}(),
 											ClientSelector: func() *CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherClientSelectorModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.ClientSelector != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.ClientSelector
+												}
 												if ClientSelectorData, ok := ClientMatcherData["client_selector"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherClientSelectorModel{
 														Expressions: func() types.List {
@@ -27840,15 +29500,26 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												if IPMatcherData, ok := ClientMatcherData["ip_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPMatcherModel{
 														InvertMatcher: func() types.Bool {
+															if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher != nil && !ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher.InvertMatcher.IsUnknown() {
+																return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher.InvertMatcher
+															}
 															if v, ok := IPMatcherData["invert_matcher"].(bool); ok {
 																return types.BoolValue(v)
 															}
 															return types.BoolNull()
 														}(),
 														PrefixSets: func() types.List {
+															if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher != nil && (ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsNull() || len(ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher.PrefixSets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPMatcherPrefixSetsModelAttrTypes})
+															}
+															var PrefixSetsExisting []CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPMatcherPrefixSetsModel
+															if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher != nil && !ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsNull() && !ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsUnknown() {
+																ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+															}
 															if rawList, ok := IPMatcherData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 																var PrefixSetsResult []CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPMatcherPrefixSetsModel
-																for _, PrefixSetsItem := range rawList {
+																for PrefixSetsIdx, PrefixSetsItem := range rawList {
+																	_ = PrefixSetsIdx
 																	if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 																		PrefixSetsResult = append(PrefixSetsResult, CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPMatcherPrefixSetsModel{
 																			Kind: func() types.String {
@@ -27894,9 +29565,15 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return nil
 											}(),
 											IPPrefixList: func() *CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPPrefixListModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPPrefixList != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPPrefixList
+												}
 												if IPPrefixListData, ok := ClientMatcherData["ip_prefix_list"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPPrefixListModel{
 														InvertMatch: func() types.Bool {
+															if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPPrefixList != nil && !ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPPrefixList.InvertMatch.IsUnknown() {
+																return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPPrefixList.InvertMatch
+															}
 															if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -27920,6 +29597,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return nil
 											}(),
 											IPThreatCategoryList: func() *CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPThreatCategoryListModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPThreatCategoryList != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPThreatCategoryList
+												}
 												if IPThreatCategoryListData, ok := ClientMatcherData["ip_threat_category_list"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPThreatCategoryListModel{
 														IPThreatCategories: func() types.List {
@@ -27940,6 +29620,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return nil
 											}(),
 											TLSFingerprintMatcher: func() *CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherTLSFingerprintMatcherModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.TLSFingerprintMatcher != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.TLSFingerprintMatcher
+												}
 												if TLSFingerprintMatcherData, ok := ClientMatcherData["tls_fingerprint_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherTLSFingerprintMatcherModel{
 														Classes: func() types.List {
@@ -28018,6 +29701,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return nil
 											}(),
 											Threshold: func() types.Int64 {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].InlineRateLimiter != nil && !ServerURLRulesExisting[ServerURLRulesIdx].InlineRateLimiter.Threshold.IsUnknown() {
+													return ServerURLRulesExisting[ServerURLRulesIdx].InlineRateLimiter.Threshold
+												}
 												if v, ok := InlineRateLimiterData["threshold"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -28030,6 +29716,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return types.StringNull()
 											}(),
 											UseHTTPLBUserID: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].InlineRateLimiter != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].InlineRateLimiter.UseHTTPLBUserID
+												}
 												if _, ok := InlineRateLimiterData["use_http_lb_user_id"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -28068,18 +29757,32 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 									if RequestMatcherData, ok := ServerURLRulesItemMap["request_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherModel{
 											CookieMatchers: func() types.List {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && (ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.CookieMatchers.IsNull() || len(ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.CookieMatchers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModelAttrTypes})
+												}
+												var CookieMatchersExisting []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModel
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.CookieMatchers.IsNull() && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.CookieMatchers.IsUnknown() {
+													ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.CookieMatchers.ElementsAs(ctx, &CookieMatchersExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var CookieMatchersResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModel
-													for _, CookieMatchersItem := range rawList {
+													for CookieMatchersIdx, CookieMatchersItem := range rawList {
+														_ = CookieMatchersIdx
 														if CookieMatchersItemMap, ok := CookieMatchersItem.(map[string]interface{}); ok {
 															CookieMatchersResult = append(CookieMatchersResult, CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := CookieMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := CookieMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -28152,18 +29855,32 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModelAttrTypes})
 											}(),
 											Headers: func() types.List {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && (ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.Headers.IsNull() || len(ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.Headers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModelAttrTypes})
+												}
+												var HeadersExisting []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModel
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.Headers.IsNull() && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.Headers.IsUnknown() {
+													ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.Headers.ElementsAs(ctx, &HeadersExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModel
-													for _, HeadersItem := range rawList {
+													for HeadersIdx, HeadersItem := range rawList {
+														_ = HeadersIdx
 														if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 															HeadersResult = append(HeadersResult, CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -28236,18 +29953,32 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModelAttrTypes})
 											}(),
 											JWTClaims: func() types.List {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && (ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.JWTClaims.IsNull() || len(ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.JWTClaims.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModelAttrTypes})
+												}
+												var JWTClaimsExisting []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModel
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.JWTClaims.IsNull() && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.JWTClaims.IsUnknown() {
+													ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.JWTClaims.ElementsAs(ctx, &JWTClaimsExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 													var JWTClaimsResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModel
-													for _, JWTClaimsItem := range rawList {
+													for JWTClaimsIdx, JWTClaimsItem := range rawList {
+														_ = JWTClaimsIdx
 														if JWTClaimsItemMap, ok := JWTClaimsItem.(map[string]interface{}); ok {
 															JWTClaimsResult = append(JWTClaimsResult, CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := JWTClaimsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := JWTClaimsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -28320,18 +30051,32 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModelAttrTypes})
 											}(),
 											QueryParams: func() types.List {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && (ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.QueryParams.IsNull() || len(ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.QueryParams.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModelAttrTypes})
+												}
+												var QueryParamsExisting []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModel
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.QueryParams.IsNull() && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.QueryParams.IsUnknown() {
+													ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.QueryParams.ElementsAs(ctx, &QueryParamsExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 													var QueryParamsResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModel
-													for _, QueryParamsItem := range rawList {
+													for QueryParamsIdx, QueryParamsItem := range rawList {
+														_ = QueryParamsIdx
 														if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 															QueryParamsResult = append(QueryParamsResult, CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := QueryParamsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := QueryParamsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -28457,36 +30202,62 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if ValidationAllSpecEndpointsData, ok := blockData["validation_all_spec_endpoints"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsModel{
 						FallThroughMode: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeModel {
+							if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode != nil {
+								return data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode
+							}
 							if FallThroughModeData, ok := ValidationAllSpecEndpointsData["fall_through_mode"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeModel{
 									FallThroughModeAllow: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeAllow
+										}
 										if _, ok := FallThroughModeData["fall_through_mode_allow"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									FallThroughModeCustom: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom
+										}
 										if FallThroughModeCustomData, ok := FallThroughModeData["fall_through_mode_custom"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModel{
 												OpenAPIValidationRules: func() types.List {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom != nil && (data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsNull() || len(data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes})
+													}
+													var OpenAPIValidationRulesExisting []CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom != nil && !data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsNull() && !data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsUnknown() {
+														data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.ElementsAs(ctx, &OpenAPIValidationRulesExisting, false)
+													}
 													if rawList, ok := FallThroughModeCustomData["open_api_validation_rules"].([]interface{}); ok && len(rawList) > 0 {
 														var OpenAPIValidationRulesResult []CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
-														for _, OpenAPIValidationRulesItem := range rawList {
+														for OpenAPIValidationRulesIdx, OpenAPIValidationRulesItem := range rawList {
+															_ = OpenAPIValidationRulesIdx
 															if OpenAPIValidationRulesItemMap, ok := OpenAPIValidationRulesItem.(map[string]interface{}); ok {
 																OpenAPIValidationRulesResult = append(OpenAPIValidationRulesResult, CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel{
 																	ActionBlock: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionBlock != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := OpenAPIValidationRulesItemMap["action_block"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ActionReport: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionReport != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := OpenAPIValidationRulesItemMap["action_report"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ActionSkip: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionSkip != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := OpenAPIValidationRulesItemMap["action_skip"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -28566,33 +30337,54 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return nil
 						}(),
 						Settings: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsSettingsModel {
+							if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil {
+								return data.APISpecification.ValidationAllSpecEndpoints.Settings
+							}
 							if SettingsData, ok := ValidationAllSpecEndpointsData["settings"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsSettingsModel{
 									OversizedBodyFailValidation: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.Settings.OversizedBodyFailValidation
+										}
 										if _, ok := SettingsData["oversized_body_fail_validation"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									OversizedBodySkipValidation: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.Settings.OversizedBodySkipValidation
+										}
 										if _, ok := SettingsData["oversized_body_skip_validation"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									PropertyValidationSettingsCustom: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom
+										}
 										if PropertyValidationSettingsCustomData, ok := SettingsData["property_validation_settings_custom"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomModel{
 												Queryparameters: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomQueryParametersModel {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters != nil {
+														return data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters
+													}
 													if QueryparametersData, ok := PropertyValidationSettingsCustomData["queryParameters"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomQueryParametersModel{
 															AllowAdditionalParameters: func() *CDNLoadBalancerEmptyModel {
+																if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters != nil {
+																	return data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters.AllowAdditionalParameters
+																}
 																if _, ok := QueryparametersData["allow_additional_parameters"].(map[string]interface{}); ok {
 																	return &CDNLoadBalancerEmptyModel{}
 																}
 																return nil
 															}(),
 															DisallowAdditionalParameters: func() *CDNLoadBalancerEmptyModel {
+																if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters != nil {
+																	return data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters.DisallowAdditionalParameters
+																}
 																if _, ok := QueryparametersData["disallow_additional_parameters"].(map[string]interface{}); ok {
 																	return &CDNLoadBalancerEmptyModel{}
 																}
@@ -28607,6 +30399,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										return nil
 									}(),
 									PropertyValidationSettingsDefault: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsDefault
+										}
 										if _, ok := SettingsData["property_validation_settings_default"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
@@ -28617,18 +30412,30 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return nil
 						}(),
 						ValidationMode: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsValidationModeModel {
+							if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil {
+								return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode
+							}
 							if ValidationModeData, ok := ValidationAllSpecEndpointsData["validation_mode"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsValidationModeModel{
 									ResponseValidationModeActive: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsValidationModeResponseValidationModeActiveModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive
+										}
 										if ResponseValidationModeActiveData, ok := ValidationModeData["response_validation_mode_active"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsValidationModeResponseValidationModeActiveModel{
 												EnforcementBlock: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive != nil {
+														return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive.EnforcementBlock
+													}
 													if _, ok := ResponseValidationModeActiveData["enforcement_block"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												EnforcementReport: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive != nil {
+														return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive.EnforcementReport
+													}
 													if _, ok := ResponseValidationModeActiveData["enforcement_report"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
@@ -28652,27 +30459,42 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										return nil
 									}(),
 									SkipResponseValidation: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.SkipResponseValidation
+										}
 										if _, ok := ValidationModeData["skip_response_validation"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									SkipValidation: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.SkipValidation
+										}
 										if _, ok := ValidationModeData["skip_validation"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									ValidationModeActive: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsValidationModeValidationModeActiveModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive
+										}
 										if ValidationModeActiveData, ok := ValidationModeData["validation_mode_active"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsValidationModeValidationModeActiveModel{
 												EnforcementBlock: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive != nil {
+														return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive.EnforcementBlock
+													}
 													if _, ok := ValidationModeActiveData["enforcement_block"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												EnforcementReport: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive != nil {
+														return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive.EnforcementReport
+													}
 													if _, ok := ValidationModeActiveData["enforcement_report"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
@@ -28710,36 +30532,62 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if ValidationCustomListData, ok := blockData["validation_custom_list"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerAPISpecificationValidationCustomListModel{
 						FallThroughMode: func() *CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeModel {
+							if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.FallThroughMode != nil {
+								return data.APISpecification.ValidationCustomList.FallThroughMode
+							}
 							if FallThroughModeData, ok := ValidationCustomListData["fall_through_mode"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeModel{
 									FallThroughModeAllow: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.FallThroughMode != nil {
+											return data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeAllow
+										}
 										if _, ok := FallThroughModeData["fall_through_mode_allow"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									FallThroughModeCustom: func() *CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.FallThroughMode != nil && data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom != nil {
+											return data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom
+										}
 										if FallThroughModeCustomData, ok := FallThroughModeData["fall_through_mode_custom"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModel{
 												OpenAPIValidationRules: func() types.List {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.FallThroughMode != nil && data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom != nil && (data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsNull() || len(data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes})
+													}
+													var OpenAPIValidationRulesExisting []CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.FallThroughMode != nil && data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom != nil && !data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsNull() && !data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsUnknown() {
+														data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.ElementsAs(ctx, &OpenAPIValidationRulesExisting, false)
+													}
 													if rawList, ok := FallThroughModeCustomData["open_api_validation_rules"].([]interface{}); ok && len(rawList) > 0 {
 														var OpenAPIValidationRulesResult []CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
-														for _, OpenAPIValidationRulesItem := range rawList {
+														for OpenAPIValidationRulesIdx, OpenAPIValidationRulesItem := range rawList {
+															_ = OpenAPIValidationRulesIdx
 															if OpenAPIValidationRulesItemMap, ok := OpenAPIValidationRulesItem.(map[string]interface{}); ok {
 																OpenAPIValidationRulesResult = append(OpenAPIValidationRulesResult, CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel{
 																	ActionBlock: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionBlock != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := OpenAPIValidationRulesItemMap["action_block"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ActionReport: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionReport != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := OpenAPIValidationRulesItemMap["action_report"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ActionSkip: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionSkip != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := OpenAPIValidationRulesItemMap["action_skip"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -28819,12 +30667,23 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return nil
 						}(),
 						OpenAPIValidationRules: func() types.List {
+							if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && (data.APISpecification.ValidationCustomList.OpenAPIValidationRules.IsNull() || len(data.APISpecification.ValidationCustomList.OpenAPIValidationRules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModelAttrTypes})
+							}
+							var OpenAPIValidationRulesExisting []CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModel
+							if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && !data.APISpecification.ValidationCustomList.OpenAPIValidationRules.IsNull() && !data.APISpecification.ValidationCustomList.OpenAPIValidationRules.IsUnknown() {
+								data.APISpecification.ValidationCustomList.OpenAPIValidationRules.ElementsAs(ctx, &OpenAPIValidationRulesExisting, false)
+							}
 							if rawList, ok := ValidationCustomListData["open_api_validation_rules"].([]interface{}); ok && len(rawList) > 0 {
 								var OpenAPIValidationRulesResult []CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModel
-								for _, OpenAPIValidationRulesItem := range rawList {
+								for OpenAPIValidationRulesIdx, OpenAPIValidationRulesItem := range rawList {
+									_ = OpenAPIValidationRulesIdx
 									if OpenAPIValidationRulesItemMap, ok := OpenAPIValidationRulesItem.(map[string]interface{}); ok {
 										OpenAPIValidationRulesResult = append(OpenAPIValidationRulesResult, CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModel{
 											AnyDomain: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].AnyDomain != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := OpenAPIValidationRulesItemMap["any_domain"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -28897,15 +30756,24 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												if ValidationModeData, ok := OpenAPIValidationRulesItemMap["validation_mode"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeModel{
 														ResponseValidationModeActive: func() *CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeResponseValidationModeActiveModel {
+															if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive != nil {
+																return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive
+															}
 															if ResponseValidationModeActiveData, ok := ValidationModeData["response_validation_mode_active"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeResponseValidationModeActiveModel{
 																	EnforcementBlock: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive != nil {
+																			return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive.EnforcementBlock
+																		}
 																		if _, ok := ResponseValidationModeActiveData["enforcement_block"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	EnforcementReport: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive != nil {
+																			return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive.EnforcementReport
+																		}
 																		if _, ok := ResponseValidationModeActiveData["enforcement_report"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -28929,27 +30797,42 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														SkipResponseValidation: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil {
+																return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.SkipResponseValidation
+															}
 															if _, ok := ValidationModeData["skip_response_validation"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														SkipValidation: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil {
+																return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.SkipValidation
+															}
 															if _, ok := ValidationModeData["skip_validation"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														ValidationModeActive: func() *CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeValidationModeActiveModel {
+															if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive != nil {
+																return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive
+															}
 															if ValidationModeActiveData, ok := ValidationModeData["validation_mode_active"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeValidationModeActiveModel{
 																	EnforcementBlock: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive != nil {
+																			return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive.EnforcementBlock
+																		}
 																		if _, ok := ValidationModeActiveData["enforcement_block"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	EnforcementReport: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive != nil {
+																			return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive.EnforcementReport
+																		}
 																		if _, ok := ValidationModeActiveData["enforcement_report"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -28985,33 +30868,54 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModelAttrTypes})
 						}(),
 						Settings: func() *CDNLoadBalancerAPISpecificationValidationCustomListSettingsModel {
+							if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil {
+								return data.APISpecification.ValidationCustomList.Settings
+							}
 							if SettingsData, ok := ValidationCustomListData["settings"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerAPISpecificationValidationCustomListSettingsModel{
 									OversizedBodyFailValidation: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil {
+											return data.APISpecification.ValidationCustomList.Settings.OversizedBodyFailValidation
+										}
 										if _, ok := SettingsData["oversized_body_fail_validation"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									OversizedBodySkipValidation: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil {
+											return data.APISpecification.ValidationCustomList.Settings.OversizedBodySkipValidation
+										}
 										if _, ok := SettingsData["oversized_body_skip_validation"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									PropertyValidationSettingsCustom: func() *CDNLoadBalancerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom != nil {
+											return data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom
+										}
 										if PropertyValidationSettingsCustomData, ok := SettingsData["property_validation_settings_custom"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomModel{
 												Queryparameters: func() *CDNLoadBalancerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomQueryParametersModel {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters != nil {
+														return data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters
+													}
 													if QueryparametersData, ok := PropertyValidationSettingsCustomData["queryParameters"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomQueryParametersModel{
 															AllowAdditionalParameters: func() *CDNLoadBalancerEmptyModel {
+																if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters != nil {
+																	return data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters.AllowAdditionalParameters
+																}
 																if _, ok := QueryparametersData["allow_additional_parameters"].(map[string]interface{}); ok {
 																	return &CDNLoadBalancerEmptyModel{}
 																}
 																return nil
 															}(),
 															DisallowAdditionalParameters: func() *CDNLoadBalancerEmptyModel {
+																if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters != nil {
+																	return data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters.DisallowAdditionalParameters
+																}
 																if _, ok := QueryparametersData["disallow_additional_parameters"].(map[string]interface{}); ok {
 																	return &CDNLoadBalancerEmptyModel{}
 																}
@@ -29026,6 +30930,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										return nil
 									}(),
 									PropertyValidationSettingsDefault: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil {
+											return data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsDefault
+										}
 										if _, ok := SettingsData["property_validation_settings_default"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
@@ -29122,9 +31029,17 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 						if HTTPHeaderData, ok := itemMap["http_header"].(map[string]interface{}); ok {
 							return &CDNLoadBalancerBlockedClientsHTTPHeaderModel{
 								Headers: func() types.List {
+									if !isImport && len(existingBlockedClientsItems) > listIdx && existingBlockedClientsItems[listIdx].HTTPHeader != nil && (existingBlockedClientsItems[listIdx].HTTPHeader.Headers.IsNull() || len(existingBlockedClientsItems[listIdx].HTTPHeader.Headers.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModelAttrTypes})
+									}
+									var HeadersExisting []CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModel
+									if !isImport && len(existingBlockedClientsItems) > listIdx && existingBlockedClientsItems[listIdx].HTTPHeader != nil && !existingBlockedClientsItems[listIdx].HTTPHeader.Headers.IsNull() && !existingBlockedClientsItems[listIdx].HTTPHeader.Headers.IsUnknown() {
+										existingBlockedClientsItems[listIdx].HTTPHeader.Headers.ElementsAs(ctx, &HeadersExisting, false)
+									}
 									if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 										var HeadersResult []CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModel
-										for _, HeadersItem := range rawList {
+										for HeadersIdx, HeadersItem := range rawList {
+											_ = HeadersIdx
 											if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 												HeadersResult = append(HeadersResult, CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModel{
 													Exact: func() types.String {
@@ -29262,12 +31177,18 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if PolicyData, ok := blockData["policy"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerBotDefensePolicyModel{
 						DisableJsInsert: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil {
+								return data.BotDefense.Policy.DisableJsInsert
+							}
 							if _, ok := PolicyData["disable_js_insert"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableMobileSdk: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil {
+								return data.BotDefense.Policy.DisableMobileSdk
+							}
 							if _, ok := PolicyData["disable_mobile_sdk"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -29286,6 +31207,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return types.StringNull()
 						}(),
 						JsInsertAllPages: func() *CDNLoadBalancerBotDefensePolicyJsInsertAllPagesModel {
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertAllPages != nil {
+								return data.BotDefense.Policy.JsInsertAllPages
+							}
 							if JsInsertAllPagesData, ok := PolicyData["js_insert_all_pages"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerBotDefensePolicyJsInsertAllPagesModel{
 									JavascriptLocation: func() types.String {
@@ -29299,15 +31223,29 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return nil
 						}(),
 						JsInsertAllPagesExcept: func() *CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptModel {
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertAllPagesExcept != nil {
+								return data.BotDefense.Policy.JsInsertAllPagesExcept
+							}
 							if JsInsertAllPagesExceptData, ok := PolicyData["js_insert_all_pages_except"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptModel{
 									ExcludeList: func() types.List {
+										if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertAllPagesExcept != nil && (data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsNull() || len(data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModelAttrTypes})
+										}
+										var ExcludeListExisting []CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModel
+										if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertAllPagesExcept != nil && !data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
+											data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
 										if rawList, ok := JsInsertAllPagesExceptData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModel
-											for _, ExcludeListItem := range rawList {
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
 												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 													ExcludeListResult = append(ExcludeListResult, CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModel{
 														AnyDomain: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -29401,15 +31339,29 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return nil
 						}(),
 						JsInsertionRules: func() *CDNLoadBalancerBotDefensePolicyJsInsertionRulesModel {
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertionRules != nil {
+								return data.BotDefense.Policy.JsInsertionRules
+							}
 							if JsInsertionRulesData, ok := PolicyData["js_insertion_rules"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerBotDefensePolicyJsInsertionRulesModel{
 									ExcludeList: func() types.List {
+										if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertionRules != nil && (data.BotDefense.Policy.JsInsertionRules.ExcludeList.IsNull() || len(data.BotDefense.Policy.JsInsertionRules.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModelAttrTypes})
+										}
+										var ExcludeListExisting []CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModel
+										if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertionRules != nil && !data.BotDefense.Policy.JsInsertionRules.ExcludeList.IsNull() && !data.BotDefense.Policy.JsInsertionRules.ExcludeList.IsUnknown() {
+											data.BotDefense.Policy.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
 										if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModel
-											for _, ExcludeListItem := range rawList {
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
 												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 													ExcludeListResult = append(ExcludeListResult, CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModel{
 														AnyDomain: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -29493,12 +31445,23 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModelAttrTypes})
 									}(),
 									Rules: func() types.List {
+										if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertionRules != nil && (data.BotDefense.Policy.JsInsertionRules.Rules.IsNull() || len(data.BotDefense.Policy.JsInsertionRules.Rules.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModelAttrTypes})
+										}
+										var RulesExisting []CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModel
+										if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertionRules != nil && !data.BotDefense.Policy.JsInsertionRules.Rules.IsNull() && !data.BotDefense.Policy.JsInsertionRules.Rules.IsUnknown() {
+											data.BotDefense.Policy.JsInsertionRules.Rules.ElementsAs(ctx, &RulesExisting, false)
+										}
 										if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 											var RulesResult []CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModel
-											for _, RulesItem := range rawList {
+											for RulesIdx, RulesItem := range rawList {
+												_ = RulesIdx
 												if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 													RulesResult = append(RulesResult, CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModel{
 														AnyDomain: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyDomain != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -29592,24 +31555,44 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return nil
 						}(),
 						MobileSdkConfig: func() *CDNLoadBalancerBotDefensePolicyMobileSdkConfigModel {
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.MobileSdkConfig != nil {
+								return data.BotDefense.Policy.MobileSdkConfig
+							}
 							if MobileSdkConfigData, ok := PolicyData["mobile_sdk_config"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerBotDefensePolicyMobileSdkConfigModel{
 									MobileIdentifier: func() *CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierModel {
+										if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.MobileSdkConfig != nil && data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier != nil {
+											return data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier
+										}
 										if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierModel{
 												Headers: func() types.List {
+													if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.MobileSdkConfig != nil && data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier != nil && (data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers.IsNull() || len(data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
+													}
+													var HeadersExisting []CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModel
+													if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.MobileSdkConfig != nil && data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier != nil && !data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
+														data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersExisting, false)
+													}
 													if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
 														var HeadersResult []CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModel
-														for _, HeadersItem := range rawList {
+														for HeadersIdx, HeadersItem := range rawList {
+															_ = HeadersIdx
 															if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 																HeadersResult = append(HeadersResult, CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModel{
 																	CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -29684,18 +31667,32 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return nil
 						}(),
 						ProtectedAppEndpoints: func() types.List {
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && (data.BotDefense.Policy.ProtectedAppEndpoints.IsNull() || len(data.BotDefense.Policy.ProtectedAppEndpoints.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModelAttrTypes})
+							}
+							var ProtectedAppEndpointsExisting []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModel
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && !data.BotDefense.Policy.ProtectedAppEndpoints.IsNull() && !data.BotDefense.Policy.ProtectedAppEndpoints.IsUnknown() {
+								data.BotDefense.Policy.ProtectedAppEndpoints.ElementsAs(ctx, &ProtectedAppEndpointsExisting, false)
+							}
 							if rawList, ok := PolicyData["protected_app_endpoints"].([]interface{}); ok && len(rawList) > 0 {
 								var ProtectedAppEndpointsResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModel
-								for _, ProtectedAppEndpointsItem := range rawList {
+								for ProtectedAppEndpointsIdx, ProtectedAppEndpointsItem := range rawList {
+									_ = ProtectedAppEndpointsIdx
 									if ProtectedAppEndpointsItemMap, ok := ProtectedAppEndpointsItem.(map[string]interface{}); ok {
 										ProtectedAppEndpointsResult = append(ProtectedAppEndpointsResult, CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModel{
 											AllowGoodBots: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].AllowGoodBots != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := ProtectedAppEndpointsItemMap["allow_good_bots"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											AnyDomain: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].AnyDomain != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := ProtectedAppEndpointsItemMap["any_domain"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -29730,15 +31727,24 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												if FlowLabelData, ok := ProtectedAppEndpointsItemMap["flow_label"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelModel{
 														AccountManagement: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAccountManagementModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.AccountManagement != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.AccountManagement
+															}
 															if AccountManagementData, ok := FlowLabelData["account_management"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAccountManagementModel{
 																	Create: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.AccountManagement != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.AccountManagement.Create
+																		}
 																		if _, ok := AccountManagementData["create"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	PasswordReset: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.AccountManagement != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.AccountManagement.PasswordReset
+																		}
 																		if _, ok := AccountManagementData["password_reset"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -29749,24 +31755,44 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														Authentication: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication
+															}
 															if AuthenticationData, ok := FlowLabelData["authentication"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationModel{
 																	Login: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login
+																		}
 																		if LoginData, ok := AuthenticationData["login"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginModel{
 																				DisableTransactionResult: func() *CDNLoadBalancerEmptyModel {
+																					if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login != nil {
+																						return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.DisableTransactionResult
+																					}
 																					if _, ok := LoginData["disable_transaction_result"].(map[string]interface{}); ok {
 																						return &CDNLoadBalancerEmptyModel{}
 																					}
 																					return nil
 																				}(),
 																				TransactionResult: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultModel {
+																					if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil {
+																						return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult
+																					}
 																					if TransactionResultData, ok := LoginData["transaction_result"].(map[string]interface{}); ok {
 																						return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultModel{
 																							FailureConditions: func() types.List {
+																								if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && (ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsNull() || len(ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.Elements()) == 0) {
+																									return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes})
+																								}
+																								var FailureConditionsExisting []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel
+																								if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && !ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsNull() && !ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsUnknown() {
+																									ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.ElementsAs(ctx, &FailureConditionsExisting, false)
+																								}
 																								if rawList, ok := TransactionResultData["failure_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																									var FailureConditionsResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel
-																									for _, FailureConditionsItem := range rawList {
+																									for FailureConditionsIdx, FailureConditionsItem := range rawList {
+																										_ = FailureConditionsIdx
 																										if FailureConditionsItemMap, ok := FailureConditionsItem.(map[string]interface{}); ok {
 																											FailureConditionsResult = append(FailureConditionsResult, CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel{
 																												Name: func() types.String {
@@ -29803,9 +31829,17 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes})
 																							}(),
 																							SuccessConditions: func() types.List {
+																								if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && (ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsNull() || len(ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.Elements()) == 0) {
+																									return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModelAttrTypes})
+																								}
+																								var SuccessConditionsExisting []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel
+																								if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && !ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsNull() && !ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsUnknown() {
+																									ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.ElementsAs(ctx, &SuccessConditionsExisting, false)
+																								}
 																								if rawList, ok := TransactionResultData["success_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																									var SuccessConditionsResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel
-																									for _, SuccessConditionsItem := range rawList {
+																									for SuccessConditionsIdx, SuccessConditionsItem := range rawList {
+																										_ = SuccessConditionsIdx
 																										if SuccessConditionsItemMap, ok := SuccessConditionsItem.(map[string]interface{}); ok {
 																											SuccessConditionsResult = append(SuccessConditionsResult, CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel{
 																												Name: func() types.String {
@@ -29850,24 +31884,36 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																		return nil
 																	}(),
 																	LoginMFA: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.LoginMFA
+																		}
 																		if _, ok := AuthenticationData["login_mfa"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	LoginPartner: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.LoginPartner
+																		}
 																		if _, ok := AuthenticationData["login_partner"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	Logout: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Logout
+																		}
 																		if _, ok := AuthenticationData["logout"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	TokenRefresh: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.TokenRefresh
+																		}
 																		if _, ok := AuthenticationData["token_refresh"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -29878,15 +31924,24 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														FinancialServices: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFinancialServicesModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.FinancialServices != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.FinancialServices
+															}
 															if FinancialServicesData, ok := FlowLabelData["financial_services"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFinancialServicesModel{
 																	Apply: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.FinancialServices != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.FinancialServices.Apply
+																		}
 																		if _, ok := FinancialServicesData["apply"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	MoneyTransfer: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.FinancialServices != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.FinancialServices.MoneyTransfer
+																		}
 																		if _, ok := FinancialServicesData["money_transfer"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -29897,9 +31952,15 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														Flight: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight
+															}
 															if FlightData, ok := FlowLabelData["flight"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel{
 																	Checking: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight.Checking
+																		}
 																		if _, ok := FlightData["checking"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -29910,21 +31971,33 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														ProfileManagement: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelProfileManagementModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement
+															}
 															if ProfileManagementData, ok := FlowLabelData["profile_management"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelProfileManagementModel{
 																	Create: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement.Create
+																		}
 																		if _, ok := ProfileManagementData["create"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	Update: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement.Update
+																		}
 																		if _, ok := ProfileManagementData["update"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	View: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement.View
+																		}
 																		if _, ok := ProfileManagementData["view"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -29935,27 +32008,42 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														Search: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelSearchModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search
+															}
 															if SearchData, ok := FlowLabelData["search"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelSearchModel{
 																	FlightSearch: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search.FlightSearch
+																		}
 																		if _, ok := SearchData["flight_search"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ProductSearch: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search.ProductSearch
+																		}
 																		if _, ok := SearchData["product_search"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ReservationSearch: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search.ReservationSearch
+																		}
 																		if _, ok := SearchData["reservation_search"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	RoomSearch: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search.RoomSearch
+																		}
 																		if _, ok := SearchData["room_search"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -29966,75 +32054,114 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														ShoppingGiftCards: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelShoppingGiftCardsModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards
+															}
 															if ShoppingGiftCardsData, ok := FlowLabelData["shopping_gift_cards"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelShoppingGiftCardsModel{
 																	GiftCardMakePurchaseWithGiftCard: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard
+																		}
 																		if _, ok := ShoppingGiftCardsData["gift_card_make_purchase_with_gift_card"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	GiftCardValidation: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardValidation
+																		}
 																		if _, ok := ShoppingGiftCardsData["gift_card_validation"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopAddToCart: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopAddToCart
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_add_to_cart"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopCheckout: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopCheckout
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_checkout"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopChooseSeat: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopChooseSeat
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_choose_seat"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopEnterDrawingSubmission: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_enter_drawing_submission"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopMakePayment: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopMakePayment
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_make_payment"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopOrder: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopOrder
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_order"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopPriceInquiry: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPriceInquiry
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_price_inquiry"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopPromoCodeValidation: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_promo_code_validation"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopPurchaseGiftCard: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_purchase_gift_card"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopUpdateQuantity: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopUpdateQuantity
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_update_quantity"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -30165,6 +32292,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return nil
 											}(),
 											MitigateGoodBots: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].MitigateGoodBots != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := ProtectedAppEndpointsItemMap["mitigate_good_bots"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -30174,6 +32304,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												if MitigationData, ok := ProtectedAppEndpointsItemMap["mitigation"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationModel{
 														Block: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationBlockModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Block != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Block
+															}
 															if BlockData, ok := MitigationData["block"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationBlockModel{
 																	Body: func() types.String {
@@ -30193,9 +32326,15 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														Flag: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationFlagModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Flag != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Flag
+															}
 															if FlagData, ok := MitigationData["flag"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationFlagModel{
 																	AppendHeaders: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationFlagAppendHeadersModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Flag != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Flag.AppendHeaders != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Flag.AppendHeaders
+																		}
 																		if AppendHeadersData, ok := FlagData["append_headers"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationFlagAppendHeadersModel{
 																				AutoTypeHeaderName: func() types.String {
@@ -30215,6 +32354,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																		return nil
 																	}(),
 																	NoHeaders: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Flag != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Flag.NoHeaders
+																		}
 																		if _, ok := FlagData["no_headers"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -30225,6 +32367,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														Redirect: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationRedirectModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Redirect != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Redirect
+															}
 															if RedirectData, ok := MitigationData["redirect"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationRedirectModel{
 																	URI: func() types.String {
@@ -30242,6 +32387,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return nil
 											}(),
 											Mobile: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mobile != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := ProtectedAppEndpointsItemMap["mobile"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -30363,12 +32511,18 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsQueryParamsModelAttrTypes})
 											}(),
 											UndefinedFlowLabel: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].UndefinedFlowLabel != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := ProtectedAppEndpointsItemMap["undefined_flow_label"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											Web: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Web != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := ProtectedAppEndpointsItemMap["web"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -30444,27 +32598,47 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if PolicyData, ok := blockData["policy"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerClientSideDefensePolicyModel{
 						DisableJsInsert: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil {
+								return data.ClientSideDefense.Policy.DisableJsInsert
+							}
 							if _, ok := PolicyData["disable_js_insert"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						JsInsertAllPages: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil {
+								return data.ClientSideDefense.Policy.JsInsertAllPages
+							}
 							if _, ok := PolicyData["js_insert_all_pages"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						JsInsertAllPagesExcept: func() *CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptModel {
+							if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertAllPagesExcept != nil {
+								return data.ClientSideDefense.Policy.JsInsertAllPagesExcept
+							}
 							if JsInsertAllPagesExceptData, ok := PolicyData["js_insert_all_pages_except"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptModel{
 									ExcludeList: func() types.List {
+										if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertAllPagesExcept != nil && (data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsNull() || len(data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModelAttrTypes})
+										}
+										var ExcludeListExisting []CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModel
+										if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertAllPagesExcept != nil && !data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
+											data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
 										if rawList, ok := JsInsertAllPagesExceptData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModel
-											for _, ExcludeListItem := range rawList {
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
 												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 													ExcludeListResult = append(ExcludeListResult, CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModel{
 														AnyDomain: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -30552,15 +32726,29 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return nil
 						}(),
 						JsInsertionRules: func() *CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesModel {
+							if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertionRules != nil {
+								return data.ClientSideDefense.Policy.JsInsertionRules
+							}
 							if JsInsertionRulesData, ok := PolicyData["js_insertion_rules"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesModel{
 									ExcludeList: func() types.List {
+										if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertionRules != nil && (data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList.IsNull() || len(data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModelAttrTypes})
+										}
+										var ExcludeListExisting []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModel
+										if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertionRules != nil && !data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList.IsNull() && !data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList.IsUnknown() {
+											data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
 										if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModel
-											for _, ExcludeListItem := range rawList {
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
 												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 													ExcludeListResult = append(ExcludeListResult, CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModel{
 														AnyDomain: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -30644,12 +32832,23 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModelAttrTypes})
 									}(),
 									Rules: func() types.List {
+										if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertionRules != nil && (data.ClientSideDefense.Policy.JsInsertionRules.Rules.IsNull() || len(data.ClientSideDefense.Policy.JsInsertionRules.Rules.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModelAttrTypes})
+										}
+										var RulesExisting []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModel
+										if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertionRules != nil && !data.ClientSideDefense.Policy.JsInsertionRules.Rules.IsNull() && !data.ClientSideDefense.Policy.JsInsertionRules.Rules.IsUnknown() {
+											data.ClientSideDefense.Policy.JsInsertionRules.Rules.ElementsAs(ctx, &RulesExisting, false)
+										}
 										if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 											var RulesResult []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModel
-											for _, RulesItem := range rawList {
+											for RulesIdx, RulesItem := range rawList {
+												_ = RulesIdx
 												if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 													RulesResult = append(RulesResult, CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModel{
 														AnyDomain: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyDomain != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -30868,9 +33067,14 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if !isImport && data.CustomCacheRule != nil && (data.CustomCacheRule.CDNCacheRules.IsNull() || len(data.CustomCacheRule.CDNCacheRules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerCustomCacheRuleCDNCacheRulesModelAttrTypes})
 				}
+				var CDNCacheRulesExisting []CDNLoadBalancerCustomCacheRuleCDNCacheRulesModel
+				if !isImport && data.CustomCacheRule != nil && !data.CustomCacheRule.CDNCacheRules.IsNull() && !data.CustomCacheRule.CDNCacheRules.IsUnknown() {
+					data.CustomCacheRule.CDNCacheRules.ElementsAs(ctx, &CDNCacheRulesExisting, false)
+				}
 				if rawList, ok := blockData["cdn_cache_rules"].([]interface{}); ok && len(rawList) > 0 {
 					var CDNCacheRulesResult []CDNLoadBalancerCustomCacheRuleCDNCacheRulesModel
-					for _, CDNCacheRulesItem := range rawList {
+					for CDNCacheRulesIdx, CDNCacheRulesItem := range rawList {
+						_ = CDNCacheRulesIdx
 						if CDNCacheRulesItemMap, ok := CDNCacheRulesItem.(map[string]interface{}); ok {
 							CDNCacheRulesResult = append(CDNCacheRulesResult, CDNLoadBalancerCustomCacheRuleCDNCacheRulesModel{
 								Name: func() types.String {
@@ -31032,6 +33236,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 						if DDOSClientSourceData, ok := itemMap["ddos_client_source"].(map[string]interface{}); ok {
 							return &CDNLoadBalancerDDOSMitigationRulesDDOSClientSourceModel{
 								AsnList: func() *CDNLoadBalancerDDOSMitigationRulesDDOSClientSourceAsnListModel {
+									if !isImport && len(existingDDOSMitigationRulesItems) > listIdx && existingDDOSMitigationRulesItems[listIdx].DDOSClientSource != nil && existingDDOSMitigationRulesItems[listIdx].DDOSClientSource.AsnList != nil {
+										return existingDDOSMitigationRulesItems[listIdx].DDOSClientSource.AsnList
+									}
 									if AsnListData, ok := DDOSClientSourceData["asn_list"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerDDOSMitigationRulesDDOSClientSourceAsnListModel{
 											AsNumbers: func() types.List {
@@ -31065,6 +33272,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 									return types.ListNull(types.StringType)
 								}(),
 								Ja4TLSFingerprintMatcher: func() *CDNLoadBalancerDDOSMitigationRulesDDOSClientSourceJa4TLSFingerprintMatcherModel {
+									if !isImport && len(existingDDOSMitigationRulesItems) > listIdx && existingDDOSMitigationRulesItems[listIdx].DDOSClientSource != nil && existingDDOSMitigationRulesItems[listIdx].DDOSClientSource.Ja4TLSFingerprintMatcher != nil {
+										return existingDDOSMitigationRulesItems[listIdx].DDOSClientSource.Ja4TLSFingerprintMatcher
+									}
 									if Ja4TLSFingerprintMatcherData, ok := DDOSClientSourceData["ja4_tls_fingerprint_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerDDOSMitigationRulesDDOSClientSourceJa4TLSFingerprintMatcherModel{
 											ExactValues: func() types.List {
@@ -31085,6 +33295,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 									return nil
 								}(),
 								TLSFingerprintMatcher: func() *CDNLoadBalancerDDOSMitigationRulesDDOSClientSourceTLSFingerprintMatcherModel {
+									if !isImport && len(existingDDOSMitigationRulesItems) > listIdx && existingDDOSMitigationRulesItems[listIdx].DDOSClientSource != nil && existingDDOSMitigationRulesItems[listIdx].DDOSClientSource.TLSFingerprintMatcher != nil {
+										return existingDDOSMitigationRulesItems[listIdx].DDOSClientSource.TLSFingerprintMatcher
+									}
 									if TLSFingerprintMatcherData, ok := DDOSClientSourceData["tls_fingerprint_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerDDOSMitigationRulesDDOSClientSourceTLSFingerprintMatcherModel{
 											Classes: func() types.List {
@@ -31144,6 +33357,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 						if IPPrefixListData, ok := itemMap["ip_prefix_list"].(map[string]interface{}); ok {
 							return &CDNLoadBalancerDDOSMitigationRulesIPPrefixListModel{
 								InvertMatch: func() types.Bool {
+									if !isImport && len(existingDDOSMitigationRulesItems) > listIdx && existingDDOSMitigationRulesItems[listIdx].IPPrefixList != nil && !existingDDOSMitigationRulesItems[listIdx].IPPrefixList.InvertMatch.IsUnknown() {
+										return existingDDOSMitigationRulesItems[listIdx].IPPrefixList.InvertMatch
+									}
 									if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 										return types.BoolValue(v)
 									}
@@ -31257,12 +33473,23 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if APICrawlerData, ok := blockData["api_crawler"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableAPIDiscoveryAPICrawlerModel{
 						APICrawlerConfig: func() *CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModel {
+							if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APICrawler != nil && data.EnableAPIDiscovery.APICrawler.APICrawlerConfig != nil {
+								return data.EnableAPIDiscovery.APICrawler.APICrawlerConfig
+							}
 							if APICrawlerConfigData, ok := APICrawlerData["api_crawler_config"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModel{
 									Domains: func() types.List {
+										if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APICrawler != nil && data.EnableAPIDiscovery.APICrawler.APICrawlerConfig != nil && (data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.IsNull() || len(data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModelAttrTypes})
+										}
+										var DomainsExisting []CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel
+										if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APICrawler != nil && data.EnableAPIDiscovery.APICrawler.APICrawlerConfig != nil && !data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.IsNull() && !data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.IsUnknown() {
+											data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.ElementsAs(ctx, &DomainsExisting, false)
+										}
 										if rawList, ok := APICrawlerConfigData["domains"].([]interface{}); ok && len(rawList) > 0 {
 											var DomainsResult []CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel
-											for _, DomainsItem := range rawList {
+											for DomainsIdx, DomainsItem := range rawList {
+												_ = DomainsIdx
 												if DomainsItemMap, ok := DomainsItem.(map[string]interface{}); ok {
 													DomainsResult = append(DomainsResult, CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel{
 														Domain: func() types.String {
@@ -31275,9 +33502,15 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															if SimpleLoginData, ok := DomainsItemMap["simple_login"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginModel{
 																	Password: func() *CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordModel {
+																		if !isImport && len(DomainsExisting) > DomainsIdx && DomainsExisting[DomainsIdx].SimpleLogin != nil && DomainsExisting[DomainsIdx].SimpleLogin.Password != nil {
+																			return DomainsExisting[DomainsIdx].SimpleLogin.Password
+																		}
 																		if PasswordData, ok := SimpleLoginData["password"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordModel{
 																				BlindfoldSecretInfo: func() *CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordBlindfoldSecretInfoModel {
+																					if !isImport && len(DomainsExisting) > DomainsIdx && DomainsExisting[DomainsIdx].SimpleLogin != nil && DomainsExisting[DomainsIdx].SimpleLogin.Password != nil && DomainsExisting[DomainsIdx].SimpleLogin.Password.BlindfoldSecretInfo != nil {
+																						return DomainsExisting[DomainsIdx].SimpleLogin.Password.BlindfoldSecretInfo
+																					}
 																					if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																						return &CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordBlindfoldSecretInfoModel{
 																							DecryptionProvider: func() types.String {
@@ -31303,6 +33536,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																					return nil
 																				}(),
 																				ClearSecretInfo: func() *CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordClearSecretInfoModel {
+																					if !isImport && len(DomainsExisting) > DomainsIdx && DomainsExisting[DomainsIdx].SimpleLogin != nil && DomainsExisting[DomainsIdx].SimpleLogin.Password != nil && DomainsExisting[DomainsIdx].SimpleLogin.Password.ClearSecretInfo != nil {
+																						return DomainsExisting[DomainsIdx].SimpleLogin.Password.ClearSecretInfo
+																					}
 																					if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																						return &CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordClearSecretInfoModel{
 																							Provider: func() types.String {
@@ -31348,6 +33584,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return nil
 						}(),
 						DisableAPICrawler: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APICrawler != nil {
+								return data.EnableAPIDiscovery.APICrawler.DisableAPICrawler
+							}
 							if _, ok := APICrawlerData["disable_api_crawler"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -31361,12 +33600,23 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if APIDiscoveryFromCodeScanData, ok := blockData["api_discovery_from_code_scan"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableAPIDiscoveryAPIDiscoveryFromCodeScanModel{
 						CodeBaseIntegrations: func() types.List {
+							if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APIDiscoveryFromCodeScan != nil && (data.EnableAPIDiscovery.APIDiscoveryFromCodeScan.CodeBaseIntegrations.IsNull() || len(data.EnableAPIDiscovery.APIDiscoveryFromCodeScan.CodeBaseIntegrations.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModelAttrTypes})
+							}
+							var CodeBaseIntegrationsExisting []CDNLoadBalancerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModel
+							if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APIDiscoveryFromCodeScan != nil && !data.EnableAPIDiscovery.APIDiscoveryFromCodeScan.CodeBaseIntegrations.IsNull() && !data.EnableAPIDiscovery.APIDiscoveryFromCodeScan.CodeBaseIntegrations.IsUnknown() {
+								data.EnableAPIDiscovery.APIDiscoveryFromCodeScan.CodeBaseIntegrations.ElementsAs(ctx, &CodeBaseIntegrationsExisting, false)
+							}
 							if rawList, ok := APIDiscoveryFromCodeScanData["code_base_integrations"].([]interface{}); ok && len(rawList) > 0 {
 								var CodeBaseIntegrationsResult []CDNLoadBalancerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModel
-								for _, CodeBaseIntegrationsItem := range rawList {
+								for CodeBaseIntegrationsIdx, CodeBaseIntegrationsItem := range rawList {
+									_ = CodeBaseIntegrationsIdx
 									if CodeBaseIntegrationsItemMap, ok := CodeBaseIntegrationsItem.(map[string]interface{}); ok {
 										CodeBaseIntegrationsResult = append(CodeBaseIntegrationsResult, CDNLoadBalancerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModel{
 											AllRepos: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(CodeBaseIntegrationsExisting) > CodeBaseIntegrationsIdx && CodeBaseIntegrationsExisting[CodeBaseIntegrationsIdx].AllRepos != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := CodeBaseIntegrationsItemMap["all_repos"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -31486,6 +33736,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if DiscoveredAPISettingsData, ok := blockData["discovered_api_settings"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableAPIDiscoveryDiscoveredAPISettingsModel{
 						PurgeDurationForInactiveDiscoveredApis: func() types.Int64 {
+							if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.DiscoveredAPISettings != nil && !data.EnableAPIDiscovery.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis.IsUnknown() {
+								return data.EnableAPIDiscovery.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis
+							}
 							if v, ok := DiscoveredAPISettingsData["purge_duration_for_inactive_discovered_apis"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -31515,6 +33768,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if CaptchaChallengeParametersData, ok := blockData["captcha_challenge_parameters"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableChallengeCaptchaChallengeParametersModel{
 						CookieExpiry: func() types.Int64 {
+							if !isImport && data.EnableChallenge != nil && data.EnableChallenge.CaptchaChallengeParameters != nil && !data.EnableChallenge.CaptchaChallengeParameters.CookieExpiry.IsUnknown() {
+								return data.EnableChallenge.CaptchaChallengeParameters.CookieExpiry
+							}
 							if v, ok := CaptchaChallengeParametersData["cookie_expiry"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -31564,6 +33820,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if JsChallengeParametersData, ok := blockData["js_challenge_parameters"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableChallengeJsChallengeParametersModel{
 						CookieExpiry: func() types.Int64 {
+							if !isImport && data.EnableChallenge != nil && data.EnableChallenge.JsChallengeParameters != nil && !data.EnableChallenge.JsChallengeParameters.CookieExpiry.IsUnknown() {
+								return data.EnableChallenge.JsChallengeParameters.CookieExpiry
+							}
 							if v, ok := JsChallengeParametersData["cookie_expiry"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -31576,6 +33835,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return types.StringNull()
 						}(),
 						JsScriptDelay: func() types.Int64 {
+							if !isImport && data.EnableChallenge != nil && data.EnableChallenge.JsChallengeParameters != nil && !data.EnableChallenge.JsChallengeParameters.JsScriptDelay.IsUnknown() {
+								return data.EnableChallenge.JsChallengeParameters.JsScriptDelay
+							}
 							if v, ok := JsChallengeParametersData["js_script_delay"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -31672,30 +33934,45 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 						if GraphqlSettingsData, ok := itemMap["graphql_settings"].(map[string]interface{}); ok {
 							return &CDNLoadBalancerGraphqlRulesGraphqlSettingsModel{
 								DisableIntrospection: func() *CDNLoadBalancerEmptyModel {
+									if !isImport && len(existingGraphqlRulesItems) > listIdx && existingGraphqlRulesItems[listIdx].GraphqlSettings != nil {
+										return existingGraphqlRulesItems[listIdx].GraphqlSettings.DisableIntrospection
+									}
 									if _, ok := GraphqlSettingsData["disable_introspection"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerEmptyModel{}
 									}
 									return nil
 								}(),
 								EnableIntrospection: func() *CDNLoadBalancerEmptyModel {
+									if !isImport && len(existingGraphqlRulesItems) > listIdx && existingGraphqlRulesItems[listIdx].GraphqlSettings != nil {
+										return existingGraphqlRulesItems[listIdx].GraphqlSettings.EnableIntrospection
+									}
 									if _, ok := GraphqlSettingsData["enable_introspection"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerEmptyModel{}
 									}
 									return nil
 								}(),
 								MaxBatchedQueries: func() types.Int64 {
+									if !isImport && len(existingGraphqlRulesItems) > listIdx && existingGraphqlRulesItems[listIdx].GraphqlSettings != nil && !existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxBatchedQueries.IsUnknown() {
+										return existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxBatchedQueries
+									}
 									if v, ok := GraphqlSettingsData["max_batched_queries"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								MaxDepth: func() types.Int64 {
+									if !isImport && len(existingGraphqlRulesItems) > listIdx && existingGraphqlRulesItems[listIdx].GraphqlSettings != nil && !existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxDepth.IsUnknown() {
+										return existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxDepth
+									}
 									if v, ok := GraphqlSettingsData["max_depth"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								MaxTotalLength: func() types.Int64 {
+									if !isImport && len(existingGraphqlRulesItems) > listIdx && existingGraphqlRulesItems[listIdx].GraphqlSettings != nil && !existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxTotalLength.IsUnknown() {
+										return existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxTotalLength
+									}
 									if v, ok := GraphqlSettingsData["max_total_length"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
@@ -31814,9 +34091,17 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							if TLSCertParamsData, ok := TLSCertOptionsData["tls_cert_params"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsModel{
 									Certificates: func() types.List {
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && (data.HTTPS.TLSCertOptions.TLSCertParams.Certificates.IsNull() || len(data.HTTPS.TLSCertOptions.TLSCertParams.Certificates.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsCertificatesModelAttrTypes})
+										}
+										var CertificatesExisting []CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsCertificatesModel
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && !data.HTTPS.TLSCertOptions.TLSCertParams.Certificates.IsNull() && !data.HTTPS.TLSCertOptions.TLSCertParams.Certificates.IsUnknown() {
+											data.HTTPS.TLSCertOptions.TLSCertParams.Certificates.ElementsAs(ctx, &CertificatesExisting, false)
+										}
 										if rawList, ok := TLSCertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var CertificatesResult []CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsCertificatesModel
-											for _, CertificatesItem := range rawList {
+											for CertificatesIdx, CertificatesItem := range rawList {
+												_ = CertificatesIdx
 												if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
 													CertificatesResult = append(CertificatesResult, CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsCertificatesModel{
 														Name: func() types.String {
@@ -31846,15 +34131,24 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsCertificatesModelAttrTypes})
 									}(),
 									NoMtls: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil {
+											return data.HTTPS.TLSCertOptions.TLSCertParams.NoMtls
+										}
 										if _, ok := TLSCertParamsData["no_mtls"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									TLSConfig: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsTLSConfigModel {
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig != nil {
+											return data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig
+										}
 										if TLSConfigData, ok := TLSCertParamsData["tls_config"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsTLSConfigModel{
 												CustomSecurity: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsTLSConfigCustomSecurityModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig != nil && data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig.CustomSecurity != nil {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig.CustomSecurity
+													}
 													if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsTLSConfigCustomSecurityModel{
 															CipherSuites: func() types.List {
@@ -31887,18 +34181,27 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 													return nil
 												}(),
 												DefaultSecurity: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig != nil {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig.DefaultSecurity
+													}
 													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												LowSecurity: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig != nil {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig.LowSecurity
+													}
 													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												MediumSecurity: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig != nil {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig.MediumSecurity
+													}
 													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
@@ -31912,6 +34215,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										if UseMtlsData, ok := TLSCertParamsData["use_mtls"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsUseMtlsModel{
 												ClientCertificateOptional: func() types.Bool {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls != nil && !data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.ClientCertificateOptional.IsUnknown() {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.ClientCertificateOptional
+													}
 													if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 														return types.BoolValue(v)
 													}
@@ -31943,6 +34249,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 													return nil
 												}(),
 												NoCRL: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls != nil {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.NoCRL
+													}
 													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
@@ -31980,12 +34289,18 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 													return types.StringNull()
 												}(),
 												XfccDisabled: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls != nil {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.XfccDisabled
+													}
 													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												XfccOptions: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsUseMtlsXfccOptionsModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls != nil && data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.XfccOptions != nil {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.XfccOptions
+													}
 													if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsUseMtlsXfccOptionsModel{
 															XfccHeaderElements: func() types.List {
@@ -32017,15 +34332,26 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							if TLSInlineParamsData, ok := TLSCertOptionsData["tls_inline_params"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsModel{
 									NoMtls: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil {
+											return data.HTTPS.TLSCertOptions.TLSInlineParams.NoMtls
+										}
 										if _, ok := TLSInlineParamsData["no_mtls"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									TLSCertificates: func() types.List {
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && (data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates.IsNull() || len(data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModelAttrTypes})
+										}
+										var TLSCertificatesExisting []CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModel
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && !data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates.IsNull() && !data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates.IsUnknown() {
+											data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+										}
 										if rawList, ok := TLSInlineParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var TLSCertificatesResult []CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModel
-											for _, TLSCertificatesItem := range rawList {
+											for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+												_ = TLSCertificatesIdx
 												if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 													TLSCertificatesResult = append(TLSCertificatesResult, CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModel{
 														CertificateURL: func() types.String {
@@ -32061,6 +34387,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return types.StringNull()
 														}(),
 														DisableOCSPStapling: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -32070,6 +34399,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -32095,6 +34427,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -32118,6 +34453,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														UseSystemDefaults: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -32132,9 +34470,15 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModelAttrTypes})
 									}(),
 									TLSConfig: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSConfigModel {
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig != nil {
+											return data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig
+										}
 										if TLSConfigData, ok := TLSInlineParamsData["tls_config"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSConfigModel{
 												CustomSecurity: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSConfigCustomSecurityModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig.CustomSecurity != nil {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig.CustomSecurity
+													}
 													if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSConfigCustomSecurityModel{
 															CipherSuites: func() types.List {
@@ -32167,18 +34511,27 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 													return nil
 												}(),
 												DefaultSecurity: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig != nil {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig.DefaultSecurity
+													}
 													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												LowSecurity: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig != nil {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig.LowSecurity
+													}
 													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												MediumSecurity: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig != nil {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig.MediumSecurity
+													}
 													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
@@ -32192,6 +34545,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										if UseMtlsData, ok := TLSInlineParamsData["use_mtls"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsUseMtlsModel{
 												ClientCertificateOptional: func() types.Bool {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls != nil && !data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.ClientCertificateOptional.IsUnknown() {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.ClientCertificateOptional
+													}
 													if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 														return types.BoolValue(v)
 													}
@@ -32223,6 +34579,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 													return nil
 												}(),
 												NoCRL: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls != nil {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.NoCRL
+													}
 													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
@@ -32260,12 +34619,18 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 													return types.StringNull()
 												}(),
 												XfccDisabled: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls != nil {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.XfccDisabled
+													}
 													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												XfccOptions: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsUseMtlsXfccOptionsModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.XfccOptions != nil {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.XfccOptions
+													}
 													if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsUseMtlsXfccOptionsModel{
 															XfccHeaderElements: func() types.List {
@@ -32326,12 +34691,18 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if TLSConfigData, ok := blockData["tls_config"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerHTTPSAutoCertTLSConfigModel{
 						TLS11Plus: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.HTTPSAutoCert != nil && data.HTTPSAutoCert.TLSConfig != nil {
+								return data.HTTPSAutoCert.TLSConfig.TLS11Plus
+							}
 							if _, ok := TLSConfigData["tls_11_plus"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						TLS12Plus: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.HTTPSAutoCert != nil && data.HTTPSAutoCert.TLSConfig != nil {
+								return data.HTTPSAutoCert.TLSConfig.TLS12Plus
+							}
 							if _, ok := TLSConfigData["tls_12_plus"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -32380,12 +34751,18 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if ActionData, ok := blockData["action"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerJWTValidationActionModel{
 						Block: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.Action != nil {
+								return data.JWTValidation.Action.Block
+							}
 							if _, ok := ActionData["block"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						Report: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.Action != nil {
+								return data.JWTValidation.Action.Report
+							}
 							if _, ok := ActionData["report"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -32399,9 +34776,17 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if AuthorizationServerData, ok := blockData["authorization_server"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerJWTValidationAuthorizationServerModel{
 						AuthorizationServers: func() types.List {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.AuthorizationServer != nil && (data.JWTValidation.AuthorizationServer.AuthorizationServers.IsNull() || len(data.JWTValidation.AuthorizationServer.AuthorizationServers.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerJWTValidationAuthorizationServerAuthorizationServersModelAttrTypes})
+							}
+							var AuthorizationServersExisting []CDNLoadBalancerJWTValidationAuthorizationServerAuthorizationServersModel
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.AuthorizationServer != nil && !data.JWTValidation.AuthorizationServer.AuthorizationServers.IsNull() && !data.JWTValidation.AuthorizationServer.AuthorizationServers.IsUnknown() {
+								data.JWTValidation.AuthorizationServer.AuthorizationServers.ElementsAs(ctx, &AuthorizationServersExisting, false)
+							}
 							if rawList, ok := AuthorizationServerData["authorization_servers"].([]interface{}); ok && len(rawList) > 0 {
 								var AuthorizationServersResult []CDNLoadBalancerJWTValidationAuthorizationServerAuthorizationServersModel
-								for _, AuthorizationServersItem := range rawList {
+								for AuthorizationServersIdx, AuthorizationServersItem := range rawList {
+									_ = AuthorizationServersIdx
 									if AuthorizationServersItemMap, ok := AuthorizationServersItem.(map[string]interface{}); ok {
 										AuthorizationServersResult = append(AuthorizationServersResult, CDNLoadBalancerJWTValidationAuthorizationServerAuthorizationServersModel{
 											Name: func() types.String {
@@ -32480,6 +34865,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if ReservedClaimsData, ok := blockData["reserved_claims"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerJWTValidationReservedClaimsModel{
 						Audience: func() *CDNLoadBalancerJWTValidationReservedClaimsAudienceModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.ReservedClaims != nil && data.JWTValidation.ReservedClaims.Audience != nil {
+								return data.JWTValidation.ReservedClaims.Audience
+							}
 							if AudienceData, ok := ReservedClaimsData["audience"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerJWTValidationReservedClaimsAudienceModel{
 									Audiences: func() types.List {
@@ -32500,6 +34888,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return nil
 						}(),
 						AudienceDisable: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.ReservedClaims != nil {
+								return data.JWTValidation.ReservedClaims.AudienceDisable
+							}
 							if _, ok := ReservedClaimsData["audience_disable"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -32512,18 +34903,27 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return types.StringNull()
 						}(),
 						IssuerDisable: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.ReservedClaims != nil {
+								return data.JWTValidation.ReservedClaims.IssuerDisable
+							}
 							if _, ok := ReservedClaimsData["issuer_disable"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						ValidatePeriodDisable: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.ReservedClaims != nil {
+								return data.JWTValidation.ReservedClaims.ValidatePeriodDisable
+							}
 							if _, ok := ReservedClaimsData["validate_period_disable"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						ValidatePeriodEnable: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.ReservedClaims != nil {
+								return data.JWTValidation.ReservedClaims.ValidatePeriodEnable
+							}
 							if _, ok := ReservedClaimsData["validate_period_enable"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -32540,12 +34940,18 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if TargetData, ok := blockData["target"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerJWTValidationTargetModel{
 						AllEndpoint: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.Target != nil {
+								return data.JWTValidation.Target.AllEndpoint
+							}
 							if _, ok := TargetData["all_endpoint"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						APIGroups: func() *CDNLoadBalancerJWTValidationTargetAPIGroupsModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.Target != nil && data.JWTValidation.Target.APIGroups != nil {
+								return data.JWTValidation.Target.APIGroups
+							}
 							if APIGroupsData, ok := TargetData["api_groups"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerJWTValidationTargetAPIGroupsModel{
 									APIGroups: func() types.List {
@@ -32566,6 +34972,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return nil
 						}(),
 						BasePaths: func() *CDNLoadBalancerJWTValidationTargetBasePathsModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.Target != nil && data.JWTValidation.Target.BasePaths != nil {
+								return data.JWTValidation.Target.BasePaths
+							}
 							if BasePathsData, ok := TargetData["base_paths"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerJWTValidationTargetBasePathsModel{
 									BasePaths: func() types.List {
@@ -32596,6 +35005,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if TokenLocationData, ok := blockData["token_location"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerJWTValidationTokenLocationModel{
 						BearerToken: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.TokenLocation != nil {
+								return data.JWTValidation.TokenLocation.BearerToken
+							}
 							if _, ok := TokenLocationData["bearer_token"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -32656,12 +35068,18 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if MoreOriginOptionsData, ok := blockData["more_origin_options"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerOriginPoolMoreOriginOptionsModel{
 						EnableByteRangeRequest: func() types.Bool {
+							if !isImport && data.OriginPool != nil && data.OriginPool.MoreOriginOptions != nil && !data.OriginPool.MoreOriginOptions.EnableByteRangeRequest.IsUnknown() {
+								return data.OriginPool.MoreOriginOptions.EnableByteRangeRequest
+							}
 							if v, ok := MoreOriginOptionsData["enable_byte_range_request"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
 						WebSocketProxy: func() types.Bool {
+							if !isImport && data.OriginPool != nil && data.OriginPool.MoreOriginOptions != nil && !data.OriginPool.MoreOriginOptions.WebSocketProxy.IsUnknown() {
+								return data.OriginPool.MoreOriginOptions.WebSocketProxy
+							}
 							if v, ok := MoreOriginOptionsData["websocket_proxy"].(bool); ok {
 								return types.BoolValue(v)
 							}
@@ -32690,9 +35108,14 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if !isImport && data.OriginPool != nil && (data.OriginPool.OriginServers.IsNull() || len(data.OriginPool.OriginServers.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOriginPoolOriginServersModelAttrTypes})
 				}
+				var OriginServersExisting []CDNLoadBalancerOriginPoolOriginServersModel
+				if !isImport && data.OriginPool != nil && !data.OriginPool.OriginServers.IsNull() && !data.OriginPool.OriginServers.IsUnknown() {
+					data.OriginPool.OriginServers.ElementsAs(ctx, &OriginServersExisting, false)
+				}
 				if rawList, ok := blockData["origin_servers"].([]interface{}); ok && len(rawList) > 0 {
 					var OriginServersResult []CDNLoadBalancerOriginPoolOriginServersModel
-					for _, OriginServersItem := range rawList {
+					for OriginServersIdx, OriginServersItem := range rawList {
+						_ = OriginServersIdx
 						if OriginServersItemMap, ok := OriginServersItem.(map[string]interface{}); ok {
 							OriginServersResult = append(OriginServersResult, CDNLoadBalancerOriginPoolOriginServersModel{
 								Port: func() types.Int64 {
@@ -32724,6 +35147,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return types.StringNull()
 											}(),
 											RefreshInterval: func() types.Int64 {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PublicName != nil && !OriginServersExisting[OriginServersIdx].PublicName.RefreshInterval.IsUnknown() {
+													return OriginServersExisting[OriginServersIdx].PublicName.RefreshInterval
+												}
 												if v, ok := PublicNameData["refresh_interval"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -32754,6 +35180,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return types.StringNull()
 						}(),
 						RefreshInterval: func() types.Int64 {
+							if !isImport && data.OriginPool != nil && data.OriginPool.PublicName != nil && !data.OriginPool.PublicName.RefreshInterval.IsUnknown() {
+								return data.OriginPool.PublicName.RefreshInterval
+							}
 							if v, ok := PublicNameData["refresh_interval"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -32767,36 +35196,54 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerOriginPoolUseTLSModel{
 						DefaultSessionKeyCaching: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
+								return data.OriginPool.UseTLS.DefaultSessionKeyCaching
+							}
 							if _, ok := UseTLSData["default_session_key_caching"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableSessionKeyCaching: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
+								return data.OriginPool.UseTLS.DisableSessionKeyCaching
+							}
 							if _, ok := UseTLSData["disable_session_key_caching"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableSni: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
+								return data.OriginPool.UseTLS.DisableSni
+							}
 							if _, ok := UseTLSData["disable_sni"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxSessionKeys: func() types.Int64 {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && !data.OriginPool.UseTLS.MaxSessionKeys.IsUnknown() {
+								return data.OriginPool.UseTLS.MaxSessionKeys
+							}
 							if v, ok := UseTLSData["max_session_keys"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						NoMtls: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
+								return data.OriginPool.UseTLS.NoMtls
+							}
 							if _, ok := UseTLSData["no_mtls"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						SkipServerVerification: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
+								return data.OriginPool.UseTLS.SkipServerVerification
+							}
 							if _, ok := UseTLSData["skip_server_verification"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -32809,9 +35256,15 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return types.StringNull()
 						}(),
 						TLSConfig: func() *CDNLoadBalancerOriginPoolUseTLSTLSConfigModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.TLSConfig != nil {
+								return data.OriginPool.UseTLS.TLSConfig
+							}
 							if TLSConfigData, ok := UseTLSData["tls_config"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerOriginPoolUseTLSTLSConfigModel{
 									CustomSecurity: func() *CDNLoadBalancerOriginPoolUseTLSTLSConfigCustomSecurityModel {
+										if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.TLSConfig != nil && data.OriginPool.UseTLS.TLSConfig.CustomSecurity != nil {
+											return data.OriginPool.UseTLS.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerOriginPoolUseTLSTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -32844,18 +35297,27 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										return nil
 									}(),
 									DefaultSecurity: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.TLSConfig != nil {
+											return data.OriginPool.UseTLS.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.TLSConfig != nil {
+											return data.OriginPool.UseTLS.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.TLSConfig != nil {
+											return data.OriginPool.UseTLS.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
@@ -32866,18 +35328,32 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return nil
 						}(),
 						UseHostHeaderAsSni: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
+								return data.OriginPool.UseTLS.UseHostHeaderAsSni
+							}
 							if _, ok := UseTLSData["use_host_header_as_sni"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						UseMtls: func() *CDNLoadBalancerOriginPoolUseTLSUseMtlsModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.UseMtls != nil {
+								return data.OriginPool.UseTLS.UseMtls
+							}
 							if UseMtlsData, ok := UseTLSData["use_mtls"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerOriginPoolUseTLSUseMtlsModel{
 									TLSCertificates: func() types.List {
+										if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.UseMtls != nil && (data.OriginPool.UseTLS.UseMtls.TLSCertificates.IsNull() || len(data.OriginPool.UseTLS.UseMtls.TLSCertificates.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModelAttrTypes})
+										}
+										var TLSCertificatesExisting []CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModel
+										if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.UseMtls != nil && !data.OriginPool.UseTLS.UseMtls.TLSCertificates.IsNull() && !data.OriginPool.UseTLS.UseMtls.TLSCertificates.IsUnknown() {
+											data.OriginPool.UseTLS.UseMtls.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+										}
 										if rawList, ok := UseMtlsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var TLSCertificatesResult []CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModel
-											for _, TLSCertificatesItem := range rawList {
+											for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+												_ = TLSCertificatesIdx
 												if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 													TLSCertificatesResult = append(TLSCertificatesResult, CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModel{
 														CertificateURL: func() types.String {
@@ -32913,6 +35389,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return types.StringNull()
 														}(),
 														DisableOCSPStapling: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -32922,6 +35401,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -32947,6 +35429,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -32970,6 +35455,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														UseSystemDefaults: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -33051,6 +35539,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return nil
 						}(),
 						VolterraTrustedCA: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
+								return data.OriginPool.UseTLS.VolterraTrustedCA
+							}
 							if _, ok := UseTLSData["volterra_trusted_ca"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -33080,9 +35571,17 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if HeaderOptionsData, ok := blockData["header_options"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerOtherSettingsHeaderOptionsModel{
 						RequestHeadersToAdd: func() types.List {
+							if !isImport && data.OtherSettings != nil && data.OtherSettings.HeaderOptions != nil && (data.OtherSettings.HeaderOptions.RequestHeadersToAdd.IsNull() || len(data.OtherSettings.HeaderOptions.RequestHeadersToAdd.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModelAttrTypes})
+							}
+							var RequestHeadersToAddExisting []CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModel
+							if !isImport && data.OtherSettings != nil && data.OtherSettings.HeaderOptions != nil && !data.OtherSettings.HeaderOptions.RequestHeadersToAdd.IsNull() && !data.OtherSettings.HeaderOptions.RequestHeadersToAdd.IsUnknown() {
+								data.OtherSettings.HeaderOptions.RequestHeadersToAdd.ElementsAs(ctx, &RequestHeadersToAddExisting, false)
+							}
 							if rawList, ok := HeaderOptionsData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var RequestHeadersToAddResult []CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModel
-								for _, RequestHeadersToAddItem := range rawList {
+								for RequestHeadersToAddIdx, RequestHeadersToAddItem := range rawList {
+									_ = RequestHeadersToAddIdx
 									if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
 										RequestHeadersToAddResult = append(RequestHeadersToAddResult, CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModel{
 											Append: func() types.Bool {
@@ -33101,6 +35600,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddSecretValueModel{
 														BlindfoldSecretInfo: func() *CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+															if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -33126,6 +35628,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														ClearSecretInfo: func() *CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddSecretValueClearSecretInfoModel {
+															if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddSecretValueClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -33176,9 +35681,17 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return types.ListNull(types.StringType)
 						}(),
 						ResponseHeadersToAdd: func() types.List {
+							if !isImport && data.OtherSettings != nil && data.OtherSettings.HeaderOptions != nil && (data.OtherSettings.HeaderOptions.ResponseHeadersToAdd.IsNull() || len(data.OtherSettings.HeaderOptions.ResponseHeadersToAdd.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModelAttrTypes})
+							}
+							var ResponseHeadersToAddExisting []CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModel
+							if !isImport && data.OtherSettings != nil && data.OtherSettings.HeaderOptions != nil && !data.OtherSettings.HeaderOptions.ResponseHeadersToAdd.IsNull() && !data.OtherSettings.HeaderOptions.ResponseHeadersToAdd.IsUnknown() {
+								data.OtherSettings.HeaderOptions.ResponseHeadersToAdd.ElementsAs(ctx, &ResponseHeadersToAddExisting, false)
+							}
 							if rawList, ok := HeaderOptionsData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var ResponseHeadersToAddResult []CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModel
-								for _, ResponseHeadersToAddItem := range rawList {
+								for ResponseHeadersToAddIdx, ResponseHeadersToAddItem := range rawList {
+									_ = ResponseHeadersToAddIdx
 									if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
 										ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModel{
 											Append: func() types.Bool {
@@ -33197,6 +35710,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddSecretValueModel{
 														BlindfoldSecretInfo: func() *CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+															if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -33222,6 +35738,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														ClearSecretInfo: func() *CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddSecretValueClearSecretInfoModel {
+															if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddSecretValueClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -33282,6 +35801,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if LoggingOptionsData, ok := blockData["logging_options"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerOtherSettingsLoggingOptionsModel{
 						ClientLogOptions: func() *CDNLoadBalancerOtherSettingsLoggingOptionsClientLogOptionsModel {
+							if !isImport && data.OtherSettings != nil && data.OtherSettings.LoggingOptions != nil && data.OtherSettings.LoggingOptions.ClientLogOptions != nil {
+								return data.OtherSettings.LoggingOptions.ClientLogOptions
+							}
 							if ClientLogOptionsData, ok := LoggingOptionsData["client_log_options"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerOtherSettingsLoggingOptionsClientLogOptionsModel{
 									HeaderList: func() types.List {
@@ -33302,6 +35824,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return nil
 						}(),
 						OriginLogOptions: func() *CDNLoadBalancerOtherSettingsLoggingOptionsOriginLogOptionsModel {
+							if !isImport && data.OtherSettings != nil && data.OtherSettings.LoggingOptions != nil && data.OtherSettings.LoggingOptions.OriginLogOptions != nil {
+								return data.OtherSettings.LoggingOptions.OriginLogOptions
+							}
 							if OriginLogOptionsData, ok := LoggingOptionsData["origin_log_options"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerOtherSettingsLoggingOptionsOriginLogOptionsModel{
 									HeaderList: func() types.List {
@@ -33354,6 +35879,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if CaptchaChallengeParametersData, ok := blockData["captcha_challenge_parameters"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerPolicyBasedChallengeCaptchaChallengeParametersModel{
 						CookieExpiry: func() types.Int64 {
+							if !isImport && data.PolicyBasedChallenge != nil && data.PolicyBasedChallenge.CaptchaChallengeParameters != nil && !data.PolicyBasedChallenge.CaptchaChallengeParameters.CookieExpiry.IsUnknown() {
+								return data.PolicyBasedChallenge.CaptchaChallengeParameters.CookieExpiry
+							}
 							if v, ok := CaptchaChallengeParametersData["cookie_expiry"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -33412,6 +35940,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if JsChallengeParametersData, ok := blockData["js_challenge_parameters"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerPolicyBasedChallengeJsChallengeParametersModel{
 						CookieExpiry: func() types.Int64 {
+							if !isImport && data.PolicyBasedChallenge != nil && data.PolicyBasedChallenge.JsChallengeParameters != nil && !data.PolicyBasedChallenge.JsChallengeParameters.CookieExpiry.IsUnknown() {
+								return data.PolicyBasedChallenge.JsChallengeParameters.CookieExpiry
+							}
 							if v, ok := JsChallengeParametersData["cookie_expiry"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -33424,6 +35955,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return types.StringNull()
 						}(),
 						JsScriptDelay: func() types.Int64 {
+							if !isImport && data.PolicyBasedChallenge != nil && data.PolicyBasedChallenge.JsChallengeParameters != nil && !data.PolicyBasedChallenge.JsChallengeParameters.JsScriptDelay.IsUnknown() {
+								return data.PolicyBasedChallenge.JsChallengeParameters.JsScriptDelay
+							}
 							if v, ok := JsChallengeParametersData["js_script_delay"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -33471,9 +36005,17 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if RuleListData, ok := blockData["rule_list"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerPolicyBasedChallengeRuleListModel{
 						Rules: func() types.List {
+							if !isImport && data.PolicyBasedChallenge != nil && data.PolicyBasedChallenge.RuleList != nil && (data.PolicyBasedChallenge.RuleList.Rules.IsNull() || len(data.PolicyBasedChallenge.RuleList.Rules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesModelAttrTypes})
+							}
+							var RulesExisting []CDNLoadBalancerPolicyBasedChallengeRuleListRulesModel
+							if !isImport && data.PolicyBasedChallenge != nil && data.PolicyBasedChallenge.RuleList != nil && !data.PolicyBasedChallenge.RuleList.Rules.IsNull() && !data.PolicyBasedChallenge.RuleList.Rules.IsUnknown() {
+								data.PolicyBasedChallenge.RuleList.Rules.ElementsAs(ctx, &RulesExisting, false)
+							}
 							if rawList, ok := RuleListData["rules"].([]interface{}); ok && len(rawList) > 0 {
 								var RulesResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesModel
-								for _, RulesItem := range rawList {
+								for RulesIdx, RulesItem := range rawList {
+									_ = RulesIdx
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, CDNLoadBalancerPolicyBasedChallengeRuleListRulesModel{
 											Metadata: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesMetadataModel {
@@ -33499,36 +36041,59 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												if SpecData, ok := RulesItemMap["spec"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecModel{
 														AnyAsn: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+																return RulesExisting[RulesIdx].Spec.AnyAsn
+															}
 															if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														AnyClient: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+																return RulesExisting[RulesIdx].Spec.AnyClient
+															}
 															if _, ok := SpecData["any_client"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														AnyIP: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+																return RulesExisting[RulesIdx].Spec.AnyIP
+															}
 															if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														ArgMatchers: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.ArgMatchers.IsNull() || len(RulesExisting[RulesIdx].Spec.ArgMatchers.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModelAttrTypes})
+															}
+															var ArgMatchersExisting []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.ArgMatchers.IsNull() && !RulesExisting[RulesIdx].Spec.ArgMatchers.IsUnknown() {
+																RulesExisting[RulesIdx].Spec.ArgMatchers.ElementsAs(ctx, &ArgMatchersExisting, false)
+															}
 															if rawList, ok := SpecData["arg_matchers"].([]interface{}); ok && len(rawList) > 0 {
 																var ArgMatchersResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModel
-																for _, ArgMatchersItem := range rawList {
+																for ArgMatchersIdx, ArgMatchersItem := range rawList {
+																	_ = ArgMatchersIdx
 																	if ArgMatchersItemMap, ok := ArgMatchersItem.(map[string]interface{}); ok {
 																		ArgMatchersResult = append(ArgMatchersResult, CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && ArgMatchersExisting[ArgMatchersIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := ArgMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && ArgMatchersExisting[ArgMatchersIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := ArgMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -33601,6 +36166,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModelAttrTypes})
 														}(),
 														AsnList: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnListModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.AsnList != nil {
+																return RulesExisting[RulesIdx].Spec.AsnList
+															}
 															if AsnListData, ok := SpecData["asn_list"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnListModel{
 																	AsNumbers: func() types.List {
@@ -33624,9 +36192,17 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															if AsnMatcherData, ok := SpecData["asn_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnMatcherModel{
 																	AsnSets: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.AsnMatcher != nil && (RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.IsNull() || len(RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnMatcherAsnSetsModelAttrTypes})
+																		}
+																		var AsnSetsExisting []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnMatcherAsnSetsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.AsnMatcher != nil && !RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.IsNull() && !RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+																		}
 																		if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 																			var AsnSetsResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnMatcherAsnSetsModel
-																			for _, AsnSetsItem := range rawList {
+																			for AsnSetsIdx, AsnSetsItem := range rawList {
+																				_ = AsnSetsIdx
 																				if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 																					AsnSetsResult = append(AsnSetsResult, CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnMatcherAsnSetsModel{
 																						Kind: func() types.String {
@@ -33672,6 +36248,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														BodyMatcher: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecBodyMatcherModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BodyMatcher != nil {
+																return RulesExisting[RulesIdx].Spec.BodyMatcher
+															}
 															if BodyMatcherData, ok := SpecData["body_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecBodyMatcherModel{
 																	ExactValues: func() types.List {
@@ -33718,6 +36297,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														ClientSelector: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecClientSelectorModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.ClientSelector != nil {
+																return RulesExisting[RulesIdx].Spec.ClientSelector
+															}
 															if ClientSelectorData, ok := SpecData["client_selector"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecClientSelectorModel{
 																	Expressions: func() types.List {
@@ -33738,18 +36320,32 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														CookieMatchers: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.CookieMatchers.IsNull() || len(RulesExisting[RulesIdx].Spec.CookieMatchers.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModelAttrTypes})
+															}
+															var CookieMatchersExisting []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.CookieMatchers.IsNull() && !RulesExisting[RulesIdx].Spec.CookieMatchers.IsUnknown() {
+																RulesExisting[RulesIdx].Spec.CookieMatchers.ElementsAs(ctx, &CookieMatchersExisting, false)
+															}
 															if rawList, ok := SpecData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 																var CookieMatchersResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModel
-																for _, CookieMatchersItem := range rawList {
+																for CookieMatchersIdx, CookieMatchersItem := range rawList {
+																	_ = CookieMatchersIdx
 																	if CookieMatchersItemMap, ok := CookieMatchersItem.(map[string]interface{}); ok {
 																		CookieMatchersResult = append(CookieMatchersResult, CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := CookieMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := CookieMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -33822,12 +36418,18 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModelAttrTypes})
 														}(),
 														DisableChallenge: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+																return RulesExisting[RulesIdx].Spec.DisableChallenge
+															}
 															if _, ok := SpecData["disable_challenge"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														DomainMatcher: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecDomainMatcherModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.DomainMatcher != nil {
+																return RulesExisting[RulesIdx].Spec.DomainMatcher
+															}
 															if DomainMatcherData, ok := SpecData["domain_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecDomainMatcherModel{
 																	ExactValues: func() types.List {
@@ -33861,12 +36463,18 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														EnableCaptchaChallenge: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+																return RulesExisting[RulesIdx].Spec.EnableCaptchaChallenge
+															}
 															if _, ok := SpecData["enable_captcha_challenge"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														EnableJavascriptChallenge: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+																return RulesExisting[RulesIdx].Spec.EnableJavascriptChallenge
+															}
 															if _, ok := SpecData["enable_javascript_challenge"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -33879,18 +36487,32 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return types.StringNull()
 														}(),
 														Headers: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.Headers.IsNull() || len(RulesExisting[RulesIdx].Spec.Headers.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModelAttrTypes})
+															}
+															var HeadersExisting []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.Headers.IsNull() && !RulesExisting[RulesIdx].Spec.Headers.IsUnknown() {
+																RulesExisting[RulesIdx].Spec.Headers.ElementsAs(ctx, &HeadersExisting, false)
+															}
 															if rawList, ok := SpecData["headers"].([]interface{}); ok && len(rawList) > 0 {
 																var HeadersResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModel
-																for _, HeadersItem := range rawList {
+																for HeadersIdx, HeadersItem := range rawList {
+																	_ = HeadersIdx
 																	if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 																		HeadersResult = append(HeadersResult, CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -33963,9 +36585,15 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModelAttrTypes})
 														}(),
 														HTTPMethod: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHTTPMethodModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.HTTPMethod != nil {
+																return RulesExisting[RulesIdx].Spec.HTTPMethod
+															}
 															if HTTPMethodData, ok := SpecData["http_method"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHTTPMethodModel{
 																	InvertMatcher: func() types.Bool {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.HTTPMethod != nil && !RulesExisting[RulesIdx].Spec.HTTPMethod.InvertMatcher.IsUnknown() {
+																			return RulesExisting[RulesIdx].Spec.HTTPMethod.InvertMatcher
+																		}
 																		if v, ok := HTTPMethodData["invert_matcher"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -33992,15 +36620,26 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															if IPMatcherData, ok := SpecData["ip_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPMatcherModel{
 																	InvertMatcher: func() types.Bool {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPMatcher != nil && !RulesExisting[RulesIdx].Spec.IPMatcher.InvertMatcher.IsUnknown() {
+																			return RulesExisting[RulesIdx].Spec.IPMatcher.InvertMatcher
+																		}
 																		if v, ok := IPMatcherData["invert_matcher"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
 																		return types.BoolNull()
 																	}(),
 																	PrefixSets: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPMatcher != nil && (RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.IsNull() || len(RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPMatcherPrefixSetsModelAttrTypes})
+																		}
+																		var PrefixSetsExisting []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPMatcherPrefixSetsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPMatcher != nil && !RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.IsNull() && !RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+																		}
 																		if rawList, ok := IPMatcherData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 																			var PrefixSetsResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPMatcherPrefixSetsModel
-																			for _, PrefixSetsItem := range rawList {
+																			for PrefixSetsIdx, PrefixSetsItem := range rawList {
+																				_ = PrefixSetsIdx
 																				if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 																					PrefixSetsResult = append(PrefixSetsResult, CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPMatcherPrefixSetsModel{
 																						Kind: func() types.String {
@@ -34046,9 +36685,15 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														IPPrefixList: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPPrefixListModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPPrefixList != nil {
+																return RulesExisting[RulesIdx].Spec.IPPrefixList
+															}
 															if IPPrefixListData, ok := SpecData["ip_prefix_list"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPPrefixListModel{
 																	InvertMatch: func() types.Bool {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPPrefixList != nil && !RulesExisting[RulesIdx].Spec.IPPrefixList.InvertMatch.IsUnknown() {
+																			return RulesExisting[RulesIdx].Spec.IPPrefixList.InvertMatch
+																		}
 																		if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -34072,6 +36717,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														Path: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecPathModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Path != nil {
+																return RulesExisting[RulesIdx].Spec.Path
+															}
 															if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecPathModel{
 																	ExactValues: func() types.List {
@@ -34088,6 +36736,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																		return types.ListNull(types.StringType)
 																	}(),
 																	InvertMatcher: func() types.Bool {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Path != nil && !RulesExisting[RulesIdx].Spec.Path.InvertMatcher.IsUnknown() {
+																			return RulesExisting[RulesIdx].Spec.Path.InvertMatcher
+																		}
 																		if v, ok := PathData["invert_matcher"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -34150,18 +36801,32 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														QueryParams: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.QueryParams.IsNull() || len(RulesExisting[RulesIdx].Spec.QueryParams.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModelAttrTypes})
+															}
+															var QueryParamsExisting []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.QueryParams.IsNull() && !RulesExisting[RulesIdx].Spec.QueryParams.IsUnknown() {
+																RulesExisting[RulesIdx].Spec.QueryParams.ElementsAs(ctx, &QueryParamsExisting, false)
+															}
 															if rawList, ok := SpecData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 																var QueryParamsResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModel
-																for _, QueryParamsItem := range rawList {
+																for QueryParamsIdx, QueryParamsItem := range rawList {
+																	_ = QueryParamsIdx
 																	if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 																		QueryParamsResult = append(QueryParamsResult, CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := QueryParamsItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := QueryParamsItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -34234,6 +36899,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModelAttrTypes})
 														}(),
 														TLSFingerprintMatcher: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecTLSFingerprintMatcherModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.TLSFingerprintMatcher != nil {
+																return RulesExisting[RulesIdx].Spec.TLSFingerprintMatcher
+															}
 															if TLSFingerprintMatcherData, ok := SpecData["tls_fingerprint_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecTLSFingerprintMatcherModel{
 																	Classes: func() types.List {
@@ -34453,9 +37121,17 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if CustomIPAllowedListData, ok := blockData["custom_ip_allowed_list"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitCustomIPAllowedListModel{
 						RateLimiterAllowedPrefixes: func() types.List {
+							if !isImport && data.RateLimit != nil && data.RateLimit.CustomIPAllowedList != nil && (data.RateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.IsNull() || len(data.RateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModelAttrTypes})
+							}
+							var RateLimiterAllowedPrefixesExisting []CDNLoadBalancerRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModel
+							if !isImport && data.RateLimit != nil && data.RateLimit.CustomIPAllowedList != nil && !data.RateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.IsNull() && !data.RateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.IsUnknown() {
+								data.RateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.ElementsAs(ctx, &RateLimiterAllowedPrefixesExisting, false)
+							}
 							if rawList, ok := CustomIPAllowedListData["rate_limiter_allowed_prefixes"].([]interface{}); ok && len(rawList) > 0 {
 								var RateLimiterAllowedPrefixesResult []CDNLoadBalancerRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModel
-								for _, RateLimiterAllowedPrefixesItem := range rawList {
+								for RateLimiterAllowedPrefixesIdx, RateLimiterAllowedPrefixesItem := range rawList {
+									_ = RateLimiterAllowedPrefixesIdx
 									if RateLimiterAllowedPrefixesItemMap, ok := RateLimiterAllowedPrefixesItem.(map[string]interface{}); ok {
 										RateLimiterAllowedPrefixesResult = append(RateLimiterAllowedPrefixesResult, CDNLoadBalancerRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModel{
 											Name: func() types.String {
@@ -34533,9 +37209,17 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if PoliciesData, ok := blockData["policies"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitPoliciesModel{
 						Policies: func() types.List {
+							if !isImport && data.RateLimit != nil && data.RateLimit.Policies != nil && (data.RateLimit.Policies.Policies.IsNull() || len(data.RateLimit.Policies.Policies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerRateLimitPoliciesPoliciesModelAttrTypes})
+							}
+							var PoliciesExisting []CDNLoadBalancerRateLimitPoliciesPoliciesModel
+							if !isImport && data.RateLimit != nil && data.RateLimit.Policies != nil && !data.RateLimit.Policies.Policies.IsNull() && !data.RateLimit.Policies.Policies.IsUnknown() {
+								data.RateLimit.Policies.Policies.ElementsAs(ctx, &PoliciesExisting, false)
+							}
 							if rawList, ok := PoliciesData["policies"].([]interface{}); ok && len(rawList) > 0 {
 								var PoliciesResult []CDNLoadBalancerRateLimitPoliciesPoliciesModel
-								for _, PoliciesItem := range rawList {
+								for PoliciesIdx, PoliciesItem := range rawList {
+									_ = PoliciesIdx
 									if PoliciesItemMap, ok := PoliciesItem.(map[string]interface{}); ok {
 										PoliciesResult = append(PoliciesResult, CDNLoadBalancerRateLimitPoliciesPoliciesModel{
 											Name: func() types.String {
@@ -34575,12 +37259,21 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if RateLimiterData, ok := blockData["rate_limiter"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitRateLimiterModel{
 						ActionBlock: func() *CDNLoadBalancerRateLimitRateLimiterActionBlockModel {
+							if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && data.RateLimit.RateLimiter.ActionBlock != nil {
+								return data.RateLimit.RateLimiter.ActionBlock
+							}
 							if ActionBlockData, ok := RateLimiterData["action_block"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerRateLimitRateLimiterActionBlockModel{
 									Hours: func() *CDNLoadBalancerRateLimitRateLimiterActionBlockHoursModel {
+										if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && data.RateLimit.RateLimiter.ActionBlock != nil && data.RateLimit.RateLimiter.ActionBlock.Hours != nil {
+											return data.RateLimit.RateLimiter.ActionBlock.Hours
+										}
 										if HoursData, ok := ActionBlockData["hours"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerRateLimitRateLimiterActionBlockHoursModel{
 												Duration: func() types.Int64 {
+													if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && data.RateLimit.RateLimiter.ActionBlock != nil && data.RateLimit.RateLimiter.ActionBlock.Hours != nil && !data.RateLimit.RateLimiter.ActionBlock.Hours.Duration.IsUnknown() {
+														return data.RateLimit.RateLimiter.ActionBlock.Hours.Duration
+													}
 													if v, ok := HoursData["duration"].(float64); ok && v != 0 {
 														return types.Int64Value(int64(v))
 													}
@@ -34591,9 +37284,15 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										return nil
 									}(),
 									Minutes: func() *CDNLoadBalancerRateLimitRateLimiterActionBlockMinutesModel {
+										if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && data.RateLimit.RateLimiter.ActionBlock != nil && data.RateLimit.RateLimiter.ActionBlock.Minutes != nil {
+											return data.RateLimit.RateLimiter.ActionBlock.Minutes
+										}
 										if MinutesData, ok := ActionBlockData["minutes"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerRateLimitRateLimiterActionBlockMinutesModel{
 												Duration: func() types.Int64 {
+													if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && data.RateLimit.RateLimiter.ActionBlock != nil && data.RateLimit.RateLimiter.ActionBlock.Minutes != nil && !data.RateLimit.RateLimiter.ActionBlock.Minutes.Duration.IsUnknown() {
+														return data.RateLimit.RateLimiter.ActionBlock.Minutes.Duration
+													}
 													if v, ok := MinutesData["duration"].(float64); ok && v != 0 {
 														return types.Int64Value(int64(v))
 													}
@@ -34604,9 +37303,15 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										return nil
 									}(),
 									Seconds: func() *CDNLoadBalancerRateLimitRateLimiterActionBlockSecondsModel {
+										if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && data.RateLimit.RateLimiter.ActionBlock != nil && data.RateLimit.RateLimiter.ActionBlock.Seconds != nil {
+											return data.RateLimit.RateLimiter.ActionBlock.Seconds
+										}
 										if SecondsData, ok := ActionBlockData["seconds"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerRateLimitRateLimiterActionBlockSecondsModel{
 												Duration: func() types.Int64 {
+													if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && data.RateLimit.RateLimiter.ActionBlock != nil && data.RateLimit.RateLimiter.ActionBlock.Seconds != nil && !data.RateLimit.RateLimiter.ActionBlock.Seconds.Duration.IsUnknown() {
+														return data.RateLimit.RateLimiter.ActionBlock.Seconds.Duration
+													}
 													if v, ok := SecondsData["duration"].(float64); ok && v != 0 {
 														return types.Int64Value(int64(v))
 													}
@@ -34621,36 +37326,54 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							return nil
 						}(),
 						BurstMultiplier: func() types.Int64 {
+							if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && !data.RateLimit.RateLimiter.BurstMultiplier.IsUnknown() {
+								return data.RateLimit.RateLimiter.BurstMultiplier
+							}
 							if v, ok := RateLimiterData["burst_multiplier"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Disabled: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil {
+								return data.RateLimit.RateLimiter.Disabled
+							}
 							if _, ok := RateLimiterData["disabled"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						LeakyBucket: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil {
+								return data.RateLimit.RateLimiter.LeakyBucket
+							}
 							if _, ok := RateLimiterData["leaky_bucket"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						PeriodMultiplier: func() types.Int64 {
+							if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && !data.RateLimit.RateLimiter.PeriodMultiplier.IsUnknown() {
+								return data.RateLimit.RateLimiter.PeriodMultiplier
+							}
 							if v, ok := RateLimiterData["period_multiplier"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						TokenBucket: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil {
+								return data.RateLimit.RateLimiter.TokenBucket
+							}
 							if _, ok := RateLimiterData["token_bucket"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						TotalNumber: func() types.Int64 {
+							if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && !data.RateLimit.RateLimiter.TotalNumber.IsUnknown() {
+								return data.RateLimit.RateLimiter.TotalNumber
+							}
 							if v, ok := RateLimiterData["total_number"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -34784,9 +37507,17 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 						if HTTPHeaderData, ok := itemMap["http_header"].(map[string]interface{}); ok {
 							return &CDNLoadBalancerTrustedClientsHTTPHeaderModel{
 								Headers: func() types.List {
+									if !isImport && len(existingTrustedClientsItems) > listIdx && existingTrustedClientsItems[listIdx].HTTPHeader != nil && (existingTrustedClientsItems[listIdx].HTTPHeader.Headers.IsNull() || len(existingTrustedClientsItems[listIdx].HTTPHeader.Headers.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModelAttrTypes})
+									}
+									var HeadersExisting []CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModel
+									if !isImport && len(existingTrustedClientsItems) > listIdx && existingTrustedClientsItems[listIdx].HTTPHeader != nil && !existingTrustedClientsItems[listIdx].HTTPHeader.Headers.IsNull() && !existingTrustedClientsItems[listIdx].HTTPHeader.Headers.IsUnknown() {
+										existingTrustedClientsItems[listIdx].HTTPHeader.Headers.ElementsAs(ctx, &HeadersExisting, false)
+									}
 									if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 										var HeadersResult []CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModel
-										for _, HeadersItem := range rawList {
+										for HeadersIdx, HeadersItem := range rawList {
+											_ = HeadersIdx
 											if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 												HeadersResult = append(HeadersResult, CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModel{
 													Exact: func() types.String {
@@ -34931,18 +37662,32 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if WAFExclusionInlineRulesData, ok := blockData["waf_exclusion_inline_rules"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesModel{
 						Rules: func() types.List {
+							if !isImport && data.WAFExclusion != nil && data.WAFExclusion.WAFExclusionInlineRules != nil && (data.WAFExclusion.WAFExclusionInlineRules.Rules.IsNull() || len(data.WAFExclusion.WAFExclusionInlineRules.Rules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModelAttrTypes})
+							}
+							var RulesExisting []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModel
+							if !isImport && data.WAFExclusion != nil && data.WAFExclusion.WAFExclusionInlineRules != nil && !data.WAFExclusion.WAFExclusionInlineRules.Rules.IsNull() && !data.WAFExclusion.WAFExclusionInlineRules.Rules.IsUnknown() {
+								data.WAFExclusion.WAFExclusionInlineRules.Rules.ElementsAs(ctx, &RulesExisting, false)
+							}
 							if rawList, ok := WAFExclusionInlineRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 								var RulesResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModel
-								for _, RulesItem := range rawList {
+								for RulesIdx, RulesItem := range rawList {
+									_ = RulesIdx
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModel{
 											AnyDomain: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyDomain != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											AnyPath: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyPath != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := RulesItemMap["any_path"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -34952,9 +37697,17 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												if AppFirewallDetectionControlData, ok := RulesItemMap["app_firewall_detection_control"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlModel{
 														ExcludeAttackTypeContexts: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() || len(RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeAttackTypeContexts.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
+															}
+															var ExcludeAttackTypeContextsExisting []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsUnknown() {
+																RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeAttackTypeContexts.ElementsAs(ctx, &ExcludeAttackTypeContextsExisting, false)
+															}
 															if rawList, ok := AppFirewallDetectionControlData["exclude_attack_type_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeAttackTypeContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel
-																for _, ExcludeAttackTypeContextsItem := range rawList {
+																for ExcludeAttackTypeContextsIdx, ExcludeAttackTypeContextsItem := range rawList {
+																	_ = ExcludeAttackTypeContextsIdx
 																	if ExcludeAttackTypeContextsItemMap, ok := ExcludeAttackTypeContextsItem.(map[string]interface{}); ok {
 																		ExcludeAttackTypeContextsResult = append(ExcludeAttackTypeContextsResult, CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel{
 																			Context: func() types.String {
@@ -34984,9 +37737,17 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
 														}(),
 														ExcludeBotNameContexts: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() || len(RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeBotNameContexts.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
+															}
+															var ExcludeBotNameContextsExisting []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeBotNameContexts.IsUnknown() {
+																RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeBotNameContexts.ElementsAs(ctx, &ExcludeBotNameContextsExisting, false)
+															}
 															if rawList, ok := AppFirewallDetectionControlData["exclude_bot_name_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeBotNameContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModel
-																for _, ExcludeBotNameContextsItem := range rawList {
+																for ExcludeBotNameContextsIdx, ExcludeBotNameContextsItem := range rawList {
+																	_ = ExcludeBotNameContextsIdx
 																	if ExcludeBotNameContextsItemMap, ok := ExcludeBotNameContextsItem.(map[string]interface{}); ok {
 																		ExcludeBotNameContextsResult = append(ExcludeBotNameContextsResult, CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModel{
 																			BotName: func() types.String {
@@ -35004,9 +37765,17 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
 														}(),
 														ExcludeSignatureContexts: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() || len(RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeSignatureContexts.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
+															}
+															var ExcludeSignatureContextsExisting []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeSignatureContexts.IsUnknown() {
+																RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeSignatureContexts.ElementsAs(ctx, &ExcludeSignatureContextsExisting, false)
+															}
 															if rawList, ok := AppFirewallDetectionControlData["exclude_signature_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeSignatureContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModel
-																for _, ExcludeSignatureContextsItem := range rawList {
+																for ExcludeSignatureContextsIdx, ExcludeSignatureContextsItem := range rawList {
+																	_ = ExcludeSignatureContextsIdx
 																	if ExcludeSignatureContextsItemMap, ok := ExcludeSignatureContextsItem.(map[string]interface{}); ok {
 																		ExcludeSignatureContextsResult = append(ExcludeSignatureContextsResult, CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModel{
 																			Context: func() types.String {
@@ -35036,9 +37805,17 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
 														}(),
 														ExcludeViolationContexts: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() || len(RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeViolationContexts.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes})
+															}
+															var ExcludeViolationContextsExisting []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeViolationContexts.IsUnknown() {
+																RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeViolationContexts.ElementsAs(ctx, &ExcludeViolationContextsExisting, false)
+															}
 															if rawList, ok := AppFirewallDetectionControlData["exclude_violation_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeViolationContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModel
-																for _, ExcludeViolationContextsItem := range rawList {
+																for ExcludeViolationContextsIdx, ExcludeViolationContextsItem := range rawList {
+																	_ = ExcludeViolationContextsIdx
 																	if ExcludeViolationContextsItemMap, ok := ExcludeViolationContextsItem.(map[string]interface{}); ok {
 																		ExcludeViolationContextsResult = append(ExcludeViolationContextsResult, CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModel{
 																			Context: func() types.String {
@@ -35134,6 +37911,9 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return types.StringNull()
 											}(),
 											WAFSkipProcessing: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].WAFSkipProcessing != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := RulesItemMap["waf_skip_processing"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -40319,9 +43099,14 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if !isImport && data.ActiveServicePolicies != nil && (data.ActiveServicePolicies.Policies.IsNull() || len(data.ActiveServicePolicies.Policies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerActiveServicePoliciesPoliciesModelAttrTypes})
 				}
+				var PoliciesExisting []CDNLoadBalancerActiveServicePoliciesPoliciesModel
+				if !isImport && data.ActiveServicePolicies != nil && !data.ActiveServicePolicies.Policies.IsNull() && !data.ActiveServicePolicies.Policies.IsUnknown() {
+					data.ActiveServicePolicies.Policies.ElementsAs(ctx, &PoliciesExisting, false)
+				}
 				if rawList, ok := blockData["policies"].([]interface{}); ok && len(rawList) > 0 {
 					var PoliciesResult []CDNLoadBalancerActiveServicePoliciesPoliciesModel
-					for _, PoliciesItem := range rawList {
+					for PoliciesIdx, PoliciesItem := range rawList {
+						_ = PoliciesIdx
 						if PoliciesItemMap, ok := PoliciesItem.(map[string]interface{}); ok {
 							PoliciesResult = append(PoliciesResult, CDNLoadBalancerActiveServicePoliciesPoliciesModel{
 								Name: func() types.String {
@@ -40358,12 +43143,20 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if !isImport && data.APIRateLimit != nil && (data.APIRateLimit.APIEndpointRules.IsNull() || len(data.APIRateLimit.APIEndpointRules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesModelAttrTypes})
 				}
+				var APIEndpointRulesExisting []CDNLoadBalancerAPIRateLimitAPIEndpointRulesModel
+				if !isImport && data.APIRateLimit != nil && !data.APIRateLimit.APIEndpointRules.IsNull() && !data.APIRateLimit.APIEndpointRules.IsUnknown() {
+					data.APIRateLimit.APIEndpointRules.ElementsAs(ctx, &APIEndpointRulesExisting, false)
+				}
 				if rawList, ok := blockData["api_endpoint_rules"].([]interface{}); ok && len(rawList) > 0 {
 					var APIEndpointRulesResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesModel
-					for _, APIEndpointRulesItem := range rawList {
+					for APIEndpointRulesIdx, APIEndpointRulesItem := range rawList {
+						_ = APIEndpointRulesIdx
 						if APIEndpointRulesItemMap, ok := APIEndpointRulesItem.(map[string]interface{}); ok {
 							APIEndpointRulesResult = append(APIEndpointRulesResult, CDNLoadBalancerAPIRateLimitAPIEndpointRulesModel{
 								AnyDomain: func() *CDNLoadBalancerEmptyModel {
+									if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].AnyDomain != nil {
+										return &CDNLoadBalancerEmptyModel{}
+									}
 									if _, ok := APIEndpointRulesItemMap["any_domain"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerEmptyModel{}
 									}
@@ -40373,6 +43166,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									if APIEndpointMethodData, ok := APIEndpointRulesItemMap["api_endpoint_method"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesAPIEndpointMethodModel{
 											InvertMatcher: func() types.Bool {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].APIEndpointMethod != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].APIEndpointMethod.InvertMatcher.IsUnknown() {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].APIEndpointMethod.InvertMatcher
+												}
 												if v, ok := APIEndpointMethodData["invert_matcher"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -40405,18 +43201,27 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									if ClientMatcherData, ok := APIEndpointRulesItemMap["client_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherModel{
 											AnyClient: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AnyClient
+												}
 												if _, ok := ClientMatcherData["any_client"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											AnyIP: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AnyIP
+												}
 												if _, ok := ClientMatcherData["any_ip"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											AsnList: func() *CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherAsnListModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnList != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnList
+												}
 												if AsnListData, ok := ClientMatcherData["asn_list"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherAsnListModel{
 														AsNumbers: func() types.List {
@@ -40440,9 +43245,17 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												if AsnMatcherData, ok := ClientMatcherData["asn_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherAsnMatcherModel{
 														AsnSets: func() types.List {
+															if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnMatcher != nil && (APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsNull() || len(APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnMatcher.AsnSets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherAsnMatcherAsnSetsModelAttrTypes})
+															}
+															var AsnSetsExisting []CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherAsnMatcherAsnSetsModel
+															if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnMatcher != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsNull() && !APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsUnknown() {
+																APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+															}
 															if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 																var AsnSetsResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherAsnMatcherAsnSetsModel
-																for _, AsnSetsItem := range rawList {
+																for AsnSetsIdx, AsnSetsItem := range rawList {
+																	_ = AsnSetsIdx
 																	if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 																		AsnSetsResult = append(AsnSetsResult, CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherAsnMatcherAsnSetsModel{
 																			Kind: func() types.String {
@@ -40488,6 +43301,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return nil
 											}(),
 											ClientSelector: func() *CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherClientSelectorModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.ClientSelector != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.ClientSelector
+												}
 												if ClientSelectorData, ok := ClientMatcherData["client_selector"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherClientSelectorModel{
 														Expressions: func() types.List {
@@ -40511,15 +43327,26 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												if IPMatcherData, ok := ClientMatcherData["ip_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPMatcherModel{
 														InvertMatcher: func() types.Bool {
+															if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher.InvertMatcher.IsUnknown() {
+																return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher.InvertMatcher
+															}
 															if v, ok := IPMatcherData["invert_matcher"].(bool); ok {
 																return types.BoolValue(v)
 															}
 															return types.BoolNull()
 														}(),
 														PrefixSets: func() types.List {
+															if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher != nil && (APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsNull() || len(APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher.PrefixSets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPMatcherPrefixSetsModelAttrTypes})
+															}
+															var PrefixSetsExisting []CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPMatcherPrefixSetsModel
+															if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsNull() && !APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsUnknown() {
+																APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+															}
 															if rawList, ok := IPMatcherData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 																var PrefixSetsResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPMatcherPrefixSetsModel
-																for _, PrefixSetsItem := range rawList {
+																for PrefixSetsIdx, PrefixSetsItem := range rawList {
+																	_ = PrefixSetsIdx
 																	if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 																		PrefixSetsResult = append(PrefixSetsResult, CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPMatcherPrefixSetsModel{
 																			Kind: func() types.String {
@@ -40565,9 +43392,15 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return nil
 											}(),
 											IPPrefixList: func() *CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPPrefixListModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPPrefixList != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPPrefixList
+												}
 												if IPPrefixListData, ok := ClientMatcherData["ip_prefix_list"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPPrefixListModel{
 														InvertMatch: func() types.Bool {
+															if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPPrefixList != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPPrefixList.InvertMatch.IsUnknown() {
+																return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPPrefixList.InvertMatch
+															}
 															if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -40591,6 +43424,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return nil
 											}(),
 											IPThreatCategoryList: func() *CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPThreatCategoryListModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPThreatCategoryList != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.IPThreatCategoryList
+												}
 												if IPThreatCategoryListData, ok := ClientMatcherData["ip_threat_category_list"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherIPThreatCategoryListModel{
 														IPThreatCategories: func() types.List {
@@ -40611,6 +43447,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return nil
 											}(),
 											TLSFingerprintMatcher: func() *CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherTLSFingerprintMatcherModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher != nil && APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.TLSFingerprintMatcher != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].ClientMatcher.TLSFingerprintMatcher
+												}
 												if TLSFingerprintMatcherData, ok := ClientMatcherData["tls_fingerprint_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesClientMatcherTLSFingerprintMatcherModel{
 														Classes: func() types.List {
@@ -40689,6 +43528,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return nil
 											}(),
 											Threshold: func() types.Int64 {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].InlineRateLimiter != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].InlineRateLimiter.Threshold.IsUnknown() {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].InlineRateLimiter.Threshold
+												}
 												if v, ok := InlineRateLimiterData["threshold"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -40701,6 +43543,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return types.StringNull()
 											}(),
 											UseHTTPLBUserID: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].InlineRateLimiter != nil {
+													return APIEndpointRulesExisting[APIEndpointRulesIdx].InlineRateLimiter.UseHTTPLBUserID
+												}
 												if _, ok := InlineRateLimiterData["use_http_lb_user_id"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -40739,18 +43584,32 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									if RequestMatcherData, ok := APIEndpointRulesItemMap["request_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherModel{
 											CookieMatchers: func() types.List {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && (APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.CookieMatchers.IsNull() || len(APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.CookieMatchers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModelAttrTypes})
+												}
+												var CookieMatchersExisting []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModel
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.CookieMatchers.IsNull() && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.CookieMatchers.IsUnknown() {
+													APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.CookieMatchers.ElementsAs(ctx, &CookieMatchersExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var CookieMatchersResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModel
-													for _, CookieMatchersItem := range rawList {
+													for CookieMatchersIdx, CookieMatchersItem := range rawList {
+														_ = CookieMatchersIdx
 														if CookieMatchersItemMap, ok := CookieMatchersItem.(map[string]interface{}); ok {
 															CookieMatchersResult = append(CookieMatchersResult, CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := CookieMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := CookieMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -40823,18 +43682,32 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersModelAttrTypes})
 											}(),
 											Headers: func() types.List {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && (APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.Headers.IsNull() || len(APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.Headers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModelAttrTypes})
+												}
+												var HeadersExisting []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModel
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.Headers.IsNull() && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.Headers.IsUnknown() {
+													APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.Headers.ElementsAs(ctx, &HeadersExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModel
-													for _, HeadersItem := range rawList {
+													for HeadersIdx, HeadersItem := range rawList {
+														_ = HeadersIdx
 														if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 															HeadersResult = append(HeadersResult, CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -40907,18 +43780,32 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherHeadersModelAttrTypes})
 											}(),
 											JWTClaims: func() types.List {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && (APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.JWTClaims.IsNull() || len(APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.JWTClaims.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModelAttrTypes})
+												}
+												var JWTClaimsExisting []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModel
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.JWTClaims.IsNull() && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.JWTClaims.IsUnknown() {
+													APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.JWTClaims.ElementsAs(ctx, &JWTClaimsExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 													var JWTClaimsResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModel
-													for _, JWTClaimsItem := range rawList {
+													for JWTClaimsIdx, JWTClaimsItem := range rawList {
+														_ = JWTClaimsIdx
 														if JWTClaimsItemMap, ok := JWTClaimsItem.(map[string]interface{}); ok {
 															JWTClaimsResult = append(JWTClaimsResult, CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := JWTClaimsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := JWTClaimsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -40991,18 +43878,32 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsModelAttrTypes})
 											}(),
 											QueryParams: func() types.List {
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && (APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.QueryParams.IsNull() || len(APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.QueryParams.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModelAttrTypes})
+												}
+												var QueryParamsExisting []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModel
+												if !isImport && len(APIEndpointRulesExisting) > APIEndpointRulesIdx && APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher != nil && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.QueryParams.IsNull() && !APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.QueryParams.IsUnknown() {
+													APIEndpointRulesExisting[APIEndpointRulesIdx].RequestMatcher.QueryParams.ElementsAs(ctx, &QueryParamsExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 													var QueryParamsResult []CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModel
-													for _, QueryParamsItem := range rawList {
+													for QueryParamsIdx, QueryParamsItem := range rawList {
+														_ = QueryParamsIdx
 														if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 															QueryParamsResult = append(QueryParamsResult, CDNLoadBalancerAPIRateLimitAPIEndpointRulesRequestMatcherQueryParamsModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := QueryParamsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := QueryParamsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -41096,18 +43997,32 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if BypassRateLimitingRulesData, ok := blockData["bypass_rate_limiting_rules"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesModel{
 						BypassRateLimitingRules: func() types.List {
+							if !isImport && data.APIRateLimit != nil && data.APIRateLimit.BypassRateLimitingRules != nil && (data.APIRateLimit.BypassRateLimitingRules.BypassRateLimitingRules.IsNull() || len(data.APIRateLimit.BypassRateLimitingRules.BypassRateLimitingRules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesModelAttrTypes})
+							}
+							var BypassRateLimitingRulesExisting []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesModel
+							if !isImport && data.APIRateLimit != nil && data.APIRateLimit.BypassRateLimitingRules != nil && !data.APIRateLimit.BypassRateLimitingRules.BypassRateLimitingRules.IsNull() && !data.APIRateLimit.BypassRateLimitingRules.BypassRateLimitingRules.IsUnknown() {
+								data.APIRateLimit.BypassRateLimitingRules.BypassRateLimitingRules.ElementsAs(ctx, &BypassRateLimitingRulesExisting, false)
+							}
 							if rawList, ok := BypassRateLimitingRulesData["bypass_rate_limiting_rules"].([]interface{}); ok && len(rawList) > 0 {
 								var BypassRateLimitingRulesResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesModel
-								for _, BypassRateLimitingRulesItem := range rawList {
+								for BypassRateLimitingRulesIdx, BypassRateLimitingRulesItem := range rawList {
+									_ = BypassRateLimitingRulesIdx
 									if BypassRateLimitingRulesItemMap, ok := BypassRateLimitingRulesItem.(map[string]interface{}); ok {
 										BypassRateLimitingRulesResult = append(BypassRateLimitingRulesResult, CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesModel{
 											AnyDomain: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].AnyDomain != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := BypassRateLimitingRulesItemMap["any_domain"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											AnyURL: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].AnyURL != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := BypassRateLimitingRulesItemMap["any_url"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -41169,18 +44084,27 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												if ClientMatcherData, ok := BypassRateLimitingRulesItemMap["client_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherModel{
 														AnyClient: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil {
+																return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AnyClient
+															}
 															if _, ok := ClientMatcherData["any_client"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														AnyIP: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil {
+																return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AnyIP
+															}
 															if _, ok := ClientMatcherData["any_ip"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														AsnList: func() *CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherAsnListModel {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnList != nil {
+																return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnList
+															}
 															if AsnListData, ok := ClientMatcherData["asn_list"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherAsnListModel{
 																	AsNumbers: func() types.List {
@@ -41204,9 +44128,17 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															if AsnMatcherData, ok := ClientMatcherData["asn_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherAsnMatcherModel{
 																	AsnSets: func() types.List {
+																		if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnMatcher != nil && (BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsNull() || len(BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnMatcher.AsnSets.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherAsnMatcherAsnSetsModelAttrTypes})
+																		}
+																		var AsnSetsExisting []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherAsnMatcherAsnSetsModel
+																		if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnMatcher != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsNull() && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsUnknown() {
+																			BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+																		}
 																		if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 																			var AsnSetsResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherAsnMatcherAsnSetsModel
-																			for _, AsnSetsItem := range rawList {
+																			for AsnSetsIdx, AsnSetsItem := range rawList {
+																				_ = AsnSetsIdx
 																				if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 																					AsnSetsResult = append(AsnSetsResult, CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherAsnMatcherAsnSetsModel{
 																						Kind: func() types.String {
@@ -41252,6 +44184,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														ClientSelector: func() *CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherClientSelectorModel {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.ClientSelector != nil {
+																return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.ClientSelector
+															}
 															if ClientSelectorData, ok := ClientMatcherData["client_selector"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherClientSelectorModel{
 																	Expressions: func() types.List {
@@ -41275,15 +44210,26 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															if IPMatcherData, ok := ClientMatcherData["ip_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPMatcherModel{
 																	InvertMatcher: func() types.Bool {
+																		if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher.InvertMatcher.IsUnknown() {
+																			return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher.InvertMatcher
+																		}
 																		if v, ok := IPMatcherData["invert_matcher"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
 																		return types.BoolNull()
 																	}(),
 																	PrefixSets: func() types.List {
+																		if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher != nil && (BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsNull() || len(BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher.PrefixSets.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPMatcherPrefixSetsModelAttrTypes})
+																		}
+																		var PrefixSetsExisting []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPMatcherPrefixSetsModel
+																		if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsNull() && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsUnknown() {
+																			BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+																		}
 																		if rawList, ok := IPMatcherData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 																			var PrefixSetsResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPMatcherPrefixSetsModel
-																			for _, PrefixSetsItem := range rawList {
+																			for PrefixSetsIdx, PrefixSetsItem := range rawList {
+																				_ = PrefixSetsIdx
 																				if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 																					PrefixSetsResult = append(PrefixSetsResult, CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPMatcherPrefixSetsModel{
 																						Kind: func() types.String {
@@ -41329,9 +44275,15 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														IPPrefixList: func() *CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPPrefixListModel {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPPrefixList != nil {
+																return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPPrefixList
+															}
 															if IPPrefixListData, ok := ClientMatcherData["ip_prefix_list"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPPrefixListModel{
 																	InvertMatch: func() types.Bool {
+																		if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPPrefixList != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPPrefixList.InvertMatch.IsUnknown() {
+																			return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPPrefixList.InvertMatch
+																		}
 																		if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -41355,6 +44307,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														IPThreatCategoryList: func() *CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPThreatCategoryListModel {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPThreatCategoryList != nil {
+																return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.IPThreatCategoryList
+															}
 															if IPThreatCategoryListData, ok := ClientMatcherData["ip_threat_category_list"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPThreatCategoryListModel{
 																	IPThreatCategories: func() types.List {
@@ -41375,6 +44330,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														TLSFingerprintMatcher: func() *CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherTLSFingerprintMatcherModel {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher != nil && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.TLSFingerprintMatcher != nil {
+																return BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].ClientMatcher.TLSFingerprintMatcher
+															}
 															if TLSFingerprintMatcherData, ok := ClientMatcherData["tls_fingerprint_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherTLSFingerprintMatcherModel{
 																	Classes: func() types.List {
@@ -41428,18 +44386,32 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												if RequestMatcherData, ok := BypassRateLimitingRulesItemMap["request_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherModel{
 														CookieMatchers: func() types.List {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && (BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.CookieMatchers.IsNull() || len(BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.CookieMatchers.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModelAttrTypes})
+															}
+															var CookieMatchersExisting []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModel
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.CookieMatchers.IsNull() && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.CookieMatchers.IsUnknown() {
+																BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.CookieMatchers.ElementsAs(ctx, &CookieMatchersExisting, false)
+															}
 															if rawList, ok := RequestMatcherData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 																var CookieMatchersResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModel
-																for _, CookieMatchersItem := range rawList {
+																for CookieMatchersIdx, CookieMatchersItem := range rawList {
+																	_ = CookieMatchersIdx
 																	if CookieMatchersItemMap, ok := CookieMatchersItem.(map[string]interface{}); ok {
 																		CookieMatchersResult = append(CookieMatchersResult, CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := CookieMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := CookieMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -41512,18 +44484,32 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersModelAttrTypes})
 														}(),
 														Headers: func() types.List {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && (BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.Headers.IsNull() || len(BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.Headers.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModelAttrTypes})
+															}
+															var HeadersExisting []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModel
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.Headers.IsNull() && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.Headers.IsUnknown() {
+																BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.Headers.ElementsAs(ctx, &HeadersExisting, false)
+															}
 															if rawList, ok := RequestMatcherData["headers"].([]interface{}); ok && len(rawList) > 0 {
 																var HeadersResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModel
-																for _, HeadersItem := range rawList {
+																for HeadersIdx, HeadersItem := range rawList {
+																	_ = HeadersIdx
 																	if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 																		HeadersResult = append(HeadersResult, CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -41596,18 +44582,32 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersModelAttrTypes})
 														}(),
 														JWTClaims: func() types.List {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && (BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.JWTClaims.IsNull() || len(BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.JWTClaims.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModelAttrTypes})
+															}
+															var JWTClaimsExisting []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModel
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.JWTClaims.IsNull() && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.JWTClaims.IsUnknown() {
+																BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.JWTClaims.ElementsAs(ctx, &JWTClaimsExisting, false)
+															}
 															if rawList, ok := RequestMatcherData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 																var JWTClaimsResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModel
-																for _, JWTClaimsItem := range rawList {
+																for JWTClaimsIdx, JWTClaimsItem := range rawList {
+																	_ = JWTClaimsIdx
 																	if JWTClaimsItemMap, ok := JWTClaimsItem.(map[string]interface{}); ok {
 																		JWTClaimsResult = append(JWTClaimsResult, CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := JWTClaimsItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := JWTClaimsItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -41680,18 +44680,32 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsModelAttrTypes})
 														}(),
 														QueryParams: func() types.List {
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && (BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.QueryParams.IsNull() || len(BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.QueryParams.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModelAttrTypes})
+															}
+															var QueryParamsExisting []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModel
+															if !isImport && len(BypassRateLimitingRulesExisting) > BypassRateLimitingRulesIdx && BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher != nil && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.QueryParams.IsNull() && !BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.QueryParams.IsUnknown() {
+																BypassRateLimitingRulesExisting[BypassRateLimitingRulesIdx].RequestMatcher.QueryParams.ElementsAs(ctx, &QueryParamsExisting, false)
+															}
 															if rawList, ok := RequestMatcherData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 																var QueryParamsResult []CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModel
-																for _, QueryParamsItem := range rawList {
+																for QueryParamsIdx, QueryParamsItem := range rawList {
+																	_ = QueryParamsIdx
 																	if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 																		QueryParamsResult = append(QueryParamsResult, CDNLoadBalancerAPIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := QueryParamsItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := QueryParamsItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -41789,9 +44803,17 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if CustomIPAllowedListData, ok := blockData["custom_ip_allowed_list"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerAPIRateLimitCustomIPAllowedListModel{
 						RateLimiterAllowedPrefixes: func() types.List {
+							if !isImport && data.APIRateLimit != nil && data.APIRateLimit.CustomIPAllowedList != nil && (data.APIRateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.IsNull() || len(data.APIRateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModelAttrTypes})
+							}
+							var RateLimiterAllowedPrefixesExisting []CDNLoadBalancerAPIRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModel
+							if !isImport && data.APIRateLimit != nil && data.APIRateLimit.CustomIPAllowedList != nil && !data.APIRateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.IsNull() && !data.APIRateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.IsUnknown() {
+								data.APIRateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.ElementsAs(ctx, &RateLimiterAllowedPrefixesExisting, false)
+							}
 							if rawList, ok := CustomIPAllowedListData["rate_limiter_allowed_prefixes"].([]interface{}); ok && len(rawList) > 0 {
 								var RateLimiterAllowedPrefixesResult []CDNLoadBalancerAPIRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModel
-								for _, RateLimiterAllowedPrefixesItem := range rawList {
+								for RateLimiterAllowedPrefixesIdx, RateLimiterAllowedPrefixesItem := range rawList {
+									_ = RateLimiterAllowedPrefixesIdx
 									if RateLimiterAllowedPrefixesItemMap, ok := RateLimiterAllowedPrefixesItem.(map[string]interface{}); ok {
 										RateLimiterAllowedPrefixesResult = append(RateLimiterAllowedPrefixesResult, CDNLoadBalancerAPIRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModel{
 											Name: func() types.String {
@@ -41860,12 +44882,20 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if !isImport && data.APIRateLimit != nil && (data.APIRateLimit.ServerURLRules.IsNull() || len(data.APIRateLimit.ServerURLRules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesModelAttrTypes})
 				}
+				var ServerURLRulesExisting []CDNLoadBalancerAPIRateLimitServerURLRulesModel
+				if !isImport && data.APIRateLimit != nil && !data.APIRateLimit.ServerURLRules.IsNull() && !data.APIRateLimit.ServerURLRules.IsUnknown() {
+					data.APIRateLimit.ServerURLRules.ElementsAs(ctx, &ServerURLRulesExisting, false)
+				}
 				if rawList, ok := blockData["server_url_rules"].([]interface{}); ok && len(rawList) > 0 {
 					var ServerURLRulesResult []CDNLoadBalancerAPIRateLimitServerURLRulesModel
-					for _, ServerURLRulesItem := range rawList {
+					for ServerURLRulesIdx, ServerURLRulesItem := range rawList {
+						_ = ServerURLRulesIdx
 						if ServerURLRulesItemMap, ok := ServerURLRulesItem.(map[string]interface{}); ok {
 							ServerURLRulesResult = append(ServerURLRulesResult, CDNLoadBalancerAPIRateLimitServerURLRulesModel{
 								AnyDomain: func() *CDNLoadBalancerEmptyModel {
+									if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].AnyDomain != nil {
+										return &CDNLoadBalancerEmptyModel{}
+									}
 									if _, ok := ServerURLRulesItemMap["any_domain"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerEmptyModel{}
 									}
@@ -41887,18 +44917,27 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									if ClientMatcherData, ok := ServerURLRulesItemMap["client_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherModel{
 											AnyClient: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AnyClient
+												}
 												if _, ok := ClientMatcherData["any_client"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											AnyIP: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AnyIP
+												}
 												if _, ok := ClientMatcherData["any_ip"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											AsnList: func() *CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherAsnListModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnList != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnList
+												}
 												if AsnListData, ok := ClientMatcherData["asn_list"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherAsnListModel{
 														AsNumbers: func() types.List {
@@ -41922,9 +44961,17 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												if AsnMatcherData, ok := ClientMatcherData["asn_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherAsnMatcherModel{
 														AsnSets: func() types.List {
+															if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnMatcher != nil && (ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsNull() || len(ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnMatcher.AsnSets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherAsnMatcherAsnSetsModelAttrTypes})
+															}
+															var AsnSetsExisting []CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherAsnMatcherAsnSetsModel
+															if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnMatcher != nil && !ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsNull() && !ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnMatcher.AsnSets.IsUnknown() {
+																ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+															}
 															if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 																var AsnSetsResult []CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherAsnMatcherAsnSetsModel
-																for _, AsnSetsItem := range rawList {
+																for AsnSetsIdx, AsnSetsItem := range rawList {
+																	_ = AsnSetsIdx
 																	if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 																		AsnSetsResult = append(AsnSetsResult, CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherAsnMatcherAsnSetsModel{
 																			Kind: func() types.String {
@@ -41970,6 +45017,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return nil
 											}(),
 											ClientSelector: func() *CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherClientSelectorModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.ClientSelector != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.ClientSelector
+												}
 												if ClientSelectorData, ok := ClientMatcherData["client_selector"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherClientSelectorModel{
 														Expressions: func() types.List {
@@ -41993,15 +45043,26 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												if IPMatcherData, ok := ClientMatcherData["ip_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPMatcherModel{
 														InvertMatcher: func() types.Bool {
+															if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher != nil && !ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher.InvertMatcher.IsUnknown() {
+																return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher.InvertMatcher
+															}
 															if v, ok := IPMatcherData["invert_matcher"].(bool); ok {
 																return types.BoolValue(v)
 															}
 															return types.BoolNull()
 														}(),
 														PrefixSets: func() types.List {
+															if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher != nil && (ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsNull() || len(ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher.PrefixSets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPMatcherPrefixSetsModelAttrTypes})
+															}
+															var PrefixSetsExisting []CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPMatcherPrefixSetsModel
+															if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher != nil && !ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsNull() && !ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher.PrefixSets.IsUnknown() {
+																ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+															}
 															if rawList, ok := IPMatcherData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 																var PrefixSetsResult []CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPMatcherPrefixSetsModel
-																for _, PrefixSetsItem := range rawList {
+																for PrefixSetsIdx, PrefixSetsItem := range rawList {
+																	_ = PrefixSetsIdx
 																	if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 																		PrefixSetsResult = append(PrefixSetsResult, CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPMatcherPrefixSetsModel{
 																			Kind: func() types.String {
@@ -42047,9 +45108,15 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return nil
 											}(),
 											IPPrefixList: func() *CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPPrefixListModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPPrefixList != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPPrefixList
+												}
 												if IPPrefixListData, ok := ClientMatcherData["ip_prefix_list"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPPrefixListModel{
 														InvertMatch: func() types.Bool {
+															if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPPrefixList != nil && !ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPPrefixList.InvertMatch.IsUnknown() {
+																return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPPrefixList.InvertMatch
+															}
 															if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -42073,6 +45140,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return nil
 											}(),
 											IPThreatCategoryList: func() *CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPThreatCategoryListModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPThreatCategoryList != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.IPThreatCategoryList
+												}
 												if IPThreatCategoryListData, ok := ClientMatcherData["ip_threat_category_list"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherIPThreatCategoryListModel{
 														IPThreatCategories: func() types.List {
@@ -42093,6 +45163,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return nil
 											}(),
 											TLSFingerprintMatcher: func() *CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherTLSFingerprintMatcherModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher != nil && ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.TLSFingerprintMatcher != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].ClientMatcher.TLSFingerprintMatcher
+												}
 												if TLSFingerprintMatcherData, ok := ClientMatcherData["tls_fingerprint_matcher"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPIRateLimitServerURLRulesClientMatcherTLSFingerprintMatcherModel{
 														Classes: func() types.List {
@@ -42171,6 +45244,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return nil
 											}(),
 											Threshold: func() types.Int64 {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].InlineRateLimiter != nil && !ServerURLRulesExisting[ServerURLRulesIdx].InlineRateLimiter.Threshold.IsUnknown() {
+													return ServerURLRulesExisting[ServerURLRulesIdx].InlineRateLimiter.Threshold
+												}
 												if v, ok := InlineRateLimiterData["threshold"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -42183,6 +45259,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return types.StringNull()
 											}(),
 											UseHTTPLBUserID: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].InlineRateLimiter != nil {
+													return ServerURLRulesExisting[ServerURLRulesIdx].InlineRateLimiter.UseHTTPLBUserID
+												}
 												if _, ok := InlineRateLimiterData["use_http_lb_user_id"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -42221,18 +45300,32 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									if RequestMatcherData, ok := ServerURLRulesItemMap["request_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherModel{
 											CookieMatchers: func() types.List {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && (ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.CookieMatchers.IsNull() || len(ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.CookieMatchers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModelAttrTypes})
+												}
+												var CookieMatchersExisting []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModel
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.CookieMatchers.IsNull() && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.CookieMatchers.IsUnknown() {
+													ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.CookieMatchers.ElementsAs(ctx, &CookieMatchersExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 													var CookieMatchersResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModel
-													for _, CookieMatchersItem := range rawList {
+													for CookieMatchersIdx, CookieMatchersItem := range rawList {
+														_ = CookieMatchersIdx
 														if CookieMatchersItemMap, ok := CookieMatchersItem.(map[string]interface{}); ok {
 															CookieMatchersResult = append(CookieMatchersResult, CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := CookieMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := CookieMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -42305,18 +45398,32 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherCookieMatchersModelAttrTypes})
 											}(),
 											Headers: func() types.List {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && (ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.Headers.IsNull() || len(ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.Headers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModelAttrTypes})
+												}
+												var HeadersExisting []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModel
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.Headers.IsNull() && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.Headers.IsUnknown() {
+													ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.Headers.ElementsAs(ctx, &HeadersExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModel
-													for _, HeadersItem := range rawList {
+													for HeadersIdx, HeadersItem := range rawList {
+														_ = HeadersIdx
 														if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 															HeadersResult = append(HeadersResult, CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -42389,18 +45496,32 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherHeadersModelAttrTypes})
 											}(),
 											JWTClaims: func() types.List {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && (ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.JWTClaims.IsNull() || len(ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.JWTClaims.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModelAttrTypes})
+												}
+												var JWTClaimsExisting []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModel
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.JWTClaims.IsNull() && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.JWTClaims.IsUnknown() {
+													ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.JWTClaims.ElementsAs(ctx, &JWTClaimsExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
 													var JWTClaimsResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModel
-													for _, JWTClaimsItem := range rawList {
+													for JWTClaimsIdx, JWTClaimsItem := range rawList {
+														_ = JWTClaimsIdx
 														if JWTClaimsItemMap, ok := JWTClaimsItem.(map[string]interface{}); ok {
 															JWTClaimsResult = append(JWTClaimsResult, CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := JWTClaimsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := JWTClaimsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -42473,18 +45594,32 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherJWTClaimsModelAttrTypes})
 											}(),
 											QueryParams: func() types.List {
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && (ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.QueryParams.IsNull() || len(ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.QueryParams.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModelAttrTypes})
+												}
+												var QueryParamsExisting []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModel
+												if !isImport && len(ServerURLRulesExisting) > ServerURLRulesIdx && ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher != nil && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.QueryParams.IsNull() && !ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.QueryParams.IsUnknown() {
+													ServerURLRulesExisting[ServerURLRulesIdx].RequestMatcher.QueryParams.ElementsAs(ctx, &QueryParamsExisting, false)
+												}
 												if rawList, ok := RequestMatcherData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 													var QueryParamsResult []CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModel
-													for _, QueryParamsItem := range rawList {
+													for QueryParamsIdx, QueryParamsItem := range rawList {
+														_ = QueryParamsIdx
 														if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 															QueryParamsResult = append(QueryParamsResult, CDNLoadBalancerAPIRateLimitServerURLRulesRequestMatcherQueryParamsModel{
 																CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckNotPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := QueryParamsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
 																	return nil
 																}(),
 																CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckPresent != nil {
+																		return &CDNLoadBalancerEmptyModel{}
+																	}
 																	if _, ok := QueryParamsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &CDNLoadBalancerEmptyModel{}
 																	}
@@ -42610,36 +45745,62 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if ValidationAllSpecEndpointsData, ok := blockData["validation_all_spec_endpoints"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsModel{
 						FallThroughMode: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeModel {
+							if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode != nil {
+								return data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode
+							}
 							if FallThroughModeData, ok := ValidationAllSpecEndpointsData["fall_through_mode"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeModel{
 									FallThroughModeAllow: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeAllow
+										}
 										if _, ok := FallThroughModeData["fall_through_mode_allow"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									FallThroughModeCustom: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom
+										}
 										if FallThroughModeCustomData, ok := FallThroughModeData["fall_through_mode_custom"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModel{
 												OpenAPIValidationRules: func() types.List {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom != nil && (data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsNull() || len(data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes})
+													}
+													var OpenAPIValidationRulesExisting []CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom != nil && !data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsNull() && !data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsUnknown() {
+														data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.ElementsAs(ctx, &OpenAPIValidationRulesExisting, false)
+													}
 													if rawList, ok := FallThroughModeCustomData["open_api_validation_rules"].([]interface{}); ok && len(rawList) > 0 {
 														var OpenAPIValidationRulesResult []CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
-														for _, OpenAPIValidationRulesItem := range rawList {
+														for OpenAPIValidationRulesIdx, OpenAPIValidationRulesItem := range rawList {
+															_ = OpenAPIValidationRulesIdx
 															if OpenAPIValidationRulesItemMap, ok := OpenAPIValidationRulesItem.(map[string]interface{}); ok {
 																OpenAPIValidationRulesResult = append(OpenAPIValidationRulesResult, CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel{
 																	ActionBlock: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionBlock != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := OpenAPIValidationRulesItemMap["action_block"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ActionReport: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionReport != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := OpenAPIValidationRulesItemMap["action_report"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ActionSkip: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionSkip != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := OpenAPIValidationRulesItemMap["action_skip"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -42719,33 +45880,54 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return nil
 						}(),
 						Settings: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsSettingsModel {
+							if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil {
+								return data.APISpecification.ValidationAllSpecEndpoints.Settings
+							}
 							if SettingsData, ok := ValidationAllSpecEndpointsData["settings"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsSettingsModel{
 									OversizedBodyFailValidation: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.Settings.OversizedBodyFailValidation
+										}
 										if _, ok := SettingsData["oversized_body_fail_validation"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									OversizedBodySkipValidation: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.Settings.OversizedBodySkipValidation
+										}
 										if _, ok := SettingsData["oversized_body_skip_validation"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									PropertyValidationSettingsCustom: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom
+										}
 										if PropertyValidationSettingsCustomData, ok := SettingsData["property_validation_settings_custom"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomModel{
 												Queryparameters: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomQueryParametersModel {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters != nil {
+														return data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters
+													}
 													if QueryparametersData, ok := PropertyValidationSettingsCustomData["queryParameters"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomQueryParametersModel{
 															AllowAdditionalParameters: func() *CDNLoadBalancerEmptyModel {
+																if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters != nil {
+																	return data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters.AllowAdditionalParameters
+																}
 																if _, ok := QueryparametersData["allow_additional_parameters"].(map[string]interface{}); ok {
 																	return &CDNLoadBalancerEmptyModel{}
 																}
 																return nil
 															}(),
 															DisallowAdditionalParameters: func() *CDNLoadBalancerEmptyModel {
+																if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters != nil {
+																	return data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters.DisallowAdditionalParameters
+																}
 																if _, ok := QueryparametersData["disallow_additional_parameters"].(map[string]interface{}); ok {
 																	return &CDNLoadBalancerEmptyModel{}
 																}
@@ -42760,6 +45942,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										return nil
 									}(),
 									PropertyValidationSettingsDefault: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsDefault
+										}
 										if _, ok := SettingsData["property_validation_settings_default"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
@@ -42770,18 +45955,30 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return nil
 						}(),
 						ValidationMode: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsValidationModeModel {
+							if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil {
+								return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode
+							}
 							if ValidationModeData, ok := ValidationAllSpecEndpointsData["validation_mode"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsValidationModeModel{
 									ResponseValidationModeActive: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsValidationModeResponseValidationModeActiveModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive
+										}
 										if ResponseValidationModeActiveData, ok := ValidationModeData["response_validation_mode_active"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsValidationModeResponseValidationModeActiveModel{
 												EnforcementBlock: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive != nil {
+														return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive.EnforcementBlock
+													}
 													if _, ok := ResponseValidationModeActiveData["enforcement_block"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												EnforcementReport: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive != nil {
+														return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive.EnforcementReport
+													}
 													if _, ok := ResponseValidationModeActiveData["enforcement_report"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
@@ -42805,27 +46002,42 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										return nil
 									}(),
 									SkipResponseValidation: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.SkipResponseValidation
+										}
 										if _, ok := ValidationModeData["skip_response_validation"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									SkipValidation: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.SkipValidation
+										}
 										if _, ok := ValidationModeData["skip_validation"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									ValidationModeActive: func() *CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsValidationModeValidationModeActiveModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive != nil {
+											return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive
+										}
 										if ValidationModeActiveData, ok := ValidationModeData["validation_mode_active"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationAllSpecEndpointsValidationModeValidationModeActiveModel{
 												EnforcementBlock: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive != nil {
+														return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive.EnforcementBlock
+													}
 													if _, ok := ValidationModeActiveData["enforcement_block"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												EnforcementReport: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive != nil {
+														return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive.EnforcementReport
+													}
 													if _, ok := ValidationModeActiveData["enforcement_report"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
@@ -42863,36 +46075,62 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if ValidationCustomListData, ok := blockData["validation_custom_list"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerAPISpecificationValidationCustomListModel{
 						FallThroughMode: func() *CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeModel {
+							if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.FallThroughMode != nil {
+								return data.APISpecification.ValidationCustomList.FallThroughMode
+							}
 							if FallThroughModeData, ok := ValidationCustomListData["fall_through_mode"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeModel{
 									FallThroughModeAllow: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.FallThroughMode != nil {
+											return data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeAllow
+										}
 										if _, ok := FallThroughModeData["fall_through_mode_allow"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									FallThroughModeCustom: func() *CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.FallThroughMode != nil && data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom != nil {
+											return data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom
+										}
 										if FallThroughModeCustomData, ok := FallThroughModeData["fall_through_mode_custom"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModel{
 												OpenAPIValidationRules: func() types.List {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.FallThroughMode != nil && data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom != nil && (data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsNull() || len(data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes})
+													}
+													var OpenAPIValidationRulesExisting []CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.FallThroughMode != nil && data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom != nil && !data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsNull() && !data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsUnknown() {
+														data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.ElementsAs(ctx, &OpenAPIValidationRulesExisting, false)
+													}
 													if rawList, ok := FallThroughModeCustomData["open_api_validation_rules"].([]interface{}); ok && len(rawList) > 0 {
 														var OpenAPIValidationRulesResult []CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
-														for _, OpenAPIValidationRulesItem := range rawList {
+														for OpenAPIValidationRulesIdx, OpenAPIValidationRulesItem := range rawList {
+															_ = OpenAPIValidationRulesIdx
 															if OpenAPIValidationRulesItemMap, ok := OpenAPIValidationRulesItem.(map[string]interface{}); ok {
 																OpenAPIValidationRulesResult = append(OpenAPIValidationRulesResult, CDNLoadBalancerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel{
 																	ActionBlock: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionBlock != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := OpenAPIValidationRulesItemMap["action_block"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ActionReport: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionReport != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := OpenAPIValidationRulesItemMap["action_report"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ActionSkip: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionSkip != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := OpenAPIValidationRulesItemMap["action_skip"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -42972,12 +46210,23 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return nil
 						}(),
 						OpenAPIValidationRules: func() types.List {
+							if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && (data.APISpecification.ValidationCustomList.OpenAPIValidationRules.IsNull() || len(data.APISpecification.ValidationCustomList.OpenAPIValidationRules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModelAttrTypes})
+							}
+							var OpenAPIValidationRulesExisting []CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModel
+							if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && !data.APISpecification.ValidationCustomList.OpenAPIValidationRules.IsNull() && !data.APISpecification.ValidationCustomList.OpenAPIValidationRules.IsUnknown() {
+								data.APISpecification.ValidationCustomList.OpenAPIValidationRules.ElementsAs(ctx, &OpenAPIValidationRulesExisting, false)
+							}
 							if rawList, ok := ValidationCustomListData["open_api_validation_rules"].([]interface{}); ok && len(rawList) > 0 {
 								var OpenAPIValidationRulesResult []CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModel
-								for _, OpenAPIValidationRulesItem := range rawList {
+								for OpenAPIValidationRulesIdx, OpenAPIValidationRulesItem := range rawList {
+									_ = OpenAPIValidationRulesIdx
 									if OpenAPIValidationRulesItemMap, ok := OpenAPIValidationRulesItem.(map[string]interface{}); ok {
 										OpenAPIValidationRulesResult = append(OpenAPIValidationRulesResult, CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModel{
 											AnyDomain: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].AnyDomain != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := OpenAPIValidationRulesItemMap["any_domain"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -43050,15 +46299,24 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												if ValidationModeData, ok := OpenAPIValidationRulesItemMap["validation_mode"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeModel{
 														ResponseValidationModeActive: func() *CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeResponseValidationModeActiveModel {
+															if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive != nil {
+																return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive
+															}
 															if ResponseValidationModeActiveData, ok := ValidationModeData["response_validation_mode_active"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeResponseValidationModeActiveModel{
 																	EnforcementBlock: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive != nil {
+																			return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive.EnforcementBlock
+																		}
 																		if _, ok := ResponseValidationModeActiveData["enforcement_block"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	EnforcementReport: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive != nil {
+																			return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive.EnforcementReport
+																		}
 																		if _, ok := ResponseValidationModeActiveData["enforcement_report"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -43082,27 +46340,42 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														SkipResponseValidation: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil {
+																return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.SkipResponseValidation
+															}
 															if _, ok := ValidationModeData["skip_response_validation"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														SkipValidation: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil {
+																return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.SkipValidation
+															}
 															if _, ok := ValidationModeData["skip_validation"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														ValidationModeActive: func() *CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeValidationModeActiveModel {
+															if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive != nil {
+																return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive
+															}
 															if ValidationModeActiveData, ok := ValidationModeData["validation_mode_active"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeValidationModeActiveModel{
 																	EnforcementBlock: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive != nil {
+																			return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive.EnforcementBlock
+																		}
 																		if _, ok := ValidationModeActiveData["enforcement_block"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	EnforcementReport: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive != nil {
+																			return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive.EnforcementReport
+																		}
 																		if _, ok := ValidationModeActiveData["enforcement_report"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -43138,33 +46411,54 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerAPISpecificationValidationCustomListOpenAPIValidationRulesModelAttrTypes})
 						}(),
 						Settings: func() *CDNLoadBalancerAPISpecificationValidationCustomListSettingsModel {
+							if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil {
+								return data.APISpecification.ValidationCustomList.Settings
+							}
 							if SettingsData, ok := ValidationCustomListData["settings"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerAPISpecificationValidationCustomListSettingsModel{
 									OversizedBodyFailValidation: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil {
+											return data.APISpecification.ValidationCustomList.Settings.OversizedBodyFailValidation
+										}
 										if _, ok := SettingsData["oversized_body_fail_validation"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									OversizedBodySkipValidation: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil {
+											return data.APISpecification.ValidationCustomList.Settings.OversizedBodySkipValidation
+										}
 										if _, ok := SettingsData["oversized_body_skip_validation"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									PropertyValidationSettingsCustom: func() *CDNLoadBalancerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom != nil {
+											return data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom
+										}
 										if PropertyValidationSettingsCustomData, ok := SettingsData["property_validation_settings_custom"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomModel{
 												Queryparameters: func() *CDNLoadBalancerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomQueryParametersModel {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters != nil {
+														return data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters
+													}
 													if QueryparametersData, ok := PropertyValidationSettingsCustomData["queryParameters"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomQueryParametersModel{
 															AllowAdditionalParameters: func() *CDNLoadBalancerEmptyModel {
+																if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters != nil {
+																	return data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters.AllowAdditionalParameters
+																}
 																if _, ok := QueryparametersData["allow_additional_parameters"].(map[string]interface{}); ok {
 																	return &CDNLoadBalancerEmptyModel{}
 																}
 																return nil
 															}(),
 															DisallowAdditionalParameters: func() *CDNLoadBalancerEmptyModel {
+																if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters != nil {
+																	return data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters.DisallowAdditionalParameters
+																}
 																if _, ok := QueryparametersData["disallow_additional_parameters"].(map[string]interface{}); ok {
 																	return &CDNLoadBalancerEmptyModel{}
 																}
@@ -43179,6 +46473,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										return nil
 									}(),
 									PropertyValidationSettingsDefault: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil {
+											return data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsDefault
+										}
 										if _, ok := SettingsData["property_validation_settings_default"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
@@ -43275,9 +46572,17 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						if HTTPHeaderData, ok := itemMap["http_header"].(map[string]interface{}); ok {
 							return &CDNLoadBalancerBlockedClientsHTTPHeaderModel{
 								Headers: func() types.List {
+									if !isImport && len(existingBlockedClientsItems) > listIdx && existingBlockedClientsItems[listIdx].HTTPHeader != nil && (existingBlockedClientsItems[listIdx].HTTPHeader.Headers.IsNull() || len(existingBlockedClientsItems[listIdx].HTTPHeader.Headers.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModelAttrTypes})
+									}
+									var HeadersExisting []CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModel
+									if !isImport && len(existingBlockedClientsItems) > listIdx && existingBlockedClientsItems[listIdx].HTTPHeader != nil && !existingBlockedClientsItems[listIdx].HTTPHeader.Headers.IsNull() && !existingBlockedClientsItems[listIdx].HTTPHeader.Headers.IsUnknown() {
+										existingBlockedClientsItems[listIdx].HTTPHeader.Headers.ElementsAs(ctx, &HeadersExisting, false)
+									}
 									if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 										var HeadersResult []CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModel
-										for _, HeadersItem := range rawList {
+										for HeadersIdx, HeadersItem := range rawList {
+											_ = HeadersIdx
 											if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 												HeadersResult = append(HeadersResult, CDNLoadBalancerBlockedClientsHTTPHeaderHeadersModel{
 													Exact: func() types.String {
@@ -43415,12 +46720,18 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if PolicyData, ok := blockData["policy"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerBotDefensePolicyModel{
 						DisableJsInsert: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil {
+								return data.BotDefense.Policy.DisableJsInsert
+							}
 							if _, ok := PolicyData["disable_js_insert"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableMobileSdk: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil {
+								return data.BotDefense.Policy.DisableMobileSdk
+							}
 							if _, ok := PolicyData["disable_mobile_sdk"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -43439,6 +46750,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return types.StringNull()
 						}(),
 						JsInsertAllPages: func() *CDNLoadBalancerBotDefensePolicyJsInsertAllPagesModel {
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertAllPages != nil {
+								return data.BotDefense.Policy.JsInsertAllPages
+							}
 							if JsInsertAllPagesData, ok := PolicyData["js_insert_all_pages"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerBotDefensePolicyJsInsertAllPagesModel{
 									JavascriptLocation: func() types.String {
@@ -43452,15 +46766,29 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return nil
 						}(),
 						JsInsertAllPagesExcept: func() *CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptModel {
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertAllPagesExcept != nil {
+								return data.BotDefense.Policy.JsInsertAllPagesExcept
+							}
 							if JsInsertAllPagesExceptData, ok := PolicyData["js_insert_all_pages_except"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptModel{
 									ExcludeList: func() types.List {
+										if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertAllPagesExcept != nil && (data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsNull() || len(data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModelAttrTypes})
+										}
+										var ExcludeListExisting []CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModel
+										if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertAllPagesExcept != nil && !data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
+											data.BotDefense.Policy.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
 										if rawList, ok := JsInsertAllPagesExceptData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModel
-											for _, ExcludeListItem := range rawList {
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
 												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 													ExcludeListResult = append(ExcludeListResult, CDNLoadBalancerBotDefensePolicyJsInsertAllPagesExceptExcludeListModel{
 														AnyDomain: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -43554,15 +46882,29 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return nil
 						}(),
 						JsInsertionRules: func() *CDNLoadBalancerBotDefensePolicyJsInsertionRulesModel {
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertionRules != nil {
+								return data.BotDefense.Policy.JsInsertionRules
+							}
 							if JsInsertionRulesData, ok := PolicyData["js_insertion_rules"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerBotDefensePolicyJsInsertionRulesModel{
 									ExcludeList: func() types.List {
+										if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertionRules != nil && (data.BotDefense.Policy.JsInsertionRules.ExcludeList.IsNull() || len(data.BotDefense.Policy.JsInsertionRules.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModelAttrTypes})
+										}
+										var ExcludeListExisting []CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModel
+										if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertionRules != nil && !data.BotDefense.Policy.JsInsertionRules.ExcludeList.IsNull() && !data.BotDefense.Policy.JsInsertionRules.ExcludeList.IsUnknown() {
+											data.BotDefense.Policy.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
 										if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModel
-											for _, ExcludeListItem := range rawList {
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
 												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 													ExcludeListResult = append(ExcludeListResult, CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModel{
 														AnyDomain: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -43646,12 +46988,23 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertionRulesExcludeListModelAttrTypes})
 									}(),
 									Rules: func() types.List {
+										if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertionRules != nil && (data.BotDefense.Policy.JsInsertionRules.Rules.IsNull() || len(data.BotDefense.Policy.JsInsertionRules.Rules.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModelAttrTypes})
+										}
+										var RulesExisting []CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModel
+										if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.JsInsertionRules != nil && !data.BotDefense.Policy.JsInsertionRules.Rules.IsNull() && !data.BotDefense.Policy.JsInsertionRules.Rules.IsUnknown() {
+											data.BotDefense.Policy.JsInsertionRules.Rules.ElementsAs(ctx, &RulesExisting, false)
+										}
 										if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 											var RulesResult []CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModel
-											for _, RulesItem := range rawList {
+											for RulesIdx, RulesItem := range rawList {
+												_ = RulesIdx
 												if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 													RulesResult = append(RulesResult, CDNLoadBalancerBotDefensePolicyJsInsertionRulesRulesModel{
 														AnyDomain: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyDomain != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -43745,24 +47098,44 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return nil
 						}(),
 						MobileSdkConfig: func() *CDNLoadBalancerBotDefensePolicyMobileSdkConfigModel {
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.MobileSdkConfig != nil {
+								return data.BotDefense.Policy.MobileSdkConfig
+							}
 							if MobileSdkConfigData, ok := PolicyData["mobile_sdk_config"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerBotDefensePolicyMobileSdkConfigModel{
 									MobileIdentifier: func() *CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierModel {
+										if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.MobileSdkConfig != nil && data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier != nil {
+											return data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier
+										}
 										if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierModel{
 												Headers: func() types.List {
+													if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.MobileSdkConfig != nil && data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier != nil && (data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers.IsNull() || len(data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
+													}
+													var HeadersExisting []CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModel
+													if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && data.BotDefense.Policy.MobileSdkConfig != nil && data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier != nil && !data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
+														data.BotDefense.Policy.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersExisting, false)
+													}
 													if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
 														var HeadersResult []CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModel
-														for _, HeadersItem := range rawList {
+														for HeadersIdx, HeadersItem := range rawList {
+															_ = HeadersIdx
 															if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 																HeadersResult = append(HeadersResult, CDNLoadBalancerBotDefensePolicyMobileSdkConfigMobileIdentifierHeadersModel{
 																	CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
+																			return &CDNLoadBalancerEmptyModel{}
+																		}
 																		if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -43837,18 +47210,32 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return nil
 						}(),
 						ProtectedAppEndpoints: func() types.List {
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && (data.BotDefense.Policy.ProtectedAppEndpoints.IsNull() || len(data.BotDefense.Policy.ProtectedAppEndpoints.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModelAttrTypes})
+							}
+							var ProtectedAppEndpointsExisting []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModel
+							if !isImport && data.BotDefense != nil && data.BotDefense.Policy != nil && !data.BotDefense.Policy.ProtectedAppEndpoints.IsNull() && !data.BotDefense.Policy.ProtectedAppEndpoints.IsUnknown() {
+								data.BotDefense.Policy.ProtectedAppEndpoints.ElementsAs(ctx, &ProtectedAppEndpointsExisting, false)
+							}
 							if rawList, ok := PolicyData["protected_app_endpoints"].([]interface{}); ok && len(rawList) > 0 {
 								var ProtectedAppEndpointsResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModel
-								for _, ProtectedAppEndpointsItem := range rawList {
+								for ProtectedAppEndpointsIdx, ProtectedAppEndpointsItem := range rawList {
+									_ = ProtectedAppEndpointsIdx
 									if ProtectedAppEndpointsItemMap, ok := ProtectedAppEndpointsItem.(map[string]interface{}); ok {
 										ProtectedAppEndpointsResult = append(ProtectedAppEndpointsResult, CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsModel{
 											AllowGoodBots: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].AllowGoodBots != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := ProtectedAppEndpointsItemMap["allow_good_bots"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											AnyDomain: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].AnyDomain != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := ProtectedAppEndpointsItemMap["any_domain"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -43883,15 +47270,24 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												if FlowLabelData, ok := ProtectedAppEndpointsItemMap["flow_label"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelModel{
 														AccountManagement: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAccountManagementModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.AccountManagement != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.AccountManagement
+															}
 															if AccountManagementData, ok := FlowLabelData["account_management"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAccountManagementModel{
 																	Create: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.AccountManagement != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.AccountManagement.Create
+																		}
 																		if _, ok := AccountManagementData["create"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	PasswordReset: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.AccountManagement != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.AccountManagement.PasswordReset
+																		}
 																		if _, ok := AccountManagementData["password_reset"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -43902,24 +47298,44 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														Authentication: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication
+															}
 															if AuthenticationData, ok := FlowLabelData["authentication"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationModel{
 																	Login: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login
+																		}
 																		if LoginData, ok := AuthenticationData["login"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginModel{
 																				DisableTransactionResult: func() *CDNLoadBalancerEmptyModel {
+																					if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login != nil {
+																						return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.DisableTransactionResult
+																					}
 																					if _, ok := LoginData["disable_transaction_result"].(map[string]interface{}); ok {
 																						return &CDNLoadBalancerEmptyModel{}
 																					}
 																					return nil
 																				}(),
 																				TransactionResult: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultModel {
+																					if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil {
+																						return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult
+																					}
 																					if TransactionResultData, ok := LoginData["transaction_result"].(map[string]interface{}); ok {
 																						return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultModel{
 																							FailureConditions: func() types.List {
+																								if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && (ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsNull() || len(ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.Elements()) == 0) {
+																									return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes})
+																								}
+																								var FailureConditionsExisting []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel
+																								if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && !ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsNull() && !ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsUnknown() {
+																									ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.ElementsAs(ctx, &FailureConditionsExisting, false)
+																								}
 																								if rawList, ok := TransactionResultData["failure_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																									var FailureConditionsResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel
-																									for _, FailureConditionsItem := range rawList {
+																									for FailureConditionsIdx, FailureConditionsItem := range rawList {
+																										_ = FailureConditionsIdx
 																										if FailureConditionsItemMap, ok := FailureConditionsItem.(map[string]interface{}); ok {
 																											FailureConditionsResult = append(FailureConditionsResult, CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel{
 																												Name: func() types.String {
@@ -43956,9 +47372,17 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes})
 																							}(),
 																							SuccessConditions: func() types.List {
+																								if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && (ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsNull() || len(ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.Elements()) == 0) {
+																									return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModelAttrTypes})
+																								}
+																								var SuccessConditionsExisting []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel
+																								if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && !ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsNull() && !ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsUnknown() {
+																									ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.ElementsAs(ctx, &SuccessConditionsExisting, false)
+																								}
 																								if rawList, ok := TransactionResultData["success_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																									var SuccessConditionsResult []CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel
-																									for _, SuccessConditionsItem := range rawList {
+																									for SuccessConditionsIdx, SuccessConditionsItem := range rawList {
+																										_ = SuccessConditionsIdx
 																										if SuccessConditionsItemMap, ok := SuccessConditionsItem.(map[string]interface{}); ok {
 																											SuccessConditionsResult = append(SuccessConditionsResult, CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel{
 																												Name: func() types.String {
@@ -44003,24 +47427,36 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																		return nil
 																	}(),
 																	LoginMFA: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.LoginMFA
+																		}
 																		if _, ok := AuthenticationData["login_mfa"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	LoginPartner: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.LoginPartner
+																		}
 																		if _, ok := AuthenticationData["login_partner"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	Logout: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.Logout
+																		}
 																		if _, ok := AuthenticationData["logout"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	TokenRefresh: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Authentication.TokenRefresh
+																		}
 																		if _, ok := AuthenticationData["token_refresh"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -44031,15 +47467,24 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														FinancialServices: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFinancialServicesModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.FinancialServices != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.FinancialServices
+															}
 															if FinancialServicesData, ok := FlowLabelData["financial_services"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFinancialServicesModel{
 																	Apply: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.FinancialServices != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.FinancialServices.Apply
+																		}
 																		if _, ok := FinancialServicesData["apply"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	MoneyTransfer: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.FinancialServices != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.FinancialServices.MoneyTransfer
+																		}
 																		if _, ok := FinancialServicesData["money_transfer"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -44050,9 +47495,15 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														Flight: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight
+															}
 															if FlightData, ok := FlowLabelData["flight"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel{
 																	Checking: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight.Checking
+																		}
 																		if _, ok := FlightData["checking"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -44063,21 +47514,33 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														ProfileManagement: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelProfileManagementModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement
+															}
 															if ProfileManagementData, ok := FlowLabelData["profile_management"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelProfileManagementModel{
 																	Create: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement.Create
+																		}
 																		if _, ok := ProfileManagementData["create"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	Update: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement.Update
+																		}
 																		if _, ok := ProfileManagementData["update"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	View: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ProfileManagement.View
+																		}
 																		if _, ok := ProfileManagementData["view"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -44088,27 +47551,42 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														Search: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelSearchModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search
+															}
 															if SearchData, ok := FlowLabelData["search"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelSearchModel{
 																	FlightSearch: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search.FlightSearch
+																		}
 																		if _, ok := SearchData["flight_search"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ProductSearch: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search.ProductSearch
+																		}
 																		if _, ok := SearchData["product_search"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ReservationSearch: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search.ReservationSearch
+																		}
 																		if _, ok := SearchData["reservation_search"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	RoomSearch: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Search.RoomSearch
+																		}
 																		if _, ok := SearchData["room_search"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -44119,75 +47597,114 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														ShoppingGiftCards: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelShoppingGiftCardsModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards
+															}
 															if ShoppingGiftCardsData, ok := FlowLabelData["shopping_gift_cards"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelShoppingGiftCardsModel{
 																	GiftCardMakePurchaseWithGiftCard: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard
+																		}
 																		if _, ok := ShoppingGiftCardsData["gift_card_make_purchase_with_gift_card"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	GiftCardValidation: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardValidation
+																		}
 																		if _, ok := ShoppingGiftCardsData["gift_card_validation"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopAddToCart: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopAddToCart
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_add_to_cart"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopCheckout: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopCheckout
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_checkout"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopChooseSeat: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopChooseSeat
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_choose_seat"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopEnterDrawingSubmission: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_enter_drawing_submission"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopMakePayment: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopMakePayment
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_make_payment"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopOrder: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopOrder
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_order"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopPriceInquiry: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPriceInquiry
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_price_inquiry"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopPromoCodeValidation: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_promo_code_validation"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopPurchaseGiftCard: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_purchase_gift_card"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	ShopUpdateQuantity: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopUpdateQuantity
+																		}
 																		if _, ok := ShoppingGiftCardsData["shop_update_quantity"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -44318,6 +47835,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return nil
 											}(),
 											MitigateGoodBots: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].MitigateGoodBots != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := ProtectedAppEndpointsItemMap["mitigate_good_bots"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -44327,6 +47847,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												if MitigationData, ok := ProtectedAppEndpointsItemMap["mitigation"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationModel{
 														Block: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationBlockModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Block != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Block
+															}
 															if BlockData, ok := MitigationData["block"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationBlockModel{
 																	Body: func() types.String {
@@ -44346,9 +47869,15 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														Flag: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationFlagModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Flag != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Flag
+															}
 															if FlagData, ok := MitigationData["flag"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationFlagModel{
 																	AppendHeaders: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationFlagAppendHeadersModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Flag != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Flag.AppendHeaders != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Flag.AppendHeaders
+																		}
 																		if AppendHeadersData, ok := FlagData["append_headers"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationFlagAppendHeadersModel{
 																				AutoTypeHeaderName: func() types.String {
@@ -44368,6 +47897,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																		return nil
 																	}(),
 																	NoHeaders: func() *CDNLoadBalancerEmptyModel {
+																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Flag != nil {
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Flag.NoHeaders
+																		}
 																		if _, ok := FlagData["no_headers"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
@@ -44378,6 +47910,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														Redirect: func() *CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationRedirectModel {
+															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Redirect != nil {
+																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.Redirect
+															}
 															if RedirectData, ok := MitigationData["redirect"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationRedirectModel{
 																	URI: func() types.String {
@@ -44395,6 +47930,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return nil
 											}(),
 											Mobile: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mobile != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := ProtectedAppEndpointsItemMap["mobile"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -44516,12 +48054,18 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsQueryParamsModelAttrTypes})
 											}(),
 											UndefinedFlowLabel: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].UndefinedFlowLabel != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := ProtectedAppEndpointsItemMap["undefined_flow_label"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											Web: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Web != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := ProtectedAppEndpointsItemMap["web"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -44597,27 +48141,47 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if PolicyData, ok := blockData["policy"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerClientSideDefensePolicyModel{
 						DisableJsInsert: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil {
+								return data.ClientSideDefense.Policy.DisableJsInsert
+							}
 							if _, ok := PolicyData["disable_js_insert"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						JsInsertAllPages: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil {
+								return data.ClientSideDefense.Policy.JsInsertAllPages
+							}
 							if _, ok := PolicyData["js_insert_all_pages"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						JsInsertAllPagesExcept: func() *CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptModel {
+							if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertAllPagesExcept != nil {
+								return data.ClientSideDefense.Policy.JsInsertAllPagesExcept
+							}
 							if JsInsertAllPagesExceptData, ok := PolicyData["js_insert_all_pages_except"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptModel{
 									ExcludeList: func() types.List {
+										if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertAllPagesExcept != nil && (data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsNull() || len(data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModelAttrTypes})
+										}
+										var ExcludeListExisting []CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModel
+										if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertAllPagesExcept != nil && !data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
+											data.ClientSideDefense.Policy.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
 										if rawList, ok := JsInsertAllPagesExceptData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModel
-											for _, ExcludeListItem := range rawList {
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
 												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 													ExcludeListResult = append(ExcludeListResult, CDNLoadBalancerClientSideDefensePolicyJsInsertAllPagesExceptExcludeListModel{
 														AnyDomain: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -44705,15 +48269,29 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return nil
 						}(),
 						JsInsertionRules: func() *CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesModel {
+							if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertionRules != nil {
+								return data.ClientSideDefense.Policy.JsInsertionRules
+							}
 							if JsInsertionRulesData, ok := PolicyData["js_insertion_rules"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesModel{
 									ExcludeList: func() types.List {
+										if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertionRules != nil && (data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList.IsNull() || len(data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModelAttrTypes})
+										}
+										var ExcludeListExisting []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModel
+										if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertionRules != nil && !data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList.IsNull() && !data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList.IsUnknown() {
+											data.ClientSideDefense.Policy.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
 										if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 											var ExcludeListResult []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModel
-											for _, ExcludeListItem := range rawList {
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
 												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 													ExcludeListResult = append(ExcludeListResult, CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModel{
 														AnyDomain: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -44797,12 +48375,23 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesExcludeListModelAttrTypes})
 									}(),
 									Rules: func() types.List {
+										if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertionRules != nil && (data.ClientSideDefense.Policy.JsInsertionRules.Rules.IsNull() || len(data.ClientSideDefense.Policy.JsInsertionRules.Rules.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModelAttrTypes})
+										}
+										var RulesExisting []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModel
+										if !isImport && data.ClientSideDefense != nil && data.ClientSideDefense.Policy != nil && data.ClientSideDefense.Policy.JsInsertionRules != nil && !data.ClientSideDefense.Policy.JsInsertionRules.Rules.IsNull() && !data.ClientSideDefense.Policy.JsInsertionRules.Rules.IsUnknown() {
+											data.ClientSideDefense.Policy.JsInsertionRules.Rules.ElementsAs(ctx, &RulesExisting, false)
+										}
 										if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 											var RulesResult []CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModel
-											for _, RulesItem := range rawList {
+											for RulesIdx, RulesItem := range rawList {
+												_ = RulesIdx
 												if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 													RulesResult = append(RulesResult, CDNLoadBalancerClientSideDefensePolicyJsInsertionRulesRulesModel{
 														AnyDomain: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyDomain != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -45021,9 +48610,14 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if !isImport && data.CustomCacheRule != nil && (data.CustomCacheRule.CDNCacheRules.IsNull() || len(data.CustomCacheRule.CDNCacheRules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerCustomCacheRuleCDNCacheRulesModelAttrTypes})
 				}
+				var CDNCacheRulesExisting []CDNLoadBalancerCustomCacheRuleCDNCacheRulesModel
+				if !isImport && data.CustomCacheRule != nil && !data.CustomCacheRule.CDNCacheRules.IsNull() && !data.CustomCacheRule.CDNCacheRules.IsUnknown() {
+					data.CustomCacheRule.CDNCacheRules.ElementsAs(ctx, &CDNCacheRulesExisting, false)
+				}
 				if rawList, ok := blockData["cdn_cache_rules"].([]interface{}); ok && len(rawList) > 0 {
 					var CDNCacheRulesResult []CDNLoadBalancerCustomCacheRuleCDNCacheRulesModel
-					for _, CDNCacheRulesItem := range rawList {
+					for CDNCacheRulesIdx, CDNCacheRulesItem := range rawList {
+						_ = CDNCacheRulesIdx
 						if CDNCacheRulesItemMap, ok := CDNCacheRulesItem.(map[string]interface{}); ok {
 							CDNCacheRulesResult = append(CDNCacheRulesResult, CDNLoadBalancerCustomCacheRuleCDNCacheRulesModel{
 								Name: func() types.String {
@@ -45185,6 +48779,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						if DDOSClientSourceData, ok := itemMap["ddos_client_source"].(map[string]interface{}); ok {
 							return &CDNLoadBalancerDDOSMitigationRulesDDOSClientSourceModel{
 								AsnList: func() *CDNLoadBalancerDDOSMitigationRulesDDOSClientSourceAsnListModel {
+									if !isImport && len(existingDDOSMitigationRulesItems) > listIdx && existingDDOSMitigationRulesItems[listIdx].DDOSClientSource != nil && existingDDOSMitigationRulesItems[listIdx].DDOSClientSource.AsnList != nil {
+										return existingDDOSMitigationRulesItems[listIdx].DDOSClientSource.AsnList
+									}
 									if AsnListData, ok := DDOSClientSourceData["asn_list"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerDDOSMitigationRulesDDOSClientSourceAsnListModel{
 											AsNumbers: func() types.List {
@@ -45218,6 +48815,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									return types.ListNull(types.StringType)
 								}(),
 								Ja4TLSFingerprintMatcher: func() *CDNLoadBalancerDDOSMitigationRulesDDOSClientSourceJa4TLSFingerprintMatcherModel {
+									if !isImport && len(existingDDOSMitigationRulesItems) > listIdx && existingDDOSMitigationRulesItems[listIdx].DDOSClientSource != nil && existingDDOSMitigationRulesItems[listIdx].DDOSClientSource.Ja4TLSFingerprintMatcher != nil {
+										return existingDDOSMitigationRulesItems[listIdx].DDOSClientSource.Ja4TLSFingerprintMatcher
+									}
 									if Ja4TLSFingerprintMatcherData, ok := DDOSClientSourceData["ja4_tls_fingerprint_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerDDOSMitigationRulesDDOSClientSourceJa4TLSFingerprintMatcherModel{
 											ExactValues: func() types.List {
@@ -45238,6 +48838,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									return nil
 								}(),
 								TLSFingerprintMatcher: func() *CDNLoadBalancerDDOSMitigationRulesDDOSClientSourceTLSFingerprintMatcherModel {
+									if !isImport && len(existingDDOSMitigationRulesItems) > listIdx && existingDDOSMitigationRulesItems[listIdx].DDOSClientSource != nil && existingDDOSMitigationRulesItems[listIdx].DDOSClientSource.TLSFingerprintMatcher != nil {
+										return existingDDOSMitigationRulesItems[listIdx].DDOSClientSource.TLSFingerprintMatcher
+									}
 									if TLSFingerprintMatcherData, ok := DDOSClientSourceData["tls_fingerprint_matcher"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerDDOSMitigationRulesDDOSClientSourceTLSFingerprintMatcherModel{
 											Classes: func() types.List {
@@ -45297,6 +48900,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						if IPPrefixListData, ok := itemMap["ip_prefix_list"].(map[string]interface{}); ok {
 							return &CDNLoadBalancerDDOSMitigationRulesIPPrefixListModel{
 								InvertMatch: func() types.Bool {
+									if !isImport && len(existingDDOSMitigationRulesItems) > listIdx && existingDDOSMitigationRulesItems[listIdx].IPPrefixList != nil && !existingDDOSMitigationRulesItems[listIdx].IPPrefixList.InvertMatch.IsUnknown() {
+										return existingDDOSMitigationRulesItems[listIdx].IPPrefixList.InvertMatch
+									}
 									if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 										return types.BoolValue(v)
 									}
@@ -45410,12 +49016,23 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if APICrawlerData, ok := blockData["api_crawler"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableAPIDiscoveryAPICrawlerModel{
 						APICrawlerConfig: func() *CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModel {
+							if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APICrawler != nil && data.EnableAPIDiscovery.APICrawler.APICrawlerConfig != nil {
+								return data.EnableAPIDiscovery.APICrawler.APICrawlerConfig
+							}
 							if APICrawlerConfigData, ok := APICrawlerData["api_crawler_config"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModel{
 									Domains: func() types.List {
+										if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APICrawler != nil && data.EnableAPIDiscovery.APICrawler.APICrawlerConfig != nil && (data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.IsNull() || len(data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModelAttrTypes})
+										}
+										var DomainsExisting []CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel
+										if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APICrawler != nil && data.EnableAPIDiscovery.APICrawler.APICrawlerConfig != nil && !data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.IsNull() && !data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.IsUnknown() {
+											data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.ElementsAs(ctx, &DomainsExisting, false)
+										}
 										if rawList, ok := APICrawlerConfigData["domains"].([]interface{}); ok && len(rawList) > 0 {
 											var DomainsResult []CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel
-											for _, DomainsItem := range rawList {
+											for DomainsIdx, DomainsItem := range rawList {
+												_ = DomainsIdx
 												if DomainsItemMap, ok := DomainsItem.(map[string]interface{}); ok {
 													DomainsResult = append(DomainsResult, CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel{
 														Domain: func() types.String {
@@ -45428,9 +49045,15 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															if SimpleLoginData, ok := DomainsItemMap["simple_login"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginModel{
 																	Password: func() *CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordModel {
+																		if !isImport && len(DomainsExisting) > DomainsIdx && DomainsExisting[DomainsIdx].SimpleLogin != nil && DomainsExisting[DomainsIdx].SimpleLogin.Password != nil {
+																			return DomainsExisting[DomainsIdx].SimpleLogin.Password
+																		}
 																		if PasswordData, ok := SimpleLoginData["password"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordModel{
 																				BlindfoldSecretInfo: func() *CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordBlindfoldSecretInfoModel {
+																					if !isImport && len(DomainsExisting) > DomainsIdx && DomainsExisting[DomainsIdx].SimpleLogin != nil && DomainsExisting[DomainsIdx].SimpleLogin.Password != nil && DomainsExisting[DomainsIdx].SimpleLogin.Password.BlindfoldSecretInfo != nil {
+																						return DomainsExisting[DomainsIdx].SimpleLogin.Password.BlindfoldSecretInfo
+																					}
 																					if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																						return &CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordBlindfoldSecretInfoModel{
 																							DecryptionProvider: func() types.String {
@@ -45456,6 +49079,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																					return nil
 																				}(),
 																				ClearSecretInfo: func() *CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordClearSecretInfoModel {
+																					if !isImport && len(DomainsExisting) > DomainsIdx && DomainsExisting[DomainsIdx].SimpleLogin != nil && DomainsExisting[DomainsIdx].SimpleLogin.Password != nil && DomainsExisting[DomainsIdx].SimpleLogin.Password.ClearSecretInfo != nil {
+																						return DomainsExisting[DomainsIdx].SimpleLogin.Password.ClearSecretInfo
+																					}
 																					if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																						return &CDNLoadBalancerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordClearSecretInfoModel{
 																							Provider: func() types.String {
@@ -45501,6 +49127,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return nil
 						}(),
 						DisableAPICrawler: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APICrawler != nil {
+								return data.EnableAPIDiscovery.APICrawler.DisableAPICrawler
+							}
 							if _, ok := APICrawlerData["disable_api_crawler"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -45514,12 +49143,23 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if APIDiscoveryFromCodeScanData, ok := blockData["api_discovery_from_code_scan"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableAPIDiscoveryAPIDiscoveryFromCodeScanModel{
 						CodeBaseIntegrations: func() types.List {
+							if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APIDiscoveryFromCodeScan != nil && (data.EnableAPIDiscovery.APIDiscoveryFromCodeScan.CodeBaseIntegrations.IsNull() || len(data.EnableAPIDiscovery.APIDiscoveryFromCodeScan.CodeBaseIntegrations.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModelAttrTypes})
+							}
+							var CodeBaseIntegrationsExisting []CDNLoadBalancerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModel
+							if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APIDiscoveryFromCodeScan != nil && !data.EnableAPIDiscovery.APIDiscoveryFromCodeScan.CodeBaseIntegrations.IsNull() && !data.EnableAPIDiscovery.APIDiscoveryFromCodeScan.CodeBaseIntegrations.IsUnknown() {
+								data.EnableAPIDiscovery.APIDiscoveryFromCodeScan.CodeBaseIntegrations.ElementsAs(ctx, &CodeBaseIntegrationsExisting, false)
+							}
 							if rawList, ok := APIDiscoveryFromCodeScanData["code_base_integrations"].([]interface{}); ok && len(rawList) > 0 {
 								var CodeBaseIntegrationsResult []CDNLoadBalancerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModel
-								for _, CodeBaseIntegrationsItem := range rawList {
+								for CodeBaseIntegrationsIdx, CodeBaseIntegrationsItem := range rawList {
+									_ = CodeBaseIntegrationsIdx
 									if CodeBaseIntegrationsItemMap, ok := CodeBaseIntegrationsItem.(map[string]interface{}); ok {
 										CodeBaseIntegrationsResult = append(CodeBaseIntegrationsResult, CDNLoadBalancerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModel{
 											AllRepos: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(CodeBaseIntegrationsExisting) > CodeBaseIntegrationsIdx && CodeBaseIntegrationsExisting[CodeBaseIntegrationsIdx].AllRepos != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := CodeBaseIntegrationsItemMap["all_repos"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -45639,6 +49279,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if DiscoveredAPISettingsData, ok := blockData["discovered_api_settings"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableAPIDiscoveryDiscoveredAPISettingsModel{
 						PurgeDurationForInactiveDiscoveredApis: func() types.Int64 {
+							if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.DiscoveredAPISettings != nil && !data.EnableAPIDiscovery.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis.IsUnknown() {
+								return data.EnableAPIDiscovery.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis
+							}
 							if v, ok := DiscoveredAPISettingsData["purge_duration_for_inactive_discovered_apis"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -45668,6 +49311,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if CaptchaChallengeParametersData, ok := blockData["captcha_challenge_parameters"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableChallengeCaptchaChallengeParametersModel{
 						CookieExpiry: func() types.Int64 {
+							if !isImport && data.EnableChallenge != nil && data.EnableChallenge.CaptchaChallengeParameters != nil && !data.EnableChallenge.CaptchaChallengeParameters.CookieExpiry.IsUnknown() {
+								return data.EnableChallenge.CaptchaChallengeParameters.CookieExpiry
+							}
 							if v, ok := CaptchaChallengeParametersData["cookie_expiry"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -45717,6 +49363,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if JsChallengeParametersData, ok := blockData["js_challenge_parameters"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerEnableChallengeJsChallengeParametersModel{
 						CookieExpiry: func() types.Int64 {
+							if !isImport && data.EnableChallenge != nil && data.EnableChallenge.JsChallengeParameters != nil && !data.EnableChallenge.JsChallengeParameters.CookieExpiry.IsUnknown() {
+								return data.EnableChallenge.JsChallengeParameters.CookieExpiry
+							}
 							if v, ok := JsChallengeParametersData["cookie_expiry"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -45729,6 +49378,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return types.StringNull()
 						}(),
 						JsScriptDelay: func() types.Int64 {
+							if !isImport && data.EnableChallenge != nil && data.EnableChallenge.JsChallengeParameters != nil && !data.EnableChallenge.JsChallengeParameters.JsScriptDelay.IsUnknown() {
+								return data.EnableChallenge.JsChallengeParameters.JsScriptDelay
+							}
 							if v, ok := JsChallengeParametersData["js_script_delay"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -45825,30 +49477,45 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						if GraphqlSettingsData, ok := itemMap["graphql_settings"].(map[string]interface{}); ok {
 							return &CDNLoadBalancerGraphqlRulesGraphqlSettingsModel{
 								DisableIntrospection: func() *CDNLoadBalancerEmptyModel {
+									if !isImport && len(existingGraphqlRulesItems) > listIdx && existingGraphqlRulesItems[listIdx].GraphqlSettings != nil {
+										return existingGraphqlRulesItems[listIdx].GraphqlSettings.DisableIntrospection
+									}
 									if _, ok := GraphqlSettingsData["disable_introspection"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerEmptyModel{}
 									}
 									return nil
 								}(),
 								EnableIntrospection: func() *CDNLoadBalancerEmptyModel {
+									if !isImport && len(existingGraphqlRulesItems) > listIdx && existingGraphqlRulesItems[listIdx].GraphqlSettings != nil {
+										return existingGraphqlRulesItems[listIdx].GraphqlSettings.EnableIntrospection
+									}
 									if _, ok := GraphqlSettingsData["enable_introspection"].(map[string]interface{}); ok {
 										return &CDNLoadBalancerEmptyModel{}
 									}
 									return nil
 								}(),
 								MaxBatchedQueries: func() types.Int64 {
+									if !isImport && len(existingGraphqlRulesItems) > listIdx && existingGraphqlRulesItems[listIdx].GraphqlSettings != nil && !existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxBatchedQueries.IsUnknown() {
+										return existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxBatchedQueries
+									}
 									if v, ok := GraphqlSettingsData["max_batched_queries"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								MaxDepth: func() types.Int64 {
+									if !isImport && len(existingGraphqlRulesItems) > listIdx && existingGraphqlRulesItems[listIdx].GraphqlSettings != nil && !existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxDepth.IsUnknown() {
+										return existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxDepth
+									}
 									if v, ok := GraphqlSettingsData["max_depth"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								MaxTotalLength: func() types.Int64 {
+									if !isImport && len(existingGraphqlRulesItems) > listIdx && existingGraphqlRulesItems[listIdx].GraphqlSettings != nil && !existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxTotalLength.IsUnknown() {
+										return existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxTotalLength
+									}
 									if v, ok := GraphqlSettingsData["max_total_length"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
@@ -45967,9 +49634,17 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							if TLSCertParamsData, ok := TLSCertOptionsData["tls_cert_params"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsModel{
 									Certificates: func() types.List {
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && (data.HTTPS.TLSCertOptions.TLSCertParams.Certificates.IsNull() || len(data.HTTPS.TLSCertOptions.TLSCertParams.Certificates.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsCertificatesModelAttrTypes})
+										}
+										var CertificatesExisting []CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsCertificatesModel
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && !data.HTTPS.TLSCertOptions.TLSCertParams.Certificates.IsNull() && !data.HTTPS.TLSCertOptions.TLSCertParams.Certificates.IsUnknown() {
+											data.HTTPS.TLSCertOptions.TLSCertParams.Certificates.ElementsAs(ctx, &CertificatesExisting, false)
+										}
 										if rawList, ok := TLSCertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var CertificatesResult []CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsCertificatesModel
-											for _, CertificatesItem := range rawList {
+											for CertificatesIdx, CertificatesItem := range rawList {
+												_ = CertificatesIdx
 												if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
 													CertificatesResult = append(CertificatesResult, CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsCertificatesModel{
 														Name: func() types.String {
@@ -45999,15 +49674,24 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsCertificatesModelAttrTypes})
 									}(),
 									NoMtls: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil {
+											return data.HTTPS.TLSCertOptions.TLSCertParams.NoMtls
+										}
 										if _, ok := TLSCertParamsData["no_mtls"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									TLSConfig: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsTLSConfigModel {
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig != nil {
+											return data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig
+										}
 										if TLSConfigData, ok := TLSCertParamsData["tls_config"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsTLSConfigModel{
 												CustomSecurity: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsTLSConfigCustomSecurityModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig != nil && data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig.CustomSecurity != nil {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig.CustomSecurity
+													}
 													if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsTLSConfigCustomSecurityModel{
 															CipherSuites: func() types.List {
@@ -46040,18 +49724,27 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 													return nil
 												}(),
 												DefaultSecurity: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig != nil {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig.DefaultSecurity
+													}
 													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												LowSecurity: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig != nil {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig.LowSecurity
+													}
 													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												MediumSecurity: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig != nil {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.TLSConfig.MediumSecurity
+													}
 													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
@@ -46065,6 +49758,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										if UseMtlsData, ok := TLSCertParamsData["use_mtls"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsUseMtlsModel{
 												ClientCertificateOptional: func() types.Bool {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls != nil && !data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.ClientCertificateOptional.IsUnknown() {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.ClientCertificateOptional
+													}
 													if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 														return types.BoolValue(v)
 													}
@@ -46096,6 +49792,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 													return nil
 												}(),
 												NoCRL: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls != nil {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.NoCRL
+													}
 													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
@@ -46133,12 +49832,18 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 													return types.StringNull()
 												}(),
 												XfccDisabled: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls != nil {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.XfccDisabled
+													}
 													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												XfccOptions: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsUseMtlsXfccOptionsModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSCertParams != nil && data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls != nil && data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.XfccOptions != nil {
+														return data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.XfccOptions
+													}
 													if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerHTTPSTLSCertOptionsTLSCertParamsUseMtlsXfccOptionsModel{
 															XfccHeaderElements: func() types.List {
@@ -46170,15 +49875,26 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							if TLSInlineParamsData, ok := TLSCertOptionsData["tls_inline_params"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsModel{
 									NoMtls: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil {
+											return data.HTTPS.TLSCertOptions.TLSInlineParams.NoMtls
+										}
 										if _, ok := TLSInlineParamsData["no_mtls"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									TLSCertificates: func() types.List {
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && (data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates.IsNull() || len(data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModelAttrTypes})
+										}
+										var TLSCertificatesExisting []CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModel
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && !data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates.IsNull() && !data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates.IsUnknown() {
+											data.HTTPS.TLSCertOptions.TLSInlineParams.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+										}
 										if rawList, ok := TLSInlineParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var TLSCertificatesResult []CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModel
-											for _, TLSCertificatesItem := range rawList {
+											for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+												_ = TLSCertificatesIdx
 												if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 													TLSCertificatesResult = append(TLSCertificatesResult, CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModel{
 														CertificateURL: func() types.String {
@@ -46214,6 +49930,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return types.StringNull()
 														}(),
 														DisableOCSPStapling: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -46223,6 +49942,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -46248,6 +49970,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -46271,6 +49996,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														UseSystemDefaults: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -46285,9 +50013,15 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSCertificatesModelAttrTypes})
 									}(),
 									TLSConfig: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSConfigModel {
+										if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig != nil {
+											return data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig
+										}
 										if TLSConfigData, ok := TLSInlineParamsData["tls_config"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSConfigModel{
 												CustomSecurity: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSConfigCustomSecurityModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig.CustomSecurity != nil {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig.CustomSecurity
+													}
 													if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsTLSConfigCustomSecurityModel{
 															CipherSuites: func() types.List {
@@ -46320,18 +50054,27 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 													return nil
 												}(),
 												DefaultSecurity: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig != nil {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig.DefaultSecurity
+													}
 													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												LowSecurity: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig != nil {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig.LowSecurity
+													}
 													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												MediumSecurity: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig != nil {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.TLSConfig.MediumSecurity
+													}
 													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
@@ -46345,6 +50088,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										if UseMtlsData, ok := TLSInlineParamsData["use_mtls"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsUseMtlsModel{
 												ClientCertificateOptional: func() types.Bool {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls != nil && !data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.ClientCertificateOptional.IsUnknown() {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.ClientCertificateOptional
+													}
 													if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 														return types.BoolValue(v)
 													}
@@ -46376,6 +50122,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 													return nil
 												}(),
 												NoCRL: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls != nil {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.NoCRL
+													}
 													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
@@ -46413,12 +50162,18 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 													return types.StringNull()
 												}(),
 												XfccDisabled: func() *CDNLoadBalancerEmptyModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls != nil {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.XfccDisabled
+													}
 													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerEmptyModel{}
 													}
 													return nil
 												}(),
 												XfccOptions: func() *CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsUseMtlsXfccOptionsModel {
+													if !isImport && data.HTTPS != nil && data.HTTPS.TLSCertOptions != nil && data.HTTPS.TLSCertOptions.TLSInlineParams != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls != nil && data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.XfccOptions != nil {
+														return data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.XfccOptions
+													}
 													if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 														return &CDNLoadBalancerHTTPSTLSCertOptionsTLSInlineParamsUseMtlsXfccOptionsModel{
 															XfccHeaderElements: func() types.List {
@@ -46479,12 +50234,18 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if TLSConfigData, ok := blockData["tls_config"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerHTTPSAutoCertTLSConfigModel{
 						TLS11Plus: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.HTTPSAutoCert != nil && data.HTTPSAutoCert.TLSConfig != nil {
+								return data.HTTPSAutoCert.TLSConfig.TLS11Plus
+							}
 							if _, ok := TLSConfigData["tls_11_plus"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						TLS12Plus: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.HTTPSAutoCert != nil && data.HTTPSAutoCert.TLSConfig != nil {
+								return data.HTTPSAutoCert.TLSConfig.TLS12Plus
+							}
 							if _, ok := TLSConfigData["tls_12_plus"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -46533,12 +50294,18 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if ActionData, ok := blockData["action"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerJWTValidationActionModel{
 						Block: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.Action != nil {
+								return data.JWTValidation.Action.Block
+							}
 							if _, ok := ActionData["block"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						Report: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.Action != nil {
+								return data.JWTValidation.Action.Report
+							}
 							if _, ok := ActionData["report"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -46552,9 +50319,17 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if AuthorizationServerData, ok := blockData["authorization_server"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerJWTValidationAuthorizationServerModel{
 						AuthorizationServers: func() types.List {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.AuthorizationServer != nil && (data.JWTValidation.AuthorizationServer.AuthorizationServers.IsNull() || len(data.JWTValidation.AuthorizationServer.AuthorizationServers.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerJWTValidationAuthorizationServerAuthorizationServersModelAttrTypes})
+							}
+							var AuthorizationServersExisting []CDNLoadBalancerJWTValidationAuthorizationServerAuthorizationServersModel
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.AuthorizationServer != nil && !data.JWTValidation.AuthorizationServer.AuthorizationServers.IsNull() && !data.JWTValidation.AuthorizationServer.AuthorizationServers.IsUnknown() {
+								data.JWTValidation.AuthorizationServer.AuthorizationServers.ElementsAs(ctx, &AuthorizationServersExisting, false)
+							}
 							if rawList, ok := AuthorizationServerData["authorization_servers"].([]interface{}); ok && len(rawList) > 0 {
 								var AuthorizationServersResult []CDNLoadBalancerJWTValidationAuthorizationServerAuthorizationServersModel
-								for _, AuthorizationServersItem := range rawList {
+								for AuthorizationServersIdx, AuthorizationServersItem := range rawList {
+									_ = AuthorizationServersIdx
 									if AuthorizationServersItemMap, ok := AuthorizationServersItem.(map[string]interface{}); ok {
 										AuthorizationServersResult = append(AuthorizationServersResult, CDNLoadBalancerJWTValidationAuthorizationServerAuthorizationServersModel{
 											Name: func() types.String {
@@ -46633,6 +50408,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if ReservedClaimsData, ok := blockData["reserved_claims"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerJWTValidationReservedClaimsModel{
 						Audience: func() *CDNLoadBalancerJWTValidationReservedClaimsAudienceModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.ReservedClaims != nil && data.JWTValidation.ReservedClaims.Audience != nil {
+								return data.JWTValidation.ReservedClaims.Audience
+							}
 							if AudienceData, ok := ReservedClaimsData["audience"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerJWTValidationReservedClaimsAudienceModel{
 									Audiences: func() types.List {
@@ -46653,6 +50431,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return nil
 						}(),
 						AudienceDisable: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.ReservedClaims != nil {
+								return data.JWTValidation.ReservedClaims.AudienceDisable
+							}
 							if _, ok := ReservedClaimsData["audience_disable"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -46665,18 +50446,27 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return types.StringNull()
 						}(),
 						IssuerDisable: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.ReservedClaims != nil {
+								return data.JWTValidation.ReservedClaims.IssuerDisable
+							}
 							if _, ok := ReservedClaimsData["issuer_disable"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						ValidatePeriodDisable: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.ReservedClaims != nil {
+								return data.JWTValidation.ReservedClaims.ValidatePeriodDisable
+							}
 							if _, ok := ReservedClaimsData["validate_period_disable"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						ValidatePeriodEnable: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.ReservedClaims != nil {
+								return data.JWTValidation.ReservedClaims.ValidatePeriodEnable
+							}
 							if _, ok := ReservedClaimsData["validate_period_enable"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -46693,12 +50483,18 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if TargetData, ok := blockData["target"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerJWTValidationTargetModel{
 						AllEndpoint: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.Target != nil {
+								return data.JWTValidation.Target.AllEndpoint
+							}
 							if _, ok := TargetData["all_endpoint"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						APIGroups: func() *CDNLoadBalancerJWTValidationTargetAPIGroupsModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.Target != nil && data.JWTValidation.Target.APIGroups != nil {
+								return data.JWTValidation.Target.APIGroups
+							}
 							if APIGroupsData, ok := TargetData["api_groups"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerJWTValidationTargetAPIGroupsModel{
 									APIGroups: func() types.List {
@@ -46719,6 +50515,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return nil
 						}(),
 						BasePaths: func() *CDNLoadBalancerJWTValidationTargetBasePathsModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.Target != nil && data.JWTValidation.Target.BasePaths != nil {
+								return data.JWTValidation.Target.BasePaths
+							}
 							if BasePathsData, ok := TargetData["base_paths"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerJWTValidationTargetBasePathsModel{
 									BasePaths: func() types.List {
@@ -46749,6 +50548,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if TokenLocationData, ok := blockData["token_location"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerJWTValidationTokenLocationModel{
 						BearerToken: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.JWTValidation != nil && data.JWTValidation.TokenLocation != nil {
+								return data.JWTValidation.TokenLocation.BearerToken
+							}
 							if _, ok := TokenLocationData["bearer_token"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -46809,12 +50611,18 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if MoreOriginOptionsData, ok := blockData["more_origin_options"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerOriginPoolMoreOriginOptionsModel{
 						EnableByteRangeRequest: func() types.Bool {
+							if !isImport && data.OriginPool != nil && data.OriginPool.MoreOriginOptions != nil && !data.OriginPool.MoreOriginOptions.EnableByteRangeRequest.IsUnknown() {
+								return data.OriginPool.MoreOriginOptions.EnableByteRangeRequest
+							}
 							if v, ok := MoreOriginOptionsData["enable_byte_range_request"].(bool); ok {
 								return types.BoolValue(v)
 							}
 							return types.BoolNull()
 						}(),
 						WebSocketProxy: func() types.Bool {
+							if !isImport && data.OriginPool != nil && data.OriginPool.MoreOriginOptions != nil && !data.OriginPool.MoreOriginOptions.WebSocketProxy.IsUnknown() {
+								return data.OriginPool.MoreOriginOptions.WebSocketProxy
+							}
 							if v, ok := MoreOriginOptionsData["websocket_proxy"].(bool); ok {
 								return types.BoolValue(v)
 							}
@@ -46843,9 +50651,14 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if !isImport && data.OriginPool != nil && (data.OriginPool.OriginServers.IsNull() || len(data.OriginPool.OriginServers.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOriginPoolOriginServersModelAttrTypes})
 				}
+				var OriginServersExisting []CDNLoadBalancerOriginPoolOriginServersModel
+				if !isImport && data.OriginPool != nil && !data.OriginPool.OriginServers.IsNull() && !data.OriginPool.OriginServers.IsUnknown() {
+					data.OriginPool.OriginServers.ElementsAs(ctx, &OriginServersExisting, false)
+				}
 				if rawList, ok := blockData["origin_servers"].([]interface{}); ok && len(rawList) > 0 {
 					var OriginServersResult []CDNLoadBalancerOriginPoolOriginServersModel
-					for _, OriginServersItem := range rawList {
+					for OriginServersIdx, OriginServersItem := range rawList {
+						_ = OriginServersIdx
 						if OriginServersItemMap, ok := OriginServersItem.(map[string]interface{}); ok {
 							OriginServersResult = append(OriginServersResult, CDNLoadBalancerOriginPoolOriginServersModel{
 								Port: func() types.Int64 {
@@ -46877,6 +50690,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return types.StringNull()
 											}(),
 											RefreshInterval: func() types.Int64 {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PublicName != nil && !OriginServersExisting[OriginServersIdx].PublicName.RefreshInterval.IsUnknown() {
+													return OriginServersExisting[OriginServersIdx].PublicName.RefreshInterval
+												}
 												if v, ok := PublicNameData["refresh_interval"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -46907,6 +50723,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return types.StringNull()
 						}(),
 						RefreshInterval: func() types.Int64 {
+							if !isImport && data.OriginPool != nil && data.OriginPool.PublicName != nil && !data.OriginPool.PublicName.RefreshInterval.IsUnknown() {
+								return data.OriginPool.PublicName.RefreshInterval
+							}
 							if v, ok := PublicNameData["refresh_interval"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -46920,36 +50739,54 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerOriginPoolUseTLSModel{
 						DefaultSessionKeyCaching: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
+								return data.OriginPool.UseTLS.DefaultSessionKeyCaching
+							}
 							if _, ok := UseTLSData["default_session_key_caching"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableSessionKeyCaching: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
+								return data.OriginPool.UseTLS.DisableSessionKeyCaching
+							}
 							if _, ok := UseTLSData["disable_session_key_caching"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableSni: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
+								return data.OriginPool.UseTLS.DisableSni
+							}
 							if _, ok := UseTLSData["disable_sni"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxSessionKeys: func() types.Int64 {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && !data.OriginPool.UseTLS.MaxSessionKeys.IsUnknown() {
+								return data.OriginPool.UseTLS.MaxSessionKeys
+							}
 							if v, ok := UseTLSData["max_session_keys"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						NoMtls: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
+								return data.OriginPool.UseTLS.NoMtls
+							}
 							if _, ok := UseTLSData["no_mtls"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						SkipServerVerification: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
+								return data.OriginPool.UseTLS.SkipServerVerification
+							}
 							if _, ok := UseTLSData["skip_server_verification"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -46962,9 +50799,15 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return types.StringNull()
 						}(),
 						TLSConfig: func() *CDNLoadBalancerOriginPoolUseTLSTLSConfigModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.TLSConfig != nil {
+								return data.OriginPool.UseTLS.TLSConfig
+							}
 							if TLSConfigData, ok := UseTLSData["tls_config"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerOriginPoolUseTLSTLSConfigModel{
 									CustomSecurity: func() *CDNLoadBalancerOriginPoolUseTLSTLSConfigCustomSecurityModel {
+										if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.TLSConfig != nil && data.OriginPool.UseTLS.TLSConfig.CustomSecurity != nil {
+											return data.OriginPool.UseTLS.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerOriginPoolUseTLSTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -46997,18 +50840,27 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										return nil
 									}(),
 									DefaultSecurity: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.TLSConfig != nil {
+											return data.OriginPool.UseTLS.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.TLSConfig != nil {
+											return data.OriginPool.UseTLS.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *CDNLoadBalancerEmptyModel {
+										if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.TLSConfig != nil {
+											return data.OriginPool.UseTLS.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerEmptyModel{}
 										}
@@ -47019,18 +50871,32 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return nil
 						}(),
 						UseHostHeaderAsSni: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
+								return data.OriginPool.UseTLS.UseHostHeaderAsSni
+							}
 							if _, ok := UseTLSData["use_host_header_as_sni"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						UseMtls: func() *CDNLoadBalancerOriginPoolUseTLSUseMtlsModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.UseMtls != nil {
+								return data.OriginPool.UseTLS.UseMtls
+							}
 							if UseMtlsData, ok := UseTLSData["use_mtls"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerOriginPoolUseTLSUseMtlsModel{
 									TLSCertificates: func() types.List {
+										if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.UseMtls != nil && (data.OriginPool.UseTLS.UseMtls.TLSCertificates.IsNull() || len(data.OriginPool.UseTLS.UseMtls.TLSCertificates.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModelAttrTypes})
+										}
+										var TLSCertificatesExisting []CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModel
+										if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil && data.OriginPool.UseTLS.UseMtls != nil && !data.OriginPool.UseTLS.UseMtls.TLSCertificates.IsNull() && !data.OriginPool.UseTLS.UseMtls.TLSCertificates.IsUnknown() {
+											data.OriginPool.UseTLS.UseMtls.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+										}
 										if rawList, ok := UseMtlsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 											var TLSCertificatesResult []CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModel
-											for _, TLSCertificatesItem := range rawList {
+											for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+												_ = TLSCertificatesIdx
 												if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 													TLSCertificatesResult = append(TLSCertificatesResult, CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesModel{
 														CertificateURL: func() types.String {
@@ -47066,6 +50932,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return types.StringNull()
 														}(),
 														DisableOCSPStapling: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -47075,6 +50944,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -47100,6 +50972,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoModel {
+																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerOriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -47123,6 +50998,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														UseSystemDefaults: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+																return &CDNLoadBalancerEmptyModel{}
+															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -47204,6 +51082,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return nil
 						}(),
 						VolterraTrustedCA: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.OriginPool != nil && data.OriginPool.UseTLS != nil {
+								return data.OriginPool.UseTLS.VolterraTrustedCA
+							}
 							if _, ok := UseTLSData["volterra_trusted_ca"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
@@ -47233,9 +51114,17 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if HeaderOptionsData, ok := blockData["header_options"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerOtherSettingsHeaderOptionsModel{
 						RequestHeadersToAdd: func() types.List {
+							if !isImport && data.OtherSettings != nil && data.OtherSettings.HeaderOptions != nil && (data.OtherSettings.HeaderOptions.RequestHeadersToAdd.IsNull() || len(data.OtherSettings.HeaderOptions.RequestHeadersToAdd.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModelAttrTypes})
+							}
+							var RequestHeadersToAddExisting []CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModel
+							if !isImport && data.OtherSettings != nil && data.OtherSettings.HeaderOptions != nil && !data.OtherSettings.HeaderOptions.RequestHeadersToAdd.IsNull() && !data.OtherSettings.HeaderOptions.RequestHeadersToAdd.IsUnknown() {
+								data.OtherSettings.HeaderOptions.RequestHeadersToAdd.ElementsAs(ctx, &RequestHeadersToAddExisting, false)
+							}
 							if rawList, ok := HeaderOptionsData["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var RequestHeadersToAddResult []CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModel
-								for _, RequestHeadersToAddItem := range rawList {
+								for RequestHeadersToAddIdx, RequestHeadersToAddItem := range rawList {
+									_ = RequestHeadersToAddIdx
 									if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
 										RequestHeadersToAddResult = append(RequestHeadersToAddResult, CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddModel{
 											Append: func() types.Bool {
@@ -47254,6 +51143,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddSecretValueModel{
 														BlindfoldSecretInfo: func() *CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+															if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -47279,6 +51171,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														ClearSecretInfo: func() *CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddSecretValueClearSecretInfoModel {
+															if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerOtherSettingsHeaderOptionsRequestHeadersToAddSecretValueClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -47329,9 +51224,17 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return types.ListNull(types.StringType)
 						}(),
 						ResponseHeadersToAdd: func() types.List {
+							if !isImport && data.OtherSettings != nil && data.OtherSettings.HeaderOptions != nil && (data.OtherSettings.HeaderOptions.ResponseHeadersToAdd.IsNull() || len(data.OtherSettings.HeaderOptions.ResponseHeadersToAdd.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModelAttrTypes})
+							}
+							var ResponseHeadersToAddExisting []CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModel
+							if !isImport && data.OtherSettings != nil && data.OtherSettings.HeaderOptions != nil && !data.OtherSettings.HeaderOptions.ResponseHeadersToAdd.IsNull() && !data.OtherSettings.HeaderOptions.ResponseHeadersToAdd.IsUnknown() {
+								data.OtherSettings.HeaderOptions.ResponseHeadersToAdd.ElementsAs(ctx, &ResponseHeadersToAddExisting, false)
+							}
 							if rawList, ok := HeaderOptionsData["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 								var ResponseHeadersToAddResult []CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModel
-								for _, ResponseHeadersToAddItem := range rawList {
+								for ResponseHeadersToAddIdx, ResponseHeadersToAddItem := range rawList {
+									_ = ResponseHeadersToAddIdx
 									if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
 										ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddModel{
 											Append: func() types.Bool {
@@ -47350,6 +51253,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddSecretValueModel{
 														BlindfoldSecretInfo: func() *CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+															if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+																return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -47375,6 +51281,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														ClearSecretInfo: func() *CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddSecretValueClearSecretInfoModel {
+															if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+																return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerOtherSettingsHeaderOptionsResponseHeadersToAddSecretValueClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -47435,6 +51344,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if LoggingOptionsData, ok := blockData["logging_options"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerOtherSettingsLoggingOptionsModel{
 						ClientLogOptions: func() *CDNLoadBalancerOtherSettingsLoggingOptionsClientLogOptionsModel {
+							if !isImport && data.OtherSettings != nil && data.OtherSettings.LoggingOptions != nil && data.OtherSettings.LoggingOptions.ClientLogOptions != nil {
+								return data.OtherSettings.LoggingOptions.ClientLogOptions
+							}
 							if ClientLogOptionsData, ok := LoggingOptionsData["client_log_options"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerOtherSettingsLoggingOptionsClientLogOptionsModel{
 									HeaderList: func() types.List {
@@ -47455,6 +51367,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return nil
 						}(),
 						OriginLogOptions: func() *CDNLoadBalancerOtherSettingsLoggingOptionsOriginLogOptionsModel {
+							if !isImport && data.OtherSettings != nil && data.OtherSettings.LoggingOptions != nil && data.OtherSettings.LoggingOptions.OriginLogOptions != nil {
+								return data.OtherSettings.LoggingOptions.OriginLogOptions
+							}
 							if OriginLogOptionsData, ok := LoggingOptionsData["origin_log_options"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerOtherSettingsLoggingOptionsOriginLogOptionsModel{
 									HeaderList: func() types.List {
@@ -47507,6 +51422,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if CaptchaChallengeParametersData, ok := blockData["captcha_challenge_parameters"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerPolicyBasedChallengeCaptchaChallengeParametersModel{
 						CookieExpiry: func() types.Int64 {
+							if !isImport && data.PolicyBasedChallenge != nil && data.PolicyBasedChallenge.CaptchaChallengeParameters != nil && !data.PolicyBasedChallenge.CaptchaChallengeParameters.CookieExpiry.IsUnknown() {
+								return data.PolicyBasedChallenge.CaptchaChallengeParameters.CookieExpiry
+							}
 							if v, ok := CaptchaChallengeParametersData["cookie_expiry"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -47565,6 +51483,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if JsChallengeParametersData, ok := blockData["js_challenge_parameters"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerPolicyBasedChallengeJsChallengeParametersModel{
 						CookieExpiry: func() types.Int64 {
+							if !isImport && data.PolicyBasedChallenge != nil && data.PolicyBasedChallenge.JsChallengeParameters != nil && !data.PolicyBasedChallenge.JsChallengeParameters.CookieExpiry.IsUnknown() {
+								return data.PolicyBasedChallenge.JsChallengeParameters.CookieExpiry
+							}
 							if v, ok := JsChallengeParametersData["cookie_expiry"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -47577,6 +51498,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return types.StringNull()
 						}(),
 						JsScriptDelay: func() types.Int64 {
+							if !isImport && data.PolicyBasedChallenge != nil && data.PolicyBasedChallenge.JsChallengeParameters != nil && !data.PolicyBasedChallenge.JsChallengeParameters.JsScriptDelay.IsUnknown() {
+								return data.PolicyBasedChallenge.JsChallengeParameters.JsScriptDelay
+							}
 							if v, ok := JsChallengeParametersData["js_script_delay"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -47624,9 +51548,17 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if RuleListData, ok := blockData["rule_list"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerPolicyBasedChallengeRuleListModel{
 						Rules: func() types.List {
+							if !isImport && data.PolicyBasedChallenge != nil && data.PolicyBasedChallenge.RuleList != nil && (data.PolicyBasedChallenge.RuleList.Rules.IsNull() || len(data.PolicyBasedChallenge.RuleList.Rules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesModelAttrTypes})
+							}
+							var RulesExisting []CDNLoadBalancerPolicyBasedChallengeRuleListRulesModel
+							if !isImport && data.PolicyBasedChallenge != nil && data.PolicyBasedChallenge.RuleList != nil && !data.PolicyBasedChallenge.RuleList.Rules.IsNull() && !data.PolicyBasedChallenge.RuleList.Rules.IsUnknown() {
+								data.PolicyBasedChallenge.RuleList.Rules.ElementsAs(ctx, &RulesExisting, false)
+							}
 							if rawList, ok := RuleListData["rules"].([]interface{}); ok && len(rawList) > 0 {
 								var RulesResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesModel
-								for _, RulesItem := range rawList {
+								for RulesIdx, RulesItem := range rawList {
+									_ = RulesIdx
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, CDNLoadBalancerPolicyBasedChallengeRuleListRulesModel{
 											Metadata: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesMetadataModel {
@@ -47652,36 +51584,59 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												if SpecData, ok := RulesItemMap["spec"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecModel{
 														AnyAsn: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+																return RulesExisting[RulesIdx].Spec.AnyAsn
+															}
 															if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														AnyClient: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+																return RulesExisting[RulesIdx].Spec.AnyClient
+															}
 															if _, ok := SpecData["any_client"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														AnyIP: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+																return RulesExisting[RulesIdx].Spec.AnyIP
+															}
 															if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														ArgMatchers: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.ArgMatchers.IsNull() || len(RulesExisting[RulesIdx].Spec.ArgMatchers.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModelAttrTypes})
+															}
+															var ArgMatchersExisting []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.ArgMatchers.IsNull() && !RulesExisting[RulesIdx].Spec.ArgMatchers.IsUnknown() {
+																RulesExisting[RulesIdx].Spec.ArgMatchers.ElementsAs(ctx, &ArgMatchersExisting, false)
+															}
 															if rawList, ok := SpecData["arg_matchers"].([]interface{}); ok && len(rawList) > 0 {
 																var ArgMatchersResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModel
-																for _, ArgMatchersItem := range rawList {
+																for ArgMatchersIdx, ArgMatchersItem := range rawList {
+																	_ = ArgMatchersIdx
 																	if ArgMatchersItemMap, ok := ArgMatchersItem.(map[string]interface{}); ok {
 																		ArgMatchersResult = append(ArgMatchersResult, CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && ArgMatchersExisting[ArgMatchersIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := ArgMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && ArgMatchersExisting[ArgMatchersIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := ArgMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -47754,6 +51709,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecArgMatchersModelAttrTypes})
 														}(),
 														AsnList: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnListModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.AsnList != nil {
+																return RulesExisting[RulesIdx].Spec.AsnList
+															}
 															if AsnListData, ok := SpecData["asn_list"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnListModel{
 																	AsNumbers: func() types.List {
@@ -47777,9 +51735,17 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															if AsnMatcherData, ok := SpecData["asn_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnMatcherModel{
 																	AsnSets: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.AsnMatcher != nil && (RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.IsNull() || len(RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnMatcherAsnSetsModelAttrTypes})
+																		}
+																		var AsnSetsExisting []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnMatcherAsnSetsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.AsnMatcher != nil && !RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.IsNull() && !RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+																		}
 																		if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 																			var AsnSetsResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnMatcherAsnSetsModel
-																			for _, AsnSetsItem := range rawList {
+																			for AsnSetsIdx, AsnSetsItem := range rawList {
+																				_ = AsnSetsIdx
 																				if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 																					AsnSetsResult = append(AsnSetsResult, CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecAsnMatcherAsnSetsModel{
 																						Kind: func() types.String {
@@ -47825,6 +51791,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														BodyMatcher: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecBodyMatcherModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BodyMatcher != nil {
+																return RulesExisting[RulesIdx].Spec.BodyMatcher
+															}
 															if BodyMatcherData, ok := SpecData["body_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecBodyMatcherModel{
 																	ExactValues: func() types.List {
@@ -47871,6 +51840,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														ClientSelector: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecClientSelectorModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.ClientSelector != nil {
+																return RulesExisting[RulesIdx].Spec.ClientSelector
+															}
 															if ClientSelectorData, ok := SpecData["client_selector"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecClientSelectorModel{
 																	Expressions: func() types.List {
@@ -47891,18 +51863,32 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														CookieMatchers: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.CookieMatchers.IsNull() || len(RulesExisting[RulesIdx].Spec.CookieMatchers.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModelAttrTypes})
+															}
+															var CookieMatchersExisting []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.CookieMatchers.IsNull() && !RulesExisting[RulesIdx].Spec.CookieMatchers.IsUnknown() {
+																RulesExisting[RulesIdx].Spec.CookieMatchers.ElementsAs(ctx, &CookieMatchersExisting, false)
+															}
 															if rawList, ok := SpecData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
 																var CookieMatchersResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModel
-																for _, CookieMatchersItem := range rawList {
+																for CookieMatchersIdx, CookieMatchersItem := range rawList {
+																	_ = CookieMatchersIdx
 																	if CookieMatchersItemMap, ok := CookieMatchersItem.(map[string]interface{}); ok {
 																		CookieMatchersResult = append(CookieMatchersResult, CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := CookieMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := CookieMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -47975,12 +51961,18 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecCookieMatchersModelAttrTypes})
 														}(),
 														DisableChallenge: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+																return RulesExisting[RulesIdx].Spec.DisableChallenge
+															}
 															if _, ok := SpecData["disable_challenge"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														DomainMatcher: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecDomainMatcherModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.DomainMatcher != nil {
+																return RulesExisting[RulesIdx].Spec.DomainMatcher
+															}
 															if DomainMatcherData, ok := SpecData["domain_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecDomainMatcherModel{
 																	ExactValues: func() types.List {
@@ -48014,12 +52006,18 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														EnableCaptchaChallenge: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+																return RulesExisting[RulesIdx].Spec.EnableCaptchaChallenge
+															}
 															if _, ok := SpecData["enable_captcha_challenge"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
 														EnableJavascriptChallenge: func() *CDNLoadBalancerEmptyModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+																return RulesExisting[RulesIdx].Spec.EnableJavascriptChallenge
+															}
 															if _, ok := SpecData["enable_javascript_challenge"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerEmptyModel{}
 															}
@@ -48032,18 +52030,32 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return types.StringNull()
 														}(),
 														Headers: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.Headers.IsNull() || len(RulesExisting[RulesIdx].Spec.Headers.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModelAttrTypes})
+															}
+															var HeadersExisting []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.Headers.IsNull() && !RulesExisting[RulesIdx].Spec.Headers.IsUnknown() {
+																RulesExisting[RulesIdx].Spec.Headers.ElementsAs(ctx, &HeadersExisting, false)
+															}
 															if rawList, ok := SpecData["headers"].([]interface{}); ok && len(rawList) > 0 {
 																var HeadersResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModel
-																for _, HeadersItem := range rawList {
+																for HeadersIdx, HeadersItem := range rawList {
+																	_ = HeadersIdx
 																	if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 																		HeadersResult = append(HeadersResult, CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -48116,9 +52128,15 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHeadersModelAttrTypes})
 														}(),
 														HTTPMethod: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHTTPMethodModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.HTTPMethod != nil {
+																return RulesExisting[RulesIdx].Spec.HTTPMethod
+															}
 															if HTTPMethodData, ok := SpecData["http_method"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecHTTPMethodModel{
 																	InvertMatcher: func() types.Bool {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.HTTPMethod != nil && !RulesExisting[RulesIdx].Spec.HTTPMethod.InvertMatcher.IsUnknown() {
+																			return RulesExisting[RulesIdx].Spec.HTTPMethod.InvertMatcher
+																		}
 																		if v, ok := HTTPMethodData["invert_matcher"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -48145,15 +52163,26 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															if IPMatcherData, ok := SpecData["ip_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPMatcherModel{
 																	InvertMatcher: func() types.Bool {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPMatcher != nil && !RulesExisting[RulesIdx].Spec.IPMatcher.InvertMatcher.IsUnknown() {
+																			return RulesExisting[RulesIdx].Spec.IPMatcher.InvertMatcher
+																		}
 																		if v, ok := IPMatcherData["invert_matcher"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
 																		return types.BoolNull()
 																	}(),
 																	PrefixSets: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPMatcher != nil && (RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.IsNull() || len(RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPMatcherPrefixSetsModelAttrTypes})
+																		}
+																		var PrefixSetsExisting []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPMatcherPrefixSetsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPMatcher != nil && !RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.IsNull() && !RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+																		}
 																		if rawList, ok := IPMatcherData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 																			var PrefixSetsResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPMatcherPrefixSetsModel
-																			for _, PrefixSetsItem := range rawList {
+																			for PrefixSetsIdx, PrefixSetsItem := range rawList {
+																				_ = PrefixSetsIdx
 																				if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 																					PrefixSetsResult = append(PrefixSetsResult, CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPMatcherPrefixSetsModel{
 																						Kind: func() types.String {
@@ -48199,9 +52228,15 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														IPPrefixList: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPPrefixListModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPPrefixList != nil {
+																return RulesExisting[RulesIdx].Spec.IPPrefixList
+															}
 															if IPPrefixListData, ok := SpecData["ip_prefix_list"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPPrefixListModel{
 																	InvertMatch: func() types.Bool {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPPrefixList != nil && !RulesExisting[RulesIdx].Spec.IPPrefixList.InvertMatch.IsUnknown() {
+																			return RulesExisting[RulesIdx].Spec.IPPrefixList.InvertMatch
+																		}
 																		if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -48225,6 +52260,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														Path: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecPathModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Path != nil {
+																return RulesExisting[RulesIdx].Spec.Path
+															}
 															if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecPathModel{
 																	ExactValues: func() types.List {
@@ -48241,6 +52279,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																		return types.ListNull(types.StringType)
 																	}(),
 																	InvertMatcher: func() types.Bool {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Path != nil && !RulesExisting[RulesIdx].Spec.Path.InvertMatcher.IsUnknown() {
+																			return RulesExisting[RulesIdx].Spec.Path.InvertMatcher
+																		}
 																		if v, ok := PathData["invert_matcher"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -48303,18 +52344,32 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														QueryParams: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.QueryParams.IsNull() || len(RulesExisting[RulesIdx].Spec.QueryParams.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModelAttrTypes})
+															}
+															var QueryParamsExisting []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.QueryParams.IsNull() && !RulesExisting[RulesIdx].Spec.QueryParams.IsUnknown() {
+																RulesExisting[RulesIdx].Spec.QueryParams.ElementsAs(ctx, &QueryParamsExisting, false)
+															}
 															if rawList, ok := SpecData["query_params"].([]interface{}); ok && len(rawList) > 0 {
 																var QueryParamsResult []CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModel
-																for _, QueryParamsItem := range rawList {
+																for QueryParamsIdx, QueryParamsItem := range rawList {
+																	_ = QueryParamsIdx
 																	if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 																		QueryParamsResult = append(QueryParamsResult, CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModel{
 																			CheckNotPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckNotPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := QueryParamsItemMap["check_not_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			CheckPresent: func() *CDNLoadBalancerEmptyModel {
+																				if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckPresent != nil {
+																					return &CDNLoadBalancerEmptyModel{}
+																				}
 																				if _, ok := QueryParamsItemMap["check_present"].(map[string]interface{}); ok {
 																					return &CDNLoadBalancerEmptyModel{}
 																				}
@@ -48387,6 +52442,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModelAttrTypes})
 														}(),
 														TLSFingerprintMatcher: func() *CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecTLSFingerprintMatcherModel {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.TLSFingerprintMatcher != nil {
+																return RulesExisting[RulesIdx].Spec.TLSFingerprintMatcher
+															}
 															if TLSFingerprintMatcherData, ok := SpecData["tls_fingerprint_matcher"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecTLSFingerprintMatcherModel{
 																	Classes: func() types.List {
@@ -48606,9 +52664,17 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if CustomIPAllowedListData, ok := blockData["custom_ip_allowed_list"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitCustomIPAllowedListModel{
 						RateLimiterAllowedPrefixes: func() types.List {
+							if !isImport && data.RateLimit != nil && data.RateLimit.CustomIPAllowedList != nil && (data.RateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.IsNull() || len(data.RateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModelAttrTypes})
+							}
+							var RateLimiterAllowedPrefixesExisting []CDNLoadBalancerRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModel
+							if !isImport && data.RateLimit != nil && data.RateLimit.CustomIPAllowedList != nil && !data.RateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.IsNull() && !data.RateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.IsUnknown() {
+								data.RateLimit.CustomIPAllowedList.RateLimiterAllowedPrefixes.ElementsAs(ctx, &RateLimiterAllowedPrefixesExisting, false)
+							}
 							if rawList, ok := CustomIPAllowedListData["rate_limiter_allowed_prefixes"].([]interface{}); ok && len(rawList) > 0 {
 								var RateLimiterAllowedPrefixesResult []CDNLoadBalancerRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModel
-								for _, RateLimiterAllowedPrefixesItem := range rawList {
+								for RateLimiterAllowedPrefixesIdx, RateLimiterAllowedPrefixesItem := range rawList {
+									_ = RateLimiterAllowedPrefixesIdx
 									if RateLimiterAllowedPrefixesItemMap, ok := RateLimiterAllowedPrefixesItem.(map[string]interface{}); ok {
 										RateLimiterAllowedPrefixesResult = append(RateLimiterAllowedPrefixesResult, CDNLoadBalancerRateLimitCustomIPAllowedListRateLimiterAllowedPrefixesModel{
 											Name: func() types.String {
@@ -48686,9 +52752,17 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if PoliciesData, ok := blockData["policies"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitPoliciesModel{
 						Policies: func() types.List {
+							if !isImport && data.RateLimit != nil && data.RateLimit.Policies != nil && (data.RateLimit.Policies.Policies.IsNull() || len(data.RateLimit.Policies.Policies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerRateLimitPoliciesPoliciesModelAttrTypes})
+							}
+							var PoliciesExisting []CDNLoadBalancerRateLimitPoliciesPoliciesModel
+							if !isImport && data.RateLimit != nil && data.RateLimit.Policies != nil && !data.RateLimit.Policies.Policies.IsNull() && !data.RateLimit.Policies.Policies.IsUnknown() {
+								data.RateLimit.Policies.Policies.ElementsAs(ctx, &PoliciesExisting, false)
+							}
 							if rawList, ok := PoliciesData["policies"].([]interface{}); ok && len(rawList) > 0 {
 								var PoliciesResult []CDNLoadBalancerRateLimitPoliciesPoliciesModel
-								for _, PoliciesItem := range rawList {
+								for PoliciesIdx, PoliciesItem := range rawList {
+									_ = PoliciesIdx
 									if PoliciesItemMap, ok := PoliciesItem.(map[string]interface{}); ok {
 										PoliciesResult = append(PoliciesResult, CDNLoadBalancerRateLimitPoliciesPoliciesModel{
 											Name: func() types.String {
@@ -48728,12 +52802,21 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if RateLimiterData, ok := blockData["rate_limiter"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitRateLimiterModel{
 						ActionBlock: func() *CDNLoadBalancerRateLimitRateLimiterActionBlockModel {
+							if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && data.RateLimit.RateLimiter.ActionBlock != nil {
+								return data.RateLimit.RateLimiter.ActionBlock
+							}
 							if ActionBlockData, ok := RateLimiterData["action_block"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerRateLimitRateLimiterActionBlockModel{
 									Hours: func() *CDNLoadBalancerRateLimitRateLimiterActionBlockHoursModel {
+										if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && data.RateLimit.RateLimiter.ActionBlock != nil && data.RateLimit.RateLimiter.ActionBlock.Hours != nil {
+											return data.RateLimit.RateLimiter.ActionBlock.Hours
+										}
 										if HoursData, ok := ActionBlockData["hours"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerRateLimitRateLimiterActionBlockHoursModel{
 												Duration: func() types.Int64 {
+													if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && data.RateLimit.RateLimiter.ActionBlock != nil && data.RateLimit.RateLimiter.ActionBlock.Hours != nil && !data.RateLimit.RateLimiter.ActionBlock.Hours.Duration.IsUnknown() {
+														return data.RateLimit.RateLimiter.ActionBlock.Hours.Duration
+													}
 													if v, ok := HoursData["duration"].(float64); ok && v != 0 {
 														return types.Int64Value(int64(v))
 													}
@@ -48744,9 +52827,15 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										return nil
 									}(),
 									Minutes: func() *CDNLoadBalancerRateLimitRateLimiterActionBlockMinutesModel {
+										if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && data.RateLimit.RateLimiter.ActionBlock != nil && data.RateLimit.RateLimiter.ActionBlock.Minutes != nil {
+											return data.RateLimit.RateLimiter.ActionBlock.Minutes
+										}
 										if MinutesData, ok := ActionBlockData["minutes"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerRateLimitRateLimiterActionBlockMinutesModel{
 												Duration: func() types.Int64 {
+													if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && data.RateLimit.RateLimiter.ActionBlock != nil && data.RateLimit.RateLimiter.ActionBlock.Minutes != nil && !data.RateLimit.RateLimiter.ActionBlock.Minutes.Duration.IsUnknown() {
+														return data.RateLimit.RateLimiter.ActionBlock.Minutes.Duration
+													}
 													if v, ok := MinutesData["duration"].(float64); ok && v != 0 {
 														return types.Int64Value(int64(v))
 													}
@@ -48757,9 +52846,15 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										return nil
 									}(),
 									Seconds: func() *CDNLoadBalancerRateLimitRateLimiterActionBlockSecondsModel {
+										if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && data.RateLimit.RateLimiter.ActionBlock != nil && data.RateLimit.RateLimiter.ActionBlock.Seconds != nil {
+											return data.RateLimit.RateLimiter.ActionBlock.Seconds
+										}
 										if SecondsData, ok := ActionBlockData["seconds"].(map[string]interface{}); ok {
 											return &CDNLoadBalancerRateLimitRateLimiterActionBlockSecondsModel{
 												Duration: func() types.Int64 {
+													if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && data.RateLimit.RateLimiter.ActionBlock != nil && data.RateLimit.RateLimiter.ActionBlock.Seconds != nil && !data.RateLimit.RateLimiter.ActionBlock.Seconds.Duration.IsUnknown() {
+														return data.RateLimit.RateLimiter.ActionBlock.Seconds.Duration
+													}
 													if v, ok := SecondsData["duration"].(float64); ok && v != 0 {
 														return types.Int64Value(int64(v))
 													}
@@ -48774,36 +52869,54 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							return nil
 						}(),
 						BurstMultiplier: func() types.Int64 {
+							if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && !data.RateLimit.RateLimiter.BurstMultiplier.IsUnknown() {
+								return data.RateLimit.RateLimiter.BurstMultiplier
+							}
 							if v, ok := RateLimiterData["burst_multiplier"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Disabled: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil {
+								return data.RateLimit.RateLimiter.Disabled
+							}
 							if _, ok := RateLimiterData["disabled"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						LeakyBucket: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil {
+								return data.RateLimit.RateLimiter.LeakyBucket
+							}
 							if _, ok := RateLimiterData["leaky_bucket"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						PeriodMultiplier: func() types.Int64 {
+							if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && !data.RateLimit.RateLimiter.PeriodMultiplier.IsUnknown() {
+								return data.RateLimit.RateLimiter.PeriodMultiplier
+							}
 							if v, ok := RateLimiterData["period_multiplier"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						TokenBucket: func() *CDNLoadBalancerEmptyModel {
+							if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil {
+								return data.RateLimit.RateLimiter.TokenBucket
+							}
 							if _, ok := RateLimiterData["token_bucket"].(map[string]interface{}); ok {
 								return &CDNLoadBalancerEmptyModel{}
 							}
 							return nil
 						}(),
 						TotalNumber: func() types.Int64 {
+							if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil && !data.RateLimit.RateLimiter.TotalNumber.IsUnknown() {
+								return data.RateLimit.RateLimiter.TotalNumber
+							}
 							if v, ok := RateLimiterData["total_number"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -48937,9 +53050,17 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						if HTTPHeaderData, ok := itemMap["http_header"].(map[string]interface{}); ok {
 							return &CDNLoadBalancerTrustedClientsHTTPHeaderModel{
 								Headers: func() types.List {
+									if !isImport && len(existingTrustedClientsItems) > listIdx && existingTrustedClientsItems[listIdx].HTTPHeader != nil && (existingTrustedClientsItems[listIdx].HTTPHeader.Headers.IsNull() || len(existingTrustedClientsItems[listIdx].HTTPHeader.Headers.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModelAttrTypes})
+									}
+									var HeadersExisting []CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModel
+									if !isImport && len(existingTrustedClientsItems) > listIdx && existingTrustedClientsItems[listIdx].HTTPHeader != nil && !existingTrustedClientsItems[listIdx].HTTPHeader.Headers.IsNull() && !existingTrustedClientsItems[listIdx].HTTPHeader.Headers.IsUnknown() {
+										existingTrustedClientsItems[listIdx].HTTPHeader.Headers.ElementsAs(ctx, &HeadersExisting, false)
+									}
 									if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 										var HeadersResult []CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModel
-										for _, HeadersItem := range rawList {
+										for HeadersIdx, HeadersItem := range rawList {
+											_ = HeadersIdx
 											if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 												HeadersResult = append(HeadersResult, CDNLoadBalancerTrustedClientsHTTPHeaderHeadersModel{
 													Exact: func() types.String {
@@ -49084,18 +53205,32 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if WAFExclusionInlineRulesData, ok := blockData["waf_exclusion_inline_rules"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesModel{
 						Rules: func() types.List {
+							if !isImport && data.WAFExclusion != nil && data.WAFExclusion.WAFExclusionInlineRules != nil && (data.WAFExclusion.WAFExclusionInlineRules.Rules.IsNull() || len(data.WAFExclusion.WAFExclusionInlineRules.Rules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModelAttrTypes})
+							}
+							var RulesExisting []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModel
+							if !isImport && data.WAFExclusion != nil && data.WAFExclusion.WAFExclusionInlineRules != nil && !data.WAFExclusion.WAFExclusionInlineRules.Rules.IsNull() && !data.WAFExclusion.WAFExclusionInlineRules.Rules.IsUnknown() {
+								data.WAFExclusion.WAFExclusionInlineRules.Rules.ElementsAs(ctx, &RulesExisting, false)
+							}
 							if rawList, ok := WAFExclusionInlineRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 								var RulesResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModel
-								for _, RulesItem := range rawList {
+								for RulesIdx, RulesItem := range rawList {
+									_ = RulesIdx
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesModel{
 											AnyDomain: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyDomain != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											AnyPath: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyPath != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := RulesItemMap["any_path"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}
@@ -49105,9 +53240,17 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												if AppFirewallDetectionControlData, ok := RulesItemMap["app_firewall_detection_control"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlModel{
 														ExcludeAttackTypeContexts: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() || len(RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeAttackTypeContexts.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
+															}
+															var ExcludeAttackTypeContextsExisting []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsUnknown() {
+																RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeAttackTypeContexts.ElementsAs(ctx, &ExcludeAttackTypeContextsExisting, false)
+															}
 															if rawList, ok := AppFirewallDetectionControlData["exclude_attack_type_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeAttackTypeContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel
-																for _, ExcludeAttackTypeContextsItem := range rawList {
+																for ExcludeAttackTypeContextsIdx, ExcludeAttackTypeContextsItem := range rawList {
+																	_ = ExcludeAttackTypeContextsIdx
 																	if ExcludeAttackTypeContextsItemMap, ok := ExcludeAttackTypeContextsItem.(map[string]interface{}); ok {
 																		ExcludeAttackTypeContextsResult = append(ExcludeAttackTypeContextsResult, CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModel{
 																			Context: func() types.String {
@@ -49137,9 +53280,17 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
 														}(),
 														ExcludeBotNameContexts: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() || len(RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeBotNameContexts.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
+															}
+															var ExcludeBotNameContextsExisting []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeBotNameContexts.IsUnknown() {
+																RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeBotNameContexts.ElementsAs(ctx, &ExcludeBotNameContextsExisting, false)
+															}
 															if rawList, ok := AppFirewallDetectionControlData["exclude_bot_name_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeBotNameContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModel
-																for _, ExcludeBotNameContextsItem := range rawList {
+																for ExcludeBotNameContextsIdx, ExcludeBotNameContextsItem := range rawList {
+																	_ = ExcludeBotNameContextsIdx
 																	if ExcludeBotNameContextsItemMap, ok := ExcludeBotNameContextsItem.(map[string]interface{}); ok {
 																		ExcludeBotNameContextsResult = append(ExcludeBotNameContextsResult, CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModel{
 																			BotName: func() types.String {
@@ -49157,9 +53308,17 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
 														}(),
 														ExcludeSignatureContexts: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() || len(RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeSignatureContexts.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
+															}
+															var ExcludeSignatureContextsExisting []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeSignatureContexts.IsUnknown() {
+																RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeSignatureContexts.ElementsAs(ctx, &ExcludeSignatureContextsExisting, false)
+															}
 															if rawList, ok := AppFirewallDetectionControlData["exclude_signature_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeSignatureContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModel
-																for _, ExcludeSignatureContextsItem := range rawList {
+																for ExcludeSignatureContextsIdx, ExcludeSignatureContextsItem := range rawList {
+																	_ = ExcludeSignatureContextsIdx
 																	if ExcludeSignatureContextsItemMap, ok := ExcludeSignatureContextsItem.(map[string]interface{}); ok {
 																		ExcludeSignatureContextsResult = append(ExcludeSignatureContextsResult, CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModel{
 																			Context: func() types.String {
@@ -49189,9 +53348,17 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
 														}(),
 														ExcludeViolationContexts: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() || len(RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeViolationContexts.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes})
+															}
+															var ExcludeViolationContextsExisting []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() && !RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeViolationContexts.IsUnknown() {
+																RulesExisting[RulesIdx].AppFirewallDetectionControl.ExcludeViolationContexts.ElementsAs(ctx, &ExcludeViolationContextsExisting, false)
+															}
 															if rawList, ok := AppFirewallDetectionControlData["exclude_violation_contexts"].([]interface{}); ok && len(rawList) > 0 {
 																var ExcludeViolationContextsResult []CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModel
-																for _, ExcludeViolationContextsItem := range rawList {
+																for ExcludeViolationContextsIdx, ExcludeViolationContextsItem := range rawList {
+																	_ = ExcludeViolationContextsIdx
 																	if ExcludeViolationContextsItemMap, ok := ExcludeViolationContextsItem.(map[string]interface{}); ok {
 																		ExcludeViolationContextsResult = append(ExcludeViolationContextsResult, CDNLoadBalancerWAFExclusionWAFExclusionInlineRulesRulesAppFirewallDetectionControlExcludeViolationContextsModel{
 																			Context: func() types.String {
@@ -49287,6 +53454,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return types.StringNull()
 											}(),
 											WAFSkipProcessing: func() *CDNLoadBalancerEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].WAFSkipProcessing != nil {
+													return &CDNLoadBalancerEmptyModel{}
+												}
 												if _, ok := RulesItemMap["waf_skip_processing"].(map[string]interface{}); ok {
 													return &CDNLoadBalancerEmptyModel{}
 												}

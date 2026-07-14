@@ -1436,9 +1436,14 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if !isImport && data.ActiveServicePolicies != nil && (data.ActiveServicePolicies.Policies.IsNull() || len(data.ActiveServicePolicies.Policies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: UDPLoadBalancerActiveServicePoliciesPoliciesModelAttrTypes})
 				}
+				var PoliciesExisting []UDPLoadBalancerActiveServicePoliciesPoliciesModel
+				if !isImport && data.ActiveServicePolicies != nil && !data.ActiveServicePolicies.Policies.IsNull() && !data.ActiveServicePolicies.Policies.IsUnknown() {
+					data.ActiveServicePolicies.Policies.ElementsAs(ctx, &PoliciesExisting, false)
+				}
 				if rawList, ok := blockData["policies"].([]interface{}); ok && len(rawList) > 0 {
 					var PoliciesResult []UDPLoadBalancerActiveServicePoliciesPoliciesModel
-					for _, PoliciesItem := range rawList {
+					for PoliciesIdx, PoliciesItem := range rawList {
+						_ = PoliciesIdx
 						if PoliciesItemMap, ok := PoliciesItem.(map[string]interface{}); ok {
 							PoliciesResult = append(PoliciesResult, UDPLoadBalancerActiveServicePoliciesPoliciesModel{
 								Name: func() types.String {
@@ -1475,9 +1480,14 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if !isImport && data.AdvertiseCustom != nil && (data.AdvertiseCustom.AdvertiseWhere.IsNull() || len(data.AdvertiseCustom.AdvertiseWhere.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: UDPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes})
 				}
+				var AdvertiseWhereExisting []UDPLoadBalancerAdvertiseCustomAdvertiseWhereModel
+				if !isImport && data.AdvertiseCustom != nil && !data.AdvertiseCustom.AdvertiseWhere.IsNull() && !data.AdvertiseCustom.AdvertiseWhere.IsUnknown() {
+					data.AdvertiseCustom.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereExisting, false)
+				}
 				if rawList, ok := blockData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
 					var AdvertiseWhereResult []UDPLoadBalancerAdvertiseCustomAdvertiseWhereModel
-					for _, AdvertiseWhereItem := range rawList {
+					for AdvertiseWhereIdx, AdvertiseWhereItem := range rawList {
+						_ = AdvertiseWhereIdx
 						if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
 							AdvertiseWhereResult = append(AdvertiseWhereResult, UDPLoadBalancerAdvertiseCustomAdvertiseWhereModel{
 								AdvertiseOnPublic: func() *UDPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
@@ -1569,6 +1579,9 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									return nil
 								}(),
 								UseDefaultPort: func() *UDPLoadBalancerEmptyModel {
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
+										return &UDPLoadBalancerEmptyModel{}
+									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &UDPLoadBalancerEmptyModel{}
 									}
@@ -1578,12 +1591,18 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 										return &UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
 											DefaultV6VIP: func() *UDPLoadBalancerEmptyModel {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP
+												}
 												if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
 													return &UDPLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											DefaultVIP: func() *UDPLoadBalancerEmptyModel {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP
+												}
 												if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
 													return &UDPLoadBalancerEmptyModel{}
 												}
@@ -2065,9 +2084,14 @@ func (r *UDPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if !isImport && data.ActiveServicePolicies != nil && (data.ActiveServicePolicies.Policies.IsNull() || len(data.ActiveServicePolicies.Policies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: UDPLoadBalancerActiveServicePoliciesPoliciesModelAttrTypes})
 				}
+				var PoliciesExisting []UDPLoadBalancerActiveServicePoliciesPoliciesModel
+				if !isImport && data.ActiveServicePolicies != nil && !data.ActiveServicePolicies.Policies.IsNull() && !data.ActiveServicePolicies.Policies.IsUnknown() {
+					data.ActiveServicePolicies.Policies.ElementsAs(ctx, &PoliciesExisting, false)
+				}
 				if rawList, ok := blockData["policies"].([]interface{}); ok && len(rawList) > 0 {
 					var PoliciesResult []UDPLoadBalancerActiveServicePoliciesPoliciesModel
-					for _, PoliciesItem := range rawList {
+					for PoliciesIdx, PoliciesItem := range rawList {
+						_ = PoliciesIdx
 						if PoliciesItemMap, ok := PoliciesItem.(map[string]interface{}); ok {
 							PoliciesResult = append(PoliciesResult, UDPLoadBalancerActiveServicePoliciesPoliciesModel{
 								Name: func() types.String {
@@ -2104,9 +2128,14 @@ func (r *UDPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				if !isImport && data.AdvertiseCustom != nil && (data.AdvertiseCustom.AdvertiseWhere.IsNull() || len(data.AdvertiseCustom.AdvertiseWhere.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: UDPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes})
 				}
+				var AdvertiseWhereExisting []UDPLoadBalancerAdvertiseCustomAdvertiseWhereModel
+				if !isImport && data.AdvertiseCustom != nil && !data.AdvertiseCustom.AdvertiseWhere.IsNull() && !data.AdvertiseCustom.AdvertiseWhere.IsUnknown() {
+					data.AdvertiseCustom.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereExisting, false)
+				}
 				if rawList, ok := blockData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
 					var AdvertiseWhereResult []UDPLoadBalancerAdvertiseCustomAdvertiseWhereModel
-					for _, AdvertiseWhereItem := range rawList {
+					for AdvertiseWhereIdx, AdvertiseWhereItem := range rawList {
+						_ = AdvertiseWhereIdx
 						if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
 							AdvertiseWhereResult = append(AdvertiseWhereResult, UDPLoadBalancerAdvertiseCustomAdvertiseWhereModel{
 								AdvertiseOnPublic: func() *UDPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
@@ -2198,6 +2227,9 @@ func (r *UDPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 									return nil
 								}(),
 								UseDefaultPort: func() *UDPLoadBalancerEmptyModel {
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
+										return &UDPLoadBalancerEmptyModel{}
+									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &UDPLoadBalancerEmptyModel{}
 									}
@@ -2207,12 +2239,18 @@ func (r *UDPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 									if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 										return &UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
 											DefaultV6VIP: func() *UDPLoadBalancerEmptyModel {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP
+												}
 												if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
 													return &UDPLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											DefaultVIP: func() *UDPLoadBalancerEmptyModel {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP
+												}
 												if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
 													return &UDPLoadBalancerEmptyModel{}
 												}
@@ -3003,9 +3041,14 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if !isImport && data.ActiveServicePolicies != nil && (data.ActiveServicePolicies.Policies.IsNull() || len(data.ActiveServicePolicies.Policies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: UDPLoadBalancerActiveServicePoliciesPoliciesModelAttrTypes})
 				}
+				var PoliciesExisting []UDPLoadBalancerActiveServicePoliciesPoliciesModel
+				if !isImport && data.ActiveServicePolicies != nil && !data.ActiveServicePolicies.Policies.IsNull() && !data.ActiveServicePolicies.Policies.IsUnknown() {
+					data.ActiveServicePolicies.Policies.ElementsAs(ctx, &PoliciesExisting, false)
+				}
 				if rawList, ok := blockData["policies"].([]interface{}); ok && len(rawList) > 0 {
 					var PoliciesResult []UDPLoadBalancerActiveServicePoliciesPoliciesModel
-					for _, PoliciesItem := range rawList {
+					for PoliciesIdx, PoliciesItem := range rawList {
+						_ = PoliciesIdx
 						if PoliciesItemMap, ok := PoliciesItem.(map[string]interface{}); ok {
 							PoliciesResult = append(PoliciesResult, UDPLoadBalancerActiveServicePoliciesPoliciesModel{
 								Name: func() types.String {
@@ -3042,9 +3085,14 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if !isImport && data.AdvertiseCustom != nil && (data.AdvertiseCustom.AdvertiseWhere.IsNull() || len(data.AdvertiseCustom.AdvertiseWhere.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: UDPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes})
 				}
+				var AdvertiseWhereExisting []UDPLoadBalancerAdvertiseCustomAdvertiseWhereModel
+				if !isImport && data.AdvertiseCustom != nil && !data.AdvertiseCustom.AdvertiseWhere.IsNull() && !data.AdvertiseCustom.AdvertiseWhere.IsUnknown() {
+					data.AdvertiseCustom.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereExisting, false)
+				}
 				if rawList, ok := blockData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
 					var AdvertiseWhereResult []UDPLoadBalancerAdvertiseCustomAdvertiseWhereModel
-					for _, AdvertiseWhereItem := range rawList {
+					for AdvertiseWhereIdx, AdvertiseWhereItem := range rawList {
+						_ = AdvertiseWhereIdx
 						if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
 							AdvertiseWhereResult = append(AdvertiseWhereResult, UDPLoadBalancerAdvertiseCustomAdvertiseWhereModel{
 								AdvertiseOnPublic: func() *UDPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
@@ -3136,6 +3184,9 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									return nil
 								}(),
 								UseDefaultPort: func() *UDPLoadBalancerEmptyModel {
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
+										return &UDPLoadBalancerEmptyModel{}
+									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &UDPLoadBalancerEmptyModel{}
 									}
@@ -3145,12 +3196,18 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 										return &UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
 											DefaultV6VIP: func() *UDPLoadBalancerEmptyModel {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP
+												}
 												if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
 													return &UDPLoadBalancerEmptyModel{}
 												}
 												return nil
 											}(),
 											DefaultVIP: func() *UDPLoadBalancerEmptyModel {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP
+												}
 												if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
 													return &UDPLoadBalancerEmptyModel{}
 												}

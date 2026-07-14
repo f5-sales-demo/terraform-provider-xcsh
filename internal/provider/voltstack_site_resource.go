@@ -11486,12 +11486,20 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteBlockedServicesBlockedServiceModelAttrTypes})
 				}
+				var BlockedServiceExisting []VoltstackSiteBlockedServicesBlockedServiceModel
+				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
+					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
+				}
 				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []VoltstackSiteBlockedServicesBlockedServiceModel
-					for _, BlockedServiceItem := range rawList {
+					for BlockedServiceIdx, BlockedServiceItem := range rawList {
+						_ = BlockedServiceIdx
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, VoltstackSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *VoltstackSiteEmptyModel {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
+										return &VoltstackSiteEmptyModel{}
+									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
 									}
@@ -11504,12 +11512,18 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 									return types.StringNull()
 								}(),
 								SSH: func() *VoltstackSiteEmptyModel {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
+										return &VoltstackSiteEmptyModel{}
+									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
 									}
 									return nil
 								}(),
 								WebUserInterface: func() *VoltstackSiteEmptyModel {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
+										return &VoltstackSiteEmptyModel{}
+									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
 									}
@@ -11531,12 +11545,20 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				if !isImport && data.BondDeviceList != nil && (data.BondDeviceList.BondDevices.IsNull() || len(data.BondDeviceList.BondDevices.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteBondDeviceListBondDevicesModelAttrTypes})
 				}
+				var BondDevicesExisting []VoltstackSiteBondDeviceListBondDevicesModel
+				if !isImport && data.BondDeviceList != nil && !data.BondDeviceList.BondDevices.IsNull() && !data.BondDeviceList.BondDevices.IsUnknown() {
+					data.BondDeviceList.BondDevices.ElementsAs(ctx, &BondDevicesExisting, false)
+				}
 				if rawList, ok := blockData["bond_devices"].([]interface{}); ok && len(rawList) > 0 {
 					var BondDevicesResult []VoltstackSiteBondDeviceListBondDevicesModel
-					for _, BondDevicesItem := range rawList {
+					for BondDevicesIdx, BondDevicesItem := range rawList {
+						_ = BondDevicesIdx
 						if BondDevicesItemMap, ok := BondDevicesItem.(map[string]interface{}); ok {
 							BondDevicesResult = append(BondDevicesResult, VoltstackSiteBondDeviceListBondDevicesModel{
 								ActiveBackup: func() *VoltstackSiteEmptyModel {
+									if !isImport && len(BondDevicesExisting) > BondDevicesIdx && BondDevicesExisting[BondDevicesIdx].ActiveBackup != nil {
+										return &VoltstackSiteEmptyModel{}
+									}
 									if _, ok := BondDevicesItemMap["active_backup"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
 									}
@@ -11559,6 +11581,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 									if LacpData, ok := BondDevicesItemMap["lacp"].(map[string]interface{}); ok {
 										return &VoltstackSiteBondDeviceListBondDevicesLacpModel{
 											Rate: func() types.Int64 {
+												if !isImport && len(BondDevicesExisting) > BondDevicesIdx && BondDevicesExisting[BondDevicesIdx].Lacp != nil && !BondDevicesExisting[BondDevicesIdx].Lacp.Rate.IsUnknown() {
+													return BondDevicesExisting[BondDevicesIdx].Lacp.Rate
+												}
 												if v, ok := LacpData["rate"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -11640,9 +11665,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies != nil && (data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() || len(data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModelAttrTypes})
+							}
+							var EnhancedFirewallPoliciesExisting []VoltstackSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies != nil && !data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
+								data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveEnhancedFirewallPoliciesData["enhanced_firewall_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var EnhancedFirewallPoliciesResult []VoltstackSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
-								for _, EnhancedFirewallPoliciesItem := range rawList {
+								for EnhancedFirewallPoliciesIdx, EnhancedFirewallPoliciesItem := range rawList {
+									_ = EnhancedFirewallPoliciesIdx
 									if EnhancedFirewallPoliciesItemMap, ok := EnhancedFirewallPoliciesItem.(map[string]interface{}); ok {
 										EnhancedFirewallPoliciesResult = append(EnhancedFirewallPoliciesResult, VoltstackSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel{
 											Name: func() types.String {
@@ -11679,9 +11712,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveForwardProxyPolicies != nil && (data.CustomNetworkConfig.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() || len(data.CustomNetworkConfig.ActiveForwardProxyPolicies.ForwardProxyPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
+							}
+							var ForwardProxyPoliciesExisting []VoltstackSiteCustomNetworkConfigActiveForwardProxyPoliciesForwardProxyPoliciesModel
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveForwardProxyPolicies != nil && !data.CustomNetworkConfig.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.CustomNetworkConfig.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
+								data.CustomNetworkConfig.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveForwardProxyPoliciesData["forward_proxy_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var ForwardProxyPoliciesResult []VoltstackSiteCustomNetworkConfigActiveForwardProxyPoliciesForwardProxyPoliciesModel
-								for _, ForwardProxyPoliciesItem := range rawList {
+								for ForwardProxyPoliciesIdx, ForwardProxyPoliciesItem := range rawList {
+									_ = ForwardProxyPoliciesIdx
 									if ForwardProxyPoliciesItemMap, ok := ForwardProxyPoliciesItem.(map[string]interface{}); ok {
 										ForwardProxyPoliciesResult = append(ForwardProxyPoliciesResult, VoltstackSiteCustomNetworkConfigActiveForwardProxyPoliciesForwardProxyPoliciesModel{
 											Name: func() types.String {
@@ -11718,9 +11759,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveNetworkPolicies != nil && (data.CustomNetworkConfig.ActiveNetworkPolicies.NetworkPolicies.IsNull() || len(data.CustomNetworkConfig.ActiveNetworkPolicies.NetworkPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigActiveNetworkPoliciesNetworkPoliciesModelAttrTypes})
+							}
+							var NetworkPoliciesExisting []VoltstackSiteCustomNetworkConfigActiveNetworkPoliciesNetworkPoliciesModel
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveNetworkPolicies != nil && !data.CustomNetworkConfig.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.CustomNetworkConfig.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
+								data.CustomNetworkConfig.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveNetworkPoliciesData["network_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var NetworkPoliciesResult []VoltstackSiteCustomNetworkConfigActiveNetworkPoliciesNetworkPoliciesModel
-								for _, NetworkPoliciesItem := range rawList {
+								for NetworkPoliciesIdx, NetworkPoliciesItem := range rawList {
+									_ = NetworkPoliciesIdx
 									if NetworkPoliciesItemMap, ok := NetworkPoliciesItem.(map[string]interface{}); ok {
 										NetworkPoliciesResult = append(NetworkPoliciesResult, VoltstackSiteCustomNetworkConfigActiveNetworkPoliciesNetworkPoliciesModel{
 											Name: func() types.String {
@@ -11805,9 +11854,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.GlobalNetworkList != nil && (data.CustomNetworkConfig.GlobalNetworkList.GlobalNetworkConnections.IsNull() || len(data.CustomNetworkConfig.GlobalNetworkList.GlobalNetworkConnections.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsModelAttrTypes})
+							}
+							var GlobalNetworkConnectionsExisting []VoltstackSiteCustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsModel
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.GlobalNetworkList != nil && !data.CustomNetworkConfig.GlobalNetworkList.GlobalNetworkConnections.IsNull() && !data.CustomNetworkConfig.GlobalNetworkList.GlobalNetworkConnections.IsUnknown() {
+								data.CustomNetworkConfig.GlobalNetworkList.GlobalNetworkConnections.ElementsAs(ctx, &GlobalNetworkConnectionsExisting, false)
+							}
 							if rawList, ok := GlobalNetworkListData["global_network_connections"].([]interface{}); ok && len(rawList) > 0 {
 								var GlobalNetworkConnectionsResult []VoltstackSiteCustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsModel
-								for _, GlobalNetworkConnectionsItem := range rawList {
+								for GlobalNetworkConnectionsIdx, GlobalNetworkConnectionsItem := range rawList {
+									_ = GlobalNetworkConnectionsIdx
 									if GlobalNetworkConnectionsItemMap, ok := GlobalNetworkConnectionsItem.(map[string]interface{}); ok {
 										GlobalNetworkConnectionsResult = append(GlobalNetworkConnectionsResult, VoltstackSiteCustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsModel{
 											SLIToGlobalDR: func() *VoltstackSiteCustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRModel {
@@ -11890,18 +11947,32 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				if InterfaceListData, ok := blockData["interface_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigInterfaceListModel{
 						Interfaces: func() types.List {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.InterfaceList != nil && (data.CustomNetworkConfig.InterfaceList.Interfaces.IsNull() || len(data.CustomNetworkConfig.InterfaceList.Interfaces.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesModelAttrTypes})
+							}
+							var InterfacesExisting []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesModel
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.InterfaceList != nil && !data.CustomNetworkConfig.InterfaceList.Interfaces.IsNull() && !data.CustomNetworkConfig.InterfaceList.Interfaces.IsUnknown() {
+								data.CustomNetworkConfig.InterfaceList.Interfaces.ElementsAs(ctx, &InterfacesExisting, false)
+							}
 							if rawList, ok := InterfaceListData["interfaces"].([]interface{}); ok && len(rawList) > 0 {
 								var InterfacesResult []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesModel
-								for _, InterfacesItem := range rawList {
+								for InterfacesIdx, InterfacesItem := range rawList {
+									_ = InterfacesIdx
 									if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
 										InterfacesResult = append(InterfacesResult, VoltstackSiteCustomNetworkConfigInterfaceListInterfacesModel{
 											DcClusterGroupConnectivityInterfaceDisabled: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceDisabled != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := InterfacesItemMap["dc_cluster_group_connectivity_interface_disabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
 												return nil
 											}(),
 											DcClusterGroupConnectivityInterfaceEnabled: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceEnabled != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := InterfacesItemMap["dc_cluster_group_connectivity_interface_enabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -11911,6 +11982,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												if DedicatedInterfaceData, ok := InterfacesItemMap["dedicated_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesDedicatedInterfaceModel{
 														Cluster: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedInterface != nil {
+																return InterfacesExisting[InterfacesIdx].DedicatedInterface.Cluster
+															}
 															if _, ok := DedicatedInterfaceData["cluster"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -11923,24 +11997,36 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.StringNull()
 														}(),
 														IsPrimary: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedInterface != nil {
+																return InterfacesExisting[InterfacesIdx].DedicatedInterface.IsPrimary
+															}
 															if _, ok := DedicatedInterfaceData["is_primary"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Monitor: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedInterface != nil {
+																return InterfacesExisting[InterfacesIdx].DedicatedInterface.Monitor
+															}
 															if _, ok := DedicatedInterfaceData["monitor"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														MonitorDisabled: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedInterface != nil {
+																return InterfacesExisting[InterfacesIdx].DedicatedInterface.MonitorDisabled
+															}
 															if _, ok := DedicatedInterfaceData["monitor_disabled"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														MTU: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedInterface != nil && !InterfacesExisting[InterfacesIdx].DedicatedInterface.MTU.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].DedicatedInterface.MTU
+															}
 															if v, ok := DedicatedInterfaceData["mtu"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -11953,12 +12039,18 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.StringNull()
 														}(),
 														NotPrimary: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedInterface != nil {
+																return InterfacesExisting[InterfacesIdx].DedicatedInterface.NotPrimary
+															}
 															if _, ok := DedicatedInterfaceData["not_primary"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Priority: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedInterface != nil && !InterfacesExisting[InterfacesIdx].DedicatedInterface.Priority.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].DedicatedInterface.Priority
+															}
 															if v, ok := DedicatedInterfaceData["priority"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -11972,6 +12064,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												if DedicatedManagementInterfaceData, ok := InterfacesItemMap["dedicated_management_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesDedicatedManagementInterfaceModel{
 														Cluster: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedManagementInterface != nil {
+																return InterfacesExisting[InterfacesIdx].DedicatedManagementInterface.Cluster
+															}
 															if _, ok := DedicatedManagementInterfaceData["cluster"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -11984,6 +12079,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.StringNull()
 														}(),
 														MTU: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedManagementInterface != nil && !InterfacesExisting[InterfacesIdx].DedicatedManagementInterface.MTU.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].DedicatedManagementInterface.MTU
+															}
 															if v, ok := DedicatedManagementInterfaceData["mtu"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -12009,6 +12107,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												if EthernetInterfaceData, ok := InterfacesItemMap["ethernet_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceModel{
 														Cluster: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.Cluster
+															}
 															if _, ok := EthernetInterfaceData["cluster"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -12021,6 +12122,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.StringNull()
 														}(),
 														DHCPClient: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPClient
+															}
 															if _, ok := EthernetInterfaceData["dhcp_client"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -12030,21 +12134,35 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															if DHCPServerData, ok := EthernetInterfaceData["dhcp_server"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModel{
 																	AutomaticFromEnd: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.AutomaticFromEnd
+																		}
 																		if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	AutomaticFromStart: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.AutomaticFromStart
+																		}
 																		if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	DHCPNetworks: func() types.List {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && (InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.DHCPNetworks.IsNull() || len(InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.DHCPNetworks.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
+																		}
+																		var DHCPNetworksExisting []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModel
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.DHCPNetworks.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.DHCPNetworks.IsUnknown() {
+																			InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																		}
 																		if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																			var DHCPNetworksResult []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModel
-																			for _, DHCPNetworksItem := range rawList {
+																			for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																				_ = DHCPNetworksIdx
 																				if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
 																					DHCPNetworksResult = append(DHCPNetworksResult, VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModel{
 																						DgwAddress: func() types.String {
@@ -12060,12 +12178,18 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																							return types.StringNull()
 																						}(),
 																						FirstAddress: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
 																							return nil
 																						}(),
 																						LastAddress: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].LastAddress != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
@@ -12141,6 +12265,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																							return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 																						}(),
 																						SameAsDgw: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
@@ -12155,15 +12282,24 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
 																	}(),
 																	FixedIPMap: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.FixedIPMap
+																		}
 																		if _, ok := DHCPServerData["fixed_ip_map"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	InterfaceIPMap: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap
+																		}
 																		if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapModel{
 																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap != nil {
+																						return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap
+																					}
 																					if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -12178,21 +12314,36 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return nil
 														}(),
 														Ipv6AutoConfig: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig
+															}
 															if Ipv6AutoConfigData, ok := EthernetInterfaceData["ipv6_auto_config"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigModel{
 																	Host: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Host
+																		}
 																		if _, ok := Ipv6AutoConfigData["host"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	Router: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router
+																		}
 																		if RouterData, ok := Ipv6AutoConfigData["router"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterModel{
 																				DNSConfig: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterDNSConfigModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil {
+																						return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig
+																					}
 																					if DNSConfigData, ok := RouterData["dns_config"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterDNSConfigModel{
 																							ConfiguredList: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel {
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+																									return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList
+																								}
 																								if ConfiguredListData, ok := DNSConfigData["configured_list"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel{
 																										DNSList: func() types.List {
@@ -12213,6 +12364,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																								return nil
 																							}(),
 																							LocalDNS: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel {
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																									return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS
+																								}
 																								if LocalDNSData, ok := DNSConfigData["local_dns"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel{
 																										ConfiguredAddress: func() types.String {
@@ -12222,12 +12376,18 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																											return types.StringNull()
 																										}(),
 																										FirstAddress: func() *VoltstackSiteEmptyModel {
+																											if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																												return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress
+																											}
 																											if _, ok := LocalDNSData["first_address"].(map[string]interface{}); ok {
 																												return &VoltstackSiteEmptyModel{}
 																											}
 																											return nil
 																										}(),
 																										LastAddress: func() *VoltstackSiteEmptyModel {
+																											if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																												return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress
+																											}
 																											if _, ok := LocalDNSData["last_address"].(map[string]interface{}); ok {
 																												return &VoltstackSiteEmptyModel{}
 																											}
@@ -12248,24 +12408,41 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return types.StringNull()
 																				}(),
 																				Stateful: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																						return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful
+																					}
 																					if StatefulData, ok := RouterData["stateful"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulModel{
 																							AutomaticFromEnd: func() *VoltstackSiteEmptyModel {
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																									return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd
+																								}
 																								if _, ok := StatefulData["automatic_from_end"].(map[string]interface{}); ok {
 																									return &VoltstackSiteEmptyModel{}
 																								}
 																								return nil
 																							}(),
 																							AutomaticFromStart: func() *VoltstackSiteEmptyModel {
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																									return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart
+																								}
 																								if _, ok := StatefulData["automatic_from_start"].(map[string]interface{}); ok {
 																									return &VoltstackSiteEmptyModel{}
 																								}
 																								return nil
 																							}(),
 																							DHCPNetworks: func() types.List {
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && (InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() || len(InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.Elements()) == 0) {
+																									return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
+																								}
+																								var DHCPNetworksExisting []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+																									InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																								}
 																								if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																									var DHCPNetworksResult []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
-																									for _, DHCPNetworksItem := range rawList {
+																									for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																										_ = DHCPNetworksIdx
 																										if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
 																											DHCPNetworksResult = append(DHCPNetworksResult, VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel{
 																												NetworkPrefix: func() types.String {
@@ -12315,15 +12492,24 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																							}(),
 																							FixedIPMap: func() *VoltstackSiteEmptyModel {
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																									return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap
+																								}
 																								if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
 																									return &VoltstackSiteEmptyModel{}
 																								}
 																								return nil
 																							}(),
 																							InterfaceIPMap: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+																									return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
+																								}
 																								if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
 																										InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																											if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+																												return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
+																											}
 																											if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
 																												return &VoltstackSiteEmptyModel{}
 																											}
@@ -12346,30 +12532,45 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return nil
 														}(),
 														IsPrimary: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.IsPrimary
+															}
 															if _, ok := EthernetInterfaceData["is_primary"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Monitor: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.Monitor
+															}
 															if _, ok := EthernetInterfaceData["monitor"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														MonitorDisabled: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.MonitorDisabled
+															}
 															if _, ok := EthernetInterfaceData["monitor_disabled"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														MTU: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.MTU.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.MTU
+															}
 															if v, ok := EthernetInterfaceData["mtu"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														NoIpv6Address: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.NoIpv6Address
+															}
 															if _, ok := EthernetInterfaceData["no_ipv6_address"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -12382,36 +12583,57 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.StringNull()
 														}(),
 														NotPrimary: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.NotPrimary
+															}
 															if _, ok := EthernetInterfaceData["not_primary"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Priority: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.Priority.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.Priority
+															}
 															if v, ok := EthernetInterfaceData["priority"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														SiteLocalInsideNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.SiteLocalInsideNetwork
+															}
 															if _, ok := EthernetInterfaceData["site_local_inside_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														SiteLocalNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.SiteLocalNetwork
+															}
 															if _, ok := EthernetInterfaceData["site_local_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														StaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP
+															}
 															if StaticIPData, ok := EthernetInterfaceData["static_ip"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPModel{
 																	ClusterStaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP
+																		}
 																		if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPModel{
 																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP != nil {
+																						return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
+																					}
 																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -12422,6 +12644,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return nil
 																	}(),
 																	NodeStaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPNodeStaticIPModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.NodeStaticIP != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.NodeStaticIP
+																		}
 																		if NodeStaticIPData, ok := StaticIPData["node_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPNodeStaticIPModel{
 																				DefaultGw: func() types.String {
@@ -12445,12 +12670,21 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return nil
 														}(),
 														StaticIpv6Address: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address
+															}
 															if StaticIpv6AddressData, ok := EthernetInterfaceData["static_ipv6_address"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressModel{
 																	ClusterStaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP
+																		}
 																		if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPModel{
 																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
+																						return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
+																					}
 																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -12461,6 +12695,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return nil
 																	}(),
 																	NodeStaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.NodeStaticIP != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.NodeStaticIP
+																		}
 																		if NodeStaticIPData, ok := StaticIpv6AddressData["node_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPModel{
 																				DefaultGw: func() types.String {
@@ -12484,18 +12721,27 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return nil
 														}(),
 														StorageNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.StorageNetwork
+															}
 															if _, ok := EthernetInterfaceData["storage_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Untagged: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.Untagged
+															}
 															if _, ok := EthernetInterfaceData["untagged"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														VLANID: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.VLANID.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.VLANID
+															}
 															if v, ok := EthernetInterfaceData["vlan_id"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -12506,6 +12752,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											Labels: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].Labels != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := InterfacesItemMap["labels"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -12515,6 +12764,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												if TunnelInterfaceData, ok := InterfacesItemMap["tunnel_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceModel{
 														MTU: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && !InterfacesExisting[InterfacesIdx].TunnelInterface.MTU.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].TunnelInterface.MTU
+															}
 															if v, ok := TunnelInterfaceData["mtu"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -12527,30 +12779,48 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.StringNull()
 														}(),
 														Priority: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && !InterfacesExisting[InterfacesIdx].TunnelInterface.Priority.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].TunnelInterface.Priority
+															}
 															if v, ok := TunnelInterfaceData["priority"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														SiteLocalInsideNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil {
+																return InterfacesExisting[InterfacesIdx].TunnelInterface.SiteLocalInsideNetwork
+															}
 															if _, ok := TunnelInterfaceData["site_local_inside_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														SiteLocalNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil {
+																return InterfacesExisting[InterfacesIdx].TunnelInterface.SiteLocalNetwork
+															}
 															if _, ok := TunnelInterfaceData["site_local_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														StaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP != nil {
+																return InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP
+															}
 															if StaticIPData, ok := TunnelInterfaceData["static_ip"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPModel{
 																	ClusterStaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPClusterStaticIPModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.ClusterStaticIP != nil {
+																			return InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.ClusterStaticIP
+																		}
 																		if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPClusterStaticIPModel{
 																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.ClusterStaticIP != nil {
+																						return InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
+																					}
 																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -12561,6 +12831,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return nil
 																	}(),
 																	NodeStaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPNodeStaticIPModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.NodeStaticIP != nil {
+																			return InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.NodeStaticIP
+																		}
 																		if NodeStaticIPData, ok := StaticIPData["node_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPNodeStaticIPModel{
 																				DefaultGw: func() types.String {
@@ -12673,12 +12946,18 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				if SLIConfigData, ok := blockData["sli_config"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigSLIConfigModel{
 						NoStaticRoutes: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil {
+								return data.CustomNetworkConfig.SLIConfig.NoStaticRoutes
+							}
 							if _, ok := SLIConfigData["no_static_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
 							return nil
 						}(),
 						NoV6StaticRoutes: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil {
+								return data.CustomNetworkConfig.SLIConfig.NoV6StaticRoutes
+							}
 							if _, ok := SLIConfigData["no_v6_static_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
@@ -12688,9 +12967,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 							if StaticRoutesData, ok := SLIConfigData["static_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesModel{
 									StaticRoutes: func() types.List {
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil && data.CustomNetworkConfig.SLIConfig.StaticRoutes != nil && (data.CustomNetworkConfig.SLIConfig.StaticRoutes.StaticRoutes.IsNull() || len(data.CustomNetworkConfig.SLIConfig.StaticRoutes.StaticRoutes.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesModelAttrTypes})
+										}
+										var StaticRoutesExisting []VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesModel
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil && data.CustomNetworkConfig.SLIConfig.StaticRoutes != nil && !data.CustomNetworkConfig.SLIConfig.StaticRoutes.StaticRoutes.IsNull() && !data.CustomNetworkConfig.SLIConfig.StaticRoutes.StaticRoutes.IsUnknown() {
+											data.CustomNetworkConfig.SLIConfig.StaticRoutes.StaticRoutes.ElementsAs(ctx, &StaticRoutesExisting, false)
+										}
 										if rawList, ok := StaticRoutesData["static_routes"].([]interface{}); ok && len(rawList) > 0 {
 											var StaticRoutesResult []VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesModel
-											for _, StaticRoutesItem := range rawList {
+											for StaticRoutesIdx, StaticRoutesItem := range rawList {
+												_ = StaticRoutesIdx
 												if StaticRoutesItemMap, ok := StaticRoutesItem.(map[string]interface{}); ok {
 													StaticRoutesResult = append(StaticRoutesResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesModel{
 														Attrs: func() types.List {
@@ -12707,6 +12994,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
+																return &VoltstackSiteEmptyModel{}
+															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -12735,9 +13025,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															if NodeInterfaceData, ok := StaticRoutesItemMap["node_interface"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceModel{
 																	List: func() types.List {
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && (StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() || len(StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListModelAttrTypes})
+																		}
+																		var ListExisting []VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListModel
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsUnknown() {
+																			StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.ElementsAs(ctx, &ListExisting, false)
+																		}
 																		if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
 																			var ListResult []VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListModel
-																			for _, ListItem := range rawList {
+																			for ListIdx, ListItem := range rawList {
+																				_ = ListIdx
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
@@ -12818,9 +13116,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 							if StaticV6RoutesData, ok := SLIConfigData["static_v6_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesModel{
 									StaticRoutes: func() types.List {
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil && data.CustomNetworkConfig.SLIConfig.StaticV6Routes != nil && (data.CustomNetworkConfig.SLIConfig.StaticV6Routes.StaticRoutes.IsNull() || len(data.CustomNetworkConfig.SLIConfig.StaticV6Routes.StaticRoutes.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesModelAttrTypes})
+										}
+										var StaticRoutesExisting []VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesModel
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil && data.CustomNetworkConfig.SLIConfig.StaticV6Routes != nil && !data.CustomNetworkConfig.SLIConfig.StaticV6Routes.StaticRoutes.IsNull() && !data.CustomNetworkConfig.SLIConfig.StaticV6Routes.StaticRoutes.IsUnknown() {
+											data.CustomNetworkConfig.SLIConfig.StaticV6Routes.StaticRoutes.ElementsAs(ctx, &StaticRoutesExisting, false)
+										}
 										if rawList, ok := StaticV6RoutesData["static_routes"].([]interface{}); ok && len(rawList) > 0 {
 											var StaticRoutesResult []VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesModel
-											for _, StaticRoutesItem := range rawList {
+											for StaticRoutesIdx, StaticRoutesItem := range rawList {
+												_ = StaticRoutesIdx
 												if StaticRoutesItemMap, ok := StaticRoutesItem.(map[string]interface{}); ok {
 													StaticRoutesResult = append(StaticRoutesResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesModel{
 														Attrs: func() types.List {
@@ -12837,6 +13143,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
+																return &VoltstackSiteEmptyModel{}
+															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -12865,9 +13174,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															if NodeInterfaceData, ok := StaticRoutesItemMap["node_interface"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceModel{
 																	List: func() types.List {
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && (StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() || len(StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListModelAttrTypes})
+																		}
+																		var ListExisting []VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsUnknown() {
+																			StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.ElementsAs(ctx, &ListExisting, false)
+																		}
 																		if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
 																			var ListResult []VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel
-																			for _, ListItem := range rawList {
+																			for ListIdx, ListItem := range rawList {
+																				_ = ListIdx
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
@@ -12977,24 +13294,36 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 							return nil
 						}(),
 						Labels: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
+								return data.CustomNetworkConfig.SloConfig.Labels
+							}
 							if _, ok := SloConfigData["labels"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
 							return nil
 						}(),
 						NoDcClusterGroup: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
+								return data.CustomNetworkConfig.SloConfig.NoDcClusterGroup
+							}
 							if _, ok := SloConfigData["no_dc_cluster_group"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
 							return nil
 						}(),
 						NoStaticRoutes: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
+								return data.CustomNetworkConfig.SloConfig.NoStaticRoutes
+							}
 							if _, ok := SloConfigData["no_static_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
 							return nil
 						}(),
 						NoStaticV6Routes: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
+								return data.CustomNetworkConfig.SloConfig.NoStaticV6Routes
+							}
 							if _, ok := SloConfigData["no_static_v6_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
@@ -13004,9 +13333,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 							if StaticRoutesData, ok := SloConfigData["static_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesModel{
 									StaticRoutes: func() types.List {
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil && data.CustomNetworkConfig.SloConfig.StaticRoutes != nil && (data.CustomNetworkConfig.SloConfig.StaticRoutes.StaticRoutes.IsNull() || len(data.CustomNetworkConfig.SloConfig.StaticRoutes.StaticRoutes.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesModelAttrTypes})
+										}
+										var StaticRoutesExisting []VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesModel
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil && data.CustomNetworkConfig.SloConfig.StaticRoutes != nil && !data.CustomNetworkConfig.SloConfig.StaticRoutes.StaticRoutes.IsNull() && !data.CustomNetworkConfig.SloConfig.StaticRoutes.StaticRoutes.IsUnknown() {
+											data.CustomNetworkConfig.SloConfig.StaticRoutes.StaticRoutes.ElementsAs(ctx, &StaticRoutesExisting, false)
+										}
 										if rawList, ok := StaticRoutesData["static_routes"].([]interface{}); ok && len(rawList) > 0 {
 											var StaticRoutesResult []VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesModel
-											for _, StaticRoutesItem := range rawList {
+											for StaticRoutesIdx, StaticRoutesItem := range rawList {
+												_ = StaticRoutesIdx
 												if StaticRoutesItemMap, ok := StaticRoutesItem.(map[string]interface{}); ok {
 													StaticRoutesResult = append(StaticRoutesResult, VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesModel{
 														Attrs: func() types.List {
@@ -13023,6 +13360,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
+																return &VoltstackSiteEmptyModel{}
+															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -13051,9 +13391,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															if NodeInterfaceData, ok := StaticRoutesItemMap["node_interface"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceModel{
 																	List: func() types.List {
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && (StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() || len(StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListModelAttrTypes})
+																		}
+																		var ListExisting []VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListModel
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsUnknown() {
+																			StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.ElementsAs(ctx, &ListExisting, false)
+																		}
 																		if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
 																			var ListResult []VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListModel
-																			for _, ListItem := range rawList {
+																			for ListIdx, ListItem := range rawList {
+																				_ = ListIdx
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
@@ -13134,9 +13482,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 							if StaticV6RoutesData, ok := SloConfigData["static_v6_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesModel{
 									StaticRoutes: func() types.List {
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil && data.CustomNetworkConfig.SloConfig.StaticV6Routes != nil && (data.CustomNetworkConfig.SloConfig.StaticV6Routes.StaticRoutes.IsNull() || len(data.CustomNetworkConfig.SloConfig.StaticV6Routes.StaticRoutes.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesModelAttrTypes})
+										}
+										var StaticRoutesExisting []VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesModel
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil && data.CustomNetworkConfig.SloConfig.StaticV6Routes != nil && !data.CustomNetworkConfig.SloConfig.StaticV6Routes.StaticRoutes.IsNull() && !data.CustomNetworkConfig.SloConfig.StaticV6Routes.StaticRoutes.IsUnknown() {
+											data.CustomNetworkConfig.SloConfig.StaticV6Routes.StaticRoutes.ElementsAs(ctx, &StaticRoutesExisting, false)
+										}
 										if rawList, ok := StaticV6RoutesData["static_routes"].([]interface{}); ok && len(rawList) > 0 {
 											var StaticRoutesResult []VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesModel
-											for _, StaticRoutesItem := range rawList {
+											for StaticRoutesIdx, StaticRoutesItem := range rawList {
+												_ = StaticRoutesIdx
 												if StaticRoutesItemMap, ok := StaticRoutesItem.(map[string]interface{}); ok {
 													StaticRoutesResult = append(StaticRoutesResult, VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesModel{
 														Attrs: func() types.List {
@@ -13153,6 +13509,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
+																return &VoltstackSiteEmptyModel{}
+															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -13181,9 +13540,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															if NodeInterfaceData, ok := StaticRoutesItemMap["node_interface"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceModel{
 																	List: func() types.List {
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && (StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() || len(StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListModelAttrTypes})
+																		}
+																		var ListExisting []VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsUnknown() {
+																			StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.ElementsAs(ctx, &ListExisting, false)
+																		}
 																		if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
 																			var ListResult []VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel
-																			for _, ListItem := range rawList {
+																			for ListIdx, ListItem := range rawList {
+																				_ = ListIdx
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
@@ -13341,9 +13708,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				if StaticRoutesData, ok := blockData["static_routes"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomStorageConfigStaticRoutesModel{
 						StaticRoutes: func() types.List {
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StaticRoutes != nil && (data.CustomStorageConfig.StaticRoutes.StaticRoutes.IsNull() || len(data.CustomStorageConfig.StaticRoutes.StaticRoutes.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesModelAttrTypes})
+							}
+							var StaticRoutesExisting []VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesModel
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StaticRoutes != nil && !data.CustomStorageConfig.StaticRoutes.StaticRoutes.IsNull() && !data.CustomStorageConfig.StaticRoutes.StaticRoutes.IsUnknown() {
+								data.CustomStorageConfig.StaticRoutes.StaticRoutes.ElementsAs(ctx, &StaticRoutesExisting, false)
+							}
 							if rawList, ok := StaticRoutesData["static_routes"].([]interface{}); ok && len(rawList) > 0 {
 								var StaticRoutesResult []VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesModel
-								for _, StaticRoutesItem := range rawList {
+								for StaticRoutesIdx, StaticRoutesItem := range rawList {
+									_ = StaticRoutesIdx
 									if StaticRoutesItemMap, ok := StaticRoutesItem.(map[string]interface{}); ok {
 										StaticRoutesResult = append(StaticRoutesResult, VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesModel{
 											Attrs: func() types.List {
@@ -13360,6 +13735,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												return types.ListNull(types.StringType)
 											}(),
 											DefaultGateway: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -13388,9 +13766,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												if NodeInterfaceData, ok := StaticRoutesItemMap["node_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceModel{
 														List: func() types.List {
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && (StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() || len(StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListModelAttrTypes})
+															}
+															var ListExisting []VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListModel
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsUnknown() {
+																StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.ElementsAs(ctx, &ListExisting, false)
+															}
 															if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
 																var ListResult []VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListModel
-																for _, ListItem := range rawList {
+																for ListIdx, ListItem := range rawList {
+																	_ = ListIdx
 																	if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																		ListResult = append(ListResult, VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																			Interface: func() types.List {
@@ -13474,12 +13860,23 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				if StorageClassListData, ok := blockData["storage_class_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomStorageConfigStorageClassListModel{
 						StorageClasses: func() types.List {
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageClassList != nil && (data.CustomStorageConfig.StorageClassList.StorageClasses.IsNull() || len(data.CustomStorageConfig.StorageClassList.StorageClasses.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageClassListStorageClassesModelAttrTypes})
+							}
+							var StorageClassesExisting []VoltstackSiteCustomStorageConfigStorageClassListStorageClassesModel
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageClassList != nil && !data.CustomStorageConfig.StorageClassList.StorageClasses.IsNull() && !data.CustomStorageConfig.StorageClassList.StorageClasses.IsUnknown() {
+								data.CustomStorageConfig.StorageClassList.StorageClasses.ElementsAs(ctx, &StorageClassesExisting, false)
+							}
 							if rawList, ok := StorageClassListData["storage_classes"].([]interface{}); ok && len(rawList) > 0 {
 								var StorageClassesResult []VoltstackSiteCustomStorageConfigStorageClassListStorageClassesModel
-								for _, StorageClassesItem := range rawList {
+								for StorageClassesIdx, StorageClassesItem := range rawList {
+									_ = StorageClassesIdx
 									if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
 										StorageClassesResult = append(StorageClassesResult, VoltstackSiteCustomStorageConfigStorageClassListStorageClassesModel{
 											AdvancedStorageParameters: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := StorageClassesItemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -13532,6 +13929,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.StringNull()
 														}(),
 														DedupeEnabled: func() types.Bool {
+															if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.DedupeEnabled.IsUnknown() {
+																return StorageClassesExisting[StorageClassesIdx].HpeStorage.DedupeEnabled
+															}
 															if v, ok := HpeStorageData["dedupe_enabled"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -13544,12 +13944,18 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.StringNull()
 														}(),
 														DestroyOnDelete: func() types.Bool {
+															if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.DestroyOnDelete.IsUnknown() {
+																return StorageClassesExisting[StorageClassesIdx].HpeStorage.DestroyOnDelete
+															}
 															if v, ok := HpeStorageData["destroy_on_delete"].(bool); ok {
 																return types.BoolValue(v)
 															}
 															return types.BoolNull()
 														}(),
 														Encrypted: func() types.Bool {
+															if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.Encrypted.IsUnknown() {
+																return StorageClassesExisting[StorageClassesIdx].HpeStorage.Encrypted
+															}
 															if v, ok := HpeStorageData["encrypted"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -13604,12 +14010,18 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.StringNull()
 														}(),
 														SyncOnDetach: func() types.Bool {
+															if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.SyncOnDetach.IsUnknown() {
+																return StorageClassesExisting[StorageClassesIdx].HpeStorage.SyncOnDetach
+															}
 															if v, ok := HpeStorageData["sync_on_detach"].(bool); ok {
 																return types.BoolValue(v)
 															}
 															return types.BoolNull()
 														}(),
 														Thick: func() types.Bool {
+															if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.Thick.IsUnknown() {
+																return StorageClassesExisting[StorageClassesIdx].HpeStorage.Thick
+															}
 															if v, ok := HpeStorageData["thick"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -13623,6 +14035,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												if NetappTridentData, ok := StorageClassesItemMap["netapp_trident"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomStorageConfigStorageClassListStorageClassesNetappTridentModel{
 														Selector: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].NetappTrident != nil {
+																return StorageClassesExisting[StorageClassesIdx].NetappTrident.Selector
+															}
 															if _, ok := NetappTridentData["selector"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -13654,6 +14069,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.StringNull()
 														}(),
 														IopsLimit: func() types.Int64 {
+															if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].PureServiceOrchestrator != nil && !StorageClassesExisting[StorageClassesIdx].PureServiceOrchestrator.IopsLimit.IsUnknown() {
+																return StorageClassesExisting[StorageClassesIdx].PureServiceOrchestrator.IopsLimit
+															}
 															if v, ok := PureServiceOrchestratorData["iops_limit"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -13700,18 +14118,32 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				if StorageDeviceListData, ok := blockData["storage_device_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomStorageConfigStorageDeviceListModel{
 						StorageDevices: func() types.List {
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageDeviceList != nil && (data.CustomStorageConfig.StorageDeviceList.StorageDevices.IsNull() || len(data.CustomStorageConfig.StorageDeviceList.StorageDevices.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesModelAttrTypes})
+							}
+							var StorageDevicesExisting []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesModel
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageDeviceList != nil && !data.CustomStorageConfig.StorageDeviceList.StorageDevices.IsNull() && !data.CustomStorageConfig.StorageDeviceList.StorageDevices.IsUnknown() {
+								data.CustomStorageConfig.StorageDeviceList.StorageDevices.ElementsAs(ctx, &StorageDevicesExisting, false)
+							}
 							if rawList, ok := StorageDeviceListData["storage_devices"].([]interface{}); ok && len(rawList) > 0 {
 								var StorageDevicesResult []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesModel
-								for _, StorageDevicesItem := range rawList {
+								for StorageDevicesIdx, StorageDevicesItem := range rawList {
+									_ = StorageDevicesIdx
 									if StorageDevicesItemMap, ok := StorageDevicesItem.(map[string]interface{}); ok {
 										StorageDevicesResult = append(StorageDevicesResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesModel{
 											AdvancedAdvancedParameters: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := StorageDevicesItemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
 												return nil
 											}(),
 											CustomStorage: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].CustomStorage != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := StorageDevicesItemMap["custom_storage"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -13721,15 +14153,24 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												if HpeStorageData, ok := StorageDevicesItemMap["hpe_storage"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageModel{
 														APIServerPort: func() types.Int64 {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && !StorageDevicesExisting[StorageDevicesIdx].HpeStorage.APIServerPort.IsUnknown() {
+																return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.APIServerPort
+															}
 															if v, ok := HpeStorageData["api_server_port"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														IscsiChapPassword: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword
+															}
 															if IscsiChapPasswordData, ok := HpeStorageData["iscsi_chap_password"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordModel{
 																	BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := IscsiChapPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -13755,6 +14196,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return nil
 																	}(),
 																	BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal
+																		}
 																		if BlindfoldSecretInfoInternalData, ok := IscsiChapPasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalModel{
 																				DecryptionProvider: func() types.String {
@@ -13780,6 +14224,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.ClearSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := IscsiChapPasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -13805,6 +14252,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return types.StringNull()
 																	}(),
 																	VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo
+																		}
 																		if VaultSecretInfoData, ok := IscsiChapPasswordData["vault_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoModel{
 																				Key: func() types.String {
@@ -13832,6 +14282,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return types.StringNull()
 																				}(),
 																				Version: func() types.Int64 {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo.Version.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo.Version
+																					}
 																					if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																						return types.Int64Value(int64(v))
 																					}
@@ -13842,6 +14295,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return nil
 																	}(),
 																	WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.WingmanSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.WingmanSecretInfo
+																		}
 																		if WingmanSecretInfoData, ok := IscsiChapPasswordData["wingman_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoModel{
 																				Name: func() types.String {
@@ -13865,9 +14321,15 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.StringNull()
 														}(),
 														Password: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password
+															}
 															if PasswordData, ok := HpeStorageData["password"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordModel{
 																	BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -13893,6 +14355,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return nil
 																	}(),
 																	BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfoInternal != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfoInternal
+																		}
 																		if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalModel{
 																				DecryptionProvider: func() types.String {
@@ -13918,6 +14383,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.ClearSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -13943,6 +14411,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return types.StringNull()
 																	}(),
 																	VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo
+																		}
 																		if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoModel{
 																				Key: func() types.String {
@@ -13970,6 +14441,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return types.StringNull()
 																				}(),
 																				Version: func() types.Int64 {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo.Version.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo.Version
+																					}
 																					if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																						return types.Int64Value(int64(v))
 																					}
@@ -13980,6 +14454,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return nil
 																	}(),
 																	WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.WingmanSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.WingmanSecretInfo
+																		}
 																		if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoModel{
 																				Name: func() types.String {
@@ -14022,9 +14499,15 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												if NetappTridentData, ok := StorageDevicesItemMap["netapp_trident"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentModel{
 														NetappBackendOntapNas: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas
+															}
 															if NetappBackendOntapNasData, ok := NetappTridentData["netapp_backend_ontap_nas"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasModel{
 																	AutoExportCidrs: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasAutoExportCidrsModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportCidrs != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportCidrs
+																		}
 																		if AutoExportCidrsData, ok := NetappBackendOntapNasData["auto_export_cidrs"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasAutoExportCidrsModel{
 																				Prefixes: func() types.List {
@@ -14045,6 +14528,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return nil
 																	}(),
 																	AutoExportPolicy: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportPolicy.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportPolicy
+																		}
 																		if v, ok := NetappBackendOntapNasData["auto_export_policy"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -14063,9 +14549,15 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return types.StringNull()
 																	}(),
 																	ClientPrivateKey: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey
+																		}
 																		if ClientPrivateKeyData, ok := NetappBackendOntapNasData["client_private_key"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel{
 																				BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo
+																					}
 																					if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel{
 																							DecryptionProvider: func() types.String {
@@ -14091,6 +14583,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return nil
 																				}(),
 																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal
+																					}
 																					if BlindfoldSecretInfoInternalData, ok := ClientPrivateKeyData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalModel{
 																							DecryptionProvider: func() types.String {
@@ -14116,6 +14611,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return nil
 																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo
+																					}
 																					if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel{
 																							Provider: func() types.String {
@@ -14141,6 +14639,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return types.StringNull()
 																				}(),
 																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo
+																					}
 																					if VaultSecretInfoData, ok := ClientPrivateKeyData["vault_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoModel{
 																							Key: func() types.String {
@@ -14168,6 +14669,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																								return types.StringNull()
 																							}(),
 																							Version: func() types.Int64 {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Version.IsUnknown() {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Version
+																								}
 																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																									return types.Int64Value(int64(v))
 																								}
@@ -14178,6 +14682,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return nil
 																				}(),
 																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.WingmanSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.WingmanSecretInfo
+																					}
 																					if WingmanSecretInfoData, ok := ClientPrivateKeyData["wingman_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoModel{
 																							Name: func() types.String {
@@ -14207,6 +14714,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return types.StringNull()
 																	}(),
 																	Labels: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Labels
+																		}
 																		if _, ok := NetappBackendOntapNasData["labels"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
@@ -14243,9 +14753,15 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return types.StringNull()
 																	}(),
 																	Password: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password
+																		}
 																		if PasswordData, ok := NetappBackendOntapNasData["password"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModel{
 																				BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo
+																					}
 																					if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoModel{
 																							DecryptionProvider: func() types.String {
@@ -14271,6 +14787,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return nil
 																				}(),
 																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal
+																					}
 																					if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalModel{
 																							DecryptionProvider: func() types.String {
@@ -14296,6 +14815,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return nil
 																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo
+																					}
 																					if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel{
 																							Provider: func() types.String {
@@ -14321,6 +14843,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return types.StringNull()
 																				}(),
 																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo
+																					}
 																					if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoModel{
 																							Key: func() types.String {
@@ -14348,6 +14873,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																								return types.StringNull()
 																							}(),
 																							Version: func() types.Int64 {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Version.IsUnknown() {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Version
+																								}
 																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																									return types.Int64Value(int64(v))
 																								}
@@ -14358,6 +14886,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return nil
 																				}(),
 																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.WingmanSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.WingmanSecretInfo
+																					}
 																					if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoModel{
 																							Name: func() types.String {
@@ -14381,12 +14912,23 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return types.StringNull()
 																	}(),
 																	Storage: func() types.List {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && (StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModelAttrTypes})
+																		}
+																		var StorageExisting []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.IsUnknown() {
+																			StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.ElementsAs(ctx, &StorageExisting, false)
+																		}
 																		if rawList, ok := NetappBackendOntapNasData["storage"].([]interface{}); ok && len(rawList) > 0 {
 																			var StorageResult []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel
-																			for _, StorageItem := range rawList {
+																			for StorageIdx, StorageItem := range rawList {
+																				_ = StorageIdx
 																				if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																					StorageResult = append(StorageResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel{
 																						Labels: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
@@ -14402,6 +14944,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																										return types.StringNull()
 																									}(),
 																									Encryption: func() types.Bool {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.Encryption.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.Encryption
+																										}
 																										if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																											return types.BoolValue(v)
 																										}
@@ -14414,6 +14959,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																										return types.StringNull()
 																									}(),
 																									NoQOS: func() *VoltstackSiteEmptyModel {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil {
+																											return StorageExisting[StorageIdx].VolumeDefaults.NoQOS
+																										}
 																										if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																											return &VoltstackSiteEmptyModel{}
 																										}
@@ -14432,6 +14980,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																										return types.StringNull()
 																									}(),
 																									SnapshotDir: func() types.Bool {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir
+																										}
 																										if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																											return types.BoolValue(v)
 																										}
@@ -14456,6 +15007,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																										return types.StringNull()
 																									}(),
 																									SplitOnClone: func() types.Bool {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone
+																										}
 																										if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																											return types.BoolValue(v)
 																										}
@@ -14468,6 +15022,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																										return types.StringNull()
 																									}(),
 																									UnixPermissions: func() types.Int64 {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions
+																										}
 																										if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																											return types.Int64Value(int64(v))
 																										}
@@ -14522,6 +15079,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return types.StringNull()
 																	}(),
 																	VolumeDefaults: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults
+																		}
 																		if VolumeDefaultsData, ok := NetappBackendOntapNasData["volume_defaults"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModel{
 																				AdaptiveQOSPolicy: func() types.String {
@@ -14531,6 +15091,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return types.StringNull()
 																				}(),
 																				Encryption: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption
+																					}
 																					if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
@@ -14543,6 +15106,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return types.StringNull()
 																				}(),
 																				NoQOS: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS
+																					}
 																					if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -14561,6 +15127,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return types.StringNull()
 																				}(),
 																				SnapshotDir: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir
+																					}
 																					if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
@@ -14585,6 +15154,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return types.StringNull()
 																				}(),
 																				SplitOnClone: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone
+																					}
 																					if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
@@ -14597,6 +15169,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return types.StringNull()
 																				}(),
 																				UnixPermissions: func() types.Int64 {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions
+																					}
 																					if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																						return types.Int64Value(int64(v))
 																					}
@@ -14611,6 +15186,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return nil
 														}(),
 														NetappBackendOntapSan: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan
+															}
 															if NetappBackendOntapSanData, ok := NetappTridentData["netapp_backend_ontap_san"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel{
 																	ClientCertificate: func() types.String {
@@ -14620,9 +15198,15 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return types.StringNull()
 																	}(),
 																	ClientPrivateKey: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey
+																		}
 																		if ClientPrivateKeyData, ok := NetappBackendOntapSanData["client_private_key"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel{
 																				BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo
+																					}
 																					if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel{
 																							DecryptionProvider: func() types.String {
@@ -14648,6 +15232,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return nil
 																				}(),
 																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal
+																					}
 																					if BlindfoldSecretInfoInternalData, ok := ClientPrivateKeyData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalModel{
 																							DecryptionProvider: func() types.String {
@@ -14673,6 +15260,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return nil
 																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo
+																					}
 																					if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel{
 																							Provider: func() types.String {
@@ -14698,6 +15288,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return types.StringNull()
 																				}(),
 																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo
+																					}
 																					if VaultSecretInfoData, ok := ClientPrivateKeyData["vault_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoModel{
 																							Key: func() types.String {
@@ -14725,6 +15318,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																								return types.StringNull()
 																							}(),
 																							Version: func() types.Int64 {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Version.IsUnknown() {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Version
+																								}
 																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																									return types.Int64Value(int64(v))
 																								}
@@ -14735,6 +15331,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return nil
 																				}(),
 																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.WingmanSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.WingmanSecretInfo
+																					}
 																					if WingmanSecretInfoData, ok := ClientPrivateKeyData["wingman_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoModel{
 																							Name: func() types.String {
@@ -14770,18 +15369,27 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return types.StringNull()
 																	}(),
 																	Labels: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Labels
+																		}
 																		if _, ok := NetappBackendOntapSanData["labels"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	LimitAggregateUsage: func() types.Int64 {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage
+																		}
 																		if v, ok := NetappBackendOntapSanData["limit_aggregate_usage"].(float64); ok && v != 0 {
 																			return types.Int64Value(int64(v))
 																		}
 																		return types.Int64Null()
 																	}(),
 																	LimitVolumeSize: func() types.Int64 {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitVolumeSize.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitVolumeSize
+																		}
 																		if v, ok := NetappBackendOntapSanData["limit_volume_size"].(float64); ok && v != 0 {
 																			return types.Int64Value(int64(v))
 																		}
@@ -14800,15 +15408,24 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return types.StringNull()
 																	}(),
 																	NoChap: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.NoChap
+																		}
 																		if _, ok := NetappBackendOntapSanData["no_chap"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	Password: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password
+																		}
 																		if PasswordData, ok := NetappBackendOntapSanData["password"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel{
 																				BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo
+																					}
 																					if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoModel{
 																							DecryptionProvider: func() types.String {
@@ -14834,6 +15451,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return nil
 																				}(),
 																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal
+																					}
 																					if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalModel{
 																							DecryptionProvider: func() types.String {
@@ -14859,6 +15479,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return nil
 																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo
+																					}
 																					if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel{
 																							Provider: func() types.String {
@@ -14884,6 +15507,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return types.StringNull()
 																				}(),
 																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo
+																					}
 																					if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoModel{
 																							Key: func() types.String {
@@ -14911,6 +15537,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																								return types.StringNull()
 																							}(),
 																							Version: func() types.Int64 {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Version.IsUnknown() {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Version
+																								}
 																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																									return types.Int64Value(int64(v))
 																								}
@@ -14921,6 +15550,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return nil
 																				}(),
 																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.WingmanSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.WingmanSecretInfo
+																					}
 																					if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoModel{
 																							Name: func() types.String {
@@ -14944,12 +15576,23 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return types.StringNull()
 																	}(),
 																	Storage: func() types.List {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && (StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModelAttrTypes})
+																		}
+																		var StorageExisting []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.IsUnknown() {
+																			StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.ElementsAs(ctx, &StorageExisting, false)
+																		}
 																		if rawList, ok := NetappBackendOntapSanData["storage"].([]interface{}); ok && len(rawList) > 0 {
 																			var StorageResult []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel
-																			for _, StorageItem := range rawList {
+																			for StorageIdx, StorageItem := range rawList {
+																				_ = StorageIdx
 																				if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																					StorageResult = append(StorageResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel{
 																						Labels: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
@@ -14965,6 +15608,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																										return types.StringNull()
 																									}(),
 																									Encryption: func() types.Bool {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.Encryption.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.Encryption
+																										}
 																										if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																											return types.BoolValue(v)
 																										}
@@ -14977,6 +15623,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																										return types.StringNull()
 																									}(),
 																									NoQOS: func() *VoltstackSiteEmptyModel {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil {
+																											return StorageExisting[StorageIdx].VolumeDefaults.NoQOS
+																										}
 																										if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																											return &VoltstackSiteEmptyModel{}
 																										}
@@ -14995,6 +15644,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																										return types.StringNull()
 																									}(),
 																									SnapshotDir: func() types.Bool {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir
+																										}
 																										if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																											return types.BoolValue(v)
 																										}
@@ -15019,6 +15671,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																										return types.StringNull()
 																									}(),
 																									SplitOnClone: func() types.Bool {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone
+																										}
 																										if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																											return types.BoolValue(v)
 																										}
@@ -15031,6 +15686,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																										return types.StringNull()
 																									}(),
 																									UnixPermissions: func() types.Int64 {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions
+																										}
 																										if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																											return types.Int64Value(int64(v))
 																										}
@@ -15079,12 +15737,21 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return types.StringNull()
 																	}(),
 																	UseChap: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap
+																		}
 																		if UseChapData, ok := NetappBackendOntapSanData["use_chap"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapModel{
 																				ChapInitiatorSecret: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret
+																					}
 																					if ChapInitiatorSecretData, ok := UseChapData["chap_initiator_secret"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretModel{
 																							BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo
+																								}
 																								if BlindfoldSecretInfoData, ok := ChapInitiatorSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModel{
 																										DecryptionProvider: func() types.String {
@@ -15110,6 +15777,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																								return nil
 																							}(),
 																							BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal
+																								}
 																								if BlindfoldSecretInfoInternalData, ok := ChapInitiatorSecretData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalModel{
 																										DecryptionProvider: func() types.String {
@@ -15135,6 +15805,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																								return nil
 																							}(),
 																							ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo
+																								}
 																								if ClearSecretInfoData, ok := ChapInitiatorSecretData["clear_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModel{
 																										Provider: func() types.String {
@@ -15160,6 +15833,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																								return types.StringNull()
 																							}(),
 																							VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo
+																								}
 																								if VaultSecretInfoData, ok := ChapInitiatorSecretData["vault_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoModel{
 																										Key: func() types.String {
@@ -15187,6 +15863,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																											return types.StringNull()
 																										}(),
 																										Version: func() types.Int64 {
+																											if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Version.IsUnknown() {
+																												return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Version
+																											}
 																											if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																												return types.Int64Value(int64(v))
 																											}
@@ -15197,6 +15876,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																								return nil
 																							}(),
 																							WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.WingmanSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.WingmanSecretInfo
+																								}
 																								if WingmanSecretInfoData, ok := ChapInitiatorSecretData["wingman_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoModel{
 																										Name: func() types.String {
@@ -15214,9 +15896,15 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return nil
 																				}(),
 																				ChapTargetInitiatorSecret: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret
+																					}
 																					if ChapTargetInitiatorSecretData, ok := UseChapData["chap_target_initiator_secret"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretModel{
 																							BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo
+																								}
 																								if BlindfoldSecretInfoData, ok := ChapTargetInitiatorSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoModel{
 																										DecryptionProvider: func() types.String {
@@ -15242,6 +15930,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																								return nil
 																							}(),
 																							BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal
+																								}
 																								if BlindfoldSecretInfoInternalData, ok := ChapTargetInitiatorSecretData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalModel{
 																										DecryptionProvider: func() types.String {
@@ -15267,6 +15958,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																								return nil
 																							}(),
 																							ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo
+																								}
 																								if ClearSecretInfoData, ok := ChapTargetInitiatorSecretData["clear_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel{
 																										Provider: func() types.String {
@@ -15292,6 +15986,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																								return types.StringNull()
 																							}(),
 																							VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo
+																								}
 																								if VaultSecretInfoData, ok := ChapTargetInitiatorSecretData["vault_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoModel{
 																										Key: func() types.String {
@@ -15319,6 +16016,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																											return types.StringNull()
 																										}(),
 																										Version: func() types.Int64 {
+																											if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Version.IsUnknown() {
+																												return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Version
+																											}
 																											if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																												return types.Int64Value(int64(v))
 																											}
@@ -15329,6 +16029,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																								return nil
 																							}(),
 																							WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.WingmanSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.WingmanSecretInfo
+																								}
 																								if WingmanSecretInfoData, ok := ChapTargetInitiatorSecretData["wingman_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoModel{
 																										Name: func() types.String {
@@ -15368,6 +16071,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return types.StringNull()
 																	}(),
 																	VolumeDefaults: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults
+																		}
 																		if VolumeDefaultsData, ok := NetappBackendOntapSanData["volume_defaults"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModel{
 																				AdaptiveQOSPolicy: func() types.String {
@@ -15377,6 +16083,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return types.StringNull()
 																				}(),
 																				Encryption: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption
+																					}
 																					if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
@@ -15389,6 +16098,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return types.StringNull()
 																				}(),
 																				NoQOS: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS
+																					}
 																					if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -15407,6 +16119,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return types.StringNull()
 																				}(),
 																				SnapshotDir: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir
+																					}
 																					if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
@@ -15431,6 +16146,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return types.StringNull()
 																				}(),
 																				SplitOnClone: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone
+																					}
 																					if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
@@ -15443,6 +16161,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return types.StringNull()
 																				}(),
 																				UnixPermissions: func() types.Int64 {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions
+																					}
 																					if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																						return types.Int64Value(int64(v))
 																					}
@@ -15464,9 +16185,15 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												if PureServiceOrchestratorData, ok := StorageDevicesItemMap["pure_service_orchestrator"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorModel{
 														Arrays: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays
+															}
 															if ArraysData, ok := PureServiceOrchestratorData["arrays"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysModel{
 																	FlashArray: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray
+																		}
 																		if FlashArrayData, ok := ArraysData["flash_array"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayModel{
 																				DefaultFsOpt: func() types.String {
@@ -15495,21 +16222,35 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return types.ListNull(types.StringType)
 																				}(),
 																				DisablePreemptAttachments: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments
+																					}
 																					if v, ok := FlashArrayData["disable_preempt_attachments"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
 																					return types.BoolNull()
 																				}(),
 																				FlashArrays: func() types.List {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && (StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.Elements()) == 0) {
+																						return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModelAttrTypes})
+																					}
+																					var FlashArraysExisting []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.IsUnknown() {
+																						StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.ElementsAs(ctx, &FlashArraysExisting, false)
+																					}
 																					if rawList, ok := FlashArrayData["flash_arrays"].([]interface{}); ok && len(rawList) > 0 {
 																						var FlashArraysResult []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel
-																						for _, FlashArraysItem := range rawList {
+																						for FlashArraysIdx, FlashArraysItem := range rawList {
+																							_ = FlashArraysIdx
 																							if FlashArraysItemMap, ok := FlashArraysItem.(map[string]interface{}); ok {
 																								FlashArraysResult = append(FlashArraysResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel{
 																									APIToken: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModel {
 																										if APITokenData, ok := FlashArraysItemMap["api_token"].(map[string]interface{}); ok {
 																											return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModel{
 																												BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoModel {
+																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfo != nil {
+																														return FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfo
+																													}
 																													if BlindfoldSecretInfoData, ok := APITokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoModel{
 																															DecryptionProvider: func() types.String {
@@ -15535,6 +16276,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																													return nil
 																												}(),
 																												BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalModel {
+																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfoInternal != nil {
+																														return FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfoInternal
+																													}
 																													if BlindfoldSecretInfoInternalData, ok := APITokenData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalModel{
 																															DecryptionProvider: func() types.String {
@@ -15560,6 +16304,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																													return nil
 																												}(),
 																												ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel {
+																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.ClearSecretInfo != nil {
+																														return FlashArraysExisting[FlashArraysIdx].APIToken.ClearSecretInfo
+																													}
 																													if ClearSecretInfoData, ok := APITokenData["clear_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel{
 																															Provider: func() types.String {
@@ -15585,6 +16332,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																													return types.StringNull()
 																												}(),
 																												VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoModel {
+																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo != nil {
+																														return FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo
+																													}
 																													if VaultSecretInfoData, ok := APITokenData["vault_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoModel{
 																															Key: func() types.String {
@@ -15612,6 +16362,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																																return types.StringNull()
 																															}(),
 																															Version: func() types.Int64 {
+																																if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo != nil && !FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo.Version.IsUnknown() {
+																																	return FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo.Version
+																																}
 																																if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																																	return types.Int64Value(int64(v))
 																																}
@@ -15622,6 +16375,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																													return nil
 																												}(),
 																												WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoModel {
+																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.WingmanSecretInfo != nil {
+																														return FlashArraysExisting[FlashArraysIdx].APIToken.WingmanSecretInfo
+																													}
 																													if WingmanSecretInfoData, ok := APITokenData["wingman_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoModel{
 																															Name: func() types.String {
@@ -15639,6 +16395,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																										return nil
 																									}(),
 																									Labels: func() *VoltstackSiteEmptyModel {
+																										if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].Labels != nil {
+																											return &VoltstackSiteEmptyModel{}
+																										}
 																										if _, ok := FlashArraysItemMap["labels"].(map[string]interface{}); ok {
 																											return &VoltstackSiteEmptyModel{}
 																										}
@@ -15665,6 +16424,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModelAttrTypes})
 																				}(),
 																				IscsiLoginTimeout: func() types.Int64 {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout
+																					}
 																					if v, ok := FlashArrayData["iscsi_login_timeout"].(float64); ok && v != 0 {
 																						return types.Int64Value(int64(v))
 																					}
@@ -15681,9 +16443,15 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return nil
 																	}(),
 																	FlashBlade: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade
+																		}
 																		if FlashBladeData, ok := ArraysData["flash_blade"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeModel{
 																				EnableSnapshotDirectory: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory
+																					}
 																					if v, ok := FlashBladeData["enable_snapshot_directory"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
@@ -15696,15 +16464,26 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return types.StringNull()
 																				}(),
 																				FlashBlades: func() types.List {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil && (StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.Elements()) == 0) {
+																						return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModelAttrTypes})
+																					}
+																					var FlashBladesExisting []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.IsUnknown() {
+																						StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.ElementsAs(ctx, &FlashBladesExisting, false)
+																					}
 																					if rawList, ok := FlashBladeData["flash_blades"].([]interface{}); ok && len(rawList) > 0 {
 																						var FlashBladesResult []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel
-																						for _, FlashBladesItem := range rawList {
+																						for FlashBladesIdx, FlashBladesItem := range rawList {
+																							_ = FlashBladesIdx
 																							if FlashBladesItemMap, ok := FlashBladesItem.(map[string]interface{}); ok {
 																								FlashBladesResult = append(FlashBladesResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel{
 																									APIToken: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModel {
 																										if APITokenData, ok := FlashBladesItemMap["api_token"].(map[string]interface{}); ok {
 																											return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModel{
 																												BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoModel {
+																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfo != nil {
+																														return FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfo
+																													}
 																													if BlindfoldSecretInfoData, ok := APITokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoModel{
 																															DecryptionProvider: func() types.String {
@@ -15730,6 +16509,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																													return nil
 																												}(),
 																												BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalModel {
+																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfoInternal != nil {
+																														return FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfoInternal
+																													}
 																													if BlindfoldSecretInfoInternalData, ok := APITokenData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalModel{
 																															DecryptionProvider: func() types.String {
@@ -15755,6 +16537,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																													return nil
 																												}(),
 																												ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel {
+																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.ClearSecretInfo != nil {
+																														return FlashBladesExisting[FlashBladesIdx].APIToken.ClearSecretInfo
+																													}
 																													if ClearSecretInfoData, ok := APITokenData["clear_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel{
 																															Provider: func() types.String {
@@ -15780,6 +16565,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																													return types.StringNull()
 																												}(),
 																												VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoModel {
+																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo != nil {
+																														return FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo
+																													}
 																													if VaultSecretInfoData, ok := APITokenData["vault_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoModel{
 																															Key: func() types.String {
@@ -15807,6 +16595,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																																return types.StringNull()
 																															}(),
 																															Version: func() types.Int64 {
+																																if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo != nil && !FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo.Version.IsUnknown() {
+																																	return FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo.Version
+																																}
 																																if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																																	return types.Int64Value(int64(v))
 																																}
@@ -15817,6 +16608,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																													return nil
 																												}(),
 																												WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoModel {
+																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.WingmanSecretInfo != nil {
+																														return FlashBladesExisting[FlashBladesIdx].APIToken.WingmanSecretInfo
+																													}
 																													if WingmanSecretInfoData, ok := APITokenData["wingman_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoModel{
 																															Name: func() types.String {
@@ -15834,6 +16628,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																										return nil
 																									}(),
 																									Labels: func() *VoltstackSiteEmptyModel {
+																										if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].Labels != nil {
+																											return &VoltstackSiteEmptyModel{}
+																										}
 																										if _, ok := FlashBladesItemMap["labels"].(map[string]interface{}); ok {
 																											return &VoltstackSiteEmptyModel{}
 																										}
@@ -15886,12 +16683,18 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.StringNull()
 														}(),
 														EnableStorageTopology: func() types.Bool {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStorageTopology.IsUnknown() {
+																return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStorageTopology
+															}
 															if v, ok := PureServiceOrchestratorData["enable_storage_topology"].(bool); ok {
 																return types.BoolValue(v)
 															}
 															return types.BoolNull()
 														}(),
 														EnableStrictTopology: func() types.Bool {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStrictTopology.IsUnknown() {
+																return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStrictTopology
+															}
 															if v, ok := PureServiceOrchestratorData["enable_strict_topology"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -15923,9 +16726,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				if StorageInterfaceListData, ok := blockData["storage_interface_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomStorageConfigStorageInterfaceListModel{
 						StorageInterfaces: func() types.List {
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageInterfaceList != nil && (data.CustomStorageConfig.StorageInterfaceList.StorageInterfaces.IsNull() || len(data.CustomStorageConfig.StorageInterfaceList.StorageInterfaces.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesModelAttrTypes})
+							}
+							var StorageInterfacesExisting []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesModel
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageInterfaceList != nil && !data.CustomStorageConfig.StorageInterfaceList.StorageInterfaces.IsNull() && !data.CustomStorageConfig.StorageInterfaceList.StorageInterfaces.IsUnknown() {
+								data.CustomStorageConfig.StorageInterfaceList.StorageInterfaces.ElementsAs(ctx, &StorageInterfacesExisting, false)
+							}
 							if rawList, ok := StorageInterfaceListData["storage_interfaces"].([]interface{}); ok && len(rawList) > 0 {
 								var StorageInterfacesResult []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesModel
-								for _, StorageInterfacesItem := range rawList {
+								for StorageInterfacesIdx, StorageInterfacesItem := range rawList {
+									_ = StorageInterfacesIdx
 									if StorageInterfacesItemMap, ok := StorageInterfacesItem.(map[string]interface{}); ok {
 										StorageInterfacesResult = append(StorageInterfacesResult, VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesModel{
 											DescriptionSpec: func() types.String {
@@ -15935,6 +16746,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												return types.StringNull()
 											}(),
 											Labels: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].Labels != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := StorageInterfacesItemMap["labels"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -15944,6 +16758,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												if StorageInterfaceData, ok := StorageInterfacesItemMap["storage_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceModel{
 														Cluster: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Cluster
+															}
 															if _, ok := StorageInterfaceData["cluster"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -15956,6 +16773,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.StringNull()
 														}(),
 														DHCPClient: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPClient
+															}
 															if _, ok := StorageInterfaceData["dhcp_client"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -15965,21 +16785,35 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															if DHCPServerData, ok := StorageInterfaceData["dhcp_server"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerModel{
 																	AutomaticFromEnd: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.AutomaticFromEnd
+																		}
 																		if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	AutomaticFromStart: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.AutomaticFromStart
+																		}
 																		if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	DHCPNetworks: func() types.List {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil && (StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.DHCPNetworks.IsNull() || len(StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.DHCPNetworks.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksModelAttrTypes})
+																		}
+																		var DHCPNetworksExisting []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksModel
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil && !StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.DHCPNetworks.IsNull() && !StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.DHCPNetworks.IsUnknown() {
+																			StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																		}
 																		if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																			var DHCPNetworksResult []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksModel
-																			for _, DHCPNetworksItem := range rawList {
+																			for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																				_ = DHCPNetworksIdx
 																				if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
 																					DHCPNetworksResult = append(DHCPNetworksResult, VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksModel{
 																						DgwAddress: func() types.String {
@@ -15995,12 +16829,18 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																							return types.StringNull()
 																						}(),
 																						FirstAddress: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
 																							return nil
 																						}(),
 																						LastAddress: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].LastAddress != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
@@ -16076,6 +16916,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																							return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 																						}(),
 																						SameAsDgw: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
@@ -16090,15 +16933,24 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksModelAttrTypes})
 																	}(),
 																	FixedIPMap: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.FixedIPMap
+																		}
 																		if _, ok := DHCPServerData["fixed_ip_map"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	InterfaceIPMap: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerInterfaceIPMapModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.InterfaceIPMap != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.InterfaceIPMap
+																		}
 																		if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerInterfaceIPMapModel{
 																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.InterfaceIPMap != nil {
+																						return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap
+																					}
 																					if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -16113,21 +16965,36 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return nil
 														}(),
 														Ipv6AutoConfig: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig
+															}
 															if Ipv6AutoConfigData, ok := StorageInterfaceData["ipv6_auto_config"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigModel{
 																	Host: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Host
+																		}
 																		if _, ok := Ipv6AutoConfigData["host"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	Router: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router
+																		}
 																		if RouterData, ok := Ipv6AutoConfigData["router"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterModel{
 																				DNSConfig: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterDNSConfigModel {
+																					if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig != nil {
+																						return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig
+																					}
 																					if DNSConfigData, ok := RouterData["dns_config"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterDNSConfigModel{
 																							ConfiguredList: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel {
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+																									return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList
+																								}
 																								if ConfiguredListData, ok := DNSConfigData["configured_list"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel{
 																										DNSList: func() types.List {
@@ -16148,6 +17015,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																								return nil
 																							}(),
 																							LocalDNS: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel {
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																									return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS
+																								}
 																								if LocalDNSData, ok := DNSConfigData["local_dns"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel{
 																										ConfiguredAddress: func() types.String {
@@ -16157,12 +17027,18 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																											return types.StringNull()
 																										}(),
 																										FirstAddress: func() *VoltstackSiteEmptyModel {
+																											if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																												return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress
+																											}
 																											if _, ok := LocalDNSData["first_address"].(map[string]interface{}); ok {
 																												return &VoltstackSiteEmptyModel{}
 																											}
 																											return nil
 																										}(),
 																										LastAddress: func() *VoltstackSiteEmptyModel {
+																											if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																												return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress
+																											}
 																											if _, ok := LocalDNSData["last_address"].(map[string]interface{}); ok {
 																												return &VoltstackSiteEmptyModel{}
 																											}
@@ -16183,24 +17059,41 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					return types.StringNull()
 																				}(),
 																				Stateful: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulModel {
+																					if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																						return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful
+																					}
 																					if StatefulData, ok := RouterData["stateful"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulModel{
 																							AutomaticFromEnd: func() *VoltstackSiteEmptyModel {
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																									return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd
+																								}
 																								if _, ok := StatefulData["automatic_from_end"].(map[string]interface{}); ok {
 																									return &VoltstackSiteEmptyModel{}
 																								}
 																								return nil
 																							}(),
 																							AutomaticFromStart: func() *VoltstackSiteEmptyModel {
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																									return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart
+																								}
 																								if _, ok := StatefulData["automatic_from_start"].(map[string]interface{}); ok {
 																									return &VoltstackSiteEmptyModel{}
 																								}
 																								return nil
 																							}(),
 																							DHCPNetworks: func() types.List {
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil && (StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() || len(StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.Elements()) == 0) {
+																									return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
+																								}
+																								var DHCPNetworksExisting []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil && !StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+																									StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																								}
 																								if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																									var DHCPNetworksResult []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
-																									for _, DHCPNetworksItem := range rawList {
+																									for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																										_ = DHCPNetworksIdx
 																										if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
 																											DHCPNetworksResult = append(DHCPNetworksResult, VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel{
 																												NetworkPrefix: func() types.String {
@@ -16250,15 +17143,24 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																							}(),
 																							FixedIPMap: func() *VoltstackSiteEmptyModel {
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																									return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap
+																								}
 																								if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
 																									return &VoltstackSiteEmptyModel{}
 																								}
 																								return nil
 																							}(),
 																							InterfaceIPMap: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+																									return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
+																								}
 																								if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
 																										InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																											if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+																												return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
+																											}
 																											if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
 																												return &VoltstackSiteEmptyModel{}
 																											}
@@ -16281,30 +17183,45 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return nil
 														}(),
 														IsPrimary: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.IsPrimary
+															}
 															if _, ok := StorageInterfaceData["is_primary"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Monitor: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Monitor
+															}
 															if _, ok := StorageInterfaceData["monitor"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														MonitorDisabled: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.MonitorDisabled
+															}
 															if _, ok := StorageInterfaceData["monitor_disabled"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														MTU: func() types.Int64 {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && !StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.MTU.IsUnknown() {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.MTU
+															}
 															if v, ok := StorageInterfaceData["mtu"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														NoIpv6Address: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.NoIpv6Address
+															}
 															if _, ok := StorageInterfaceData["no_ipv6_address"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -16317,36 +17234,57 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.StringNull()
 														}(),
 														NotPrimary: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.NotPrimary
+															}
 															if _, ok := StorageInterfaceData["not_primary"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Priority: func() types.Int64 {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && !StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Priority.IsUnknown() {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Priority
+															}
 															if v, ok := StorageInterfaceData["priority"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														SiteLocalInsideNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.SiteLocalInsideNetwork
+															}
 															if _, ok := StorageInterfaceData["site_local_inside_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														SiteLocalNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.SiteLocalNetwork
+															}
 															if _, ok := StorageInterfaceData["site_local_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														StaticIP: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP
+															}
 															if StaticIPData, ok := StorageInterfaceData["static_ip"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPModel{
 																	ClusterStaticIP: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPClusterStaticIPModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.ClusterStaticIP != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.ClusterStaticIP
+																		}
 																		if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPClusterStaticIPModel{
 																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.ClusterStaticIP != nil {
+																						return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
+																					}
 																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -16357,6 +17295,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return nil
 																	}(),
 																	NodeStaticIP: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPNodeStaticIPModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.NodeStaticIP != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.NodeStaticIP
+																		}
 																		if NodeStaticIPData, ok := StaticIPData["node_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPNodeStaticIPModel{
 																				DefaultGw: func() types.String {
@@ -16380,12 +17321,21 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return nil
 														}(),
 														StaticIpv6Address: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address
+															}
 															if StaticIpv6AddressData, ok := StorageInterfaceData["static_ipv6_address"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressModel{
 																	ClusterStaticIP: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressClusterStaticIPModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.ClusterStaticIP != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.ClusterStaticIP
+																		}
 																		if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressClusterStaticIPModel{
 																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.ClusterStaticIP != nil {
+																						return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
+																					}
 																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -16396,6 +17346,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		return nil
 																	}(),
 																	NodeStaticIP: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressNodeStaticIPModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.NodeStaticIP != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.NodeStaticIP
+																		}
 																		if NodeStaticIPData, ok := StaticIpv6AddressData["node_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressNodeStaticIPModel{
 																				DefaultGw: func() types.String {
@@ -16419,18 +17372,27 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return nil
 														}(),
 														StorageNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StorageNetwork
+															}
 															if _, ok := StorageInterfaceData["storage_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Untagged: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Untagged
+															}
 															if _, ok := StorageInterfaceData["untagged"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														VLANID: func() types.Int64 {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && !StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.VLANID.IsUnknown() {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.VLANID
+															}
 															if v, ok := StorageInterfaceData["vlan_id"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -16546,24 +17508,36 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &VoltstackSiteKubernetesUpgradeDrainEnableUpgradeDrainModel{
 						DisableVegaUpgradeMode: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
+							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
 							return nil
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
+							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						DrainNodeTimeout: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout
+							}
 							if v, ok := EnableUpgradeDrainData["drain_node_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						EnableVegaUpgradeMode: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
+							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
@@ -16581,18 +17555,32 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				if BGPConfigData, ok := blockData["bgp_config"].(map[string]interface{}); ok {
 					return &VoltstackSiteLocalControlPlaneBGPConfigModel{
 						Asn: func() types.Int64 {
+							if !isImport && data.LocalControlPlane != nil && data.LocalControlPlane.BGPConfig != nil && !data.LocalControlPlane.BGPConfig.Asn.IsUnknown() {
+								return data.LocalControlPlane.BGPConfig.Asn
+							}
 							if v, ok := BGPConfigData["asn"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Peers: func() types.List {
+							if !isImport && data.LocalControlPlane != nil && data.LocalControlPlane.BGPConfig != nil && (data.LocalControlPlane.BGPConfig.Peers.IsNull() || len(data.LocalControlPlane.BGPConfig.Peers.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersModelAttrTypes})
+							}
+							var PeersExisting []VoltstackSiteLocalControlPlaneBGPConfigPeersModel
+							if !isImport && data.LocalControlPlane != nil && data.LocalControlPlane.BGPConfig != nil && !data.LocalControlPlane.BGPConfig.Peers.IsNull() && !data.LocalControlPlane.BGPConfig.Peers.IsUnknown() {
+								data.LocalControlPlane.BGPConfig.Peers.ElementsAs(ctx, &PeersExisting, false)
+							}
 							if rawList, ok := BGPConfigData["peers"].([]interface{}); ok && len(rawList) > 0 {
 								var PeersResult []VoltstackSiteLocalControlPlaneBGPConfigPeersModel
-								for _, PeersItem := range rawList {
+								for PeersIdx, PeersItem := range rawList {
+									_ = PeersIdx
 									if PeersItemMap, ok := PeersItem.(map[string]interface{}); ok {
 										PeersResult = append(PeersResult, VoltstackSiteLocalControlPlaneBGPConfigPeersModel{
 											BfdDisabled: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].BfdDisabled != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := PeersItemMap["bfd_disabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -16602,18 +17590,27 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												if BfdEnabledData, ok := PeersItemMap["bfd_enabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteLocalControlPlaneBGPConfigPeersBfdEnabledModel{
 														Multiplier: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].BfdEnabled != nil && !PeersExisting[PeersIdx].BfdEnabled.Multiplier.IsUnknown() {
+																return PeersExisting[PeersIdx].BfdEnabled.Multiplier
+															}
 															if v, ok := BfdEnabledData["multiplier"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														ReceiveIntervalMilliseconds: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].BfdEnabled != nil && !PeersExisting[PeersIdx].BfdEnabled.ReceiveIntervalMilliseconds.IsUnknown() {
+																return PeersExisting[PeersIdx].BfdEnabled.ReceiveIntervalMilliseconds
+															}
 															if v, ok := BfdEnabledData["receive_interval_milliseconds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														TransmitIntervalMilliseconds: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].BfdEnabled != nil && !PeersExisting[PeersIdx].BfdEnabled.TransmitIntervalMilliseconds.IsUnknown() {
+																return PeersExisting[PeersIdx].BfdEnabled.TransmitIntervalMilliseconds
+															}
 															if v, ok := BfdEnabledData["transmit_interval_milliseconds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -16624,6 +17621,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											DisableSpec: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].DisableSpec != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := PeersItemMap["disable"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -16645,51 +17645,78 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.StringNull()
 														}(),
 														Asn: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && !PeersExisting[PeersIdx].External.Asn.IsUnknown() {
+																return PeersExisting[PeersIdx].External.Asn
+															}
 															if v, ok := ExternalData["asn"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.DefaultGateway
+															}
 															if _, ok := ExternalData["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														DefaultGatewayV6: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.DefaultGatewayV6
+															}
 															if _, ok := ExternalData["default_gateway_v6"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														DisableSpec: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.DisableSpec
+															}
 															if _, ok := ExternalData["disable"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														DisableV6: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.DisableV6
+															}
 															if _, ok := ExternalData["disable_v6"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														ExternalConnector: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.ExternalConnector
+															}
 															if _, ok := ExternalData["external_connector"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														FamilyInet: func() *VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.FamilyInet != nil {
+																return PeersExisting[PeersIdx].External.FamilyInet
+															}
 															if FamilyInetData, ok := ExternalData["family_inet"].(map[string]interface{}); ok {
 																return &VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetModel{
 																	DisableSpec: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.FamilyInet != nil {
+																			return PeersExisting[PeersIdx].External.FamilyInet.DisableSpec
+																		}
 																		if _, ok := FamilyInetData["disable"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	Enable: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.FamilyInet != nil {
+																			return PeersExisting[PeersIdx].External.FamilyInet.Enable
+																		}
 																		if _, ok := FamilyInetData["enable"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
@@ -16700,12 +17727,18 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return nil
 														}(),
 														FromSite: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.FromSite
+															}
 															if _, ok := ExternalData["from_site"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														FromSiteV6: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.FromSiteV6
+															}
 															if _, ok := ExternalData["from_site_v6"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -16740,9 +17773,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															if InterfaceListData, ok := ExternalData["interface_list"].(map[string]interface{}); ok {
 																return &VoltstackSiteLocalControlPlaneBGPConfigPeersExternalInterfaceListModel{
 																	Interfaces: func() types.List {
+																		if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.InterfaceList != nil && (PeersExisting[PeersIdx].External.InterfaceList.Interfaces.IsNull() || len(PeersExisting[PeersIdx].External.InterfaceList.Interfaces.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalInterfaceListInterfacesModelAttrTypes})
+																		}
+																		var InterfacesExisting []VoltstackSiteLocalControlPlaneBGPConfigPeersExternalInterfaceListInterfacesModel
+																		if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.InterfaceList != nil && !PeersExisting[PeersIdx].External.InterfaceList.Interfaces.IsNull() && !PeersExisting[PeersIdx].External.InterfaceList.Interfaces.IsUnknown() {
+																			PeersExisting[PeersIdx].External.InterfaceList.Interfaces.ElementsAs(ctx, &InterfacesExisting, false)
+																		}
 																		if rawList, ok := InterfaceListData["interfaces"].([]interface{}); ok && len(rawList) > 0 {
 																			var InterfacesResult []VoltstackSiteLocalControlPlaneBGPConfigPeersExternalInterfaceListInterfacesModel
-																			for _, InterfacesItem := range rawList {
+																			for InterfacesIdx, InterfacesItem := range rawList {
+																				_ = InterfacesIdx
 																				if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
 																					InterfacesResult = append(InterfacesResult, VoltstackSiteLocalControlPlaneBGPConfigPeersExternalInterfaceListInterfacesModel{
 																						Name: func() types.String {
@@ -16782,36 +17823,54 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.StringNull()
 														}(),
 														NoAuthentication: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.NoAuthentication
+															}
 															if _, ok := ExternalData["no_authentication"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Port: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && !PeersExisting[PeersIdx].External.Port.IsUnknown() {
+																return PeersExisting[PeersIdx].External.Port
+															}
 															if v, ok := ExternalData["port"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														SubnetBeginOffset: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && !PeersExisting[PeersIdx].External.SubnetBeginOffset.IsUnknown() {
+																return PeersExisting[PeersIdx].External.SubnetBeginOffset
+															}
 															if v, ok := ExternalData["subnet_begin_offset"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														SubnetBeginOffsetV6: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && !PeersExisting[PeersIdx].External.SubnetBeginOffsetV6.IsUnknown() {
+																return PeersExisting[PeersIdx].External.SubnetBeginOffsetV6
+															}
 															if v, ok := ExternalData["subnet_begin_offset_v6"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														SubnetEndOffset: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && !PeersExisting[PeersIdx].External.SubnetEndOffset.IsUnknown() {
+																return PeersExisting[PeersIdx].External.SubnetEndOffset
+															}
 															if v, ok := ExternalData["subnet_end_offset"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														SubnetEndOffsetV6: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && !PeersExisting[PeersIdx].External.SubnetEndOffsetV6.IsUnknown() {
+																return PeersExisting[PeersIdx].External.SubnetEndOffsetV6
+															}
 															if v, ok := ExternalData["subnet_end_offset_v6"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -16847,12 +17906,18 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											PassiveModeDisabled: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].PassiveModeDisabled != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := PeersItemMap["passive_mode_disabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
 												return nil
 											}(),
 											PassiveModeEnabled: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].PassiveModeEnabled != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := PeersItemMap["passive_mode_enabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -16862,18 +17927,32 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												if RoutingPoliciesData, ok := PeersItemMap["routing_policies"].(map[string]interface{}); ok {
 													return &VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesModel{
 														RoutePolicy: func() types.List {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].RoutingPolicies != nil && (PeersExisting[PeersIdx].RoutingPolicies.RoutePolicy.IsNull() || len(PeersExisting[PeersIdx].RoutingPolicies.RoutePolicy.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyModelAttrTypes})
+															}
+															var RoutePolicyExisting []VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyModel
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].RoutingPolicies != nil && !PeersExisting[PeersIdx].RoutingPolicies.RoutePolicy.IsNull() && !PeersExisting[PeersIdx].RoutingPolicies.RoutePolicy.IsUnknown() {
+																PeersExisting[PeersIdx].RoutingPolicies.RoutePolicy.ElementsAs(ctx, &RoutePolicyExisting, false)
+															}
 															if rawList, ok := RoutingPoliciesData["route_policy"].([]interface{}); ok && len(rawList) > 0 {
 																var RoutePolicyResult []VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyModel
-																for _, RoutePolicyItem := range rawList {
+																for RoutePolicyIdx, RoutePolicyItem := range rawList {
+																	_ = RoutePolicyIdx
 																	if RoutePolicyItemMap, ok := RoutePolicyItem.(map[string]interface{}); ok {
 																		RoutePolicyResult = append(RoutePolicyResult, VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyModel{
 																			AllNodes: func() *VoltstackSiteEmptyModel {
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].AllNodes != nil {
+																					return &VoltstackSiteEmptyModel{}
+																				}
 																				if _, ok := RoutePolicyItemMap["all_nodes"].(map[string]interface{}); ok {
 																					return &VoltstackSiteEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			Inbound: func() *VoltstackSiteEmptyModel {
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Inbound != nil {
+																					return &VoltstackSiteEmptyModel{}
+																				}
 																				if _, ok := RoutePolicyItemMap["inbound"].(map[string]interface{}); ok {
 																					return &VoltstackSiteEmptyModel{}
 																				}
@@ -16944,6 +18023,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																				return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyObjectRefsModelAttrTypes})
 																			}(),
 																			Outbound: func() *VoltstackSiteEmptyModel {
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Outbound != nil {
+																					return &VoltstackSiteEmptyModel{}
+																				}
 																				if _, ok := RoutePolicyItemMap["outbound"].(map[string]interface{}); ok {
 																					return &VoltstackSiteEmptyModel{}
 																				}
@@ -17074,9 +18156,14 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				if !isImport && data.SriovInterfaces != nil && (data.SriovInterfaces.SriovInterface.IsNull() || len(data.SriovInterfaces.SriovInterface.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteSriovInterfacesSriovInterfaceModelAttrTypes})
 				}
+				var SriovInterfaceExisting []VoltstackSiteSriovInterfacesSriovInterfaceModel
+				if !isImport && data.SriovInterfaces != nil && !data.SriovInterfaces.SriovInterface.IsNull() && !data.SriovInterfaces.SriovInterface.IsUnknown() {
+					data.SriovInterfaces.SriovInterface.ElementsAs(ctx, &SriovInterfaceExisting, false)
+				}
 				if rawList, ok := blockData["sriov_interface"].([]interface{}); ok && len(rawList) > 0 {
 					var SriovInterfaceResult []VoltstackSiteSriovInterfacesSriovInterfaceModel
-					for _, SriovInterfaceItem := range rawList {
+					for SriovInterfaceIdx, SriovInterfaceItem := range rawList {
+						_ = SriovInterfaceIdx
 						if SriovInterfaceItemMap, ok := SriovInterfaceItem.(map[string]interface{}); ok {
 							SriovInterfaceResult = append(SriovInterfaceResult, VoltstackSiteSriovInterfacesSriovInterfaceModel{
 								InterfaceName: func() types.String {
@@ -17310,12 +18397,20 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteBlockedServicesBlockedServiceModelAttrTypes})
 				}
+				var BlockedServiceExisting []VoltstackSiteBlockedServicesBlockedServiceModel
+				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
+					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
+				}
 				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []VoltstackSiteBlockedServicesBlockedServiceModel
-					for _, BlockedServiceItem := range rawList {
+					for BlockedServiceIdx, BlockedServiceItem := range rawList {
+						_ = BlockedServiceIdx
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, VoltstackSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *VoltstackSiteEmptyModel {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
+										return &VoltstackSiteEmptyModel{}
+									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
 									}
@@ -17328,12 +18423,18 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 									return types.StringNull()
 								}(),
 								SSH: func() *VoltstackSiteEmptyModel {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
+										return &VoltstackSiteEmptyModel{}
+									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
 									}
 									return nil
 								}(),
 								WebUserInterface: func() *VoltstackSiteEmptyModel {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
+										return &VoltstackSiteEmptyModel{}
+									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
 									}
@@ -17355,12 +18456,20 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				if !isImport && data.BondDeviceList != nil && (data.BondDeviceList.BondDevices.IsNull() || len(data.BondDeviceList.BondDevices.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteBondDeviceListBondDevicesModelAttrTypes})
 				}
+				var BondDevicesExisting []VoltstackSiteBondDeviceListBondDevicesModel
+				if !isImport && data.BondDeviceList != nil && !data.BondDeviceList.BondDevices.IsNull() && !data.BondDeviceList.BondDevices.IsUnknown() {
+					data.BondDeviceList.BondDevices.ElementsAs(ctx, &BondDevicesExisting, false)
+				}
 				if rawList, ok := blockData["bond_devices"].([]interface{}); ok && len(rawList) > 0 {
 					var BondDevicesResult []VoltstackSiteBondDeviceListBondDevicesModel
-					for _, BondDevicesItem := range rawList {
+					for BondDevicesIdx, BondDevicesItem := range rawList {
+						_ = BondDevicesIdx
 						if BondDevicesItemMap, ok := BondDevicesItem.(map[string]interface{}); ok {
 							BondDevicesResult = append(BondDevicesResult, VoltstackSiteBondDeviceListBondDevicesModel{
 								ActiveBackup: func() *VoltstackSiteEmptyModel {
+									if !isImport && len(BondDevicesExisting) > BondDevicesIdx && BondDevicesExisting[BondDevicesIdx].ActiveBackup != nil {
+										return &VoltstackSiteEmptyModel{}
+									}
 									if _, ok := BondDevicesItemMap["active_backup"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
 									}
@@ -17383,6 +18492,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 									if LacpData, ok := BondDevicesItemMap["lacp"].(map[string]interface{}); ok {
 										return &VoltstackSiteBondDeviceListBondDevicesLacpModel{
 											Rate: func() types.Int64 {
+												if !isImport && len(BondDevicesExisting) > BondDevicesIdx && BondDevicesExisting[BondDevicesIdx].Lacp != nil && !BondDevicesExisting[BondDevicesIdx].Lacp.Rate.IsUnknown() {
+													return BondDevicesExisting[BondDevicesIdx].Lacp.Rate
+												}
 												if v, ok := LacpData["rate"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -17464,9 +18576,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies != nil && (data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() || len(data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModelAttrTypes})
+							}
+							var EnhancedFirewallPoliciesExisting []VoltstackSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies != nil && !data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
+								data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveEnhancedFirewallPoliciesData["enhanced_firewall_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var EnhancedFirewallPoliciesResult []VoltstackSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
-								for _, EnhancedFirewallPoliciesItem := range rawList {
+								for EnhancedFirewallPoliciesIdx, EnhancedFirewallPoliciesItem := range rawList {
+									_ = EnhancedFirewallPoliciesIdx
 									if EnhancedFirewallPoliciesItemMap, ok := EnhancedFirewallPoliciesItem.(map[string]interface{}); ok {
 										EnhancedFirewallPoliciesResult = append(EnhancedFirewallPoliciesResult, VoltstackSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel{
 											Name: func() types.String {
@@ -17503,9 +18623,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveForwardProxyPolicies != nil && (data.CustomNetworkConfig.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() || len(data.CustomNetworkConfig.ActiveForwardProxyPolicies.ForwardProxyPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
+							}
+							var ForwardProxyPoliciesExisting []VoltstackSiteCustomNetworkConfigActiveForwardProxyPoliciesForwardProxyPoliciesModel
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveForwardProxyPolicies != nil && !data.CustomNetworkConfig.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.CustomNetworkConfig.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
+								data.CustomNetworkConfig.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveForwardProxyPoliciesData["forward_proxy_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var ForwardProxyPoliciesResult []VoltstackSiteCustomNetworkConfigActiveForwardProxyPoliciesForwardProxyPoliciesModel
-								for _, ForwardProxyPoliciesItem := range rawList {
+								for ForwardProxyPoliciesIdx, ForwardProxyPoliciesItem := range rawList {
+									_ = ForwardProxyPoliciesIdx
 									if ForwardProxyPoliciesItemMap, ok := ForwardProxyPoliciesItem.(map[string]interface{}); ok {
 										ForwardProxyPoliciesResult = append(ForwardProxyPoliciesResult, VoltstackSiteCustomNetworkConfigActiveForwardProxyPoliciesForwardProxyPoliciesModel{
 											Name: func() types.String {
@@ -17542,9 +18670,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveNetworkPolicies != nil && (data.CustomNetworkConfig.ActiveNetworkPolicies.NetworkPolicies.IsNull() || len(data.CustomNetworkConfig.ActiveNetworkPolicies.NetworkPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigActiveNetworkPoliciesNetworkPoliciesModelAttrTypes})
+							}
+							var NetworkPoliciesExisting []VoltstackSiteCustomNetworkConfigActiveNetworkPoliciesNetworkPoliciesModel
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveNetworkPolicies != nil && !data.CustomNetworkConfig.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.CustomNetworkConfig.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
+								data.CustomNetworkConfig.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveNetworkPoliciesData["network_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var NetworkPoliciesResult []VoltstackSiteCustomNetworkConfigActiveNetworkPoliciesNetworkPoliciesModel
-								for _, NetworkPoliciesItem := range rawList {
+								for NetworkPoliciesIdx, NetworkPoliciesItem := range rawList {
+									_ = NetworkPoliciesIdx
 									if NetworkPoliciesItemMap, ok := NetworkPoliciesItem.(map[string]interface{}); ok {
 										NetworkPoliciesResult = append(NetworkPoliciesResult, VoltstackSiteCustomNetworkConfigActiveNetworkPoliciesNetworkPoliciesModel{
 											Name: func() types.String {
@@ -17629,9 +18765,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.GlobalNetworkList != nil && (data.CustomNetworkConfig.GlobalNetworkList.GlobalNetworkConnections.IsNull() || len(data.CustomNetworkConfig.GlobalNetworkList.GlobalNetworkConnections.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsModelAttrTypes})
+							}
+							var GlobalNetworkConnectionsExisting []VoltstackSiteCustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsModel
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.GlobalNetworkList != nil && !data.CustomNetworkConfig.GlobalNetworkList.GlobalNetworkConnections.IsNull() && !data.CustomNetworkConfig.GlobalNetworkList.GlobalNetworkConnections.IsUnknown() {
+								data.CustomNetworkConfig.GlobalNetworkList.GlobalNetworkConnections.ElementsAs(ctx, &GlobalNetworkConnectionsExisting, false)
+							}
 							if rawList, ok := GlobalNetworkListData["global_network_connections"].([]interface{}); ok && len(rawList) > 0 {
 								var GlobalNetworkConnectionsResult []VoltstackSiteCustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsModel
-								for _, GlobalNetworkConnectionsItem := range rawList {
+								for GlobalNetworkConnectionsIdx, GlobalNetworkConnectionsItem := range rawList {
+									_ = GlobalNetworkConnectionsIdx
 									if GlobalNetworkConnectionsItemMap, ok := GlobalNetworkConnectionsItem.(map[string]interface{}); ok {
 										GlobalNetworkConnectionsResult = append(GlobalNetworkConnectionsResult, VoltstackSiteCustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsModel{
 											SLIToGlobalDR: func() *VoltstackSiteCustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRModel {
@@ -17714,18 +18858,32 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				if InterfaceListData, ok := blockData["interface_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigInterfaceListModel{
 						Interfaces: func() types.List {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.InterfaceList != nil && (data.CustomNetworkConfig.InterfaceList.Interfaces.IsNull() || len(data.CustomNetworkConfig.InterfaceList.Interfaces.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesModelAttrTypes})
+							}
+							var InterfacesExisting []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesModel
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.InterfaceList != nil && !data.CustomNetworkConfig.InterfaceList.Interfaces.IsNull() && !data.CustomNetworkConfig.InterfaceList.Interfaces.IsUnknown() {
+								data.CustomNetworkConfig.InterfaceList.Interfaces.ElementsAs(ctx, &InterfacesExisting, false)
+							}
 							if rawList, ok := InterfaceListData["interfaces"].([]interface{}); ok && len(rawList) > 0 {
 								var InterfacesResult []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesModel
-								for _, InterfacesItem := range rawList {
+								for InterfacesIdx, InterfacesItem := range rawList {
+									_ = InterfacesIdx
 									if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
 										InterfacesResult = append(InterfacesResult, VoltstackSiteCustomNetworkConfigInterfaceListInterfacesModel{
 											DcClusterGroupConnectivityInterfaceDisabled: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceDisabled != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := InterfacesItemMap["dc_cluster_group_connectivity_interface_disabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
 												return nil
 											}(),
 											DcClusterGroupConnectivityInterfaceEnabled: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceEnabled != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := InterfacesItemMap["dc_cluster_group_connectivity_interface_enabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -17735,6 +18893,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												if DedicatedInterfaceData, ok := InterfacesItemMap["dedicated_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesDedicatedInterfaceModel{
 														Cluster: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedInterface != nil {
+																return InterfacesExisting[InterfacesIdx].DedicatedInterface.Cluster
+															}
 															if _, ok := DedicatedInterfaceData["cluster"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -17747,24 +18908,36 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.StringNull()
 														}(),
 														IsPrimary: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedInterface != nil {
+																return InterfacesExisting[InterfacesIdx].DedicatedInterface.IsPrimary
+															}
 															if _, ok := DedicatedInterfaceData["is_primary"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Monitor: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedInterface != nil {
+																return InterfacesExisting[InterfacesIdx].DedicatedInterface.Monitor
+															}
 															if _, ok := DedicatedInterfaceData["monitor"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														MonitorDisabled: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedInterface != nil {
+																return InterfacesExisting[InterfacesIdx].DedicatedInterface.MonitorDisabled
+															}
 															if _, ok := DedicatedInterfaceData["monitor_disabled"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														MTU: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedInterface != nil && !InterfacesExisting[InterfacesIdx].DedicatedInterface.MTU.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].DedicatedInterface.MTU
+															}
 															if v, ok := DedicatedInterfaceData["mtu"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -17777,12 +18950,18 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.StringNull()
 														}(),
 														NotPrimary: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedInterface != nil {
+																return InterfacesExisting[InterfacesIdx].DedicatedInterface.NotPrimary
+															}
 															if _, ok := DedicatedInterfaceData["not_primary"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Priority: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedInterface != nil && !InterfacesExisting[InterfacesIdx].DedicatedInterface.Priority.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].DedicatedInterface.Priority
+															}
 															if v, ok := DedicatedInterfaceData["priority"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -17796,6 +18975,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												if DedicatedManagementInterfaceData, ok := InterfacesItemMap["dedicated_management_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesDedicatedManagementInterfaceModel{
 														Cluster: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedManagementInterface != nil {
+																return InterfacesExisting[InterfacesIdx].DedicatedManagementInterface.Cluster
+															}
 															if _, ok := DedicatedManagementInterfaceData["cluster"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -17808,6 +18990,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.StringNull()
 														}(),
 														MTU: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedManagementInterface != nil && !InterfacesExisting[InterfacesIdx].DedicatedManagementInterface.MTU.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].DedicatedManagementInterface.MTU
+															}
 															if v, ok := DedicatedManagementInterfaceData["mtu"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -17833,6 +19018,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												if EthernetInterfaceData, ok := InterfacesItemMap["ethernet_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceModel{
 														Cluster: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.Cluster
+															}
 															if _, ok := EthernetInterfaceData["cluster"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -17845,6 +19033,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.StringNull()
 														}(),
 														DHCPClient: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPClient
+															}
 															if _, ok := EthernetInterfaceData["dhcp_client"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -17854,21 +19045,35 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															if DHCPServerData, ok := EthernetInterfaceData["dhcp_server"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModel{
 																	AutomaticFromEnd: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.AutomaticFromEnd
+																		}
 																		if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	AutomaticFromStart: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.AutomaticFromStart
+																		}
 																		if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	DHCPNetworks: func() types.List {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && (InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.DHCPNetworks.IsNull() || len(InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.DHCPNetworks.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
+																		}
+																		var DHCPNetworksExisting []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModel
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.DHCPNetworks.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.DHCPNetworks.IsUnknown() {
+																			InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																		}
 																		if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																			var DHCPNetworksResult []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModel
-																			for _, DHCPNetworksItem := range rawList {
+																			for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																				_ = DHCPNetworksIdx
 																				if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
 																					DHCPNetworksResult = append(DHCPNetworksResult, VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModel{
 																						DgwAddress: func() types.String {
@@ -17884,12 +19089,18 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																							return types.StringNull()
 																						}(),
 																						FirstAddress: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
 																							return nil
 																						}(),
 																						LastAddress: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].LastAddress != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
@@ -17965,6 +19176,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																							return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 																						}(),
 																						SameAsDgw: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
@@ -17979,15 +19193,24 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
 																	}(),
 																	FixedIPMap: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.FixedIPMap
+																		}
 																		if _, ok := DHCPServerData["fixed_ip_map"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	InterfaceIPMap: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap
+																		}
 																		if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapModel{
 																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap != nil {
+																						return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap
+																					}
 																					if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -18002,21 +19225,36 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return nil
 														}(),
 														Ipv6AutoConfig: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig
+															}
 															if Ipv6AutoConfigData, ok := EthernetInterfaceData["ipv6_auto_config"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigModel{
 																	Host: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Host
+																		}
 																		if _, ok := Ipv6AutoConfigData["host"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	Router: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router
+																		}
 																		if RouterData, ok := Ipv6AutoConfigData["router"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterModel{
 																				DNSConfig: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterDNSConfigModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil {
+																						return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig
+																					}
 																					if DNSConfigData, ok := RouterData["dns_config"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterDNSConfigModel{
 																							ConfiguredList: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel {
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+																									return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList
+																								}
 																								if ConfiguredListData, ok := DNSConfigData["configured_list"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel{
 																										DNSList: func() types.List {
@@ -18037,6 +19275,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																								return nil
 																							}(),
 																							LocalDNS: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel {
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																									return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS
+																								}
 																								if LocalDNSData, ok := DNSConfigData["local_dns"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel{
 																										ConfiguredAddress: func() types.String {
@@ -18046,12 +19287,18 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																											return types.StringNull()
 																										}(),
 																										FirstAddress: func() *VoltstackSiteEmptyModel {
+																											if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																												return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress
+																											}
 																											if _, ok := LocalDNSData["first_address"].(map[string]interface{}); ok {
 																												return &VoltstackSiteEmptyModel{}
 																											}
 																											return nil
 																										}(),
 																										LastAddress: func() *VoltstackSiteEmptyModel {
+																											if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																												return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress
+																											}
 																											if _, ok := LocalDNSData["last_address"].(map[string]interface{}); ok {
 																												return &VoltstackSiteEmptyModel{}
 																											}
@@ -18072,24 +19319,41 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return types.StringNull()
 																				}(),
 																				Stateful: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																						return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful
+																					}
 																					if StatefulData, ok := RouterData["stateful"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulModel{
 																							AutomaticFromEnd: func() *VoltstackSiteEmptyModel {
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																									return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd
+																								}
 																								if _, ok := StatefulData["automatic_from_end"].(map[string]interface{}); ok {
 																									return &VoltstackSiteEmptyModel{}
 																								}
 																								return nil
 																							}(),
 																							AutomaticFromStart: func() *VoltstackSiteEmptyModel {
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																									return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart
+																								}
 																								if _, ok := StatefulData["automatic_from_start"].(map[string]interface{}); ok {
 																									return &VoltstackSiteEmptyModel{}
 																								}
 																								return nil
 																							}(),
 																							DHCPNetworks: func() types.List {
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && (InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() || len(InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.Elements()) == 0) {
+																									return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
+																								}
+																								var DHCPNetworksExisting []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+																									InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																								}
 																								if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																									var DHCPNetworksResult []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
-																									for _, DHCPNetworksItem := range rawList {
+																									for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																										_ = DHCPNetworksIdx
 																										if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
 																											DHCPNetworksResult = append(DHCPNetworksResult, VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel{
 																												NetworkPrefix: func() types.String {
@@ -18139,15 +19403,24 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																							}(),
 																							FixedIPMap: func() *VoltstackSiteEmptyModel {
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																									return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap
+																								}
 																								if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
 																									return &VoltstackSiteEmptyModel{}
 																								}
 																								return nil
 																							}(),
 																							InterfaceIPMap: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+																									return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
+																								}
 																								if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
 																										InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																											if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+																												return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
+																											}
 																											if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
 																												return &VoltstackSiteEmptyModel{}
 																											}
@@ -18170,30 +19443,45 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return nil
 														}(),
 														IsPrimary: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.IsPrimary
+															}
 															if _, ok := EthernetInterfaceData["is_primary"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Monitor: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.Monitor
+															}
 															if _, ok := EthernetInterfaceData["monitor"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														MonitorDisabled: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.MonitorDisabled
+															}
 															if _, ok := EthernetInterfaceData["monitor_disabled"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														MTU: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.MTU.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.MTU
+															}
 															if v, ok := EthernetInterfaceData["mtu"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														NoIpv6Address: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.NoIpv6Address
+															}
 															if _, ok := EthernetInterfaceData["no_ipv6_address"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -18206,36 +19494,57 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.StringNull()
 														}(),
 														NotPrimary: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.NotPrimary
+															}
 															if _, ok := EthernetInterfaceData["not_primary"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Priority: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.Priority.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.Priority
+															}
 															if v, ok := EthernetInterfaceData["priority"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														SiteLocalInsideNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.SiteLocalInsideNetwork
+															}
 															if _, ok := EthernetInterfaceData["site_local_inside_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														SiteLocalNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.SiteLocalNetwork
+															}
 															if _, ok := EthernetInterfaceData["site_local_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														StaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP
+															}
 															if StaticIPData, ok := EthernetInterfaceData["static_ip"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPModel{
 																	ClusterStaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP
+																		}
 																		if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPModel{
 																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP != nil {
+																						return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
+																					}
 																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -18246,6 +19555,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return nil
 																	}(),
 																	NodeStaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPNodeStaticIPModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.NodeStaticIP != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.NodeStaticIP
+																		}
 																		if NodeStaticIPData, ok := StaticIPData["node_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPNodeStaticIPModel{
 																				DefaultGw: func() types.String {
@@ -18269,12 +19581,21 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return nil
 														}(),
 														StaticIpv6Address: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address
+															}
 															if StaticIpv6AddressData, ok := EthernetInterfaceData["static_ipv6_address"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressModel{
 																	ClusterStaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP
+																		}
 																		if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPModel{
 																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
+																						return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
+																					}
 																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -18285,6 +19606,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return nil
 																	}(),
 																	NodeStaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.NodeStaticIP != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.NodeStaticIP
+																		}
 																		if NodeStaticIPData, ok := StaticIpv6AddressData["node_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPModel{
 																				DefaultGw: func() types.String {
@@ -18308,18 +19632,27 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return nil
 														}(),
 														StorageNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.StorageNetwork
+															}
 															if _, ok := EthernetInterfaceData["storage_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Untagged: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.Untagged
+															}
 															if _, ok := EthernetInterfaceData["untagged"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														VLANID: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.VLANID.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.VLANID
+															}
 															if v, ok := EthernetInterfaceData["vlan_id"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -18330,6 +19663,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											Labels: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].Labels != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := InterfacesItemMap["labels"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -18339,6 +19675,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												if TunnelInterfaceData, ok := InterfacesItemMap["tunnel_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceModel{
 														MTU: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && !InterfacesExisting[InterfacesIdx].TunnelInterface.MTU.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].TunnelInterface.MTU
+															}
 															if v, ok := TunnelInterfaceData["mtu"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -18351,30 +19690,48 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.StringNull()
 														}(),
 														Priority: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && !InterfacesExisting[InterfacesIdx].TunnelInterface.Priority.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].TunnelInterface.Priority
+															}
 															if v, ok := TunnelInterfaceData["priority"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														SiteLocalInsideNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil {
+																return InterfacesExisting[InterfacesIdx].TunnelInterface.SiteLocalInsideNetwork
+															}
 															if _, ok := TunnelInterfaceData["site_local_inside_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														SiteLocalNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil {
+																return InterfacesExisting[InterfacesIdx].TunnelInterface.SiteLocalNetwork
+															}
 															if _, ok := TunnelInterfaceData["site_local_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														StaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP != nil {
+																return InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP
+															}
 															if StaticIPData, ok := TunnelInterfaceData["static_ip"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPModel{
 																	ClusterStaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPClusterStaticIPModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.ClusterStaticIP != nil {
+																			return InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.ClusterStaticIP
+																		}
 																		if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPClusterStaticIPModel{
 																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.ClusterStaticIP != nil {
+																						return InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
+																					}
 																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -18385,6 +19742,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return nil
 																	}(),
 																	NodeStaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPNodeStaticIPModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.NodeStaticIP != nil {
+																			return InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.NodeStaticIP
+																		}
 																		if NodeStaticIPData, ok := StaticIPData["node_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPNodeStaticIPModel{
 																				DefaultGw: func() types.String {
@@ -18497,12 +19857,18 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				if SLIConfigData, ok := blockData["sli_config"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigSLIConfigModel{
 						NoStaticRoutes: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil {
+								return data.CustomNetworkConfig.SLIConfig.NoStaticRoutes
+							}
 							if _, ok := SLIConfigData["no_static_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
 							return nil
 						}(),
 						NoV6StaticRoutes: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil {
+								return data.CustomNetworkConfig.SLIConfig.NoV6StaticRoutes
+							}
 							if _, ok := SLIConfigData["no_v6_static_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
@@ -18512,9 +19878,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 							if StaticRoutesData, ok := SLIConfigData["static_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesModel{
 									StaticRoutes: func() types.List {
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil && data.CustomNetworkConfig.SLIConfig.StaticRoutes != nil && (data.CustomNetworkConfig.SLIConfig.StaticRoutes.StaticRoutes.IsNull() || len(data.CustomNetworkConfig.SLIConfig.StaticRoutes.StaticRoutes.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesModelAttrTypes})
+										}
+										var StaticRoutesExisting []VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesModel
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil && data.CustomNetworkConfig.SLIConfig.StaticRoutes != nil && !data.CustomNetworkConfig.SLIConfig.StaticRoutes.StaticRoutes.IsNull() && !data.CustomNetworkConfig.SLIConfig.StaticRoutes.StaticRoutes.IsUnknown() {
+											data.CustomNetworkConfig.SLIConfig.StaticRoutes.StaticRoutes.ElementsAs(ctx, &StaticRoutesExisting, false)
+										}
 										if rawList, ok := StaticRoutesData["static_routes"].([]interface{}); ok && len(rawList) > 0 {
 											var StaticRoutesResult []VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesModel
-											for _, StaticRoutesItem := range rawList {
+											for StaticRoutesIdx, StaticRoutesItem := range rawList {
+												_ = StaticRoutesIdx
 												if StaticRoutesItemMap, ok := StaticRoutesItem.(map[string]interface{}); ok {
 													StaticRoutesResult = append(StaticRoutesResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesModel{
 														Attrs: func() types.List {
@@ -18531,6 +19905,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
+																return &VoltstackSiteEmptyModel{}
+															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -18559,9 +19936,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															if NodeInterfaceData, ok := StaticRoutesItemMap["node_interface"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceModel{
 																	List: func() types.List {
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && (StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() || len(StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListModelAttrTypes})
+																		}
+																		var ListExisting []VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListModel
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsUnknown() {
+																			StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.ElementsAs(ctx, &ListExisting, false)
+																		}
 																		if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
 																			var ListResult []VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListModel
-																			for _, ListItem := range rawList {
+																			for ListIdx, ListItem := range rawList {
+																				_ = ListIdx
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
@@ -18642,9 +20027,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 							if StaticV6RoutesData, ok := SLIConfigData["static_v6_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesModel{
 									StaticRoutes: func() types.List {
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil && data.CustomNetworkConfig.SLIConfig.StaticV6Routes != nil && (data.CustomNetworkConfig.SLIConfig.StaticV6Routes.StaticRoutes.IsNull() || len(data.CustomNetworkConfig.SLIConfig.StaticV6Routes.StaticRoutes.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesModelAttrTypes})
+										}
+										var StaticRoutesExisting []VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesModel
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil && data.CustomNetworkConfig.SLIConfig.StaticV6Routes != nil && !data.CustomNetworkConfig.SLIConfig.StaticV6Routes.StaticRoutes.IsNull() && !data.CustomNetworkConfig.SLIConfig.StaticV6Routes.StaticRoutes.IsUnknown() {
+											data.CustomNetworkConfig.SLIConfig.StaticV6Routes.StaticRoutes.ElementsAs(ctx, &StaticRoutesExisting, false)
+										}
 										if rawList, ok := StaticV6RoutesData["static_routes"].([]interface{}); ok && len(rawList) > 0 {
 											var StaticRoutesResult []VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesModel
-											for _, StaticRoutesItem := range rawList {
+											for StaticRoutesIdx, StaticRoutesItem := range rawList {
+												_ = StaticRoutesIdx
 												if StaticRoutesItemMap, ok := StaticRoutesItem.(map[string]interface{}); ok {
 													StaticRoutesResult = append(StaticRoutesResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesModel{
 														Attrs: func() types.List {
@@ -18661,6 +20054,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
+																return &VoltstackSiteEmptyModel{}
+															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -18689,9 +20085,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															if NodeInterfaceData, ok := StaticRoutesItemMap["node_interface"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceModel{
 																	List: func() types.List {
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && (StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() || len(StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListModelAttrTypes})
+																		}
+																		var ListExisting []VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsUnknown() {
+																			StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.ElementsAs(ctx, &ListExisting, false)
+																		}
 																		if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
 																			var ListResult []VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel
-																			for _, ListItem := range rawList {
+																			for ListIdx, ListItem := range rawList {
+																				_ = ListIdx
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
@@ -18801,24 +20205,36 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 							return nil
 						}(),
 						Labels: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
+								return data.CustomNetworkConfig.SloConfig.Labels
+							}
 							if _, ok := SloConfigData["labels"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
 							return nil
 						}(),
 						NoDcClusterGroup: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
+								return data.CustomNetworkConfig.SloConfig.NoDcClusterGroup
+							}
 							if _, ok := SloConfigData["no_dc_cluster_group"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
 							return nil
 						}(),
 						NoStaticRoutes: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
+								return data.CustomNetworkConfig.SloConfig.NoStaticRoutes
+							}
 							if _, ok := SloConfigData["no_static_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
 							return nil
 						}(),
 						NoStaticV6Routes: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
+								return data.CustomNetworkConfig.SloConfig.NoStaticV6Routes
+							}
 							if _, ok := SloConfigData["no_static_v6_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
@@ -18828,9 +20244,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 							if StaticRoutesData, ok := SloConfigData["static_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesModel{
 									StaticRoutes: func() types.List {
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil && data.CustomNetworkConfig.SloConfig.StaticRoutes != nil && (data.CustomNetworkConfig.SloConfig.StaticRoutes.StaticRoutes.IsNull() || len(data.CustomNetworkConfig.SloConfig.StaticRoutes.StaticRoutes.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesModelAttrTypes})
+										}
+										var StaticRoutesExisting []VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesModel
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil && data.CustomNetworkConfig.SloConfig.StaticRoutes != nil && !data.CustomNetworkConfig.SloConfig.StaticRoutes.StaticRoutes.IsNull() && !data.CustomNetworkConfig.SloConfig.StaticRoutes.StaticRoutes.IsUnknown() {
+											data.CustomNetworkConfig.SloConfig.StaticRoutes.StaticRoutes.ElementsAs(ctx, &StaticRoutesExisting, false)
+										}
 										if rawList, ok := StaticRoutesData["static_routes"].([]interface{}); ok && len(rawList) > 0 {
 											var StaticRoutesResult []VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesModel
-											for _, StaticRoutesItem := range rawList {
+											for StaticRoutesIdx, StaticRoutesItem := range rawList {
+												_ = StaticRoutesIdx
 												if StaticRoutesItemMap, ok := StaticRoutesItem.(map[string]interface{}); ok {
 													StaticRoutesResult = append(StaticRoutesResult, VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesModel{
 														Attrs: func() types.List {
@@ -18847,6 +20271,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
+																return &VoltstackSiteEmptyModel{}
+															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -18875,9 +20302,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															if NodeInterfaceData, ok := StaticRoutesItemMap["node_interface"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceModel{
 																	List: func() types.List {
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && (StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() || len(StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListModelAttrTypes})
+																		}
+																		var ListExisting []VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListModel
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsUnknown() {
+																			StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.ElementsAs(ctx, &ListExisting, false)
+																		}
 																		if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
 																			var ListResult []VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListModel
-																			for _, ListItem := range rawList {
+																			for ListIdx, ListItem := range rawList {
+																				_ = ListIdx
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
@@ -18958,9 +20393,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 							if StaticV6RoutesData, ok := SloConfigData["static_v6_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesModel{
 									StaticRoutes: func() types.List {
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil && data.CustomNetworkConfig.SloConfig.StaticV6Routes != nil && (data.CustomNetworkConfig.SloConfig.StaticV6Routes.StaticRoutes.IsNull() || len(data.CustomNetworkConfig.SloConfig.StaticV6Routes.StaticRoutes.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesModelAttrTypes})
+										}
+										var StaticRoutesExisting []VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesModel
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil && data.CustomNetworkConfig.SloConfig.StaticV6Routes != nil && !data.CustomNetworkConfig.SloConfig.StaticV6Routes.StaticRoutes.IsNull() && !data.CustomNetworkConfig.SloConfig.StaticV6Routes.StaticRoutes.IsUnknown() {
+											data.CustomNetworkConfig.SloConfig.StaticV6Routes.StaticRoutes.ElementsAs(ctx, &StaticRoutesExisting, false)
+										}
 										if rawList, ok := StaticV6RoutesData["static_routes"].([]interface{}); ok && len(rawList) > 0 {
 											var StaticRoutesResult []VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesModel
-											for _, StaticRoutesItem := range rawList {
+											for StaticRoutesIdx, StaticRoutesItem := range rawList {
+												_ = StaticRoutesIdx
 												if StaticRoutesItemMap, ok := StaticRoutesItem.(map[string]interface{}); ok {
 													StaticRoutesResult = append(StaticRoutesResult, VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesModel{
 														Attrs: func() types.List {
@@ -18977,6 +20420,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
+																return &VoltstackSiteEmptyModel{}
+															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -19005,9 +20451,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															if NodeInterfaceData, ok := StaticRoutesItemMap["node_interface"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceModel{
 																	List: func() types.List {
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && (StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() || len(StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListModelAttrTypes})
+																		}
+																		var ListExisting []VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsUnknown() {
+																			StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.ElementsAs(ctx, &ListExisting, false)
+																		}
 																		if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
 																			var ListResult []VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel
-																			for _, ListItem := range rawList {
+																			for ListIdx, ListItem := range rawList {
+																				_ = ListIdx
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
@@ -19165,9 +20619,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				if StaticRoutesData, ok := blockData["static_routes"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomStorageConfigStaticRoutesModel{
 						StaticRoutes: func() types.List {
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StaticRoutes != nil && (data.CustomStorageConfig.StaticRoutes.StaticRoutes.IsNull() || len(data.CustomStorageConfig.StaticRoutes.StaticRoutes.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesModelAttrTypes})
+							}
+							var StaticRoutesExisting []VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesModel
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StaticRoutes != nil && !data.CustomStorageConfig.StaticRoutes.StaticRoutes.IsNull() && !data.CustomStorageConfig.StaticRoutes.StaticRoutes.IsUnknown() {
+								data.CustomStorageConfig.StaticRoutes.StaticRoutes.ElementsAs(ctx, &StaticRoutesExisting, false)
+							}
 							if rawList, ok := StaticRoutesData["static_routes"].([]interface{}); ok && len(rawList) > 0 {
 								var StaticRoutesResult []VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesModel
-								for _, StaticRoutesItem := range rawList {
+								for StaticRoutesIdx, StaticRoutesItem := range rawList {
+									_ = StaticRoutesIdx
 									if StaticRoutesItemMap, ok := StaticRoutesItem.(map[string]interface{}); ok {
 										StaticRoutesResult = append(StaticRoutesResult, VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesModel{
 											Attrs: func() types.List {
@@ -19184,6 +20646,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												return types.ListNull(types.StringType)
 											}(),
 											DefaultGateway: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -19212,9 +20677,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												if NodeInterfaceData, ok := StaticRoutesItemMap["node_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceModel{
 														List: func() types.List {
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && (StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() || len(StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListModelAttrTypes})
+															}
+															var ListExisting []VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListModel
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsUnknown() {
+																StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.ElementsAs(ctx, &ListExisting, false)
+															}
 															if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
 																var ListResult []VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListModel
-																for _, ListItem := range rawList {
+																for ListIdx, ListItem := range rawList {
+																	_ = ListIdx
 																	if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																		ListResult = append(ListResult, VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																			Interface: func() types.List {
@@ -19298,12 +20771,23 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				if StorageClassListData, ok := blockData["storage_class_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomStorageConfigStorageClassListModel{
 						StorageClasses: func() types.List {
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageClassList != nil && (data.CustomStorageConfig.StorageClassList.StorageClasses.IsNull() || len(data.CustomStorageConfig.StorageClassList.StorageClasses.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageClassListStorageClassesModelAttrTypes})
+							}
+							var StorageClassesExisting []VoltstackSiteCustomStorageConfigStorageClassListStorageClassesModel
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageClassList != nil && !data.CustomStorageConfig.StorageClassList.StorageClasses.IsNull() && !data.CustomStorageConfig.StorageClassList.StorageClasses.IsUnknown() {
+								data.CustomStorageConfig.StorageClassList.StorageClasses.ElementsAs(ctx, &StorageClassesExisting, false)
+							}
 							if rawList, ok := StorageClassListData["storage_classes"].([]interface{}); ok && len(rawList) > 0 {
 								var StorageClassesResult []VoltstackSiteCustomStorageConfigStorageClassListStorageClassesModel
-								for _, StorageClassesItem := range rawList {
+								for StorageClassesIdx, StorageClassesItem := range rawList {
+									_ = StorageClassesIdx
 									if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
 										StorageClassesResult = append(StorageClassesResult, VoltstackSiteCustomStorageConfigStorageClassListStorageClassesModel{
 											AdvancedStorageParameters: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := StorageClassesItemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -19356,6 +20840,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.StringNull()
 														}(),
 														DedupeEnabled: func() types.Bool {
+															if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.DedupeEnabled.IsUnknown() {
+																return StorageClassesExisting[StorageClassesIdx].HpeStorage.DedupeEnabled
+															}
 															if v, ok := HpeStorageData["dedupe_enabled"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -19368,12 +20855,18 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.StringNull()
 														}(),
 														DestroyOnDelete: func() types.Bool {
+															if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.DestroyOnDelete.IsUnknown() {
+																return StorageClassesExisting[StorageClassesIdx].HpeStorage.DestroyOnDelete
+															}
 															if v, ok := HpeStorageData["destroy_on_delete"].(bool); ok {
 																return types.BoolValue(v)
 															}
 															return types.BoolNull()
 														}(),
 														Encrypted: func() types.Bool {
+															if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.Encrypted.IsUnknown() {
+																return StorageClassesExisting[StorageClassesIdx].HpeStorage.Encrypted
+															}
 															if v, ok := HpeStorageData["encrypted"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -19428,12 +20921,18 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.StringNull()
 														}(),
 														SyncOnDetach: func() types.Bool {
+															if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.SyncOnDetach.IsUnknown() {
+																return StorageClassesExisting[StorageClassesIdx].HpeStorage.SyncOnDetach
+															}
 															if v, ok := HpeStorageData["sync_on_detach"].(bool); ok {
 																return types.BoolValue(v)
 															}
 															return types.BoolNull()
 														}(),
 														Thick: func() types.Bool {
+															if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.Thick.IsUnknown() {
+																return StorageClassesExisting[StorageClassesIdx].HpeStorage.Thick
+															}
 															if v, ok := HpeStorageData["thick"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -19447,6 +20946,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												if NetappTridentData, ok := StorageClassesItemMap["netapp_trident"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomStorageConfigStorageClassListStorageClassesNetappTridentModel{
 														Selector: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].NetappTrident != nil {
+																return StorageClassesExisting[StorageClassesIdx].NetappTrident.Selector
+															}
 															if _, ok := NetappTridentData["selector"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -19478,6 +20980,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.StringNull()
 														}(),
 														IopsLimit: func() types.Int64 {
+															if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].PureServiceOrchestrator != nil && !StorageClassesExisting[StorageClassesIdx].PureServiceOrchestrator.IopsLimit.IsUnknown() {
+																return StorageClassesExisting[StorageClassesIdx].PureServiceOrchestrator.IopsLimit
+															}
 															if v, ok := PureServiceOrchestratorData["iops_limit"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -19524,18 +21029,32 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				if StorageDeviceListData, ok := blockData["storage_device_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomStorageConfigStorageDeviceListModel{
 						StorageDevices: func() types.List {
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageDeviceList != nil && (data.CustomStorageConfig.StorageDeviceList.StorageDevices.IsNull() || len(data.CustomStorageConfig.StorageDeviceList.StorageDevices.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesModelAttrTypes})
+							}
+							var StorageDevicesExisting []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesModel
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageDeviceList != nil && !data.CustomStorageConfig.StorageDeviceList.StorageDevices.IsNull() && !data.CustomStorageConfig.StorageDeviceList.StorageDevices.IsUnknown() {
+								data.CustomStorageConfig.StorageDeviceList.StorageDevices.ElementsAs(ctx, &StorageDevicesExisting, false)
+							}
 							if rawList, ok := StorageDeviceListData["storage_devices"].([]interface{}); ok && len(rawList) > 0 {
 								var StorageDevicesResult []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesModel
-								for _, StorageDevicesItem := range rawList {
+								for StorageDevicesIdx, StorageDevicesItem := range rawList {
+									_ = StorageDevicesIdx
 									if StorageDevicesItemMap, ok := StorageDevicesItem.(map[string]interface{}); ok {
 										StorageDevicesResult = append(StorageDevicesResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesModel{
 											AdvancedAdvancedParameters: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := StorageDevicesItemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
 												return nil
 											}(),
 											CustomStorage: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].CustomStorage != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := StorageDevicesItemMap["custom_storage"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -19545,15 +21064,24 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												if HpeStorageData, ok := StorageDevicesItemMap["hpe_storage"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageModel{
 														APIServerPort: func() types.Int64 {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && !StorageDevicesExisting[StorageDevicesIdx].HpeStorage.APIServerPort.IsUnknown() {
+																return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.APIServerPort
+															}
 															if v, ok := HpeStorageData["api_server_port"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														IscsiChapPassword: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword
+															}
 															if IscsiChapPasswordData, ok := HpeStorageData["iscsi_chap_password"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordModel{
 																	BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := IscsiChapPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -19579,6 +21107,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return nil
 																	}(),
 																	BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal
+																		}
 																		if BlindfoldSecretInfoInternalData, ok := IscsiChapPasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalModel{
 																				DecryptionProvider: func() types.String {
@@ -19604,6 +21135,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.ClearSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := IscsiChapPasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -19629,6 +21163,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return types.StringNull()
 																	}(),
 																	VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo
+																		}
 																		if VaultSecretInfoData, ok := IscsiChapPasswordData["vault_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoModel{
 																				Key: func() types.String {
@@ -19656,6 +21193,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return types.StringNull()
 																				}(),
 																				Version: func() types.Int64 {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo.Version.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo.Version
+																					}
 																					if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																						return types.Int64Value(int64(v))
 																					}
@@ -19666,6 +21206,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return nil
 																	}(),
 																	WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.WingmanSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.WingmanSecretInfo
+																		}
 																		if WingmanSecretInfoData, ok := IscsiChapPasswordData["wingman_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoModel{
 																				Name: func() types.String {
@@ -19689,9 +21232,15 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.StringNull()
 														}(),
 														Password: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password
+															}
 															if PasswordData, ok := HpeStorageData["password"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordModel{
 																	BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -19717,6 +21266,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return nil
 																	}(),
 																	BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfoInternal != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfoInternal
+																		}
 																		if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalModel{
 																				DecryptionProvider: func() types.String {
@@ -19742,6 +21294,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.ClearSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -19767,6 +21322,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return types.StringNull()
 																	}(),
 																	VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo
+																		}
 																		if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoModel{
 																				Key: func() types.String {
@@ -19794,6 +21352,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return types.StringNull()
 																				}(),
 																				Version: func() types.Int64 {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo.Version.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo.Version
+																					}
 																					if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																						return types.Int64Value(int64(v))
 																					}
@@ -19804,6 +21365,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return nil
 																	}(),
 																	WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.WingmanSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.WingmanSecretInfo
+																		}
 																		if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoModel{
 																				Name: func() types.String {
@@ -19846,9 +21410,15 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												if NetappTridentData, ok := StorageDevicesItemMap["netapp_trident"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentModel{
 														NetappBackendOntapNas: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas
+															}
 															if NetappBackendOntapNasData, ok := NetappTridentData["netapp_backend_ontap_nas"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasModel{
 																	AutoExportCidrs: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasAutoExportCidrsModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportCidrs != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportCidrs
+																		}
 																		if AutoExportCidrsData, ok := NetappBackendOntapNasData["auto_export_cidrs"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasAutoExportCidrsModel{
 																				Prefixes: func() types.List {
@@ -19869,6 +21439,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return nil
 																	}(),
 																	AutoExportPolicy: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportPolicy.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportPolicy
+																		}
 																		if v, ok := NetappBackendOntapNasData["auto_export_policy"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -19887,9 +21460,15 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return types.StringNull()
 																	}(),
 																	ClientPrivateKey: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey
+																		}
 																		if ClientPrivateKeyData, ok := NetappBackendOntapNasData["client_private_key"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel{
 																				BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo
+																					}
 																					if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel{
 																							DecryptionProvider: func() types.String {
@@ -19915,6 +21494,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return nil
 																				}(),
 																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal
+																					}
 																					if BlindfoldSecretInfoInternalData, ok := ClientPrivateKeyData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalModel{
 																							DecryptionProvider: func() types.String {
@@ -19940,6 +21522,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return nil
 																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo
+																					}
 																					if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel{
 																							Provider: func() types.String {
@@ -19965,6 +21550,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return types.StringNull()
 																				}(),
 																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo
+																					}
 																					if VaultSecretInfoData, ok := ClientPrivateKeyData["vault_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoModel{
 																							Key: func() types.String {
@@ -19992,6 +21580,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																								return types.StringNull()
 																							}(),
 																							Version: func() types.Int64 {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Version.IsUnknown() {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Version
+																								}
 																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																									return types.Int64Value(int64(v))
 																								}
@@ -20002,6 +21593,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return nil
 																				}(),
 																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.WingmanSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.WingmanSecretInfo
+																					}
 																					if WingmanSecretInfoData, ok := ClientPrivateKeyData["wingman_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoModel{
 																							Name: func() types.String {
@@ -20031,6 +21625,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return types.StringNull()
 																	}(),
 																	Labels: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Labels
+																		}
 																		if _, ok := NetappBackendOntapNasData["labels"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
@@ -20067,9 +21664,15 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return types.StringNull()
 																	}(),
 																	Password: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password
+																		}
 																		if PasswordData, ok := NetappBackendOntapNasData["password"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModel{
 																				BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo
+																					}
 																					if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoModel{
 																							DecryptionProvider: func() types.String {
@@ -20095,6 +21698,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return nil
 																				}(),
 																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal
+																					}
 																					if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalModel{
 																							DecryptionProvider: func() types.String {
@@ -20120,6 +21726,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return nil
 																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo
+																					}
 																					if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel{
 																							Provider: func() types.String {
@@ -20145,6 +21754,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return types.StringNull()
 																				}(),
 																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo
+																					}
 																					if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoModel{
 																							Key: func() types.String {
@@ -20172,6 +21784,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																								return types.StringNull()
 																							}(),
 																							Version: func() types.Int64 {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Version.IsUnknown() {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Version
+																								}
 																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																									return types.Int64Value(int64(v))
 																								}
@@ -20182,6 +21797,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return nil
 																				}(),
 																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.WingmanSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.WingmanSecretInfo
+																					}
 																					if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoModel{
 																							Name: func() types.String {
@@ -20205,12 +21823,23 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return types.StringNull()
 																	}(),
 																	Storage: func() types.List {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && (StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModelAttrTypes})
+																		}
+																		var StorageExisting []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.IsUnknown() {
+																			StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.ElementsAs(ctx, &StorageExisting, false)
+																		}
 																		if rawList, ok := NetappBackendOntapNasData["storage"].([]interface{}); ok && len(rawList) > 0 {
 																			var StorageResult []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel
-																			for _, StorageItem := range rawList {
+																			for StorageIdx, StorageItem := range rawList {
+																				_ = StorageIdx
 																				if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																					StorageResult = append(StorageResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel{
 																						Labels: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
@@ -20226,6 +21855,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																										return types.StringNull()
 																									}(),
 																									Encryption: func() types.Bool {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.Encryption.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.Encryption
+																										}
 																										if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																											return types.BoolValue(v)
 																										}
@@ -20238,6 +21870,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																										return types.StringNull()
 																									}(),
 																									NoQOS: func() *VoltstackSiteEmptyModel {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil {
+																											return StorageExisting[StorageIdx].VolumeDefaults.NoQOS
+																										}
 																										if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																											return &VoltstackSiteEmptyModel{}
 																										}
@@ -20256,6 +21891,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																										return types.StringNull()
 																									}(),
 																									SnapshotDir: func() types.Bool {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir
+																										}
 																										if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																											return types.BoolValue(v)
 																										}
@@ -20280,6 +21918,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																										return types.StringNull()
 																									}(),
 																									SplitOnClone: func() types.Bool {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone
+																										}
 																										if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																											return types.BoolValue(v)
 																										}
@@ -20292,6 +21933,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																										return types.StringNull()
 																									}(),
 																									UnixPermissions: func() types.Int64 {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions
+																										}
 																										if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																											return types.Int64Value(int64(v))
 																										}
@@ -20346,6 +21990,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return types.StringNull()
 																	}(),
 																	VolumeDefaults: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults
+																		}
 																		if VolumeDefaultsData, ok := NetappBackendOntapNasData["volume_defaults"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModel{
 																				AdaptiveQOSPolicy: func() types.String {
@@ -20355,6 +22002,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return types.StringNull()
 																				}(),
 																				Encryption: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption
+																					}
 																					if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
@@ -20367,6 +22017,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return types.StringNull()
 																				}(),
 																				NoQOS: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS
+																					}
 																					if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -20385,6 +22038,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return types.StringNull()
 																				}(),
 																				SnapshotDir: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir
+																					}
 																					if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
@@ -20409,6 +22065,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return types.StringNull()
 																				}(),
 																				SplitOnClone: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone
+																					}
 																					if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
@@ -20421,6 +22080,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return types.StringNull()
 																				}(),
 																				UnixPermissions: func() types.Int64 {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions
+																					}
 																					if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																						return types.Int64Value(int64(v))
 																					}
@@ -20435,6 +22097,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return nil
 														}(),
 														NetappBackendOntapSan: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan
+															}
 															if NetappBackendOntapSanData, ok := NetappTridentData["netapp_backend_ontap_san"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel{
 																	ClientCertificate: func() types.String {
@@ -20444,9 +22109,15 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return types.StringNull()
 																	}(),
 																	ClientPrivateKey: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey
+																		}
 																		if ClientPrivateKeyData, ok := NetappBackendOntapSanData["client_private_key"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel{
 																				BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo
+																					}
 																					if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel{
 																							DecryptionProvider: func() types.String {
@@ -20472,6 +22143,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return nil
 																				}(),
 																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal
+																					}
 																					if BlindfoldSecretInfoInternalData, ok := ClientPrivateKeyData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalModel{
 																							DecryptionProvider: func() types.String {
@@ -20497,6 +22171,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return nil
 																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo
+																					}
 																					if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel{
 																							Provider: func() types.String {
@@ -20522,6 +22199,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return types.StringNull()
 																				}(),
 																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo
+																					}
 																					if VaultSecretInfoData, ok := ClientPrivateKeyData["vault_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoModel{
 																							Key: func() types.String {
@@ -20549,6 +22229,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																								return types.StringNull()
 																							}(),
 																							Version: func() types.Int64 {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Version.IsUnknown() {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Version
+																								}
 																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																									return types.Int64Value(int64(v))
 																								}
@@ -20559,6 +22242,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return nil
 																				}(),
 																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.WingmanSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.WingmanSecretInfo
+																					}
 																					if WingmanSecretInfoData, ok := ClientPrivateKeyData["wingman_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoModel{
 																							Name: func() types.String {
@@ -20594,18 +22280,27 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return types.StringNull()
 																	}(),
 																	Labels: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Labels
+																		}
 																		if _, ok := NetappBackendOntapSanData["labels"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	LimitAggregateUsage: func() types.Int64 {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage
+																		}
 																		if v, ok := NetappBackendOntapSanData["limit_aggregate_usage"].(float64); ok && v != 0 {
 																			return types.Int64Value(int64(v))
 																		}
 																		return types.Int64Null()
 																	}(),
 																	LimitVolumeSize: func() types.Int64 {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitVolumeSize.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitVolumeSize
+																		}
 																		if v, ok := NetappBackendOntapSanData["limit_volume_size"].(float64); ok && v != 0 {
 																			return types.Int64Value(int64(v))
 																		}
@@ -20624,15 +22319,24 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return types.StringNull()
 																	}(),
 																	NoChap: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.NoChap
+																		}
 																		if _, ok := NetappBackendOntapSanData["no_chap"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	Password: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password
+																		}
 																		if PasswordData, ok := NetappBackendOntapSanData["password"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel{
 																				BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo
+																					}
 																					if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoModel{
 																							DecryptionProvider: func() types.String {
@@ -20658,6 +22362,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return nil
 																				}(),
 																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal
+																					}
 																					if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalModel{
 																							DecryptionProvider: func() types.String {
@@ -20683,6 +22390,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return nil
 																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo
+																					}
 																					if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel{
 																							Provider: func() types.String {
@@ -20708,6 +22418,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return types.StringNull()
 																				}(),
 																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo
+																					}
 																					if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoModel{
 																							Key: func() types.String {
@@ -20735,6 +22448,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																								return types.StringNull()
 																							}(),
 																							Version: func() types.Int64 {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Version.IsUnknown() {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Version
+																								}
 																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																									return types.Int64Value(int64(v))
 																								}
@@ -20745,6 +22461,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return nil
 																				}(),
 																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.WingmanSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.WingmanSecretInfo
+																					}
 																					if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoModel{
 																							Name: func() types.String {
@@ -20768,12 +22487,23 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return types.StringNull()
 																	}(),
 																	Storage: func() types.List {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && (StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModelAttrTypes})
+																		}
+																		var StorageExisting []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.IsUnknown() {
+																			StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.ElementsAs(ctx, &StorageExisting, false)
+																		}
 																		if rawList, ok := NetappBackendOntapSanData["storage"].([]interface{}); ok && len(rawList) > 0 {
 																			var StorageResult []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel
-																			for _, StorageItem := range rawList {
+																			for StorageIdx, StorageItem := range rawList {
+																				_ = StorageIdx
 																				if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																					StorageResult = append(StorageResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel{
 																						Labels: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
@@ -20789,6 +22519,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																										return types.StringNull()
 																									}(),
 																									Encryption: func() types.Bool {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.Encryption.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.Encryption
+																										}
 																										if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																											return types.BoolValue(v)
 																										}
@@ -20801,6 +22534,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																										return types.StringNull()
 																									}(),
 																									NoQOS: func() *VoltstackSiteEmptyModel {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil {
+																											return StorageExisting[StorageIdx].VolumeDefaults.NoQOS
+																										}
 																										if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																											return &VoltstackSiteEmptyModel{}
 																										}
@@ -20819,6 +22555,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																										return types.StringNull()
 																									}(),
 																									SnapshotDir: func() types.Bool {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir
+																										}
 																										if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																											return types.BoolValue(v)
 																										}
@@ -20843,6 +22582,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																										return types.StringNull()
 																									}(),
 																									SplitOnClone: func() types.Bool {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone
+																										}
 																										if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																											return types.BoolValue(v)
 																										}
@@ -20855,6 +22597,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																										return types.StringNull()
 																									}(),
 																									UnixPermissions: func() types.Int64 {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions
+																										}
 																										if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																											return types.Int64Value(int64(v))
 																										}
@@ -20903,12 +22648,21 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return types.StringNull()
 																	}(),
 																	UseChap: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap
+																		}
 																		if UseChapData, ok := NetappBackendOntapSanData["use_chap"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapModel{
 																				ChapInitiatorSecret: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret
+																					}
 																					if ChapInitiatorSecretData, ok := UseChapData["chap_initiator_secret"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretModel{
 																							BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo
+																								}
 																								if BlindfoldSecretInfoData, ok := ChapInitiatorSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModel{
 																										DecryptionProvider: func() types.String {
@@ -20934,6 +22688,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																								return nil
 																							}(),
 																							BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal
+																								}
 																								if BlindfoldSecretInfoInternalData, ok := ChapInitiatorSecretData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalModel{
 																										DecryptionProvider: func() types.String {
@@ -20959,6 +22716,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																								return nil
 																							}(),
 																							ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo
+																								}
 																								if ClearSecretInfoData, ok := ChapInitiatorSecretData["clear_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModel{
 																										Provider: func() types.String {
@@ -20984,6 +22744,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																								return types.StringNull()
 																							}(),
 																							VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo
+																								}
 																								if VaultSecretInfoData, ok := ChapInitiatorSecretData["vault_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoModel{
 																										Key: func() types.String {
@@ -21011,6 +22774,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																											return types.StringNull()
 																										}(),
 																										Version: func() types.Int64 {
+																											if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Version.IsUnknown() {
+																												return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Version
+																											}
 																											if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																												return types.Int64Value(int64(v))
 																											}
@@ -21021,6 +22787,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																								return nil
 																							}(),
 																							WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.WingmanSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.WingmanSecretInfo
+																								}
 																								if WingmanSecretInfoData, ok := ChapInitiatorSecretData["wingman_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoModel{
 																										Name: func() types.String {
@@ -21038,9 +22807,15 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return nil
 																				}(),
 																				ChapTargetInitiatorSecret: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret
+																					}
 																					if ChapTargetInitiatorSecretData, ok := UseChapData["chap_target_initiator_secret"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretModel{
 																							BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo
+																								}
 																								if BlindfoldSecretInfoData, ok := ChapTargetInitiatorSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoModel{
 																										DecryptionProvider: func() types.String {
@@ -21066,6 +22841,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																								return nil
 																							}(),
 																							BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal
+																								}
 																								if BlindfoldSecretInfoInternalData, ok := ChapTargetInitiatorSecretData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalModel{
 																										DecryptionProvider: func() types.String {
@@ -21091,6 +22869,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																								return nil
 																							}(),
 																							ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo
+																								}
 																								if ClearSecretInfoData, ok := ChapTargetInitiatorSecretData["clear_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel{
 																										Provider: func() types.String {
@@ -21116,6 +22897,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																								return types.StringNull()
 																							}(),
 																							VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo
+																								}
 																								if VaultSecretInfoData, ok := ChapTargetInitiatorSecretData["vault_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoModel{
 																										Key: func() types.String {
@@ -21143,6 +22927,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																											return types.StringNull()
 																										}(),
 																										Version: func() types.Int64 {
+																											if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Version.IsUnknown() {
+																												return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Version
+																											}
 																											if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																												return types.Int64Value(int64(v))
 																											}
@@ -21153,6 +22940,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																								return nil
 																							}(),
 																							WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.WingmanSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.WingmanSecretInfo
+																								}
 																								if WingmanSecretInfoData, ok := ChapTargetInitiatorSecretData["wingman_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoModel{
 																										Name: func() types.String {
@@ -21192,6 +22982,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return types.StringNull()
 																	}(),
 																	VolumeDefaults: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults
+																		}
 																		if VolumeDefaultsData, ok := NetappBackendOntapSanData["volume_defaults"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModel{
 																				AdaptiveQOSPolicy: func() types.String {
@@ -21201,6 +22994,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return types.StringNull()
 																				}(),
 																				Encryption: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption
+																					}
 																					if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
@@ -21213,6 +23009,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return types.StringNull()
 																				}(),
 																				NoQOS: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS
+																					}
 																					if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -21231,6 +23030,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return types.StringNull()
 																				}(),
 																				SnapshotDir: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir
+																					}
 																					if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
@@ -21255,6 +23057,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return types.StringNull()
 																				}(),
 																				SplitOnClone: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone
+																					}
 																					if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
@@ -21267,6 +23072,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return types.StringNull()
 																				}(),
 																				UnixPermissions: func() types.Int64 {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions
+																					}
 																					if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																						return types.Int64Value(int64(v))
 																					}
@@ -21288,9 +23096,15 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												if PureServiceOrchestratorData, ok := StorageDevicesItemMap["pure_service_orchestrator"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorModel{
 														Arrays: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays
+															}
 															if ArraysData, ok := PureServiceOrchestratorData["arrays"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysModel{
 																	FlashArray: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray
+																		}
 																		if FlashArrayData, ok := ArraysData["flash_array"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayModel{
 																				DefaultFsOpt: func() types.String {
@@ -21319,21 +23133,35 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return types.ListNull(types.StringType)
 																				}(),
 																				DisablePreemptAttachments: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments
+																					}
 																					if v, ok := FlashArrayData["disable_preempt_attachments"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
 																					return types.BoolNull()
 																				}(),
 																				FlashArrays: func() types.List {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && (StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.Elements()) == 0) {
+																						return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModelAttrTypes})
+																					}
+																					var FlashArraysExisting []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.IsUnknown() {
+																						StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.ElementsAs(ctx, &FlashArraysExisting, false)
+																					}
 																					if rawList, ok := FlashArrayData["flash_arrays"].([]interface{}); ok && len(rawList) > 0 {
 																						var FlashArraysResult []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel
-																						for _, FlashArraysItem := range rawList {
+																						for FlashArraysIdx, FlashArraysItem := range rawList {
+																							_ = FlashArraysIdx
 																							if FlashArraysItemMap, ok := FlashArraysItem.(map[string]interface{}); ok {
 																								FlashArraysResult = append(FlashArraysResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel{
 																									APIToken: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModel {
 																										if APITokenData, ok := FlashArraysItemMap["api_token"].(map[string]interface{}); ok {
 																											return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModel{
 																												BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoModel {
+																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfo != nil {
+																														return FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfo
+																													}
 																													if BlindfoldSecretInfoData, ok := APITokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoModel{
 																															DecryptionProvider: func() types.String {
@@ -21359,6 +23187,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																													return nil
 																												}(),
 																												BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalModel {
+																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfoInternal != nil {
+																														return FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfoInternal
+																													}
 																													if BlindfoldSecretInfoInternalData, ok := APITokenData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalModel{
 																															DecryptionProvider: func() types.String {
@@ -21384,6 +23215,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																													return nil
 																												}(),
 																												ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel {
+																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.ClearSecretInfo != nil {
+																														return FlashArraysExisting[FlashArraysIdx].APIToken.ClearSecretInfo
+																													}
 																													if ClearSecretInfoData, ok := APITokenData["clear_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel{
 																															Provider: func() types.String {
@@ -21409,6 +23243,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																													return types.StringNull()
 																												}(),
 																												VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoModel {
+																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo != nil {
+																														return FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo
+																													}
 																													if VaultSecretInfoData, ok := APITokenData["vault_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoModel{
 																															Key: func() types.String {
@@ -21436,6 +23273,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																																return types.StringNull()
 																															}(),
 																															Version: func() types.Int64 {
+																																if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo != nil && !FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo.Version.IsUnknown() {
+																																	return FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo.Version
+																																}
 																																if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																																	return types.Int64Value(int64(v))
 																																}
@@ -21446,6 +23286,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																													return nil
 																												}(),
 																												WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoModel {
+																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.WingmanSecretInfo != nil {
+																														return FlashArraysExisting[FlashArraysIdx].APIToken.WingmanSecretInfo
+																													}
 																													if WingmanSecretInfoData, ok := APITokenData["wingman_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoModel{
 																															Name: func() types.String {
@@ -21463,6 +23306,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																										return nil
 																									}(),
 																									Labels: func() *VoltstackSiteEmptyModel {
+																										if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].Labels != nil {
+																											return &VoltstackSiteEmptyModel{}
+																										}
 																										if _, ok := FlashArraysItemMap["labels"].(map[string]interface{}); ok {
 																											return &VoltstackSiteEmptyModel{}
 																										}
@@ -21489,6 +23335,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModelAttrTypes})
 																				}(),
 																				IscsiLoginTimeout: func() types.Int64 {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout
+																					}
 																					if v, ok := FlashArrayData["iscsi_login_timeout"].(float64); ok && v != 0 {
 																						return types.Int64Value(int64(v))
 																					}
@@ -21505,9 +23354,15 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return nil
 																	}(),
 																	FlashBlade: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade
+																		}
 																		if FlashBladeData, ok := ArraysData["flash_blade"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeModel{
 																				EnableSnapshotDirectory: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory
+																					}
 																					if v, ok := FlashBladeData["enable_snapshot_directory"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
@@ -21520,15 +23375,26 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return types.StringNull()
 																				}(),
 																				FlashBlades: func() types.List {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil && (StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.Elements()) == 0) {
+																						return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModelAttrTypes})
+																					}
+																					var FlashBladesExisting []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.IsUnknown() {
+																						StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.ElementsAs(ctx, &FlashBladesExisting, false)
+																					}
 																					if rawList, ok := FlashBladeData["flash_blades"].([]interface{}); ok && len(rawList) > 0 {
 																						var FlashBladesResult []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel
-																						for _, FlashBladesItem := range rawList {
+																						for FlashBladesIdx, FlashBladesItem := range rawList {
+																							_ = FlashBladesIdx
 																							if FlashBladesItemMap, ok := FlashBladesItem.(map[string]interface{}); ok {
 																								FlashBladesResult = append(FlashBladesResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel{
 																									APIToken: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModel {
 																										if APITokenData, ok := FlashBladesItemMap["api_token"].(map[string]interface{}); ok {
 																											return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModel{
 																												BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoModel {
+																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfo != nil {
+																														return FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfo
+																													}
 																													if BlindfoldSecretInfoData, ok := APITokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoModel{
 																															DecryptionProvider: func() types.String {
@@ -21554,6 +23420,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																													return nil
 																												}(),
 																												BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalModel {
+																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfoInternal != nil {
+																														return FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfoInternal
+																													}
 																													if BlindfoldSecretInfoInternalData, ok := APITokenData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalModel{
 																															DecryptionProvider: func() types.String {
@@ -21579,6 +23448,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																													return nil
 																												}(),
 																												ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel {
+																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.ClearSecretInfo != nil {
+																														return FlashBladesExisting[FlashBladesIdx].APIToken.ClearSecretInfo
+																													}
 																													if ClearSecretInfoData, ok := APITokenData["clear_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel{
 																															Provider: func() types.String {
@@ -21604,6 +23476,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																													return types.StringNull()
 																												}(),
 																												VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoModel {
+																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo != nil {
+																														return FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo
+																													}
 																													if VaultSecretInfoData, ok := APITokenData["vault_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoModel{
 																															Key: func() types.String {
@@ -21631,6 +23506,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																																return types.StringNull()
 																															}(),
 																															Version: func() types.Int64 {
+																																if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo != nil && !FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo.Version.IsUnknown() {
+																																	return FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo.Version
+																																}
 																																if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																																	return types.Int64Value(int64(v))
 																																}
@@ -21641,6 +23519,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																													return nil
 																												}(),
 																												WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoModel {
+																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.WingmanSecretInfo != nil {
+																														return FlashBladesExisting[FlashBladesIdx].APIToken.WingmanSecretInfo
+																													}
 																													if WingmanSecretInfoData, ok := APITokenData["wingman_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoModel{
 																															Name: func() types.String {
@@ -21658,6 +23539,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																										return nil
 																									}(),
 																									Labels: func() *VoltstackSiteEmptyModel {
+																										if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].Labels != nil {
+																											return &VoltstackSiteEmptyModel{}
+																										}
 																										if _, ok := FlashBladesItemMap["labels"].(map[string]interface{}); ok {
 																											return &VoltstackSiteEmptyModel{}
 																										}
@@ -21710,12 +23594,18 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.StringNull()
 														}(),
 														EnableStorageTopology: func() types.Bool {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStorageTopology.IsUnknown() {
+																return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStorageTopology
+															}
 															if v, ok := PureServiceOrchestratorData["enable_storage_topology"].(bool); ok {
 																return types.BoolValue(v)
 															}
 															return types.BoolNull()
 														}(),
 														EnableStrictTopology: func() types.Bool {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStrictTopology.IsUnknown() {
+																return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStrictTopology
+															}
 															if v, ok := PureServiceOrchestratorData["enable_strict_topology"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -21747,9 +23637,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				if StorageInterfaceListData, ok := blockData["storage_interface_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomStorageConfigStorageInterfaceListModel{
 						StorageInterfaces: func() types.List {
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageInterfaceList != nil && (data.CustomStorageConfig.StorageInterfaceList.StorageInterfaces.IsNull() || len(data.CustomStorageConfig.StorageInterfaceList.StorageInterfaces.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesModelAttrTypes})
+							}
+							var StorageInterfacesExisting []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesModel
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageInterfaceList != nil && !data.CustomStorageConfig.StorageInterfaceList.StorageInterfaces.IsNull() && !data.CustomStorageConfig.StorageInterfaceList.StorageInterfaces.IsUnknown() {
+								data.CustomStorageConfig.StorageInterfaceList.StorageInterfaces.ElementsAs(ctx, &StorageInterfacesExisting, false)
+							}
 							if rawList, ok := StorageInterfaceListData["storage_interfaces"].([]interface{}); ok && len(rawList) > 0 {
 								var StorageInterfacesResult []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesModel
-								for _, StorageInterfacesItem := range rawList {
+								for StorageInterfacesIdx, StorageInterfacesItem := range rawList {
+									_ = StorageInterfacesIdx
 									if StorageInterfacesItemMap, ok := StorageInterfacesItem.(map[string]interface{}); ok {
 										StorageInterfacesResult = append(StorageInterfacesResult, VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesModel{
 											DescriptionSpec: func() types.String {
@@ -21759,6 +23657,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												return types.StringNull()
 											}(),
 											Labels: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].Labels != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := StorageInterfacesItemMap["labels"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -21768,6 +23669,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												if StorageInterfaceData, ok := StorageInterfacesItemMap["storage_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceModel{
 														Cluster: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Cluster
+															}
 															if _, ok := StorageInterfaceData["cluster"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -21780,6 +23684,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.StringNull()
 														}(),
 														DHCPClient: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPClient
+															}
 															if _, ok := StorageInterfaceData["dhcp_client"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -21789,21 +23696,35 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															if DHCPServerData, ok := StorageInterfaceData["dhcp_server"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerModel{
 																	AutomaticFromEnd: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.AutomaticFromEnd
+																		}
 																		if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	AutomaticFromStart: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.AutomaticFromStart
+																		}
 																		if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	DHCPNetworks: func() types.List {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil && (StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.DHCPNetworks.IsNull() || len(StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.DHCPNetworks.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksModelAttrTypes})
+																		}
+																		var DHCPNetworksExisting []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksModel
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil && !StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.DHCPNetworks.IsNull() && !StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.DHCPNetworks.IsUnknown() {
+																			StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																		}
 																		if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																			var DHCPNetworksResult []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksModel
-																			for _, DHCPNetworksItem := range rawList {
+																			for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																				_ = DHCPNetworksIdx
 																				if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
 																					DHCPNetworksResult = append(DHCPNetworksResult, VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksModel{
 																						DgwAddress: func() types.String {
@@ -21819,12 +23740,18 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																							return types.StringNull()
 																						}(),
 																						FirstAddress: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
 																							return nil
 																						}(),
 																						LastAddress: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].LastAddress != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
@@ -21900,6 +23827,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																							return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 																						}(),
 																						SameAsDgw: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
@@ -21914,15 +23844,24 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksModelAttrTypes})
 																	}(),
 																	FixedIPMap: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.FixedIPMap
+																		}
 																		if _, ok := DHCPServerData["fixed_ip_map"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	InterfaceIPMap: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerInterfaceIPMapModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.InterfaceIPMap != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.InterfaceIPMap
+																		}
 																		if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerInterfaceIPMapModel{
 																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.InterfaceIPMap != nil {
+																						return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap
+																					}
 																					if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -21937,21 +23876,36 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return nil
 														}(),
 														Ipv6AutoConfig: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig
+															}
 															if Ipv6AutoConfigData, ok := StorageInterfaceData["ipv6_auto_config"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigModel{
 																	Host: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Host
+																		}
 																		if _, ok := Ipv6AutoConfigData["host"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	Router: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router
+																		}
 																		if RouterData, ok := Ipv6AutoConfigData["router"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterModel{
 																				DNSConfig: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterDNSConfigModel {
+																					if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig != nil {
+																						return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig
+																					}
 																					if DNSConfigData, ok := RouterData["dns_config"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterDNSConfigModel{
 																							ConfiguredList: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel {
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+																									return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList
+																								}
 																								if ConfiguredListData, ok := DNSConfigData["configured_list"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel{
 																										DNSList: func() types.List {
@@ -21972,6 +23926,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																								return nil
 																							}(),
 																							LocalDNS: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel {
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																									return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS
+																								}
 																								if LocalDNSData, ok := DNSConfigData["local_dns"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel{
 																										ConfiguredAddress: func() types.String {
@@ -21981,12 +23938,18 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																											return types.StringNull()
 																										}(),
 																										FirstAddress: func() *VoltstackSiteEmptyModel {
+																											if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																												return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress
+																											}
 																											if _, ok := LocalDNSData["first_address"].(map[string]interface{}); ok {
 																												return &VoltstackSiteEmptyModel{}
 																											}
 																											return nil
 																										}(),
 																										LastAddress: func() *VoltstackSiteEmptyModel {
+																											if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																												return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress
+																											}
 																											if _, ok := LocalDNSData["last_address"].(map[string]interface{}); ok {
 																												return &VoltstackSiteEmptyModel{}
 																											}
@@ -22007,24 +23970,41 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					return types.StringNull()
 																				}(),
 																				Stateful: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulModel {
+																					if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																						return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful
+																					}
 																					if StatefulData, ok := RouterData["stateful"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulModel{
 																							AutomaticFromEnd: func() *VoltstackSiteEmptyModel {
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																									return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd
+																								}
 																								if _, ok := StatefulData["automatic_from_end"].(map[string]interface{}); ok {
 																									return &VoltstackSiteEmptyModel{}
 																								}
 																								return nil
 																							}(),
 																							AutomaticFromStart: func() *VoltstackSiteEmptyModel {
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																									return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart
+																								}
 																								if _, ok := StatefulData["automatic_from_start"].(map[string]interface{}); ok {
 																									return &VoltstackSiteEmptyModel{}
 																								}
 																								return nil
 																							}(),
 																							DHCPNetworks: func() types.List {
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil && (StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() || len(StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.Elements()) == 0) {
+																									return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
+																								}
+																								var DHCPNetworksExisting []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil && !StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+																									StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																								}
 																								if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																									var DHCPNetworksResult []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
-																									for _, DHCPNetworksItem := range rawList {
+																									for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																										_ = DHCPNetworksIdx
 																										if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
 																											DHCPNetworksResult = append(DHCPNetworksResult, VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel{
 																												NetworkPrefix: func() types.String {
@@ -22074,15 +24054,24 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																							}(),
 																							FixedIPMap: func() *VoltstackSiteEmptyModel {
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																									return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap
+																								}
 																								if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
 																									return &VoltstackSiteEmptyModel{}
 																								}
 																								return nil
 																							}(),
 																							InterfaceIPMap: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+																									return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
+																								}
 																								if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
 																										InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																											if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+																												return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
+																											}
 																											if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
 																												return &VoltstackSiteEmptyModel{}
 																											}
@@ -22105,30 +24094,45 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return nil
 														}(),
 														IsPrimary: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.IsPrimary
+															}
 															if _, ok := StorageInterfaceData["is_primary"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Monitor: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Monitor
+															}
 															if _, ok := StorageInterfaceData["monitor"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														MonitorDisabled: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.MonitorDisabled
+															}
 															if _, ok := StorageInterfaceData["monitor_disabled"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														MTU: func() types.Int64 {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && !StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.MTU.IsUnknown() {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.MTU
+															}
 															if v, ok := StorageInterfaceData["mtu"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														NoIpv6Address: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.NoIpv6Address
+															}
 															if _, ok := StorageInterfaceData["no_ipv6_address"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -22141,36 +24145,57 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.StringNull()
 														}(),
 														NotPrimary: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.NotPrimary
+															}
 															if _, ok := StorageInterfaceData["not_primary"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Priority: func() types.Int64 {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && !StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Priority.IsUnknown() {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Priority
+															}
 															if v, ok := StorageInterfaceData["priority"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														SiteLocalInsideNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.SiteLocalInsideNetwork
+															}
 															if _, ok := StorageInterfaceData["site_local_inside_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														SiteLocalNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.SiteLocalNetwork
+															}
 															if _, ok := StorageInterfaceData["site_local_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														StaticIP: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP
+															}
 															if StaticIPData, ok := StorageInterfaceData["static_ip"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPModel{
 																	ClusterStaticIP: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPClusterStaticIPModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.ClusterStaticIP != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.ClusterStaticIP
+																		}
 																		if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPClusterStaticIPModel{
 																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.ClusterStaticIP != nil {
+																						return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
+																					}
 																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -22181,6 +24206,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return nil
 																	}(),
 																	NodeStaticIP: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPNodeStaticIPModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.NodeStaticIP != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.NodeStaticIP
+																		}
 																		if NodeStaticIPData, ok := StaticIPData["node_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPNodeStaticIPModel{
 																				DefaultGw: func() types.String {
@@ -22204,12 +24232,21 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return nil
 														}(),
 														StaticIpv6Address: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address
+															}
 															if StaticIpv6AddressData, ok := StorageInterfaceData["static_ipv6_address"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressModel{
 																	ClusterStaticIP: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressClusterStaticIPModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.ClusterStaticIP != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.ClusterStaticIP
+																		}
 																		if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressClusterStaticIPModel{
 																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.ClusterStaticIP != nil {
+																						return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
+																					}
 																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -22220,6 +24257,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		return nil
 																	}(),
 																	NodeStaticIP: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressNodeStaticIPModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.NodeStaticIP != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.NodeStaticIP
+																		}
 																		if NodeStaticIPData, ok := StaticIpv6AddressData["node_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressNodeStaticIPModel{
 																				DefaultGw: func() types.String {
@@ -22243,18 +24283,27 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return nil
 														}(),
 														StorageNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StorageNetwork
+															}
 															if _, ok := StorageInterfaceData["storage_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Untagged: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Untagged
+															}
 															if _, ok := StorageInterfaceData["untagged"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														VLANID: func() types.Int64 {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && !StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.VLANID.IsUnknown() {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.VLANID
+															}
 															if v, ok := StorageInterfaceData["vlan_id"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -22370,24 +24419,36 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &VoltstackSiteKubernetesUpgradeDrainEnableUpgradeDrainModel{
 						DisableVegaUpgradeMode: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
+							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
 							return nil
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
+							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						DrainNodeTimeout: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout
+							}
 							if v, ok := EnableUpgradeDrainData["drain_node_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						EnableVegaUpgradeMode: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
+							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
@@ -22405,18 +24466,32 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				if BGPConfigData, ok := blockData["bgp_config"].(map[string]interface{}); ok {
 					return &VoltstackSiteLocalControlPlaneBGPConfigModel{
 						Asn: func() types.Int64 {
+							if !isImport && data.LocalControlPlane != nil && data.LocalControlPlane.BGPConfig != nil && !data.LocalControlPlane.BGPConfig.Asn.IsUnknown() {
+								return data.LocalControlPlane.BGPConfig.Asn
+							}
 							if v, ok := BGPConfigData["asn"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Peers: func() types.List {
+							if !isImport && data.LocalControlPlane != nil && data.LocalControlPlane.BGPConfig != nil && (data.LocalControlPlane.BGPConfig.Peers.IsNull() || len(data.LocalControlPlane.BGPConfig.Peers.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersModelAttrTypes})
+							}
+							var PeersExisting []VoltstackSiteLocalControlPlaneBGPConfigPeersModel
+							if !isImport && data.LocalControlPlane != nil && data.LocalControlPlane.BGPConfig != nil && !data.LocalControlPlane.BGPConfig.Peers.IsNull() && !data.LocalControlPlane.BGPConfig.Peers.IsUnknown() {
+								data.LocalControlPlane.BGPConfig.Peers.ElementsAs(ctx, &PeersExisting, false)
+							}
 							if rawList, ok := BGPConfigData["peers"].([]interface{}); ok && len(rawList) > 0 {
 								var PeersResult []VoltstackSiteLocalControlPlaneBGPConfigPeersModel
-								for _, PeersItem := range rawList {
+								for PeersIdx, PeersItem := range rawList {
+									_ = PeersIdx
 									if PeersItemMap, ok := PeersItem.(map[string]interface{}); ok {
 										PeersResult = append(PeersResult, VoltstackSiteLocalControlPlaneBGPConfigPeersModel{
 											BfdDisabled: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].BfdDisabled != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := PeersItemMap["bfd_disabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -22426,18 +24501,27 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												if BfdEnabledData, ok := PeersItemMap["bfd_enabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteLocalControlPlaneBGPConfigPeersBfdEnabledModel{
 														Multiplier: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].BfdEnabled != nil && !PeersExisting[PeersIdx].BfdEnabled.Multiplier.IsUnknown() {
+																return PeersExisting[PeersIdx].BfdEnabled.Multiplier
+															}
 															if v, ok := BfdEnabledData["multiplier"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														ReceiveIntervalMilliseconds: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].BfdEnabled != nil && !PeersExisting[PeersIdx].BfdEnabled.ReceiveIntervalMilliseconds.IsUnknown() {
+																return PeersExisting[PeersIdx].BfdEnabled.ReceiveIntervalMilliseconds
+															}
 															if v, ok := BfdEnabledData["receive_interval_milliseconds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														TransmitIntervalMilliseconds: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].BfdEnabled != nil && !PeersExisting[PeersIdx].BfdEnabled.TransmitIntervalMilliseconds.IsUnknown() {
+																return PeersExisting[PeersIdx].BfdEnabled.TransmitIntervalMilliseconds
+															}
 															if v, ok := BfdEnabledData["transmit_interval_milliseconds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -22448,6 +24532,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											DisableSpec: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].DisableSpec != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := PeersItemMap["disable"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -22469,51 +24556,78 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.StringNull()
 														}(),
 														Asn: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && !PeersExisting[PeersIdx].External.Asn.IsUnknown() {
+																return PeersExisting[PeersIdx].External.Asn
+															}
 															if v, ok := ExternalData["asn"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.DefaultGateway
+															}
 															if _, ok := ExternalData["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														DefaultGatewayV6: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.DefaultGatewayV6
+															}
 															if _, ok := ExternalData["default_gateway_v6"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														DisableSpec: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.DisableSpec
+															}
 															if _, ok := ExternalData["disable"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														DisableV6: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.DisableV6
+															}
 															if _, ok := ExternalData["disable_v6"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														ExternalConnector: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.ExternalConnector
+															}
 															if _, ok := ExternalData["external_connector"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														FamilyInet: func() *VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.FamilyInet != nil {
+																return PeersExisting[PeersIdx].External.FamilyInet
+															}
 															if FamilyInetData, ok := ExternalData["family_inet"].(map[string]interface{}); ok {
 																return &VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetModel{
 																	DisableSpec: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.FamilyInet != nil {
+																			return PeersExisting[PeersIdx].External.FamilyInet.DisableSpec
+																		}
 																		if _, ok := FamilyInetData["disable"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	Enable: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.FamilyInet != nil {
+																			return PeersExisting[PeersIdx].External.FamilyInet.Enable
+																		}
 																		if _, ok := FamilyInetData["enable"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
@@ -22524,12 +24638,18 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return nil
 														}(),
 														FromSite: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.FromSite
+															}
 															if _, ok := ExternalData["from_site"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														FromSiteV6: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.FromSiteV6
+															}
 															if _, ok := ExternalData["from_site_v6"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -22564,9 +24684,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															if InterfaceListData, ok := ExternalData["interface_list"].(map[string]interface{}); ok {
 																return &VoltstackSiteLocalControlPlaneBGPConfigPeersExternalInterfaceListModel{
 																	Interfaces: func() types.List {
+																		if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.InterfaceList != nil && (PeersExisting[PeersIdx].External.InterfaceList.Interfaces.IsNull() || len(PeersExisting[PeersIdx].External.InterfaceList.Interfaces.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalInterfaceListInterfacesModelAttrTypes})
+																		}
+																		var InterfacesExisting []VoltstackSiteLocalControlPlaneBGPConfigPeersExternalInterfaceListInterfacesModel
+																		if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.InterfaceList != nil && !PeersExisting[PeersIdx].External.InterfaceList.Interfaces.IsNull() && !PeersExisting[PeersIdx].External.InterfaceList.Interfaces.IsUnknown() {
+																			PeersExisting[PeersIdx].External.InterfaceList.Interfaces.ElementsAs(ctx, &InterfacesExisting, false)
+																		}
 																		if rawList, ok := InterfaceListData["interfaces"].([]interface{}); ok && len(rawList) > 0 {
 																			var InterfacesResult []VoltstackSiteLocalControlPlaneBGPConfigPeersExternalInterfaceListInterfacesModel
-																			for _, InterfacesItem := range rawList {
+																			for InterfacesIdx, InterfacesItem := range rawList {
+																				_ = InterfacesIdx
 																				if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
 																					InterfacesResult = append(InterfacesResult, VoltstackSiteLocalControlPlaneBGPConfigPeersExternalInterfaceListInterfacesModel{
 																						Name: func() types.String {
@@ -22606,36 +24734,54 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.StringNull()
 														}(),
 														NoAuthentication: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.NoAuthentication
+															}
 															if _, ok := ExternalData["no_authentication"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Port: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && !PeersExisting[PeersIdx].External.Port.IsUnknown() {
+																return PeersExisting[PeersIdx].External.Port
+															}
 															if v, ok := ExternalData["port"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														SubnetBeginOffset: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && !PeersExisting[PeersIdx].External.SubnetBeginOffset.IsUnknown() {
+																return PeersExisting[PeersIdx].External.SubnetBeginOffset
+															}
 															if v, ok := ExternalData["subnet_begin_offset"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														SubnetBeginOffsetV6: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && !PeersExisting[PeersIdx].External.SubnetBeginOffsetV6.IsUnknown() {
+																return PeersExisting[PeersIdx].External.SubnetBeginOffsetV6
+															}
 															if v, ok := ExternalData["subnet_begin_offset_v6"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														SubnetEndOffset: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && !PeersExisting[PeersIdx].External.SubnetEndOffset.IsUnknown() {
+																return PeersExisting[PeersIdx].External.SubnetEndOffset
+															}
 															if v, ok := ExternalData["subnet_end_offset"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														SubnetEndOffsetV6: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && !PeersExisting[PeersIdx].External.SubnetEndOffsetV6.IsUnknown() {
+																return PeersExisting[PeersIdx].External.SubnetEndOffsetV6
+															}
 															if v, ok := ExternalData["subnet_end_offset_v6"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -22671,12 +24817,18 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											PassiveModeDisabled: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].PassiveModeDisabled != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := PeersItemMap["passive_mode_disabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
 												return nil
 											}(),
 											PassiveModeEnabled: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].PassiveModeEnabled != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := PeersItemMap["passive_mode_enabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -22686,18 +24838,32 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												if RoutingPoliciesData, ok := PeersItemMap["routing_policies"].(map[string]interface{}); ok {
 													return &VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesModel{
 														RoutePolicy: func() types.List {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].RoutingPolicies != nil && (PeersExisting[PeersIdx].RoutingPolicies.RoutePolicy.IsNull() || len(PeersExisting[PeersIdx].RoutingPolicies.RoutePolicy.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyModelAttrTypes})
+															}
+															var RoutePolicyExisting []VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyModel
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].RoutingPolicies != nil && !PeersExisting[PeersIdx].RoutingPolicies.RoutePolicy.IsNull() && !PeersExisting[PeersIdx].RoutingPolicies.RoutePolicy.IsUnknown() {
+																PeersExisting[PeersIdx].RoutingPolicies.RoutePolicy.ElementsAs(ctx, &RoutePolicyExisting, false)
+															}
 															if rawList, ok := RoutingPoliciesData["route_policy"].([]interface{}); ok && len(rawList) > 0 {
 																var RoutePolicyResult []VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyModel
-																for _, RoutePolicyItem := range rawList {
+																for RoutePolicyIdx, RoutePolicyItem := range rawList {
+																	_ = RoutePolicyIdx
 																	if RoutePolicyItemMap, ok := RoutePolicyItem.(map[string]interface{}); ok {
 																		RoutePolicyResult = append(RoutePolicyResult, VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyModel{
 																			AllNodes: func() *VoltstackSiteEmptyModel {
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].AllNodes != nil {
+																					return &VoltstackSiteEmptyModel{}
+																				}
 																				if _, ok := RoutePolicyItemMap["all_nodes"].(map[string]interface{}); ok {
 																					return &VoltstackSiteEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			Inbound: func() *VoltstackSiteEmptyModel {
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Inbound != nil {
+																					return &VoltstackSiteEmptyModel{}
+																				}
 																				if _, ok := RoutePolicyItemMap["inbound"].(map[string]interface{}); ok {
 																					return &VoltstackSiteEmptyModel{}
 																				}
@@ -22768,6 +24934,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																				return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyObjectRefsModelAttrTypes})
 																			}(),
 																			Outbound: func() *VoltstackSiteEmptyModel {
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Outbound != nil {
+																					return &VoltstackSiteEmptyModel{}
+																				}
 																				if _, ok := RoutePolicyItemMap["outbound"].(map[string]interface{}); ok {
 																					return &VoltstackSiteEmptyModel{}
 																				}
@@ -22898,9 +25067,14 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				if !isImport && data.SriovInterfaces != nil && (data.SriovInterfaces.SriovInterface.IsNull() || len(data.SriovInterfaces.SriovInterface.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteSriovInterfacesSriovInterfaceModelAttrTypes})
 				}
+				var SriovInterfaceExisting []VoltstackSiteSriovInterfacesSriovInterfaceModel
+				if !isImport && data.SriovInterfaces != nil && !data.SriovInterfaces.SriovInterface.IsNull() && !data.SriovInterfaces.SriovInterface.IsUnknown() {
+					data.SriovInterfaces.SriovInterface.ElementsAs(ctx, &SriovInterfaceExisting, false)
+				}
 				if rawList, ok := blockData["sriov_interface"].([]interface{}); ok && len(rawList) > 0 {
 					var SriovInterfaceResult []VoltstackSiteSriovInterfacesSriovInterfaceModel
-					for _, SriovInterfaceItem := range rawList {
+					for SriovInterfaceIdx, SriovInterfaceItem := range rawList {
+						_ = SriovInterfaceIdx
 						if SriovInterfaceItemMap, ok := SriovInterfaceItem.(map[string]interface{}); ok {
 							SriovInterfaceResult = append(SriovInterfaceResult, VoltstackSiteSriovInterfacesSriovInterfaceModel{
 								InterfaceName: func() types.String {
@@ -26337,12 +28511,20 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteBlockedServicesBlockedServiceModelAttrTypes})
 				}
+				var BlockedServiceExisting []VoltstackSiteBlockedServicesBlockedServiceModel
+				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
+					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
+				}
 				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []VoltstackSiteBlockedServicesBlockedServiceModel
-					for _, BlockedServiceItem := range rawList {
+					for BlockedServiceIdx, BlockedServiceItem := range rawList {
+						_ = BlockedServiceIdx
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, VoltstackSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *VoltstackSiteEmptyModel {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
+										return &VoltstackSiteEmptyModel{}
+									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
 									}
@@ -26355,12 +28537,18 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 									return types.StringNull()
 								}(),
 								SSH: func() *VoltstackSiteEmptyModel {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
+										return &VoltstackSiteEmptyModel{}
+									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
 									}
 									return nil
 								}(),
 								WebUserInterface: func() *VoltstackSiteEmptyModel {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
+										return &VoltstackSiteEmptyModel{}
+									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
 									}
@@ -26382,12 +28570,20 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				if !isImport && data.BondDeviceList != nil && (data.BondDeviceList.BondDevices.IsNull() || len(data.BondDeviceList.BondDevices.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteBondDeviceListBondDevicesModelAttrTypes})
 				}
+				var BondDevicesExisting []VoltstackSiteBondDeviceListBondDevicesModel
+				if !isImport && data.BondDeviceList != nil && !data.BondDeviceList.BondDevices.IsNull() && !data.BondDeviceList.BondDevices.IsUnknown() {
+					data.BondDeviceList.BondDevices.ElementsAs(ctx, &BondDevicesExisting, false)
+				}
 				if rawList, ok := blockData["bond_devices"].([]interface{}); ok && len(rawList) > 0 {
 					var BondDevicesResult []VoltstackSiteBondDeviceListBondDevicesModel
-					for _, BondDevicesItem := range rawList {
+					for BondDevicesIdx, BondDevicesItem := range rawList {
+						_ = BondDevicesIdx
 						if BondDevicesItemMap, ok := BondDevicesItem.(map[string]interface{}); ok {
 							BondDevicesResult = append(BondDevicesResult, VoltstackSiteBondDeviceListBondDevicesModel{
 								ActiveBackup: func() *VoltstackSiteEmptyModel {
+									if !isImport && len(BondDevicesExisting) > BondDevicesIdx && BondDevicesExisting[BondDevicesIdx].ActiveBackup != nil {
+										return &VoltstackSiteEmptyModel{}
+									}
 									if _, ok := BondDevicesItemMap["active_backup"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
 									}
@@ -26410,6 +28606,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 									if LacpData, ok := BondDevicesItemMap["lacp"].(map[string]interface{}); ok {
 										return &VoltstackSiteBondDeviceListBondDevicesLacpModel{
 											Rate: func() types.Int64 {
+												if !isImport && len(BondDevicesExisting) > BondDevicesIdx && BondDevicesExisting[BondDevicesIdx].Lacp != nil && !BondDevicesExisting[BondDevicesIdx].Lacp.Rate.IsUnknown() {
+													return BondDevicesExisting[BondDevicesIdx].Lacp.Rate
+												}
 												if v, ok := LacpData["rate"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -26491,9 +28690,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				if ActiveEnhancedFirewallPoliciesData, ok := blockData["active_enhanced_firewall_policies"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesModel{
 						EnhancedFirewallPolicies: func() types.List {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies != nil && (data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() || len(data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModelAttrTypes})
+							}
+							var EnhancedFirewallPoliciesExisting []VoltstackSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies != nil && !data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
+								data.CustomNetworkConfig.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveEnhancedFirewallPoliciesData["enhanced_firewall_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var EnhancedFirewallPoliciesResult []VoltstackSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
-								for _, EnhancedFirewallPoliciesItem := range rawList {
+								for EnhancedFirewallPoliciesIdx, EnhancedFirewallPoliciesItem := range rawList {
+									_ = EnhancedFirewallPoliciesIdx
 									if EnhancedFirewallPoliciesItemMap, ok := EnhancedFirewallPoliciesItem.(map[string]interface{}); ok {
 										EnhancedFirewallPoliciesResult = append(EnhancedFirewallPoliciesResult, VoltstackSiteCustomNetworkConfigActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel{
 											Name: func() types.String {
@@ -26530,9 +28737,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				if ActiveForwardProxyPoliciesData, ok := blockData["active_forward_proxy_policies"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigActiveForwardProxyPoliciesModel{
 						ForwardProxyPolicies: func() types.List {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveForwardProxyPolicies != nil && (data.CustomNetworkConfig.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() || len(data.CustomNetworkConfig.ActiveForwardProxyPolicies.ForwardProxyPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
+							}
+							var ForwardProxyPoliciesExisting []VoltstackSiteCustomNetworkConfigActiveForwardProxyPoliciesForwardProxyPoliciesModel
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveForwardProxyPolicies != nil && !data.CustomNetworkConfig.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.CustomNetworkConfig.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
+								data.CustomNetworkConfig.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveForwardProxyPoliciesData["forward_proxy_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var ForwardProxyPoliciesResult []VoltstackSiteCustomNetworkConfigActiveForwardProxyPoliciesForwardProxyPoliciesModel
-								for _, ForwardProxyPoliciesItem := range rawList {
+								for ForwardProxyPoliciesIdx, ForwardProxyPoliciesItem := range rawList {
+									_ = ForwardProxyPoliciesIdx
 									if ForwardProxyPoliciesItemMap, ok := ForwardProxyPoliciesItem.(map[string]interface{}); ok {
 										ForwardProxyPoliciesResult = append(ForwardProxyPoliciesResult, VoltstackSiteCustomNetworkConfigActiveForwardProxyPoliciesForwardProxyPoliciesModel{
 											Name: func() types.String {
@@ -26569,9 +28784,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				if ActiveNetworkPoliciesData, ok := blockData["active_network_policies"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigActiveNetworkPoliciesModel{
 						NetworkPolicies: func() types.List {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveNetworkPolicies != nil && (data.CustomNetworkConfig.ActiveNetworkPolicies.NetworkPolicies.IsNull() || len(data.CustomNetworkConfig.ActiveNetworkPolicies.NetworkPolicies.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigActiveNetworkPoliciesNetworkPoliciesModelAttrTypes})
+							}
+							var NetworkPoliciesExisting []VoltstackSiteCustomNetworkConfigActiveNetworkPoliciesNetworkPoliciesModel
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.ActiveNetworkPolicies != nil && !data.CustomNetworkConfig.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.CustomNetworkConfig.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
+								data.CustomNetworkConfig.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesExisting, false)
+							}
 							if rawList, ok := ActiveNetworkPoliciesData["network_policies"].([]interface{}); ok && len(rawList) > 0 {
 								var NetworkPoliciesResult []VoltstackSiteCustomNetworkConfigActiveNetworkPoliciesNetworkPoliciesModel
-								for _, NetworkPoliciesItem := range rawList {
+								for NetworkPoliciesIdx, NetworkPoliciesItem := range rawList {
+									_ = NetworkPoliciesIdx
 									if NetworkPoliciesItemMap, ok := NetworkPoliciesItem.(map[string]interface{}); ok {
 										NetworkPoliciesResult = append(NetworkPoliciesResult, VoltstackSiteCustomNetworkConfigActiveNetworkPoliciesNetworkPoliciesModel{
 											Name: func() types.String {
@@ -26656,9 +28879,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigGlobalNetworkListModel{
 						GlobalNetworkConnections: func() types.List {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.GlobalNetworkList != nil && (data.CustomNetworkConfig.GlobalNetworkList.GlobalNetworkConnections.IsNull() || len(data.CustomNetworkConfig.GlobalNetworkList.GlobalNetworkConnections.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsModelAttrTypes})
+							}
+							var GlobalNetworkConnectionsExisting []VoltstackSiteCustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsModel
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.GlobalNetworkList != nil && !data.CustomNetworkConfig.GlobalNetworkList.GlobalNetworkConnections.IsNull() && !data.CustomNetworkConfig.GlobalNetworkList.GlobalNetworkConnections.IsUnknown() {
+								data.CustomNetworkConfig.GlobalNetworkList.GlobalNetworkConnections.ElementsAs(ctx, &GlobalNetworkConnectionsExisting, false)
+							}
 							if rawList, ok := GlobalNetworkListData["global_network_connections"].([]interface{}); ok && len(rawList) > 0 {
 								var GlobalNetworkConnectionsResult []VoltstackSiteCustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsModel
-								for _, GlobalNetworkConnectionsItem := range rawList {
+								for GlobalNetworkConnectionsIdx, GlobalNetworkConnectionsItem := range rawList {
+									_ = GlobalNetworkConnectionsIdx
 									if GlobalNetworkConnectionsItemMap, ok := GlobalNetworkConnectionsItem.(map[string]interface{}); ok {
 										GlobalNetworkConnectionsResult = append(GlobalNetworkConnectionsResult, VoltstackSiteCustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsModel{
 											SLIToGlobalDR: func() *VoltstackSiteCustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRModel {
@@ -26741,18 +28972,32 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				if InterfaceListData, ok := blockData["interface_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigInterfaceListModel{
 						Interfaces: func() types.List {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.InterfaceList != nil && (data.CustomNetworkConfig.InterfaceList.Interfaces.IsNull() || len(data.CustomNetworkConfig.InterfaceList.Interfaces.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesModelAttrTypes})
+							}
+							var InterfacesExisting []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesModel
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.InterfaceList != nil && !data.CustomNetworkConfig.InterfaceList.Interfaces.IsNull() && !data.CustomNetworkConfig.InterfaceList.Interfaces.IsUnknown() {
+								data.CustomNetworkConfig.InterfaceList.Interfaces.ElementsAs(ctx, &InterfacesExisting, false)
+							}
 							if rawList, ok := InterfaceListData["interfaces"].([]interface{}); ok && len(rawList) > 0 {
 								var InterfacesResult []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesModel
-								for _, InterfacesItem := range rawList {
+								for InterfacesIdx, InterfacesItem := range rawList {
+									_ = InterfacesIdx
 									if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
 										InterfacesResult = append(InterfacesResult, VoltstackSiteCustomNetworkConfigInterfaceListInterfacesModel{
 											DcClusterGroupConnectivityInterfaceDisabled: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceDisabled != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := InterfacesItemMap["dc_cluster_group_connectivity_interface_disabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
 												return nil
 											}(),
 											DcClusterGroupConnectivityInterfaceEnabled: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceEnabled != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := InterfacesItemMap["dc_cluster_group_connectivity_interface_enabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -26762,6 +29007,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												if DedicatedInterfaceData, ok := InterfacesItemMap["dedicated_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesDedicatedInterfaceModel{
 														Cluster: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedInterface != nil {
+																return InterfacesExisting[InterfacesIdx].DedicatedInterface.Cluster
+															}
 															if _, ok := DedicatedInterfaceData["cluster"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -26774,24 +29022,36 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.StringNull()
 														}(),
 														IsPrimary: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedInterface != nil {
+																return InterfacesExisting[InterfacesIdx].DedicatedInterface.IsPrimary
+															}
 															if _, ok := DedicatedInterfaceData["is_primary"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Monitor: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedInterface != nil {
+																return InterfacesExisting[InterfacesIdx].DedicatedInterface.Monitor
+															}
 															if _, ok := DedicatedInterfaceData["monitor"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														MonitorDisabled: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedInterface != nil {
+																return InterfacesExisting[InterfacesIdx].DedicatedInterface.MonitorDisabled
+															}
 															if _, ok := DedicatedInterfaceData["monitor_disabled"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														MTU: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedInterface != nil && !InterfacesExisting[InterfacesIdx].DedicatedInterface.MTU.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].DedicatedInterface.MTU
+															}
 															if v, ok := DedicatedInterfaceData["mtu"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -26804,12 +29064,18 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.StringNull()
 														}(),
 														NotPrimary: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedInterface != nil {
+																return InterfacesExisting[InterfacesIdx].DedicatedInterface.NotPrimary
+															}
 															if _, ok := DedicatedInterfaceData["not_primary"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Priority: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedInterface != nil && !InterfacesExisting[InterfacesIdx].DedicatedInterface.Priority.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].DedicatedInterface.Priority
+															}
 															if v, ok := DedicatedInterfaceData["priority"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -26823,6 +29089,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												if DedicatedManagementInterfaceData, ok := InterfacesItemMap["dedicated_management_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesDedicatedManagementInterfaceModel{
 														Cluster: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedManagementInterface != nil {
+																return InterfacesExisting[InterfacesIdx].DedicatedManagementInterface.Cluster
+															}
 															if _, ok := DedicatedManagementInterfaceData["cluster"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -26835,6 +29104,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.StringNull()
 														}(),
 														MTU: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DedicatedManagementInterface != nil && !InterfacesExisting[InterfacesIdx].DedicatedManagementInterface.MTU.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].DedicatedManagementInterface.MTU
+															}
 															if v, ok := DedicatedManagementInterfaceData["mtu"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -26860,6 +29132,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												if EthernetInterfaceData, ok := InterfacesItemMap["ethernet_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceModel{
 														Cluster: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.Cluster
+															}
 															if _, ok := EthernetInterfaceData["cluster"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -26872,6 +29147,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.StringNull()
 														}(),
 														DHCPClient: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPClient
+															}
 															if _, ok := EthernetInterfaceData["dhcp_client"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -26881,21 +29159,35 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															if DHCPServerData, ok := EthernetInterfaceData["dhcp_server"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModel{
 																	AutomaticFromEnd: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.AutomaticFromEnd
+																		}
 																		if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	AutomaticFromStart: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.AutomaticFromStart
+																		}
 																		if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	DHCPNetworks: func() types.List {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && (InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.DHCPNetworks.IsNull() || len(InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.DHCPNetworks.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
+																		}
+																		var DHCPNetworksExisting []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModel
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.DHCPNetworks.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.DHCPNetworks.IsUnknown() {
+																			InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																		}
 																		if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																			var DHCPNetworksResult []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModel
-																			for _, DHCPNetworksItem := range rawList {
+																			for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																				_ = DHCPNetworksIdx
 																				if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
 																					DHCPNetworksResult = append(DHCPNetworksResult, VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModel{
 																						DgwAddress: func() types.String {
@@ -26911,12 +29203,18 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																							return types.StringNull()
 																						}(),
 																						FirstAddress: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
 																							return nil
 																						}(),
 																						LastAddress: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].LastAddress != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
@@ -26992,6 +29290,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																							return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 																						}(),
 																						SameAsDgw: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
@@ -27006,15 +29307,24 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
 																	}(),
 																	FixedIPMap: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.FixedIPMap
+																		}
 																		if _, ok := DHCPServerData["fixed_ip_map"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	InterfaceIPMap: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap
+																		}
 																		if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapModel{
 																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap != nil {
+																						return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap
+																					}
 																					if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -27029,21 +29339,36 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return nil
 														}(),
 														Ipv6AutoConfig: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig
+															}
 															if Ipv6AutoConfigData, ok := EthernetInterfaceData["ipv6_auto_config"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigModel{
 																	Host: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Host
+																		}
 																		if _, ok := Ipv6AutoConfigData["host"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	Router: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router
+																		}
 																		if RouterData, ok := Ipv6AutoConfigData["router"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterModel{
 																				DNSConfig: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterDNSConfigModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil {
+																						return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig
+																					}
 																					if DNSConfigData, ok := RouterData["dns_config"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterDNSConfigModel{
 																							ConfiguredList: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel {
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+																									return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList
+																								}
 																								if ConfiguredListData, ok := DNSConfigData["configured_list"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel{
 																										DNSList: func() types.List {
@@ -27064,6 +29389,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																								return nil
 																							}(),
 																							LocalDNS: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel {
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																									return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS
+																								}
 																								if LocalDNSData, ok := DNSConfigData["local_dns"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel{
 																										ConfiguredAddress: func() types.String {
@@ -27073,12 +29401,18 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																											return types.StringNull()
 																										}(),
 																										FirstAddress: func() *VoltstackSiteEmptyModel {
+																											if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																												return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress
+																											}
 																											if _, ok := LocalDNSData["first_address"].(map[string]interface{}); ok {
 																												return &VoltstackSiteEmptyModel{}
 																											}
 																											return nil
 																										}(),
 																										LastAddress: func() *VoltstackSiteEmptyModel {
+																											if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																												return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress
+																											}
 																											if _, ok := LocalDNSData["last_address"].(map[string]interface{}); ok {
 																												return &VoltstackSiteEmptyModel{}
 																											}
@@ -27099,24 +29433,41 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return types.StringNull()
 																				}(),
 																				Stateful: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																						return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful
+																					}
 																					if StatefulData, ok := RouterData["stateful"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulModel{
 																							AutomaticFromEnd: func() *VoltstackSiteEmptyModel {
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																									return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd
+																								}
 																								if _, ok := StatefulData["automatic_from_end"].(map[string]interface{}); ok {
 																									return &VoltstackSiteEmptyModel{}
 																								}
 																								return nil
 																							}(),
 																							AutomaticFromStart: func() *VoltstackSiteEmptyModel {
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																									return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart
+																								}
 																								if _, ok := StatefulData["automatic_from_start"].(map[string]interface{}); ok {
 																									return &VoltstackSiteEmptyModel{}
 																								}
 																								return nil
 																							}(),
 																							DHCPNetworks: func() types.List {
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && (InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() || len(InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.Elements()) == 0) {
+																									return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
+																								}
+																								var DHCPNetworksExisting []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+																									InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																								}
 																								if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																									var DHCPNetworksResult []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
-																									for _, DHCPNetworksItem := range rawList {
+																									for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																										_ = DHCPNetworksIdx
 																										if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
 																											DHCPNetworksResult = append(DHCPNetworksResult, VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel{
 																												NetworkPrefix: func() types.String {
@@ -27166,15 +29517,24 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																							}(),
 																							FixedIPMap: func() *VoltstackSiteEmptyModel {
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																									return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap
+																								}
 																								if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
 																									return &VoltstackSiteEmptyModel{}
 																								}
 																								return nil
 																							}(),
 																							InterfaceIPMap: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
+																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+																									return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
+																								}
 																								if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
 																										InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																											if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+																												return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
+																											}
 																											if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
 																												return &VoltstackSiteEmptyModel{}
 																											}
@@ -27197,30 +29557,45 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return nil
 														}(),
 														IsPrimary: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.IsPrimary
+															}
 															if _, ok := EthernetInterfaceData["is_primary"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Monitor: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.Monitor
+															}
 															if _, ok := EthernetInterfaceData["monitor"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														MonitorDisabled: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.MonitorDisabled
+															}
 															if _, ok := EthernetInterfaceData["monitor_disabled"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														MTU: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.MTU.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.MTU
+															}
 															if v, ok := EthernetInterfaceData["mtu"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														NoIpv6Address: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.NoIpv6Address
+															}
 															if _, ok := EthernetInterfaceData["no_ipv6_address"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -27233,36 +29608,57 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.StringNull()
 														}(),
 														NotPrimary: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.NotPrimary
+															}
 															if _, ok := EthernetInterfaceData["not_primary"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Priority: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.Priority.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.Priority
+															}
 															if v, ok := EthernetInterfaceData["priority"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														SiteLocalInsideNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.SiteLocalInsideNetwork
+															}
 															if _, ok := EthernetInterfaceData["site_local_inside_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														SiteLocalNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.SiteLocalNetwork
+															}
 															if _, ok := EthernetInterfaceData["site_local_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														StaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP
+															}
 															if StaticIPData, ok := EthernetInterfaceData["static_ip"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPModel{
 																	ClusterStaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP
+																		}
 																		if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPModel{
 																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP != nil {
+																						return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
+																					}
 																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -27273,6 +29669,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return nil
 																	}(),
 																	NodeStaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPNodeStaticIPModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.NodeStaticIP != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.NodeStaticIP
+																		}
 																		if NodeStaticIPData, ok := StaticIPData["node_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPNodeStaticIPModel{
 																				DefaultGw: func() types.String {
@@ -27296,12 +29695,21 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return nil
 														}(),
 														StaticIpv6Address: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address
+															}
 															if StaticIpv6AddressData, ok := EthernetInterfaceData["static_ipv6_address"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressModel{
 																	ClusterStaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP
+																		}
 																		if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPModel{
 																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
+																						return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
+																					}
 																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -27312,6 +29720,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return nil
 																	}(),
 																	NodeStaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.NodeStaticIP != nil {
+																			return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.NodeStaticIP
+																		}
 																		if NodeStaticIPData, ok := StaticIpv6AddressData["node_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPModel{
 																				DefaultGw: func() types.String {
@@ -27335,18 +29746,27 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return nil
 														}(),
 														StorageNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.StorageNetwork
+															}
 															if _, ok := EthernetInterfaceData["storage_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Untagged: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.Untagged
+															}
 															if _, ok := EthernetInterfaceData["untagged"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														VLANID: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.VLANID.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.VLANID
+															}
 															if v, ok := EthernetInterfaceData["vlan_id"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -27357,6 +29777,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											Labels: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].Labels != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := InterfacesItemMap["labels"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -27366,6 +29789,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												if TunnelInterfaceData, ok := InterfacesItemMap["tunnel_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceModel{
 														MTU: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && !InterfacesExisting[InterfacesIdx].TunnelInterface.MTU.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].TunnelInterface.MTU
+															}
 															if v, ok := TunnelInterfaceData["mtu"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -27378,30 +29804,48 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.StringNull()
 														}(),
 														Priority: func() types.Int64 {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && !InterfacesExisting[InterfacesIdx].TunnelInterface.Priority.IsUnknown() {
+																return InterfacesExisting[InterfacesIdx].TunnelInterface.Priority
+															}
 															if v, ok := TunnelInterfaceData["priority"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														SiteLocalInsideNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil {
+																return InterfacesExisting[InterfacesIdx].TunnelInterface.SiteLocalInsideNetwork
+															}
 															if _, ok := TunnelInterfaceData["site_local_inside_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														SiteLocalNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil {
+																return InterfacesExisting[InterfacesIdx].TunnelInterface.SiteLocalNetwork
+															}
 															if _, ok := TunnelInterfaceData["site_local_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														StaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP != nil {
+																return InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP
+															}
 															if StaticIPData, ok := TunnelInterfaceData["static_ip"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPModel{
 																	ClusterStaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPClusterStaticIPModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.ClusterStaticIP != nil {
+																			return InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.ClusterStaticIP
+																		}
 																		if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPClusterStaticIPModel{
 																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.ClusterStaticIP != nil {
+																						return InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
+																					}
 																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -27412,6 +29856,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return nil
 																	}(),
 																	NodeStaticIP: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPNodeStaticIPModel {
+																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.NodeStaticIP != nil {
+																			return InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.NodeStaticIP
+																		}
 																		if NodeStaticIPData, ok := StaticIPData["node_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPNodeStaticIPModel{
 																				DefaultGw: func() types.String {
@@ -27524,12 +29971,18 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				if SLIConfigData, ok := blockData["sli_config"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomNetworkConfigSLIConfigModel{
 						NoStaticRoutes: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil {
+								return data.CustomNetworkConfig.SLIConfig.NoStaticRoutes
+							}
 							if _, ok := SLIConfigData["no_static_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
 							return nil
 						}(),
 						NoV6StaticRoutes: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil {
+								return data.CustomNetworkConfig.SLIConfig.NoV6StaticRoutes
+							}
 							if _, ok := SLIConfigData["no_v6_static_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
@@ -27539,9 +29992,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 							if StaticRoutesData, ok := SLIConfigData["static_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesModel{
 									StaticRoutes: func() types.List {
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil && data.CustomNetworkConfig.SLIConfig.StaticRoutes != nil && (data.CustomNetworkConfig.SLIConfig.StaticRoutes.StaticRoutes.IsNull() || len(data.CustomNetworkConfig.SLIConfig.StaticRoutes.StaticRoutes.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesModelAttrTypes})
+										}
+										var StaticRoutesExisting []VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesModel
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil && data.CustomNetworkConfig.SLIConfig.StaticRoutes != nil && !data.CustomNetworkConfig.SLIConfig.StaticRoutes.StaticRoutes.IsNull() && !data.CustomNetworkConfig.SLIConfig.StaticRoutes.StaticRoutes.IsUnknown() {
+											data.CustomNetworkConfig.SLIConfig.StaticRoutes.StaticRoutes.ElementsAs(ctx, &StaticRoutesExisting, false)
+										}
 										if rawList, ok := StaticRoutesData["static_routes"].([]interface{}); ok && len(rawList) > 0 {
 											var StaticRoutesResult []VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesModel
-											for _, StaticRoutesItem := range rawList {
+											for StaticRoutesIdx, StaticRoutesItem := range rawList {
+												_ = StaticRoutesIdx
 												if StaticRoutesItemMap, ok := StaticRoutesItem.(map[string]interface{}); ok {
 													StaticRoutesResult = append(StaticRoutesResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesModel{
 														Attrs: func() types.List {
@@ -27558,6 +30019,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
+																return &VoltstackSiteEmptyModel{}
+															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -27586,9 +30050,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															if NodeInterfaceData, ok := StaticRoutesItemMap["node_interface"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceModel{
 																	List: func() types.List {
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && (StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() || len(StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListModelAttrTypes})
+																		}
+																		var ListExisting []VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListModel
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsUnknown() {
+																			StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.ElementsAs(ctx, &ListExisting, false)
+																		}
 																		if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
 																			var ListResult []VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListModel
-																			for _, ListItem := range rawList {
+																			for ListIdx, ListItem := range rawList {
+																				_ = ListIdx
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
@@ -27669,9 +30141,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 							if StaticV6RoutesData, ok := SLIConfigData["static_v6_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesModel{
 									StaticRoutes: func() types.List {
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil && data.CustomNetworkConfig.SLIConfig.StaticV6Routes != nil && (data.CustomNetworkConfig.SLIConfig.StaticV6Routes.StaticRoutes.IsNull() || len(data.CustomNetworkConfig.SLIConfig.StaticV6Routes.StaticRoutes.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesModelAttrTypes})
+										}
+										var StaticRoutesExisting []VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesModel
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil && data.CustomNetworkConfig.SLIConfig.StaticV6Routes != nil && !data.CustomNetworkConfig.SLIConfig.StaticV6Routes.StaticRoutes.IsNull() && !data.CustomNetworkConfig.SLIConfig.StaticV6Routes.StaticRoutes.IsUnknown() {
+											data.CustomNetworkConfig.SLIConfig.StaticV6Routes.StaticRoutes.ElementsAs(ctx, &StaticRoutesExisting, false)
+										}
 										if rawList, ok := StaticV6RoutesData["static_routes"].([]interface{}); ok && len(rawList) > 0 {
 											var StaticRoutesResult []VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesModel
-											for _, StaticRoutesItem := range rawList {
+											for StaticRoutesIdx, StaticRoutesItem := range rawList {
+												_ = StaticRoutesIdx
 												if StaticRoutesItemMap, ok := StaticRoutesItem.(map[string]interface{}); ok {
 													StaticRoutesResult = append(StaticRoutesResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesModel{
 														Attrs: func() types.List {
@@ -27688,6 +30168,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
+																return &VoltstackSiteEmptyModel{}
+															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -27716,9 +30199,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															if NodeInterfaceData, ok := StaticRoutesItemMap["node_interface"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceModel{
 																	List: func() types.List {
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && (StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() || len(StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListModelAttrTypes})
+																		}
+																		var ListExisting []VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsUnknown() {
+																			StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.ElementsAs(ctx, &ListExisting, false)
+																		}
 																		if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
 																			var ListResult []VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel
-																			for _, ListItem := range rawList {
+																			for ListIdx, ListItem := range rawList {
+																				_ = ListIdx
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
@@ -27828,24 +30319,36 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 							return nil
 						}(),
 						Labels: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
+								return data.CustomNetworkConfig.SloConfig.Labels
+							}
 							if _, ok := SloConfigData["labels"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
 							return nil
 						}(),
 						NoDcClusterGroup: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
+								return data.CustomNetworkConfig.SloConfig.NoDcClusterGroup
+							}
 							if _, ok := SloConfigData["no_dc_cluster_group"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
 							return nil
 						}(),
 						NoStaticRoutes: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
+								return data.CustomNetworkConfig.SloConfig.NoStaticRoutes
+							}
 							if _, ok := SloConfigData["no_static_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
 							return nil
 						}(),
 						NoStaticV6Routes: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
+								return data.CustomNetworkConfig.SloConfig.NoStaticV6Routes
+							}
 							if _, ok := SloConfigData["no_static_v6_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
@@ -27855,9 +30358,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 							if StaticRoutesData, ok := SloConfigData["static_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesModel{
 									StaticRoutes: func() types.List {
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil && data.CustomNetworkConfig.SloConfig.StaticRoutes != nil && (data.CustomNetworkConfig.SloConfig.StaticRoutes.StaticRoutes.IsNull() || len(data.CustomNetworkConfig.SloConfig.StaticRoutes.StaticRoutes.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesModelAttrTypes})
+										}
+										var StaticRoutesExisting []VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesModel
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil && data.CustomNetworkConfig.SloConfig.StaticRoutes != nil && !data.CustomNetworkConfig.SloConfig.StaticRoutes.StaticRoutes.IsNull() && !data.CustomNetworkConfig.SloConfig.StaticRoutes.StaticRoutes.IsUnknown() {
+											data.CustomNetworkConfig.SloConfig.StaticRoutes.StaticRoutes.ElementsAs(ctx, &StaticRoutesExisting, false)
+										}
 										if rawList, ok := StaticRoutesData["static_routes"].([]interface{}); ok && len(rawList) > 0 {
 											var StaticRoutesResult []VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesModel
-											for _, StaticRoutesItem := range rawList {
+											for StaticRoutesIdx, StaticRoutesItem := range rawList {
+												_ = StaticRoutesIdx
 												if StaticRoutesItemMap, ok := StaticRoutesItem.(map[string]interface{}); ok {
 													StaticRoutesResult = append(StaticRoutesResult, VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesModel{
 														Attrs: func() types.List {
@@ -27874,6 +30385,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
+																return &VoltstackSiteEmptyModel{}
+															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -27902,9 +30416,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															if NodeInterfaceData, ok := StaticRoutesItemMap["node_interface"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceModel{
 																	List: func() types.List {
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && (StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() || len(StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListModelAttrTypes})
+																		}
+																		var ListExisting []VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListModel
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsUnknown() {
+																			StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.ElementsAs(ctx, &ListExisting, false)
+																		}
 																		if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
 																			var ListResult []VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListModel
-																			for _, ListItem := range rawList {
+																			for ListIdx, ListItem := range rawList {
+																				_ = ListIdx
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
@@ -27985,9 +30507,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 							if StaticV6RoutesData, ok := SloConfigData["static_v6_routes"].(map[string]interface{}); ok {
 								return &VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesModel{
 									StaticRoutes: func() types.List {
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil && data.CustomNetworkConfig.SloConfig.StaticV6Routes != nil && (data.CustomNetworkConfig.SloConfig.StaticV6Routes.StaticRoutes.IsNull() || len(data.CustomNetworkConfig.SloConfig.StaticV6Routes.StaticRoutes.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesModelAttrTypes})
+										}
+										var StaticRoutesExisting []VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesModel
+										if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil && data.CustomNetworkConfig.SloConfig.StaticV6Routes != nil && !data.CustomNetworkConfig.SloConfig.StaticV6Routes.StaticRoutes.IsNull() && !data.CustomNetworkConfig.SloConfig.StaticV6Routes.StaticRoutes.IsUnknown() {
+											data.CustomNetworkConfig.SloConfig.StaticV6Routes.StaticRoutes.ElementsAs(ctx, &StaticRoutesExisting, false)
+										}
 										if rawList, ok := StaticV6RoutesData["static_routes"].([]interface{}); ok && len(rawList) > 0 {
 											var StaticRoutesResult []VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesModel
-											for _, StaticRoutesItem := range rawList {
+											for StaticRoutesIdx, StaticRoutesItem := range rawList {
+												_ = StaticRoutesIdx
 												if StaticRoutesItemMap, ok := StaticRoutesItem.(map[string]interface{}); ok {
 													StaticRoutesResult = append(StaticRoutesResult, VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesModel{
 														Attrs: func() types.List {
@@ -28004,6 +30534,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
+																return &VoltstackSiteEmptyModel{}
+															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -28032,9 +30565,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															if NodeInterfaceData, ok := StaticRoutesItemMap["node_interface"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceModel{
 																	List: func() types.List {
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && (StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() || len(StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListModelAttrTypes})
+																		}
+																		var ListExisting []VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel
+																		if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsUnknown() {
+																			StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.ElementsAs(ctx, &ListExisting, false)
+																		}
 																		if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
 																			var ListResult []VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel
-																			for _, ListItem := range rawList {
+																			for ListIdx, ListItem := range rawList {
+																				_ = ListIdx
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
@@ -28192,9 +30733,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				if StaticRoutesData, ok := blockData["static_routes"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomStorageConfigStaticRoutesModel{
 						StaticRoutes: func() types.List {
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StaticRoutes != nil && (data.CustomStorageConfig.StaticRoutes.StaticRoutes.IsNull() || len(data.CustomStorageConfig.StaticRoutes.StaticRoutes.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesModelAttrTypes})
+							}
+							var StaticRoutesExisting []VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesModel
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StaticRoutes != nil && !data.CustomStorageConfig.StaticRoutes.StaticRoutes.IsNull() && !data.CustomStorageConfig.StaticRoutes.StaticRoutes.IsUnknown() {
+								data.CustomStorageConfig.StaticRoutes.StaticRoutes.ElementsAs(ctx, &StaticRoutesExisting, false)
+							}
 							if rawList, ok := StaticRoutesData["static_routes"].([]interface{}); ok && len(rawList) > 0 {
 								var StaticRoutesResult []VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesModel
-								for _, StaticRoutesItem := range rawList {
+								for StaticRoutesIdx, StaticRoutesItem := range rawList {
+									_ = StaticRoutesIdx
 									if StaticRoutesItemMap, ok := StaticRoutesItem.(map[string]interface{}); ok {
 										StaticRoutesResult = append(StaticRoutesResult, VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesModel{
 											Attrs: func() types.List {
@@ -28211,6 +30760,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												return types.ListNull(types.StringType)
 											}(),
 											DefaultGateway: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -28239,9 +30791,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												if NodeInterfaceData, ok := StaticRoutesItemMap["node_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceModel{
 														List: func() types.List {
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && (StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() || len(StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListModelAttrTypes})
+															}
+															var ListExisting []VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListModel
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].NodeInterface != nil && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsNull() && !StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.IsUnknown() {
+																StaticRoutesExisting[StaticRoutesIdx].NodeInterface.List.ElementsAs(ctx, &ListExisting, false)
+															}
 															if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
 																var ListResult []VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListModel
-																for _, ListItem := range rawList {
+																for ListIdx, ListItem := range rawList {
+																	_ = ListIdx
 																	if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																		ListResult = append(ListResult, VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																			Interface: func() types.List {
@@ -28325,12 +30885,23 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				if StorageClassListData, ok := blockData["storage_class_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomStorageConfigStorageClassListModel{
 						StorageClasses: func() types.List {
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageClassList != nil && (data.CustomStorageConfig.StorageClassList.StorageClasses.IsNull() || len(data.CustomStorageConfig.StorageClassList.StorageClasses.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageClassListStorageClassesModelAttrTypes})
+							}
+							var StorageClassesExisting []VoltstackSiteCustomStorageConfigStorageClassListStorageClassesModel
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageClassList != nil && !data.CustomStorageConfig.StorageClassList.StorageClasses.IsNull() && !data.CustomStorageConfig.StorageClassList.StorageClasses.IsUnknown() {
+								data.CustomStorageConfig.StorageClassList.StorageClasses.ElementsAs(ctx, &StorageClassesExisting, false)
+							}
 							if rawList, ok := StorageClassListData["storage_classes"].([]interface{}); ok && len(rawList) > 0 {
 								var StorageClassesResult []VoltstackSiteCustomStorageConfigStorageClassListStorageClassesModel
-								for _, StorageClassesItem := range rawList {
+								for StorageClassesIdx, StorageClassesItem := range rawList {
+									_ = StorageClassesIdx
 									if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
 										StorageClassesResult = append(StorageClassesResult, VoltstackSiteCustomStorageConfigStorageClassListStorageClassesModel{
 											AdvancedStorageParameters: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := StorageClassesItemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -28383,6 +30954,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.StringNull()
 														}(),
 														DedupeEnabled: func() types.Bool {
+															if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.DedupeEnabled.IsUnknown() {
+																return StorageClassesExisting[StorageClassesIdx].HpeStorage.DedupeEnabled
+															}
 															if v, ok := HpeStorageData["dedupe_enabled"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -28395,12 +30969,18 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.StringNull()
 														}(),
 														DestroyOnDelete: func() types.Bool {
+															if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.DestroyOnDelete.IsUnknown() {
+																return StorageClassesExisting[StorageClassesIdx].HpeStorage.DestroyOnDelete
+															}
 															if v, ok := HpeStorageData["destroy_on_delete"].(bool); ok {
 																return types.BoolValue(v)
 															}
 															return types.BoolNull()
 														}(),
 														Encrypted: func() types.Bool {
+															if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.Encrypted.IsUnknown() {
+																return StorageClassesExisting[StorageClassesIdx].HpeStorage.Encrypted
+															}
 															if v, ok := HpeStorageData["encrypted"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -28455,12 +31035,18 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.StringNull()
 														}(),
 														SyncOnDetach: func() types.Bool {
+															if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.SyncOnDetach.IsUnknown() {
+																return StorageClassesExisting[StorageClassesIdx].HpeStorage.SyncOnDetach
+															}
 															if v, ok := HpeStorageData["sync_on_detach"].(bool); ok {
 																return types.BoolValue(v)
 															}
 															return types.BoolNull()
 														}(),
 														Thick: func() types.Bool {
+															if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.Thick.IsUnknown() {
+																return StorageClassesExisting[StorageClassesIdx].HpeStorage.Thick
+															}
 															if v, ok := HpeStorageData["thick"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -28474,6 +31060,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												if NetappTridentData, ok := StorageClassesItemMap["netapp_trident"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomStorageConfigStorageClassListStorageClassesNetappTridentModel{
 														Selector: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].NetappTrident != nil {
+																return StorageClassesExisting[StorageClassesIdx].NetappTrident.Selector
+															}
 															if _, ok := NetappTridentData["selector"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -28505,6 +31094,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.StringNull()
 														}(),
 														IopsLimit: func() types.Int64 {
+															if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].PureServiceOrchestrator != nil && !StorageClassesExisting[StorageClassesIdx].PureServiceOrchestrator.IopsLimit.IsUnknown() {
+																return StorageClassesExisting[StorageClassesIdx].PureServiceOrchestrator.IopsLimit
+															}
 															if v, ok := PureServiceOrchestratorData["iops_limit"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -28551,18 +31143,32 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				if StorageDeviceListData, ok := blockData["storage_device_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomStorageConfigStorageDeviceListModel{
 						StorageDevices: func() types.List {
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageDeviceList != nil && (data.CustomStorageConfig.StorageDeviceList.StorageDevices.IsNull() || len(data.CustomStorageConfig.StorageDeviceList.StorageDevices.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesModelAttrTypes})
+							}
+							var StorageDevicesExisting []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesModel
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageDeviceList != nil && !data.CustomStorageConfig.StorageDeviceList.StorageDevices.IsNull() && !data.CustomStorageConfig.StorageDeviceList.StorageDevices.IsUnknown() {
+								data.CustomStorageConfig.StorageDeviceList.StorageDevices.ElementsAs(ctx, &StorageDevicesExisting, false)
+							}
 							if rawList, ok := StorageDeviceListData["storage_devices"].([]interface{}); ok && len(rawList) > 0 {
 								var StorageDevicesResult []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesModel
-								for _, StorageDevicesItem := range rawList {
+								for StorageDevicesIdx, StorageDevicesItem := range rawList {
+									_ = StorageDevicesIdx
 									if StorageDevicesItemMap, ok := StorageDevicesItem.(map[string]interface{}); ok {
 										StorageDevicesResult = append(StorageDevicesResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesModel{
 											AdvancedAdvancedParameters: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := StorageDevicesItemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
 												return nil
 											}(),
 											CustomStorage: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].CustomStorage != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := StorageDevicesItemMap["custom_storage"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -28572,15 +31178,24 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												if HpeStorageData, ok := StorageDevicesItemMap["hpe_storage"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageModel{
 														APIServerPort: func() types.Int64 {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && !StorageDevicesExisting[StorageDevicesIdx].HpeStorage.APIServerPort.IsUnknown() {
+																return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.APIServerPort
+															}
 															if v, ok := HpeStorageData["api_server_port"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														IscsiChapPassword: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword
+															}
 															if IscsiChapPasswordData, ok := HpeStorageData["iscsi_chap_password"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordModel{
 																	BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := IscsiChapPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -28606,6 +31221,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return nil
 																	}(),
 																	BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal
+																		}
 																		if BlindfoldSecretInfoInternalData, ok := IscsiChapPasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalModel{
 																				DecryptionProvider: func() types.String {
@@ -28631,6 +31249,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.ClearSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := IscsiChapPasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -28656,6 +31277,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return types.StringNull()
 																	}(),
 																	VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo
+																		}
 																		if VaultSecretInfoData, ok := IscsiChapPasswordData["vault_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoModel{
 																				Key: func() types.String {
@@ -28683,6 +31307,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return types.StringNull()
 																				}(),
 																				Version: func() types.Int64 {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo.Version.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo.Version
+																					}
 																					if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																						return types.Int64Value(int64(v))
 																					}
@@ -28693,6 +31320,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return nil
 																	}(),
 																	WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.WingmanSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.WingmanSecretInfo
+																		}
 																		if WingmanSecretInfoData, ok := IscsiChapPasswordData["wingman_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoModel{
 																				Name: func() types.String {
@@ -28716,9 +31346,15 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.StringNull()
 														}(),
 														Password: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password
+															}
 															if PasswordData, ok := HpeStorageData["password"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordModel{
 																	BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -28744,6 +31380,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return nil
 																	}(),
 																	BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfoInternal != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfoInternal
+																		}
 																		if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalModel{
 																				DecryptionProvider: func() types.String {
@@ -28769,6 +31408,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.ClearSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -28794,6 +31436,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return types.StringNull()
 																	}(),
 																	VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo
+																		}
 																		if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoModel{
 																				Key: func() types.String {
@@ -28821,6 +31466,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return types.StringNull()
 																				}(),
 																				Version: func() types.Int64 {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo.Version.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo.Version
+																					}
 																					if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																						return types.Int64Value(int64(v))
 																					}
@@ -28831,6 +31479,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return nil
 																	}(),
 																	WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.WingmanSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.WingmanSecretInfo
+																		}
 																		if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoModel{
 																				Name: func() types.String {
@@ -28873,9 +31524,15 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												if NetappTridentData, ok := StorageDevicesItemMap["netapp_trident"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentModel{
 														NetappBackendOntapNas: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas
+															}
 															if NetappBackendOntapNasData, ok := NetappTridentData["netapp_backend_ontap_nas"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasModel{
 																	AutoExportCidrs: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasAutoExportCidrsModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportCidrs != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportCidrs
+																		}
 																		if AutoExportCidrsData, ok := NetappBackendOntapNasData["auto_export_cidrs"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasAutoExportCidrsModel{
 																				Prefixes: func() types.List {
@@ -28896,6 +31553,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return nil
 																	}(),
 																	AutoExportPolicy: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportPolicy.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportPolicy
+																		}
 																		if v, ok := NetappBackendOntapNasData["auto_export_policy"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -28914,9 +31574,15 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return types.StringNull()
 																	}(),
 																	ClientPrivateKey: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey
+																		}
 																		if ClientPrivateKeyData, ok := NetappBackendOntapNasData["client_private_key"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel{
 																				BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo
+																					}
 																					if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel{
 																							DecryptionProvider: func() types.String {
@@ -28942,6 +31608,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return nil
 																				}(),
 																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal
+																					}
 																					if BlindfoldSecretInfoInternalData, ok := ClientPrivateKeyData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalModel{
 																							DecryptionProvider: func() types.String {
@@ -28967,6 +31636,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return nil
 																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo
+																					}
 																					if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel{
 																							Provider: func() types.String {
@@ -28992,6 +31664,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return types.StringNull()
 																				}(),
 																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo
+																					}
 																					if VaultSecretInfoData, ok := ClientPrivateKeyData["vault_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoModel{
 																							Key: func() types.String {
@@ -29019,6 +31694,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																								return types.StringNull()
 																							}(),
 																							Version: func() types.Int64 {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Version.IsUnknown() {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Version
+																								}
 																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																									return types.Int64Value(int64(v))
 																								}
@@ -29029,6 +31707,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return nil
 																				}(),
 																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.WingmanSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.WingmanSecretInfo
+																					}
 																					if WingmanSecretInfoData, ok := ClientPrivateKeyData["wingman_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoModel{
 																							Name: func() types.String {
@@ -29058,6 +31739,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return types.StringNull()
 																	}(),
 																	Labels: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Labels
+																		}
 																		if _, ok := NetappBackendOntapNasData["labels"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
@@ -29094,9 +31778,15 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return types.StringNull()
 																	}(),
 																	Password: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password
+																		}
 																		if PasswordData, ok := NetappBackendOntapNasData["password"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModel{
 																				BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo
+																					}
 																					if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoModel{
 																							DecryptionProvider: func() types.String {
@@ -29122,6 +31812,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return nil
 																				}(),
 																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal
+																					}
 																					if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalModel{
 																							DecryptionProvider: func() types.String {
@@ -29147,6 +31840,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return nil
 																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo
+																					}
 																					if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel{
 																							Provider: func() types.String {
@@ -29172,6 +31868,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return types.StringNull()
 																				}(),
 																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo
+																					}
 																					if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoModel{
 																							Key: func() types.String {
@@ -29199,6 +31898,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																								return types.StringNull()
 																							}(),
 																							Version: func() types.Int64 {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Version.IsUnknown() {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Version
+																								}
 																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																									return types.Int64Value(int64(v))
 																								}
@@ -29209,6 +31911,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return nil
 																				}(),
 																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.WingmanSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.WingmanSecretInfo
+																					}
 																					if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoModel{
 																							Name: func() types.String {
@@ -29232,12 +31937,23 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return types.StringNull()
 																	}(),
 																	Storage: func() types.List {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && (StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModelAttrTypes})
+																		}
+																		var StorageExisting []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.IsUnknown() {
+																			StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.ElementsAs(ctx, &StorageExisting, false)
+																		}
 																		if rawList, ok := NetappBackendOntapNasData["storage"].([]interface{}); ok && len(rawList) > 0 {
 																			var StorageResult []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel
-																			for _, StorageItem := range rawList {
+																			for StorageIdx, StorageItem := range rawList {
+																				_ = StorageIdx
 																				if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																					StorageResult = append(StorageResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel{
 																						Labels: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
@@ -29253,6 +31969,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																										return types.StringNull()
 																									}(),
 																									Encryption: func() types.Bool {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.Encryption.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.Encryption
+																										}
 																										if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																											return types.BoolValue(v)
 																										}
@@ -29265,6 +31984,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																										return types.StringNull()
 																									}(),
 																									NoQOS: func() *VoltstackSiteEmptyModel {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil {
+																											return StorageExisting[StorageIdx].VolumeDefaults.NoQOS
+																										}
 																										if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																											return &VoltstackSiteEmptyModel{}
 																										}
@@ -29283,6 +32005,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																										return types.StringNull()
 																									}(),
 																									SnapshotDir: func() types.Bool {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir
+																										}
 																										if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																											return types.BoolValue(v)
 																										}
@@ -29307,6 +32032,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																										return types.StringNull()
 																									}(),
 																									SplitOnClone: func() types.Bool {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone
+																										}
 																										if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																											return types.BoolValue(v)
 																										}
@@ -29319,6 +32047,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																										return types.StringNull()
 																									}(),
 																									UnixPermissions: func() types.Int64 {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions
+																										}
 																										if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																											return types.Int64Value(int64(v))
 																										}
@@ -29373,6 +32104,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return types.StringNull()
 																	}(),
 																	VolumeDefaults: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults
+																		}
 																		if VolumeDefaultsData, ok := NetappBackendOntapNasData["volume_defaults"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModel{
 																				AdaptiveQOSPolicy: func() types.String {
@@ -29382,6 +32116,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return types.StringNull()
 																				}(),
 																				Encryption: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption
+																					}
 																					if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
@@ -29394,6 +32131,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return types.StringNull()
 																				}(),
 																				NoQOS: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS
+																					}
 																					if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -29412,6 +32152,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return types.StringNull()
 																				}(),
 																				SnapshotDir: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir
+																					}
 																					if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
@@ -29436,6 +32179,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return types.StringNull()
 																				}(),
 																				SplitOnClone: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone
+																					}
 																					if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
@@ -29448,6 +32194,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return types.StringNull()
 																				}(),
 																				UnixPermissions: func() types.Int64 {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions
+																					}
 																					if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																						return types.Int64Value(int64(v))
 																					}
@@ -29462,6 +32211,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return nil
 														}(),
 														NetappBackendOntapSan: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan
+															}
 															if NetappBackendOntapSanData, ok := NetappTridentData["netapp_backend_ontap_san"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel{
 																	ClientCertificate: func() types.String {
@@ -29471,9 +32223,15 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return types.StringNull()
 																	}(),
 																	ClientPrivateKey: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey
+																		}
 																		if ClientPrivateKeyData, ok := NetappBackendOntapSanData["client_private_key"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel{
 																				BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo
+																					}
 																					if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel{
 																							DecryptionProvider: func() types.String {
@@ -29499,6 +32257,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return nil
 																				}(),
 																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal
+																					}
 																					if BlindfoldSecretInfoInternalData, ok := ClientPrivateKeyData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalModel{
 																							DecryptionProvider: func() types.String {
@@ -29524,6 +32285,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return nil
 																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo
+																					}
 																					if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel{
 																							Provider: func() types.String {
@@ -29549,6 +32313,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return types.StringNull()
 																				}(),
 																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo
+																					}
 																					if VaultSecretInfoData, ok := ClientPrivateKeyData["vault_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoModel{
 																							Key: func() types.String {
@@ -29576,6 +32343,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																								return types.StringNull()
 																							}(),
 																							Version: func() types.Int64 {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Version.IsUnknown() {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Version
+																								}
 																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																									return types.Int64Value(int64(v))
 																								}
@@ -29586,6 +32356,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return nil
 																				}(),
 																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.WingmanSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.WingmanSecretInfo
+																					}
 																					if WingmanSecretInfoData, ok := ClientPrivateKeyData["wingman_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoModel{
 																							Name: func() types.String {
@@ -29621,18 +32394,27 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return types.StringNull()
 																	}(),
 																	Labels: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Labels
+																		}
 																		if _, ok := NetappBackendOntapSanData["labels"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	LimitAggregateUsage: func() types.Int64 {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage
+																		}
 																		if v, ok := NetappBackendOntapSanData["limit_aggregate_usage"].(float64); ok && v != 0 {
 																			return types.Int64Value(int64(v))
 																		}
 																		return types.Int64Null()
 																	}(),
 																	LimitVolumeSize: func() types.Int64 {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitVolumeSize.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitVolumeSize
+																		}
 																		if v, ok := NetappBackendOntapSanData["limit_volume_size"].(float64); ok && v != 0 {
 																			return types.Int64Value(int64(v))
 																		}
@@ -29651,15 +32433,24 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return types.StringNull()
 																	}(),
 																	NoChap: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.NoChap
+																		}
 																		if _, ok := NetappBackendOntapSanData["no_chap"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	Password: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password
+																		}
 																		if PasswordData, ok := NetappBackendOntapSanData["password"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel{
 																				BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo
+																					}
 																					if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoModel{
 																							DecryptionProvider: func() types.String {
@@ -29685,6 +32476,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return nil
 																				}(),
 																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal
+																					}
 																					if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalModel{
 																							DecryptionProvider: func() types.String {
@@ -29710,6 +32504,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return nil
 																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo
+																					}
 																					if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel{
 																							Provider: func() types.String {
@@ -29735,6 +32532,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return types.StringNull()
 																				}(),
 																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo
+																					}
 																					if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoModel{
 																							Key: func() types.String {
@@ -29762,6 +32562,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																								return types.StringNull()
 																							}(),
 																							Version: func() types.Int64 {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Version.IsUnknown() {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Version
+																								}
 																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																									return types.Int64Value(int64(v))
 																								}
@@ -29772,6 +32575,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return nil
 																				}(),
 																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.WingmanSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.WingmanSecretInfo
+																					}
 																					if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoModel{
 																							Name: func() types.String {
@@ -29795,12 +32601,23 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return types.StringNull()
 																	}(),
 																	Storage: func() types.List {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && (StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModelAttrTypes})
+																		}
+																		var StorageExisting []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.IsUnknown() {
+																			StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.ElementsAs(ctx, &StorageExisting, false)
+																		}
 																		if rawList, ok := NetappBackendOntapSanData["storage"].([]interface{}); ok && len(rawList) > 0 {
 																			var StorageResult []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel
-																			for _, StorageItem := range rawList {
+																			for StorageIdx, StorageItem := range rawList {
+																				_ = StorageIdx
 																				if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																					StorageResult = append(StorageResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel{
 																						Labels: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
@@ -29816,6 +32633,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																										return types.StringNull()
 																									}(),
 																									Encryption: func() types.Bool {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.Encryption.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.Encryption
+																										}
 																										if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																											return types.BoolValue(v)
 																										}
@@ -29828,6 +32648,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																										return types.StringNull()
 																									}(),
 																									NoQOS: func() *VoltstackSiteEmptyModel {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil {
+																											return StorageExisting[StorageIdx].VolumeDefaults.NoQOS
+																										}
 																										if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																											return &VoltstackSiteEmptyModel{}
 																										}
@@ -29846,6 +32669,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																										return types.StringNull()
 																									}(),
 																									SnapshotDir: func() types.Bool {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir
+																										}
 																										if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																											return types.BoolValue(v)
 																										}
@@ -29870,6 +32696,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																										return types.StringNull()
 																									}(),
 																									SplitOnClone: func() types.Bool {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone
+																										}
 																										if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																											return types.BoolValue(v)
 																										}
@@ -29882,6 +32711,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																										return types.StringNull()
 																									}(),
 																									UnixPermissions: func() types.Int64 {
+																										if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions.IsUnknown() {
+																											return StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions
+																										}
 																										if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																											return types.Int64Value(int64(v))
 																										}
@@ -29930,12 +32762,21 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return types.StringNull()
 																	}(),
 																	UseChap: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap
+																		}
 																		if UseChapData, ok := NetappBackendOntapSanData["use_chap"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapModel{
 																				ChapInitiatorSecret: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret
+																					}
 																					if ChapInitiatorSecretData, ok := UseChapData["chap_initiator_secret"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretModel{
 																							BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo
+																								}
 																								if BlindfoldSecretInfoData, ok := ChapInitiatorSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModel{
 																										DecryptionProvider: func() types.String {
@@ -29961,6 +32802,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																								return nil
 																							}(),
 																							BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal
+																								}
 																								if BlindfoldSecretInfoInternalData, ok := ChapInitiatorSecretData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalModel{
 																										DecryptionProvider: func() types.String {
@@ -29986,6 +32830,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																								return nil
 																							}(),
 																							ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo
+																								}
 																								if ClearSecretInfoData, ok := ChapInitiatorSecretData["clear_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModel{
 																										Provider: func() types.String {
@@ -30011,6 +32858,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																								return types.StringNull()
 																							}(),
 																							VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo
+																								}
 																								if VaultSecretInfoData, ok := ChapInitiatorSecretData["vault_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoModel{
 																										Key: func() types.String {
@@ -30038,6 +32888,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																											return types.StringNull()
 																										}(),
 																										Version: func() types.Int64 {
+																											if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Version.IsUnknown() {
+																												return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Version
+																											}
 																											if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																												return types.Int64Value(int64(v))
 																											}
@@ -30048,6 +32901,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																								return nil
 																							}(),
 																							WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.WingmanSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.WingmanSecretInfo
+																								}
 																								if WingmanSecretInfoData, ok := ChapInitiatorSecretData["wingman_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoModel{
 																										Name: func() types.String {
@@ -30065,9 +32921,15 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return nil
 																				}(),
 																				ChapTargetInitiatorSecret: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret
+																					}
 																					if ChapTargetInitiatorSecretData, ok := UseChapData["chap_target_initiator_secret"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretModel{
 																							BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo
+																								}
 																								if BlindfoldSecretInfoData, ok := ChapTargetInitiatorSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoModel{
 																										DecryptionProvider: func() types.String {
@@ -30093,6 +32955,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																								return nil
 																							}(),
 																							BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal
+																								}
 																								if BlindfoldSecretInfoInternalData, ok := ChapTargetInitiatorSecretData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalModel{
 																										DecryptionProvider: func() types.String {
@@ -30118,6 +32983,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																								return nil
 																							}(),
 																							ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo
+																								}
 																								if ClearSecretInfoData, ok := ChapTargetInitiatorSecretData["clear_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel{
 																										Provider: func() types.String {
@@ -30143,6 +33011,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																								return types.StringNull()
 																							}(),
 																							VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo
+																								}
 																								if VaultSecretInfoData, ok := ChapTargetInitiatorSecretData["vault_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoModel{
 																										Key: func() types.String {
@@ -30170,6 +33041,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																											return types.StringNull()
 																										}(),
 																										Version: func() types.Int64 {
+																											if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Version.IsUnknown() {
+																												return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Version
+																											}
 																											if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																												return types.Int64Value(int64(v))
 																											}
@@ -30180,6 +33054,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																								return nil
 																							}(),
 																							WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoModel {
+																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.WingmanSecretInfo != nil {
+																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.WingmanSecretInfo
+																								}
 																								if WingmanSecretInfoData, ok := ChapTargetInitiatorSecretData["wingman_secret_info"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoModel{
 																										Name: func() types.String {
@@ -30219,6 +33096,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return types.StringNull()
 																	}(),
 																	VolumeDefaults: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults
+																		}
 																		if VolumeDefaultsData, ok := NetappBackendOntapSanData["volume_defaults"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModel{
 																				AdaptiveQOSPolicy: func() types.String {
@@ -30228,6 +33108,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return types.StringNull()
 																				}(),
 																				Encryption: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption
+																					}
 																					if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
@@ -30240,6 +33123,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return types.StringNull()
 																				}(),
 																				NoQOS: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS
+																					}
 																					if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -30258,6 +33144,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return types.StringNull()
 																				}(),
 																				SnapshotDir: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir
+																					}
 																					if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
@@ -30282,6 +33171,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return types.StringNull()
 																				}(),
 																				SplitOnClone: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone
+																					}
 																					if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
@@ -30294,6 +33186,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return types.StringNull()
 																				}(),
 																				UnixPermissions: func() types.Int64 {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions
+																					}
 																					if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																						return types.Int64Value(int64(v))
 																					}
@@ -30315,9 +33210,15 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												if PureServiceOrchestratorData, ok := StorageDevicesItemMap["pure_service_orchestrator"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorModel{
 														Arrays: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays
+															}
 															if ArraysData, ok := PureServiceOrchestratorData["arrays"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysModel{
 																	FlashArray: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray
+																		}
 																		if FlashArrayData, ok := ArraysData["flash_array"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayModel{
 																				DefaultFsOpt: func() types.String {
@@ -30346,21 +33247,35 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return types.ListNull(types.StringType)
 																				}(),
 																				DisablePreemptAttachments: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments
+																					}
 																					if v, ok := FlashArrayData["disable_preempt_attachments"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
 																					return types.BoolNull()
 																				}(),
 																				FlashArrays: func() types.List {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && (StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.Elements()) == 0) {
+																						return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModelAttrTypes})
+																					}
+																					var FlashArraysExisting []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.IsUnknown() {
+																						StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.ElementsAs(ctx, &FlashArraysExisting, false)
+																					}
 																					if rawList, ok := FlashArrayData["flash_arrays"].([]interface{}); ok && len(rawList) > 0 {
 																						var FlashArraysResult []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel
-																						for _, FlashArraysItem := range rawList {
+																						for FlashArraysIdx, FlashArraysItem := range rawList {
+																							_ = FlashArraysIdx
 																							if FlashArraysItemMap, ok := FlashArraysItem.(map[string]interface{}); ok {
 																								FlashArraysResult = append(FlashArraysResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel{
 																									APIToken: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModel {
 																										if APITokenData, ok := FlashArraysItemMap["api_token"].(map[string]interface{}); ok {
 																											return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModel{
 																												BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoModel {
+																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfo != nil {
+																														return FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfo
+																													}
 																													if BlindfoldSecretInfoData, ok := APITokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoModel{
 																															DecryptionProvider: func() types.String {
@@ -30386,6 +33301,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																													return nil
 																												}(),
 																												BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalModel {
+																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfoInternal != nil {
+																														return FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfoInternal
+																													}
 																													if BlindfoldSecretInfoInternalData, ok := APITokenData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalModel{
 																															DecryptionProvider: func() types.String {
@@ -30411,6 +33329,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																													return nil
 																												}(),
 																												ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel {
+																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.ClearSecretInfo != nil {
+																														return FlashArraysExisting[FlashArraysIdx].APIToken.ClearSecretInfo
+																													}
 																													if ClearSecretInfoData, ok := APITokenData["clear_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel{
 																															Provider: func() types.String {
@@ -30436,6 +33357,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																													return types.StringNull()
 																												}(),
 																												VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoModel {
+																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo != nil {
+																														return FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo
+																													}
 																													if VaultSecretInfoData, ok := APITokenData["vault_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoModel{
 																															Key: func() types.String {
@@ -30463,6 +33387,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																																return types.StringNull()
 																															}(),
 																															Version: func() types.Int64 {
+																																if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo != nil && !FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo.Version.IsUnknown() {
+																																	return FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo.Version
+																																}
 																																if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																																	return types.Int64Value(int64(v))
 																																}
@@ -30473,6 +33400,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																													return nil
 																												}(),
 																												WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoModel {
+																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.WingmanSecretInfo != nil {
+																														return FlashArraysExisting[FlashArraysIdx].APIToken.WingmanSecretInfo
+																													}
 																													if WingmanSecretInfoData, ok := APITokenData["wingman_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoModel{
 																															Name: func() types.String {
@@ -30490,6 +33420,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																										return nil
 																									}(),
 																									Labels: func() *VoltstackSiteEmptyModel {
+																										if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].Labels != nil {
+																											return &VoltstackSiteEmptyModel{}
+																										}
 																										if _, ok := FlashArraysItemMap["labels"].(map[string]interface{}); ok {
 																											return &VoltstackSiteEmptyModel{}
 																										}
@@ -30516,6 +33449,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModelAttrTypes})
 																				}(),
 																				IscsiLoginTimeout: func() types.Int64 {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout
+																					}
 																					if v, ok := FlashArrayData["iscsi_login_timeout"].(float64); ok && v != 0 {
 																						return types.Int64Value(int64(v))
 																					}
@@ -30532,9 +33468,15 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return nil
 																	}(),
 																	FlashBlade: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade
+																		}
 																		if FlashBladeData, ok := ArraysData["flash_blade"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeModel{
 																				EnableSnapshotDirectory: func() types.Bool {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.IsUnknown() {
+																						return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory
+																					}
 																					if v, ok := FlashBladeData["enable_snapshot_directory"].(bool); ok {
 																						return types.BoolValue(v)
 																					}
@@ -30547,15 +33489,26 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return types.StringNull()
 																				}(),
 																				FlashBlades: func() types.List {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil && (StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.Elements()) == 0) {
+																						return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModelAttrTypes})
+																					}
+																					var FlashBladesExisting []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.IsUnknown() {
+																						StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.ElementsAs(ctx, &FlashBladesExisting, false)
+																					}
 																					if rawList, ok := FlashBladeData["flash_blades"].([]interface{}); ok && len(rawList) > 0 {
 																						var FlashBladesResult []VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel
-																						for _, FlashBladesItem := range rawList {
+																						for FlashBladesIdx, FlashBladesItem := range rawList {
+																							_ = FlashBladesIdx
 																							if FlashBladesItemMap, ok := FlashBladesItem.(map[string]interface{}); ok {
 																								FlashBladesResult = append(FlashBladesResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel{
 																									APIToken: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModel {
 																										if APITokenData, ok := FlashBladesItemMap["api_token"].(map[string]interface{}); ok {
 																											return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModel{
 																												BlindfoldSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoModel {
+																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfo != nil {
+																														return FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfo
+																													}
 																													if BlindfoldSecretInfoData, ok := APITokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoModel{
 																															DecryptionProvider: func() types.String {
@@ -30581,6 +33534,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																													return nil
 																												}(),
 																												BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalModel {
+																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfoInternal != nil {
+																														return FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfoInternal
+																													}
 																													if BlindfoldSecretInfoInternalData, ok := APITokenData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalModel{
 																															DecryptionProvider: func() types.String {
@@ -30606,6 +33562,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																													return nil
 																												}(),
 																												ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel {
+																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.ClearSecretInfo != nil {
+																														return FlashBladesExisting[FlashBladesIdx].APIToken.ClearSecretInfo
+																													}
 																													if ClearSecretInfoData, ok := APITokenData["clear_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel{
 																															Provider: func() types.String {
@@ -30631,6 +33590,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																													return types.StringNull()
 																												}(),
 																												VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoModel {
+																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo != nil {
+																														return FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo
+																													}
 																													if VaultSecretInfoData, ok := APITokenData["vault_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoModel{
 																															Key: func() types.String {
@@ -30658,6 +33620,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																																return types.StringNull()
 																															}(),
 																															Version: func() types.Int64 {
+																																if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo != nil && !FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo.Version.IsUnknown() {
+																																	return FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo.Version
+																																}
 																																if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
 																																	return types.Int64Value(int64(v))
 																																}
@@ -30668,6 +33633,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																													return nil
 																												}(),
 																												WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoModel {
+																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.WingmanSecretInfo != nil {
+																														return FlashBladesExisting[FlashBladesIdx].APIToken.WingmanSecretInfo
+																													}
 																													if WingmanSecretInfoData, ok := APITokenData["wingman_secret_info"].(map[string]interface{}); ok {
 																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoModel{
 																															Name: func() types.String {
@@ -30685,6 +33653,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																										return nil
 																									}(),
 																									Labels: func() *VoltstackSiteEmptyModel {
+																										if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].Labels != nil {
+																											return &VoltstackSiteEmptyModel{}
+																										}
 																										if _, ok := FlashBladesItemMap["labels"].(map[string]interface{}); ok {
 																											return &VoltstackSiteEmptyModel{}
 																										}
@@ -30737,12 +33708,18 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.StringNull()
 														}(),
 														EnableStorageTopology: func() types.Bool {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStorageTopology.IsUnknown() {
+																return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStorageTopology
+															}
 															if v, ok := PureServiceOrchestratorData["enable_storage_topology"].(bool); ok {
 																return types.BoolValue(v)
 															}
 															return types.BoolNull()
 														}(),
 														EnableStrictTopology: func() types.Bool {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStrictTopology.IsUnknown() {
+																return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStrictTopology
+															}
 															if v, ok := PureServiceOrchestratorData["enable_strict_topology"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -30774,9 +33751,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				if StorageInterfaceListData, ok := blockData["storage_interface_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomStorageConfigStorageInterfaceListModel{
 						StorageInterfaces: func() types.List {
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageInterfaceList != nil && (data.CustomStorageConfig.StorageInterfaceList.StorageInterfaces.IsNull() || len(data.CustomStorageConfig.StorageInterfaceList.StorageInterfaces.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesModelAttrTypes})
+							}
+							var StorageInterfacesExisting []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesModel
+							if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageInterfaceList != nil && !data.CustomStorageConfig.StorageInterfaceList.StorageInterfaces.IsNull() && !data.CustomStorageConfig.StorageInterfaceList.StorageInterfaces.IsUnknown() {
+								data.CustomStorageConfig.StorageInterfaceList.StorageInterfaces.ElementsAs(ctx, &StorageInterfacesExisting, false)
+							}
 							if rawList, ok := StorageInterfaceListData["storage_interfaces"].([]interface{}); ok && len(rawList) > 0 {
 								var StorageInterfacesResult []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesModel
-								for _, StorageInterfacesItem := range rawList {
+								for StorageInterfacesIdx, StorageInterfacesItem := range rawList {
+									_ = StorageInterfacesIdx
 									if StorageInterfacesItemMap, ok := StorageInterfacesItem.(map[string]interface{}); ok {
 										StorageInterfacesResult = append(StorageInterfacesResult, VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesModel{
 											DescriptionSpec: func() types.String {
@@ -30786,6 +33771,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												return types.StringNull()
 											}(),
 											Labels: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].Labels != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := StorageInterfacesItemMap["labels"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -30795,6 +33783,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												if StorageInterfaceData, ok := StorageInterfacesItemMap["storage_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceModel{
 														Cluster: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Cluster
+															}
 															if _, ok := StorageInterfaceData["cluster"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -30807,6 +33798,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.StringNull()
 														}(),
 														DHCPClient: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPClient
+															}
 															if _, ok := StorageInterfaceData["dhcp_client"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -30816,21 +33810,35 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															if DHCPServerData, ok := StorageInterfaceData["dhcp_server"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerModel{
 																	AutomaticFromEnd: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.AutomaticFromEnd
+																		}
 																		if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	AutomaticFromStart: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.AutomaticFromStart
+																		}
 																		if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	DHCPNetworks: func() types.List {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil && (StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.DHCPNetworks.IsNull() || len(StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.DHCPNetworks.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksModelAttrTypes})
+																		}
+																		var DHCPNetworksExisting []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksModel
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil && !StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.DHCPNetworks.IsNull() && !StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.DHCPNetworks.IsUnknown() {
+																			StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																		}
 																		if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																			var DHCPNetworksResult []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksModel
-																			for _, DHCPNetworksItem := range rawList {
+																			for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																				_ = DHCPNetworksIdx
 																				if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
 																					DHCPNetworksResult = append(DHCPNetworksResult, VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksModel{
 																						DgwAddress: func() types.String {
@@ -30846,12 +33854,18 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																							return types.StringNull()
 																						}(),
 																						FirstAddress: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
 																							return nil
 																						}(),
 																						LastAddress: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].LastAddress != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
@@ -30927,6 +33941,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																							return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 																						}(),
 																						SameAsDgw: func() *VoltstackSiteEmptyModel {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw != nil {
+																								return &VoltstackSiteEmptyModel{}
+																							}
 																							if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
 																							}
@@ -30941,15 +33958,24 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksModelAttrTypes})
 																	}(),
 																	FixedIPMap: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.FixedIPMap
+																		}
 																		if _, ok := DHCPServerData["fixed_ip_map"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	InterfaceIPMap: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerInterfaceIPMapModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.InterfaceIPMap != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.InterfaceIPMap
+																		}
 																		if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerInterfaceIPMapModel{
 																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.InterfaceIPMap != nil {
+																						return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap
+																					}
 																					if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -30964,21 +33990,36 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return nil
 														}(),
 														Ipv6AutoConfig: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig
+															}
 															if Ipv6AutoConfigData, ok := StorageInterfaceData["ipv6_auto_config"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigModel{
 																	Host: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Host
+																		}
 																		if _, ok := Ipv6AutoConfigData["host"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	Router: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router
+																		}
 																		if RouterData, ok := Ipv6AutoConfigData["router"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterModel{
 																				DNSConfig: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterDNSConfigModel {
+																					if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig != nil {
+																						return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig
+																					}
 																					if DNSConfigData, ok := RouterData["dns_config"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterDNSConfigModel{
 																							ConfiguredList: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel {
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+																									return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList
+																								}
 																								if ConfiguredListData, ok := DNSConfigData["configured_list"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel{
 																										DNSList: func() types.List {
@@ -30999,6 +34040,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																								return nil
 																							}(),
 																							LocalDNS: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel {
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																									return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS
+																								}
 																								if LocalDNSData, ok := DNSConfigData["local_dns"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel{
 																										ConfiguredAddress: func() types.String {
@@ -31008,12 +34052,18 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																											return types.StringNull()
 																										}(),
 																										FirstAddress: func() *VoltstackSiteEmptyModel {
+																											if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																												return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress
+																											}
 																											if _, ok := LocalDNSData["first_address"].(map[string]interface{}); ok {
 																												return &VoltstackSiteEmptyModel{}
 																											}
 																											return nil
 																										}(),
 																										LastAddress: func() *VoltstackSiteEmptyModel {
+																											if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																												return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress
+																											}
 																											if _, ok := LocalDNSData["last_address"].(map[string]interface{}); ok {
 																												return &VoltstackSiteEmptyModel{}
 																											}
@@ -31034,24 +34084,41 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					return types.StringNull()
 																				}(),
 																				Stateful: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulModel {
+																					if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																						return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful
+																					}
 																					if StatefulData, ok := RouterData["stateful"].(map[string]interface{}); ok {
 																						return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulModel{
 																							AutomaticFromEnd: func() *VoltstackSiteEmptyModel {
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																									return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd
+																								}
 																								if _, ok := StatefulData["automatic_from_end"].(map[string]interface{}); ok {
 																									return &VoltstackSiteEmptyModel{}
 																								}
 																								return nil
 																							}(),
 																							AutomaticFromStart: func() *VoltstackSiteEmptyModel {
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																									return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart
+																								}
 																								if _, ok := StatefulData["automatic_from_start"].(map[string]interface{}); ok {
 																									return &VoltstackSiteEmptyModel{}
 																								}
 																								return nil
 																							}(),
 																							DHCPNetworks: func() types.List {
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil && (StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() || len(StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.Elements()) == 0) {
+																									return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
+																								}
+																								var DHCPNetworksExisting []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil && !StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+																									StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																								}
 																								if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 																									var DHCPNetworksResult []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
-																									for _, DHCPNetworksItem := range rawList {
+																									for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																										_ = DHCPNetworksIdx
 																										if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
 																											DHCPNetworksResult = append(DHCPNetworksResult, VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel{
 																												NetworkPrefix: func() types.String {
@@ -31101,15 +34168,24 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																							}(),
 																							FixedIPMap: func() *VoltstackSiteEmptyModel {
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																									return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap
+																								}
 																								if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
 																									return &VoltstackSiteEmptyModel{}
 																								}
 																								return nil
 																							}(),
 																							InterfaceIPMap: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
+																								if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+																									return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
+																								}
 																								if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																									return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
 																										InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																											if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+																												return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
+																											}
 																											if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
 																												return &VoltstackSiteEmptyModel{}
 																											}
@@ -31132,30 +34208,45 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return nil
 														}(),
 														IsPrimary: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.IsPrimary
+															}
 															if _, ok := StorageInterfaceData["is_primary"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Monitor: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Monitor
+															}
 															if _, ok := StorageInterfaceData["monitor"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														MonitorDisabled: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.MonitorDisabled
+															}
 															if _, ok := StorageInterfaceData["monitor_disabled"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														MTU: func() types.Int64 {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && !StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.MTU.IsUnknown() {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.MTU
+															}
 															if v, ok := StorageInterfaceData["mtu"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														NoIpv6Address: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.NoIpv6Address
+															}
 															if _, ok := StorageInterfaceData["no_ipv6_address"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -31168,36 +34259,57 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.StringNull()
 														}(),
 														NotPrimary: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.NotPrimary
+															}
 															if _, ok := StorageInterfaceData["not_primary"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Priority: func() types.Int64 {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && !StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Priority.IsUnknown() {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Priority
+															}
 															if v, ok := StorageInterfaceData["priority"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														SiteLocalInsideNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.SiteLocalInsideNetwork
+															}
 															if _, ok := StorageInterfaceData["site_local_inside_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														SiteLocalNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.SiteLocalNetwork
+															}
 															if _, ok := StorageInterfaceData["site_local_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														StaticIP: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP
+															}
 															if StaticIPData, ok := StorageInterfaceData["static_ip"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPModel{
 																	ClusterStaticIP: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPClusterStaticIPModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.ClusterStaticIP != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.ClusterStaticIP
+																		}
 																		if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPClusterStaticIPModel{
 																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.ClusterStaticIP != nil {
+																						return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
+																					}
 																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -31208,6 +34320,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return nil
 																	}(),
 																	NodeStaticIP: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPNodeStaticIPModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.NodeStaticIP != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.NodeStaticIP
+																		}
 																		if NodeStaticIPData, ok := StaticIPData["node_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPNodeStaticIPModel{
 																				DefaultGw: func() types.String {
@@ -31231,12 +34346,21 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return nil
 														}(),
 														StaticIpv6Address: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address
+															}
 															if StaticIpv6AddressData, ok := StorageInterfaceData["static_ipv6_address"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressModel{
 																	ClusterStaticIP: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressClusterStaticIPModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.ClusterStaticIP != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.ClusterStaticIP
+																		}
 																		if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressClusterStaticIPModel{
 																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.ClusterStaticIP != nil {
+																						return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
+																					}
 																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 																						return &VoltstackSiteEmptyModel{}
 																					}
@@ -31247,6 +34371,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		return nil
 																	}(),
 																	NodeStaticIP: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressNodeStaticIPModel {
+																		if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.NodeStaticIP != nil {
+																			return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.NodeStaticIP
+																		}
 																		if NodeStaticIPData, ok := StaticIpv6AddressData["node_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressNodeStaticIPModel{
 																				DefaultGw: func() types.String {
@@ -31270,18 +34397,27 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return nil
 														}(),
 														StorageNetwork: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StorageNetwork
+															}
 															if _, ok := StorageInterfaceData["storage_network"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Untagged: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.Untagged
+															}
 															if _, ok := StorageInterfaceData["untagged"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														VLANID: func() types.Int64 {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && !StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.VLANID.IsUnknown() {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.VLANID
+															}
 															if v, ok := StorageInterfaceData["vlan_id"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -31397,24 +34533,36 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &VoltstackSiteKubernetesUpgradeDrainEnableUpgradeDrainModel{
 						DisableVegaUpgradeMode: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
+							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
 							return nil
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
+							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						DrainNodeTimeout: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout
+							}
 							if v, ok := EnableUpgradeDrainData["drain_node_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						EnableVegaUpgradeMode: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
+							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
 								return &VoltstackSiteEmptyModel{}
 							}
@@ -31432,18 +34580,32 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				if BGPConfigData, ok := blockData["bgp_config"].(map[string]interface{}); ok {
 					return &VoltstackSiteLocalControlPlaneBGPConfigModel{
 						Asn: func() types.Int64 {
+							if !isImport && data.LocalControlPlane != nil && data.LocalControlPlane.BGPConfig != nil && !data.LocalControlPlane.BGPConfig.Asn.IsUnknown() {
+								return data.LocalControlPlane.BGPConfig.Asn
+							}
 							if v, ok := BGPConfigData["asn"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						Peers: func() types.List {
+							if !isImport && data.LocalControlPlane != nil && data.LocalControlPlane.BGPConfig != nil && (data.LocalControlPlane.BGPConfig.Peers.IsNull() || len(data.LocalControlPlane.BGPConfig.Peers.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersModelAttrTypes})
+							}
+							var PeersExisting []VoltstackSiteLocalControlPlaneBGPConfigPeersModel
+							if !isImport && data.LocalControlPlane != nil && data.LocalControlPlane.BGPConfig != nil && !data.LocalControlPlane.BGPConfig.Peers.IsNull() && !data.LocalControlPlane.BGPConfig.Peers.IsUnknown() {
+								data.LocalControlPlane.BGPConfig.Peers.ElementsAs(ctx, &PeersExisting, false)
+							}
 							if rawList, ok := BGPConfigData["peers"].([]interface{}); ok && len(rawList) > 0 {
 								var PeersResult []VoltstackSiteLocalControlPlaneBGPConfigPeersModel
-								for _, PeersItem := range rawList {
+								for PeersIdx, PeersItem := range rawList {
+									_ = PeersIdx
 									if PeersItemMap, ok := PeersItem.(map[string]interface{}); ok {
 										PeersResult = append(PeersResult, VoltstackSiteLocalControlPlaneBGPConfigPeersModel{
 											BfdDisabled: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].BfdDisabled != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := PeersItemMap["bfd_disabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -31453,18 +34615,27 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												if BfdEnabledData, ok := PeersItemMap["bfd_enabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteLocalControlPlaneBGPConfigPeersBfdEnabledModel{
 														Multiplier: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].BfdEnabled != nil && !PeersExisting[PeersIdx].BfdEnabled.Multiplier.IsUnknown() {
+																return PeersExisting[PeersIdx].BfdEnabled.Multiplier
+															}
 															if v, ok := BfdEnabledData["multiplier"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														ReceiveIntervalMilliseconds: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].BfdEnabled != nil && !PeersExisting[PeersIdx].BfdEnabled.ReceiveIntervalMilliseconds.IsUnknown() {
+																return PeersExisting[PeersIdx].BfdEnabled.ReceiveIntervalMilliseconds
+															}
 															if v, ok := BfdEnabledData["receive_interval_milliseconds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														TransmitIntervalMilliseconds: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].BfdEnabled != nil && !PeersExisting[PeersIdx].BfdEnabled.TransmitIntervalMilliseconds.IsUnknown() {
+																return PeersExisting[PeersIdx].BfdEnabled.TransmitIntervalMilliseconds
+															}
 															if v, ok := BfdEnabledData["transmit_interval_milliseconds"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -31475,6 +34646,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											DisableSpec: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].DisableSpec != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := PeersItemMap["disable"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -31496,51 +34670,78 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.StringNull()
 														}(),
 														Asn: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && !PeersExisting[PeersIdx].External.Asn.IsUnknown() {
+																return PeersExisting[PeersIdx].External.Asn
+															}
 															if v, ok := ExternalData["asn"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.DefaultGateway
+															}
 															if _, ok := ExternalData["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														DefaultGatewayV6: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.DefaultGatewayV6
+															}
 															if _, ok := ExternalData["default_gateway_v6"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														DisableSpec: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.DisableSpec
+															}
 															if _, ok := ExternalData["disable"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														DisableV6: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.DisableV6
+															}
 															if _, ok := ExternalData["disable_v6"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														ExternalConnector: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.ExternalConnector
+															}
 															if _, ok := ExternalData["external_connector"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														FamilyInet: func() *VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.FamilyInet != nil {
+																return PeersExisting[PeersIdx].External.FamilyInet
+															}
 															if FamilyInetData, ok := ExternalData["family_inet"].(map[string]interface{}); ok {
 																return &VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetModel{
 																	DisableSpec: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.FamilyInet != nil {
+																			return PeersExisting[PeersIdx].External.FamilyInet.DisableSpec
+																		}
 																		if _, ok := FamilyInetData["disable"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	Enable: func() *VoltstackSiteEmptyModel {
+																		if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.FamilyInet != nil {
+																			return PeersExisting[PeersIdx].External.FamilyInet.Enable
+																		}
 																		if _, ok := FamilyInetData["enable"].(map[string]interface{}); ok {
 																			return &VoltstackSiteEmptyModel{}
 																		}
@@ -31551,12 +34752,18 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return nil
 														}(),
 														FromSite: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.FromSite
+															}
 															if _, ok := ExternalData["from_site"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														FromSiteV6: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.FromSiteV6
+															}
 															if _, ok := ExternalData["from_site_v6"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
@@ -31591,9 +34798,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															if InterfaceListData, ok := ExternalData["interface_list"].(map[string]interface{}); ok {
 																return &VoltstackSiteLocalControlPlaneBGPConfigPeersExternalInterfaceListModel{
 																	Interfaces: func() types.List {
+																		if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.InterfaceList != nil && (PeersExisting[PeersIdx].External.InterfaceList.Interfaces.IsNull() || len(PeersExisting[PeersIdx].External.InterfaceList.Interfaces.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalInterfaceListInterfacesModelAttrTypes})
+																		}
+																		var InterfacesExisting []VoltstackSiteLocalControlPlaneBGPConfigPeersExternalInterfaceListInterfacesModel
+																		if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.InterfaceList != nil && !PeersExisting[PeersIdx].External.InterfaceList.Interfaces.IsNull() && !PeersExisting[PeersIdx].External.InterfaceList.Interfaces.IsUnknown() {
+																			PeersExisting[PeersIdx].External.InterfaceList.Interfaces.ElementsAs(ctx, &InterfacesExisting, false)
+																		}
 																		if rawList, ok := InterfaceListData["interfaces"].([]interface{}); ok && len(rawList) > 0 {
 																			var InterfacesResult []VoltstackSiteLocalControlPlaneBGPConfigPeersExternalInterfaceListInterfacesModel
-																			for _, InterfacesItem := range rawList {
+																			for InterfacesIdx, InterfacesItem := range rawList {
+																				_ = InterfacesIdx
 																				if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
 																					InterfacesResult = append(InterfacesResult, VoltstackSiteLocalControlPlaneBGPConfigPeersExternalInterfaceListInterfacesModel{
 																						Name: func() types.String {
@@ -31633,36 +34848,54 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.StringNull()
 														}(),
 														NoAuthentication: func() *VoltstackSiteEmptyModel {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil {
+																return PeersExisting[PeersIdx].External.NoAuthentication
+															}
 															if _, ok := ExternalData["no_authentication"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
 															}
 															return nil
 														}(),
 														Port: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && !PeersExisting[PeersIdx].External.Port.IsUnknown() {
+																return PeersExisting[PeersIdx].External.Port
+															}
 															if v, ok := ExternalData["port"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														SubnetBeginOffset: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && !PeersExisting[PeersIdx].External.SubnetBeginOffset.IsUnknown() {
+																return PeersExisting[PeersIdx].External.SubnetBeginOffset
+															}
 															if v, ok := ExternalData["subnet_begin_offset"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														SubnetBeginOffsetV6: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && !PeersExisting[PeersIdx].External.SubnetBeginOffsetV6.IsUnknown() {
+																return PeersExisting[PeersIdx].External.SubnetBeginOffsetV6
+															}
 															if v, ok := ExternalData["subnet_begin_offset_v6"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														SubnetEndOffset: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && !PeersExisting[PeersIdx].External.SubnetEndOffset.IsUnknown() {
+																return PeersExisting[PeersIdx].External.SubnetEndOffset
+															}
 															if v, ok := ExternalData["subnet_end_offset"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														SubnetEndOffsetV6: func() types.Int64 {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && !PeersExisting[PeersIdx].External.SubnetEndOffsetV6.IsUnknown() {
+																return PeersExisting[PeersIdx].External.SubnetEndOffsetV6
+															}
 															if v, ok := ExternalData["subnet_end_offset_v6"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -31698,12 +34931,18 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											PassiveModeDisabled: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].PassiveModeDisabled != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := PeersItemMap["passive_mode_disabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
 												return nil
 											}(),
 											PassiveModeEnabled: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].PassiveModeEnabled != nil {
+													return &VoltstackSiteEmptyModel{}
+												}
 												if _, ok := PeersItemMap["passive_mode_enabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
 												}
@@ -31713,18 +34952,32 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												if RoutingPoliciesData, ok := PeersItemMap["routing_policies"].(map[string]interface{}); ok {
 													return &VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesModel{
 														RoutePolicy: func() types.List {
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].RoutingPolicies != nil && (PeersExisting[PeersIdx].RoutingPolicies.RoutePolicy.IsNull() || len(PeersExisting[PeersIdx].RoutingPolicies.RoutePolicy.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyModelAttrTypes})
+															}
+															var RoutePolicyExisting []VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyModel
+															if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].RoutingPolicies != nil && !PeersExisting[PeersIdx].RoutingPolicies.RoutePolicy.IsNull() && !PeersExisting[PeersIdx].RoutingPolicies.RoutePolicy.IsUnknown() {
+																PeersExisting[PeersIdx].RoutingPolicies.RoutePolicy.ElementsAs(ctx, &RoutePolicyExisting, false)
+															}
 															if rawList, ok := RoutingPoliciesData["route_policy"].([]interface{}); ok && len(rawList) > 0 {
 																var RoutePolicyResult []VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyModel
-																for _, RoutePolicyItem := range rawList {
+																for RoutePolicyIdx, RoutePolicyItem := range rawList {
+																	_ = RoutePolicyIdx
 																	if RoutePolicyItemMap, ok := RoutePolicyItem.(map[string]interface{}); ok {
 																		RoutePolicyResult = append(RoutePolicyResult, VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyModel{
 																			AllNodes: func() *VoltstackSiteEmptyModel {
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].AllNodes != nil {
+																					return &VoltstackSiteEmptyModel{}
+																				}
 																				if _, ok := RoutePolicyItemMap["all_nodes"].(map[string]interface{}); ok {
 																					return &VoltstackSiteEmptyModel{}
 																				}
 																				return nil
 																			}(),
 																			Inbound: func() *VoltstackSiteEmptyModel {
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Inbound != nil {
+																					return &VoltstackSiteEmptyModel{}
+																				}
 																				if _, ok := RoutePolicyItemMap["inbound"].(map[string]interface{}); ok {
 																					return &VoltstackSiteEmptyModel{}
 																				}
@@ -31795,6 +35048,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																				return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyObjectRefsModelAttrTypes})
 																			}(),
 																			Outbound: func() *VoltstackSiteEmptyModel {
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Outbound != nil {
+																					return &VoltstackSiteEmptyModel{}
+																				}
 																				if _, ok := RoutePolicyItemMap["outbound"].(map[string]interface{}); ok {
 																					return &VoltstackSiteEmptyModel{}
 																				}
@@ -31925,9 +35181,14 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				if !isImport && data.SriovInterfaces != nil && (data.SriovInterfaces.SriovInterface.IsNull() || len(data.SriovInterfaces.SriovInterface.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteSriovInterfacesSriovInterfaceModelAttrTypes})
 				}
+				var SriovInterfaceExisting []VoltstackSiteSriovInterfacesSriovInterfaceModel
+				if !isImport && data.SriovInterfaces != nil && !data.SriovInterfaces.SriovInterface.IsNull() && !data.SriovInterfaces.SriovInterface.IsUnknown() {
+					data.SriovInterfaces.SriovInterface.ElementsAs(ctx, &SriovInterfaceExisting, false)
+				}
 				if rawList, ok := blockData["sriov_interface"].([]interface{}); ok && len(rawList) > 0 {
 					var SriovInterfaceResult []VoltstackSiteSriovInterfacesSriovInterfaceModel
-					for _, SriovInterfaceItem := range rawList {
+					for SriovInterfaceIdx, SriovInterfaceItem := range rawList {
+						_ = SriovInterfaceIdx
 						if SriovInterfaceItemMap, ok := SriovInterfaceItem.(map[string]interface{}); ok {
 							SriovInterfaceResult = append(SriovInterfaceResult, VoltstackSiteSriovInterfacesSriovInterfaceModel{
 								InterfaceName: func() types.String {

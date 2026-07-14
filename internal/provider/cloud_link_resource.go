@@ -931,15 +931,26 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 				if ByocData, ok := blockData["byoc"].(map[string]interface{}); ok {
 					return &CloudLinkAWSByocModel{
 						Connections: func() types.List {
+							if !isImport && data.AWS != nil && data.AWS.Byoc != nil && (data.AWS.Byoc.Connections.IsNull() || len(data.AWS.Byoc.Connections.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CloudLinkAWSByocConnectionsModelAttrTypes})
+							}
+							var ConnectionsExisting []CloudLinkAWSByocConnectionsModel
+							if !isImport && data.AWS != nil && data.AWS.Byoc != nil && !data.AWS.Byoc.Connections.IsNull() && !data.AWS.Byoc.Connections.IsUnknown() {
+								data.AWS.Byoc.Connections.ElementsAs(ctx, &ConnectionsExisting, false)
+							}
 							if rawList, ok := ByocData["connections"].([]interface{}); ok && len(rawList) > 0 {
 								var ConnectionsResult []CloudLinkAWSByocConnectionsModel
-								for _, ConnectionsItem := range rawList {
+								for ConnectionsIdx, ConnectionsItem := range rawList {
+									_ = ConnectionsIdx
 									if ConnectionsItemMap, ok := ConnectionsItem.(map[string]interface{}); ok {
 										ConnectionsResult = append(ConnectionsResult, CloudLinkAWSByocConnectionsModel{
 											AuthKey: func() *CloudLinkAWSByocConnectionsAuthKeyModel {
 												if AuthKeyData, ok := ConnectionsItemMap["auth_key"].(map[string]interface{}); ok {
 													return &CloudLinkAWSByocConnectionsAuthKeyModel{
 														BlindfoldSecretInfo: func() *CloudLinkAWSByocConnectionsAuthKeyBlindfoldSecretInfoModel {
+															if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].AuthKey != nil && ConnectionsExisting[ConnectionsIdx].AuthKey.BlindfoldSecretInfo != nil {
+																return ConnectionsExisting[ConnectionsIdx].AuthKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := AuthKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &CloudLinkAWSByocConnectionsAuthKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -965,6 +976,9 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 															return nil
 														}(),
 														ClearSecretInfo: func() *CloudLinkAWSByocConnectionsAuthKeyClearSecretInfoModel {
+															if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].AuthKey != nil && ConnectionsExisting[ConnectionsIdx].AuthKey.ClearSecretInfo != nil {
+																return ConnectionsExisting[ConnectionsIdx].AuthKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := AuthKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &CloudLinkAWSByocConnectionsAuthKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -1044,12 +1058,18 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 												return types.StringNull()
 											}(),
 											SystemGeneratedName: func() *CloudLinkEmptyModel {
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].SystemGeneratedName != nil {
+													return &CloudLinkEmptyModel{}
+												}
 												if _, ok := ConnectionsItemMap["system_generated_name"].(map[string]interface{}); ok {
 													return &CloudLinkEmptyModel{}
 												}
 												return nil
 											}(),
 											Tags: func() *CloudLinkEmptyModel {
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].Tags != nil {
+													return &CloudLinkEmptyModel{}
+												}
 												if _, ok := ConnectionsItemMap["tags"].(map[string]interface{}); ok {
 													return &CloudLinkEmptyModel{}
 												}
@@ -1118,9 +1138,17 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 				if ByocData, ok := blockData["byoc"].(map[string]interface{}); ok {
 					return &CloudLinkGCPByocModel{
 						Connections: func() types.List {
+							if !isImport && data.GCP != nil && data.GCP.Byoc != nil && (data.GCP.Byoc.Connections.IsNull() || len(data.GCP.Byoc.Connections.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CloudLinkGCPByocConnectionsModelAttrTypes})
+							}
+							var ConnectionsExisting []CloudLinkGCPByocConnectionsModel
+							if !isImport && data.GCP != nil && data.GCP.Byoc != nil && !data.GCP.Byoc.Connections.IsNull() && !data.GCP.Byoc.Connections.IsUnknown() {
+								data.GCP.Byoc.Connections.ElementsAs(ctx, &ConnectionsExisting, false)
+							}
 							if rawList, ok := ByocData["connections"].([]interface{}); ok && len(rawList) > 0 {
 								var ConnectionsResult []CloudLinkGCPByocConnectionsModel
-								for _, ConnectionsItem := range rawList {
+								for ConnectionsIdx, ConnectionsItem := range rawList {
+									_ = ConnectionsIdx
 									if ConnectionsItemMap, ok := ConnectionsItem.(map[string]interface{}); ok {
 										ConnectionsResult = append(ConnectionsResult, CloudLinkGCPByocConnectionsModel{
 											InterconnectAttachmentName: func() types.String {
@@ -1161,6 +1189,9 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 												return types.StringNull()
 											}(),
 											SameAsCredential: func() *CloudLinkEmptyModel {
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].SameAsCredential != nil {
+													return &CloudLinkEmptyModel{}
+												}
 												if _, ok := ConnectionsItemMap["same_as_credential"].(map[string]interface{}); ok {
 													return &CloudLinkEmptyModel{}
 												}
@@ -1332,15 +1363,26 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 				if ByocData, ok := blockData["byoc"].(map[string]interface{}); ok {
 					return &CloudLinkAWSByocModel{
 						Connections: func() types.List {
+							if !isImport && data.AWS != nil && data.AWS.Byoc != nil && (data.AWS.Byoc.Connections.IsNull() || len(data.AWS.Byoc.Connections.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CloudLinkAWSByocConnectionsModelAttrTypes})
+							}
+							var ConnectionsExisting []CloudLinkAWSByocConnectionsModel
+							if !isImport && data.AWS != nil && data.AWS.Byoc != nil && !data.AWS.Byoc.Connections.IsNull() && !data.AWS.Byoc.Connections.IsUnknown() {
+								data.AWS.Byoc.Connections.ElementsAs(ctx, &ConnectionsExisting, false)
+							}
 							if rawList, ok := ByocData["connections"].([]interface{}); ok && len(rawList) > 0 {
 								var ConnectionsResult []CloudLinkAWSByocConnectionsModel
-								for _, ConnectionsItem := range rawList {
+								for ConnectionsIdx, ConnectionsItem := range rawList {
+									_ = ConnectionsIdx
 									if ConnectionsItemMap, ok := ConnectionsItem.(map[string]interface{}); ok {
 										ConnectionsResult = append(ConnectionsResult, CloudLinkAWSByocConnectionsModel{
 											AuthKey: func() *CloudLinkAWSByocConnectionsAuthKeyModel {
 												if AuthKeyData, ok := ConnectionsItemMap["auth_key"].(map[string]interface{}); ok {
 													return &CloudLinkAWSByocConnectionsAuthKeyModel{
 														BlindfoldSecretInfo: func() *CloudLinkAWSByocConnectionsAuthKeyBlindfoldSecretInfoModel {
+															if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].AuthKey != nil && ConnectionsExisting[ConnectionsIdx].AuthKey.BlindfoldSecretInfo != nil {
+																return ConnectionsExisting[ConnectionsIdx].AuthKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := AuthKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &CloudLinkAWSByocConnectionsAuthKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -1366,6 +1408,9 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 															return nil
 														}(),
 														ClearSecretInfo: func() *CloudLinkAWSByocConnectionsAuthKeyClearSecretInfoModel {
+															if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].AuthKey != nil && ConnectionsExisting[ConnectionsIdx].AuthKey.ClearSecretInfo != nil {
+																return ConnectionsExisting[ConnectionsIdx].AuthKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := AuthKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &CloudLinkAWSByocConnectionsAuthKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -1445,12 +1490,18 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 												return types.StringNull()
 											}(),
 											SystemGeneratedName: func() *CloudLinkEmptyModel {
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].SystemGeneratedName != nil {
+													return &CloudLinkEmptyModel{}
+												}
 												if _, ok := ConnectionsItemMap["system_generated_name"].(map[string]interface{}); ok {
 													return &CloudLinkEmptyModel{}
 												}
 												return nil
 											}(),
 											Tags: func() *CloudLinkEmptyModel {
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].Tags != nil {
+													return &CloudLinkEmptyModel{}
+												}
 												if _, ok := ConnectionsItemMap["tags"].(map[string]interface{}); ok {
 													return &CloudLinkEmptyModel{}
 												}
@@ -1519,9 +1570,17 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 				if ByocData, ok := blockData["byoc"].(map[string]interface{}); ok {
 					return &CloudLinkGCPByocModel{
 						Connections: func() types.List {
+							if !isImport && data.GCP != nil && data.GCP.Byoc != nil && (data.GCP.Byoc.Connections.IsNull() || len(data.GCP.Byoc.Connections.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CloudLinkGCPByocConnectionsModelAttrTypes})
+							}
+							var ConnectionsExisting []CloudLinkGCPByocConnectionsModel
+							if !isImport && data.GCP != nil && data.GCP.Byoc != nil && !data.GCP.Byoc.Connections.IsNull() && !data.GCP.Byoc.Connections.IsUnknown() {
+								data.GCP.Byoc.Connections.ElementsAs(ctx, &ConnectionsExisting, false)
+							}
 							if rawList, ok := ByocData["connections"].([]interface{}); ok && len(rawList) > 0 {
 								var ConnectionsResult []CloudLinkGCPByocConnectionsModel
-								for _, ConnectionsItem := range rawList {
+								for ConnectionsIdx, ConnectionsItem := range rawList {
+									_ = ConnectionsIdx
 									if ConnectionsItemMap, ok := ConnectionsItem.(map[string]interface{}); ok {
 										ConnectionsResult = append(ConnectionsResult, CloudLinkGCPByocConnectionsModel{
 											InterconnectAttachmentName: func() types.String {
@@ -1562,6 +1621,9 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 												return types.StringNull()
 											}(),
 											SameAsCredential: func() *CloudLinkEmptyModel {
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].SameAsCredential != nil {
+													return &CloudLinkEmptyModel{}
+												}
 												if _, ok := ConnectionsItemMap["same_as_credential"].(map[string]interface{}); ok {
 													return &CloudLinkEmptyModel{}
 												}
@@ -1897,15 +1959,26 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 				if ByocData, ok := blockData["byoc"].(map[string]interface{}); ok {
 					return &CloudLinkAWSByocModel{
 						Connections: func() types.List {
+							if !isImport && data.AWS != nil && data.AWS.Byoc != nil && (data.AWS.Byoc.Connections.IsNull() || len(data.AWS.Byoc.Connections.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CloudLinkAWSByocConnectionsModelAttrTypes})
+							}
+							var ConnectionsExisting []CloudLinkAWSByocConnectionsModel
+							if !isImport && data.AWS != nil && data.AWS.Byoc != nil && !data.AWS.Byoc.Connections.IsNull() && !data.AWS.Byoc.Connections.IsUnknown() {
+								data.AWS.Byoc.Connections.ElementsAs(ctx, &ConnectionsExisting, false)
+							}
 							if rawList, ok := ByocData["connections"].([]interface{}); ok && len(rawList) > 0 {
 								var ConnectionsResult []CloudLinkAWSByocConnectionsModel
-								for _, ConnectionsItem := range rawList {
+								for ConnectionsIdx, ConnectionsItem := range rawList {
+									_ = ConnectionsIdx
 									if ConnectionsItemMap, ok := ConnectionsItem.(map[string]interface{}); ok {
 										ConnectionsResult = append(ConnectionsResult, CloudLinkAWSByocConnectionsModel{
 											AuthKey: func() *CloudLinkAWSByocConnectionsAuthKeyModel {
 												if AuthKeyData, ok := ConnectionsItemMap["auth_key"].(map[string]interface{}); ok {
 													return &CloudLinkAWSByocConnectionsAuthKeyModel{
 														BlindfoldSecretInfo: func() *CloudLinkAWSByocConnectionsAuthKeyBlindfoldSecretInfoModel {
+															if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].AuthKey != nil && ConnectionsExisting[ConnectionsIdx].AuthKey.BlindfoldSecretInfo != nil {
+																return ConnectionsExisting[ConnectionsIdx].AuthKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := AuthKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &CloudLinkAWSByocConnectionsAuthKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -1931,6 +2004,9 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 															return nil
 														}(),
 														ClearSecretInfo: func() *CloudLinkAWSByocConnectionsAuthKeyClearSecretInfoModel {
+															if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].AuthKey != nil && ConnectionsExisting[ConnectionsIdx].AuthKey.ClearSecretInfo != nil {
+																return ConnectionsExisting[ConnectionsIdx].AuthKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := AuthKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &CloudLinkAWSByocConnectionsAuthKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -2010,12 +2086,18 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 												return types.StringNull()
 											}(),
 											SystemGeneratedName: func() *CloudLinkEmptyModel {
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].SystemGeneratedName != nil {
+													return &CloudLinkEmptyModel{}
+												}
 												if _, ok := ConnectionsItemMap["system_generated_name"].(map[string]interface{}); ok {
 													return &CloudLinkEmptyModel{}
 												}
 												return nil
 											}(),
 											Tags: func() *CloudLinkEmptyModel {
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].Tags != nil {
+													return &CloudLinkEmptyModel{}
+												}
 												if _, ok := ConnectionsItemMap["tags"].(map[string]interface{}); ok {
 													return &CloudLinkEmptyModel{}
 												}
@@ -2084,9 +2166,17 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 				if ByocData, ok := blockData["byoc"].(map[string]interface{}); ok {
 					return &CloudLinkGCPByocModel{
 						Connections: func() types.List {
+							if !isImport && data.GCP != nil && data.GCP.Byoc != nil && (data.GCP.Byoc.Connections.IsNull() || len(data.GCP.Byoc.Connections.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: CloudLinkGCPByocConnectionsModelAttrTypes})
+							}
+							var ConnectionsExisting []CloudLinkGCPByocConnectionsModel
+							if !isImport && data.GCP != nil && data.GCP.Byoc != nil && !data.GCP.Byoc.Connections.IsNull() && !data.GCP.Byoc.Connections.IsUnknown() {
+								data.GCP.Byoc.Connections.ElementsAs(ctx, &ConnectionsExisting, false)
+							}
 							if rawList, ok := ByocData["connections"].([]interface{}); ok && len(rawList) > 0 {
 								var ConnectionsResult []CloudLinkGCPByocConnectionsModel
-								for _, ConnectionsItem := range rawList {
+								for ConnectionsIdx, ConnectionsItem := range rawList {
+									_ = ConnectionsIdx
 									if ConnectionsItemMap, ok := ConnectionsItem.(map[string]interface{}); ok {
 										ConnectionsResult = append(ConnectionsResult, CloudLinkGCPByocConnectionsModel{
 											InterconnectAttachmentName: func() types.String {
@@ -2127,6 +2217,9 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 												return types.StringNull()
 											}(),
 											SameAsCredential: func() *CloudLinkEmptyModel {
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].SameAsCredential != nil {
+													return &CloudLinkEmptyModel{}
+												}
 												if _, ok := ConnectionsItemMap["same_as_credential"].(map[string]interface{}); ok {
 													return &CloudLinkEmptyModel{}
 												}

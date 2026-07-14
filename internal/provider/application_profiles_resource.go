@@ -3607,12 +3607,18 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				if AddressTranslationData, ok := blockData["address_translation"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerAddressTranslationModel{
 						AddressTranslationDisable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil {
+								return data.VirtualServer.AddressTranslation.AddressTranslationDisable
+							}
 							if _, ok := AddressTranslationData["address_translation_disable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						AddressTranslationEnable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil {
+								return data.VirtualServer.AddressTranslation.AddressTranslationEnable
+							}
 							if _, ok := AddressTranslationData["address_translation_enable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
@@ -3629,18 +3635,27 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				if AutoLastHopData, ok := blockData["auto_last_hop"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerAutoLastHopModel{
 						AutoLastHopDefault: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil {
+								return data.VirtualServer.AutoLastHop.AutoLastHopDefault
+							}
 							if _, ok := AutoLastHopData["auto_last_hop_default"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						AutoLastHopDisable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil {
+								return data.VirtualServer.AutoLastHop.AutoLastHopDisable
+							}
 							if _, ok := AutoLastHopData["auto_last_hop_disable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						AutoLastHopEnable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil {
+								return data.VirtualServer.AutoLastHop.AutoLastHopEnable
+							}
 							if _, ok := AutoLastHopData["auto_last_hop_enable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
@@ -3654,9 +3669,14 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.ClonePoolClient.IsNull() || len(data.VirtualServer.ClonePoolClient.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolClientModelAttrTypes})
 				}
+				var ClonePoolClientExisting []ApplicationProfilesVirtualServerClonePoolClientModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.ClonePoolClient.IsNull() && !data.VirtualServer.ClonePoolClient.IsUnknown() {
+					data.VirtualServer.ClonePoolClient.ElementsAs(ctx, &ClonePoolClientExisting, false)
+				}
 				if rawList, ok := blockData["clone_pool_client"].([]interface{}); ok && len(rawList) > 0 {
 					var ClonePoolClientResult []ApplicationProfilesVirtualServerClonePoolClientModel
-					for _, ClonePoolClientItem := range rawList {
+					for ClonePoolClientIdx, ClonePoolClientItem := range rawList {
+						_ = ClonePoolClientIdx
 						if ClonePoolClientItemMap, ok := ClonePoolClientItem.(map[string]interface{}); ok {
 							ClonePoolClientResult = append(ClonePoolClientResult, ApplicationProfilesVirtualServerClonePoolClientModel{
 								Kind: func() types.String {
@@ -3701,9 +3721,14 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.ClonePoolServer.IsNull() || len(data.VirtualServer.ClonePoolServer.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolServerModelAttrTypes})
 				}
+				var ClonePoolServerExisting []ApplicationProfilesVirtualServerClonePoolServerModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.ClonePoolServer.IsNull() && !data.VirtualServer.ClonePoolServer.IsUnknown() {
+					data.VirtualServer.ClonePoolServer.ElementsAs(ctx, &ClonePoolServerExisting, false)
+				}
 				if rawList, ok := blockData["clone_pool_server"].([]interface{}); ok && len(rawList) > 0 {
 					var ClonePoolServerResult []ApplicationProfilesVirtualServerClonePoolServerModel
-					for _, ClonePoolServerItem := range rawList {
+					for ClonePoolServerIdx, ClonePoolServerItem := range rawList {
+						_ = ClonePoolServerIdx
 						if ClonePoolServerItemMap, ok := ClonePoolServerItem.(map[string]interface{}); ok {
 							ClonePoolServerResult = append(ClonePoolServerResult, ApplicationProfilesVirtualServerClonePoolServerModel{
 								Kind: func() types.String {
@@ -3769,9 +3794,15 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				if ConnectionRateLimitModeData, ok := blockData["connection_rate_limit_mode"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerConnectionRateLimitModeModel{
 						PerDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerDestinationAddressModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress != nil {
+								return data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress
+							}
 							if PerDestinationAddressData, ok := ConnectionRateLimitModeData["per_destination_address"].(map[string]interface{}); ok {
 								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerDestinationAddressModel{
 									DestinationMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress.DestinationMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress.DestinationMask
+										}
 										if v, ok := PerDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -3782,9 +3813,15 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							return nil
 						}(),
 						PerSourceAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceAddressModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress != nil {
+								return data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress
+							}
 							if PerSourceAddressData, ok := ConnectionRateLimitModeData["per_source_address"].(map[string]interface{}); ok {
 								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceAddressModel{
 									SourceMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress.SourceMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress.SourceMask
+										}
 										if v, ok := PerSourceAddressData["source_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -3795,15 +3832,24 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							return nil
 						}(),
 						PerSourceDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceDestinationAddressModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress != nil {
+								return data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress
+							}
 							if PerSourceDestinationAddressData, ok := ConnectionRateLimitModeData["per_source_destination_address"].(map[string]interface{}); ok {
 								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceDestinationAddressModel{
 									DestinationMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.DestinationMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.DestinationMask
+										}
 										if v, ok := PerSourceDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									SourceMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.SourceMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.SourceMask
+										}
 										if v, ok := PerSourceDestinationAddressData["source_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -3814,15 +3860,24 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							return nil
 						}(),
 						PerVirtualServer: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil {
+								return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServer
+							}
 							if _, ok := ConnectionRateLimitModeData["per_virtual_server"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						PerVirtualServerDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress != nil {
+								return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress
+							}
 							if PerVirtualServerDestinationAddressData, ok := ConnectionRateLimitModeData["per_virtual_server_destination_address"].(map[string]interface{}); ok {
 								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressModel{
 									DestinationMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress.DestinationMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress.DestinationMask
+										}
 										if v, ok := PerVirtualServerDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -3833,9 +3888,15 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							return nil
 						}(),
 						PerVirtualServerSourceAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceAddressModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress != nil {
+								return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress
+							}
 							if PerVirtualServerSourceAddressData, ok := ConnectionRateLimitModeData["per_virtual_server_source_address"].(map[string]interface{}); ok {
 								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceAddressModel{
 									SourceMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress.SourceMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress.SourceMask
+										}
 										if v, ok := PerVirtualServerSourceAddressData["source_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -3846,15 +3907,24 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							return nil
 						}(),
 						PerVirtualServerSourceDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress != nil {
+								return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress
+							}
 							if PerVirtualServerSourceDestinationAddressData, ok := ConnectionRateLimitModeData["per_virtual_server_source_destination_address"].(map[string]interface{}); ok {
 								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressModel{
 									DestinationMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.DestinationMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.DestinationMask
+										}
 										if v, ok := PerVirtualServerSourceDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									SourceMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.SourceMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.SourceMask
+										}
 										if v, ok := PerVirtualServerSourceDestinationAddressData["source_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -3872,9 +3942,14 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.DefaultPersistenceProfile.IsNull() || len(data.VirtualServer.DefaultPersistenceProfile.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPersistenceProfileModelAttrTypes})
 				}
+				var DefaultPersistenceProfileExisting []ApplicationProfilesVirtualServerDefaultPersistenceProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.DefaultPersistenceProfile.IsNull() && !data.VirtualServer.DefaultPersistenceProfile.IsUnknown() {
+					data.VirtualServer.DefaultPersistenceProfile.ElementsAs(ctx, &DefaultPersistenceProfileExisting, false)
+				}
 				if rawList, ok := blockData["default_persistence_profile"].([]interface{}); ok && len(rawList) > 0 {
 					var DefaultPersistenceProfileResult []ApplicationProfilesVirtualServerDefaultPersistenceProfileModel
-					for _, DefaultPersistenceProfileItem := range rawList {
+					for DefaultPersistenceProfileIdx, DefaultPersistenceProfileItem := range rawList {
+						_ = DefaultPersistenceProfileIdx
 						if DefaultPersistenceProfileItemMap, ok := DefaultPersistenceProfileItem.(map[string]interface{}); ok {
 							DefaultPersistenceProfileResult = append(DefaultPersistenceProfileResult, ApplicationProfilesVirtualServerDefaultPersistenceProfileModel{
 								Kind: func() types.String {
@@ -3919,9 +3994,14 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.DefaultPool.IsNull() || len(data.VirtualServer.DefaultPool.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPoolModelAttrTypes})
 				}
+				var DefaultPoolExisting []ApplicationProfilesVirtualServerDefaultPoolModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.DefaultPool.IsNull() && !data.VirtualServer.DefaultPool.IsUnknown() {
+					data.VirtualServer.DefaultPool.ElementsAs(ctx, &DefaultPoolExisting, false)
+				}
 				if rawList, ok := blockData["default_pool"].([]interface{}); ok && len(rawList) > 0 {
 					var DefaultPoolResult []ApplicationProfilesVirtualServerDefaultPoolModel
-					for _, DefaultPoolItem := range rawList {
+					for DefaultPoolIdx, DefaultPoolItem := range rawList {
+						_ = DefaultPoolIdx
 						if DefaultPoolItemMap, ok := DefaultPoolItem.(map[string]interface{}); ok {
 							DefaultPoolResult = append(DefaultPoolResult, ApplicationProfilesVirtualServerDefaultPoolModel{
 								Kind: func() types.String {
@@ -3966,9 +4046,14 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.FallbackPersistenceProfile.IsNull() || len(data.VirtualServer.FallbackPersistenceProfile.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFallbackPersistenceProfileModelAttrTypes})
 				}
+				var FallbackPersistenceProfileExisting []ApplicationProfilesVirtualServerFallbackPersistenceProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.FallbackPersistenceProfile.IsNull() && !data.VirtualServer.FallbackPersistenceProfile.IsUnknown() {
+					data.VirtualServer.FallbackPersistenceProfile.ElementsAs(ctx, &FallbackPersistenceProfileExisting, false)
+				}
 				if rawList, ok := blockData["fallback_persistence_profile"].([]interface{}); ok && len(rawList) > 0 {
 					var FallbackPersistenceProfileResult []ApplicationProfilesVirtualServerFallbackPersistenceProfileModel
-					for _, FallbackPersistenceProfileItem := range rawList {
+					for FallbackPersistenceProfileIdx, FallbackPersistenceProfileItem := range rawList {
+						_ = FallbackPersistenceProfileIdx
 						if FallbackPersistenceProfileItemMap, ok := FallbackPersistenceProfileItem.(map[string]interface{}); ok {
 							FallbackPersistenceProfileResult = append(FallbackPersistenceProfileResult, ApplicationProfilesVirtualServerFallbackPersistenceProfileModel{
 								Kind: func() types.String {
@@ -4013,9 +4098,14 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.FixProfile.IsNull() || len(data.VirtualServer.FixProfile.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFixProfileModelAttrTypes})
 				}
+				var FixProfileExisting []ApplicationProfilesVirtualServerFixProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.FixProfile.IsNull() && !data.VirtualServer.FixProfile.IsUnknown() {
+					data.VirtualServer.FixProfile.ElementsAs(ctx, &FixProfileExisting, false)
+				}
 				if rawList, ok := blockData["fix_profile"].([]interface{}); ok && len(rawList) > 0 {
 					var FixProfileResult []ApplicationProfilesVirtualServerFixProfileModel
-					for _, FixProfileItem := range rawList {
+					for FixProfileIdx, FixProfileItem := range rawList {
+						_ = FixProfileIdx
 						if FixProfileItemMap, ok := FixProfileItem.(map[string]interface{}); ok {
 							FixProfileResult = append(FixProfileResult, ApplicationProfilesVirtualServerFixProfileModel{
 								Kind: func() types.String {
@@ -4060,9 +4150,17 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				if HTTPData, ok := blockData["http"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerHTTPModel{
 						HTTPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.HTTPClientProfile.IsNull() || len(data.VirtualServer.HTTP.HTTPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPClientProfileModelAttrTypes})
+							}
+							var HTTPClientProfileExisting []ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.HTTPClientProfile.IsNull() && !data.VirtualServer.HTTP.HTTPClientProfile.IsUnknown() {
+								data.VirtualServer.HTTP.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileExisting, false)
+							}
 							if rawList, ok := HTTPData["http_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var HTTPClientProfileResult []ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel
-								for _, HTTPClientProfileItem := range rawList {
+								for HTTPClientProfileIdx, HTTPClientProfileItem := range rawList {
+									_ = HTTPClientProfileIdx
 									if HTTPClientProfileItemMap, ok := HTTPClientProfileItem.(map[string]interface{}); ok {
 										HTTPClientProfileResult = append(HTTPClientProfileResult, ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel{
 											Kind: func() types.String {
@@ -4104,9 +4202,17 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPClientProfileModelAttrTypes})
 						}(),
 						HTTPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.HTTPServerProfile.IsNull() || len(data.VirtualServer.HTTP.HTTPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPServerProfileModelAttrTypes})
+							}
+							var HTTPServerProfileExisting []ApplicationProfilesVirtualServerHTTPHTTPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.HTTPServerProfile.IsNull() && !data.VirtualServer.HTTP.HTTPServerProfile.IsUnknown() {
+								data.VirtualServer.HTTP.HTTPServerProfile.ElementsAs(ctx, &HTTPServerProfileExisting, false)
+							}
 							if rawList, ok := HTTPData["http_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var HTTPServerProfileResult []ApplicationProfilesVirtualServerHTTPHTTPServerProfileModel
-								for _, HTTPServerProfileItem := range rawList {
+								for HTTPServerProfileIdx, HTTPServerProfileItem := range rawList {
+									_ = HTTPServerProfileIdx
 									if HTTPServerProfileItemMap, ok := HTTPServerProfileItem.(map[string]interface{}); ok {
 										HTTPServerProfileResult = append(HTTPServerProfileResult, ApplicationProfilesVirtualServerHTTPHTTPServerProfileModel{
 											Kind: func() types.String {
@@ -4148,9 +4254,17 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPServerProfileModelAttrTypes})
 						}(),
 						StreamProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.StreamProfile.IsNull() || len(data.VirtualServer.HTTP.StreamProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPStreamProfileModelAttrTypes})
+							}
+							var StreamProfileExisting []ApplicationProfilesVirtualServerHTTPStreamProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.StreamProfile.IsNull() && !data.VirtualServer.HTTP.StreamProfile.IsUnknown() {
+								data.VirtualServer.HTTP.StreamProfile.ElementsAs(ctx, &StreamProfileExisting, false)
+							}
 							if rawList, ok := HTTPData["stream_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var StreamProfileResult []ApplicationProfilesVirtualServerHTTPStreamProfileModel
-								for _, StreamProfileItem := range rawList {
+								for StreamProfileIdx, StreamProfileItem := range rawList {
+									_ = StreamProfileIdx
 									if StreamProfileItemMap, ok := StreamProfileItem.(map[string]interface{}); ok {
 										StreamProfileResult = append(StreamProfileResult, ApplicationProfilesVirtualServerHTTPStreamProfileModel{
 											Kind: func() types.String {
@@ -4192,9 +4306,17 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPStreamProfileModelAttrTypes})
 						}(),
 						TCPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.TCPClientProfile.IsNull() || len(data.VirtualServer.HTTP.TCPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPClientProfileModelAttrTypes})
+							}
+							var TCPClientProfileExisting []ApplicationProfilesVirtualServerHTTPTCPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.TCPClientProfile.IsNull() && !data.VirtualServer.HTTP.TCPClientProfile.IsUnknown() {
+								data.VirtualServer.HTTP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileExisting, false)
+							}
 							if rawList, ok := HTTPData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPClientProfileResult []ApplicationProfilesVirtualServerHTTPTCPClientProfileModel
-								for _, TCPClientProfileItem := range rawList {
+								for TCPClientProfileIdx, TCPClientProfileItem := range rawList {
+									_ = TCPClientProfileIdx
 									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
 										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerHTTPTCPClientProfileModel{
 											Kind: func() types.String {
@@ -4236,9 +4358,17 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPClientProfileModelAttrTypes})
 						}(),
 						TCPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.TCPServerProfile.IsNull() || len(data.VirtualServer.HTTP.TCPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPServerProfileModelAttrTypes})
+							}
+							var TCPServerProfileExisting []ApplicationProfilesVirtualServerHTTPTCPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.TCPServerProfile.IsNull() && !data.VirtualServer.HTTP.TCPServerProfile.IsUnknown() {
+								data.VirtualServer.HTTP.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileExisting, false)
+							}
 							if rawList, ok := HTTPData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPServerProfileResult []ApplicationProfilesVirtualServerHTTPTCPServerProfileModel
-								for _, TCPServerProfileItem := range rawList {
+								for TCPServerProfileIdx, TCPServerProfileItem := range rawList {
+									_ = TCPServerProfileIdx
 									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
 										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerHTTPTCPServerProfileModel{
 											Kind: func() types.String {
@@ -4280,9 +4410,17 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPServerProfileModelAttrTypes})
 						}(),
 						WebSocketClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.WebSocketClientProfile.IsNull() || len(data.VirtualServer.HTTP.WebSocketClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModelAttrTypes})
+							}
+							var WebSocketClientProfileExisting []ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.WebSocketClientProfile.IsNull() && !data.VirtualServer.HTTP.WebSocketClientProfile.IsUnknown() {
+								data.VirtualServer.HTTP.WebSocketClientProfile.ElementsAs(ctx, &WebSocketClientProfileExisting, false)
+							}
 							if rawList, ok := HTTPData["websocket_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var WebSocketClientProfileResult []ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModel
-								for _, WebSocketClientProfileItem := range rawList {
+								for WebSocketClientProfileIdx, WebSocketClientProfileItem := range rawList {
+									_ = WebSocketClientProfileIdx
 									if WebSocketClientProfileItemMap, ok := WebSocketClientProfileItem.(map[string]interface{}); ok {
 										WebSocketClientProfileResult = append(WebSocketClientProfileResult, ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModel{
 											Kind: func() types.String {
@@ -4324,9 +4462,17 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModelAttrTypes})
 						}(),
 						WebSocketServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.WebSocketServerProfile.IsNull() || len(data.VirtualServer.HTTP.WebSocketServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModelAttrTypes})
+							}
+							var WebSocketServerProfileExisting []ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.WebSocketServerProfile.IsNull() && !data.VirtualServer.HTTP.WebSocketServerProfile.IsUnknown() {
+								data.VirtualServer.HTTP.WebSocketServerProfile.ElementsAs(ctx, &WebSocketServerProfileExisting, false)
+							}
 							if rawList, ok := HTTPData["websocket_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var WebSocketServerProfileResult []ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModel
-								for _, WebSocketServerProfileItem := range rawList {
+								for WebSocketServerProfileIdx, WebSocketServerProfileItem := range rawList {
+									_ = WebSocketServerProfileIdx
 									if WebSocketServerProfileItemMap, ok := WebSocketServerProfileItem.(map[string]interface{}); ok {
 										WebSocketServerProfileResult = append(WebSocketServerProfileResult, ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModel{
 											Kind: func() types.String {
@@ -4375,9 +4521,17 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				if HTTPSData, ok := blockData["https"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerHTTPSModel{
 						HTTPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.HTTPClientProfile.IsNull() || len(data.VirtualServer.HTTPS.HTTPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModelAttrTypes})
+							}
+							var HTTPClientProfileExisting []ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.HTTPClientProfile.IsNull() && !data.VirtualServer.HTTPS.HTTPClientProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileExisting, false)
+							}
 							if rawList, ok := HTTPSData["http_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var HTTPClientProfileResult []ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel
-								for _, HTTPClientProfileItem := range rawList {
+								for HTTPClientProfileIdx, HTTPClientProfileItem := range rawList {
+									_ = HTTPClientProfileIdx
 									if HTTPClientProfileItemMap, ok := HTTPClientProfileItem.(map[string]interface{}); ok {
 										HTTPClientProfileResult = append(HTTPClientProfileResult, ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel{
 											Kind: func() types.String {
@@ -4419,9 +4573,17 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModelAttrTypes})
 						}(),
 						HTTPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.HTTPServerProfile.IsNull() || len(data.VirtualServer.HTTPS.HTTPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModelAttrTypes})
+							}
+							var HTTPServerProfileExisting []ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.HTTPServerProfile.IsNull() && !data.VirtualServer.HTTPS.HTTPServerProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.HTTPServerProfile.ElementsAs(ctx, &HTTPServerProfileExisting, false)
+							}
 							if rawList, ok := HTTPSData["http_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var HTTPServerProfileResult []ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModel
-								for _, HTTPServerProfileItem := range rawList {
+								for HTTPServerProfileIdx, HTTPServerProfileItem := range rawList {
+									_ = HTTPServerProfileIdx
 									if HTTPServerProfileItemMap, ok := HTTPServerProfileItem.(map[string]interface{}); ok {
 										HTTPServerProfileResult = append(HTTPServerProfileResult, ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModel{
 											Kind: func() types.String {
@@ -4463,9 +4625,17 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModelAttrTypes})
 						}(),
 						StreamProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.StreamProfile.IsNull() || len(data.VirtualServer.HTTPS.StreamProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSStreamProfileModelAttrTypes})
+							}
+							var StreamProfileExisting []ApplicationProfilesVirtualServerHTTPSStreamProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.StreamProfile.IsNull() && !data.VirtualServer.HTTPS.StreamProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.StreamProfile.ElementsAs(ctx, &StreamProfileExisting, false)
+							}
 							if rawList, ok := HTTPSData["stream_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var StreamProfileResult []ApplicationProfilesVirtualServerHTTPSStreamProfileModel
-								for _, StreamProfileItem := range rawList {
+								for StreamProfileIdx, StreamProfileItem := range rawList {
+									_ = StreamProfileIdx
 									if StreamProfileItemMap, ok := StreamProfileItem.(map[string]interface{}); ok {
 										StreamProfileResult = append(StreamProfileResult, ApplicationProfilesVirtualServerHTTPSStreamProfileModel{
 											Kind: func() types.String {
@@ -4507,9 +4677,17 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSStreamProfileModelAttrTypes})
 						}(),
 						TCPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.TCPClientProfile.IsNull() || len(data.VirtualServer.HTTPS.TCPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPClientProfileModelAttrTypes})
+							}
+							var TCPClientProfileExisting []ApplicationProfilesVirtualServerHTTPSTCPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.TCPClientProfile.IsNull() && !data.VirtualServer.HTTPS.TCPClientProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileExisting, false)
+							}
 							if rawList, ok := HTTPSData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPClientProfileResult []ApplicationProfilesVirtualServerHTTPSTCPClientProfileModel
-								for _, TCPClientProfileItem := range rawList {
+								for TCPClientProfileIdx, TCPClientProfileItem := range rawList {
+									_ = TCPClientProfileIdx
 									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
 										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerHTTPSTCPClientProfileModel{
 											Kind: func() types.String {
@@ -4551,9 +4729,17 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPClientProfileModelAttrTypes})
 						}(),
 						TCPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.TCPServerProfile.IsNull() || len(data.VirtualServer.HTTPS.TCPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPServerProfileModelAttrTypes})
+							}
+							var TCPServerProfileExisting []ApplicationProfilesVirtualServerHTTPSTCPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.TCPServerProfile.IsNull() && !data.VirtualServer.HTTPS.TCPServerProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileExisting, false)
+							}
 							if rawList, ok := HTTPSData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPServerProfileResult []ApplicationProfilesVirtualServerHTTPSTCPServerProfileModel
-								for _, TCPServerProfileItem := range rawList {
+								for TCPServerProfileIdx, TCPServerProfileItem := range rawList {
+									_ = TCPServerProfileIdx
 									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
 										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerHTTPSTCPServerProfileModel{
 											Kind: func() types.String {
@@ -4595,9 +4781,17 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPServerProfileModelAttrTypes})
 						}(),
 						WebSocketClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.WebSocketClientProfile.IsNull() || len(data.VirtualServer.HTTPS.WebSocketClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModelAttrTypes})
+							}
+							var WebSocketClientProfileExisting []ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.WebSocketClientProfile.IsNull() && !data.VirtualServer.HTTPS.WebSocketClientProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.WebSocketClientProfile.ElementsAs(ctx, &WebSocketClientProfileExisting, false)
+							}
 							if rawList, ok := HTTPSData["websocket_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var WebSocketClientProfileResult []ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModel
-								for _, WebSocketClientProfileItem := range rawList {
+								for WebSocketClientProfileIdx, WebSocketClientProfileItem := range rawList {
+									_ = WebSocketClientProfileIdx
 									if WebSocketClientProfileItemMap, ok := WebSocketClientProfileItem.(map[string]interface{}); ok {
 										WebSocketClientProfileResult = append(WebSocketClientProfileResult, ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModel{
 											Kind: func() types.String {
@@ -4639,9 +4833,17 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModelAttrTypes})
 						}(),
 						WebSocketServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.WebSocketServerProfile.IsNull() || len(data.VirtualServer.HTTPS.WebSocketServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModelAttrTypes})
+							}
+							var WebSocketServerProfileExisting []ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.WebSocketServerProfile.IsNull() && !data.VirtualServer.HTTPS.WebSocketServerProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.WebSocketServerProfile.ElementsAs(ctx, &WebSocketServerProfileExisting, false)
+							}
 							if rawList, ok := HTTPSData["websocket_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var WebSocketServerProfileResult []ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModel
-								for _, WebSocketServerProfileItem := range rawList {
+								for WebSocketServerProfileIdx, WebSocketServerProfileItem := range rawList {
+									_ = WebSocketServerProfileIdx
 									if WebSocketServerProfileItemMap, ok := WebSocketServerProfileItem.(map[string]interface{}); ok {
 										WebSocketServerProfileResult = append(WebSocketServerProfileResult, ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModel{
 											Kind: func() types.String {
@@ -4693,18 +4895,27 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				if ImmediateActionOnServiceDownData, ok := blockData["immediate_action_on_service_down"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerImmediateActionOnServiceDownModel{
 						ImmediateActionOnServiceDownDrop: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil {
+								return data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownDrop
+							}
 							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_drop"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						ImmediateActionOnServiceDownNone: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil {
+								return data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownNone
+							}
 							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_none"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						ImmediateActionOnServiceDownReset: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil {
+								return data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownReset
+							}
 							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_reset"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
@@ -4718,9 +4929,14 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.LastHopPool.IsNull() || len(data.VirtualServer.LastHopPool.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerLastHopPoolModelAttrTypes})
 				}
+				var LastHopPoolExisting []ApplicationProfilesVirtualServerLastHopPoolModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.LastHopPool.IsNull() && !data.VirtualServer.LastHopPool.IsUnknown() {
+					data.VirtualServer.LastHopPool.ElementsAs(ctx, &LastHopPoolExisting, false)
+				}
 				if rawList, ok := blockData["last_hop_pool"].([]interface{}); ok && len(rawList) > 0 {
 					var LastHopPoolResult []ApplicationProfilesVirtualServerLastHopPoolModel
-					for _, LastHopPoolItem := range rawList {
+					for LastHopPoolIdx, LastHopPoolItem := range rawList {
+						_ = LastHopPoolIdx
 						if LastHopPoolItemMap, ok := LastHopPoolItem.(map[string]interface{}); ok {
 							LastHopPoolResult = append(LastHopPoolResult, ApplicationProfilesVirtualServerLastHopPoolModel{
 								Kind: func() types.String {
@@ -4768,12 +4984,18 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				if Nat64Data, ok := blockData["nat64"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerNat64Model{
 						Nat64Disable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Nat64 != nil {
+								return data.VirtualServer.Nat64.Nat64Disable
+							}
 							if _, ok := Nat64Data["nat64_disable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						Nat64Enable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Nat64 != nil {
+								return data.VirtualServer.Nat64.Nat64Enable
+							}
 							if _, ok := Nat64Data["nat64_enable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
@@ -4790,12 +5012,18 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				if PortTranslationData, ok := blockData["port_translation"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerPortTranslationModel{
 						PortTranslationDisable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.PortTranslation != nil {
+								return data.VirtualServer.PortTranslation.PortTranslationDisable
+							}
 							if _, ok := PortTranslationData["port_translation_disable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						PortTranslationEnable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.PortTranslation != nil {
+								return data.VirtualServer.PortTranslation.PortTranslationEnable
+							}
 							if _, ok := PortTranslationData["port_translation_enable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
@@ -4809,9 +5037,14 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.RequestLoggingProfile.IsNull() || len(data.VirtualServer.RequestLoggingProfile.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerRequestLoggingProfileModelAttrTypes})
 				}
+				var RequestLoggingProfileExisting []ApplicationProfilesVirtualServerRequestLoggingProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.RequestLoggingProfile.IsNull() && !data.VirtualServer.RequestLoggingProfile.IsUnknown() {
+					data.VirtualServer.RequestLoggingProfile.ElementsAs(ctx, &RequestLoggingProfileExisting, false)
+				}
 				if rawList, ok := blockData["request_logging_profile"].([]interface{}); ok && len(rawList) > 0 {
 					var RequestLoggingProfileResult []ApplicationProfilesVirtualServerRequestLoggingProfileModel
-					for _, RequestLoggingProfileItem := range rawList {
+					for RequestLoggingProfileIdx, RequestLoggingProfileItem := range rawList {
+						_ = RequestLoggingProfileIdx
 						if RequestLoggingProfileItemMap, ok := RequestLoggingProfileItem.(map[string]interface{}); ok {
 							RequestLoggingProfileResult = append(RequestLoggingProfileResult, ApplicationProfilesVirtualServerRequestLoggingProfileModel{
 								Kind: func() types.String {
@@ -4859,18 +5092,27 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				if SourcePortData, ok := blockData["source_port"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerSourcePortModel{
 						SourcePortChange: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil {
+								return data.VirtualServer.SourcePort.SourcePortChange
+							}
 							if _, ok := SourcePortData["source_port_change"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						SourcePortPreserve: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil {
+								return data.VirtualServer.SourcePort.SourcePortPreserve
+							}
 							if _, ok := SourcePortData["source_port_preserve"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						SourcePortPreserveStrict: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil {
+								return data.VirtualServer.SourcePort.SourcePortPreserveStrict
+							}
 							if _, ok := SourcePortData["source_port_preserve_strict"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
@@ -4884,9 +5126,14 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.StatisticsProfile.IsNull() || len(data.VirtualServer.StatisticsProfile.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerStatisticsProfileModelAttrTypes})
 				}
+				var StatisticsProfileExisting []ApplicationProfilesVirtualServerStatisticsProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.StatisticsProfile.IsNull() && !data.VirtualServer.StatisticsProfile.IsUnknown() {
+					data.VirtualServer.StatisticsProfile.ElementsAs(ctx, &StatisticsProfileExisting, false)
+				}
 				if rawList, ok := blockData["statistics_profile"].([]interface{}); ok && len(rawList) > 0 {
 					var StatisticsProfileResult []ApplicationProfilesVirtualServerStatisticsProfileModel
-					for _, StatisticsProfileItem := range rawList {
+					for StatisticsProfileIdx, StatisticsProfileItem := range rawList {
+						_ = StatisticsProfileIdx
 						if StatisticsProfileItemMap, ok := StatisticsProfileItem.(map[string]interface{}); ok {
 							StatisticsProfileResult = append(StatisticsProfileResult, ApplicationProfilesVirtualServerStatisticsProfileModel{
 								Kind: func() types.String {
@@ -4931,9 +5178,17 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				if TCPData, ok := blockData["tcp"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerTCPModel{
 						TCPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && (data.VirtualServer.TCP.TCPClientProfile.IsNull() || len(data.VirtualServer.TCP.TCPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPClientProfileModelAttrTypes})
+							}
+							var TCPClientProfileExisting []ApplicationProfilesVirtualServerTCPTCPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && !data.VirtualServer.TCP.TCPClientProfile.IsNull() && !data.VirtualServer.TCP.TCPClientProfile.IsUnknown() {
+								data.VirtualServer.TCP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileExisting, false)
+							}
 							if rawList, ok := TCPData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPClientProfileResult []ApplicationProfilesVirtualServerTCPTCPClientProfileModel
-								for _, TCPClientProfileItem := range rawList {
+								for TCPClientProfileIdx, TCPClientProfileItem := range rawList {
+									_ = TCPClientProfileIdx
 									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
 										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerTCPTCPClientProfileModel{
 											Kind: func() types.String {
@@ -4975,9 +5230,17 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPClientProfileModelAttrTypes})
 						}(),
 						TCPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && (data.VirtualServer.TCP.TCPServerProfile.IsNull() || len(data.VirtualServer.TCP.TCPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPServerProfileModelAttrTypes})
+							}
+							var TCPServerProfileExisting []ApplicationProfilesVirtualServerTCPTCPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && !data.VirtualServer.TCP.TCPServerProfile.IsNull() && !data.VirtualServer.TCP.TCPServerProfile.IsUnknown() {
+								data.VirtualServer.TCP.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileExisting, false)
+							}
 							if rawList, ok := TCPData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPServerProfileResult []ApplicationProfilesVirtualServerTCPTCPServerProfileModel
-								for _, TCPServerProfileItem := range rawList {
+								for TCPServerProfileIdx, TCPServerProfileItem := range rawList {
+									_ = TCPServerProfileIdx
 									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
 										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerTCPTCPServerProfileModel{
 											Kind: func() types.String {
@@ -5026,9 +5289,17 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				if UDPData, ok := blockData["udp"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerUDPModel{
 						TCPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.TCPClientProfile.IsNull() || len(data.VirtualServer.UDP.TCPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes})
+							}
+							var TCPClientProfileExisting []ApplicationProfilesVirtualServerUDPTCPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.TCPClientProfile.IsNull() && !data.VirtualServer.UDP.TCPClientProfile.IsUnknown() {
+								data.VirtualServer.UDP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileExisting, false)
+							}
 							if rawList, ok := UDPData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPClientProfileResult []ApplicationProfilesVirtualServerUDPTCPClientProfileModel
-								for _, TCPClientProfileItem := range rawList {
+								for TCPClientProfileIdx, TCPClientProfileItem := range rawList {
+									_ = TCPClientProfileIdx
 									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
 										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerUDPTCPClientProfileModel{
 											Kind: func() types.String {
@@ -5070,9 +5341,17 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes})
 						}(),
 						TCPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.TCPServerProfile.IsNull() || len(data.VirtualServer.UDP.TCPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPServerProfileModelAttrTypes})
+							}
+							var TCPServerProfileExisting []ApplicationProfilesVirtualServerUDPTCPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.TCPServerProfile.IsNull() && !data.VirtualServer.UDP.TCPServerProfile.IsUnknown() {
+								data.VirtualServer.UDP.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileExisting, false)
+							}
 							if rawList, ok := UDPData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPServerProfileResult []ApplicationProfilesVirtualServerUDPTCPServerProfileModel
-								for _, TCPServerProfileItem := range rawList {
+								for TCPServerProfileIdx, TCPServerProfileItem := range rawList {
+									_ = TCPServerProfileIdx
 									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
 										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerUDPTCPServerProfileModel{
 											Kind: func() types.String {
@@ -5124,12 +5403,18 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				if VirtualServerStateData, ok := blockData["virtual_server_state"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerVirtualServerStateModel{
 						StateDisabled: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.VirtualServerState != nil {
+								return data.VirtualServer.VirtualServerState.StateDisabled
+							}
 							if _, ok := VirtualServerStateData["state_disabled"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						StateEnabled: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.VirtualServerState != nil {
+								return data.VirtualServer.VirtualServerState.StateEnabled
+							}
 							if _, ok := VirtualServerStateData["state_enabled"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
@@ -5402,12 +5687,18 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				if AddressTranslationData, ok := blockData["address_translation"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerAddressTranslationModel{
 						AddressTranslationDisable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil {
+								return data.VirtualServer.AddressTranslation.AddressTranslationDisable
+							}
 							if _, ok := AddressTranslationData["address_translation_disable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						AddressTranslationEnable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil {
+								return data.VirtualServer.AddressTranslation.AddressTranslationEnable
+							}
 							if _, ok := AddressTranslationData["address_translation_enable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
@@ -5424,18 +5715,27 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				if AutoLastHopData, ok := blockData["auto_last_hop"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerAutoLastHopModel{
 						AutoLastHopDefault: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil {
+								return data.VirtualServer.AutoLastHop.AutoLastHopDefault
+							}
 							if _, ok := AutoLastHopData["auto_last_hop_default"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						AutoLastHopDisable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil {
+								return data.VirtualServer.AutoLastHop.AutoLastHopDisable
+							}
 							if _, ok := AutoLastHopData["auto_last_hop_disable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						AutoLastHopEnable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil {
+								return data.VirtualServer.AutoLastHop.AutoLastHopEnable
+							}
 							if _, ok := AutoLastHopData["auto_last_hop_enable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
@@ -5449,9 +5749,14 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.ClonePoolClient.IsNull() || len(data.VirtualServer.ClonePoolClient.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolClientModelAttrTypes})
 				}
+				var ClonePoolClientExisting []ApplicationProfilesVirtualServerClonePoolClientModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.ClonePoolClient.IsNull() && !data.VirtualServer.ClonePoolClient.IsUnknown() {
+					data.VirtualServer.ClonePoolClient.ElementsAs(ctx, &ClonePoolClientExisting, false)
+				}
 				if rawList, ok := blockData["clone_pool_client"].([]interface{}); ok && len(rawList) > 0 {
 					var ClonePoolClientResult []ApplicationProfilesVirtualServerClonePoolClientModel
-					for _, ClonePoolClientItem := range rawList {
+					for ClonePoolClientIdx, ClonePoolClientItem := range rawList {
+						_ = ClonePoolClientIdx
 						if ClonePoolClientItemMap, ok := ClonePoolClientItem.(map[string]interface{}); ok {
 							ClonePoolClientResult = append(ClonePoolClientResult, ApplicationProfilesVirtualServerClonePoolClientModel{
 								Kind: func() types.String {
@@ -5496,9 +5801,14 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.ClonePoolServer.IsNull() || len(data.VirtualServer.ClonePoolServer.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolServerModelAttrTypes})
 				}
+				var ClonePoolServerExisting []ApplicationProfilesVirtualServerClonePoolServerModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.ClonePoolServer.IsNull() && !data.VirtualServer.ClonePoolServer.IsUnknown() {
+					data.VirtualServer.ClonePoolServer.ElementsAs(ctx, &ClonePoolServerExisting, false)
+				}
 				if rawList, ok := blockData["clone_pool_server"].([]interface{}); ok && len(rawList) > 0 {
 					var ClonePoolServerResult []ApplicationProfilesVirtualServerClonePoolServerModel
-					for _, ClonePoolServerItem := range rawList {
+					for ClonePoolServerIdx, ClonePoolServerItem := range rawList {
+						_ = ClonePoolServerIdx
 						if ClonePoolServerItemMap, ok := ClonePoolServerItem.(map[string]interface{}); ok {
 							ClonePoolServerResult = append(ClonePoolServerResult, ApplicationProfilesVirtualServerClonePoolServerModel{
 								Kind: func() types.String {
@@ -5564,9 +5874,15 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				if ConnectionRateLimitModeData, ok := blockData["connection_rate_limit_mode"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerConnectionRateLimitModeModel{
 						PerDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerDestinationAddressModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress != nil {
+								return data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress
+							}
 							if PerDestinationAddressData, ok := ConnectionRateLimitModeData["per_destination_address"].(map[string]interface{}); ok {
 								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerDestinationAddressModel{
 									DestinationMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress.DestinationMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress.DestinationMask
+										}
 										if v, ok := PerDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -5577,9 +5893,15 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							return nil
 						}(),
 						PerSourceAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceAddressModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress != nil {
+								return data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress
+							}
 							if PerSourceAddressData, ok := ConnectionRateLimitModeData["per_source_address"].(map[string]interface{}); ok {
 								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceAddressModel{
 									SourceMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress.SourceMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress.SourceMask
+										}
 										if v, ok := PerSourceAddressData["source_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -5590,15 +5912,24 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							return nil
 						}(),
 						PerSourceDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceDestinationAddressModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress != nil {
+								return data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress
+							}
 							if PerSourceDestinationAddressData, ok := ConnectionRateLimitModeData["per_source_destination_address"].(map[string]interface{}); ok {
 								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceDestinationAddressModel{
 									DestinationMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.DestinationMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.DestinationMask
+										}
 										if v, ok := PerSourceDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									SourceMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.SourceMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.SourceMask
+										}
 										if v, ok := PerSourceDestinationAddressData["source_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -5609,15 +5940,24 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							return nil
 						}(),
 						PerVirtualServer: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil {
+								return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServer
+							}
 							if _, ok := ConnectionRateLimitModeData["per_virtual_server"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						PerVirtualServerDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress != nil {
+								return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress
+							}
 							if PerVirtualServerDestinationAddressData, ok := ConnectionRateLimitModeData["per_virtual_server_destination_address"].(map[string]interface{}); ok {
 								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressModel{
 									DestinationMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress.DestinationMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress.DestinationMask
+										}
 										if v, ok := PerVirtualServerDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -5628,9 +5968,15 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							return nil
 						}(),
 						PerVirtualServerSourceAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceAddressModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress != nil {
+								return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress
+							}
 							if PerVirtualServerSourceAddressData, ok := ConnectionRateLimitModeData["per_virtual_server_source_address"].(map[string]interface{}); ok {
 								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceAddressModel{
 									SourceMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress.SourceMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress.SourceMask
+										}
 										if v, ok := PerVirtualServerSourceAddressData["source_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -5641,15 +5987,24 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							return nil
 						}(),
 						PerVirtualServerSourceDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress != nil {
+								return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress
+							}
 							if PerVirtualServerSourceDestinationAddressData, ok := ConnectionRateLimitModeData["per_virtual_server_source_destination_address"].(map[string]interface{}); ok {
 								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressModel{
 									DestinationMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.DestinationMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.DestinationMask
+										}
 										if v, ok := PerVirtualServerSourceDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									SourceMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.SourceMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.SourceMask
+										}
 										if v, ok := PerVirtualServerSourceDestinationAddressData["source_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -5667,9 +6022,14 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.DefaultPersistenceProfile.IsNull() || len(data.VirtualServer.DefaultPersistenceProfile.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPersistenceProfileModelAttrTypes})
 				}
+				var DefaultPersistenceProfileExisting []ApplicationProfilesVirtualServerDefaultPersistenceProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.DefaultPersistenceProfile.IsNull() && !data.VirtualServer.DefaultPersistenceProfile.IsUnknown() {
+					data.VirtualServer.DefaultPersistenceProfile.ElementsAs(ctx, &DefaultPersistenceProfileExisting, false)
+				}
 				if rawList, ok := blockData["default_persistence_profile"].([]interface{}); ok && len(rawList) > 0 {
 					var DefaultPersistenceProfileResult []ApplicationProfilesVirtualServerDefaultPersistenceProfileModel
-					for _, DefaultPersistenceProfileItem := range rawList {
+					for DefaultPersistenceProfileIdx, DefaultPersistenceProfileItem := range rawList {
+						_ = DefaultPersistenceProfileIdx
 						if DefaultPersistenceProfileItemMap, ok := DefaultPersistenceProfileItem.(map[string]interface{}); ok {
 							DefaultPersistenceProfileResult = append(DefaultPersistenceProfileResult, ApplicationProfilesVirtualServerDefaultPersistenceProfileModel{
 								Kind: func() types.String {
@@ -5714,9 +6074,14 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.DefaultPool.IsNull() || len(data.VirtualServer.DefaultPool.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPoolModelAttrTypes})
 				}
+				var DefaultPoolExisting []ApplicationProfilesVirtualServerDefaultPoolModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.DefaultPool.IsNull() && !data.VirtualServer.DefaultPool.IsUnknown() {
+					data.VirtualServer.DefaultPool.ElementsAs(ctx, &DefaultPoolExisting, false)
+				}
 				if rawList, ok := blockData["default_pool"].([]interface{}); ok && len(rawList) > 0 {
 					var DefaultPoolResult []ApplicationProfilesVirtualServerDefaultPoolModel
-					for _, DefaultPoolItem := range rawList {
+					for DefaultPoolIdx, DefaultPoolItem := range rawList {
+						_ = DefaultPoolIdx
 						if DefaultPoolItemMap, ok := DefaultPoolItem.(map[string]interface{}); ok {
 							DefaultPoolResult = append(DefaultPoolResult, ApplicationProfilesVirtualServerDefaultPoolModel{
 								Kind: func() types.String {
@@ -5761,9 +6126,14 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.FallbackPersistenceProfile.IsNull() || len(data.VirtualServer.FallbackPersistenceProfile.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFallbackPersistenceProfileModelAttrTypes})
 				}
+				var FallbackPersistenceProfileExisting []ApplicationProfilesVirtualServerFallbackPersistenceProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.FallbackPersistenceProfile.IsNull() && !data.VirtualServer.FallbackPersistenceProfile.IsUnknown() {
+					data.VirtualServer.FallbackPersistenceProfile.ElementsAs(ctx, &FallbackPersistenceProfileExisting, false)
+				}
 				if rawList, ok := blockData["fallback_persistence_profile"].([]interface{}); ok && len(rawList) > 0 {
 					var FallbackPersistenceProfileResult []ApplicationProfilesVirtualServerFallbackPersistenceProfileModel
-					for _, FallbackPersistenceProfileItem := range rawList {
+					for FallbackPersistenceProfileIdx, FallbackPersistenceProfileItem := range rawList {
+						_ = FallbackPersistenceProfileIdx
 						if FallbackPersistenceProfileItemMap, ok := FallbackPersistenceProfileItem.(map[string]interface{}); ok {
 							FallbackPersistenceProfileResult = append(FallbackPersistenceProfileResult, ApplicationProfilesVirtualServerFallbackPersistenceProfileModel{
 								Kind: func() types.String {
@@ -5808,9 +6178,14 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.FixProfile.IsNull() || len(data.VirtualServer.FixProfile.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFixProfileModelAttrTypes})
 				}
+				var FixProfileExisting []ApplicationProfilesVirtualServerFixProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.FixProfile.IsNull() && !data.VirtualServer.FixProfile.IsUnknown() {
+					data.VirtualServer.FixProfile.ElementsAs(ctx, &FixProfileExisting, false)
+				}
 				if rawList, ok := blockData["fix_profile"].([]interface{}); ok && len(rawList) > 0 {
 					var FixProfileResult []ApplicationProfilesVirtualServerFixProfileModel
-					for _, FixProfileItem := range rawList {
+					for FixProfileIdx, FixProfileItem := range rawList {
+						_ = FixProfileIdx
 						if FixProfileItemMap, ok := FixProfileItem.(map[string]interface{}); ok {
 							FixProfileResult = append(FixProfileResult, ApplicationProfilesVirtualServerFixProfileModel{
 								Kind: func() types.String {
@@ -5855,9 +6230,17 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				if HTTPData, ok := blockData["http"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerHTTPModel{
 						HTTPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.HTTPClientProfile.IsNull() || len(data.VirtualServer.HTTP.HTTPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPClientProfileModelAttrTypes})
+							}
+							var HTTPClientProfileExisting []ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.HTTPClientProfile.IsNull() && !data.VirtualServer.HTTP.HTTPClientProfile.IsUnknown() {
+								data.VirtualServer.HTTP.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileExisting, false)
+							}
 							if rawList, ok := HTTPData["http_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var HTTPClientProfileResult []ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel
-								for _, HTTPClientProfileItem := range rawList {
+								for HTTPClientProfileIdx, HTTPClientProfileItem := range rawList {
+									_ = HTTPClientProfileIdx
 									if HTTPClientProfileItemMap, ok := HTTPClientProfileItem.(map[string]interface{}); ok {
 										HTTPClientProfileResult = append(HTTPClientProfileResult, ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel{
 											Kind: func() types.String {
@@ -5899,9 +6282,17 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPClientProfileModelAttrTypes})
 						}(),
 						HTTPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.HTTPServerProfile.IsNull() || len(data.VirtualServer.HTTP.HTTPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPServerProfileModelAttrTypes})
+							}
+							var HTTPServerProfileExisting []ApplicationProfilesVirtualServerHTTPHTTPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.HTTPServerProfile.IsNull() && !data.VirtualServer.HTTP.HTTPServerProfile.IsUnknown() {
+								data.VirtualServer.HTTP.HTTPServerProfile.ElementsAs(ctx, &HTTPServerProfileExisting, false)
+							}
 							if rawList, ok := HTTPData["http_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var HTTPServerProfileResult []ApplicationProfilesVirtualServerHTTPHTTPServerProfileModel
-								for _, HTTPServerProfileItem := range rawList {
+								for HTTPServerProfileIdx, HTTPServerProfileItem := range rawList {
+									_ = HTTPServerProfileIdx
 									if HTTPServerProfileItemMap, ok := HTTPServerProfileItem.(map[string]interface{}); ok {
 										HTTPServerProfileResult = append(HTTPServerProfileResult, ApplicationProfilesVirtualServerHTTPHTTPServerProfileModel{
 											Kind: func() types.String {
@@ -5943,9 +6334,17 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPServerProfileModelAttrTypes})
 						}(),
 						StreamProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.StreamProfile.IsNull() || len(data.VirtualServer.HTTP.StreamProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPStreamProfileModelAttrTypes})
+							}
+							var StreamProfileExisting []ApplicationProfilesVirtualServerHTTPStreamProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.StreamProfile.IsNull() && !data.VirtualServer.HTTP.StreamProfile.IsUnknown() {
+								data.VirtualServer.HTTP.StreamProfile.ElementsAs(ctx, &StreamProfileExisting, false)
+							}
 							if rawList, ok := HTTPData["stream_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var StreamProfileResult []ApplicationProfilesVirtualServerHTTPStreamProfileModel
-								for _, StreamProfileItem := range rawList {
+								for StreamProfileIdx, StreamProfileItem := range rawList {
+									_ = StreamProfileIdx
 									if StreamProfileItemMap, ok := StreamProfileItem.(map[string]interface{}); ok {
 										StreamProfileResult = append(StreamProfileResult, ApplicationProfilesVirtualServerHTTPStreamProfileModel{
 											Kind: func() types.String {
@@ -5987,9 +6386,17 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPStreamProfileModelAttrTypes})
 						}(),
 						TCPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.TCPClientProfile.IsNull() || len(data.VirtualServer.HTTP.TCPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPClientProfileModelAttrTypes})
+							}
+							var TCPClientProfileExisting []ApplicationProfilesVirtualServerHTTPTCPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.TCPClientProfile.IsNull() && !data.VirtualServer.HTTP.TCPClientProfile.IsUnknown() {
+								data.VirtualServer.HTTP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileExisting, false)
+							}
 							if rawList, ok := HTTPData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPClientProfileResult []ApplicationProfilesVirtualServerHTTPTCPClientProfileModel
-								for _, TCPClientProfileItem := range rawList {
+								for TCPClientProfileIdx, TCPClientProfileItem := range rawList {
+									_ = TCPClientProfileIdx
 									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
 										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerHTTPTCPClientProfileModel{
 											Kind: func() types.String {
@@ -6031,9 +6438,17 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPClientProfileModelAttrTypes})
 						}(),
 						TCPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.TCPServerProfile.IsNull() || len(data.VirtualServer.HTTP.TCPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPServerProfileModelAttrTypes})
+							}
+							var TCPServerProfileExisting []ApplicationProfilesVirtualServerHTTPTCPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.TCPServerProfile.IsNull() && !data.VirtualServer.HTTP.TCPServerProfile.IsUnknown() {
+								data.VirtualServer.HTTP.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileExisting, false)
+							}
 							if rawList, ok := HTTPData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPServerProfileResult []ApplicationProfilesVirtualServerHTTPTCPServerProfileModel
-								for _, TCPServerProfileItem := range rawList {
+								for TCPServerProfileIdx, TCPServerProfileItem := range rawList {
+									_ = TCPServerProfileIdx
 									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
 										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerHTTPTCPServerProfileModel{
 											Kind: func() types.String {
@@ -6075,9 +6490,17 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPServerProfileModelAttrTypes})
 						}(),
 						WebSocketClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.WebSocketClientProfile.IsNull() || len(data.VirtualServer.HTTP.WebSocketClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModelAttrTypes})
+							}
+							var WebSocketClientProfileExisting []ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.WebSocketClientProfile.IsNull() && !data.VirtualServer.HTTP.WebSocketClientProfile.IsUnknown() {
+								data.VirtualServer.HTTP.WebSocketClientProfile.ElementsAs(ctx, &WebSocketClientProfileExisting, false)
+							}
 							if rawList, ok := HTTPData["websocket_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var WebSocketClientProfileResult []ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModel
-								for _, WebSocketClientProfileItem := range rawList {
+								for WebSocketClientProfileIdx, WebSocketClientProfileItem := range rawList {
+									_ = WebSocketClientProfileIdx
 									if WebSocketClientProfileItemMap, ok := WebSocketClientProfileItem.(map[string]interface{}); ok {
 										WebSocketClientProfileResult = append(WebSocketClientProfileResult, ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModel{
 											Kind: func() types.String {
@@ -6119,9 +6542,17 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModelAttrTypes})
 						}(),
 						WebSocketServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.WebSocketServerProfile.IsNull() || len(data.VirtualServer.HTTP.WebSocketServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModelAttrTypes})
+							}
+							var WebSocketServerProfileExisting []ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.WebSocketServerProfile.IsNull() && !data.VirtualServer.HTTP.WebSocketServerProfile.IsUnknown() {
+								data.VirtualServer.HTTP.WebSocketServerProfile.ElementsAs(ctx, &WebSocketServerProfileExisting, false)
+							}
 							if rawList, ok := HTTPData["websocket_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var WebSocketServerProfileResult []ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModel
-								for _, WebSocketServerProfileItem := range rawList {
+								for WebSocketServerProfileIdx, WebSocketServerProfileItem := range rawList {
+									_ = WebSocketServerProfileIdx
 									if WebSocketServerProfileItemMap, ok := WebSocketServerProfileItem.(map[string]interface{}); ok {
 										WebSocketServerProfileResult = append(WebSocketServerProfileResult, ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModel{
 											Kind: func() types.String {
@@ -6170,9 +6601,17 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				if HTTPSData, ok := blockData["https"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerHTTPSModel{
 						HTTPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.HTTPClientProfile.IsNull() || len(data.VirtualServer.HTTPS.HTTPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModelAttrTypes})
+							}
+							var HTTPClientProfileExisting []ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.HTTPClientProfile.IsNull() && !data.VirtualServer.HTTPS.HTTPClientProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileExisting, false)
+							}
 							if rawList, ok := HTTPSData["http_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var HTTPClientProfileResult []ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel
-								for _, HTTPClientProfileItem := range rawList {
+								for HTTPClientProfileIdx, HTTPClientProfileItem := range rawList {
+									_ = HTTPClientProfileIdx
 									if HTTPClientProfileItemMap, ok := HTTPClientProfileItem.(map[string]interface{}); ok {
 										HTTPClientProfileResult = append(HTTPClientProfileResult, ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel{
 											Kind: func() types.String {
@@ -6214,9 +6653,17 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModelAttrTypes})
 						}(),
 						HTTPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.HTTPServerProfile.IsNull() || len(data.VirtualServer.HTTPS.HTTPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModelAttrTypes})
+							}
+							var HTTPServerProfileExisting []ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.HTTPServerProfile.IsNull() && !data.VirtualServer.HTTPS.HTTPServerProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.HTTPServerProfile.ElementsAs(ctx, &HTTPServerProfileExisting, false)
+							}
 							if rawList, ok := HTTPSData["http_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var HTTPServerProfileResult []ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModel
-								for _, HTTPServerProfileItem := range rawList {
+								for HTTPServerProfileIdx, HTTPServerProfileItem := range rawList {
+									_ = HTTPServerProfileIdx
 									if HTTPServerProfileItemMap, ok := HTTPServerProfileItem.(map[string]interface{}); ok {
 										HTTPServerProfileResult = append(HTTPServerProfileResult, ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModel{
 											Kind: func() types.String {
@@ -6258,9 +6705,17 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModelAttrTypes})
 						}(),
 						StreamProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.StreamProfile.IsNull() || len(data.VirtualServer.HTTPS.StreamProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSStreamProfileModelAttrTypes})
+							}
+							var StreamProfileExisting []ApplicationProfilesVirtualServerHTTPSStreamProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.StreamProfile.IsNull() && !data.VirtualServer.HTTPS.StreamProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.StreamProfile.ElementsAs(ctx, &StreamProfileExisting, false)
+							}
 							if rawList, ok := HTTPSData["stream_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var StreamProfileResult []ApplicationProfilesVirtualServerHTTPSStreamProfileModel
-								for _, StreamProfileItem := range rawList {
+								for StreamProfileIdx, StreamProfileItem := range rawList {
+									_ = StreamProfileIdx
 									if StreamProfileItemMap, ok := StreamProfileItem.(map[string]interface{}); ok {
 										StreamProfileResult = append(StreamProfileResult, ApplicationProfilesVirtualServerHTTPSStreamProfileModel{
 											Kind: func() types.String {
@@ -6302,9 +6757,17 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSStreamProfileModelAttrTypes})
 						}(),
 						TCPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.TCPClientProfile.IsNull() || len(data.VirtualServer.HTTPS.TCPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPClientProfileModelAttrTypes})
+							}
+							var TCPClientProfileExisting []ApplicationProfilesVirtualServerHTTPSTCPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.TCPClientProfile.IsNull() && !data.VirtualServer.HTTPS.TCPClientProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileExisting, false)
+							}
 							if rawList, ok := HTTPSData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPClientProfileResult []ApplicationProfilesVirtualServerHTTPSTCPClientProfileModel
-								for _, TCPClientProfileItem := range rawList {
+								for TCPClientProfileIdx, TCPClientProfileItem := range rawList {
+									_ = TCPClientProfileIdx
 									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
 										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerHTTPSTCPClientProfileModel{
 											Kind: func() types.String {
@@ -6346,9 +6809,17 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPClientProfileModelAttrTypes})
 						}(),
 						TCPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.TCPServerProfile.IsNull() || len(data.VirtualServer.HTTPS.TCPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPServerProfileModelAttrTypes})
+							}
+							var TCPServerProfileExisting []ApplicationProfilesVirtualServerHTTPSTCPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.TCPServerProfile.IsNull() && !data.VirtualServer.HTTPS.TCPServerProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileExisting, false)
+							}
 							if rawList, ok := HTTPSData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPServerProfileResult []ApplicationProfilesVirtualServerHTTPSTCPServerProfileModel
-								for _, TCPServerProfileItem := range rawList {
+								for TCPServerProfileIdx, TCPServerProfileItem := range rawList {
+									_ = TCPServerProfileIdx
 									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
 										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerHTTPSTCPServerProfileModel{
 											Kind: func() types.String {
@@ -6390,9 +6861,17 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPServerProfileModelAttrTypes})
 						}(),
 						WebSocketClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.WebSocketClientProfile.IsNull() || len(data.VirtualServer.HTTPS.WebSocketClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModelAttrTypes})
+							}
+							var WebSocketClientProfileExisting []ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.WebSocketClientProfile.IsNull() && !data.VirtualServer.HTTPS.WebSocketClientProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.WebSocketClientProfile.ElementsAs(ctx, &WebSocketClientProfileExisting, false)
+							}
 							if rawList, ok := HTTPSData["websocket_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var WebSocketClientProfileResult []ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModel
-								for _, WebSocketClientProfileItem := range rawList {
+								for WebSocketClientProfileIdx, WebSocketClientProfileItem := range rawList {
+									_ = WebSocketClientProfileIdx
 									if WebSocketClientProfileItemMap, ok := WebSocketClientProfileItem.(map[string]interface{}); ok {
 										WebSocketClientProfileResult = append(WebSocketClientProfileResult, ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModel{
 											Kind: func() types.String {
@@ -6434,9 +6913,17 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModelAttrTypes})
 						}(),
 						WebSocketServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.WebSocketServerProfile.IsNull() || len(data.VirtualServer.HTTPS.WebSocketServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModelAttrTypes})
+							}
+							var WebSocketServerProfileExisting []ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.WebSocketServerProfile.IsNull() && !data.VirtualServer.HTTPS.WebSocketServerProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.WebSocketServerProfile.ElementsAs(ctx, &WebSocketServerProfileExisting, false)
+							}
 							if rawList, ok := HTTPSData["websocket_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var WebSocketServerProfileResult []ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModel
-								for _, WebSocketServerProfileItem := range rawList {
+								for WebSocketServerProfileIdx, WebSocketServerProfileItem := range rawList {
+									_ = WebSocketServerProfileIdx
 									if WebSocketServerProfileItemMap, ok := WebSocketServerProfileItem.(map[string]interface{}); ok {
 										WebSocketServerProfileResult = append(WebSocketServerProfileResult, ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModel{
 											Kind: func() types.String {
@@ -6488,18 +6975,27 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				if ImmediateActionOnServiceDownData, ok := blockData["immediate_action_on_service_down"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerImmediateActionOnServiceDownModel{
 						ImmediateActionOnServiceDownDrop: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil {
+								return data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownDrop
+							}
 							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_drop"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						ImmediateActionOnServiceDownNone: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil {
+								return data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownNone
+							}
 							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_none"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						ImmediateActionOnServiceDownReset: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil {
+								return data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownReset
+							}
 							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_reset"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
@@ -6513,9 +7009,14 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.LastHopPool.IsNull() || len(data.VirtualServer.LastHopPool.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerLastHopPoolModelAttrTypes})
 				}
+				var LastHopPoolExisting []ApplicationProfilesVirtualServerLastHopPoolModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.LastHopPool.IsNull() && !data.VirtualServer.LastHopPool.IsUnknown() {
+					data.VirtualServer.LastHopPool.ElementsAs(ctx, &LastHopPoolExisting, false)
+				}
 				if rawList, ok := blockData["last_hop_pool"].([]interface{}); ok && len(rawList) > 0 {
 					var LastHopPoolResult []ApplicationProfilesVirtualServerLastHopPoolModel
-					for _, LastHopPoolItem := range rawList {
+					for LastHopPoolIdx, LastHopPoolItem := range rawList {
+						_ = LastHopPoolIdx
 						if LastHopPoolItemMap, ok := LastHopPoolItem.(map[string]interface{}); ok {
 							LastHopPoolResult = append(LastHopPoolResult, ApplicationProfilesVirtualServerLastHopPoolModel{
 								Kind: func() types.String {
@@ -6563,12 +7064,18 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				if Nat64Data, ok := blockData["nat64"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerNat64Model{
 						Nat64Disable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Nat64 != nil {
+								return data.VirtualServer.Nat64.Nat64Disable
+							}
 							if _, ok := Nat64Data["nat64_disable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						Nat64Enable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Nat64 != nil {
+								return data.VirtualServer.Nat64.Nat64Enable
+							}
 							if _, ok := Nat64Data["nat64_enable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
@@ -6585,12 +7092,18 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				if PortTranslationData, ok := blockData["port_translation"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerPortTranslationModel{
 						PortTranslationDisable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.PortTranslation != nil {
+								return data.VirtualServer.PortTranslation.PortTranslationDisable
+							}
 							if _, ok := PortTranslationData["port_translation_disable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						PortTranslationEnable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.PortTranslation != nil {
+								return data.VirtualServer.PortTranslation.PortTranslationEnable
+							}
 							if _, ok := PortTranslationData["port_translation_enable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
@@ -6604,9 +7117,14 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.RequestLoggingProfile.IsNull() || len(data.VirtualServer.RequestLoggingProfile.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerRequestLoggingProfileModelAttrTypes})
 				}
+				var RequestLoggingProfileExisting []ApplicationProfilesVirtualServerRequestLoggingProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.RequestLoggingProfile.IsNull() && !data.VirtualServer.RequestLoggingProfile.IsUnknown() {
+					data.VirtualServer.RequestLoggingProfile.ElementsAs(ctx, &RequestLoggingProfileExisting, false)
+				}
 				if rawList, ok := blockData["request_logging_profile"].([]interface{}); ok && len(rawList) > 0 {
 					var RequestLoggingProfileResult []ApplicationProfilesVirtualServerRequestLoggingProfileModel
-					for _, RequestLoggingProfileItem := range rawList {
+					for RequestLoggingProfileIdx, RequestLoggingProfileItem := range rawList {
+						_ = RequestLoggingProfileIdx
 						if RequestLoggingProfileItemMap, ok := RequestLoggingProfileItem.(map[string]interface{}); ok {
 							RequestLoggingProfileResult = append(RequestLoggingProfileResult, ApplicationProfilesVirtualServerRequestLoggingProfileModel{
 								Kind: func() types.String {
@@ -6654,18 +7172,27 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				if SourcePortData, ok := blockData["source_port"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerSourcePortModel{
 						SourcePortChange: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil {
+								return data.VirtualServer.SourcePort.SourcePortChange
+							}
 							if _, ok := SourcePortData["source_port_change"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						SourcePortPreserve: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil {
+								return data.VirtualServer.SourcePort.SourcePortPreserve
+							}
 							if _, ok := SourcePortData["source_port_preserve"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						SourcePortPreserveStrict: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil {
+								return data.VirtualServer.SourcePort.SourcePortPreserveStrict
+							}
 							if _, ok := SourcePortData["source_port_preserve_strict"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
@@ -6679,9 +7206,14 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.StatisticsProfile.IsNull() || len(data.VirtualServer.StatisticsProfile.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerStatisticsProfileModelAttrTypes})
 				}
+				var StatisticsProfileExisting []ApplicationProfilesVirtualServerStatisticsProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.StatisticsProfile.IsNull() && !data.VirtualServer.StatisticsProfile.IsUnknown() {
+					data.VirtualServer.StatisticsProfile.ElementsAs(ctx, &StatisticsProfileExisting, false)
+				}
 				if rawList, ok := blockData["statistics_profile"].([]interface{}); ok && len(rawList) > 0 {
 					var StatisticsProfileResult []ApplicationProfilesVirtualServerStatisticsProfileModel
-					for _, StatisticsProfileItem := range rawList {
+					for StatisticsProfileIdx, StatisticsProfileItem := range rawList {
+						_ = StatisticsProfileIdx
 						if StatisticsProfileItemMap, ok := StatisticsProfileItem.(map[string]interface{}); ok {
 							StatisticsProfileResult = append(StatisticsProfileResult, ApplicationProfilesVirtualServerStatisticsProfileModel{
 								Kind: func() types.String {
@@ -6726,9 +7258,17 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				if TCPData, ok := blockData["tcp"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerTCPModel{
 						TCPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && (data.VirtualServer.TCP.TCPClientProfile.IsNull() || len(data.VirtualServer.TCP.TCPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPClientProfileModelAttrTypes})
+							}
+							var TCPClientProfileExisting []ApplicationProfilesVirtualServerTCPTCPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && !data.VirtualServer.TCP.TCPClientProfile.IsNull() && !data.VirtualServer.TCP.TCPClientProfile.IsUnknown() {
+								data.VirtualServer.TCP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileExisting, false)
+							}
 							if rawList, ok := TCPData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPClientProfileResult []ApplicationProfilesVirtualServerTCPTCPClientProfileModel
-								for _, TCPClientProfileItem := range rawList {
+								for TCPClientProfileIdx, TCPClientProfileItem := range rawList {
+									_ = TCPClientProfileIdx
 									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
 										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerTCPTCPClientProfileModel{
 											Kind: func() types.String {
@@ -6770,9 +7310,17 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPClientProfileModelAttrTypes})
 						}(),
 						TCPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && (data.VirtualServer.TCP.TCPServerProfile.IsNull() || len(data.VirtualServer.TCP.TCPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPServerProfileModelAttrTypes})
+							}
+							var TCPServerProfileExisting []ApplicationProfilesVirtualServerTCPTCPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && !data.VirtualServer.TCP.TCPServerProfile.IsNull() && !data.VirtualServer.TCP.TCPServerProfile.IsUnknown() {
+								data.VirtualServer.TCP.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileExisting, false)
+							}
 							if rawList, ok := TCPData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPServerProfileResult []ApplicationProfilesVirtualServerTCPTCPServerProfileModel
-								for _, TCPServerProfileItem := range rawList {
+								for TCPServerProfileIdx, TCPServerProfileItem := range rawList {
+									_ = TCPServerProfileIdx
 									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
 										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerTCPTCPServerProfileModel{
 											Kind: func() types.String {
@@ -6821,9 +7369,17 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				if UDPData, ok := blockData["udp"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerUDPModel{
 						TCPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.TCPClientProfile.IsNull() || len(data.VirtualServer.UDP.TCPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes})
+							}
+							var TCPClientProfileExisting []ApplicationProfilesVirtualServerUDPTCPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.TCPClientProfile.IsNull() && !data.VirtualServer.UDP.TCPClientProfile.IsUnknown() {
+								data.VirtualServer.UDP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileExisting, false)
+							}
 							if rawList, ok := UDPData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPClientProfileResult []ApplicationProfilesVirtualServerUDPTCPClientProfileModel
-								for _, TCPClientProfileItem := range rawList {
+								for TCPClientProfileIdx, TCPClientProfileItem := range rawList {
+									_ = TCPClientProfileIdx
 									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
 										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerUDPTCPClientProfileModel{
 											Kind: func() types.String {
@@ -6865,9 +7421,17 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes})
 						}(),
 						TCPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.TCPServerProfile.IsNull() || len(data.VirtualServer.UDP.TCPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPServerProfileModelAttrTypes})
+							}
+							var TCPServerProfileExisting []ApplicationProfilesVirtualServerUDPTCPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.TCPServerProfile.IsNull() && !data.VirtualServer.UDP.TCPServerProfile.IsUnknown() {
+								data.VirtualServer.UDP.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileExisting, false)
+							}
 							if rawList, ok := UDPData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPServerProfileResult []ApplicationProfilesVirtualServerUDPTCPServerProfileModel
-								for _, TCPServerProfileItem := range rawList {
+								for TCPServerProfileIdx, TCPServerProfileItem := range rawList {
+									_ = TCPServerProfileIdx
 									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
 										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerUDPTCPServerProfileModel{
 											Kind: func() types.String {
@@ -6919,12 +7483,18 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				if VirtualServerStateData, ok := blockData["virtual_server_state"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerVirtualServerStateModel{
 						StateDisabled: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.VirtualServerState != nil {
+								return data.VirtualServer.VirtualServerState.StateDisabled
+							}
 							if _, ok := VirtualServerStateData["state_disabled"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						StateEnabled: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.VirtualServerState != nil {
+								return data.VirtualServer.VirtualServerState.StateEnabled
+							}
 							if _, ok := VirtualServerStateData["state_enabled"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
@@ -8182,12 +8752,18 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				if AddressTranslationData, ok := blockData["address_translation"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerAddressTranslationModel{
 						AddressTranslationDisable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil {
+								return data.VirtualServer.AddressTranslation.AddressTranslationDisable
+							}
 							if _, ok := AddressTranslationData["address_translation_disable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						AddressTranslationEnable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil {
+								return data.VirtualServer.AddressTranslation.AddressTranslationEnable
+							}
 							if _, ok := AddressTranslationData["address_translation_enable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
@@ -8204,18 +8780,27 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				if AutoLastHopData, ok := blockData["auto_last_hop"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerAutoLastHopModel{
 						AutoLastHopDefault: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil {
+								return data.VirtualServer.AutoLastHop.AutoLastHopDefault
+							}
 							if _, ok := AutoLastHopData["auto_last_hop_default"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						AutoLastHopDisable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil {
+								return data.VirtualServer.AutoLastHop.AutoLastHopDisable
+							}
 							if _, ok := AutoLastHopData["auto_last_hop_disable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						AutoLastHopEnable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil {
+								return data.VirtualServer.AutoLastHop.AutoLastHopEnable
+							}
 							if _, ok := AutoLastHopData["auto_last_hop_enable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
@@ -8229,9 +8814,14 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.ClonePoolClient.IsNull() || len(data.VirtualServer.ClonePoolClient.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolClientModelAttrTypes})
 				}
+				var ClonePoolClientExisting []ApplicationProfilesVirtualServerClonePoolClientModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.ClonePoolClient.IsNull() && !data.VirtualServer.ClonePoolClient.IsUnknown() {
+					data.VirtualServer.ClonePoolClient.ElementsAs(ctx, &ClonePoolClientExisting, false)
+				}
 				if rawList, ok := blockData["clone_pool_client"].([]interface{}); ok && len(rawList) > 0 {
 					var ClonePoolClientResult []ApplicationProfilesVirtualServerClonePoolClientModel
-					for _, ClonePoolClientItem := range rawList {
+					for ClonePoolClientIdx, ClonePoolClientItem := range rawList {
+						_ = ClonePoolClientIdx
 						if ClonePoolClientItemMap, ok := ClonePoolClientItem.(map[string]interface{}); ok {
 							ClonePoolClientResult = append(ClonePoolClientResult, ApplicationProfilesVirtualServerClonePoolClientModel{
 								Kind: func() types.String {
@@ -8276,9 +8866,14 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.ClonePoolServer.IsNull() || len(data.VirtualServer.ClonePoolServer.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolServerModelAttrTypes})
 				}
+				var ClonePoolServerExisting []ApplicationProfilesVirtualServerClonePoolServerModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.ClonePoolServer.IsNull() && !data.VirtualServer.ClonePoolServer.IsUnknown() {
+					data.VirtualServer.ClonePoolServer.ElementsAs(ctx, &ClonePoolServerExisting, false)
+				}
 				if rawList, ok := blockData["clone_pool_server"].([]interface{}); ok && len(rawList) > 0 {
 					var ClonePoolServerResult []ApplicationProfilesVirtualServerClonePoolServerModel
-					for _, ClonePoolServerItem := range rawList {
+					for ClonePoolServerIdx, ClonePoolServerItem := range rawList {
+						_ = ClonePoolServerIdx
 						if ClonePoolServerItemMap, ok := ClonePoolServerItem.(map[string]interface{}); ok {
 							ClonePoolServerResult = append(ClonePoolServerResult, ApplicationProfilesVirtualServerClonePoolServerModel{
 								Kind: func() types.String {
@@ -8344,9 +8939,15 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				if ConnectionRateLimitModeData, ok := blockData["connection_rate_limit_mode"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerConnectionRateLimitModeModel{
 						PerDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerDestinationAddressModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress != nil {
+								return data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress
+							}
 							if PerDestinationAddressData, ok := ConnectionRateLimitModeData["per_destination_address"].(map[string]interface{}); ok {
 								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerDestinationAddressModel{
 									DestinationMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress.DestinationMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress.DestinationMask
+										}
 										if v, ok := PerDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -8357,9 +8958,15 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							return nil
 						}(),
 						PerSourceAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceAddressModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress != nil {
+								return data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress
+							}
 							if PerSourceAddressData, ok := ConnectionRateLimitModeData["per_source_address"].(map[string]interface{}); ok {
 								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceAddressModel{
 									SourceMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress.SourceMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress.SourceMask
+										}
 										if v, ok := PerSourceAddressData["source_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -8370,15 +8977,24 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							return nil
 						}(),
 						PerSourceDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceDestinationAddressModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress != nil {
+								return data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress
+							}
 							if PerSourceDestinationAddressData, ok := ConnectionRateLimitModeData["per_source_destination_address"].(map[string]interface{}); ok {
 								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceDestinationAddressModel{
 									DestinationMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.DestinationMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.DestinationMask
+										}
 										if v, ok := PerSourceDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									SourceMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.SourceMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.SourceMask
+										}
 										if v, ok := PerSourceDestinationAddressData["source_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -8389,15 +9005,24 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							return nil
 						}(),
 						PerVirtualServer: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil {
+								return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServer
+							}
 							if _, ok := ConnectionRateLimitModeData["per_virtual_server"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						PerVirtualServerDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress != nil {
+								return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress
+							}
 							if PerVirtualServerDestinationAddressData, ok := ConnectionRateLimitModeData["per_virtual_server_destination_address"].(map[string]interface{}); ok {
 								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressModel{
 									DestinationMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress.DestinationMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress.DestinationMask
+										}
 										if v, ok := PerVirtualServerDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -8408,9 +9033,15 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							return nil
 						}(),
 						PerVirtualServerSourceAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceAddressModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress != nil {
+								return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress
+							}
 							if PerVirtualServerSourceAddressData, ok := ConnectionRateLimitModeData["per_virtual_server_source_address"].(map[string]interface{}); ok {
 								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceAddressModel{
 									SourceMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress.SourceMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress.SourceMask
+										}
 										if v, ok := PerVirtualServerSourceAddressData["source_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -8421,15 +9052,24 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							return nil
 						}(),
 						PerVirtualServerSourceDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress != nil {
+								return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress
+							}
 							if PerVirtualServerSourceDestinationAddressData, ok := ConnectionRateLimitModeData["per_virtual_server_source_destination_address"].(map[string]interface{}); ok {
 								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressModel{
 									DestinationMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.DestinationMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.DestinationMask
+										}
 										if v, ok := PerVirtualServerSourceDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
 									}(),
 									SourceMask: func() types.Int64 {
+										if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress != nil && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.SourceMask.IsUnknown() {
+											return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.SourceMask
+										}
 										if v, ok := PerVirtualServerSourceDestinationAddressData["source_mask"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -8447,9 +9087,14 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.DefaultPersistenceProfile.IsNull() || len(data.VirtualServer.DefaultPersistenceProfile.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPersistenceProfileModelAttrTypes})
 				}
+				var DefaultPersistenceProfileExisting []ApplicationProfilesVirtualServerDefaultPersistenceProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.DefaultPersistenceProfile.IsNull() && !data.VirtualServer.DefaultPersistenceProfile.IsUnknown() {
+					data.VirtualServer.DefaultPersistenceProfile.ElementsAs(ctx, &DefaultPersistenceProfileExisting, false)
+				}
 				if rawList, ok := blockData["default_persistence_profile"].([]interface{}); ok && len(rawList) > 0 {
 					var DefaultPersistenceProfileResult []ApplicationProfilesVirtualServerDefaultPersistenceProfileModel
-					for _, DefaultPersistenceProfileItem := range rawList {
+					for DefaultPersistenceProfileIdx, DefaultPersistenceProfileItem := range rawList {
+						_ = DefaultPersistenceProfileIdx
 						if DefaultPersistenceProfileItemMap, ok := DefaultPersistenceProfileItem.(map[string]interface{}); ok {
 							DefaultPersistenceProfileResult = append(DefaultPersistenceProfileResult, ApplicationProfilesVirtualServerDefaultPersistenceProfileModel{
 								Kind: func() types.String {
@@ -8494,9 +9139,14 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.DefaultPool.IsNull() || len(data.VirtualServer.DefaultPool.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPoolModelAttrTypes})
 				}
+				var DefaultPoolExisting []ApplicationProfilesVirtualServerDefaultPoolModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.DefaultPool.IsNull() && !data.VirtualServer.DefaultPool.IsUnknown() {
+					data.VirtualServer.DefaultPool.ElementsAs(ctx, &DefaultPoolExisting, false)
+				}
 				if rawList, ok := blockData["default_pool"].([]interface{}); ok && len(rawList) > 0 {
 					var DefaultPoolResult []ApplicationProfilesVirtualServerDefaultPoolModel
-					for _, DefaultPoolItem := range rawList {
+					for DefaultPoolIdx, DefaultPoolItem := range rawList {
+						_ = DefaultPoolIdx
 						if DefaultPoolItemMap, ok := DefaultPoolItem.(map[string]interface{}); ok {
 							DefaultPoolResult = append(DefaultPoolResult, ApplicationProfilesVirtualServerDefaultPoolModel{
 								Kind: func() types.String {
@@ -8541,9 +9191,14 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.FallbackPersistenceProfile.IsNull() || len(data.VirtualServer.FallbackPersistenceProfile.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFallbackPersistenceProfileModelAttrTypes})
 				}
+				var FallbackPersistenceProfileExisting []ApplicationProfilesVirtualServerFallbackPersistenceProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.FallbackPersistenceProfile.IsNull() && !data.VirtualServer.FallbackPersistenceProfile.IsUnknown() {
+					data.VirtualServer.FallbackPersistenceProfile.ElementsAs(ctx, &FallbackPersistenceProfileExisting, false)
+				}
 				if rawList, ok := blockData["fallback_persistence_profile"].([]interface{}); ok && len(rawList) > 0 {
 					var FallbackPersistenceProfileResult []ApplicationProfilesVirtualServerFallbackPersistenceProfileModel
-					for _, FallbackPersistenceProfileItem := range rawList {
+					for FallbackPersistenceProfileIdx, FallbackPersistenceProfileItem := range rawList {
+						_ = FallbackPersistenceProfileIdx
 						if FallbackPersistenceProfileItemMap, ok := FallbackPersistenceProfileItem.(map[string]interface{}); ok {
 							FallbackPersistenceProfileResult = append(FallbackPersistenceProfileResult, ApplicationProfilesVirtualServerFallbackPersistenceProfileModel{
 								Kind: func() types.String {
@@ -8588,9 +9243,14 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.FixProfile.IsNull() || len(data.VirtualServer.FixProfile.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFixProfileModelAttrTypes})
 				}
+				var FixProfileExisting []ApplicationProfilesVirtualServerFixProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.FixProfile.IsNull() && !data.VirtualServer.FixProfile.IsUnknown() {
+					data.VirtualServer.FixProfile.ElementsAs(ctx, &FixProfileExisting, false)
+				}
 				if rawList, ok := blockData["fix_profile"].([]interface{}); ok && len(rawList) > 0 {
 					var FixProfileResult []ApplicationProfilesVirtualServerFixProfileModel
-					for _, FixProfileItem := range rawList {
+					for FixProfileIdx, FixProfileItem := range rawList {
+						_ = FixProfileIdx
 						if FixProfileItemMap, ok := FixProfileItem.(map[string]interface{}); ok {
 							FixProfileResult = append(FixProfileResult, ApplicationProfilesVirtualServerFixProfileModel{
 								Kind: func() types.String {
@@ -8635,9 +9295,17 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				if HTTPData, ok := blockData["http"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerHTTPModel{
 						HTTPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.HTTPClientProfile.IsNull() || len(data.VirtualServer.HTTP.HTTPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPClientProfileModelAttrTypes})
+							}
+							var HTTPClientProfileExisting []ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.HTTPClientProfile.IsNull() && !data.VirtualServer.HTTP.HTTPClientProfile.IsUnknown() {
+								data.VirtualServer.HTTP.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileExisting, false)
+							}
 							if rawList, ok := HTTPData["http_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var HTTPClientProfileResult []ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel
-								for _, HTTPClientProfileItem := range rawList {
+								for HTTPClientProfileIdx, HTTPClientProfileItem := range rawList {
+									_ = HTTPClientProfileIdx
 									if HTTPClientProfileItemMap, ok := HTTPClientProfileItem.(map[string]interface{}); ok {
 										HTTPClientProfileResult = append(HTTPClientProfileResult, ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel{
 											Kind: func() types.String {
@@ -8679,9 +9347,17 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPClientProfileModelAttrTypes})
 						}(),
 						HTTPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.HTTPServerProfile.IsNull() || len(data.VirtualServer.HTTP.HTTPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPServerProfileModelAttrTypes})
+							}
+							var HTTPServerProfileExisting []ApplicationProfilesVirtualServerHTTPHTTPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.HTTPServerProfile.IsNull() && !data.VirtualServer.HTTP.HTTPServerProfile.IsUnknown() {
+								data.VirtualServer.HTTP.HTTPServerProfile.ElementsAs(ctx, &HTTPServerProfileExisting, false)
+							}
 							if rawList, ok := HTTPData["http_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var HTTPServerProfileResult []ApplicationProfilesVirtualServerHTTPHTTPServerProfileModel
-								for _, HTTPServerProfileItem := range rawList {
+								for HTTPServerProfileIdx, HTTPServerProfileItem := range rawList {
+									_ = HTTPServerProfileIdx
 									if HTTPServerProfileItemMap, ok := HTTPServerProfileItem.(map[string]interface{}); ok {
 										HTTPServerProfileResult = append(HTTPServerProfileResult, ApplicationProfilesVirtualServerHTTPHTTPServerProfileModel{
 											Kind: func() types.String {
@@ -8723,9 +9399,17 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPServerProfileModelAttrTypes})
 						}(),
 						StreamProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.StreamProfile.IsNull() || len(data.VirtualServer.HTTP.StreamProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPStreamProfileModelAttrTypes})
+							}
+							var StreamProfileExisting []ApplicationProfilesVirtualServerHTTPStreamProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.StreamProfile.IsNull() && !data.VirtualServer.HTTP.StreamProfile.IsUnknown() {
+								data.VirtualServer.HTTP.StreamProfile.ElementsAs(ctx, &StreamProfileExisting, false)
+							}
 							if rawList, ok := HTTPData["stream_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var StreamProfileResult []ApplicationProfilesVirtualServerHTTPStreamProfileModel
-								for _, StreamProfileItem := range rawList {
+								for StreamProfileIdx, StreamProfileItem := range rawList {
+									_ = StreamProfileIdx
 									if StreamProfileItemMap, ok := StreamProfileItem.(map[string]interface{}); ok {
 										StreamProfileResult = append(StreamProfileResult, ApplicationProfilesVirtualServerHTTPStreamProfileModel{
 											Kind: func() types.String {
@@ -8767,9 +9451,17 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPStreamProfileModelAttrTypes})
 						}(),
 						TCPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.TCPClientProfile.IsNull() || len(data.VirtualServer.HTTP.TCPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPClientProfileModelAttrTypes})
+							}
+							var TCPClientProfileExisting []ApplicationProfilesVirtualServerHTTPTCPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.TCPClientProfile.IsNull() && !data.VirtualServer.HTTP.TCPClientProfile.IsUnknown() {
+								data.VirtualServer.HTTP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileExisting, false)
+							}
 							if rawList, ok := HTTPData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPClientProfileResult []ApplicationProfilesVirtualServerHTTPTCPClientProfileModel
-								for _, TCPClientProfileItem := range rawList {
+								for TCPClientProfileIdx, TCPClientProfileItem := range rawList {
+									_ = TCPClientProfileIdx
 									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
 										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerHTTPTCPClientProfileModel{
 											Kind: func() types.String {
@@ -8811,9 +9503,17 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPClientProfileModelAttrTypes})
 						}(),
 						TCPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.TCPServerProfile.IsNull() || len(data.VirtualServer.HTTP.TCPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPServerProfileModelAttrTypes})
+							}
+							var TCPServerProfileExisting []ApplicationProfilesVirtualServerHTTPTCPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.TCPServerProfile.IsNull() && !data.VirtualServer.HTTP.TCPServerProfile.IsUnknown() {
+								data.VirtualServer.HTTP.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileExisting, false)
+							}
 							if rawList, ok := HTTPData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPServerProfileResult []ApplicationProfilesVirtualServerHTTPTCPServerProfileModel
-								for _, TCPServerProfileItem := range rawList {
+								for TCPServerProfileIdx, TCPServerProfileItem := range rawList {
+									_ = TCPServerProfileIdx
 									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
 										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerHTTPTCPServerProfileModel{
 											Kind: func() types.String {
@@ -8855,9 +9555,17 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPServerProfileModelAttrTypes})
 						}(),
 						WebSocketClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.WebSocketClientProfile.IsNull() || len(data.VirtualServer.HTTP.WebSocketClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModelAttrTypes})
+							}
+							var WebSocketClientProfileExisting []ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.WebSocketClientProfile.IsNull() && !data.VirtualServer.HTTP.WebSocketClientProfile.IsUnknown() {
+								data.VirtualServer.HTTP.WebSocketClientProfile.ElementsAs(ctx, &WebSocketClientProfileExisting, false)
+							}
 							if rawList, ok := HTTPData["websocket_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var WebSocketClientProfileResult []ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModel
-								for _, WebSocketClientProfileItem := range rawList {
+								for WebSocketClientProfileIdx, WebSocketClientProfileItem := range rawList {
+									_ = WebSocketClientProfileIdx
 									if WebSocketClientProfileItemMap, ok := WebSocketClientProfileItem.(map[string]interface{}); ok {
 										WebSocketClientProfileResult = append(WebSocketClientProfileResult, ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModel{
 											Kind: func() types.String {
@@ -8899,9 +9607,17 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModelAttrTypes})
 						}(),
 						WebSocketServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.WebSocketServerProfile.IsNull() || len(data.VirtualServer.HTTP.WebSocketServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModelAttrTypes})
+							}
+							var WebSocketServerProfileExisting []ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.WebSocketServerProfile.IsNull() && !data.VirtualServer.HTTP.WebSocketServerProfile.IsUnknown() {
+								data.VirtualServer.HTTP.WebSocketServerProfile.ElementsAs(ctx, &WebSocketServerProfileExisting, false)
+							}
 							if rawList, ok := HTTPData["websocket_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var WebSocketServerProfileResult []ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModel
-								for _, WebSocketServerProfileItem := range rawList {
+								for WebSocketServerProfileIdx, WebSocketServerProfileItem := range rawList {
+									_ = WebSocketServerProfileIdx
 									if WebSocketServerProfileItemMap, ok := WebSocketServerProfileItem.(map[string]interface{}); ok {
 										WebSocketServerProfileResult = append(WebSocketServerProfileResult, ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModel{
 											Kind: func() types.String {
@@ -8950,9 +9666,17 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				if HTTPSData, ok := blockData["https"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerHTTPSModel{
 						HTTPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.HTTPClientProfile.IsNull() || len(data.VirtualServer.HTTPS.HTTPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModelAttrTypes})
+							}
+							var HTTPClientProfileExisting []ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.HTTPClientProfile.IsNull() && !data.VirtualServer.HTTPS.HTTPClientProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileExisting, false)
+							}
 							if rawList, ok := HTTPSData["http_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var HTTPClientProfileResult []ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel
-								for _, HTTPClientProfileItem := range rawList {
+								for HTTPClientProfileIdx, HTTPClientProfileItem := range rawList {
+									_ = HTTPClientProfileIdx
 									if HTTPClientProfileItemMap, ok := HTTPClientProfileItem.(map[string]interface{}); ok {
 										HTTPClientProfileResult = append(HTTPClientProfileResult, ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel{
 											Kind: func() types.String {
@@ -8994,9 +9718,17 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModelAttrTypes})
 						}(),
 						HTTPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.HTTPServerProfile.IsNull() || len(data.VirtualServer.HTTPS.HTTPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModelAttrTypes})
+							}
+							var HTTPServerProfileExisting []ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.HTTPServerProfile.IsNull() && !data.VirtualServer.HTTPS.HTTPServerProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.HTTPServerProfile.ElementsAs(ctx, &HTTPServerProfileExisting, false)
+							}
 							if rawList, ok := HTTPSData["http_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var HTTPServerProfileResult []ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModel
-								for _, HTTPServerProfileItem := range rawList {
+								for HTTPServerProfileIdx, HTTPServerProfileItem := range rawList {
+									_ = HTTPServerProfileIdx
 									if HTTPServerProfileItemMap, ok := HTTPServerProfileItem.(map[string]interface{}); ok {
 										HTTPServerProfileResult = append(HTTPServerProfileResult, ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModel{
 											Kind: func() types.String {
@@ -9038,9 +9770,17 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModelAttrTypes})
 						}(),
 						StreamProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.StreamProfile.IsNull() || len(data.VirtualServer.HTTPS.StreamProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSStreamProfileModelAttrTypes})
+							}
+							var StreamProfileExisting []ApplicationProfilesVirtualServerHTTPSStreamProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.StreamProfile.IsNull() && !data.VirtualServer.HTTPS.StreamProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.StreamProfile.ElementsAs(ctx, &StreamProfileExisting, false)
+							}
 							if rawList, ok := HTTPSData["stream_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var StreamProfileResult []ApplicationProfilesVirtualServerHTTPSStreamProfileModel
-								for _, StreamProfileItem := range rawList {
+								for StreamProfileIdx, StreamProfileItem := range rawList {
+									_ = StreamProfileIdx
 									if StreamProfileItemMap, ok := StreamProfileItem.(map[string]interface{}); ok {
 										StreamProfileResult = append(StreamProfileResult, ApplicationProfilesVirtualServerHTTPSStreamProfileModel{
 											Kind: func() types.String {
@@ -9082,9 +9822,17 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSStreamProfileModelAttrTypes})
 						}(),
 						TCPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.TCPClientProfile.IsNull() || len(data.VirtualServer.HTTPS.TCPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPClientProfileModelAttrTypes})
+							}
+							var TCPClientProfileExisting []ApplicationProfilesVirtualServerHTTPSTCPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.TCPClientProfile.IsNull() && !data.VirtualServer.HTTPS.TCPClientProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileExisting, false)
+							}
 							if rawList, ok := HTTPSData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPClientProfileResult []ApplicationProfilesVirtualServerHTTPSTCPClientProfileModel
-								for _, TCPClientProfileItem := range rawList {
+								for TCPClientProfileIdx, TCPClientProfileItem := range rawList {
+									_ = TCPClientProfileIdx
 									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
 										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerHTTPSTCPClientProfileModel{
 											Kind: func() types.String {
@@ -9126,9 +9874,17 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPClientProfileModelAttrTypes})
 						}(),
 						TCPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.TCPServerProfile.IsNull() || len(data.VirtualServer.HTTPS.TCPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPServerProfileModelAttrTypes})
+							}
+							var TCPServerProfileExisting []ApplicationProfilesVirtualServerHTTPSTCPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.TCPServerProfile.IsNull() && !data.VirtualServer.HTTPS.TCPServerProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileExisting, false)
+							}
 							if rawList, ok := HTTPSData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPServerProfileResult []ApplicationProfilesVirtualServerHTTPSTCPServerProfileModel
-								for _, TCPServerProfileItem := range rawList {
+								for TCPServerProfileIdx, TCPServerProfileItem := range rawList {
+									_ = TCPServerProfileIdx
 									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
 										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerHTTPSTCPServerProfileModel{
 											Kind: func() types.String {
@@ -9170,9 +9926,17 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPServerProfileModelAttrTypes})
 						}(),
 						WebSocketClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.WebSocketClientProfile.IsNull() || len(data.VirtualServer.HTTPS.WebSocketClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModelAttrTypes})
+							}
+							var WebSocketClientProfileExisting []ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.WebSocketClientProfile.IsNull() && !data.VirtualServer.HTTPS.WebSocketClientProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.WebSocketClientProfile.ElementsAs(ctx, &WebSocketClientProfileExisting, false)
+							}
 							if rawList, ok := HTTPSData["websocket_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var WebSocketClientProfileResult []ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModel
-								for _, WebSocketClientProfileItem := range rawList {
+								for WebSocketClientProfileIdx, WebSocketClientProfileItem := range rawList {
+									_ = WebSocketClientProfileIdx
 									if WebSocketClientProfileItemMap, ok := WebSocketClientProfileItem.(map[string]interface{}); ok {
 										WebSocketClientProfileResult = append(WebSocketClientProfileResult, ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModel{
 											Kind: func() types.String {
@@ -9214,9 +9978,17 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModelAttrTypes})
 						}(),
 						WebSocketServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.WebSocketServerProfile.IsNull() || len(data.VirtualServer.HTTPS.WebSocketServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModelAttrTypes})
+							}
+							var WebSocketServerProfileExisting []ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.WebSocketServerProfile.IsNull() && !data.VirtualServer.HTTPS.WebSocketServerProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.WebSocketServerProfile.ElementsAs(ctx, &WebSocketServerProfileExisting, false)
+							}
 							if rawList, ok := HTTPSData["websocket_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var WebSocketServerProfileResult []ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModel
-								for _, WebSocketServerProfileItem := range rawList {
+								for WebSocketServerProfileIdx, WebSocketServerProfileItem := range rawList {
+									_ = WebSocketServerProfileIdx
 									if WebSocketServerProfileItemMap, ok := WebSocketServerProfileItem.(map[string]interface{}); ok {
 										WebSocketServerProfileResult = append(WebSocketServerProfileResult, ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModel{
 											Kind: func() types.String {
@@ -9268,18 +10040,27 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				if ImmediateActionOnServiceDownData, ok := blockData["immediate_action_on_service_down"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerImmediateActionOnServiceDownModel{
 						ImmediateActionOnServiceDownDrop: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil {
+								return data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownDrop
+							}
 							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_drop"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						ImmediateActionOnServiceDownNone: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil {
+								return data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownNone
+							}
 							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_none"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						ImmediateActionOnServiceDownReset: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil {
+								return data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownReset
+							}
 							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_reset"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
@@ -9293,9 +10074,14 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.LastHopPool.IsNull() || len(data.VirtualServer.LastHopPool.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerLastHopPoolModelAttrTypes})
 				}
+				var LastHopPoolExisting []ApplicationProfilesVirtualServerLastHopPoolModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.LastHopPool.IsNull() && !data.VirtualServer.LastHopPool.IsUnknown() {
+					data.VirtualServer.LastHopPool.ElementsAs(ctx, &LastHopPoolExisting, false)
+				}
 				if rawList, ok := blockData["last_hop_pool"].([]interface{}); ok && len(rawList) > 0 {
 					var LastHopPoolResult []ApplicationProfilesVirtualServerLastHopPoolModel
-					for _, LastHopPoolItem := range rawList {
+					for LastHopPoolIdx, LastHopPoolItem := range rawList {
+						_ = LastHopPoolIdx
 						if LastHopPoolItemMap, ok := LastHopPoolItem.(map[string]interface{}); ok {
 							LastHopPoolResult = append(LastHopPoolResult, ApplicationProfilesVirtualServerLastHopPoolModel{
 								Kind: func() types.String {
@@ -9343,12 +10129,18 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				if Nat64Data, ok := blockData["nat64"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerNat64Model{
 						Nat64Disable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Nat64 != nil {
+								return data.VirtualServer.Nat64.Nat64Disable
+							}
 							if _, ok := Nat64Data["nat64_disable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						Nat64Enable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Nat64 != nil {
+								return data.VirtualServer.Nat64.Nat64Enable
+							}
 							if _, ok := Nat64Data["nat64_enable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
@@ -9365,12 +10157,18 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				if PortTranslationData, ok := blockData["port_translation"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerPortTranslationModel{
 						PortTranslationDisable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.PortTranslation != nil {
+								return data.VirtualServer.PortTranslation.PortTranslationDisable
+							}
 							if _, ok := PortTranslationData["port_translation_disable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						PortTranslationEnable: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.PortTranslation != nil {
+								return data.VirtualServer.PortTranslation.PortTranslationEnable
+							}
 							if _, ok := PortTranslationData["port_translation_enable"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
@@ -9384,9 +10182,14 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.RequestLoggingProfile.IsNull() || len(data.VirtualServer.RequestLoggingProfile.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerRequestLoggingProfileModelAttrTypes})
 				}
+				var RequestLoggingProfileExisting []ApplicationProfilesVirtualServerRequestLoggingProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.RequestLoggingProfile.IsNull() && !data.VirtualServer.RequestLoggingProfile.IsUnknown() {
+					data.VirtualServer.RequestLoggingProfile.ElementsAs(ctx, &RequestLoggingProfileExisting, false)
+				}
 				if rawList, ok := blockData["request_logging_profile"].([]interface{}); ok && len(rawList) > 0 {
 					var RequestLoggingProfileResult []ApplicationProfilesVirtualServerRequestLoggingProfileModel
-					for _, RequestLoggingProfileItem := range rawList {
+					for RequestLoggingProfileIdx, RequestLoggingProfileItem := range rawList {
+						_ = RequestLoggingProfileIdx
 						if RequestLoggingProfileItemMap, ok := RequestLoggingProfileItem.(map[string]interface{}); ok {
 							RequestLoggingProfileResult = append(RequestLoggingProfileResult, ApplicationProfilesVirtualServerRequestLoggingProfileModel{
 								Kind: func() types.String {
@@ -9434,18 +10237,27 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				if SourcePortData, ok := blockData["source_port"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerSourcePortModel{
 						SourcePortChange: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil {
+								return data.VirtualServer.SourcePort.SourcePortChange
+							}
 							if _, ok := SourcePortData["source_port_change"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						SourcePortPreserve: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil {
+								return data.VirtualServer.SourcePort.SourcePortPreserve
+							}
 							if _, ok := SourcePortData["source_port_preserve"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						SourcePortPreserveStrict: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil {
+								return data.VirtualServer.SourcePort.SourcePortPreserveStrict
+							}
 							if _, ok := SourcePortData["source_port_preserve_strict"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
@@ -9459,9 +10271,14 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				if !isImport && data.VirtualServer != nil && (data.VirtualServer.StatisticsProfile.IsNull() || len(data.VirtualServer.StatisticsProfile.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerStatisticsProfileModelAttrTypes})
 				}
+				var StatisticsProfileExisting []ApplicationProfilesVirtualServerStatisticsProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.StatisticsProfile.IsNull() && !data.VirtualServer.StatisticsProfile.IsUnknown() {
+					data.VirtualServer.StatisticsProfile.ElementsAs(ctx, &StatisticsProfileExisting, false)
+				}
 				if rawList, ok := blockData["statistics_profile"].([]interface{}); ok && len(rawList) > 0 {
 					var StatisticsProfileResult []ApplicationProfilesVirtualServerStatisticsProfileModel
-					for _, StatisticsProfileItem := range rawList {
+					for StatisticsProfileIdx, StatisticsProfileItem := range rawList {
+						_ = StatisticsProfileIdx
 						if StatisticsProfileItemMap, ok := StatisticsProfileItem.(map[string]interface{}); ok {
 							StatisticsProfileResult = append(StatisticsProfileResult, ApplicationProfilesVirtualServerStatisticsProfileModel{
 								Kind: func() types.String {
@@ -9506,9 +10323,17 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				if TCPData, ok := blockData["tcp"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerTCPModel{
 						TCPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && (data.VirtualServer.TCP.TCPClientProfile.IsNull() || len(data.VirtualServer.TCP.TCPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPClientProfileModelAttrTypes})
+							}
+							var TCPClientProfileExisting []ApplicationProfilesVirtualServerTCPTCPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && !data.VirtualServer.TCP.TCPClientProfile.IsNull() && !data.VirtualServer.TCP.TCPClientProfile.IsUnknown() {
+								data.VirtualServer.TCP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileExisting, false)
+							}
 							if rawList, ok := TCPData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPClientProfileResult []ApplicationProfilesVirtualServerTCPTCPClientProfileModel
-								for _, TCPClientProfileItem := range rawList {
+								for TCPClientProfileIdx, TCPClientProfileItem := range rawList {
+									_ = TCPClientProfileIdx
 									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
 										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerTCPTCPClientProfileModel{
 											Kind: func() types.String {
@@ -9550,9 +10375,17 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPClientProfileModelAttrTypes})
 						}(),
 						TCPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && (data.VirtualServer.TCP.TCPServerProfile.IsNull() || len(data.VirtualServer.TCP.TCPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPServerProfileModelAttrTypes})
+							}
+							var TCPServerProfileExisting []ApplicationProfilesVirtualServerTCPTCPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && !data.VirtualServer.TCP.TCPServerProfile.IsNull() && !data.VirtualServer.TCP.TCPServerProfile.IsUnknown() {
+								data.VirtualServer.TCP.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileExisting, false)
+							}
 							if rawList, ok := TCPData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPServerProfileResult []ApplicationProfilesVirtualServerTCPTCPServerProfileModel
-								for _, TCPServerProfileItem := range rawList {
+								for TCPServerProfileIdx, TCPServerProfileItem := range rawList {
+									_ = TCPServerProfileIdx
 									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
 										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerTCPTCPServerProfileModel{
 											Kind: func() types.String {
@@ -9601,9 +10434,17 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				if UDPData, ok := blockData["udp"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerUDPModel{
 						TCPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.TCPClientProfile.IsNull() || len(data.VirtualServer.UDP.TCPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes})
+							}
+							var TCPClientProfileExisting []ApplicationProfilesVirtualServerUDPTCPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.TCPClientProfile.IsNull() && !data.VirtualServer.UDP.TCPClientProfile.IsUnknown() {
+								data.VirtualServer.UDP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileExisting, false)
+							}
 							if rawList, ok := UDPData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPClientProfileResult []ApplicationProfilesVirtualServerUDPTCPClientProfileModel
-								for _, TCPClientProfileItem := range rawList {
+								for TCPClientProfileIdx, TCPClientProfileItem := range rawList {
+									_ = TCPClientProfileIdx
 									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
 										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerUDPTCPClientProfileModel{
 											Kind: func() types.String {
@@ -9645,9 +10486,17 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes})
 						}(),
 						TCPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.TCPServerProfile.IsNull() || len(data.VirtualServer.UDP.TCPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPServerProfileModelAttrTypes})
+							}
+							var TCPServerProfileExisting []ApplicationProfilesVirtualServerUDPTCPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.TCPServerProfile.IsNull() && !data.VirtualServer.UDP.TCPServerProfile.IsUnknown() {
+								data.VirtualServer.UDP.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileExisting, false)
+							}
 							if rawList, ok := UDPData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
 								var TCPServerProfileResult []ApplicationProfilesVirtualServerUDPTCPServerProfileModel
-								for _, TCPServerProfileItem := range rawList {
+								for TCPServerProfileIdx, TCPServerProfileItem := range rawList {
+									_ = TCPServerProfileIdx
 									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
 										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerUDPTCPServerProfileModel{
 											Kind: func() types.String {
@@ -9699,12 +10548,18 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				if VirtualServerStateData, ok := blockData["virtual_server_state"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerVirtualServerStateModel{
 						StateDisabled: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.VirtualServerState != nil {
+								return data.VirtualServer.VirtualServerState.StateDisabled
+							}
 							if _, ok := VirtualServerStateData["state_disabled"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}
 							return nil
 						}(),
 						StateEnabled: func() *ApplicationProfilesEmptyModel {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.VirtualServerState != nil {
+								return data.VirtualServer.VirtualServerState.StateEnabled
+							}
 							if _, ok := VirtualServerStateData["state_enabled"].(map[string]interface{}); ok {
 								return &ApplicationProfilesEmptyModel{}
 							}

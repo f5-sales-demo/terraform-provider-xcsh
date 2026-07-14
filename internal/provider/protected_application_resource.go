@@ -3985,12 +3985,23 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 				if JsInsertionRulesData, ok := blockData["js_insertion_rules"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudflareJsInsertionRulesModel{
 						ExcludeList: func() types.List {
+							if !isImport && data.Cloudflare != nil && data.Cloudflare.JsInsertionRules != nil && (data.Cloudflare.JsInsertionRules.ExcludeList.IsNull() || len(data.Cloudflare.JsInsertionRules.ExcludeList.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareJsInsertionRulesExcludeListModelAttrTypes})
+							}
+							var ExcludeListExisting []ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel
+							if !isImport && data.Cloudflare != nil && data.Cloudflare.JsInsertionRules != nil && !data.Cloudflare.JsInsertionRules.ExcludeList.IsNull() && !data.Cloudflare.JsInsertionRules.ExcludeList.IsUnknown() {
+								data.Cloudflare.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+							}
 							if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeListResult []ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel
-								for _, ExcludeListItem := range rawList {
+								for ExcludeListIdx, ExcludeListItem := range rawList {
+									_ = ExcludeListIdx
 									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 										ExcludeListResult = append(ExcludeListResult, ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
+												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
+													return &ProtectedApplicationEmptyModel{}
+												}
 												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
 												}
@@ -4086,12 +4097,23 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 							return types.StringNull()
 						}(),
 						Rules: func() types.List {
+							if !isImport && data.Cloudflare != nil && data.Cloudflare.JsInsertionRules != nil && (data.Cloudflare.JsInsertionRules.Rules.IsNull() || len(data.Cloudflare.JsInsertionRules.Rules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareJsInsertionRulesRulesModelAttrTypes})
+							}
+							var RulesExisting []ProtectedApplicationCloudflareJsInsertionRulesRulesModel
+							if !isImport && data.Cloudflare != nil && data.Cloudflare.JsInsertionRules != nil && !data.Cloudflare.JsInsertionRules.Rules.IsNull() && !data.Cloudflare.JsInsertionRules.Rules.IsUnknown() {
+								data.Cloudflare.JsInsertionRules.Rules.ElementsAs(ctx, &RulesExisting, false)
+							}
 							if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 								var RulesResult []ProtectedApplicationCloudflareJsInsertionRulesRulesModel
-								for _, RulesItem := range rawList {
+								for RulesIdx, RulesItem := range rawList {
+									_ = RulesIdx
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, ProtectedApplicationCloudflareJsInsertionRulesRulesModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyDomain != nil {
+													return &ProtectedApplicationEmptyModel{}
+												}
 												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
 												}
@@ -4200,12 +4222,23 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 				if MobileSdkConfigData, ok := blockData["mobile_sdk_config"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudflareMobileSdkConfigModel{
 						MobileIdentifier: func() *ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierModel {
+							if !isImport && data.Cloudflare != nil && data.Cloudflare.MobileSdkConfig != nil && data.Cloudflare.MobileSdkConfig.MobileIdentifier != nil {
+								return data.Cloudflare.MobileSdkConfig.MobileIdentifier
+							}
 							if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
 								return &ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierModel{
 									Headers: func() types.List {
+										if !isImport && data.Cloudflare != nil && data.Cloudflare.MobileSdkConfig != nil && data.Cloudflare.MobileSdkConfig.MobileIdentifier != nil && (data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers.IsNull() || len(data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
+										}
+										var HeadersExisting []ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModel
+										if !isImport && data.Cloudflare != nil && data.Cloudflare.MobileSdkConfig != nil && data.Cloudflare.MobileSdkConfig.MobileIdentifier != nil && !data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
+											data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersExisting, false)
+										}
 										if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
 											var HeadersResult []ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModel
-											for _, HeadersItem := range rawList {
+											for HeadersIdx, HeadersItem := range rawList {
+												_ = HeadersIdx
 												if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 													HeadersResult = append(HeadersResult, ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModel{
 														Exact: func() types.String {
@@ -4246,12 +4279,20 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 				if !isImport && data.Cloudflare != nil && (data.Cloudflare.ProtectedEndpoints.IsNull() || len(data.Cloudflare.ProtectedEndpoints.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareProtectedEndpointsModelAttrTypes})
 				}
+				var ProtectedEndpointsExisting []ProtectedApplicationCloudflareProtectedEndpointsModel
+				if !isImport && data.Cloudflare != nil && !data.Cloudflare.ProtectedEndpoints.IsNull() && !data.Cloudflare.ProtectedEndpoints.IsUnknown() {
+					data.Cloudflare.ProtectedEndpoints.ElementsAs(ctx, &ProtectedEndpointsExisting, false)
+				}
 				if rawList, ok := blockData["protected_endpoints"].([]interface{}); ok && len(rawList) > 0 {
 					var ProtectedEndpointsResult []ProtectedApplicationCloudflareProtectedEndpointsModel
-					for _, ProtectedEndpointsItem := range rawList {
+					for ProtectedEndpointsIdx, ProtectedEndpointsItem := range rawList {
+						_ = ProtectedEndpointsIdx
 						if ProtectedEndpointsItemMap, ok := ProtectedEndpointsItem.(map[string]interface{}); ok {
 							ProtectedEndpointsResult = append(ProtectedEndpointsResult, ProtectedApplicationCloudflareProtectedEndpointsModel{
 								AnyDomain: func() *ProtectedApplicationEmptyModel {
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain != nil {
+										return &ProtectedApplicationEmptyModel{}
+									}
 									if _, ok := ProtectedEndpointsItemMap["any_domain"].(map[string]interface{}); ok {
 										return &ProtectedApplicationEmptyModel{}
 									}
@@ -4318,6 +4359,9 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 									if MobileClientData, ok := ProtectedEndpointsItemMap["mobile_client"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudflareProtectedEndpointsMobileClientModel{
 											Block: func() *ProtectedApplicationCloudflareProtectedEndpointsMobileClientBlockModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Block != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Block
+												}
 												if BlockData, ok := MobileClientData["block"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsMobileClientBlockModel{
 														Body: func() types.String {
@@ -4343,15 +4387,24 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												return nil
 											}(),
 											Continue: func() *ProtectedApplicationCloudflareProtectedEndpointsMobileClientContinueModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue
+												}
 												if ContinueData, ok := MobileClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsMobileClientContinueModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.AddHeader
+															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.NoHeader
+															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -4369,6 +4422,9 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 									if PathData, ok := ProtectedEndpointsItemMap["path"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudflareProtectedEndpointsPathModel{
 											Caseinsensitive: func() types.Bool {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].Path != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].Path.Caseinsensitive.IsUnknown() {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].Path.Caseinsensitive
+												}
 												if v, ok := PathData["caseinsensitive"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -4394,6 +4450,9 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 									if WebClientData, ok := ProtectedEndpointsItemMap["web_client"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudflareProtectedEndpointsWebClientModel{
 											Block: func() *ProtectedApplicationCloudflareProtectedEndpointsWebClientBlockModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Block != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Block
+												}
 												if BlockData, ok := WebClientData["block"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebClientBlockModel{
 														Body: func() types.String {
@@ -4419,15 +4478,24 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												return nil
 											}(),
 											Continue: func() *ProtectedApplicationCloudflareProtectedEndpointsWebClientContinueModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue
+												}
 												if ContinueData, ok := WebClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebClientContinueModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.AddHeader
+															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.NoHeader
+															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -4438,6 +4506,9 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												return nil
 											}(),
 											Redirect: func() *ProtectedApplicationCloudflareProtectedEndpointsWebClientRedirectModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Redirect != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Redirect
+												}
 												if RedirectData, ok := WebClientData["redirect"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebClientRedirectModel{
 														Location: func() types.String {
@@ -4464,6 +4535,9 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 									if WebMobileClientData, ok := ProtectedEndpointsItemMap["web_mobile_client"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientModel{
 											BlockMobile: func() *ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientBlockMobileModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockMobile != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockMobile
+												}
 												if BlockMobileData, ok := WebMobileClientData["block_mobile"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientBlockMobileModel{
 														Body: func() types.String {
@@ -4489,6 +4563,9 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												return nil
 											}(),
 											BlockWeb: func() *ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientBlockWebModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockWeb != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockWeb
+												}
 												if BlockWebData, ok := WebMobileClientData["block_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientBlockWebModel{
 														Body: func() types.String {
@@ -4514,15 +4591,24 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												return nil
 											}(),
 											ContinueMobile: func() *ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueMobileModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile
+												}
 												if ContinueMobileData, ok := WebMobileClientData["continue_mobile"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueMobileModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.AddHeader
+															}
 															if _, ok := ContinueMobileData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.NoHeader
+															}
 															if _, ok := ContinueMobileData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -4533,15 +4619,24 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												return nil
 											}(),
 											ContinueWeb: func() *ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueWebModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb
+												}
 												if ContinueWebData, ok := WebMobileClientData["continue_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueWebModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.AddHeader
+															}
 															if _, ok := ContinueWebData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.NoHeader
+															}
 															if _, ok := ContinueWebData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -4552,6 +4647,9 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												return nil
 											}(),
 											RedirectWeb: func() *ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientRedirectWebModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.RedirectWeb != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.RedirectWeb
+												}
 												if RedirectWebData, ok := WebMobileClientData["redirect_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientRedirectWebModel{
 														Location: func() types.String {
@@ -4595,18 +4693,31 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 				if !isImport && data.Cloudflare != nil && (data.Cloudflare.TrustedClients.IsNull() || len(data.Cloudflare.TrustedClients.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareTrustedClientsModelAttrTypes})
 				}
+				var TrustedClientsExisting []ProtectedApplicationCloudflareTrustedClientsModel
+				if !isImport && data.Cloudflare != nil && !data.Cloudflare.TrustedClients.IsNull() && !data.Cloudflare.TrustedClients.IsUnknown() {
+					data.Cloudflare.TrustedClients.ElementsAs(ctx, &TrustedClientsExisting, false)
+				}
 				if rawList, ok := blockData["trusted_clients"].([]interface{}); ok && len(rawList) > 0 {
 					var TrustedClientsResult []ProtectedApplicationCloudflareTrustedClientsModel
-					for _, TrustedClientsItem := range rawList {
+					for TrustedClientsIdx, TrustedClientsItem := range rawList {
+						_ = TrustedClientsIdx
 						if TrustedClientsItemMap, ok := TrustedClientsItem.(map[string]interface{}); ok {
 							TrustedClientsResult = append(TrustedClientsResult, ProtectedApplicationCloudflareTrustedClientsModel{
 								HTTPHeader: func() *ProtectedApplicationCloudflareTrustedClientsHTTPHeaderModel {
 									if HTTPHeaderData, ok := TrustedClientsItemMap["http_header"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudflareTrustedClientsHTTPHeaderModel{
 											Headers: func() types.List {
+												if !isImport && len(TrustedClientsExisting) > TrustedClientsIdx && TrustedClientsExisting[TrustedClientsIdx].HTTPHeader != nil && (TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.IsNull() || len(TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModelAttrTypes})
+												}
+												var HeadersExisting []ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModel
+												if !isImport && len(TrustedClientsExisting) > TrustedClientsIdx && TrustedClientsExisting[TrustedClientsIdx].HTTPHeader != nil && !TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.IsNull() && !TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.IsUnknown() {
+													TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.ElementsAs(ctx, &HeadersExisting, false)
+												}
 												if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModel
-													for _, HeadersItem := range rawList {
+													for HeadersIdx, HeadersItem := range rawList {
+														_ = HeadersIdx
 														if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 															HeadersResult = append(HeadersResult, ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModel{
 																Exact: func() types.String {
@@ -4706,6 +4817,9 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 				if AWSConfigurationTagSelectorData, ok := blockData["aws_configuration_tag_selector"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudfrontAWSConfigurationTagSelectorModel{
 						Tags: func() *ProtectedApplicationEmptyModel {
+							if !isImport && data.Cloudfront != nil && data.Cloudfront.AWSConfigurationTagSelector != nil {
+								return data.Cloudfront.AWSConfigurationTagSelector.Tags
+							}
 							if _, ok := AWSConfigurationTagSelectorData["tags"].(map[string]interface{}); ok {
 								return &ProtectedApplicationEmptyModel{}
 							}
@@ -4764,12 +4878,23 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 				if JsInsertionRulesData, ok := blockData["js_insertion_rules"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudfrontJsInsertionRulesModel{
 						ExcludeList: func() types.List {
+							if !isImport && data.Cloudfront != nil && data.Cloudfront.JsInsertionRules != nil && (data.Cloudfront.JsInsertionRules.ExcludeList.IsNull() || len(data.Cloudfront.JsInsertionRules.ExcludeList.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModelAttrTypes})
+							}
+							var ExcludeListExisting []ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel
+							if !isImport && data.Cloudfront != nil && data.Cloudfront.JsInsertionRules != nil && !data.Cloudfront.JsInsertionRules.ExcludeList.IsNull() && !data.Cloudfront.JsInsertionRules.ExcludeList.IsUnknown() {
+								data.Cloudfront.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+							}
 							if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeListResult []ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel
-								for _, ExcludeListItem := range rawList {
+								for ExcludeListIdx, ExcludeListItem := range rawList {
+									_ = ExcludeListIdx
 									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 										ExcludeListResult = append(ExcludeListResult, ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
+												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
+													return &ProtectedApplicationEmptyModel{}
+												}
 												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
 												}
@@ -4871,12 +4996,23 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 							return types.StringNull()
 						}(),
 						Rules: func() types.List {
+							if !isImport && data.Cloudfront != nil && data.Cloudfront.JsInsertionRules != nil && (data.Cloudfront.JsInsertionRules.Rules.IsNull() || len(data.Cloudfront.JsInsertionRules.Rules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontJsInsertionRulesRulesModelAttrTypes})
+							}
+							var RulesExisting []ProtectedApplicationCloudfrontJsInsertionRulesRulesModel
+							if !isImport && data.Cloudfront != nil && data.Cloudfront.JsInsertionRules != nil && !data.Cloudfront.JsInsertionRules.Rules.IsNull() && !data.Cloudfront.JsInsertionRules.Rules.IsUnknown() {
+								data.Cloudfront.JsInsertionRules.Rules.ElementsAs(ctx, &RulesExisting, false)
+							}
 							if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 								var RulesResult []ProtectedApplicationCloudfrontJsInsertionRulesRulesModel
-								for _, RulesItem := range rawList {
+								for RulesIdx, RulesItem := range rawList {
+									_ = RulesIdx
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, ProtectedApplicationCloudfrontJsInsertionRulesRulesModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyDomain != nil {
+													return &ProtectedApplicationEmptyModel{}
+												}
 												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
 												}
@@ -4991,12 +5127,23 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 				if MobileSdkConfigData, ok := blockData["mobile_sdk_config"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudfrontMobileSdkConfigModel{
 						MobileIdentifier: func() *ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierModel {
+							if !isImport && data.Cloudfront != nil && data.Cloudfront.MobileSdkConfig != nil && data.Cloudfront.MobileSdkConfig.MobileIdentifier != nil {
+								return data.Cloudfront.MobileSdkConfig.MobileIdentifier
+							}
 							if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
 								return &ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierModel{
 									Headers: func() types.List {
+										if !isImport && data.Cloudfront != nil && data.Cloudfront.MobileSdkConfig != nil && data.Cloudfront.MobileSdkConfig.MobileIdentifier != nil && (data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers.IsNull() || len(data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
+										}
+										var HeadersExisting []ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModel
+										if !isImport && data.Cloudfront != nil && data.Cloudfront.MobileSdkConfig != nil && data.Cloudfront.MobileSdkConfig.MobileIdentifier != nil && !data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
+											data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersExisting, false)
+										}
 										if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
 											var HeadersResult []ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModel
-											for _, HeadersItem := range rawList {
+											for HeadersIdx, HeadersItem := range rawList {
+												_ = HeadersIdx
 												if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 													HeadersResult = append(HeadersResult, ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModel{
 														Exact: func() types.String {
@@ -5037,12 +5184,20 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 				if !isImport && data.Cloudfront != nil && (data.Cloudfront.ProtectedEndpoints.IsNull() || len(data.Cloudfront.ProtectedEndpoints.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsModelAttrTypes})
 				}
+				var ProtectedEndpointsExisting []ProtectedApplicationCloudfrontProtectedEndpointsModel
+				if !isImport && data.Cloudfront != nil && !data.Cloudfront.ProtectedEndpoints.IsNull() && !data.Cloudfront.ProtectedEndpoints.IsUnknown() {
+					data.Cloudfront.ProtectedEndpoints.ElementsAs(ctx, &ProtectedEndpointsExisting, false)
+				}
 				if rawList, ok := blockData["protected_endpoints"].([]interface{}); ok && len(rawList) > 0 {
 					var ProtectedEndpointsResult []ProtectedApplicationCloudfrontProtectedEndpointsModel
-					for _, ProtectedEndpointsItem := range rawList {
+					for ProtectedEndpointsIdx, ProtectedEndpointsItem := range rawList {
+						_ = ProtectedEndpointsIdx
 						if ProtectedEndpointsItemMap, ok := ProtectedEndpointsItem.(map[string]interface{}); ok {
 							ProtectedEndpointsResult = append(ProtectedEndpointsResult, ProtectedApplicationCloudfrontProtectedEndpointsModel{
 								AnyDomain: func() *ProtectedApplicationEmptyModel {
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain != nil {
+										return &ProtectedApplicationEmptyModel{}
+									}
 									if _, ok := ProtectedEndpointsItemMap["any_domain"].(map[string]interface{}); ok {
 										return &ProtectedApplicationEmptyModel{}
 									}
@@ -5077,15 +5232,24 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 									if FlowLabelData, ok := ProtectedEndpointsItemMap["flow_label"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelModel{
 											AccountManagement: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAccountManagementModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement
+												}
 												if AccountManagementData, ok := FlowLabelData["account_management"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAccountManagementModel{
 														Create: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement.Create
+															}
 															if _, ok := AccountManagementData["create"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														PasswordReset: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement.PasswordReset
+															}
 															if _, ok := AccountManagementData["password_reset"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -5096,24 +5260,44 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												return nil
 											}(),
 											Authentication: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication
+												}
 												if AuthenticationData, ok := FlowLabelData["authentication"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationModel{
 														Login: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login
+															}
 															if LoginData, ok := AuthenticationData["login"].(map[string]interface{}); ok {
 																return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginModel{
 																	DisableTransactionResult: func() *ProtectedApplicationEmptyModel {
+																		if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil {
+																			return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.DisableTransactionResult
+																		}
 																		if _, ok := LoginData["disable_transaction_result"].(map[string]interface{}); ok {
 																			return &ProtectedApplicationEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	TransactionResult: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultModel {
+																		if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil {
+																			return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult
+																		}
 																		if TransactionResultData, ok := LoginData["transaction_result"].(map[string]interface{}); ok {
 																			return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultModel{
 																				FailureConditions: func() types.List {
+																					if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && (ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsNull() || len(ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.Elements()) == 0) {
+																						return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes})
+																					}
+																					var FailureConditionsExisting []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel
+																					if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsNull() && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsUnknown() {
+																						ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.ElementsAs(ctx, &FailureConditionsExisting, false)
+																					}
 																					if rawList, ok := TransactionResultData["failure_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																						var FailureConditionsResult []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel
-																						for _, FailureConditionsItem := range rawList {
+																						for FailureConditionsIdx, FailureConditionsItem := range rawList {
+																							_ = FailureConditionsIdx
 																							if FailureConditionsItemMap, ok := FailureConditionsItem.(map[string]interface{}); ok {
 																								FailureConditionsResult = append(FailureConditionsResult, ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel{
 																									Name: func() types.String {
@@ -5150,9 +5334,17 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 																					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes})
 																				}(),
 																				SuccessConditions: func() types.List {
+																					if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && (ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsNull() || len(ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.Elements()) == 0) {
+																						return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModelAttrTypes})
+																					}
+																					var SuccessConditionsExisting []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel
+																					if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsNull() && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsUnknown() {
+																						ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.ElementsAs(ctx, &SuccessConditionsExisting, false)
+																					}
 																					if rawList, ok := TransactionResultData["success_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																						var SuccessConditionsResult []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel
-																						for _, SuccessConditionsItem := range rawList {
+																						for SuccessConditionsIdx, SuccessConditionsItem := range rawList {
+																							_ = SuccessConditionsIdx
 																							if SuccessConditionsItemMap, ok := SuccessConditionsItem.(map[string]interface{}); ok {
 																								SuccessConditionsResult = append(SuccessConditionsResult, ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel{
 																									Name: func() types.String {
@@ -5197,24 +5389,36 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 															return nil
 														}(),
 														LoginMFA: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.LoginMFA
+															}
 															if _, ok := AuthenticationData["login_mfa"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														LoginPartner: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.LoginPartner
+															}
 															if _, ok := AuthenticationData["login_partner"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														Logout: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Logout
+															}
 															if _, ok := AuthenticationData["logout"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														TokenRefresh: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.TokenRefresh
+															}
 															if _, ok := AuthenticationData["token_refresh"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -5225,15 +5429,24 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												return nil
 											}(),
 											FinancialServices: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFinancialServicesModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices
+												}
 												if FinancialServicesData, ok := FlowLabelData["financial_services"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFinancialServicesModel{
 														Apply: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices.Apply
+															}
 															if _, ok := FinancialServicesData["apply"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														MoneyTransfer: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices.MoneyTransfer
+															}
 															if _, ok := FinancialServicesData["money_transfer"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -5244,9 +5457,15 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												return nil
 											}(),
 											Flight: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFlightModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Flight != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Flight
+												}
 												if FlightData, ok := FlowLabelData["flight"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFlightModel{
 														Checking: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Flight != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Flight.Checking
+															}
 															if _, ok := FlightData["checking"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -5257,21 +5476,33 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												return nil
 											}(),
 											ProfileManagement: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelProfileManagementModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement
+												}
 												if ProfileManagementData, ok := FlowLabelData["profile_management"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelProfileManagementModel{
 														Create: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.Create
+															}
 															if _, ok := ProfileManagementData["create"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														Update: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.Update
+															}
 															if _, ok := ProfileManagementData["update"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														View: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.View
+															}
 															if _, ok := ProfileManagementData["view"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -5282,27 +5513,42 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												return nil
 											}(),
 											Search: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelSearchModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search
+												}
 												if SearchData, ok := FlowLabelData["search"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelSearchModel{
 														FlightSearch: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.FlightSearch
+															}
 															if _, ok := SearchData["flight_search"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ProductSearch: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.ProductSearch
+															}
 															if _, ok := SearchData["product_search"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ReservationSearch: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.ReservationSearch
+															}
 															if _, ok := SearchData["reservation_search"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														RoomSearch: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.RoomSearch
+															}
 															if _, ok := SearchData["room_search"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -5313,75 +5559,114 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												return nil
 											}(),
 											ShoppingGiftCards: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards
+												}
 												if ShoppingGiftCardsData, ok := FlowLabelData["shopping_gift_cards"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsModel{
 														GiftCardMakePurchaseWithGiftCard: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard
+															}
 															if _, ok := ShoppingGiftCardsData["gift_card_make_purchase_with_gift_card"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														GiftCardValidation: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardValidation
+															}
 															if _, ok := ShoppingGiftCardsData["gift_card_validation"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopAddToCart: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopAddToCart
+															}
 															if _, ok := ShoppingGiftCardsData["shop_add_to_cart"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopCheckout: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopCheckout
+															}
 															if _, ok := ShoppingGiftCardsData["shop_checkout"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopChooseSeat: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopChooseSeat
+															}
 															if _, ok := ShoppingGiftCardsData["shop_choose_seat"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopEnterDrawingSubmission: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission
+															}
 															if _, ok := ShoppingGiftCardsData["shop_enter_drawing_submission"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopMakePayment: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopMakePayment
+															}
 															if _, ok := ShoppingGiftCardsData["shop_make_payment"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopOrder: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopOrder
+															}
 															if _, ok := ShoppingGiftCardsData["shop_order"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopPriceInquiry: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPriceInquiry
+															}
 															if _, ok := ShoppingGiftCardsData["shop_price_inquiry"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopPromoCodeValidation: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation
+															}
 															if _, ok := ShoppingGiftCardsData["shop_promo_code_validation"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopPurchaseGiftCard: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard
+															}
 															if _, ok := ShoppingGiftCardsData["shop_purchase_gift_card"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopUpdateQuantity: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopUpdateQuantity
+															}
 															if _, ok := ShoppingGiftCardsData["shop_update_quantity"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -5431,6 +5716,9 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 									if MobileClientData, ok := ProtectedEndpointsItemMap["mobile_client"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudfrontProtectedEndpointsMobileClientModel{
 											Block: func() *ProtectedApplicationCloudfrontProtectedEndpointsMobileClientBlockModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Block != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Block
+												}
 												if BlockData, ok := MobileClientData["block"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsMobileClientBlockModel{
 														Body: func() types.String {
@@ -5456,15 +5744,24 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												return nil
 											}(),
 											Continue: func() *ProtectedApplicationCloudfrontProtectedEndpointsMobileClientContinueModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue
+												}
 												if ContinueData, ok := MobileClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsMobileClientContinueModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.AddHeader
+															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.NoHeader
+															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -5491,6 +5788,9 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 									return types.StringNull()
 								}(),
 								UndefinedFlowLabel: func() *ProtectedApplicationEmptyModel {
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].UndefinedFlowLabel != nil {
+										return &ProtectedApplicationEmptyModel{}
+									}
 									if _, ok := ProtectedEndpointsItemMap["undefined_flow_label"].(map[string]interface{}); ok {
 										return &ProtectedApplicationEmptyModel{}
 									}
@@ -5500,6 +5800,9 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 									if WebClientData, ok := ProtectedEndpointsItemMap["web_client"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudfrontProtectedEndpointsWebClientModel{
 											Block: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebClientBlockModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Block != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Block
+												}
 												if BlockData, ok := WebClientData["block"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebClientBlockModel{
 														Body: func() types.String {
@@ -5525,15 +5828,24 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												return nil
 											}(),
 											Continue: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebClientContinueModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue
+												}
 												if ContinueData, ok := WebClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebClientContinueModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.AddHeader
+															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.NoHeader
+															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -5544,6 +5856,9 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												return nil
 											}(),
 											Redirect: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebClientRedirectModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Redirect != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Redirect
+												}
 												if RedirectData, ok := WebClientData["redirect"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebClientRedirectModel{
 														Location: func() types.String {
@@ -5570,6 +5885,9 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 									if WebMobileClientData, ok := ProtectedEndpointsItemMap["web_mobile_client"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientModel{
 											BlockMobile: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientBlockMobileModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockMobile != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockMobile
+												}
 												if BlockMobileData, ok := WebMobileClientData["block_mobile"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientBlockMobileModel{
 														Body: func() types.String {
@@ -5595,6 +5913,9 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												return nil
 											}(),
 											BlockWeb: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientBlockWebModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockWeb != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockWeb
+												}
 												if BlockWebData, ok := WebMobileClientData["block_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientBlockWebModel{
 														Body: func() types.String {
@@ -5620,15 +5941,24 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												return nil
 											}(),
 											ContinueMobile: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueMobileModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile
+												}
 												if ContinueMobileData, ok := WebMobileClientData["continue_mobile"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueMobileModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.AddHeader
+															}
 															if _, ok := ContinueMobileData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.NoHeader
+															}
 															if _, ok := ContinueMobileData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -5639,15 +5969,24 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												return nil
 											}(),
 											ContinueWeb: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueWebModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb
+												}
 												if ContinueWebData, ok := WebMobileClientData["continue_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueWebModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.AddHeader
+															}
 															if _, ok := ContinueWebData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.NoHeader
+															}
 															if _, ok := ContinueWebData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -5658,6 +5997,9 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												return nil
 											}(),
 											RedirectWeb: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientRedirectWebModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.RedirectWeb != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.RedirectWeb
+												}
 												if RedirectWebData, ok := WebMobileClientData["redirect_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientRedirectWebModel{
 														Location: func() types.String {
@@ -5701,18 +6043,31 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 				if !isImport && data.Cloudfront != nil && (data.Cloudfront.TrustedClients.IsNull() || len(data.Cloudfront.TrustedClients.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontTrustedClientsModelAttrTypes})
 				}
+				var TrustedClientsExisting []ProtectedApplicationCloudfrontTrustedClientsModel
+				if !isImport && data.Cloudfront != nil && !data.Cloudfront.TrustedClients.IsNull() && !data.Cloudfront.TrustedClients.IsUnknown() {
+					data.Cloudfront.TrustedClients.ElementsAs(ctx, &TrustedClientsExisting, false)
+				}
 				if rawList, ok := blockData["trusted_clients"].([]interface{}); ok && len(rawList) > 0 {
 					var TrustedClientsResult []ProtectedApplicationCloudfrontTrustedClientsModel
-					for _, TrustedClientsItem := range rawList {
+					for TrustedClientsIdx, TrustedClientsItem := range rawList {
+						_ = TrustedClientsIdx
 						if TrustedClientsItemMap, ok := TrustedClientsItem.(map[string]interface{}); ok {
 							TrustedClientsResult = append(TrustedClientsResult, ProtectedApplicationCloudfrontTrustedClientsModel{
 								HTTPHeader: func() *ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderModel {
 									if HTTPHeaderData, ok := TrustedClientsItemMap["http_header"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderModel{
 											Headers: func() types.List {
+												if !isImport && len(TrustedClientsExisting) > TrustedClientsIdx && TrustedClientsExisting[TrustedClientsIdx].HTTPHeader != nil && (TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.IsNull() || len(TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModelAttrTypes})
+												}
+												var HeadersExisting []ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModel
+												if !isImport && len(TrustedClientsExisting) > TrustedClientsIdx && TrustedClientsExisting[TrustedClientsIdx].HTTPHeader != nil && !TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.IsNull() && !TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.IsUnknown() {
+													TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.ElementsAs(ctx, &HeadersExisting, false)
+												}
 												if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModel
-													for _, HeadersItem := range rawList {
+													for HeadersIdx, HeadersItem := range rawList {
+														_ = HeadersIdx
 														if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 															HeadersResult = append(HeadersResult, ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModel{
 																Exact: func() types.String {
@@ -5926,12 +6281,23 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 				if JsInsertionRulesData, ok := blockData["js_insertion_rules"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudflareJsInsertionRulesModel{
 						ExcludeList: func() types.List {
+							if !isImport && data.Cloudflare != nil && data.Cloudflare.JsInsertionRules != nil && (data.Cloudflare.JsInsertionRules.ExcludeList.IsNull() || len(data.Cloudflare.JsInsertionRules.ExcludeList.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareJsInsertionRulesExcludeListModelAttrTypes})
+							}
+							var ExcludeListExisting []ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel
+							if !isImport && data.Cloudflare != nil && data.Cloudflare.JsInsertionRules != nil && !data.Cloudflare.JsInsertionRules.ExcludeList.IsNull() && !data.Cloudflare.JsInsertionRules.ExcludeList.IsUnknown() {
+								data.Cloudflare.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+							}
 							if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeListResult []ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel
-								for _, ExcludeListItem := range rawList {
+								for ExcludeListIdx, ExcludeListItem := range rawList {
+									_ = ExcludeListIdx
 									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 										ExcludeListResult = append(ExcludeListResult, ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
+												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
+													return &ProtectedApplicationEmptyModel{}
+												}
 												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
 												}
@@ -6027,12 +6393,23 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 							return types.StringNull()
 						}(),
 						Rules: func() types.List {
+							if !isImport && data.Cloudflare != nil && data.Cloudflare.JsInsertionRules != nil && (data.Cloudflare.JsInsertionRules.Rules.IsNull() || len(data.Cloudflare.JsInsertionRules.Rules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareJsInsertionRulesRulesModelAttrTypes})
+							}
+							var RulesExisting []ProtectedApplicationCloudflareJsInsertionRulesRulesModel
+							if !isImport && data.Cloudflare != nil && data.Cloudflare.JsInsertionRules != nil && !data.Cloudflare.JsInsertionRules.Rules.IsNull() && !data.Cloudflare.JsInsertionRules.Rules.IsUnknown() {
+								data.Cloudflare.JsInsertionRules.Rules.ElementsAs(ctx, &RulesExisting, false)
+							}
 							if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 								var RulesResult []ProtectedApplicationCloudflareJsInsertionRulesRulesModel
-								for _, RulesItem := range rawList {
+								for RulesIdx, RulesItem := range rawList {
+									_ = RulesIdx
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, ProtectedApplicationCloudflareJsInsertionRulesRulesModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyDomain != nil {
+													return &ProtectedApplicationEmptyModel{}
+												}
 												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
 												}
@@ -6141,12 +6518,23 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 				if MobileSdkConfigData, ok := blockData["mobile_sdk_config"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudflareMobileSdkConfigModel{
 						MobileIdentifier: func() *ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierModel {
+							if !isImport && data.Cloudflare != nil && data.Cloudflare.MobileSdkConfig != nil && data.Cloudflare.MobileSdkConfig.MobileIdentifier != nil {
+								return data.Cloudflare.MobileSdkConfig.MobileIdentifier
+							}
 							if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
 								return &ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierModel{
 									Headers: func() types.List {
+										if !isImport && data.Cloudflare != nil && data.Cloudflare.MobileSdkConfig != nil && data.Cloudflare.MobileSdkConfig.MobileIdentifier != nil && (data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers.IsNull() || len(data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
+										}
+										var HeadersExisting []ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModel
+										if !isImport && data.Cloudflare != nil && data.Cloudflare.MobileSdkConfig != nil && data.Cloudflare.MobileSdkConfig.MobileIdentifier != nil && !data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
+											data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersExisting, false)
+										}
 										if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
 											var HeadersResult []ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModel
-											for _, HeadersItem := range rawList {
+											for HeadersIdx, HeadersItem := range rawList {
+												_ = HeadersIdx
 												if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 													HeadersResult = append(HeadersResult, ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModel{
 														Exact: func() types.String {
@@ -6187,12 +6575,20 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 				if !isImport && data.Cloudflare != nil && (data.Cloudflare.ProtectedEndpoints.IsNull() || len(data.Cloudflare.ProtectedEndpoints.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareProtectedEndpointsModelAttrTypes})
 				}
+				var ProtectedEndpointsExisting []ProtectedApplicationCloudflareProtectedEndpointsModel
+				if !isImport && data.Cloudflare != nil && !data.Cloudflare.ProtectedEndpoints.IsNull() && !data.Cloudflare.ProtectedEndpoints.IsUnknown() {
+					data.Cloudflare.ProtectedEndpoints.ElementsAs(ctx, &ProtectedEndpointsExisting, false)
+				}
 				if rawList, ok := blockData["protected_endpoints"].([]interface{}); ok && len(rawList) > 0 {
 					var ProtectedEndpointsResult []ProtectedApplicationCloudflareProtectedEndpointsModel
-					for _, ProtectedEndpointsItem := range rawList {
+					for ProtectedEndpointsIdx, ProtectedEndpointsItem := range rawList {
+						_ = ProtectedEndpointsIdx
 						if ProtectedEndpointsItemMap, ok := ProtectedEndpointsItem.(map[string]interface{}); ok {
 							ProtectedEndpointsResult = append(ProtectedEndpointsResult, ProtectedApplicationCloudflareProtectedEndpointsModel{
 								AnyDomain: func() *ProtectedApplicationEmptyModel {
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain != nil {
+										return &ProtectedApplicationEmptyModel{}
+									}
 									if _, ok := ProtectedEndpointsItemMap["any_domain"].(map[string]interface{}); ok {
 										return &ProtectedApplicationEmptyModel{}
 									}
@@ -6259,6 +6655,9 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 									if MobileClientData, ok := ProtectedEndpointsItemMap["mobile_client"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudflareProtectedEndpointsMobileClientModel{
 											Block: func() *ProtectedApplicationCloudflareProtectedEndpointsMobileClientBlockModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Block != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Block
+												}
 												if BlockData, ok := MobileClientData["block"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsMobileClientBlockModel{
 														Body: func() types.String {
@@ -6284,15 +6683,24 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												return nil
 											}(),
 											Continue: func() *ProtectedApplicationCloudflareProtectedEndpointsMobileClientContinueModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue
+												}
 												if ContinueData, ok := MobileClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsMobileClientContinueModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.AddHeader
+															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.NoHeader
+															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -6310,6 +6718,9 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 									if PathData, ok := ProtectedEndpointsItemMap["path"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudflareProtectedEndpointsPathModel{
 											Caseinsensitive: func() types.Bool {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].Path != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].Path.Caseinsensitive.IsUnknown() {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].Path.Caseinsensitive
+												}
 												if v, ok := PathData["caseinsensitive"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -6335,6 +6746,9 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 									if WebClientData, ok := ProtectedEndpointsItemMap["web_client"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudflareProtectedEndpointsWebClientModel{
 											Block: func() *ProtectedApplicationCloudflareProtectedEndpointsWebClientBlockModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Block != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Block
+												}
 												if BlockData, ok := WebClientData["block"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebClientBlockModel{
 														Body: func() types.String {
@@ -6360,15 +6774,24 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												return nil
 											}(),
 											Continue: func() *ProtectedApplicationCloudflareProtectedEndpointsWebClientContinueModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue
+												}
 												if ContinueData, ok := WebClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebClientContinueModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.AddHeader
+															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.NoHeader
+															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -6379,6 +6802,9 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												return nil
 											}(),
 											Redirect: func() *ProtectedApplicationCloudflareProtectedEndpointsWebClientRedirectModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Redirect != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Redirect
+												}
 												if RedirectData, ok := WebClientData["redirect"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebClientRedirectModel{
 														Location: func() types.String {
@@ -6405,6 +6831,9 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 									if WebMobileClientData, ok := ProtectedEndpointsItemMap["web_mobile_client"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientModel{
 											BlockMobile: func() *ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientBlockMobileModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockMobile != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockMobile
+												}
 												if BlockMobileData, ok := WebMobileClientData["block_mobile"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientBlockMobileModel{
 														Body: func() types.String {
@@ -6430,6 +6859,9 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												return nil
 											}(),
 											BlockWeb: func() *ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientBlockWebModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockWeb != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockWeb
+												}
 												if BlockWebData, ok := WebMobileClientData["block_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientBlockWebModel{
 														Body: func() types.String {
@@ -6455,15 +6887,24 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												return nil
 											}(),
 											ContinueMobile: func() *ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueMobileModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile
+												}
 												if ContinueMobileData, ok := WebMobileClientData["continue_mobile"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueMobileModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.AddHeader
+															}
 															if _, ok := ContinueMobileData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.NoHeader
+															}
 															if _, ok := ContinueMobileData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -6474,15 +6915,24 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												return nil
 											}(),
 											ContinueWeb: func() *ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueWebModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb
+												}
 												if ContinueWebData, ok := WebMobileClientData["continue_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueWebModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.AddHeader
+															}
 															if _, ok := ContinueWebData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.NoHeader
+															}
 															if _, ok := ContinueWebData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -6493,6 +6943,9 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												return nil
 											}(),
 											RedirectWeb: func() *ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientRedirectWebModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.RedirectWeb != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.RedirectWeb
+												}
 												if RedirectWebData, ok := WebMobileClientData["redirect_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientRedirectWebModel{
 														Location: func() types.String {
@@ -6536,18 +6989,31 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 				if !isImport && data.Cloudflare != nil && (data.Cloudflare.TrustedClients.IsNull() || len(data.Cloudflare.TrustedClients.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareTrustedClientsModelAttrTypes})
 				}
+				var TrustedClientsExisting []ProtectedApplicationCloudflareTrustedClientsModel
+				if !isImport && data.Cloudflare != nil && !data.Cloudflare.TrustedClients.IsNull() && !data.Cloudflare.TrustedClients.IsUnknown() {
+					data.Cloudflare.TrustedClients.ElementsAs(ctx, &TrustedClientsExisting, false)
+				}
 				if rawList, ok := blockData["trusted_clients"].([]interface{}); ok && len(rawList) > 0 {
 					var TrustedClientsResult []ProtectedApplicationCloudflareTrustedClientsModel
-					for _, TrustedClientsItem := range rawList {
+					for TrustedClientsIdx, TrustedClientsItem := range rawList {
+						_ = TrustedClientsIdx
 						if TrustedClientsItemMap, ok := TrustedClientsItem.(map[string]interface{}); ok {
 							TrustedClientsResult = append(TrustedClientsResult, ProtectedApplicationCloudflareTrustedClientsModel{
 								HTTPHeader: func() *ProtectedApplicationCloudflareTrustedClientsHTTPHeaderModel {
 									if HTTPHeaderData, ok := TrustedClientsItemMap["http_header"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudflareTrustedClientsHTTPHeaderModel{
 											Headers: func() types.List {
+												if !isImport && len(TrustedClientsExisting) > TrustedClientsIdx && TrustedClientsExisting[TrustedClientsIdx].HTTPHeader != nil && (TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.IsNull() || len(TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModelAttrTypes})
+												}
+												var HeadersExisting []ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModel
+												if !isImport && len(TrustedClientsExisting) > TrustedClientsIdx && TrustedClientsExisting[TrustedClientsIdx].HTTPHeader != nil && !TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.IsNull() && !TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.IsUnknown() {
+													TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.ElementsAs(ctx, &HeadersExisting, false)
+												}
 												if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModel
-													for _, HeadersItem := range rawList {
+													for HeadersIdx, HeadersItem := range rawList {
+														_ = HeadersIdx
 														if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 															HeadersResult = append(HeadersResult, ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModel{
 																Exact: func() types.String {
@@ -6647,6 +7113,9 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 				if AWSConfigurationTagSelectorData, ok := blockData["aws_configuration_tag_selector"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudfrontAWSConfigurationTagSelectorModel{
 						Tags: func() *ProtectedApplicationEmptyModel {
+							if !isImport && data.Cloudfront != nil && data.Cloudfront.AWSConfigurationTagSelector != nil {
+								return data.Cloudfront.AWSConfigurationTagSelector.Tags
+							}
 							if _, ok := AWSConfigurationTagSelectorData["tags"].(map[string]interface{}); ok {
 								return &ProtectedApplicationEmptyModel{}
 							}
@@ -6705,12 +7174,23 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 				if JsInsertionRulesData, ok := blockData["js_insertion_rules"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudfrontJsInsertionRulesModel{
 						ExcludeList: func() types.List {
+							if !isImport && data.Cloudfront != nil && data.Cloudfront.JsInsertionRules != nil && (data.Cloudfront.JsInsertionRules.ExcludeList.IsNull() || len(data.Cloudfront.JsInsertionRules.ExcludeList.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModelAttrTypes})
+							}
+							var ExcludeListExisting []ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel
+							if !isImport && data.Cloudfront != nil && data.Cloudfront.JsInsertionRules != nil && !data.Cloudfront.JsInsertionRules.ExcludeList.IsNull() && !data.Cloudfront.JsInsertionRules.ExcludeList.IsUnknown() {
+								data.Cloudfront.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+							}
 							if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeListResult []ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel
-								for _, ExcludeListItem := range rawList {
+								for ExcludeListIdx, ExcludeListItem := range rawList {
+									_ = ExcludeListIdx
 									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 										ExcludeListResult = append(ExcludeListResult, ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
+												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
+													return &ProtectedApplicationEmptyModel{}
+												}
 												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
 												}
@@ -6812,12 +7292,23 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 							return types.StringNull()
 						}(),
 						Rules: func() types.List {
+							if !isImport && data.Cloudfront != nil && data.Cloudfront.JsInsertionRules != nil && (data.Cloudfront.JsInsertionRules.Rules.IsNull() || len(data.Cloudfront.JsInsertionRules.Rules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontJsInsertionRulesRulesModelAttrTypes})
+							}
+							var RulesExisting []ProtectedApplicationCloudfrontJsInsertionRulesRulesModel
+							if !isImport && data.Cloudfront != nil && data.Cloudfront.JsInsertionRules != nil && !data.Cloudfront.JsInsertionRules.Rules.IsNull() && !data.Cloudfront.JsInsertionRules.Rules.IsUnknown() {
+								data.Cloudfront.JsInsertionRules.Rules.ElementsAs(ctx, &RulesExisting, false)
+							}
 							if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 								var RulesResult []ProtectedApplicationCloudfrontJsInsertionRulesRulesModel
-								for _, RulesItem := range rawList {
+								for RulesIdx, RulesItem := range rawList {
+									_ = RulesIdx
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, ProtectedApplicationCloudfrontJsInsertionRulesRulesModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyDomain != nil {
+													return &ProtectedApplicationEmptyModel{}
+												}
 												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
 												}
@@ -6932,12 +7423,23 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 				if MobileSdkConfigData, ok := blockData["mobile_sdk_config"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudfrontMobileSdkConfigModel{
 						MobileIdentifier: func() *ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierModel {
+							if !isImport && data.Cloudfront != nil && data.Cloudfront.MobileSdkConfig != nil && data.Cloudfront.MobileSdkConfig.MobileIdentifier != nil {
+								return data.Cloudfront.MobileSdkConfig.MobileIdentifier
+							}
 							if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
 								return &ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierModel{
 									Headers: func() types.List {
+										if !isImport && data.Cloudfront != nil && data.Cloudfront.MobileSdkConfig != nil && data.Cloudfront.MobileSdkConfig.MobileIdentifier != nil && (data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers.IsNull() || len(data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
+										}
+										var HeadersExisting []ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModel
+										if !isImport && data.Cloudfront != nil && data.Cloudfront.MobileSdkConfig != nil && data.Cloudfront.MobileSdkConfig.MobileIdentifier != nil && !data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
+											data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersExisting, false)
+										}
 										if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
 											var HeadersResult []ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModel
-											for _, HeadersItem := range rawList {
+											for HeadersIdx, HeadersItem := range rawList {
+												_ = HeadersIdx
 												if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 													HeadersResult = append(HeadersResult, ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModel{
 														Exact: func() types.String {
@@ -6978,12 +7480,20 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 				if !isImport && data.Cloudfront != nil && (data.Cloudfront.ProtectedEndpoints.IsNull() || len(data.Cloudfront.ProtectedEndpoints.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsModelAttrTypes})
 				}
+				var ProtectedEndpointsExisting []ProtectedApplicationCloudfrontProtectedEndpointsModel
+				if !isImport && data.Cloudfront != nil && !data.Cloudfront.ProtectedEndpoints.IsNull() && !data.Cloudfront.ProtectedEndpoints.IsUnknown() {
+					data.Cloudfront.ProtectedEndpoints.ElementsAs(ctx, &ProtectedEndpointsExisting, false)
+				}
 				if rawList, ok := blockData["protected_endpoints"].([]interface{}); ok && len(rawList) > 0 {
 					var ProtectedEndpointsResult []ProtectedApplicationCloudfrontProtectedEndpointsModel
-					for _, ProtectedEndpointsItem := range rawList {
+					for ProtectedEndpointsIdx, ProtectedEndpointsItem := range rawList {
+						_ = ProtectedEndpointsIdx
 						if ProtectedEndpointsItemMap, ok := ProtectedEndpointsItem.(map[string]interface{}); ok {
 							ProtectedEndpointsResult = append(ProtectedEndpointsResult, ProtectedApplicationCloudfrontProtectedEndpointsModel{
 								AnyDomain: func() *ProtectedApplicationEmptyModel {
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain != nil {
+										return &ProtectedApplicationEmptyModel{}
+									}
 									if _, ok := ProtectedEndpointsItemMap["any_domain"].(map[string]interface{}); ok {
 										return &ProtectedApplicationEmptyModel{}
 									}
@@ -7018,15 +7528,24 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 									if FlowLabelData, ok := ProtectedEndpointsItemMap["flow_label"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelModel{
 											AccountManagement: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAccountManagementModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement
+												}
 												if AccountManagementData, ok := FlowLabelData["account_management"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAccountManagementModel{
 														Create: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement.Create
+															}
 															if _, ok := AccountManagementData["create"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														PasswordReset: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement.PasswordReset
+															}
 															if _, ok := AccountManagementData["password_reset"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -7037,24 +7556,44 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												return nil
 											}(),
 											Authentication: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication
+												}
 												if AuthenticationData, ok := FlowLabelData["authentication"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationModel{
 														Login: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login
+															}
 															if LoginData, ok := AuthenticationData["login"].(map[string]interface{}); ok {
 																return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginModel{
 																	DisableTransactionResult: func() *ProtectedApplicationEmptyModel {
+																		if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil {
+																			return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.DisableTransactionResult
+																		}
 																		if _, ok := LoginData["disable_transaction_result"].(map[string]interface{}); ok {
 																			return &ProtectedApplicationEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	TransactionResult: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultModel {
+																		if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil {
+																			return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult
+																		}
 																		if TransactionResultData, ok := LoginData["transaction_result"].(map[string]interface{}); ok {
 																			return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultModel{
 																				FailureConditions: func() types.List {
+																					if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && (ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsNull() || len(ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.Elements()) == 0) {
+																						return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes})
+																					}
+																					var FailureConditionsExisting []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel
+																					if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsNull() && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsUnknown() {
+																						ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.ElementsAs(ctx, &FailureConditionsExisting, false)
+																					}
 																					if rawList, ok := TransactionResultData["failure_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																						var FailureConditionsResult []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel
-																						for _, FailureConditionsItem := range rawList {
+																						for FailureConditionsIdx, FailureConditionsItem := range rawList {
+																							_ = FailureConditionsIdx
 																							if FailureConditionsItemMap, ok := FailureConditionsItem.(map[string]interface{}); ok {
 																								FailureConditionsResult = append(FailureConditionsResult, ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel{
 																									Name: func() types.String {
@@ -7091,9 +7630,17 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 																					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes})
 																				}(),
 																				SuccessConditions: func() types.List {
+																					if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && (ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsNull() || len(ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.Elements()) == 0) {
+																						return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModelAttrTypes})
+																					}
+																					var SuccessConditionsExisting []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel
+																					if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsNull() && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsUnknown() {
+																						ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.ElementsAs(ctx, &SuccessConditionsExisting, false)
+																					}
 																					if rawList, ok := TransactionResultData["success_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																						var SuccessConditionsResult []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel
-																						for _, SuccessConditionsItem := range rawList {
+																						for SuccessConditionsIdx, SuccessConditionsItem := range rawList {
+																							_ = SuccessConditionsIdx
 																							if SuccessConditionsItemMap, ok := SuccessConditionsItem.(map[string]interface{}); ok {
 																								SuccessConditionsResult = append(SuccessConditionsResult, ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel{
 																									Name: func() types.String {
@@ -7138,24 +7685,36 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 															return nil
 														}(),
 														LoginMFA: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.LoginMFA
+															}
 															if _, ok := AuthenticationData["login_mfa"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														LoginPartner: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.LoginPartner
+															}
 															if _, ok := AuthenticationData["login_partner"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														Logout: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Logout
+															}
 															if _, ok := AuthenticationData["logout"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														TokenRefresh: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.TokenRefresh
+															}
 															if _, ok := AuthenticationData["token_refresh"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -7166,15 +7725,24 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												return nil
 											}(),
 											FinancialServices: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFinancialServicesModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices
+												}
 												if FinancialServicesData, ok := FlowLabelData["financial_services"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFinancialServicesModel{
 														Apply: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices.Apply
+															}
 															if _, ok := FinancialServicesData["apply"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														MoneyTransfer: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices.MoneyTransfer
+															}
 															if _, ok := FinancialServicesData["money_transfer"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -7185,9 +7753,15 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												return nil
 											}(),
 											Flight: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFlightModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Flight != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Flight
+												}
 												if FlightData, ok := FlowLabelData["flight"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFlightModel{
 														Checking: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Flight != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Flight.Checking
+															}
 															if _, ok := FlightData["checking"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -7198,21 +7772,33 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												return nil
 											}(),
 											ProfileManagement: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelProfileManagementModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement
+												}
 												if ProfileManagementData, ok := FlowLabelData["profile_management"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelProfileManagementModel{
 														Create: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.Create
+															}
 															if _, ok := ProfileManagementData["create"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														Update: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.Update
+															}
 															if _, ok := ProfileManagementData["update"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														View: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.View
+															}
 															if _, ok := ProfileManagementData["view"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -7223,27 +7809,42 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												return nil
 											}(),
 											Search: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelSearchModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search
+												}
 												if SearchData, ok := FlowLabelData["search"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelSearchModel{
 														FlightSearch: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.FlightSearch
+															}
 															if _, ok := SearchData["flight_search"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ProductSearch: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.ProductSearch
+															}
 															if _, ok := SearchData["product_search"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ReservationSearch: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.ReservationSearch
+															}
 															if _, ok := SearchData["reservation_search"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														RoomSearch: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.RoomSearch
+															}
 															if _, ok := SearchData["room_search"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -7254,75 +7855,114 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												return nil
 											}(),
 											ShoppingGiftCards: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards
+												}
 												if ShoppingGiftCardsData, ok := FlowLabelData["shopping_gift_cards"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsModel{
 														GiftCardMakePurchaseWithGiftCard: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard
+															}
 															if _, ok := ShoppingGiftCardsData["gift_card_make_purchase_with_gift_card"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														GiftCardValidation: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardValidation
+															}
 															if _, ok := ShoppingGiftCardsData["gift_card_validation"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopAddToCart: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopAddToCart
+															}
 															if _, ok := ShoppingGiftCardsData["shop_add_to_cart"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopCheckout: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopCheckout
+															}
 															if _, ok := ShoppingGiftCardsData["shop_checkout"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopChooseSeat: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopChooseSeat
+															}
 															if _, ok := ShoppingGiftCardsData["shop_choose_seat"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopEnterDrawingSubmission: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission
+															}
 															if _, ok := ShoppingGiftCardsData["shop_enter_drawing_submission"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopMakePayment: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopMakePayment
+															}
 															if _, ok := ShoppingGiftCardsData["shop_make_payment"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopOrder: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopOrder
+															}
 															if _, ok := ShoppingGiftCardsData["shop_order"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopPriceInquiry: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPriceInquiry
+															}
 															if _, ok := ShoppingGiftCardsData["shop_price_inquiry"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopPromoCodeValidation: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation
+															}
 															if _, ok := ShoppingGiftCardsData["shop_promo_code_validation"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopPurchaseGiftCard: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard
+															}
 															if _, ok := ShoppingGiftCardsData["shop_purchase_gift_card"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopUpdateQuantity: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopUpdateQuantity
+															}
 															if _, ok := ShoppingGiftCardsData["shop_update_quantity"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -7372,6 +8012,9 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 									if MobileClientData, ok := ProtectedEndpointsItemMap["mobile_client"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudfrontProtectedEndpointsMobileClientModel{
 											Block: func() *ProtectedApplicationCloudfrontProtectedEndpointsMobileClientBlockModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Block != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Block
+												}
 												if BlockData, ok := MobileClientData["block"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsMobileClientBlockModel{
 														Body: func() types.String {
@@ -7397,15 +8040,24 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												return nil
 											}(),
 											Continue: func() *ProtectedApplicationCloudfrontProtectedEndpointsMobileClientContinueModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue
+												}
 												if ContinueData, ok := MobileClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsMobileClientContinueModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.AddHeader
+															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.NoHeader
+															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -7432,6 +8084,9 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 									return types.StringNull()
 								}(),
 								UndefinedFlowLabel: func() *ProtectedApplicationEmptyModel {
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].UndefinedFlowLabel != nil {
+										return &ProtectedApplicationEmptyModel{}
+									}
 									if _, ok := ProtectedEndpointsItemMap["undefined_flow_label"].(map[string]interface{}); ok {
 										return &ProtectedApplicationEmptyModel{}
 									}
@@ -7441,6 +8096,9 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 									if WebClientData, ok := ProtectedEndpointsItemMap["web_client"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudfrontProtectedEndpointsWebClientModel{
 											Block: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebClientBlockModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Block != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Block
+												}
 												if BlockData, ok := WebClientData["block"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebClientBlockModel{
 														Body: func() types.String {
@@ -7466,15 +8124,24 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												return nil
 											}(),
 											Continue: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebClientContinueModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue
+												}
 												if ContinueData, ok := WebClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebClientContinueModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.AddHeader
+															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.NoHeader
+															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -7485,6 +8152,9 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												return nil
 											}(),
 											Redirect: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebClientRedirectModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Redirect != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Redirect
+												}
 												if RedirectData, ok := WebClientData["redirect"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebClientRedirectModel{
 														Location: func() types.String {
@@ -7511,6 +8181,9 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 									if WebMobileClientData, ok := ProtectedEndpointsItemMap["web_mobile_client"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientModel{
 											BlockMobile: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientBlockMobileModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockMobile != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockMobile
+												}
 												if BlockMobileData, ok := WebMobileClientData["block_mobile"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientBlockMobileModel{
 														Body: func() types.String {
@@ -7536,6 +8209,9 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												return nil
 											}(),
 											BlockWeb: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientBlockWebModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockWeb != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockWeb
+												}
 												if BlockWebData, ok := WebMobileClientData["block_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientBlockWebModel{
 														Body: func() types.String {
@@ -7561,15 +8237,24 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												return nil
 											}(),
 											ContinueMobile: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueMobileModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile
+												}
 												if ContinueMobileData, ok := WebMobileClientData["continue_mobile"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueMobileModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.AddHeader
+															}
 															if _, ok := ContinueMobileData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.NoHeader
+															}
 															if _, ok := ContinueMobileData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -7580,15 +8265,24 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												return nil
 											}(),
 											ContinueWeb: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueWebModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb
+												}
 												if ContinueWebData, ok := WebMobileClientData["continue_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueWebModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.AddHeader
+															}
 															if _, ok := ContinueWebData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.NoHeader
+															}
 															if _, ok := ContinueWebData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -7599,6 +8293,9 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												return nil
 											}(),
 											RedirectWeb: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientRedirectWebModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.RedirectWeb != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.RedirectWeb
+												}
 												if RedirectWebData, ok := WebMobileClientData["redirect_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientRedirectWebModel{
 														Location: func() types.String {
@@ -7642,18 +8339,31 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 				if !isImport && data.Cloudfront != nil && (data.Cloudfront.TrustedClients.IsNull() || len(data.Cloudfront.TrustedClients.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontTrustedClientsModelAttrTypes})
 				}
+				var TrustedClientsExisting []ProtectedApplicationCloudfrontTrustedClientsModel
+				if !isImport && data.Cloudfront != nil && !data.Cloudfront.TrustedClients.IsNull() && !data.Cloudfront.TrustedClients.IsUnknown() {
+					data.Cloudfront.TrustedClients.ElementsAs(ctx, &TrustedClientsExisting, false)
+				}
 				if rawList, ok := blockData["trusted_clients"].([]interface{}); ok && len(rawList) > 0 {
 					var TrustedClientsResult []ProtectedApplicationCloudfrontTrustedClientsModel
-					for _, TrustedClientsItem := range rawList {
+					for TrustedClientsIdx, TrustedClientsItem := range rawList {
+						_ = TrustedClientsIdx
 						if TrustedClientsItemMap, ok := TrustedClientsItem.(map[string]interface{}); ok {
 							TrustedClientsResult = append(TrustedClientsResult, ProtectedApplicationCloudfrontTrustedClientsModel{
 								HTTPHeader: func() *ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderModel {
 									if HTTPHeaderData, ok := TrustedClientsItemMap["http_header"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderModel{
 											Headers: func() types.List {
+												if !isImport && len(TrustedClientsExisting) > TrustedClientsIdx && TrustedClientsExisting[TrustedClientsIdx].HTTPHeader != nil && (TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.IsNull() || len(TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModelAttrTypes})
+												}
+												var HeadersExisting []ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModel
+												if !isImport && len(TrustedClientsExisting) > TrustedClientsIdx && TrustedClientsExisting[TrustedClientsIdx].HTTPHeader != nil && !TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.IsNull() && !TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.IsUnknown() {
+													TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.ElementsAs(ctx, &HeadersExisting, false)
+												}
 												if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModel
-													for _, HeadersItem := range rawList {
+													for HeadersIdx, HeadersItem := range rawList {
+														_ = HeadersIdx
 														if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 															HeadersResult = append(HeadersResult, ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModel{
 																Exact: func() types.String {
@@ -8882,12 +9592,23 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 				if JsInsertionRulesData, ok := blockData["js_insertion_rules"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudflareJsInsertionRulesModel{
 						ExcludeList: func() types.List {
+							if !isImport && data.Cloudflare != nil && data.Cloudflare.JsInsertionRules != nil && (data.Cloudflare.JsInsertionRules.ExcludeList.IsNull() || len(data.Cloudflare.JsInsertionRules.ExcludeList.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareJsInsertionRulesExcludeListModelAttrTypes})
+							}
+							var ExcludeListExisting []ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel
+							if !isImport && data.Cloudflare != nil && data.Cloudflare.JsInsertionRules != nil && !data.Cloudflare.JsInsertionRules.ExcludeList.IsNull() && !data.Cloudflare.JsInsertionRules.ExcludeList.IsUnknown() {
+								data.Cloudflare.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+							}
 							if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeListResult []ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel
-								for _, ExcludeListItem := range rawList {
+								for ExcludeListIdx, ExcludeListItem := range rawList {
+									_ = ExcludeListIdx
 									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 										ExcludeListResult = append(ExcludeListResult, ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
+												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
+													return &ProtectedApplicationEmptyModel{}
+												}
 												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
 												}
@@ -8983,12 +9704,23 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 							return types.StringNull()
 						}(),
 						Rules: func() types.List {
+							if !isImport && data.Cloudflare != nil && data.Cloudflare.JsInsertionRules != nil && (data.Cloudflare.JsInsertionRules.Rules.IsNull() || len(data.Cloudflare.JsInsertionRules.Rules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareJsInsertionRulesRulesModelAttrTypes})
+							}
+							var RulesExisting []ProtectedApplicationCloudflareJsInsertionRulesRulesModel
+							if !isImport && data.Cloudflare != nil && data.Cloudflare.JsInsertionRules != nil && !data.Cloudflare.JsInsertionRules.Rules.IsNull() && !data.Cloudflare.JsInsertionRules.Rules.IsUnknown() {
+								data.Cloudflare.JsInsertionRules.Rules.ElementsAs(ctx, &RulesExisting, false)
+							}
 							if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 								var RulesResult []ProtectedApplicationCloudflareJsInsertionRulesRulesModel
-								for _, RulesItem := range rawList {
+								for RulesIdx, RulesItem := range rawList {
+									_ = RulesIdx
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, ProtectedApplicationCloudflareJsInsertionRulesRulesModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyDomain != nil {
+													return &ProtectedApplicationEmptyModel{}
+												}
 												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
 												}
@@ -9097,12 +9829,23 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 				if MobileSdkConfigData, ok := blockData["mobile_sdk_config"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudflareMobileSdkConfigModel{
 						MobileIdentifier: func() *ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierModel {
+							if !isImport && data.Cloudflare != nil && data.Cloudflare.MobileSdkConfig != nil && data.Cloudflare.MobileSdkConfig.MobileIdentifier != nil {
+								return data.Cloudflare.MobileSdkConfig.MobileIdentifier
+							}
 							if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
 								return &ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierModel{
 									Headers: func() types.List {
+										if !isImport && data.Cloudflare != nil && data.Cloudflare.MobileSdkConfig != nil && data.Cloudflare.MobileSdkConfig.MobileIdentifier != nil && (data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers.IsNull() || len(data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
+										}
+										var HeadersExisting []ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModel
+										if !isImport && data.Cloudflare != nil && data.Cloudflare.MobileSdkConfig != nil && data.Cloudflare.MobileSdkConfig.MobileIdentifier != nil && !data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
+											data.Cloudflare.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersExisting, false)
+										}
 										if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
 											var HeadersResult []ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModel
-											for _, HeadersItem := range rawList {
+											for HeadersIdx, HeadersItem := range rawList {
+												_ = HeadersIdx
 												if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 													HeadersResult = append(HeadersResult, ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModel{
 														Exact: func() types.String {
@@ -9143,12 +9886,20 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 				if !isImport && data.Cloudflare != nil && (data.Cloudflare.ProtectedEndpoints.IsNull() || len(data.Cloudflare.ProtectedEndpoints.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareProtectedEndpointsModelAttrTypes})
 				}
+				var ProtectedEndpointsExisting []ProtectedApplicationCloudflareProtectedEndpointsModel
+				if !isImport && data.Cloudflare != nil && !data.Cloudflare.ProtectedEndpoints.IsNull() && !data.Cloudflare.ProtectedEndpoints.IsUnknown() {
+					data.Cloudflare.ProtectedEndpoints.ElementsAs(ctx, &ProtectedEndpointsExisting, false)
+				}
 				if rawList, ok := blockData["protected_endpoints"].([]interface{}); ok && len(rawList) > 0 {
 					var ProtectedEndpointsResult []ProtectedApplicationCloudflareProtectedEndpointsModel
-					for _, ProtectedEndpointsItem := range rawList {
+					for ProtectedEndpointsIdx, ProtectedEndpointsItem := range rawList {
+						_ = ProtectedEndpointsIdx
 						if ProtectedEndpointsItemMap, ok := ProtectedEndpointsItem.(map[string]interface{}); ok {
 							ProtectedEndpointsResult = append(ProtectedEndpointsResult, ProtectedApplicationCloudflareProtectedEndpointsModel{
 								AnyDomain: func() *ProtectedApplicationEmptyModel {
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain != nil {
+										return &ProtectedApplicationEmptyModel{}
+									}
 									if _, ok := ProtectedEndpointsItemMap["any_domain"].(map[string]interface{}); ok {
 										return &ProtectedApplicationEmptyModel{}
 									}
@@ -9215,6 +9966,9 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 									if MobileClientData, ok := ProtectedEndpointsItemMap["mobile_client"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudflareProtectedEndpointsMobileClientModel{
 											Block: func() *ProtectedApplicationCloudflareProtectedEndpointsMobileClientBlockModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Block != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Block
+												}
 												if BlockData, ok := MobileClientData["block"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsMobileClientBlockModel{
 														Body: func() types.String {
@@ -9240,15 +9994,24 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												return nil
 											}(),
 											Continue: func() *ProtectedApplicationCloudflareProtectedEndpointsMobileClientContinueModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue
+												}
 												if ContinueData, ok := MobileClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsMobileClientContinueModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.AddHeader
+															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.NoHeader
+															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -9266,6 +10029,9 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 									if PathData, ok := ProtectedEndpointsItemMap["path"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudflareProtectedEndpointsPathModel{
 											Caseinsensitive: func() types.Bool {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].Path != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].Path.Caseinsensitive.IsUnknown() {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].Path.Caseinsensitive
+												}
 												if v, ok := PathData["caseinsensitive"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -9291,6 +10057,9 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 									if WebClientData, ok := ProtectedEndpointsItemMap["web_client"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudflareProtectedEndpointsWebClientModel{
 											Block: func() *ProtectedApplicationCloudflareProtectedEndpointsWebClientBlockModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Block != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Block
+												}
 												if BlockData, ok := WebClientData["block"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebClientBlockModel{
 														Body: func() types.String {
@@ -9316,15 +10085,24 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												return nil
 											}(),
 											Continue: func() *ProtectedApplicationCloudflareProtectedEndpointsWebClientContinueModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue
+												}
 												if ContinueData, ok := WebClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebClientContinueModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.AddHeader
+															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.NoHeader
+															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -9335,6 +10113,9 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												return nil
 											}(),
 											Redirect: func() *ProtectedApplicationCloudflareProtectedEndpointsWebClientRedirectModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Redirect != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Redirect
+												}
 												if RedirectData, ok := WebClientData["redirect"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebClientRedirectModel{
 														Location: func() types.String {
@@ -9361,6 +10142,9 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 									if WebMobileClientData, ok := ProtectedEndpointsItemMap["web_mobile_client"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientModel{
 											BlockMobile: func() *ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientBlockMobileModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockMobile != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockMobile
+												}
 												if BlockMobileData, ok := WebMobileClientData["block_mobile"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientBlockMobileModel{
 														Body: func() types.String {
@@ -9386,6 +10170,9 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												return nil
 											}(),
 											BlockWeb: func() *ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientBlockWebModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockWeb != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockWeb
+												}
 												if BlockWebData, ok := WebMobileClientData["block_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientBlockWebModel{
 														Body: func() types.String {
@@ -9411,15 +10198,24 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												return nil
 											}(),
 											ContinueMobile: func() *ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueMobileModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile
+												}
 												if ContinueMobileData, ok := WebMobileClientData["continue_mobile"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueMobileModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.AddHeader
+															}
 															if _, ok := ContinueMobileData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.NoHeader
+															}
 															if _, ok := ContinueMobileData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -9430,15 +10226,24 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												return nil
 											}(),
 											ContinueWeb: func() *ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueWebModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb
+												}
 												if ContinueWebData, ok := WebMobileClientData["continue_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueWebModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.AddHeader
+															}
 															if _, ok := ContinueWebData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.NoHeader
+															}
 															if _, ok := ContinueWebData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -9449,6 +10254,9 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												return nil
 											}(),
 											RedirectWeb: func() *ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientRedirectWebModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.RedirectWeb != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.RedirectWeb
+												}
 												if RedirectWebData, ok := WebMobileClientData["redirect_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientRedirectWebModel{
 														Location: func() types.String {
@@ -9492,18 +10300,31 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 				if !isImport && data.Cloudflare != nil && (data.Cloudflare.TrustedClients.IsNull() || len(data.Cloudflare.TrustedClients.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareTrustedClientsModelAttrTypes})
 				}
+				var TrustedClientsExisting []ProtectedApplicationCloudflareTrustedClientsModel
+				if !isImport && data.Cloudflare != nil && !data.Cloudflare.TrustedClients.IsNull() && !data.Cloudflare.TrustedClients.IsUnknown() {
+					data.Cloudflare.TrustedClients.ElementsAs(ctx, &TrustedClientsExisting, false)
+				}
 				if rawList, ok := blockData["trusted_clients"].([]interface{}); ok && len(rawList) > 0 {
 					var TrustedClientsResult []ProtectedApplicationCloudflareTrustedClientsModel
-					for _, TrustedClientsItem := range rawList {
+					for TrustedClientsIdx, TrustedClientsItem := range rawList {
+						_ = TrustedClientsIdx
 						if TrustedClientsItemMap, ok := TrustedClientsItem.(map[string]interface{}); ok {
 							TrustedClientsResult = append(TrustedClientsResult, ProtectedApplicationCloudflareTrustedClientsModel{
 								HTTPHeader: func() *ProtectedApplicationCloudflareTrustedClientsHTTPHeaderModel {
 									if HTTPHeaderData, ok := TrustedClientsItemMap["http_header"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudflareTrustedClientsHTTPHeaderModel{
 											Headers: func() types.List {
+												if !isImport && len(TrustedClientsExisting) > TrustedClientsIdx && TrustedClientsExisting[TrustedClientsIdx].HTTPHeader != nil && (TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.IsNull() || len(TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModelAttrTypes})
+												}
+												var HeadersExisting []ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModel
+												if !isImport && len(TrustedClientsExisting) > TrustedClientsIdx && TrustedClientsExisting[TrustedClientsIdx].HTTPHeader != nil && !TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.IsNull() && !TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.IsUnknown() {
+													TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.ElementsAs(ctx, &HeadersExisting, false)
+												}
 												if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModel
-													for _, HeadersItem := range rawList {
+													for HeadersIdx, HeadersItem := range rawList {
+														_ = HeadersIdx
 														if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 															HeadersResult = append(HeadersResult, ProtectedApplicationCloudflareTrustedClientsHTTPHeaderHeadersModel{
 																Exact: func() types.String {
@@ -9603,6 +10424,9 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 				if AWSConfigurationTagSelectorData, ok := blockData["aws_configuration_tag_selector"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudfrontAWSConfigurationTagSelectorModel{
 						Tags: func() *ProtectedApplicationEmptyModel {
+							if !isImport && data.Cloudfront != nil && data.Cloudfront.AWSConfigurationTagSelector != nil {
+								return data.Cloudfront.AWSConfigurationTagSelector.Tags
+							}
 							if _, ok := AWSConfigurationTagSelectorData["tags"].(map[string]interface{}); ok {
 								return &ProtectedApplicationEmptyModel{}
 							}
@@ -9661,12 +10485,23 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 				if JsInsertionRulesData, ok := blockData["js_insertion_rules"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudfrontJsInsertionRulesModel{
 						ExcludeList: func() types.List {
+							if !isImport && data.Cloudfront != nil && data.Cloudfront.JsInsertionRules != nil && (data.Cloudfront.JsInsertionRules.ExcludeList.IsNull() || len(data.Cloudfront.JsInsertionRules.ExcludeList.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModelAttrTypes})
+							}
+							var ExcludeListExisting []ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel
+							if !isImport && data.Cloudfront != nil && data.Cloudfront.JsInsertionRules != nil && !data.Cloudfront.JsInsertionRules.ExcludeList.IsNull() && !data.Cloudfront.JsInsertionRules.ExcludeList.IsUnknown() {
+								data.Cloudfront.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+							}
 							if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
 								var ExcludeListResult []ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel
-								for _, ExcludeListItem := range rawList {
+								for ExcludeListIdx, ExcludeListItem := range rawList {
+									_ = ExcludeListIdx
 									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 										ExcludeListResult = append(ExcludeListResult, ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
+												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
+													return &ProtectedApplicationEmptyModel{}
+												}
 												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
 												}
@@ -9768,12 +10603,23 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 							return types.StringNull()
 						}(),
 						Rules: func() types.List {
+							if !isImport && data.Cloudfront != nil && data.Cloudfront.JsInsertionRules != nil && (data.Cloudfront.JsInsertionRules.Rules.IsNull() || len(data.Cloudfront.JsInsertionRules.Rules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontJsInsertionRulesRulesModelAttrTypes})
+							}
+							var RulesExisting []ProtectedApplicationCloudfrontJsInsertionRulesRulesModel
+							if !isImport && data.Cloudfront != nil && data.Cloudfront.JsInsertionRules != nil && !data.Cloudfront.JsInsertionRules.Rules.IsNull() && !data.Cloudfront.JsInsertionRules.Rules.IsUnknown() {
+								data.Cloudfront.JsInsertionRules.Rules.ElementsAs(ctx, &RulesExisting, false)
+							}
 							if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
 								var RulesResult []ProtectedApplicationCloudfrontJsInsertionRulesRulesModel
-								for _, RulesItem := range rawList {
+								for RulesIdx, RulesItem := range rawList {
+									_ = RulesIdx
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, ProtectedApplicationCloudfrontJsInsertionRulesRulesModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyDomain != nil {
+													return &ProtectedApplicationEmptyModel{}
+												}
 												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
 												}
@@ -9888,12 +10734,23 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 				if MobileSdkConfigData, ok := blockData["mobile_sdk_config"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudfrontMobileSdkConfigModel{
 						MobileIdentifier: func() *ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierModel {
+							if !isImport && data.Cloudfront != nil && data.Cloudfront.MobileSdkConfig != nil && data.Cloudfront.MobileSdkConfig.MobileIdentifier != nil {
+								return data.Cloudfront.MobileSdkConfig.MobileIdentifier
+							}
 							if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
 								return &ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierModel{
 									Headers: func() types.List {
+										if !isImport && data.Cloudfront != nil && data.Cloudfront.MobileSdkConfig != nil && data.Cloudfront.MobileSdkConfig.MobileIdentifier != nil && (data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers.IsNull() || len(data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
+										}
+										var HeadersExisting []ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModel
+										if !isImport && data.Cloudfront != nil && data.Cloudfront.MobileSdkConfig != nil && data.Cloudfront.MobileSdkConfig.MobileIdentifier != nil && !data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
+											data.Cloudfront.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersExisting, false)
+										}
 										if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
 											var HeadersResult []ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModel
-											for _, HeadersItem := range rawList {
+											for HeadersIdx, HeadersItem := range rawList {
+												_ = HeadersIdx
 												if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 													HeadersResult = append(HeadersResult, ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModel{
 														Exact: func() types.String {
@@ -9934,12 +10791,20 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 				if !isImport && data.Cloudfront != nil && (data.Cloudfront.ProtectedEndpoints.IsNull() || len(data.Cloudfront.ProtectedEndpoints.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsModelAttrTypes})
 				}
+				var ProtectedEndpointsExisting []ProtectedApplicationCloudfrontProtectedEndpointsModel
+				if !isImport && data.Cloudfront != nil && !data.Cloudfront.ProtectedEndpoints.IsNull() && !data.Cloudfront.ProtectedEndpoints.IsUnknown() {
+					data.Cloudfront.ProtectedEndpoints.ElementsAs(ctx, &ProtectedEndpointsExisting, false)
+				}
 				if rawList, ok := blockData["protected_endpoints"].([]interface{}); ok && len(rawList) > 0 {
 					var ProtectedEndpointsResult []ProtectedApplicationCloudfrontProtectedEndpointsModel
-					for _, ProtectedEndpointsItem := range rawList {
+					for ProtectedEndpointsIdx, ProtectedEndpointsItem := range rawList {
+						_ = ProtectedEndpointsIdx
 						if ProtectedEndpointsItemMap, ok := ProtectedEndpointsItem.(map[string]interface{}); ok {
 							ProtectedEndpointsResult = append(ProtectedEndpointsResult, ProtectedApplicationCloudfrontProtectedEndpointsModel{
 								AnyDomain: func() *ProtectedApplicationEmptyModel {
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain != nil {
+										return &ProtectedApplicationEmptyModel{}
+									}
 									if _, ok := ProtectedEndpointsItemMap["any_domain"].(map[string]interface{}); ok {
 										return &ProtectedApplicationEmptyModel{}
 									}
@@ -9974,15 +10839,24 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 									if FlowLabelData, ok := ProtectedEndpointsItemMap["flow_label"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelModel{
 											AccountManagement: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAccountManagementModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement
+												}
 												if AccountManagementData, ok := FlowLabelData["account_management"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAccountManagementModel{
 														Create: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement.Create
+															}
 															if _, ok := AccountManagementData["create"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														PasswordReset: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement.PasswordReset
+															}
 															if _, ok := AccountManagementData["password_reset"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -9993,24 +10867,44 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												return nil
 											}(),
 											Authentication: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication
+												}
 												if AuthenticationData, ok := FlowLabelData["authentication"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationModel{
 														Login: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login
+															}
 															if LoginData, ok := AuthenticationData["login"].(map[string]interface{}); ok {
 																return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginModel{
 																	DisableTransactionResult: func() *ProtectedApplicationEmptyModel {
+																		if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil {
+																			return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.DisableTransactionResult
+																		}
 																		if _, ok := LoginData["disable_transaction_result"].(map[string]interface{}); ok {
 																			return &ProtectedApplicationEmptyModel{}
 																		}
 																		return nil
 																	}(),
 																	TransactionResult: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultModel {
+																		if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil {
+																			return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult
+																		}
 																		if TransactionResultData, ok := LoginData["transaction_result"].(map[string]interface{}); ok {
 																			return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultModel{
 																				FailureConditions: func() types.List {
+																					if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && (ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsNull() || len(ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.Elements()) == 0) {
+																						return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes})
+																					}
+																					var FailureConditionsExisting []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel
+																					if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsNull() && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.IsUnknown() {
+																						ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.FailureConditions.ElementsAs(ctx, &FailureConditionsExisting, false)
+																					}
 																					if rawList, ok := TransactionResultData["failure_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																						var FailureConditionsResult []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel
-																						for _, FailureConditionsItem := range rawList {
+																						for FailureConditionsIdx, FailureConditionsItem := range rawList {
+																							_ = FailureConditionsIdx
 																							if FailureConditionsItemMap, ok := FailureConditionsItem.(map[string]interface{}); ok {
 																								FailureConditionsResult = append(FailureConditionsResult, ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModel{
 																									Name: func() types.String {
@@ -10047,9 +10941,17 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 																					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultFailureConditionsModelAttrTypes})
 																				}(),
 																				SuccessConditions: func() types.List {
+																					if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && (ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsNull() || len(ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.Elements()) == 0) {
+																						return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModelAttrTypes})
+																					}
+																					var SuccessConditionsExisting []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel
+																					if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsNull() && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.IsUnknown() {
+																						ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult.SuccessConditions.ElementsAs(ctx, &SuccessConditionsExisting, false)
+																					}
 																					if rawList, ok := TransactionResultData["success_conditions"].([]interface{}); ok && len(rawList) > 0 {
 																						var SuccessConditionsResult []ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel
-																						for _, SuccessConditionsItem := range rawList {
+																						for SuccessConditionsIdx, SuccessConditionsItem := range rawList {
+																							_ = SuccessConditionsIdx
 																							if SuccessConditionsItemMap, ok := SuccessConditionsItem.(map[string]interface{}); ok {
 																								SuccessConditionsResult = append(SuccessConditionsResult, ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultSuccessConditionsModel{
 																									Name: func() types.String {
@@ -10094,24 +10996,36 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 															return nil
 														}(),
 														LoginMFA: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.LoginMFA
+															}
 															if _, ok := AuthenticationData["login_mfa"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														LoginPartner: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.LoginPartner
+															}
 															if _, ok := AuthenticationData["login_partner"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														Logout: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Logout
+															}
 															if _, ok := AuthenticationData["logout"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														TokenRefresh: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.TokenRefresh
+															}
 															if _, ok := AuthenticationData["token_refresh"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -10122,15 +11036,24 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												return nil
 											}(),
 											FinancialServices: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFinancialServicesModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices
+												}
 												if FinancialServicesData, ok := FlowLabelData["financial_services"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFinancialServicesModel{
 														Apply: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices.Apply
+															}
 															if _, ok := FinancialServicesData["apply"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														MoneyTransfer: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices.MoneyTransfer
+															}
 															if _, ok := FinancialServicesData["money_transfer"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -10141,9 +11064,15 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												return nil
 											}(),
 											Flight: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFlightModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Flight != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Flight
+												}
 												if FlightData, ok := FlowLabelData["flight"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFlightModel{
 														Checking: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Flight != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Flight.Checking
+															}
 															if _, ok := FlightData["checking"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -10154,21 +11083,33 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												return nil
 											}(),
 											ProfileManagement: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelProfileManagementModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement
+												}
 												if ProfileManagementData, ok := FlowLabelData["profile_management"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelProfileManagementModel{
 														Create: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.Create
+															}
 															if _, ok := ProfileManagementData["create"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														Update: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.Update
+															}
 															if _, ok := ProfileManagementData["update"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														View: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.View
+															}
 															if _, ok := ProfileManagementData["view"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -10179,27 +11120,42 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												return nil
 											}(),
 											Search: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelSearchModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search
+												}
 												if SearchData, ok := FlowLabelData["search"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelSearchModel{
 														FlightSearch: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.FlightSearch
+															}
 															if _, ok := SearchData["flight_search"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ProductSearch: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.ProductSearch
+															}
 															if _, ok := SearchData["product_search"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ReservationSearch: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.ReservationSearch
+															}
 															if _, ok := SearchData["reservation_search"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														RoomSearch: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.RoomSearch
+															}
 															if _, ok := SearchData["room_search"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -10210,75 +11166,114 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												return nil
 											}(),
 											ShoppingGiftCards: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards
+												}
 												if ShoppingGiftCardsData, ok := FlowLabelData["shopping_gift_cards"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsModel{
 														GiftCardMakePurchaseWithGiftCard: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard
+															}
 															if _, ok := ShoppingGiftCardsData["gift_card_make_purchase_with_gift_card"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														GiftCardValidation: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardValidation
+															}
 															if _, ok := ShoppingGiftCardsData["gift_card_validation"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopAddToCart: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopAddToCart
+															}
 															if _, ok := ShoppingGiftCardsData["shop_add_to_cart"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopCheckout: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopCheckout
+															}
 															if _, ok := ShoppingGiftCardsData["shop_checkout"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopChooseSeat: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopChooseSeat
+															}
 															if _, ok := ShoppingGiftCardsData["shop_choose_seat"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopEnterDrawingSubmission: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission
+															}
 															if _, ok := ShoppingGiftCardsData["shop_enter_drawing_submission"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopMakePayment: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopMakePayment
+															}
 															if _, ok := ShoppingGiftCardsData["shop_make_payment"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopOrder: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopOrder
+															}
 															if _, ok := ShoppingGiftCardsData["shop_order"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopPriceInquiry: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPriceInquiry
+															}
 															if _, ok := ShoppingGiftCardsData["shop_price_inquiry"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopPromoCodeValidation: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation
+															}
 															if _, ok := ShoppingGiftCardsData["shop_promo_code_validation"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopPurchaseGiftCard: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard
+															}
 															if _, ok := ShoppingGiftCardsData["shop_purchase_gift_card"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														ShopUpdateQuantity: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopUpdateQuantity
+															}
 															if _, ok := ShoppingGiftCardsData["shop_update_quantity"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -10328,6 +11323,9 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 									if MobileClientData, ok := ProtectedEndpointsItemMap["mobile_client"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudfrontProtectedEndpointsMobileClientModel{
 											Block: func() *ProtectedApplicationCloudfrontProtectedEndpointsMobileClientBlockModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Block != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Block
+												}
 												if BlockData, ok := MobileClientData["block"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsMobileClientBlockModel{
 														Body: func() types.String {
@@ -10353,15 +11351,24 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												return nil
 											}(),
 											Continue: func() *ProtectedApplicationCloudfrontProtectedEndpointsMobileClientContinueModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue
+												}
 												if ContinueData, ok := MobileClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsMobileClientContinueModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.AddHeader
+															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.NoHeader
+															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -10388,6 +11395,9 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 									return types.StringNull()
 								}(),
 								UndefinedFlowLabel: func() *ProtectedApplicationEmptyModel {
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].UndefinedFlowLabel != nil {
+										return &ProtectedApplicationEmptyModel{}
+									}
 									if _, ok := ProtectedEndpointsItemMap["undefined_flow_label"].(map[string]interface{}); ok {
 										return &ProtectedApplicationEmptyModel{}
 									}
@@ -10397,6 +11407,9 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 									if WebClientData, ok := ProtectedEndpointsItemMap["web_client"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudfrontProtectedEndpointsWebClientModel{
 											Block: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebClientBlockModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Block != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Block
+												}
 												if BlockData, ok := WebClientData["block"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebClientBlockModel{
 														Body: func() types.String {
@@ -10422,15 +11435,24 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												return nil
 											}(),
 											Continue: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebClientContinueModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue
+												}
 												if ContinueData, ok := WebClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebClientContinueModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.AddHeader
+															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.NoHeader
+															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -10441,6 +11463,9 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												return nil
 											}(),
 											Redirect: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebClientRedirectModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Redirect != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Redirect
+												}
 												if RedirectData, ok := WebClientData["redirect"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebClientRedirectModel{
 														Location: func() types.String {
@@ -10467,6 +11492,9 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 									if WebMobileClientData, ok := ProtectedEndpointsItemMap["web_mobile_client"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientModel{
 											BlockMobile: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientBlockMobileModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockMobile != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockMobile
+												}
 												if BlockMobileData, ok := WebMobileClientData["block_mobile"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientBlockMobileModel{
 														Body: func() types.String {
@@ -10492,6 +11520,9 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												return nil
 											}(),
 											BlockWeb: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientBlockWebModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockWeb != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.BlockWeb
+												}
 												if BlockWebData, ok := WebMobileClientData["block_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientBlockWebModel{
 														Body: func() types.String {
@@ -10517,15 +11548,24 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												return nil
 											}(),
 											ContinueMobile: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueMobileModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile
+												}
 												if ContinueMobileData, ok := WebMobileClientData["continue_mobile"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueMobileModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.AddHeader
+															}
 															if _, ok := ContinueMobileData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.NoHeader
+															}
 															if _, ok := ContinueMobileData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -10536,15 +11576,24 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												return nil
 											}(),
 											ContinueWeb: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueWebModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb
+												}
 												if ContinueWebData, ok := WebMobileClientData["continue_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueWebModel{
 														AddHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.AddHeader
+															}
 															if _, ok := ContinueWebData["add_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
 														}(),
 														NoHeader: func() *ProtectedApplicationEmptyModel {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.NoHeader
+															}
 															if _, ok := ContinueWebData["no_header"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
@@ -10555,6 +11604,9 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												return nil
 											}(),
 											RedirectWeb: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientRedirectWebModel {
+												if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.RedirectWeb != nil {
+													return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.RedirectWeb
+												}
 												if RedirectWebData, ok := WebMobileClientData["redirect_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientRedirectWebModel{
 														Location: func() types.String {
@@ -10598,18 +11650,31 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 				if !isImport && data.Cloudfront != nil && (data.Cloudfront.TrustedClients.IsNull() || len(data.Cloudfront.TrustedClients.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontTrustedClientsModelAttrTypes})
 				}
+				var TrustedClientsExisting []ProtectedApplicationCloudfrontTrustedClientsModel
+				if !isImport && data.Cloudfront != nil && !data.Cloudfront.TrustedClients.IsNull() && !data.Cloudfront.TrustedClients.IsUnknown() {
+					data.Cloudfront.TrustedClients.ElementsAs(ctx, &TrustedClientsExisting, false)
+				}
 				if rawList, ok := blockData["trusted_clients"].([]interface{}); ok && len(rawList) > 0 {
 					var TrustedClientsResult []ProtectedApplicationCloudfrontTrustedClientsModel
-					for _, TrustedClientsItem := range rawList {
+					for TrustedClientsIdx, TrustedClientsItem := range rawList {
+						_ = TrustedClientsIdx
 						if TrustedClientsItemMap, ok := TrustedClientsItem.(map[string]interface{}); ok {
 							TrustedClientsResult = append(TrustedClientsResult, ProtectedApplicationCloudfrontTrustedClientsModel{
 								HTTPHeader: func() *ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderModel {
 									if HTTPHeaderData, ok := TrustedClientsItemMap["http_header"].(map[string]interface{}); ok {
 										return &ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderModel{
 											Headers: func() types.List {
+												if !isImport && len(TrustedClientsExisting) > TrustedClientsIdx && TrustedClientsExisting[TrustedClientsIdx].HTTPHeader != nil && (TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.IsNull() || len(TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModelAttrTypes})
+												}
+												var HeadersExisting []ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModel
+												if !isImport && len(TrustedClientsExisting) > TrustedClientsIdx && TrustedClientsExisting[TrustedClientsIdx].HTTPHeader != nil && !TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.IsNull() && !TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.IsUnknown() {
+													TrustedClientsExisting[TrustedClientsIdx].HTTPHeader.Headers.ElementsAs(ctx, &HeadersExisting, false)
+												}
 												if rawList, ok := HTTPHeaderData["headers"].([]interface{}); ok && len(rawList) > 0 {
 													var HeadersResult []ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModel
-													for _, HeadersItem := range rawList {
+													for HeadersIdx, HeadersItem := range rawList {
+														_ = HeadersIdx
 														if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 															HeadersResult = append(HeadersResult, ProtectedApplicationCloudfrontTrustedClientsHTTPHeaderHeadersModel{
 																Exact: func() types.String {

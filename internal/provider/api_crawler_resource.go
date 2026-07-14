@@ -445,9 +445,15 @@ func (r *APICrawlerResource) Create(ctx context.Context, req resource.CreateRequ
 						if SimpleLoginData, ok := itemMap["simple_login"].(map[string]interface{}); ok {
 							return &APICrawlerDomainsSimpleLoginModel{
 								Password: func() *APICrawlerDomainsSimpleLoginPasswordModel {
+									if !isImport && len(existingDomainsItems) > listIdx && existingDomainsItems[listIdx].SimpleLogin != nil && existingDomainsItems[listIdx].SimpleLogin.Password != nil {
+										return existingDomainsItems[listIdx].SimpleLogin.Password
+									}
 									if PasswordData, ok := SimpleLoginData["password"].(map[string]interface{}); ok {
 										return &APICrawlerDomainsSimpleLoginPasswordModel{
 											BlindfoldSecretInfo: func() *APICrawlerDomainsSimpleLoginPasswordBlindfoldSecretInfoModel {
+												if !isImport && len(existingDomainsItems) > listIdx && existingDomainsItems[listIdx].SimpleLogin != nil && existingDomainsItems[listIdx].SimpleLogin.Password != nil && existingDomainsItems[listIdx].SimpleLogin.Password.BlindfoldSecretInfo != nil {
+													return existingDomainsItems[listIdx].SimpleLogin.Password.BlindfoldSecretInfo
+												}
 												if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 													return &APICrawlerDomainsSimpleLoginPasswordBlindfoldSecretInfoModel{
 														DecryptionProvider: func() types.String {
@@ -473,6 +479,9 @@ func (r *APICrawlerResource) Create(ctx context.Context, req resource.CreateRequ
 												return nil
 											}(),
 											ClearSecretInfo: func() *APICrawlerDomainsSimpleLoginPasswordClearSecretInfoModel {
+												if !isImport && len(existingDomainsItems) > listIdx && existingDomainsItems[listIdx].SimpleLogin != nil && existingDomainsItems[listIdx].SimpleLogin.Password != nil && existingDomainsItems[listIdx].SimpleLogin.Password.ClearSecretInfo != nil {
+													return existingDomainsItems[listIdx].SimpleLogin.Password.ClearSecretInfo
+												}
 												if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 													return &APICrawlerDomainsSimpleLoginPasswordClearSecretInfoModel{
 														Provider: func() types.String {
@@ -631,9 +640,15 @@ func (r *APICrawlerResource) Read(ctx context.Context, req resource.ReadRequest,
 						if SimpleLoginData, ok := itemMap["simple_login"].(map[string]interface{}); ok {
 							return &APICrawlerDomainsSimpleLoginModel{
 								Password: func() *APICrawlerDomainsSimpleLoginPasswordModel {
+									if !isImport && len(existingDomainsItems) > listIdx && existingDomainsItems[listIdx].SimpleLogin != nil && existingDomainsItems[listIdx].SimpleLogin.Password != nil {
+										return existingDomainsItems[listIdx].SimpleLogin.Password
+									}
 									if PasswordData, ok := SimpleLoginData["password"].(map[string]interface{}); ok {
 										return &APICrawlerDomainsSimpleLoginPasswordModel{
 											BlindfoldSecretInfo: func() *APICrawlerDomainsSimpleLoginPasswordBlindfoldSecretInfoModel {
+												if !isImport && len(existingDomainsItems) > listIdx && existingDomainsItems[listIdx].SimpleLogin != nil && existingDomainsItems[listIdx].SimpleLogin.Password != nil && existingDomainsItems[listIdx].SimpleLogin.Password.BlindfoldSecretInfo != nil {
+													return existingDomainsItems[listIdx].SimpleLogin.Password.BlindfoldSecretInfo
+												}
 												if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 													return &APICrawlerDomainsSimpleLoginPasswordBlindfoldSecretInfoModel{
 														DecryptionProvider: func() types.String {
@@ -659,6 +674,9 @@ func (r *APICrawlerResource) Read(ctx context.Context, req resource.ReadRequest,
 												return nil
 											}(),
 											ClearSecretInfo: func() *APICrawlerDomainsSimpleLoginPasswordClearSecretInfoModel {
+												if !isImport && len(existingDomainsItems) > listIdx && existingDomainsItems[listIdx].SimpleLogin != nil && existingDomainsItems[listIdx].SimpleLogin.Password != nil && existingDomainsItems[listIdx].SimpleLogin.Password.ClearSecretInfo != nil {
+													return existingDomainsItems[listIdx].SimpleLogin.Password.ClearSecretInfo
+												}
 												if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 													return &APICrawlerDomainsSimpleLoginPasswordClearSecretInfoModel{
 														Provider: func() types.String {
@@ -857,9 +875,15 @@ func (r *APICrawlerResource) Update(ctx context.Context, req resource.UpdateRequ
 						if SimpleLoginData, ok := itemMap["simple_login"].(map[string]interface{}); ok {
 							return &APICrawlerDomainsSimpleLoginModel{
 								Password: func() *APICrawlerDomainsSimpleLoginPasswordModel {
+									if !isImport && len(existingDomainsItems) > listIdx && existingDomainsItems[listIdx].SimpleLogin != nil && existingDomainsItems[listIdx].SimpleLogin.Password != nil {
+										return existingDomainsItems[listIdx].SimpleLogin.Password
+									}
 									if PasswordData, ok := SimpleLoginData["password"].(map[string]interface{}); ok {
 										return &APICrawlerDomainsSimpleLoginPasswordModel{
 											BlindfoldSecretInfo: func() *APICrawlerDomainsSimpleLoginPasswordBlindfoldSecretInfoModel {
+												if !isImport && len(existingDomainsItems) > listIdx && existingDomainsItems[listIdx].SimpleLogin != nil && existingDomainsItems[listIdx].SimpleLogin.Password != nil && existingDomainsItems[listIdx].SimpleLogin.Password.BlindfoldSecretInfo != nil {
+													return existingDomainsItems[listIdx].SimpleLogin.Password.BlindfoldSecretInfo
+												}
 												if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 													return &APICrawlerDomainsSimpleLoginPasswordBlindfoldSecretInfoModel{
 														DecryptionProvider: func() types.String {
@@ -885,6 +909,9 @@ func (r *APICrawlerResource) Update(ctx context.Context, req resource.UpdateRequ
 												return nil
 											}(),
 											ClearSecretInfo: func() *APICrawlerDomainsSimpleLoginPasswordClearSecretInfoModel {
+												if !isImport && len(existingDomainsItems) > listIdx && existingDomainsItems[listIdx].SimpleLogin != nil && existingDomainsItems[listIdx].SimpleLogin.Password != nil && existingDomainsItems[listIdx].SimpleLogin.Password.ClearSecretInfo != nil {
+													return existingDomainsItems[listIdx].SimpleLogin.Password.ClearSecretInfo
+												}
 												if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 													return &APICrawlerDomainsSimpleLoginPasswordClearSecretInfoModel{
 														Provider: func() types.String {

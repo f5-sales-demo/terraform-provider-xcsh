@@ -835,12 +835,18 @@ func (r *AppSettingResource) Create(ctx context.Context, req resource.CreateRequ
 						if BusinessLogicMarkupSettingData, ok := itemMap["business_logic_markup_setting"].(map[string]interface{}); ok {
 							return &AppSettingAppTypeSettingsBusinessLogicMarkupSettingModel{
 								DisableSpec: func() *AppSettingEmptyModel {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].BusinessLogicMarkupSetting != nil {
+										return existingAppTypeSettingsItems[listIdx].BusinessLogicMarkupSetting.DisableSpec
+									}
 									if _, ok := BusinessLogicMarkupSettingData["disable"].(map[string]interface{}); ok {
 										return &AppSettingEmptyModel{}
 									}
 									return nil
 								}(),
 								Enable: func() *AppSettingEmptyModel {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].BusinessLogicMarkupSetting != nil {
+										return existingAppTypeSettingsItems[listIdx].BusinessLogicMarkupSetting.Enable
+									}
 									if _, ok := BusinessLogicMarkupSettingData["enable"].(map[string]interface{}); ok {
 										return &AppSettingEmptyModel{}
 									}
@@ -854,9 +860,17 @@ func (r *AppSettingResource) Create(ctx context.Context, req resource.CreateRequ
 						if TimeseriesAnalysesSettingData, ok := itemMap["timeseries_analyses_setting"].(map[string]interface{}); ok {
 							return &AppSettingAppTypeSettingsTimeseriesAnalysesSettingModel{
 								MetricSelectors: func() types.List {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting != nil && (existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting.MetricSelectors.IsNull() || len(existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting.MetricSelectors.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModelAttrTypes})
+									}
+									var MetricSelectorsExisting []AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModel
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting != nil && !existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting.MetricSelectors.IsNull() && !existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting.MetricSelectors.IsUnknown() {
+										existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting.MetricSelectors.ElementsAs(ctx, &MetricSelectorsExisting, false)
+									}
 									if rawList, ok := TimeseriesAnalysesSettingData["metric_selectors"].([]interface{}); ok && len(rawList) > 0 {
 										var MetricSelectorsResult []AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModel
-										for _, MetricSelectorsItem := range rawList {
+										for MetricSelectorsIdx, MetricSelectorsItem := range rawList {
+											_ = MetricSelectorsIdx
 											if MetricSelectorsItemMap, ok := MetricSelectorsItem.(map[string]interface{}); ok {
 												MetricSelectorsResult = append(MetricSelectorsResult, AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModel{
 													Metric: func() types.List {
@@ -894,90 +908,138 @@ func (r *AppSettingResource) Create(ctx context.Context, req resource.CreateRequ
 						if UserBehaviorAnalysisSettingData, ok := itemMap["user_behavior_analysis_setting"].(map[string]interface{}); ok {
 							return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingModel{
 								DisableDetection: func() *AppSettingEmptyModel {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil {
+										return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.DisableDetection
+									}
 									if _, ok := UserBehaviorAnalysisSettingData["disable_detection"].(map[string]interface{}); ok {
 										return &AppSettingEmptyModel{}
 									}
 									return nil
 								}(),
 								DisableLearning: func() *AppSettingEmptyModel {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil {
+										return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.DisableLearning
+									}
 									if _, ok := UserBehaviorAnalysisSettingData["disable_learning"].(map[string]interface{}); ok {
 										return &AppSettingEmptyModel{}
 									}
 									return nil
 								}(),
 								EnableDetection: func() *AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionModel {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+										return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection
+									}
 									if EnableDetectionData, ok := UserBehaviorAnalysisSettingData["enable_detection"].(map[string]interface{}); ok {
 										return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionModel{
 											BolaDetectionAutomatic: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.BolaDetectionAutomatic
+												}
 												if _, ok := EnableDetectionData["bola_detection_automatic"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											CoolingOffPeriod: func() types.Int64 {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.CoolingOffPeriod.IsUnknown() {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.CoolingOffPeriod
+												}
 												if v, ok := EnableDetectionData["cooling_off_period"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
 											}(),
 											ExcludeBolaDetection: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeBolaDetection
+												}
 												if _, ok := EnableDetectionData["exclude_bola_detection"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											ExcludeBotDefenseActivity: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeBotDefenseActivity
+												}
 												if _, ok := EnableDetectionData["exclude_bot_defense_activity"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											ExcludeFailedLoginActivity: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeFailedLoginActivity
+												}
 												if _, ok := EnableDetectionData["exclude_failed_login_activity"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											ExcludeForbiddenActivity: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeForbiddenActivity
+												}
 												if _, ok := EnableDetectionData["exclude_forbidden_activity"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											ExcludeIPReputation: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeIPReputation
+												}
 												if _, ok := EnableDetectionData["exclude_ip_reputation"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											ExcludeNonExistentURLActivity: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeNonExistentURLActivity
+												}
 												if _, ok := EnableDetectionData["exclude_non_existent_url_activity"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											ExcludeRateLimit: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeRateLimit
+												}
 												if _, ok := EnableDetectionData["exclude_rate_limit"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											ExcludeWAFActivity: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeWAFActivity
+												}
 												if _, ok := EnableDetectionData["exclude_waf_activity"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											IncludeBotDefenseActivity: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeBotDefenseActivity
+												}
 												if _, ok := EnableDetectionData["include_bot_defense_activity"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											IncludeFailedLoginActivity: func() *AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeFailedLoginActivityModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity
+												}
 												if IncludeFailedLoginActivityData, ok := EnableDetectionData["include_failed_login_activity"].(map[string]interface{}); ok {
 													return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeFailedLoginActivityModel{
 														LoginFailuresThreshold: func() types.Int64 {
+															if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity.LoginFailuresThreshold.IsUnknown() {
+																return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity.LoginFailuresThreshold
+															}
 															if v, ok := IncludeFailedLoginActivityData["login_failures_threshold"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -988,9 +1050,15 @@ func (r *AppSettingResource) Create(ctx context.Context, req resource.CreateRequ
 												return nil
 											}(),
 											IncludeForbiddenActivity: func() *AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeForbiddenActivityModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity
+												}
 												if IncludeForbiddenActivityData, ok := EnableDetectionData["include_forbidden_activity"].(map[string]interface{}); ok {
 													return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeForbiddenActivityModel{
 														ForbiddenRequestsThreshold: func() types.Int64 {
+															if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity.ForbiddenRequestsThreshold.IsUnknown() {
+																return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity.ForbiddenRequestsThreshold
+															}
 															if v, ok := IncludeForbiddenActivityData["forbidden_requests_threshold"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -1001,27 +1069,42 @@ func (r *AppSettingResource) Create(ctx context.Context, req resource.CreateRequ
 												return nil
 											}(),
 											IncludeIPReputation: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeIPReputation
+												}
 												if _, ok := EnableDetectionData["include_ip_reputation"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											IncludeNonExistentURLActivityAutomatic: func() *AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityAutomaticModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic
+												}
 												if IncludeNonExistentURLActivityAutomaticData, ok := EnableDetectionData["include_non_existent_url_activity_automatic"].(map[string]interface{}); ok {
 													return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityAutomaticModel{
 														High: func() *AppSettingEmptyModel {
+															if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic != nil {
+																return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic.High
+															}
 															if _, ok := IncludeNonExistentURLActivityAutomaticData["high"].(map[string]interface{}); ok {
 																return &AppSettingEmptyModel{}
 															}
 															return nil
 														}(),
 														Low: func() *AppSettingEmptyModel {
+															if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic != nil {
+																return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic.Low
+															}
 															if _, ok := IncludeNonExistentURLActivityAutomaticData["low"].(map[string]interface{}); ok {
 																return &AppSettingEmptyModel{}
 															}
 															return nil
 														}(),
 														Medium: func() *AppSettingEmptyModel {
+															if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic != nil {
+																return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic.Medium
+															}
 															if _, ok := IncludeNonExistentURLActivityAutomaticData["medium"].(map[string]interface{}); ok {
 																return &AppSettingEmptyModel{}
 															}
@@ -1032,9 +1115,15 @@ func (r *AppSettingResource) Create(ctx context.Context, req resource.CreateRequ
 												return nil
 											}(),
 											IncludeNonExistentURLActivityCustom: func() *AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityCustomModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom
+												}
 												if IncludeNonExistentURLActivityCustomData, ok := EnableDetectionData["include_non_existent_url_activity_custom"].(map[string]interface{}); ok {
 													return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityCustomModel{
 														NonexistentRequestsThreshold: func() types.Int64 {
+															if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom.NonexistentRequestsThreshold.IsUnknown() {
+																return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom.NonexistentRequestsThreshold
+															}
 															if v, ok := IncludeNonExistentURLActivityCustomData["nonexistent_requests_threshold"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -1045,12 +1134,18 @@ func (r *AppSettingResource) Create(ctx context.Context, req resource.CreateRequ
 												return nil
 											}(),
 											IncludeRateLimit: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeRateLimit
+												}
 												if _, ok := EnableDetectionData["include_rate_limit"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											IncludeWAFActivity: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeWAFActivity
+												}
 												if _, ok := EnableDetectionData["include_waf_activity"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
@@ -1061,6 +1156,9 @@ func (r *AppSettingResource) Create(ctx context.Context, req resource.CreateRequ
 									return nil
 								}(),
 								EnableLearning: func() *AppSettingEmptyModel {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil {
+										return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableLearning
+									}
 									if _, ok := UserBehaviorAnalysisSettingData["enable_learning"].(map[string]interface{}); ok {
 										return &AppSettingEmptyModel{}
 									}
@@ -1234,12 +1332,18 @@ func (r *AppSettingResource) Read(ctx context.Context, req resource.ReadRequest,
 						if BusinessLogicMarkupSettingData, ok := itemMap["business_logic_markup_setting"].(map[string]interface{}); ok {
 							return &AppSettingAppTypeSettingsBusinessLogicMarkupSettingModel{
 								DisableSpec: func() *AppSettingEmptyModel {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].BusinessLogicMarkupSetting != nil {
+										return existingAppTypeSettingsItems[listIdx].BusinessLogicMarkupSetting.DisableSpec
+									}
 									if _, ok := BusinessLogicMarkupSettingData["disable"].(map[string]interface{}); ok {
 										return &AppSettingEmptyModel{}
 									}
 									return nil
 								}(),
 								Enable: func() *AppSettingEmptyModel {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].BusinessLogicMarkupSetting != nil {
+										return existingAppTypeSettingsItems[listIdx].BusinessLogicMarkupSetting.Enable
+									}
 									if _, ok := BusinessLogicMarkupSettingData["enable"].(map[string]interface{}); ok {
 										return &AppSettingEmptyModel{}
 									}
@@ -1253,9 +1357,17 @@ func (r *AppSettingResource) Read(ctx context.Context, req resource.ReadRequest,
 						if TimeseriesAnalysesSettingData, ok := itemMap["timeseries_analyses_setting"].(map[string]interface{}); ok {
 							return &AppSettingAppTypeSettingsTimeseriesAnalysesSettingModel{
 								MetricSelectors: func() types.List {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting != nil && (existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting.MetricSelectors.IsNull() || len(existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting.MetricSelectors.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModelAttrTypes})
+									}
+									var MetricSelectorsExisting []AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModel
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting != nil && !existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting.MetricSelectors.IsNull() && !existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting.MetricSelectors.IsUnknown() {
+										existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting.MetricSelectors.ElementsAs(ctx, &MetricSelectorsExisting, false)
+									}
 									if rawList, ok := TimeseriesAnalysesSettingData["metric_selectors"].([]interface{}); ok && len(rawList) > 0 {
 										var MetricSelectorsResult []AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModel
-										for _, MetricSelectorsItem := range rawList {
+										for MetricSelectorsIdx, MetricSelectorsItem := range rawList {
+											_ = MetricSelectorsIdx
 											if MetricSelectorsItemMap, ok := MetricSelectorsItem.(map[string]interface{}); ok {
 												MetricSelectorsResult = append(MetricSelectorsResult, AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModel{
 													Metric: func() types.List {
@@ -1293,90 +1405,138 @@ func (r *AppSettingResource) Read(ctx context.Context, req resource.ReadRequest,
 						if UserBehaviorAnalysisSettingData, ok := itemMap["user_behavior_analysis_setting"].(map[string]interface{}); ok {
 							return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingModel{
 								DisableDetection: func() *AppSettingEmptyModel {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil {
+										return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.DisableDetection
+									}
 									if _, ok := UserBehaviorAnalysisSettingData["disable_detection"].(map[string]interface{}); ok {
 										return &AppSettingEmptyModel{}
 									}
 									return nil
 								}(),
 								DisableLearning: func() *AppSettingEmptyModel {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil {
+										return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.DisableLearning
+									}
 									if _, ok := UserBehaviorAnalysisSettingData["disable_learning"].(map[string]interface{}); ok {
 										return &AppSettingEmptyModel{}
 									}
 									return nil
 								}(),
 								EnableDetection: func() *AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionModel {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+										return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection
+									}
 									if EnableDetectionData, ok := UserBehaviorAnalysisSettingData["enable_detection"].(map[string]interface{}); ok {
 										return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionModel{
 											BolaDetectionAutomatic: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.BolaDetectionAutomatic
+												}
 												if _, ok := EnableDetectionData["bola_detection_automatic"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											CoolingOffPeriod: func() types.Int64 {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.CoolingOffPeriod.IsUnknown() {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.CoolingOffPeriod
+												}
 												if v, ok := EnableDetectionData["cooling_off_period"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
 											}(),
 											ExcludeBolaDetection: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeBolaDetection
+												}
 												if _, ok := EnableDetectionData["exclude_bola_detection"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											ExcludeBotDefenseActivity: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeBotDefenseActivity
+												}
 												if _, ok := EnableDetectionData["exclude_bot_defense_activity"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											ExcludeFailedLoginActivity: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeFailedLoginActivity
+												}
 												if _, ok := EnableDetectionData["exclude_failed_login_activity"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											ExcludeForbiddenActivity: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeForbiddenActivity
+												}
 												if _, ok := EnableDetectionData["exclude_forbidden_activity"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											ExcludeIPReputation: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeIPReputation
+												}
 												if _, ok := EnableDetectionData["exclude_ip_reputation"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											ExcludeNonExistentURLActivity: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeNonExistentURLActivity
+												}
 												if _, ok := EnableDetectionData["exclude_non_existent_url_activity"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											ExcludeRateLimit: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeRateLimit
+												}
 												if _, ok := EnableDetectionData["exclude_rate_limit"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											ExcludeWAFActivity: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeWAFActivity
+												}
 												if _, ok := EnableDetectionData["exclude_waf_activity"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											IncludeBotDefenseActivity: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeBotDefenseActivity
+												}
 												if _, ok := EnableDetectionData["include_bot_defense_activity"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											IncludeFailedLoginActivity: func() *AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeFailedLoginActivityModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity
+												}
 												if IncludeFailedLoginActivityData, ok := EnableDetectionData["include_failed_login_activity"].(map[string]interface{}); ok {
 													return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeFailedLoginActivityModel{
 														LoginFailuresThreshold: func() types.Int64 {
+															if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity.LoginFailuresThreshold.IsUnknown() {
+																return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity.LoginFailuresThreshold
+															}
 															if v, ok := IncludeFailedLoginActivityData["login_failures_threshold"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -1387,9 +1547,15 @@ func (r *AppSettingResource) Read(ctx context.Context, req resource.ReadRequest,
 												return nil
 											}(),
 											IncludeForbiddenActivity: func() *AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeForbiddenActivityModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity
+												}
 												if IncludeForbiddenActivityData, ok := EnableDetectionData["include_forbidden_activity"].(map[string]interface{}); ok {
 													return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeForbiddenActivityModel{
 														ForbiddenRequestsThreshold: func() types.Int64 {
+															if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity.ForbiddenRequestsThreshold.IsUnknown() {
+																return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity.ForbiddenRequestsThreshold
+															}
 															if v, ok := IncludeForbiddenActivityData["forbidden_requests_threshold"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -1400,27 +1566,42 @@ func (r *AppSettingResource) Read(ctx context.Context, req resource.ReadRequest,
 												return nil
 											}(),
 											IncludeIPReputation: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeIPReputation
+												}
 												if _, ok := EnableDetectionData["include_ip_reputation"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											IncludeNonExistentURLActivityAutomatic: func() *AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityAutomaticModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic
+												}
 												if IncludeNonExistentURLActivityAutomaticData, ok := EnableDetectionData["include_non_existent_url_activity_automatic"].(map[string]interface{}); ok {
 													return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityAutomaticModel{
 														High: func() *AppSettingEmptyModel {
+															if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic != nil {
+																return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic.High
+															}
 															if _, ok := IncludeNonExistentURLActivityAutomaticData["high"].(map[string]interface{}); ok {
 																return &AppSettingEmptyModel{}
 															}
 															return nil
 														}(),
 														Low: func() *AppSettingEmptyModel {
+															if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic != nil {
+																return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic.Low
+															}
 															if _, ok := IncludeNonExistentURLActivityAutomaticData["low"].(map[string]interface{}); ok {
 																return &AppSettingEmptyModel{}
 															}
 															return nil
 														}(),
 														Medium: func() *AppSettingEmptyModel {
+															if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic != nil {
+																return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic.Medium
+															}
 															if _, ok := IncludeNonExistentURLActivityAutomaticData["medium"].(map[string]interface{}); ok {
 																return &AppSettingEmptyModel{}
 															}
@@ -1431,9 +1612,15 @@ func (r *AppSettingResource) Read(ctx context.Context, req resource.ReadRequest,
 												return nil
 											}(),
 											IncludeNonExistentURLActivityCustom: func() *AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityCustomModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom
+												}
 												if IncludeNonExistentURLActivityCustomData, ok := EnableDetectionData["include_non_existent_url_activity_custom"].(map[string]interface{}); ok {
 													return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityCustomModel{
 														NonexistentRequestsThreshold: func() types.Int64 {
+															if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom.NonexistentRequestsThreshold.IsUnknown() {
+																return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom.NonexistentRequestsThreshold
+															}
 															if v, ok := IncludeNonExistentURLActivityCustomData["nonexistent_requests_threshold"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -1444,12 +1631,18 @@ func (r *AppSettingResource) Read(ctx context.Context, req resource.ReadRequest,
 												return nil
 											}(),
 											IncludeRateLimit: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeRateLimit
+												}
 												if _, ok := EnableDetectionData["include_rate_limit"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											IncludeWAFActivity: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeWAFActivity
+												}
 												if _, ok := EnableDetectionData["include_waf_activity"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
@@ -1460,6 +1653,9 @@ func (r *AppSettingResource) Read(ctx context.Context, req resource.ReadRequest,
 									return nil
 								}(),
 								EnableLearning: func() *AppSettingEmptyModel {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil {
+										return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableLearning
+									}
 									if _, ok := UserBehaviorAnalysisSettingData["enable_learning"].(map[string]interface{}); ok {
 										return &AppSettingEmptyModel{}
 									}
@@ -1794,12 +1990,18 @@ func (r *AppSettingResource) Update(ctx context.Context, req resource.UpdateRequ
 						if BusinessLogicMarkupSettingData, ok := itemMap["business_logic_markup_setting"].(map[string]interface{}); ok {
 							return &AppSettingAppTypeSettingsBusinessLogicMarkupSettingModel{
 								DisableSpec: func() *AppSettingEmptyModel {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].BusinessLogicMarkupSetting != nil {
+										return existingAppTypeSettingsItems[listIdx].BusinessLogicMarkupSetting.DisableSpec
+									}
 									if _, ok := BusinessLogicMarkupSettingData["disable"].(map[string]interface{}); ok {
 										return &AppSettingEmptyModel{}
 									}
 									return nil
 								}(),
 								Enable: func() *AppSettingEmptyModel {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].BusinessLogicMarkupSetting != nil {
+										return existingAppTypeSettingsItems[listIdx].BusinessLogicMarkupSetting.Enable
+									}
 									if _, ok := BusinessLogicMarkupSettingData["enable"].(map[string]interface{}); ok {
 										return &AppSettingEmptyModel{}
 									}
@@ -1813,9 +2015,17 @@ func (r *AppSettingResource) Update(ctx context.Context, req resource.UpdateRequ
 						if TimeseriesAnalysesSettingData, ok := itemMap["timeseries_analyses_setting"].(map[string]interface{}); ok {
 							return &AppSettingAppTypeSettingsTimeseriesAnalysesSettingModel{
 								MetricSelectors: func() types.List {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting != nil && (existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting.MetricSelectors.IsNull() || len(existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting.MetricSelectors.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModelAttrTypes})
+									}
+									var MetricSelectorsExisting []AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModel
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting != nil && !existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting.MetricSelectors.IsNull() && !existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting.MetricSelectors.IsUnknown() {
+										existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting.MetricSelectors.ElementsAs(ctx, &MetricSelectorsExisting, false)
+									}
 									if rawList, ok := TimeseriesAnalysesSettingData["metric_selectors"].([]interface{}); ok && len(rawList) > 0 {
 										var MetricSelectorsResult []AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModel
-										for _, MetricSelectorsItem := range rawList {
+										for MetricSelectorsIdx, MetricSelectorsItem := range rawList {
+											_ = MetricSelectorsIdx
 											if MetricSelectorsItemMap, ok := MetricSelectorsItem.(map[string]interface{}); ok {
 												MetricSelectorsResult = append(MetricSelectorsResult, AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModel{
 													Metric: func() types.List {
@@ -1853,90 +2063,138 @@ func (r *AppSettingResource) Update(ctx context.Context, req resource.UpdateRequ
 						if UserBehaviorAnalysisSettingData, ok := itemMap["user_behavior_analysis_setting"].(map[string]interface{}); ok {
 							return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingModel{
 								DisableDetection: func() *AppSettingEmptyModel {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil {
+										return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.DisableDetection
+									}
 									if _, ok := UserBehaviorAnalysisSettingData["disable_detection"].(map[string]interface{}); ok {
 										return &AppSettingEmptyModel{}
 									}
 									return nil
 								}(),
 								DisableLearning: func() *AppSettingEmptyModel {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil {
+										return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.DisableLearning
+									}
 									if _, ok := UserBehaviorAnalysisSettingData["disable_learning"].(map[string]interface{}); ok {
 										return &AppSettingEmptyModel{}
 									}
 									return nil
 								}(),
 								EnableDetection: func() *AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionModel {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+										return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection
+									}
 									if EnableDetectionData, ok := UserBehaviorAnalysisSettingData["enable_detection"].(map[string]interface{}); ok {
 										return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionModel{
 											BolaDetectionAutomatic: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.BolaDetectionAutomatic
+												}
 												if _, ok := EnableDetectionData["bola_detection_automatic"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											CoolingOffPeriod: func() types.Int64 {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.CoolingOffPeriod.IsUnknown() {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.CoolingOffPeriod
+												}
 												if v, ok := EnableDetectionData["cooling_off_period"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
 											}(),
 											ExcludeBolaDetection: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeBolaDetection
+												}
 												if _, ok := EnableDetectionData["exclude_bola_detection"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											ExcludeBotDefenseActivity: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeBotDefenseActivity
+												}
 												if _, ok := EnableDetectionData["exclude_bot_defense_activity"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											ExcludeFailedLoginActivity: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeFailedLoginActivity
+												}
 												if _, ok := EnableDetectionData["exclude_failed_login_activity"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											ExcludeForbiddenActivity: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeForbiddenActivity
+												}
 												if _, ok := EnableDetectionData["exclude_forbidden_activity"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											ExcludeIPReputation: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeIPReputation
+												}
 												if _, ok := EnableDetectionData["exclude_ip_reputation"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											ExcludeNonExistentURLActivity: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeNonExistentURLActivity
+												}
 												if _, ok := EnableDetectionData["exclude_non_existent_url_activity"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											ExcludeRateLimit: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeRateLimit
+												}
 												if _, ok := EnableDetectionData["exclude_rate_limit"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											ExcludeWAFActivity: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeWAFActivity
+												}
 												if _, ok := EnableDetectionData["exclude_waf_activity"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											IncludeBotDefenseActivity: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeBotDefenseActivity
+												}
 												if _, ok := EnableDetectionData["include_bot_defense_activity"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											IncludeFailedLoginActivity: func() *AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeFailedLoginActivityModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity
+												}
 												if IncludeFailedLoginActivityData, ok := EnableDetectionData["include_failed_login_activity"].(map[string]interface{}); ok {
 													return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeFailedLoginActivityModel{
 														LoginFailuresThreshold: func() types.Int64 {
+															if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity.LoginFailuresThreshold.IsUnknown() {
+																return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity.LoginFailuresThreshold
+															}
 															if v, ok := IncludeFailedLoginActivityData["login_failures_threshold"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -1947,9 +2205,15 @@ func (r *AppSettingResource) Update(ctx context.Context, req resource.UpdateRequ
 												return nil
 											}(),
 											IncludeForbiddenActivity: func() *AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeForbiddenActivityModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity
+												}
 												if IncludeForbiddenActivityData, ok := EnableDetectionData["include_forbidden_activity"].(map[string]interface{}); ok {
 													return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeForbiddenActivityModel{
 														ForbiddenRequestsThreshold: func() types.Int64 {
+															if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity.ForbiddenRequestsThreshold.IsUnknown() {
+																return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity.ForbiddenRequestsThreshold
+															}
 															if v, ok := IncludeForbiddenActivityData["forbidden_requests_threshold"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -1960,27 +2224,42 @@ func (r *AppSettingResource) Update(ctx context.Context, req resource.UpdateRequ
 												return nil
 											}(),
 											IncludeIPReputation: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeIPReputation
+												}
 												if _, ok := EnableDetectionData["include_ip_reputation"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											IncludeNonExistentURLActivityAutomatic: func() *AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityAutomaticModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic
+												}
 												if IncludeNonExistentURLActivityAutomaticData, ok := EnableDetectionData["include_non_existent_url_activity_automatic"].(map[string]interface{}); ok {
 													return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityAutomaticModel{
 														High: func() *AppSettingEmptyModel {
+															if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic != nil {
+																return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic.High
+															}
 															if _, ok := IncludeNonExistentURLActivityAutomaticData["high"].(map[string]interface{}); ok {
 																return &AppSettingEmptyModel{}
 															}
 															return nil
 														}(),
 														Low: func() *AppSettingEmptyModel {
+															if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic != nil {
+																return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic.Low
+															}
 															if _, ok := IncludeNonExistentURLActivityAutomaticData["low"].(map[string]interface{}); ok {
 																return &AppSettingEmptyModel{}
 															}
 															return nil
 														}(),
 														Medium: func() *AppSettingEmptyModel {
+															if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic != nil {
+																return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic.Medium
+															}
 															if _, ok := IncludeNonExistentURLActivityAutomaticData["medium"].(map[string]interface{}); ok {
 																return &AppSettingEmptyModel{}
 															}
@@ -1991,9 +2270,15 @@ func (r *AppSettingResource) Update(ctx context.Context, req resource.UpdateRequ
 												return nil
 											}(),
 											IncludeNonExistentURLActivityCustom: func() *AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityCustomModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom
+												}
 												if IncludeNonExistentURLActivityCustomData, ok := EnableDetectionData["include_non_existent_url_activity_custom"].(map[string]interface{}); ok {
 													return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityCustomModel{
 														NonexistentRequestsThreshold: func() types.Int64 {
+															if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom.NonexistentRequestsThreshold.IsUnknown() {
+																return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom.NonexistentRequestsThreshold
+															}
 															if v, ok := IncludeNonExistentURLActivityCustomData["nonexistent_requests_threshold"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -2004,12 +2289,18 @@ func (r *AppSettingResource) Update(ctx context.Context, req resource.UpdateRequ
 												return nil
 											}(),
 											IncludeRateLimit: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeRateLimit
+												}
 												if _, ok := EnableDetectionData["include_rate_limit"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
 												return nil
 											}(),
 											IncludeWAFActivity: func() *AppSettingEmptyModel {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeWAFActivity
+												}
 												if _, ok := EnableDetectionData["include_waf_activity"].(map[string]interface{}); ok {
 													return &AppSettingEmptyModel{}
 												}
@@ -2020,6 +2311,9 @@ func (r *AppSettingResource) Update(ctx context.Context, req resource.UpdateRequ
 									return nil
 								}(),
 								EnableLearning: func() *AppSettingEmptyModel {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil {
+										return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableLearning
+									}
 									if _, ok := UserBehaviorAnalysisSettingData["enable_learning"].(map[string]interface{}); ok {
 										return &AppSettingEmptyModel{}
 									}

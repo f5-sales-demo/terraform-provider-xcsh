@@ -744,9 +744,15 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 				if AbsoluteTimeoutData, ok := blockData["absolute_timeout"].(map[string]interface{}); ok {
 					return &TenantConfigurationUserSessionExpirationAbsoluteTimeoutModel{
 						Hours: func() *TenantConfigurationUserSessionExpirationAbsoluteTimeoutHoursModel {
+							if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.AbsoluteTimeout != nil && data.UserSessionExpiration.AbsoluteTimeout.Hours != nil {
+								return data.UserSessionExpiration.AbsoluteTimeout.Hours
+							}
 							if HoursData, ok := AbsoluteTimeoutData["hours"].(map[string]interface{}); ok {
 								return &TenantConfigurationUserSessionExpirationAbsoluteTimeoutHoursModel{
 									Duration: func() types.Int64 {
+										if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.AbsoluteTimeout != nil && data.UserSessionExpiration.AbsoluteTimeout.Hours != nil && !data.UserSessionExpiration.AbsoluteTimeout.Hours.Duration.IsUnknown() {
+											return data.UserSessionExpiration.AbsoluteTimeout.Hours.Duration
+										}
 										if v, ok := HoursData["duration"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -757,9 +763,15 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 							return nil
 						}(),
 						Minutes: func() *TenantConfigurationUserSessionExpirationAbsoluteTimeoutMinutesModel {
+							if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.AbsoluteTimeout != nil && data.UserSessionExpiration.AbsoluteTimeout.Minutes != nil {
+								return data.UserSessionExpiration.AbsoluteTimeout.Minutes
+							}
 							if MinutesData, ok := AbsoluteTimeoutData["minutes"].(map[string]interface{}); ok {
 								return &TenantConfigurationUserSessionExpirationAbsoluteTimeoutMinutesModel{
 									Duration: func() types.Int64 {
+										if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.AbsoluteTimeout != nil && data.UserSessionExpiration.AbsoluteTimeout.Minutes != nil && !data.UserSessionExpiration.AbsoluteTimeout.Minutes.Duration.IsUnknown() {
+											return data.UserSessionExpiration.AbsoluteTimeout.Minutes.Duration
+										}
 										if v, ok := MinutesData["duration"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -780,9 +792,15 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 				if IdleTimeoutData, ok := blockData["idle_timeout"].(map[string]interface{}); ok {
 					return &TenantConfigurationUserSessionExpirationIdleTimeoutModel{
 						Hours: func() *TenantConfigurationUserSessionExpirationIdleTimeoutHoursModel {
+							if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.IdleTimeout != nil && data.UserSessionExpiration.IdleTimeout.Hours != nil {
+								return data.UserSessionExpiration.IdleTimeout.Hours
+							}
 							if HoursData, ok := IdleTimeoutData["hours"].(map[string]interface{}); ok {
 								return &TenantConfigurationUserSessionExpirationIdleTimeoutHoursModel{
 									Duration: func() types.Int64 {
+										if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.IdleTimeout != nil && data.UserSessionExpiration.IdleTimeout.Hours != nil && !data.UserSessionExpiration.IdleTimeout.Hours.Duration.IsUnknown() {
+											return data.UserSessionExpiration.IdleTimeout.Hours.Duration
+										}
 										if v, ok := HoursData["duration"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -793,9 +811,15 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 							return nil
 						}(),
 						Minutes: func() *TenantConfigurationUserSessionExpirationIdleTimeoutMinutesModel {
+							if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.IdleTimeout != nil && data.UserSessionExpiration.IdleTimeout.Minutes != nil {
+								return data.UserSessionExpiration.IdleTimeout.Minutes
+							}
 							if MinutesData, ok := IdleTimeoutData["minutes"].(map[string]interface{}); ok {
 								return &TenantConfigurationUserSessionExpirationIdleTimeoutMinutesModel{
 									Duration: func() types.Int64 {
+										if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.IdleTimeout != nil && data.UserSessionExpiration.IdleTimeout.Minutes != nil && !data.UserSessionExpiration.IdleTimeout.Minutes.Duration.IsUnknown() {
+											return data.UserSessionExpiration.IdleTimeout.Minutes.Duration
+										}
 										if v, ok := MinutesData["duration"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -1035,9 +1059,15 @@ func (r *TenantConfigurationResource) Read(ctx context.Context, req resource.Rea
 				if AbsoluteTimeoutData, ok := blockData["absolute_timeout"].(map[string]interface{}); ok {
 					return &TenantConfigurationUserSessionExpirationAbsoluteTimeoutModel{
 						Hours: func() *TenantConfigurationUserSessionExpirationAbsoluteTimeoutHoursModel {
+							if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.AbsoluteTimeout != nil && data.UserSessionExpiration.AbsoluteTimeout.Hours != nil {
+								return data.UserSessionExpiration.AbsoluteTimeout.Hours
+							}
 							if HoursData, ok := AbsoluteTimeoutData["hours"].(map[string]interface{}); ok {
 								return &TenantConfigurationUserSessionExpirationAbsoluteTimeoutHoursModel{
 									Duration: func() types.Int64 {
+										if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.AbsoluteTimeout != nil && data.UserSessionExpiration.AbsoluteTimeout.Hours != nil && !data.UserSessionExpiration.AbsoluteTimeout.Hours.Duration.IsUnknown() {
+											return data.UserSessionExpiration.AbsoluteTimeout.Hours.Duration
+										}
 										if v, ok := HoursData["duration"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -1048,9 +1078,15 @@ func (r *TenantConfigurationResource) Read(ctx context.Context, req resource.Rea
 							return nil
 						}(),
 						Minutes: func() *TenantConfigurationUserSessionExpirationAbsoluteTimeoutMinutesModel {
+							if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.AbsoluteTimeout != nil && data.UserSessionExpiration.AbsoluteTimeout.Minutes != nil {
+								return data.UserSessionExpiration.AbsoluteTimeout.Minutes
+							}
 							if MinutesData, ok := AbsoluteTimeoutData["minutes"].(map[string]interface{}); ok {
 								return &TenantConfigurationUserSessionExpirationAbsoluteTimeoutMinutesModel{
 									Duration: func() types.Int64 {
+										if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.AbsoluteTimeout != nil && data.UserSessionExpiration.AbsoluteTimeout.Minutes != nil && !data.UserSessionExpiration.AbsoluteTimeout.Minutes.Duration.IsUnknown() {
+											return data.UserSessionExpiration.AbsoluteTimeout.Minutes.Duration
+										}
 										if v, ok := MinutesData["duration"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -1071,9 +1107,15 @@ func (r *TenantConfigurationResource) Read(ctx context.Context, req resource.Rea
 				if IdleTimeoutData, ok := blockData["idle_timeout"].(map[string]interface{}); ok {
 					return &TenantConfigurationUserSessionExpirationIdleTimeoutModel{
 						Hours: func() *TenantConfigurationUserSessionExpirationIdleTimeoutHoursModel {
+							if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.IdleTimeout != nil && data.UserSessionExpiration.IdleTimeout.Hours != nil {
+								return data.UserSessionExpiration.IdleTimeout.Hours
+							}
 							if HoursData, ok := IdleTimeoutData["hours"].(map[string]interface{}); ok {
 								return &TenantConfigurationUserSessionExpirationIdleTimeoutHoursModel{
 									Duration: func() types.Int64 {
+										if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.IdleTimeout != nil && data.UserSessionExpiration.IdleTimeout.Hours != nil && !data.UserSessionExpiration.IdleTimeout.Hours.Duration.IsUnknown() {
+											return data.UserSessionExpiration.IdleTimeout.Hours.Duration
+										}
 										if v, ok := HoursData["duration"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -1084,9 +1126,15 @@ func (r *TenantConfigurationResource) Read(ctx context.Context, req resource.Rea
 							return nil
 						}(),
 						Minutes: func() *TenantConfigurationUserSessionExpirationIdleTimeoutMinutesModel {
+							if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.IdleTimeout != nil && data.UserSessionExpiration.IdleTimeout.Minutes != nil {
+								return data.UserSessionExpiration.IdleTimeout.Minutes
+							}
 							if MinutesData, ok := IdleTimeoutData["minutes"].(map[string]interface{}); ok {
 								return &TenantConfigurationUserSessionExpirationIdleTimeoutMinutesModel{
 									Duration: func() types.Int64 {
+										if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.IdleTimeout != nil && data.UserSessionExpiration.IdleTimeout.Minutes != nil && !data.UserSessionExpiration.IdleTimeout.Minutes.Duration.IsUnknown() {
+											return data.UserSessionExpiration.IdleTimeout.Minutes.Duration
+										}
 										if v, ok := MinutesData["duration"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -1412,9 +1460,15 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 				if AbsoluteTimeoutData, ok := blockData["absolute_timeout"].(map[string]interface{}); ok {
 					return &TenantConfigurationUserSessionExpirationAbsoluteTimeoutModel{
 						Hours: func() *TenantConfigurationUserSessionExpirationAbsoluteTimeoutHoursModel {
+							if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.AbsoluteTimeout != nil && data.UserSessionExpiration.AbsoluteTimeout.Hours != nil {
+								return data.UserSessionExpiration.AbsoluteTimeout.Hours
+							}
 							if HoursData, ok := AbsoluteTimeoutData["hours"].(map[string]interface{}); ok {
 								return &TenantConfigurationUserSessionExpirationAbsoluteTimeoutHoursModel{
 									Duration: func() types.Int64 {
+										if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.AbsoluteTimeout != nil && data.UserSessionExpiration.AbsoluteTimeout.Hours != nil && !data.UserSessionExpiration.AbsoluteTimeout.Hours.Duration.IsUnknown() {
+											return data.UserSessionExpiration.AbsoluteTimeout.Hours.Duration
+										}
 										if v, ok := HoursData["duration"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -1425,9 +1479,15 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 							return nil
 						}(),
 						Minutes: func() *TenantConfigurationUserSessionExpirationAbsoluteTimeoutMinutesModel {
+							if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.AbsoluteTimeout != nil && data.UserSessionExpiration.AbsoluteTimeout.Minutes != nil {
+								return data.UserSessionExpiration.AbsoluteTimeout.Minutes
+							}
 							if MinutesData, ok := AbsoluteTimeoutData["minutes"].(map[string]interface{}); ok {
 								return &TenantConfigurationUserSessionExpirationAbsoluteTimeoutMinutesModel{
 									Duration: func() types.Int64 {
+										if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.AbsoluteTimeout != nil && data.UserSessionExpiration.AbsoluteTimeout.Minutes != nil && !data.UserSessionExpiration.AbsoluteTimeout.Minutes.Duration.IsUnknown() {
+											return data.UserSessionExpiration.AbsoluteTimeout.Minutes.Duration
+										}
 										if v, ok := MinutesData["duration"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -1448,9 +1508,15 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 				if IdleTimeoutData, ok := blockData["idle_timeout"].(map[string]interface{}); ok {
 					return &TenantConfigurationUserSessionExpirationIdleTimeoutModel{
 						Hours: func() *TenantConfigurationUserSessionExpirationIdleTimeoutHoursModel {
+							if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.IdleTimeout != nil && data.UserSessionExpiration.IdleTimeout.Hours != nil {
+								return data.UserSessionExpiration.IdleTimeout.Hours
+							}
 							if HoursData, ok := IdleTimeoutData["hours"].(map[string]interface{}); ok {
 								return &TenantConfigurationUserSessionExpirationIdleTimeoutHoursModel{
 									Duration: func() types.Int64 {
+										if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.IdleTimeout != nil && data.UserSessionExpiration.IdleTimeout.Hours != nil && !data.UserSessionExpiration.IdleTimeout.Hours.Duration.IsUnknown() {
+											return data.UserSessionExpiration.IdleTimeout.Hours.Duration
+										}
 										if v, ok := HoursData["duration"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
@@ -1461,9 +1527,15 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 							return nil
 						}(),
 						Minutes: func() *TenantConfigurationUserSessionExpirationIdleTimeoutMinutesModel {
+							if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.IdleTimeout != nil && data.UserSessionExpiration.IdleTimeout.Minutes != nil {
+								return data.UserSessionExpiration.IdleTimeout.Minutes
+							}
 							if MinutesData, ok := IdleTimeoutData["minutes"].(map[string]interface{}); ok {
 								return &TenantConfigurationUserSessionExpirationIdleTimeoutMinutesModel{
 									Duration: func() types.Int64 {
+										if !isImport && data.UserSessionExpiration != nil && data.UserSessionExpiration.IdleTimeout != nil && data.UserSessionExpiration.IdleTimeout.Minutes != nil && !data.UserSessionExpiration.IdleTimeout.Minutes.Duration.IsUnknown() {
+											return data.UserSessionExpiration.IdleTimeout.Minutes.Duration
+										}
 										if v, ok := MinutesData["duration"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}

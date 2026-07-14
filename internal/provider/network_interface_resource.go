@@ -1814,21 +1814,35 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 				if DHCPServerData, ok := blockData["dhcp_server"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEthernetInterfaceDHCPServerModel{
 						AutomaticFromEnd: func() *NetworkInterfaceEmptyModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil {
+								return data.EthernetInterface.DHCPServer.AutomaticFromEnd
+							}
 							if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEmptyModel{}
 							}
 							return nil
 						}(),
 						AutomaticFromStart: func() *NetworkInterfaceEmptyModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil {
+								return data.EthernetInterface.DHCPServer.AutomaticFromStart
+							}
 							if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEmptyModel{}
 							}
 							return nil
 						}(),
 						DHCPNetworks: func() types.List {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil && (data.EthernetInterface.DHCPServer.DHCPNetworks.IsNull() || len(data.EthernetInterface.DHCPServer.DHCPNetworks.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
+							}
+							var DHCPNetworksExisting []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModel
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil && !data.EthernetInterface.DHCPServer.DHCPNetworks.IsNull() && !data.EthernetInterface.DHCPServer.DHCPNetworks.IsUnknown() {
+								data.EthernetInterface.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+							}
 							if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 								var DHCPNetworksResult []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModel
-								for _, DHCPNetworksItem := range rawList {
+								for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+									_ = DHCPNetworksIdx
 									if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
 										DHCPNetworksResult = append(DHCPNetworksResult, NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModel{
 											DgwAddress: func() types.String {
@@ -1844,12 +1858,18 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 												return types.StringNull()
 											}(),
 											FirstAddress: func() *NetworkInterfaceEmptyModel {
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress != nil {
+													return &NetworkInterfaceEmptyModel{}
+												}
 												if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
 													return &NetworkInterfaceEmptyModel{}
 												}
 												return nil
 											}(),
 											LastAddress: func() *NetworkInterfaceEmptyModel {
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].LastAddress != nil {
+													return &NetworkInterfaceEmptyModel{}
+												}
 												if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
 													return &NetworkInterfaceEmptyModel{}
 												}
@@ -1894,6 +1914,9 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 												return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 											}(),
 											SameAsDgw: func() *NetworkInterfaceEmptyModel {
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw != nil {
+													return &NetworkInterfaceEmptyModel{}
+												}
 												if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
 													return &NetworkInterfaceEmptyModel{}
 												}
@@ -1908,15 +1931,24 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 							return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
 						}(),
 						FixedIPMap: func() *NetworkInterfaceEmptyModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil {
+								return data.EthernetInterface.DHCPServer.FixedIPMap
+							}
 							if _, ok := DHCPServerData["fixed_ip_map"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEmptyModel{}
 							}
 							return nil
 						}(),
 						InterfaceIPMap: func() *NetworkInterfaceEthernetInterfaceDHCPServerInterfaceIPMapModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil && data.EthernetInterface.DHCPServer.InterfaceIPMap != nil {
+								return data.EthernetInterface.DHCPServer.InterfaceIPMap
+							}
 							if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceDHCPServerInterfaceIPMapModel{
 									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil && data.EthernetInterface.DHCPServer.InterfaceIPMap != nil {
+											return data.EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap
+										}
 										if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
 											return &NetworkInterfaceEmptyModel{}
 										}
@@ -1937,18 +1969,30 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 				if Ipv6AutoConfigData, ok := blockData["ipv6_auto_config"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigModel{
 						Host: func() *NetworkInterfaceEmptyModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil {
+								return data.EthernetInterface.Ipv6AutoConfig.Host
+							}
 							if _, ok := Ipv6AutoConfigData["host"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEmptyModel{}
 							}
 							return nil
 						}(),
 						Router: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil {
+								return data.EthernetInterface.Ipv6AutoConfig.Router
+							}
 							if RouterData, ok := Ipv6AutoConfigData["router"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterModel{
 									DNSConfig: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigModel {
+										if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil {
+											return data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig
+										}
 										if DNSConfigData, ok := RouterData["dns_config"].(map[string]interface{}); ok {
 											return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigModel{
 												ConfiguredList: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel {
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+														return data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList
+													}
 													if ConfiguredListData, ok := DNSConfigData["configured_list"].(map[string]interface{}); ok {
 														return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel{
 															DNSList: func() types.List {
@@ -1969,6 +2013,9 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 													return nil
 												}(),
 												LocalDNS: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel {
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+														return data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS
+													}
 													if LocalDNSData, ok := DNSConfigData["local_dns"].(map[string]interface{}); ok {
 														return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel{
 															ConfiguredAddress: func() types.String {
@@ -1978,12 +2025,18 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 																return types.StringNull()
 															}(),
 															FirstAddress: func() *NetworkInterfaceEmptyModel {
+																if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																	return data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress
+																}
 																if _, ok := LocalDNSData["first_address"].(map[string]interface{}); ok {
 																	return &NetworkInterfaceEmptyModel{}
 																}
 																return nil
 															}(),
 															LastAddress: func() *NetworkInterfaceEmptyModel {
+																if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																	return data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress
+																}
 																if _, ok := LocalDNSData["last_address"].(map[string]interface{}); ok {
 																	return &NetworkInterfaceEmptyModel{}
 																}
@@ -2004,24 +2057,41 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 										return types.StringNull()
 									}(),
 									Stateful: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulModel {
+										if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+											return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful
+										}
 										if StatefulData, ok := RouterData["stateful"].(map[string]interface{}); ok {
 											return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulModel{
 												AutomaticFromEnd: func() *NetworkInterfaceEmptyModel {
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+														return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd
+													}
 													if _, ok := StatefulData["automatic_from_end"].(map[string]interface{}); ok {
 														return &NetworkInterfaceEmptyModel{}
 													}
 													return nil
 												}(),
 												AutomaticFromStart: func() *NetworkInterfaceEmptyModel {
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+														return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart
+													}
 													if _, ok := StatefulData["automatic_from_start"].(map[string]interface{}); ok {
 														return &NetworkInterfaceEmptyModel{}
 													}
 													return nil
 												}(),
 												DHCPNetworks: func() types.List {
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && (data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() || len(data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
+													}
+													var DHCPNetworksExisting []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && !data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+														data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+													}
 													if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 														var DHCPNetworksResult []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
-														for _, DHCPNetworksItem := range rawList {
+														for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+															_ = DHCPNetworksIdx
 															if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
 																DHCPNetworksResult = append(DHCPNetworksResult, NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel{
 																	NetworkPrefix: func() types.String {
@@ -2071,15 +2141,24 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 													return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 												}(),
 												FixedIPMap: func() *NetworkInterfaceEmptyModel {
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+														return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap
+													}
 													if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
 														return &NetworkInterfaceEmptyModel{}
 													}
 													return nil
 												}(),
 												InterfaceIPMap: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+														return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
+													}
 													if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 														return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
 															InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+																if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+																	return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
+																}
 																if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
 																	return &NetworkInterfaceEmptyModel{}
 																}
@@ -2195,9 +2274,15 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 				if StaticIPData, ok := blockData["static_ip"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEthernetInterfaceStaticIPModel{
 						ClusterStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIP != nil && data.EthernetInterface.StaticIP.ClusterStaticIP != nil {
+								return data.EthernetInterface.StaticIP.ClusterStaticIP
+							}
 							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModel{
 									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIP != nil && data.EthernetInterface.StaticIP.ClusterStaticIP != nil {
+											return data.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
+										}
 										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 											return &NetworkInterfaceEmptyModel{}
 										}
@@ -2208,6 +2293,9 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 							return nil
 						}(),
 						NodeStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIPNodeStaticIPModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIP != nil && data.EthernetInterface.StaticIP.NodeStaticIP != nil {
+								return data.EthernetInterface.StaticIP.NodeStaticIP
+							}
 							if NodeStaticIPData, ok := StaticIPData["node_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIPNodeStaticIPModel{
 									DefaultGw: func() types.String {
@@ -2237,9 +2325,15 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 				if StaticIpv6AddressData, ok := blockData["static_ipv6_address"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressModel{
 						ClusterStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIpv6Address != nil && data.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
+								return data.EthernetInterface.StaticIpv6Address.ClusterStaticIP
+							}
 							if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModel{
 									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIpv6Address != nil && data.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
+											return data.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
+										}
 										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 											return &NetworkInterfaceEmptyModel{}
 										}
@@ -2250,6 +2344,9 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 							return nil
 						}(),
 						NodeStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIpv6AddressNodeStaticIPModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIpv6Address != nil && data.EthernetInterface.StaticIpv6Address.NodeStaticIP != nil {
+								return data.EthernetInterface.StaticIpv6Address.NodeStaticIP
+							}
 							if NodeStaticIPData, ok := StaticIpv6AddressData["node_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressNodeStaticIPModel{
 									DefaultGw: func() types.String {
@@ -2316,12 +2413,18 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 							return types.StringNull()
 						}(),
 						Untagged: func() *NetworkInterfaceEmptyModel {
+							if !isImport && data.Layer2Interface != nil && data.Layer2Interface.L2sriovInterface != nil {
+								return data.Layer2Interface.L2sriovInterface.Untagged
+							}
 							if _, ok := L2sriovInterfaceData["untagged"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEmptyModel{}
 							}
 							return nil
 						}(),
 						VLANID: func() types.Int64 {
+							if !isImport && data.Layer2Interface != nil && data.Layer2Interface.L2sriovInterface != nil && !data.Layer2Interface.L2sriovInterface.VLANID.IsUnknown() {
+								return data.Layer2Interface.L2sriovInterface.VLANID
+							}
 							if v, ok := L2sriovInterfaceData["vlan_id"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -2344,6 +2447,9 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 							return types.StringNull()
 						}(),
 						VLANID: func() types.Int64 {
+							if !isImport && data.Layer2Interface != nil && data.Layer2Interface.L2vlanInterface != nil && !data.Layer2Interface.L2vlanInterface.VLANID.IsUnknown() {
+								return data.Layer2Interface.L2vlanInterface.VLANID
+							}
 							if v, ok := L2vlanInterfaceData["vlan_id"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -2360,6 +2466,9 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 				if L2vlanSloInterfaceData, ok := blockData["l2vlan_slo_interface"].(map[string]interface{}); ok {
 					return &NetworkInterfaceLayer2InterfaceL2vlanSloInterfaceModel{
 						VLANID: func() types.Int64 {
+							if !isImport && data.Layer2Interface != nil && data.Layer2Interface.L2vlanSloInterface != nil && !data.Layer2Interface.L2vlanSloInterface.VLANID.IsUnknown() {
+								return data.Layer2Interface.L2vlanSloInterface.VLANID
+							}
 							if v, ok := L2vlanSloInterfaceData["vlan_id"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -2422,9 +2531,15 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 				if StaticIPData, ok := blockData["static_ip"].(map[string]interface{}); ok {
 					return &NetworkInterfaceTunnelInterfaceStaticIPModel{
 						ClusterStaticIP: func() *NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModel {
+							if !isImport && data.TunnelInterface != nil && data.TunnelInterface.StaticIP != nil && data.TunnelInterface.StaticIP.ClusterStaticIP != nil {
+								return data.TunnelInterface.StaticIP.ClusterStaticIP
+							}
 							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModel{
 									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if !isImport && data.TunnelInterface != nil && data.TunnelInterface.StaticIP != nil && data.TunnelInterface.StaticIP.ClusterStaticIP != nil {
+											return data.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
+										}
 										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 											return &NetworkInterfaceEmptyModel{}
 										}
@@ -2435,6 +2550,9 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 							return nil
 						}(),
 						NodeStaticIP: func() *NetworkInterfaceTunnelInterfaceStaticIPNodeStaticIPModel {
+							if !isImport && data.TunnelInterface != nil && data.TunnelInterface.StaticIP != nil && data.TunnelInterface.StaticIP.NodeStaticIP != nil {
+								return data.TunnelInterface.StaticIP.NodeStaticIP
+							}
 							if NodeStaticIPData, ok := StaticIPData["node_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceTunnelInterfaceStaticIPNodeStaticIPModel{
 									DefaultGw: func() types.String {
@@ -2723,21 +2841,35 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 				if DHCPServerData, ok := blockData["dhcp_server"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEthernetInterfaceDHCPServerModel{
 						AutomaticFromEnd: func() *NetworkInterfaceEmptyModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil {
+								return data.EthernetInterface.DHCPServer.AutomaticFromEnd
+							}
 							if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEmptyModel{}
 							}
 							return nil
 						}(),
 						AutomaticFromStart: func() *NetworkInterfaceEmptyModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil {
+								return data.EthernetInterface.DHCPServer.AutomaticFromStart
+							}
 							if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEmptyModel{}
 							}
 							return nil
 						}(),
 						DHCPNetworks: func() types.List {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil && (data.EthernetInterface.DHCPServer.DHCPNetworks.IsNull() || len(data.EthernetInterface.DHCPServer.DHCPNetworks.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
+							}
+							var DHCPNetworksExisting []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModel
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil && !data.EthernetInterface.DHCPServer.DHCPNetworks.IsNull() && !data.EthernetInterface.DHCPServer.DHCPNetworks.IsUnknown() {
+								data.EthernetInterface.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+							}
 							if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 								var DHCPNetworksResult []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModel
-								for _, DHCPNetworksItem := range rawList {
+								for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+									_ = DHCPNetworksIdx
 									if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
 										DHCPNetworksResult = append(DHCPNetworksResult, NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModel{
 											DgwAddress: func() types.String {
@@ -2753,12 +2885,18 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 												return types.StringNull()
 											}(),
 											FirstAddress: func() *NetworkInterfaceEmptyModel {
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress != nil {
+													return &NetworkInterfaceEmptyModel{}
+												}
 												if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
 													return &NetworkInterfaceEmptyModel{}
 												}
 												return nil
 											}(),
 											LastAddress: func() *NetworkInterfaceEmptyModel {
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].LastAddress != nil {
+													return &NetworkInterfaceEmptyModel{}
+												}
 												if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
 													return &NetworkInterfaceEmptyModel{}
 												}
@@ -2803,6 +2941,9 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 												return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 											}(),
 											SameAsDgw: func() *NetworkInterfaceEmptyModel {
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw != nil {
+													return &NetworkInterfaceEmptyModel{}
+												}
 												if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
 													return &NetworkInterfaceEmptyModel{}
 												}
@@ -2817,15 +2958,24 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 							return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
 						}(),
 						FixedIPMap: func() *NetworkInterfaceEmptyModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil {
+								return data.EthernetInterface.DHCPServer.FixedIPMap
+							}
 							if _, ok := DHCPServerData["fixed_ip_map"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEmptyModel{}
 							}
 							return nil
 						}(),
 						InterfaceIPMap: func() *NetworkInterfaceEthernetInterfaceDHCPServerInterfaceIPMapModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil && data.EthernetInterface.DHCPServer.InterfaceIPMap != nil {
+								return data.EthernetInterface.DHCPServer.InterfaceIPMap
+							}
 							if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceDHCPServerInterfaceIPMapModel{
 									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil && data.EthernetInterface.DHCPServer.InterfaceIPMap != nil {
+											return data.EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap
+										}
 										if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
 											return &NetworkInterfaceEmptyModel{}
 										}
@@ -2846,18 +2996,30 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 				if Ipv6AutoConfigData, ok := blockData["ipv6_auto_config"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigModel{
 						Host: func() *NetworkInterfaceEmptyModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil {
+								return data.EthernetInterface.Ipv6AutoConfig.Host
+							}
 							if _, ok := Ipv6AutoConfigData["host"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEmptyModel{}
 							}
 							return nil
 						}(),
 						Router: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil {
+								return data.EthernetInterface.Ipv6AutoConfig.Router
+							}
 							if RouterData, ok := Ipv6AutoConfigData["router"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterModel{
 									DNSConfig: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigModel {
+										if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil {
+											return data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig
+										}
 										if DNSConfigData, ok := RouterData["dns_config"].(map[string]interface{}); ok {
 											return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigModel{
 												ConfiguredList: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel {
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+														return data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList
+													}
 													if ConfiguredListData, ok := DNSConfigData["configured_list"].(map[string]interface{}); ok {
 														return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel{
 															DNSList: func() types.List {
@@ -2878,6 +3040,9 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 													return nil
 												}(),
 												LocalDNS: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel {
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+														return data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS
+													}
 													if LocalDNSData, ok := DNSConfigData["local_dns"].(map[string]interface{}); ok {
 														return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel{
 															ConfiguredAddress: func() types.String {
@@ -2887,12 +3052,18 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 																return types.StringNull()
 															}(),
 															FirstAddress: func() *NetworkInterfaceEmptyModel {
+																if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																	return data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress
+																}
 																if _, ok := LocalDNSData["first_address"].(map[string]interface{}); ok {
 																	return &NetworkInterfaceEmptyModel{}
 																}
 																return nil
 															}(),
 															LastAddress: func() *NetworkInterfaceEmptyModel {
+																if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																	return data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress
+																}
 																if _, ok := LocalDNSData["last_address"].(map[string]interface{}); ok {
 																	return &NetworkInterfaceEmptyModel{}
 																}
@@ -2913,24 +3084,41 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 										return types.StringNull()
 									}(),
 									Stateful: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulModel {
+										if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+											return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful
+										}
 										if StatefulData, ok := RouterData["stateful"].(map[string]interface{}); ok {
 											return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulModel{
 												AutomaticFromEnd: func() *NetworkInterfaceEmptyModel {
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+														return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd
+													}
 													if _, ok := StatefulData["automatic_from_end"].(map[string]interface{}); ok {
 														return &NetworkInterfaceEmptyModel{}
 													}
 													return nil
 												}(),
 												AutomaticFromStart: func() *NetworkInterfaceEmptyModel {
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+														return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart
+													}
 													if _, ok := StatefulData["automatic_from_start"].(map[string]interface{}); ok {
 														return &NetworkInterfaceEmptyModel{}
 													}
 													return nil
 												}(),
 												DHCPNetworks: func() types.List {
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && (data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() || len(data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
+													}
+													var DHCPNetworksExisting []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && !data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+														data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+													}
 													if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 														var DHCPNetworksResult []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
-														for _, DHCPNetworksItem := range rawList {
+														for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+															_ = DHCPNetworksIdx
 															if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
 																DHCPNetworksResult = append(DHCPNetworksResult, NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel{
 																	NetworkPrefix: func() types.String {
@@ -2980,15 +3168,24 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 													return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 												}(),
 												FixedIPMap: func() *NetworkInterfaceEmptyModel {
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+														return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap
+													}
 													if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
 														return &NetworkInterfaceEmptyModel{}
 													}
 													return nil
 												}(),
 												InterfaceIPMap: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+														return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
+													}
 													if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 														return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
 															InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+																if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+																	return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
+																}
 																if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
 																	return &NetworkInterfaceEmptyModel{}
 																}
@@ -3104,9 +3301,15 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 				if StaticIPData, ok := blockData["static_ip"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEthernetInterfaceStaticIPModel{
 						ClusterStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIP != nil && data.EthernetInterface.StaticIP.ClusterStaticIP != nil {
+								return data.EthernetInterface.StaticIP.ClusterStaticIP
+							}
 							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModel{
 									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIP != nil && data.EthernetInterface.StaticIP.ClusterStaticIP != nil {
+											return data.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
+										}
 										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 											return &NetworkInterfaceEmptyModel{}
 										}
@@ -3117,6 +3320,9 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 							return nil
 						}(),
 						NodeStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIPNodeStaticIPModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIP != nil && data.EthernetInterface.StaticIP.NodeStaticIP != nil {
+								return data.EthernetInterface.StaticIP.NodeStaticIP
+							}
 							if NodeStaticIPData, ok := StaticIPData["node_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIPNodeStaticIPModel{
 									DefaultGw: func() types.String {
@@ -3146,9 +3352,15 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 				if StaticIpv6AddressData, ok := blockData["static_ipv6_address"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressModel{
 						ClusterStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIpv6Address != nil && data.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
+								return data.EthernetInterface.StaticIpv6Address.ClusterStaticIP
+							}
 							if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModel{
 									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIpv6Address != nil && data.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
+											return data.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
+										}
 										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 											return &NetworkInterfaceEmptyModel{}
 										}
@@ -3159,6 +3371,9 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 							return nil
 						}(),
 						NodeStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIpv6AddressNodeStaticIPModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIpv6Address != nil && data.EthernetInterface.StaticIpv6Address.NodeStaticIP != nil {
+								return data.EthernetInterface.StaticIpv6Address.NodeStaticIP
+							}
 							if NodeStaticIPData, ok := StaticIpv6AddressData["node_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressNodeStaticIPModel{
 									DefaultGw: func() types.String {
@@ -3225,12 +3440,18 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 							return types.StringNull()
 						}(),
 						Untagged: func() *NetworkInterfaceEmptyModel {
+							if !isImport && data.Layer2Interface != nil && data.Layer2Interface.L2sriovInterface != nil {
+								return data.Layer2Interface.L2sriovInterface.Untagged
+							}
 							if _, ok := L2sriovInterfaceData["untagged"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEmptyModel{}
 							}
 							return nil
 						}(),
 						VLANID: func() types.Int64 {
+							if !isImport && data.Layer2Interface != nil && data.Layer2Interface.L2sriovInterface != nil && !data.Layer2Interface.L2sriovInterface.VLANID.IsUnknown() {
+								return data.Layer2Interface.L2sriovInterface.VLANID
+							}
 							if v, ok := L2sriovInterfaceData["vlan_id"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -3253,6 +3474,9 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 							return types.StringNull()
 						}(),
 						VLANID: func() types.Int64 {
+							if !isImport && data.Layer2Interface != nil && data.Layer2Interface.L2vlanInterface != nil && !data.Layer2Interface.L2vlanInterface.VLANID.IsUnknown() {
+								return data.Layer2Interface.L2vlanInterface.VLANID
+							}
 							if v, ok := L2vlanInterfaceData["vlan_id"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -3269,6 +3493,9 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 				if L2vlanSloInterfaceData, ok := blockData["l2vlan_slo_interface"].(map[string]interface{}); ok {
 					return &NetworkInterfaceLayer2InterfaceL2vlanSloInterfaceModel{
 						VLANID: func() types.Int64 {
+							if !isImport && data.Layer2Interface != nil && data.Layer2Interface.L2vlanSloInterface != nil && !data.Layer2Interface.L2vlanSloInterface.VLANID.IsUnknown() {
+								return data.Layer2Interface.L2vlanSloInterface.VLANID
+							}
 							if v, ok := L2vlanSloInterfaceData["vlan_id"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -3331,9 +3558,15 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 				if StaticIPData, ok := blockData["static_ip"].(map[string]interface{}); ok {
 					return &NetworkInterfaceTunnelInterfaceStaticIPModel{
 						ClusterStaticIP: func() *NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModel {
+							if !isImport && data.TunnelInterface != nil && data.TunnelInterface.StaticIP != nil && data.TunnelInterface.StaticIP.ClusterStaticIP != nil {
+								return data.TunnelInterface.StaticIP.ClusterStaticIP
+							}
 							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModel{
 									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if !isImport && data.TunnelInterface != nil && data.TunnelInterface.StaticIP != nil && data.TunnelInterface.StaticIP.ClusterStaticIP != nil {
+											return data.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
+										}
 										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 											return &NetworkInterfaceEmptyModel{}
 										}
@@ -3344,6 +3577,9 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 							return nil
 						}(),
 						NodeStaticIP: func() *NetworkInterfaceTunnelInterfaceStaticIPNodeStaticIPModel {
+							if !isImport && data.TunnelInterface != nil && data.TunnelInterface.StaticIP != nil && data.TunnelInterface.StaticIP.NodeStaticIP != nil {
+								return data.TunnelInterface.StaticIP.NodeStaticIP
+							}
 							if NodeStaticIPData, ok := StaticIPData["node_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceTunnelInterfaceStaticIPNodeStaticIPModel{
 									DefaultGw: func() types.String {
@@ -4023,21 +4259,35 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 				if DHCPServerData, ok := blockData["dhcp_server"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEthernetInterfaceDHCPServerModel{
 						AutomaticFromEnd: func() *NetworkInterfaceEmptyModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil {
+								return data.EthernetInterface.DHCPServer.AutomaticFromEnd
+							}
 							if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEmptyModel{}
 							}
 							return nil
 						}(),
 						AutomaticFromStart: func() *NetworkInterfaceEmptyModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil {
+								return data.EthernetInterface.DHCPServer.AutomaticFromStart
+							}
 							if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEmptyModel{}
 							}
 							return nil
 						}(),
 						DHCPNetworks: func() types.List {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil && (data.EthernetInterface.DHCPServer.DHCPNetworks.IsNull() || len(data.EthernetInterface.DHCPServer.DHCPNetworks.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
+							}
+							var DHCPNetworksExisting []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModel
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil && !data.EthernetInterface.DHCPServer.DHCPNetworks.IsNull() && !data.EthernetInterface.DHCPServer.DHCPNetworks.IsUnknown() {
+								data.EthernetInterface.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+							}
 							if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 								var DHCPNetworksResult []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModel
-								for _, DHCPNetworksItem := range rawList {
+								for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+									_ = DHCPNetworksIdx
 									if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
 										DHCPNetworksResult = append(DHCPNetworksResult, NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModel{
 											DgwAddress: func() types.String {
@@ -4053,12 +4303,18 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 												return types.StringNull()
 											}(),
 											FirstAddress: func() *NetworkInterfaceEmptyModel {
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress != nil {
+													return &NetworkInterfaceEmptyModel{}
+												}
 												if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
 													return &NetworkInterfaceEmptyModel{}
 												}
 												return nil
 											}(),
 											LastAddress: func() *NetworkInterfaceEmptyModel {
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].LastAddress != nil {
+													return &NetworkInterfaceEmptyModel{}
+												}
 												if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
 													return &NetworkInterfaceEmptyModel{}
 												}
@@ -4103,6 +4359,9 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 												return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 											}(),
 											SameAsDgw: func() *NetworkInterfaceEmptyModel {
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw != nil {
+													return &NetworkInterfaceEmptyModel{}
+												}
 												if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
 													return &NetworkInterfaceEmptyModel{}
 												}
@@ -4117,15 +4376,24 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 							return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
 						}(),
 						FixedIPMap: func() *NetworkInterfaceEmptyModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil {
+								return data.EthernetInterface.DHCPServer.FixedIPMap
+							}
 							if _, ok := DHCPServerData["fixed_ip_map"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEmptyModel{}
 							}
 							return nil
 						}(),
 						InterfaceIPMap: func() *NetworkInterfaceEthernetInterfaceDHCPServerInterfaceIPMapModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil && data.EthernetInterface.DHCPServer.InterfaceIPMap != nil {
+								return data.EthernetInterface.DHCPServer.InterfaceIPMap
+							}
 							if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceDHCPServerInterfaceIPMapModel{
 									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil && data.EthernetInterface.DHCPServer.InterfaceIPMap != nil {
+											return data.EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap
+										}
 										if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
 											return &NetworkInterfaceEmptyModel{}
 										}
@@ -4146,18 +4414,30 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 				if Ipv6AutoConfigData, ok := blockData["ipv6_auto_config"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigModel{
 						Host: func() *NetworkInterfaceEmptyModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil {
+								return data.EthernetInterface.Ipv6AutoConfig.Host
+							}
 							if _, ok := Ipv6AutoConfigData["host"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEmptyModel{}
 							}
 							return nil
 						}(),
 						Router: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil {
+								return data.EthernetInterface.Ipv6AutoConfig.Router
+							}
 							if RouterData, ok := Ipv6AutoConfigData["router"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterModel{
 									DNSConfig: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigModel {
+										if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil {
+											return data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig
+										}
 										if DNSConfigData, ok := RouterData["dns_config"].(map[string]interface{}); ok {
 											return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigModel{
 												ConfiguredList: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel {
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
+														return data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList
+													}
 													if ConfiguredListData, ok := DNSConfigData["configured_list"].(map[string]interface{}); ok {
 														return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListModel{
 															DNSList: func() types.List {
@@ -4178,6 +4458,9 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 													return nil
 												}(),
 												LocalDNS: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel {
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+														return data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS
+													}
 													if LocalDNSData, ok := DNSConfigData["local_dns"].(map[string]interface{}); ok {
 														return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSModel{
 															ConfiguredAddress: func() types.String {
@@ -4187,12 +4470,18 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 																return types.StringNull()
 															}(),
 															FirstAddress: func() *NetworkInterfaceEmptyModel {
+																if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																	return data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress
+																}
 																if _, ok := LocalDNSData["first_address"].(map[string]interface{}); ok {
 																	return &NetworkInterfaceEmptyModel{}
 																}
 																return nil
 															}(),
 															LastAddress: func() *NetworkInterfaceEmptyModel {
+																if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
+																	return data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress
+																}
 																if _, ok := LocalDNSData["last_address"].(map[string]interface{}); ok {
 																	return &NetworkInterfaceEmptyModel{}
 																}
@@ -4213,24 +4502,41 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 										return types.StringNull()
 									}(),
 									Stateful: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulModel {
+										if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+											return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful
+										}
 										if StatefulData, ok := RouterData["stateful"].(map[string]interface{}); ok {
 											return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulModel{
 												AutomaticFromEnd: func() *NetworkInterfaceEmptyModel {
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+														return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd
+													}
 													if _, ok := StatefulData["automatic_from_end"].(map[string]interface{}); ok {
 														return &NetworkInterfaceEmptyModel{}
 													}
 													return nil
 												}(),
 												AutomaticFromStart: func() *NetworkInterfaceEmptyModel {
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+														return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart
+													}
 													if _, ok := StatefulData["automatic_from_start"].(map[string]interface{}); ok {
 														return &NetworkInterfaceEmptyModel{}
 													}
 													return nil
 												}(),
 												DHCPNetworks: func() types.List {
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && (data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() || len(data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
+													}
+													var DHCPNetworksExisting []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && !data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
+														data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+													}
 													if rawList, ok := StatefulData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
 														var DHCPNetworksResult []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
-														for _, DHCPNetworksItem := range rawList {
+														for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+															_ = DHCPNetworksIdx
 															if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
 																DHCPNetworksResult = append(DHCPNetworksResult, NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel{
 																	NetworkPrefix: func() types.String {
@@ -4280,15 +4586,24 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 													return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 												}(),
 												FixedIPMap: func() *NetworkInterfaceEmptyModel {
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+														return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap
+													}
 													if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
 														return &NetworkInterfaceEmptyModel{}
 													}
 													return nil
 												}(),
 												InterfaceIPMap: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
+													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+														return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
+													}
 													if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 														return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
 															InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+																if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+																	return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
+																}
 																if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
 																	return &NetworkInterfaceEmptyModel{}
 																}
@@ -4404,9 +4719,15 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 				if StaticIPData, ok := blockData["static_ip"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEthernetInterfaceStaticIPModel{
 						ClusterStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIP != nil && data.EthernetInterface.StaticIP.ClusterStaticIP != nil {
+								return data.EthernetInterface.StaticIP.ClusterStaticIP
+							}
 							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModel{
 									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIP != nil && data.EthernetInterface.StaticIP.ClusterStaticIP != nil {
+											return data.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
+										}
 										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 											return &NetworkInterfaceEmptyModel{}
 										}
@@ -4417,6 +4738,9 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 							return nil
 						}(),
 						NodeStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIPNodeStaticIPModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIP != nil && data.EthernetInterface.StaticIP.NodeStaticIP != nil {
+								return data.EthernetInterface.StaticIP.NodeStaticIP
+							}
 							if NodeStaticIPData, ok := StaticIPData["node_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIPNodeStaticIPModel{
 									DefaultGw: func() types.String {
@@ -4446,9 +4770,15 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 				if StaticIpv6AddressData, ok := blockData["static_ipv6_address"].(map[string]interface{}); ok {
 					return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressModel{
 						ClusterStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIpv6Address != nil && data.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
+								return data.EthernetInterface.StaticIpv6Address.ClusterStaticIP
+							}
 							if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModel{
 									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIpv6Address != nil && data.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
+											return data.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
+										}
 										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 											return &NetworkInterfaceEmptyModel{}
 										}
@@ -4459,6 +4789,9 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 							return nil
 						}(),
 						NodeStaticIP: func() *NetworkInterfaceEthernetInterfaceStaticIpv6AddressNodeStaticIPModel {
+							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIpv6Address != nil && data.EthernetInterface.StaticIpv6Address.NodeStaticIP != nil {
+								return data.EthernetInterface.StaticIpv6Address.NodeStaticIP
+							}
 							if NodeStaticIPData, ok := StaticIpv6AddressData["node_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressNodeStaticIPModel{
 									DefaultGw: func() types.String {
@@ -4525,12 +4858,18 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 							return types.StringNull()
 						}(),
 						Untagged: func() *NetworkInterfaceEmptyModel {
+							if !isImport && data.Layer2Interface != nil && data.Layer2Interface.L2sriovInterface != nil {
+								return data.Layer2Interface.L2sriovInterface.Untagged
+							}
 							if _, ok := L2sriovInterfaceData["untagged"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEmptyModel{}
 							}
 							return nil
 						}(),
 						VLANID: func() types.Int64 {
+							if !isImport && data.Layer2Interface != nil && data.Layer2Interface.L2sriovInterface != nil && !data.Layer2Interface.L2sriovInterface.VLANID.IsUnknown() {
+								return data.Layer2Interface.L2sriovInterface.VLANID
+							}
 							if v, ok := L2sriovInterfaceData["vlan_id"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -4553,6 +4892,9 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 							return types.StringNull()
 						}(),
 						VLANID: func() types.Int64 {
+							if !isImport && data.Layer2Interface != nil && data.Layer2Interface.L2vlanInterface != nil && !data.Layer2Interface.L2vlanInterface.VLANID.IsUnknown() {
+								return data.Layer2Interface.L2vlanInterface.VLANID
+							}
 							if v, ok := L2vlanInterfaceData["vlan_id"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -4569,6 +4911,9 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 				if L2vlanSloInterfaceData, ok := blockData["l2vlan_slo_interface"].(map[string]interface{}); ok {
 					return &NetworkInterfaceLayer2InterfaceL2vlanSloInterfaceModel{
 						VLANID: func() types.Int64 {
+							if !isImport && data.Layer2Interface != nil && data.Layer2Interface.L2vlanSloInterface != nil && !data.Layer2Interface.L2vlanSloInterface.VLANID.IsUnknown() {
+								return data.Layer2Interface.L2vlanSloInterface.VLANID
+							}
 							if v, ok := L2vlanSloInterfaceData["vlan_id"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -4631,9 +4976,15 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 				if StaticIPData, ok := blockData["static_ip"].(map[string]interface{}); ok {
 					return &NetworkInterfaceTunnelInterfaceStaticIPModel{
 						ClusterStaticIP: func() *NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModel {
+							if !isImport && data.TunnelInterface != nil && data.TunnelInterface.StaticIP != nil && data.TunnelInterface.StaticIP.ClusterStaticIP != nil {
+								return data.TunnelInterface.StaticIP.ClusterStaticIP
+							}
 							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModel{
 									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
+										if !isImport && data.TunnelInterface != nil && data.TunnelInterface.StaticIP != nil && data.TunnelInterface.StaticIP.ClusterStaticIP != nil {
+											return data.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
+										}
 										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
 											return &NetworkInterfaceEmptyModel{}
 										}
@@ -4644,6 +4995,9 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 							return nil
 						}(),
 						NodeStaticIP: func() *NetworkInterfaceTunnelInterfaceStaticIPNodeStaticIPModel {
+							if !isImport && data.TunnelInterface != nil && data.TunnelInterface.StaticIP != nil && data.TunnelInterface.StaticIP.NodeStaticIP != nil {
+								return data.TunnelInterface.StaticIP.NodeStaticIP
+							}
 							if NodeStaticIPData, ok := StaticIPData["node_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceTunnelInterfaceStaticIPNodeStaticIPModel{
 									DefaultGw: func() types.String {

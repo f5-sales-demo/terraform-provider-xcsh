@@ -576,9 +576,17 @@ func (r *VirtualNetworkResource) Create(ctx context.Context, req resource.Create
 						if NodeInterfaceData, ok := itemMap["node_interface"].(map[string]interface{}); ok {
 							return &VirtualNetworkStaticRoutesNodeInterfaceModel{
 								List: func() types.List {
+									if !isImport && len(existingStaticRoutesItems) > listIdx && existingStaticRoutesItems[listIdx].NodeInterface != nil && (existingStaticRoutesItems[listIdx].NodeInterface.List.IsNull() || len(existingStaticRoutesItems[listIdx].NodeInterface.List.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesNodeInterfaceListModelAttrTypes})
+									}
+									var ListExisting []VirtualNetworkStaticRoutesNodeInterfaceListModel
+									if !isImport && len(existingStaticRoutesItems) > listIdx && existingStaticRoutesItems[listIdx].NodeInterface != nil && !existingStaticRoutesItems[listIdx].NodeInterface.List.IsNull() && !existingStaticRoutesItems[listIdx].NodeInterface.List.IsUnknown() {
+										existingStaticRoutesItems[listIdx].NodeInterface.List.ElementsAs(ctx, &ListExisting, false)
+									}
 									if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
 										var ListResult []VirtualNetworkStaticRoutesNodeInterfaceListModel
-										for _, ListItem := range rawList {
+										for ListIdx, ListItem := range rawList {
+											_ = ListIdx
 											if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 												ListResult = append(ListResult, VirtualNetworkStaticRoutesNodeInterfaceListModel{
 													Interface: func() types.List {
@@ -818,9 +826,17 @@ func (r *VirtualNetworkResource) Read(ctx context.Context, req resource.ReadRequ
 						if NodeInterfaceData, ok := itemMap["node_interface"].(map[string]interface{}); ok {
 							return &VirtualNetworkStaticRoutesNodeInterfaceModel{
 								List: func() types.List {
+									if !isImport && len(existingStaticRoutesItems) > listIdx && existingStaticRoutesItems[listIdx].NodeInterface != nil && (existingStaticRoutesItems[listIdx].NodeInterface.List.IsNull() || len(existingStaticRoutesItems[listIdx].NodeInterface.List.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesNodeInterfaceListModelAttrTypes})
+									}
+									var ListExisting []VirtualNetworkStaticRoutesNodeInterfaceListModel
+									if !isImport && len(existingStaticRoutesItems) > listIdx && existingStaticRoutesItems[listIdx].NodeInterface != nil && !existingStaticRoutesItems[listIdx].NodeInterface.List.IsNull() && !existingStaticRoutesItems[listIdx].NodeInterface.List.IsUnknown() {
+										existingStaticRoutesItems[listIdx].NodeInterface.List.ElementsAs(ctx, &ListExisting, false)
+									}
 									if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
 										var ListResult []VirtualNetworkStaticRoutesNodeInterfaceListModel
-										for _, ListItem := range rawList {
+										for ListIdx, ListItem := range rawList {
+											_ = ListIdx
 											if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 												ListResult = append(ListResult, VirtualNetworkStaticRoutesNodeInterfaceListModel{
 													Interface: func() types.List {
@@ -1143,9 +1159,17 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 						if NodeInterfaceData, ok := itemMap["node_interface"].(map[string]interface{}); ok {
 							return &VirtualNetworkStaticRoutesNodeInterfaceModel{
 								List: func() types.List {
+									if !isImport && len(existingStaticRoutesItems) > listIdx && existingStaticRoutesItems[listIdx].NodeInterface != nil && (existingStaticRoutesItems[listIdx].NodeInterface.List.IsNull() || len(existingStaticRoutesItems[listIdx].NodeInterface.List.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesNodeInterfaceListModelAttrTypes})
+									}
+									var ListExisting []VirtualNetworkStaticRoutesNodeInterfaceListModel
+									if !isImport && len(existingStaticRoutesItems) > listIdx && existingStaticRoutesItems[listIdx].NodeInterface != nil && !existingStaticRoutesItems[listIdx].NodeInterface.List.IsNull() && !existingStaticRoutesItems[listIdx].NodeInterface.List.IsUnknown() {
+										existingStaticRoutesItems[listIdx].NodeInterface.List.ElementsAs(ctx, &ListExisting, false)
+									}
 									if rawList, ok := NodeInterfaceData["list"].([]interface{}); ok && len(rawList) > 0 {
 										var ListResult []VirtualNetworkStaticRoutesNodeInterfaceListModel
-										for _, ListItem := range rawList {
+										for ListIdx, ListItem := range rawList {
+											_ = ListIdx
 											if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 												ListResult = append(ListResult, VirtualNetworkStaticRoutesNodeInterfaceListModel{
 													Interface: func() types.List {

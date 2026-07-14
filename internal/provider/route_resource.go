@@ -3087,9 +3087,17 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return types.StringNull()
 								}(),
 								JavascriptTags: func() types.List {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].BotDefenseJavascriptInjection != nil && (existingRoutesItems[listIdx].BotDefenseJavascriptInjection.JavascriptTags.IsNull() || len(existingRoutesItems[listIdx].BotDefenseJavascriptInjection.JavascriptTags.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModelAttrTypes})
+									}
+									var JavascriptTagsExisting []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].BotDefenseJavascriptInjection != nil && !existingRoutesItems[listIdx].BotDefenseJavascriptInjection.JavascriptTags.IsNull() && !existingRoutesItems[listIdx].BotDefenseJavascriptInjection.JavascriptTags.IsUnknown() {
+										existingRoutesItems[listIdx].BotDefenseJavascriptInjection.JavascriptTags.ElementsAs(ctx, &JavascriptTagsExisting, false)
+									}
 									if rawList, ok := BotDefenseJavascriptInjectionData["javascript_tags"].([]interface{}); ok && len(rawList) > 0 {
 										var JavascriptTagsResult []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel
-										for _, JavascriptTagsItem := range rawList {
+										for JavascriptTagsIdx, JavascriptTagsItem := range rawList {
+											_ = JavascriptTagsIdx
 											if JavascriptTagsItemMap, ok := JavascriptTagsItem.(map[string]interface{}); ok {
 												JavascriptTagsResult = append(JavascriptTagsResult, RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel{
 													JavascriptURL: func() types.String {
@@ -3808,21 +3816,33 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						if RouteDestinationData, ok := itemMap["route_destination"].(map[string]interface{}); ok {
 							return &RouteRoutesRouteDestinationModel{
 								AutoHostRewrite: func() types.Bool {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && !existingRoutesItems[listIdx].RouteDestination.AutoHostRewrite.IsUnknown() {
+										return existingRoutesItems[listIdx].RouteDestination.AutoHostRewrite
+									}
 									if v, ok := RouteDestinationData["auto_host_rewrite"].(bool); ok {
 										return types.BoolValue(v)
 									}
 									return types.BoolNull()
 								}(),
 								BufferPolicy: func() *RouteRoutesRouteDestinationBufferPolicyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.BufferPolicy != nil {
+										return existingRoutesItems[listIdx].RouteDestination.BufferPolicy
+									}
 									if BufferPolicyData, ok := RouteDestinationData["buffer_policy"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationBufferPolicyModel{
 											Disabled: func() types.Bool {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.BufferPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.BufferPolicy.Disabled.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.BufferPolicy.Disabled
+												}
 												if v, ok := BufferPolicyData["disabled"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											MaxRequestBytes: func() types.Int64 {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.BufferPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.BufferPolicy.MaxRequestBytes.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.BufferPolicy.MaxRequestBytes
+												}
 												if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -3833,9 +3853,15 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return nil
 								}(),
 								CORSPolicy: func() *RouteRoutesRouteDestinationCORSPolicyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CORSPolicy != nil {
+										return existingRoutesItems[listIdx].RouteDestination.CORSPolicy
+									}
 									if CORSPolicyData, ok := RouteDestinationData["cors_policy"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationCORSPolicyModel{
 											AllowCredentials: func() types.Bool {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CORSPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.CORSPolicy.AllowCredentials.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.CORSPolicy.AllowCredentials
+												}
 												if v, ok := CORSPolicyData["allow_credentials"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -3880,6 +3906,9 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return types.ListNull(types.StringType)
 											}(),
 											Disabled: func() types.Bool {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CORSPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.CORSPolicy.Disabled.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.CORSPolicy.Disabled
+												}
 												if v, ok := CORSPolicyData["disabled"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -3892,6 +3921,9 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return types.StringNull()
 											}(),
 											MaximumAge: func() types.Int64 {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CORSPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.CORSPolicy.MaximumAge.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.CORSPolicy.MaximumAge
+												}
 												if v, ok := CORSPolicyData["maximum_age"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -3902,15 +3934,24 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return nil
 								}(),
 								CSRFPolicy: func() *RouteRoutesRouteDestinationCSRFPolicyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil {
+										return existingRoutesItems[listIdx].RouteDestination.CSRFPolicy
+									}
 									if CSRFPolicyData, ok := RouteDestinationData["csrf_policy"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationCSRFPolicyModel{
 											AllLoadBalancerDomains: func() *RouteEmptyModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil {
+													return existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.AllLoadBalancerDomains
+												}
 												if _, ok := CSRFPolicyData["all_load_balancer_domains"].(map[string]interface{}); ok {
 													return &RouteEmptyModel{}
 												}
 												return nil
 											}(),
 											CustomDomainList: func() *RouteRoutesRouteDestinationCSRFPolicyCustomDomainListModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.CustomDomainList != nil {
+													return existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.CustomDomainList
+												}
 												if CustomDomainListData, ok := CSRFPolicyData["custom_domain_list"].(map[string]interface{}); ok {
 													return &RouteRoutesRouteDestinationCSRFPolicyCustomDomainListModel{
 														Domains: func() types.List {
@@ -3931,6 +3972,9 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return nil
 											}(),
 											Disabled: func() *RouteEmptyModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil {
+													return existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.Disabled
+												}
 												if _, ok := CSRFPolicyData["disabled"].(map[string]interface{}); ok {
 													return &RouteEmptyModel{}
 												}
@@ -3941,9 +3985,17 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return nil
 								}(),
 								Destinations: func() types.List {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && (existingRoutesItems[listIdx].RouteDestination.Destinations.IsNull() || len(existingRoutesItems[listIdx].RouteDestination.Destinations.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsModelAttrTypes})
+									}
+									var DestinationsExisting []RouteRoutesRouteDestinationDestinationsModel
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && !existingRoutesItems[listIdx].RouteDestination.Destinations.IsNull() && !existingRoutesItems[listIdx].RouteDestination.Destinations.IsUnknown() {
+										existingRoutesItems[listIdx].RouteDestination.Destinations.ElementsAs(ctx, &DestinationsExisting, false)
+									}
 									if rawList, ok := RouteDestinationData["destinations"].([]interface{}); ok && len(rawList) > 0 {
 										var DestinationsResult []RouteRoutesRouteDestinationDestinationsModel
-										for _, DestinationsItem := range rawList {
+										for DestinationsIdx, DestinationsItem := range rawList {
+											_ = DestinationsIdx
 											if DestinationsItemMap, ok := DestinationsItem.(map[string]interface{}); ok {
 												DestinationsResult = append(DestinationsResult, RouteRoutesRouteDestinationDestinationsModel{
 													Cluster: func() types.List {
@@ -3991,6 +4043,9 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 														return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsClusterModelAttrTypes})
 													}(),
 													EndpointSubsets: func() *RouteEmptyModel {
+														if !isImport && len(DestinationsExisting) > DestinationsIdx && DestinationsExisting[DestinationsIdx].EndpointSubsets != nil {
+															return &RouteEmptyModel{}
+														}
 														if _, ok := DestinationsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
 															return &RouteEmptyModel{}
 														}
@@ -4017,51 +4072,80 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsModelAttrTypes})
 								}(),
 								DoNotRetractCluster: func() *RouteEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil {
+										return existingRoutesItems[listIdx].RouteDestination.DoNotRetractCluster
+									}
 									if _, ok := RouteDestinationData["do_not_retract_cluster"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
 								EndpointSubsets: func() *RouteEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil {
+										return existingRoutesItems[listIdx].RouteDestination.EndpointSubsets
+									}
 									if _, ok := RouteDestinationData["endpoint_subsets"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
 								HashPolicy: func() types.List {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && (existingRoutesItems[listIdx].RouteDestination.HashPolicy.IsNull() || len(existingRoutesItems[listIdx].RouteDestination.HashPolicy.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationHashPolicyModelAttrTypes})
+									}
+									var HashPolicyExisting []RouteRoutesRouteDestinationHashPolicyModel
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && !existingRoutesItems[listIdx].RouteDestination.HashPolicy.IsNull() && !existingRoutesItems[listIdx].RouteDestination.HashPolicy.IsUnknown() {
+										existingRoutesItems[listIdx].RouteDestination.HashPolicy.ElementsAs(ctx, &HashPolicyExisting, false)
+									}
 									if rawList, ok := RouteDestinationData["hash_policy"].([]interface{}); ok && len(rawList) > 0 {
 										var HashPolicyResult []RouteRoutesRouteDestinationHashPolicyModel
-										for _, HashPolicyItem := range rawList {
+										for HashPolicyIdx, HashPolicyItem := range rawList {
+											_ = HashPolicyIdx
 											if HashPolicyItemMap, ok := HashPolicyItem.(map[string]interface{}); ok {
 												HashPolicyResult = append(HashPolicyResult, RouteRoutesRouteDestinationHashPolicyModel{
 													Cookie: func() *RouteRoutesRouteDestinationHashPolicyCookieModel {
 														if CookieData, ok := HashPolicyItemMap["cookie"].(map[string]interface{}); ok {
 															return &RouteRoutesRouteDestinationHashPolicyCookieModel{
 																AddHttponly: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.AddHttponly
+																	}
 																	if _, ok := CookieData["add_httponly"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
 																	return nil
 																}(),
 																AddSecure: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.AddSecure
+																	}
 																	if _, ok := CookieData["add_secure"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
 																	return nil
 																}(),
 																IgnoreHttponly: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreHttponly
+																	}
 																	if _, ok := CookieData["ignore_httponly"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
 																	return nil
 																}(),
 																IgnoreSamesite: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreSamesite
+																	}
 																	if _, ok := CookieData["ignore_samesite"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
 																	return nil
 																}(),
 																IgnoreSecure: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreSecure
+																	}
 																	if _, ok := CookieData["ignore_secure"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
@@ -4080,24 +4164,36 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 																	return types.StringNull()
 																}(),
 																SamesiteLax: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteLax
+																	}
 																	if _, ok := CookieData["samesite_lax"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
 																	return nil
 																}(),
 																SamesiteNone: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteNone
+																	}
 																	if _, ok := CookieData["samesite_none"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
 																	return nil
 																}(),
 																SamesiteStrict: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteStrict
+																	}
 																	if _, ok := CookieData["samesite_strict"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
 																	return nil
 																}(),
 																TTL: func() types.Int64 {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.TTL.IsUnknown() {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.TTL
+																	}
 																	if v, ok := CookieData["ttl"].(float64); ok && v != 0 {
 																		return types.Int64Value(int64(v))
 																	}
@@ -4143,9 +4239,17 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									if MirrorPolicyData, ok := RouteDestinationData["mirror_policy"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationMirrorPolicyModel{
 											Cluster: func() types.List {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.MirrorPolicy != nil && (existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Cluster.IsNull() || len(existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Cluster.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationMirrorPolicyClusterModelAttrTypes})
+												}
+												var ClusterExisting []RouteRoutesRouteDestinationMirrorPolicyClusterModel
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.MirrorPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Cluster.IsNull() && !existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Cluster.IsUnknown() {
+													existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Cluster.ElementsAs(ctx, &ClusterExisting, false)
+												}
 												if rawList, ok := MirrorPolicyData["cluster"].([]interface{}); ok && len(rawList) > 0 {
 													var ClusterResult []RouteRoutesRouteDestinationMirrorPolicyClusterModel
-													for _, ClusterItem := range rawList {
+													for ClusterIdx, ClusterItem := range rawList {
+														_ = ClusterIdx
 														if ClusterItemMap, ok := ClusterItem.(map[string]interface{}); ok {
 															ClusterResult = append(ClusterResult, RouteRoutesRouteDestinationMirrorPolicyClusterModel{
 																Kind: func() types.String {
@@ -4187,6 +4291,9 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationMirrorPolicyClusterModelAttrTypes})
 											}(),
 											Percent: func() *RouteRoutesRouteDestinationMirrorPolicyPercentModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.MirrorPolicy != nil && existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Percent != nil {
+													return existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Percent
+												}
 												if PercentData, ok := MirrorPolicyData["percent"].(map[string]interface{}); ok {
 													return &RouteRoutesRouteDestinationMirrorPolicyPercentModel{
 														Denominator: func() types.String {
@@ -4196,6 +4303,9 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														Numerator: func() types.Int64 {
+															if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.MirrorPolicy != nil && existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Percent != nil && !existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Percent.Numerator.IsUnknown() {
+																return existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Percent.Numerator
+															}
 															if v, ok := PercentData["numerator"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -4222,9 +4332,15 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return types.StringNull()
 								}(),
 								QueryParams: func() *RouteRoutesRouteDestinationQueryParamsModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.QueryParams != nil {
+										return existingRoutesItems[listIdx].RouteDestination.QueryParams
+									}
 									if QueryParamsData, ok := RouteDestinationData["query_params"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationQueryParamsModel{
 											RemoveAllParams: func() *RouteEmptyModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.QueryParams != nil {
+													return existingRoutesItems[listIdx].RouteDestination.QueryParams.RemoveAllParams
+												}
 												if _, ok := QueryParamsData["remove_all_params"].(map[string]interface{}); ok {
 													return &RouteEmptyModel{}
 												}
@@ -4237,6 +4353,9 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return types.StringNull()
 											}(),
 											RetainAllParams: func() *RouteEmptyModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.QueryParams != nil {
+													return existingRoutesItems[listIdx].RouteDestination.QueryParams.RetainAllParams
+												}
 												if _, ok := QueryParamsData["retain_all_params"].(map[string]interface{}); ok {
 													return &RouteEmptyModel{}
 												}
@@ -4247,6 +4366,9 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return nil
 								}(),
 								RegexRewrite: func() *RouteRoutesRouteDestinationRegexRewriteModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RegexRewrite != nil {
+										return existingRoutesItems[listIdx].RouteDestination.RegexRewrite
+									}
 									if RegexRewriteData, ok := RouteDestinationData["regex_rewrite"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationRegexRewriteModel{
 											Pattern: func() types.String {
@@ -4266,24 +4388,39 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return nil
 								}(),
 								RetractCluster: func() *RouteEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil {
+										return existingRoutesItems[listIdx].RouteDestination.RetractCluster
+									}
 									if _, ok := RouteDestinationData["retract_cluster"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
 								RetryPolicy: func() *RouteRoutesRouteDestinationRetryPolicyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy != nil {
+										return existingRoutesItems[listIdx].RouteDestination.RetryPolicy
+									}
 									if RetryPolicyData, ok := RouteDestinationData["retry_policy"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationRetryPolicyModel{
 											BackOff: func() *RouteRoutesRouteDestinationRetryPolicyBackOffModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff != nil {
+													return existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff
+												}
 												if BackOffData, ok := RetryPolicyData["back_off"].(map[string]interface{}); ok {
 													return &RouteRoutesRouteDestinationRetryPolicyBackOffModel{
 														BaseInterval: func() types.Int64 {
+															if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff != nil && !existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff.BaseInterval.IsUnknown() {
+																return existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff.BaseInterval
+															}
 															if v, ok := BackOffData["base_interval"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxInterval: func() types.Int64 {
+															if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff != nil && !existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff.MaxInterval.IsUnknown() {
+																return existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff.MaxInterval
+															}
 															if v, ok := BackOffData["max_interval"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -4294,12 +4431,18 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return nil
 											}(),
 											NumRetries: func() types.Int64 {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.RetryPolicy.NumRetries.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.RetryPolicy.NumRetries
+												}
 												if v, ok := RetryPolicyData["num_retries"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
 											}(),
 											PerTryTimeout: func() types.Int64 {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.RetryPolicy.PerTryTimeout.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.RetryPolicy.PerTryTimeout
+												}
 												if v, ok := RetryPolicyData["per_try_timeout"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -4336,9 +4479,15 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return nil
 								}(),
 								SpdyConfig: func() *RouteRoutesRouteDestinationSpdyConfigModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.SpdyConfig != nil {
+										return existingRoutesItems[listIdx].RouteDestination.SpdyConfig
+									}
 									if SpdyConfigData, ok := RouteDestinationData["spdy_config"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationSpdyConfigModel{
 											UseSpdy: func() types.Bool {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.SpdyConfig != nil && !existingRoutesItems[listIdx].RouteDestination.SpdyConfig.UseSpdy.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.SpdyConfig.UseSpdy
+												}
 												if v, ok := SpdyConfigData["use_spdy"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -4349,15 +4498,24 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return nil
 								}(),
 								Timeout: func() types.Int64 {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && !existingRoutesItems[listIdx].RouteDestination.Timeout.IsUnknown() {
+										return existingRoutesItems[listIdx].RouteDestination.Timeout
+									}
 									if v, ok := RouteDestinationData["timeout"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								WebSocketConfig: func() *RouteRoutesRouteDestinationWebSocketConfigModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.WebSocketConfig != nil {
+										return existingRoutesItems[listIdx].RouteDestination.WebSocketConfig
+									}
 									if WebSocketConfigData, ok := RouteDestinationData["web_socket_config"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationWebSocketConfigModel{
 											UseWebSocket: func() types.Bool {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.WebSocketConfig != nil && !existingRoutesItems[listIdx].RouteDestination.WebSocketConfig.UseWebSocket.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.WebSocketConfig.UseWebSocket
+												}
 												if v, ok := WebSocketConfigData["use_websocket"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -4381,6 +4539,9 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return types.StringNull()
 								}(),
 								ResponseCode: func() types.Int64 {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDirectResponse != nil && !existingRoutesItems[listIdx].RouteDirectResponse.ResponseCode.IsUnknown() {
+										return existingRoutesItems[listIdx].RouteDirectResponse.ResponseCode
+									}
 									if v, ok := RouteDirectResponseData["response_code"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
@@ -4418,6 +4579,9 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return types.StringNull()
 								}(),
 								RemoveAllParams: func() *RouteEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil {
+										return existingRoutesItems[listIdx].RouteRedirect.RemoveAllParams
+									}
 									if _, ok := RouteRedirectData["remove_all_params"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
@@ -4430,12 +4594,18 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return types.StringNull()
 								}(),
 								ResponseCode: func() types.Int64 {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil && !existingRoutesItems[listIdx].RouteRedirect.ResponseCode.IsUnknown() {
+										return existingRoutesItems[listIdx].RouteRedirect.ResponseCode
+									}
 									if v, ok := RouteRedirectData["response_code"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								RetainAllParams: func() *RouteEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil {
+										return existingRoutesItems[listIdx].RouteRedirect.RetainAllParams
+									}
 									if _, ok := RouteRedirectData["retain_all_params"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
@@ -4449,6 +4619,9 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						if ServicePolicyData, ok := itemMap["service_policy"].(map[string]interface{}); ok {
 							return &RouteRoutesServicePolicyModel{
 								DisableSpec: func() types.Bool {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].ServicePolicy != nil && !existingRoutesItems[listIdx].ServicePolicy.DisableSpec.IsUnknown() {
+										return existingRoutesItems[listIdx].ServicePolicy.DisableSpec
+									}
 									if v, ok := ServicePolicyData["disable"].(bool); ok {
 										return types.BoolValue(v)
 									}
@@ -4490,9 +4663,17 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									if AppFirewallData, ok := WAFTypeData["app_firewall"].(map[string]interface{}); ok {
 										return &RouteRoutesWAFTypeAppFirewallModel{
 											AppFirewall: func() types.List {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil && existingRoutesItems[listIdx].WAFType.AppFirewall != nil && (existingRoutesItems[listIdx].WAFType.AppFirewall.AppFirewall.IsNull() || len(existingRoutesItems[listIdx].WAFType.AppFirewall.AppFirewall.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesWAFTypeAppFirewallAppFirewallModelAttrTypes})
+												}
+												var AppFirewallExisting []RouteRoutesWAFTypeAppFirewallAppFirewallModel
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil && existingRoutesItems[listIdx].WAFType.AppFirewall != nil && !existingRoutesItems[listIdx].WAFType.AppFirewall.AppFirewall.IsNull() && !existingRoutesItems[listIdx].WAFType.AppFirewall.AppFirewall.IsUnknown() {
+													existingRoutesItems[listIdx].WAFType.AppFirewall.AppFirewall.ElementsAs(ctx, &AppFirewallExisting, false)
+												}
 												if rawList, ok := AppFirewallData["app_firewall"].([]interface{}); ok && len(rawList) > 0 {
 													var AppFirewallResult []RouteRoutesWAFTypeAppFirewallAppFirewallModel
-													for _, AppFirewallItem := range rawList {
+													for AppFirewallIdx, AppFirewallItem := range rawList {
+														_ = AppFirewallIdx
 														if AppFirewallItemMap, ok := AppFirewallItem.(map[string]interface{}); ok {
 															AppFirewallResult = append(AppFirewallResult, RouteRoutesWAFTypeAppFirewallAppFirewallModel{
 																Kind: func() types.String {
@@ -4538,12 +4719,18 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return nil
 								}(),
 								DisableWAF: func() *RouteEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil {
+										return existingRoutesItems[listIdx].WAFType.DisableWAF
+									}
 									if _, ok := WAFTypeData["disable_waf"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
 								InheritWAF: func() *RouteEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil {
+										return existingRoutesItems[listIdx].WAFType.InheritWAF
+									}
 									if _, ok := WAFTypeData["inherit_waf"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
@@ -4679,9 +4866,17 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return types.StringNull()
 								}(),
 								JavascriptTags: func() types.List {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].BotDefenseJavascriptInjection != nil && (existingRoutesItems[listIdx].BotDefenseJavascriptInjection.JavascriptTags.IsNull() || len(existingRoutesItems[listIdx].BotDefenseJavascriptInjection.JavascriptTags.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModelAttrTypes})
+									}
+									var JavascriptTagsExisting []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].BotDefenseJavascriptInjection != nil && !existingRoutesItems[listIdx].BotDefenseJavascriptInjection.JavascriptTags.IsNull() && !existingRoutesItems[listIdx].BotDefenseJavascriptInjection.JavascriptTags.IsUnknown() {
+										existingRoutesItems[listIdx].BotDefenseJavascriptInjection.JavascriptTags.ElementsAs(ctx, &JavascriptTagsExisting, false)
+									}
 									if rawList, ok := BotDefenseJavascriptInjectionData["javascript_tags"].([]interface{}); ok && len(rawList) > 0 {
 										var JavascriptTagsResult []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel
-										for _, JavascriptTagsItem := range rawList {
+										for JavascriptTagsIdx, JavascriptTagsItem := range rawList {
+											_ = JavascriptTagsIdx
 											if JavascriptTagsItemMap, ok := JavascriptTagsItem.(map[string]interface{}); ok {
 												JavascriptTagsResult = append(JavascriptTagsResult, RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel{
 													JavascriptURL: func() types.String {
@@ -5400,21 +5595,33 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						if RouteDestinationData, ok := itemMap["route_destination"].(map[string]interface{}); ok {
 							return &RouteRoutesRouteDestinationModel{
 								AutoHostRewrite: func() types.Bool {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && !existingRoutesItems[listIdx].RouteDestination.AutoHostRewrite.IsUnknown() {
+										return existingRoutesItems[listIdx].RouteDestination.AutoHostRewrite
+									}
 									if v, ok := RouteDestinationData["auto_host_rewrite"].(bool); ok {
 										return types.BoolValue(v)
 									}
 									return types.BoolNull()
 								}(),
 								BufferPolicy: func() *RouteRoutesRouteDestinationBufferPolicyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.BufferPolicy != nil {
+										return existingRoutesItems[listIdx].RouteDestination.BufferPolicy
+									}
 									if BufferPolicyData, ok := RouteDestinationData["buffer_policy"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationBufferPolicyModel{
 											Disabled: func() types.Bool {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.BufferPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.BufferPolicy.Disabled.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.BufferPolicy.Disabled
+												}
 												if v, ok := BufferPolicyData["disabled"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											MaxRequestBytes: func() types.Int64 {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.BufferPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.BufferPolicy.MaxRequestBytes.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.BufferPolicy.MaxRequestBytes
+												}
 												if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -5425,9 +5632,15 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return nil
 								}(),
 								CORSPolicy: func() *RouteRoutesRouteDestinationCORSPolicyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CORSPolicy != nil {
+										return existingRoutesItems[listIdx].RouteDestination.CORSPolicy
+									}
 									if CORSPolicyData, ok := RouteDestinationData["cors_policy"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationCORSPolicyModel{
 											AllowCredentials: func() types.Bool {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CORSPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.CORSPolicy.AllowCredentials.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.CORSPolicy.AllowCredentials
+												}
 												if v, ok := CORSPolicyData["allow_credentials"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -5472,6 +5685,9 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return types.ListNull(types.StringType)
 											}(),
 											Disabled: func() types.Bool {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CORSPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.CORSPolicy.Disabled.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.CORSPolicy.Disabled
+												}
 												if v, ok := CORSPolicyData["disabled"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -5484,6 +5700,9 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return types.StringNull()
 											}(),
 											MaximumAge: func() types.Int64 {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CORSPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.CORSPolicy.MaximumAge.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.CORSPolicy.MaximumAge
+												}
 												if v, ok := CORSPolicyData["maximum_age"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -5494,15 +5713,24 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return nil
 								}(),
 								CSRFPolicy: func() *RouteRoutesRouteDestinationCSRFPolicyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil {
+										return existingRoutesItems[listIdx].RouteDestination.CSRFPolicy
+									}
 									if CSRFPolicyData, ok := RouteDestinationData["csrf_policy"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationCSRFPolicyModel{
 											AllLoadBalancerDomains: func() *RouteEmptyModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil {
+													return existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.AllLoadBalancerDomains
+												}
 												if _, ok := CSRFPolicyData["all_load_balancer_domains"].(map[string]interface{}); ok {
 													return &RouteEmptyModel{}
 												}
 												return nil
 											}(),
 											CustomDomainList: func() *RouteRoutesRouteDestinationCSRFPolicyCustomDomainListModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.CustomDomainList != nil {
+													return existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.CustomDomainList
+												}
 												if CustomDomainListData, ok := CSRFPolicyData["custom_domain_list"].(map[string]interface{}); ok {
 													return &RouteRoutesRouteDestinationCSRFPolicyCustomDomainListModel{
 														Domains: func() types.List {
@@ -5523,6 +5751,9 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return nil
 											}(),
 											Disabled: func() *RouteEmptyModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil {
+													return existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.Disabled
+												}
 												if _, ok := CSRFPolicyData["disabled"].(map[string]interface{}); ok {
 													return &RouteEmptyModel{}
 												}
@@ -5533,9 +5764,17 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return nil
 								}(),
 								Destinations: func() types.List {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && (existingRoutesItems[listIdx].RouteDestination.Destinations.IsNull() || len(existingRoutesItems[listIdx].RouteDestination.Destinations.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsModelAttrTypes})
+									}
+									var DestinationsExisting []RouteRoutesRouteDestinationDestinationsModel
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && !existingRoutesItems[listIdx].RouteDestination.Destinations.IsNull() && !existingRoutesItems[listIdx].RouteDestination.Destinations.IsUnknown() {
+										existingRoutesItems[listIdx].RouteDestination.Destinations.ElementsAs(ctx, &DestinationsExisting, false)
+									}
 									if rawList, ok := RouteDestinationData["destinations"].([]interface{}); ok && len(rawList) > 0 {
 										var DestinationsResult []RouteRoutesRouteDestinationDestinationsModel
-										for _, DestinationsItem := range rawList {
+										for DestinationsIdx, DestinationsItem := range rawList {
+											_ = DestinationsIdx
 											if DestinationsItemMap, ok := DestinationsItem.(map[string]interface{}); ok {
 												DestinationsResult = append(DestinationsResult, RouteRoutesRouteDestinationDestinationsModel{
 													Cluster: func() types.List {
@@ -5583,6 +5822,9 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 														return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsClusterModelAttrTypes})
 													}(),
 													EndpointSubsets: func() *RouteEmptyModel {
+														if !isImport && len(DestinationsExisting) > DestinationsIdx && DestinationsExisting[DestinationsIdx].EndpointSubsets != nil {
+															return &RouteEmptyModel{}
+														}
 														if _, ok := DestinationsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
 															return &RouteEmptyModel{}
 														}
@@ -5609,51 +5851,80 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsModelAttrTypes})
 								}(),
 								DoNotRetractCluster: func() *RouteEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil {
+										return existingRoutesItems[listIdx].RouteDestination.DoNotRetractCluster
+									}
 									if _, ok := RouteDestinationData["do_not_retract_cluster"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
 								EndpointSubsets: func() *RouteEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil {
+										return existingRoutesItems[listIdx].RouteDestination.EndpointSubsets
+									}
 									if _, ok := RouteDestinationData["endpoint_subsets"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
 								HashPolicy: func() types.List {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && (existingRoutesItems[listIdx].RouteDestination.HashPolicy.IsNull() || len(existingRoutesItems[listIdx].RouteDestination.HashPolicy.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationHashPolicyModelAttrTypes})
+									}
+									var HashPolicyExisting []RouteRoutesRouteDestinationHashPolicyModel
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && !existingRoutesItems[listIdx].RouteDestination.HashPolicy.IsNull() && !existingRoutesItems[listIdx].RouteDestination.HashPolicy.IsUnknown() {
+										existingRoutesItems[listIdx].RouteDestination.HashPolicy.ElementsAs(ctx, &HashPolicyExisting, false)
+									}
 									if rawList, ok := RouteDestinationData["hash_policy"].([]interface{}); ok && len(rawList) > 0 {
 										var HashPolicyResult []RouteRoutesRouteDestinationHashPolicyModel
-										for _, HashPolicyItem := range rawList {
+										for HashPolicyIdx, HashPolicyItem := range rawList {
+											_ = HashPolicyIdx
 											if HashPolicyItemMap, ok := HashPolicyItem.(map[string]interface{}); ok {
 												HashPolicyResult = append(HashPolicyResult, RouteRoutesRouteDestinationHashPolicyModel{
 													Cookie: func() *RouteRoutesRouteDestinationHashPolicyCookieModel {
 														if CookieData, ok := HashPolicyItemMap["cookie"].(map[string]interface{}); ok {
 															return &RouteRoutesRouteDestinationHashPolicyCookieModel{
 																AddHttponly: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.AddHttponly
+																	}
 																	if _, ok := CookieData["add_httponly"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
 																	return nil
 																}(),
 																AddSecure: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.AddSecure
+																	}
 																	if _, ok := CookieData["add_secure"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
 																	return nil
 																}(),
 																IgnoreHttponly: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreHttponly
+																	}
 																	if _, ok := CookieData["ignore_httponly"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
 																	return nil
 																}(),
 																IgnoreSamesite: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreSamesite
+																	}
 																	if _, ok := CookieData["ignore_samesite"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
 																	return nil
 																}(),
 																IgnoreSecure: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreSecure
+																	}
 																	if _, ok := CookieData["ignore_secure"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
@@ -5672,24 +5943,36 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																	return types.StringNull()
 																}(),
 																SamesiteLax: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteLax
+																	}
 																	if _, ok := CookieData["samesite_lax"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
 																	return nil
 																}(),
 																SamesiteNone: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteNone
+																	}
 																	if _, ok := CookieData["samesite_none"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
 																	return nil
 																}(),
 																SamesiteStrict: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteStrict
+																	}
 																	if _, ok := CookieData["samesite_strict"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
 																	return nil
 																}(),
 																TTL: func() types.Int64 {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.TTL.IsUnknown() {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.TTL
+																	}
 																	if v, ok := CookieData["ttl"].(float64); ok && v != 0 {
 																		return types.Int64Value(int64(v))
 																	}
@@ -5735,9 +6018,17 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									if MirrorPolicyData, ok := RouteDestinationData["mirror_policy"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationMirrorPolicyModel{
 											Cluster: func() types.List {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.MirrorPolicy != nil && (existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Cluster.IsNull() || len(existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Cluster.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationMirrorPolicyClusterModelAttrTypes})
+												}
+												var ClusterExisting []RouteRoutesRouteDestinationMirrorPolicyClusterModel
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.MirrorPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Cluster.IsNull() && !existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Cluster.IsUnknown() {
+													existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Cluster.ElementsAs(ctx, &ClusterExisting, false)
+												}
 												if rawList, ok := MirrorPolicyData["cluster"].([]interface{}); ok && len(rawList) > 0 {
 													var ClusterResult []RouteRoutesRouteDestinationMirrorPolicyClusterModel
-													for _, ClusterItem := range rawList {
+													for ClusterIdx, ClusterItem := range rawList {
+														_ = ClusterIdx
 														if ClusterItemMap, ok := ClusterItem.(map[string]interface{}); ok {
 															ClusterResult = append(ClusterResult, RouteRoutesRouteDestinationMirrorPolicyClusterModel{
 																Kind: func() types.String {
@@ -5779,6 +6070,9 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationMirrorPolicyClusterModelAttrTypes})
 											}(),
 											Percent: func() *RouteRoutesRouteDestinationMirrorPolicyPercentModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.MirrorPolicy != nil && existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Percent != nil {
+													return existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Percent
+												}
 												if PercentData, ok := MirrorPolicyData["percent"].(map[string]interface{}); ok {
 													return &RouteRoutesRouteDestinationMirrorPolicyPercentModel{
 														Denominator: func() types.String {
@@ -5788,6 +6082,9 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														Numerator: func() types.Int64 {
+															if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.MirrorPolicy != nil && existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Percent != nil && !existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Percent.Numerator.IsUnknown() {
+																return existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Percent.Numerator
+															}
 															if v, ok := PercentData["numerator"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -5814,9 +6111,15 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return types.StringNull()
 								}(),
 								QueryParams: func() *RouteRoutesRouteDestinationQueryParamsModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.QueryParams != nil {
+										return existingRoutesItems[listIdx].RouteDestination.QueryParams
+									}
 									if QueryParamsData, ok := RouteDestinationData["query_params"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationQueryParamsModel{
 											RemoveAllParams: func() *RouteEmptyModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.QueryParams != nil {
+													return existingRoutesItems[listIdx].RouteDestination.QueryParams.RemoveAllParams
+												}
 												if _, ok := QueryParamsData["remove_all_params"].(map[string]interface{}); ok {
 													return &RouteEmptyModel{}
 												}
@@ -5829,6 +6132,9 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return types.StringNull()
 											}(),
 											RetainAllParams: func() *RouteEmptyModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.QueryParams != nil {
+													return existingRoutesItems[listIdx].RouteDestination.QueryParams.RetainAllParams
+												}
 												if _, ok := QueryParamsData["retain_all_params"].(map[string]interface{}); ok {
 													return &RouteEmptyModel{}
 												}
@@ -5839,6 +6145,9 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return nil
 								}(),
 								RegexRewrite: func() *RouteRoutesRouteDestinationRegexRewriteModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RegexRewrite != nil {
+										return existingRoutesItems[listIdx].RouteDestination.RegexRewrite
+									}
 									if RegexRewriteData, ok := RouteDestinationData["regex_rewrite"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationRegexRewriteModel{
 											Pattern: func() types.String {
@@ -5858,24 +6167,39 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return nil
 								}(),
 								RetractCluster: func() *RouteEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil {
+										return existingRoutesItems[listIdx].RouteDestination.RetractCluster
+									}
 									if _, ok := RouteDestinationData["retract_cluster"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
 								RetryPolicy: func() *RouteRoutesRouteDestinationRetryPolicyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy != nil {
+										return existingRoutesItems[listIdx].RouteDestination.RetryPolicy
+									}
 									if RetryPolicyData, ok := RouteDestinationData["retry_policy"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationRetryPolicyModel{
 											BackOff: func() *RouteRoutesRouteDestinationRetryPolicyBackOffModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff != nil {
+													return existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff
+												}
 												if BackOffData, ok := RetryPolicyData["back_off"].(map[string]interface{}); ok {
 													return &RouteRoutesRouteDestinationRetryPolicyBackOffModel{
 														BaseInterval: func() types.Int64 {
+															if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff != nil && !existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff.BaseInterval.IsUnknown() {
+																return existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff.BaseInterval
+															}
 															if v, ok := BackOffData["base_interval"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxInterval: func() types.Int64 {
+															if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff != nil && !existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff.MaxInterval.IsUnknown() {
+																return existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff.MaxInterval
+															}
 															if v, ok := BackOffData["max_interval"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -5886,12 +6210,18 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return nil
 											}(),
 											NumRetries: func() types.Int64 {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.RetryPolicy.NumRetries.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.RetryPolicy.NumRetries
+												}
 												if v, ok := RetryPolicyData["num_retries"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
 											}(),
 											PerTryTimeout: func() types.Int64 {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.RetryPolicy.PerTryTimeout.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.RetryPolicy.PerTryTimeout
+												}
 												if v, ok := RetryPolicyData["per_try_timeout"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -5928,9 +6258,15 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return nil
 								}(),
 								SpdyConfig: func() *RouteRoutesRouteDestinationSpdyConfigModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.SpdyConfig != nil {
+										return existingRoutesItems[listIdx].RouteDestination.SpdyConfig
+									}
 									if SpdyConfigData, ok := RouteDestinationData["spdy_config"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationSpdyConfigModel{
 											UseSpdy: func() types.Bool {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.SpdyConfig != nil && !existingRoutesItems[listIdx].RouteDestination.SpdyConfig.UseSpdy.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.SpdyConfig.UseSpdy
+												}
 												if v, ok := SpdyConfigData["use_spdy"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -5941,15 +6277,24 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return nil
 								}(),
 								Timeout: func() types.Int64 {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && !existingRoutesItems[listIdx].RouteDestination.Timeout.IsUnknown() {
+										return existingRoutesItems[listIdx].RouteDestination.Timeout
+									}
 									if v, ok := RouteDestinationData["timeout"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								WebSocketConfig: func() *RouteRoutesRouteDestinationWebSocketConfigModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.WebSocketConfig != nil {
+										return existingRoutesItems[listIdx].RouteDestination.WebSocketConfig
+									}
 									if WebSocketConfigData, ok := RouteDestinationData["web_socket_config"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationWebSocketConfigModel{
 											UseWebSocket: func() types.Bool {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.WebSocketConfig != nil && !existingRoutesItems[listIdx].RouteDestination.WebSocketConfig.UseWebSocket.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.WebSocketConfig.UseWebSocket
+												}
 												if v, ok := WebSocketConfigData["use_websocket"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -5973,6 +6318,9 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return types.StringNull()
 								}(),
 								ResponseCode: func() types.Int64 {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDirectResponse != nil && !existingRoutesItems[listIdx].RouteDirectResponse.ResponseCode.IsUnknown() {
+										return existingRoutesItems[listIdx].RouteDirectResponse.ResponseCode
+									}
 									if v, ok := RouteDirectResponseData["response_code"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
@@ -6010,6 +6358,9 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return types.StringNull()
 								}(),
 								RemoveAllParams: func() *RouteEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil {
+										return existingRoutesItems[listIdx].RouteRedirect.RemoveAllParams
+									}
 									if _, ok := RouteRedirectData["remove_all_params"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
@@ -6022,12 +6373,18 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return types.StringNull()
 								}(),
 								ResponseCode: func() types.Int64 {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil && !existingRoutesItems[listIdx].RouteRedirect.ResponseCode.IsUnknown() {
+										return existingRoutesItems[listIdx].RouteRedirect.ResponseCode
+									}
 									if v, ok := RouteRedirectData["response_code"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								RetainAllParams: func() *RouteEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil {
+										return existingRoutesItems[listIdx].RouteRedirect.RetainAllParams
+									}
 									if _, ok := RouteRedirectData["retain_all_params"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
@@ -6041,6 +6398,9 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						if ServicePolicyData, ok := itemMap["service_policy"].(map[string]interface{}); ok {
 							return &RouteRoutesServicePolicyModel{
 								DisableSpec: func() types.Bool {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].ServicePolicy != nil && !existingRoutesItems[listIdx].ServicePolicy.DisableSpec.IsUnknown() {
+										return existingRoutesItems[listIdx].ServicePolicy.DisableSpec
+									}
 									if v, ok := ServicePolicyData["disable"].(bool); ok {
 										return types.BoolValue(v)
 									}
@@ -6082,9 +6442,17 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									if AppFirewallData, ok := WAFTypeData["app_firewall"].(map[string]interface{}); ok {
 										return &RouteRoutesWAFTypeAppFirewallModel{
 											AppFirewall: func() types.List {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil && existingRoutesItems[listIdx].WAFType.AppFirewall != nil && (existingRoutesItems[listIdx].WAFType.AppFirewall.AppFirewall.IsNull() || len(existingRoutesItems[listIdx].WAFType.AppFirewall.AppFirewall.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesWAFTypeAppFirewallAppFirewallModelAttrTypes})
+												}
+												var AppFirewallExisting []RouteRoutesWAFTypeAppFirewallAppFirewallModel
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil && existingRoutesItems[listIdx].WAFType.AppFirewall != nil && !existingRoutesItems[listIdx].WAFType.AppFirewall.AppFirewall.IsNull() && !existingRoutesItems[listIdx].WAFType.AppFirewall.AppFirewall.IsUnknown() {
+													existingRoutesItems[listIdx].WAFType.AppFirewall.AppFirewall.ElementsAs(ctx, &AppFirewallExisting, false)
+												}
 												if rawList, ok := AppFirewallData["app_firewall"].([]interface{}); ok && len(rawList) > 0 {
 													var AppFirewallResult []RouteRoutesWAFTypeAppFirewallAppFirewallModel
-													for _, AppFirewallItem := range rawList {
+													for AppFirewallIdx, AppFirewallItem := range rawList {
+														_ = AppFirewallIdx
 														if AppFirewallItemMap, ok := AppFirewallItem.(map[string]interface{}); ok {
 															AppFirewallResult = append(AppFirewallResult, RouteRoutesWAFTypeAppFirewallAppFirewallModel{
 																Kind: func() types.String {
@@ -6130,12 +6498,18 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return nil
 								}(),
 								DisableWAF: func() *RouteEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil {
+										return existingRoutesItems[listIdx].WAFType.DisableWAF
+									}
 									if _, ok := WAFTypeData["disable_waf"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
 								InheritWAF: func() *RouteEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil {
+										return existingRoutesItems[listIdx].WAFType.InheritWAF
+									}
 									if _, ok := WAFTypeData["inherit_waf"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
@@ -7115,9 +7489,17 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return types.StringNull()
 								}(),
 								JavascriptTags: func() types.List {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].BotDefenseJavascriptInjection != nil && (existingRoutesItems[listIdx].BotDefenseJavascriptInjection.JavascriptTags.IsNull() || len(existingRoutesItems[listIdx].BotDefenseJavascriptInjection.JavascriptTags.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModelAttrTypes})
+									}
+									var JavascriptTagsExisting []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].BotDefenseJavascriptInjection != nil && !existingRoutesItems[listIdx].BotDefenseJavascriptInjection.JavascriptTags.IsNull() && !existingRoutesItems[listIdx].BotDefenseJavascriptInjection.JavascriptTags.IsUnknown() {
+										existingRoutesItems[listIdx].BotDefenseJavascriptInjection.JavascriptTags.ElementsAs(ctx, &JavascriptTagsExisting, false)
+									}
 									if rawList, ok := BotDefenseJavascriptInjectionData["javascript_tags"].([]interface{}); ok && len(rawList) > 0 {
 										var JavascriptTagsResult []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel
-										for _, JavascriptTagsItem := range rawList {
+										for JavascriptTagsIdx, JavascriptTagsItem := range rawList {
+											_ = JavascriptTagsIdx
 											if JavascriptTagsItemMap, ok := JavascriptTagsItem.(map[string]interface{}); ok {
 												JavascriptTagsResult = append(JavascriptTagsResult, RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsModel{
 													JavascriptURL: func() types.String {
@@ -7836,21 +8218,33 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						if RouteDestinationData, ok := itemMap["route_destination"].(map[string]interface{}); ok {
 							return &RouteRoutesRouteDestinationModel{
 								AutoHostRewrite: func() types.Bool {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && !existingRoutesItems[listIdx].RouteDestination.AutoHostRewrite.IsUnknown() {
+										return existingRoutesItems[listIdx].RouteDestination.AutoHostRewrite
+									}
 									if v, ok := RouteDestinationData["auto_host_rewrite"].(bool); ok {
 										return types.BoolValue(v)
 									}
 									return types.BoolNull()
 								}(),
 								BufferPolicy: func() *RouteRoutesRouteDestinationBufferPolicyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.BufferPolicy != nil {
+										return existingRoutesItems[listIdx].RouteDestination.BufferPolicy
+									}
 									if BufferPolicyData, ok := RouteDestinationData["buffer_policy"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationBufferPolicyModel{
 											Disabled: func() types.Bool {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.BufferPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.BufferPolicy.Disabled.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.BufferPolicy.Disabled
+												}
 												if v, ok := BufferPolicyData["disabled"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											MaxRequestBytes: func() types.Int64 {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.BufferPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.BufferPolicy.MaxRequestBytes.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.BufferPolicy.MaxRequestBytes
+												}
 												if v, ok := BufferPolicyData["max_request_bytes"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -7861,9 +8255,15 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return nil
 								}(),
 								CORSPolicy: func() *RouteRoutesRouteDestinationCORSPolicyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CORSPolicy != nil {
+										return existingRoutesItems[listIdx].RouteDestination.CORSPolicy
+									}
 									if CORSPolicyData, ok := RouteDestinationData["cors_policy"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationCORSPolicyModel{
 											AllowCredentials: func() types.Bool {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CORSPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.CORSPolicy.AllowCredentials.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.CORSPolicy.AllowCredentials
+												}
 												if v, ok := CORSPolicyData["allow_credentials"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -7908,6 +8308,9 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return types.ListNull(types.StringType)
 											}(),
 											Disabled: func() types.Bool {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CORSPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.CORSPolicy.Disabled.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.CORSPolicy.Disabled
+												}
 												if v, ok := CORSPolicyData["disabled"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -7920,6 +8323,9 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return types.StringNull()
 											}(),
 											MaximumAge: func() types.Int64 {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CORSPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.CORSPolicy.MaximumAge.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.CORSPolicy.MaximumAge
+												}
 												if v, ok := CORSPolicyData["maximum_age"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -7930,15 +8336,24 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return nil
 								}(),
 								CSRFPolicy: func() *RouteRoutesRouteDestinationCSRFPolicyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil {
+										return existingRoutesItems[listIdx].RouteDestination.CSRFPolicy
+									}
 									if CSRFPolicyData, ok := RouteDestinationData["csrf_policy"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationCSRFPolicyModel{
 											AllLoadBalancerDomains: func() *RouteEmptyModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil {
+													return existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.AllLoadBalancerDomains
+												}
 												if _, ok := CSRFPolicyData["all_load_balancer_domains"].(map[string]interface{}); ok {
 													return &RouteEmptyModel{}
 												}
 												return nil
 											}(),
 											CustomDomainList: func() *RouteRoutesRouteDestinationCSRFPolicyCustomDomainListModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.CustomDomainList != nil {
+													return existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.CustomDomainList
+												}
 												if CustomDomainListData, ok := CSRFPolicyData["custom_domain_list"].(map[string]interface{}); ok {
 													return &RouteRoutesRouteDestinationCSRFPolicyCustomDomainListModel{
 														Domains: func() types.List {
@@ -7959,6 +8374,9 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return nil
 											}(),
 											Disabled: func() *RouteEmptyModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil {
+													return existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.Disabled
+												}
 												if _, ok := CSRFPolicyData["disabled"].(map[string]interface{}); ok {
 													return &RouteEmptyModel{}
 												}
@@ -7969,9 +8387,17 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return nil
 								}(),
 								Destinations: func() types.List {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && (existingRoutesItems[listIdx].RouteDestination.Destinations.IsNull() || len(existingRoutesItems[listIdx].RouteDestination.Destinations.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsModelAttrTypes})
+									}
+									var DestinationsExisting []RouteRoutesRouteDestinationDestinationsModel
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && !existingRoutesItems[listIdx].RouteDestination.Destinations.IsNull() && !existingRoutesItems[listIdx].RouteDestination.Destinations.IsUnknown() {
+										existingRoutesItems[listIdx].RouteDestination.Destinations.ElementsAs(ctx, &DestinationsExisting, false)
+									}
 									if rawList, ok := RouteDestinationData["destinations"].([]interface{}); ok && len(rawList) > 0 {
 										var DestinationsResult []RouteRoutesRouteDestinationDestinationsModel
-										for _, DestinationsItem := range rawList {
+										for DestinationsIdx, DestinationsItem := range rawList {
+											_ = DestinationsIdx
 											if DestinationsItemMap, ok := DestinationsItem.(map[string]interface{}); ok {
 												DestinationsResult = append(DestinationsResult, RouteRoutesRouteDestinationDestinationsModel{
 													Cluster: func() types.List {
@@ -8019,6 +8445,9 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 														return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsClusterModelAttrTypes})
 													}(),
 													EndpointSubsets: func() *RouteEmptyModel {
+														if !isImport && len(DestinationsExisting) > DestinationsIdx && DestinationsExisting[DestinationsIdx].EndpointSubsets != nil {
+															return &RouteEmptyModel{}
+														}
 														if _, ok := DestinationsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
 															return &RouteEmptyModel{}
 														}
@@ -8045,51 +8474,80 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsModelAttrTypes})
 								}(),
 								DoNotRetractCluster: func() *RouteEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil {
+										return existingRoutesItems[listIdx].RouteDestination.DoNotRetractCluster
+									}
 									if _, ok := RouteDestinationData["do_not_retract_cluster"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
 								EndpointSubsets: func() *RouteEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil {
+										return existingRoutesItems[listIdx].RouteDestination.EndpointSubsets
+									}
 									if _, ok := RouteDestinationData["endpoint_subsets"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
 								HashPolicy: func() types.List {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && (existingRoutesItems[listIdx].RouteDestination.HashPolicy.IsNull() || len(existingRoutesItems[listIdx].RouteDestination.HashPolicy.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationHashPolicyModelAttrTypes})
+									}
+									var HashPolicyExisting []RouteRoutesRouteDestinationHashPolicyModel
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && !existingRoutesItems[listIdx].RouteDestination.HashPolicy.IsNull() && !existingRoutesItems[listIdx].RouteDestination.HashPolicy.IsUnknown() {
+										existingRoutesItems[listIdx].RouteDestination.HashPolicy.ElementsAs(ctx, &HashPolicyExisting, false)
+									}
 									if rawList, ok := RouteDestinationData["hash_policy"].([]interface{}); ok && len(rawList) > 0 {
 										var HashPolicyResult []RouteRoutesRouteDestinationHashPolicyModel
-										for _, HashPolicyItem := range rawList {
+										for HashPolicyIdx, HashPolicyItem := range rawList {
+											_ = HashPolicyIdx
 											if HashPolicyItemMap, ok := HashPolicyItem.(map[string]interface{}); ok {
 												HashPolicyResult = append(HashPolicyResult, RouteRoutesRouteDestinationHashPolicyModel{
 													Cookie: func() *RouteRoutesRouteDestinationHashPolicyCookieModel {
 														if CookieData, ok := HashPolicyItemMap["cookie"].(map[string]interface{}); ok {
 															return &RouteRoutesRouteDestinationHashPolicyCookieModel{
 																AddHttponly: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.AddHttponly
+																	}
 																	if _, ok := CookieData["add_httponly"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
 																	return nil
 																}(),
 																AddSecure: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.AddSecure
+																	}
 																	if _, ok := CookieData["add_secure"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
 																	return nil
 																}(),
 																IgnoreHttponly: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreHttponly
+																	}
 																	if _, ok := CookieData["ignore_httponly"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
 																	return nil
 																}(),
 																IgnoreSamesite: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreSamesite
+																	}
 																	if _, ok := CookieData["ignore_samesite"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
 																	return nil
 																}(),
 																IgnoreSecure: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreSecure
+																	}
 																	if _, ok := CookieData["ignore_secure"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
@@ -8108,24 +8566,36 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																	return types.StringNull()
 																}(),
 																SamesiteLax: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteLax
+																	}
 																	if _, ok := CookieData["samesite_lax"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
 																	return nil
 																}(),
 																SamesiteNone: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteNone
+																	}
 																	if _, ok := CookieData["samesite_none"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
 																	return nil
 																}(),
 																SamesiteStrict: func() *RouteEmptyModel {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteStrict
+																	}
 																	if _, ok := CookieData["samesite_strict"].(map[string]interface{}); ok {
 																		return &RouteEmptyModel{}
 																	}
 																	return nil
 																}(),
 																TTL: func() types.Int64 {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.TTL.IsUnknown() {
+																		return HashPolicyExisting[HashPolicyIdx].Cookie.TTL
+																	}
 																	if v, ok := CookieData["ttl"].(float64); ok && v != 0 {
 																		return types.Int64Value(int64(v))
 																	}
@@ -8171,9 +8641,17 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									if MirrorPolicyData, ok := RouteDestinationData["mirror_policy"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationMirrorPolicyModel{
 											Cluster: func() types.List {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.MirrorPolicy != nil && (existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Cluster.IsNull() || len(existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Cluster.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationMirrorPolicyClusterModelAttrTypes})
+												}
+												var ClusterExisting []RouteRoutesRouteDestinationMirrorPolicyClusterModel
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.MirrorPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Cluster.IsNull() && !existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Cluster.IsUnknown() {
+													existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Cluster.ElementsAs(ctx, &ClusterExisting, false)
+												}
 												if rawList, ok := MirrorPolicyData["cluster"].([]interface{}); ok && len(rawList) > 0 {
 													var ClusterResult []RouteRoutesRouteDestinationMirrorPolicyClusterModel
-													for _, ClusterItem := range rawList {
+													for ClusterIdx, ClusterItem := range rawList {
+														_ = ClusterIdx
 														if ClusterItemMap, ok := ClusterItem.(map[string]interface{}); ok {
 															ClusterResult = append(ClusterResult, RouteRoutesRouteDestinationMirrorPolicyClusterModel{
 																Kind: func() types.String {
@@ -8215,6 +8693,9 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationMirrorPolicyClusterModelAttrTypes})
 											}(),
 											Percent: func() *RouteRoutesRouteDestinationMirrorPolicyPercentModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.MirrorPolicy != nil && existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Percent != nil {
+													return existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Percent
+												}
 												if PercentData, ok := MirrorPolicyData["percent"].(map[string]interface{}); ok {
 													return &RouteRoutesRouteDestinationMirrorPolicyPercentModel{
 														Denominator: func() types.String {
@@ -8224,6 +8705,9 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														Numerator: func() types.Int64 {
+															if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.MirrorPolicy != nil && existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Percent != nil && !existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Percent.Numerator.IsUnknown() {
+																return existingRoutesItems[listIdx].RouteDestination.MirrorPolicy.Percent.Numerator
+															}
 															if v, ok := PercentData["numerator"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -8250,9 +8734,15 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return types.StringNull()
 								}(),
 								QueryParams: func() *RouteRoutesRouteDestinationQueryParamsModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.QueryParams != nil {
+										return existingRoutesItems[listIdx].RouteDestination.QueryParams
+									}
 									if QueryParamsData, ok := RouteDestinationData["query_params"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationQueryParamsModel{
 											RemoveAllParams: func() *RouteEmptyModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.QueryParams != nil {
+													return existingRoutesItems[listIdx].RouteDestination.QueryParams.RemoveAllParams
+												}
 												if _, ok := QueryParamsData["remove_all_params"].(map[string]interface{}); ok {
 													return &RouteEmptyModel{}
 												}
@@ -8265,6 +8755,9 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return types.StringNull()
 											}(),
 											RetainAllParams: func() *RouteEmptyModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.QueryParams != nil {
+													return existingRoutesItems[listIdx].RouteDestination.QueryParams.RetainAllParams
+												}
 												if _, ok := QueryParamsData["retain_all_params"].(map[string]interface{}); ok {
 													return &RouteEmptyModel{}
 												}
@@ -8275,6 +8768,9 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return nil
 								}(),
 								RegexRewrite: func() *RouteRoutesRouteDestinationRegexRewriteModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RegexRewrite != nil {
+										return existingRoutesItems[listIdx].RouteDestination.RegexRewrite
+									}
 									if RegexRewriteData, ok := RouteDestinationData["regex_rewrite"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationRegexRewriteModel{
 											Pattern: func() types.String {
@@ -8294,24 +8790,39 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return nil
 								}(),
 								RetractCluster: func() *RouteEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil {
+										return existingRoutesItems[listIdx].RouteDestination.RetractCluster
+									}
 									if _, ok := RouteDestinationData["retract_cluster"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
 								RetryPolicy: func() *RouteRoutesRouteDestinationRetryPolicyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy != nil {
+										return existingRoutesItems[listIdx].RouteDestination.RetryPolicy
+									}
 									if RetryPolicyData, ok := RouteDestinationData["retry_policy"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationRetryPolicyModel{
 											BackOff: func() *RouteRoutesRouteDestinationRetryPolicyBackOffModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff != nil {
+													return existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff
+												}
 												if BackOffData, ok := RetryPolicyData["back_off"].(map[string]interface{}); ok {
 													return &RouteRoutesRouteDestinationRetryPolicyBackOffModel{
 														BaseInterval: func() types.Int64 {
+															if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff != nil && !existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff.BaseInterval.IsUnknown() {
+																return existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff.BaseInterval
+															}
 															if v, ok := BackOffData["base_interval"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														MaxInterval: func() types.Int64 {
+															if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff != nil && !existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff.MaxInterval.IsUnknown() {
+																return existingRoutesItems[listIdx].RouteDestination.RetryPolicy.BackOff.MaxInterval
+															}
 															if v, ok := BackOffData["max_interval"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -8322,12 +8833,18 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return nil
 											}(),
 											NumRetries: func() types.Int64 {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.RetryPolicy.NumRetries.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.RetryPolicy.NumRetries
+												}
 												if v, ok := RetryPolicyData["num_retries"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
 											}(),
 											PerTryTimeout: func() types.Int64 {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.RetryPolicy.PerTryTimeout.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.RetryPolicy.PerTryTimeout
+												}
 												if v, ok := RetryPolicyData["per_try_timeout"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -8364,9 +8881,15 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return nil
 								}(),
 								SpdyConfig: func() *RouteRoutesRouteDestinationSpdyConfigModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.SpdyConfig != nil {
+										return existingRoutesItems[listIdx].RouteDestination.SpdyConfig
+									}
 									if SpdyConfigData, ok := RouteDestinationData["spdy_config"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationSpdyConfigModel{
 											UseSpdy: func() types.Bool {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.SpdyConfig != nil && !existingRoutesItems[listIdx].RouteDestination.SpdyConfig.UseSpdy.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.SpdyConfig.UseSpdy
+												}
 												if v, ok := SpdyConfigData["use_spdy"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -8377,15 +8900,24 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return nil
 								}(),
 								Timeout: func() types.Int64 {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && !existingRoutesItems[listIdx].RouteDestination.Timeout.IsUnknown() {
+										return existingRoutesItems[listIdx].RouteDestination.Timeout
+									}
 									if v, ok := RouteDestinationData["timeout"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								WebSocketConfig: func() *RouteRoutesRouteDestinationWebSocketConfigModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.WebSocketConfig != nil {
+										return existingRoutesItems[listIdx].RouteDestination.WebSocketConfig
+									}
 									if WebSocketConfigData, ok := RouteDestinationData["web_socket_config"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationWebSocketConfigModel{
 											UseWebSocket: func() types.Bool {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.WebSocketConfig != nil && !existingRoutesItems[listIdx].RouteDestination.WebSocketConfig.UseWebSocket.IsUnknown() {
+													return existingRoutesItems[listIdx].RouteDestination.WebSocketConfig.UseWebSocket
+												}
 												if v, ok := WebSocketConfigData["use_websocket"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -8409,6 +8941,9 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return types.StringNull()
 								}(),
 								ResponseCode: func() types.Int64 {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDirectResponse != nil && !existingRoutesItems[listIdx].RouteDirectResponse.ResponseCode.IsUnknown() {
+										return existingRoutesItems[listIdx].RouteDirectResponse.ResponseCode
+									}
 									if v, ok := RouteDirectResponseData["response_code"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
@@ -8446,6 +8981,9 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return types.StringNull()
 								}(),
 								RemoveAllParams: func() *RouteEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil {
+										return existingRoutesItems[listIdx].RouteRedirect.RemoveAllParams
+									}
 									if _, ok := RouteRedirectData["remove_all_params"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
@@ -8458,12 +8996,18 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return types.StringNull()
 								}(),
 								ResponseCode: func() types.Int64 {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil && !existingRoutesItems[listIdx].RouteRedirect.ResponseCode.IsUnknown() {
+										return existingRoutesItems[listIdx].RouteRedirect.ResponseCode
+									}
 									if v, ok := RouteRedirectData["response_code"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								RetainAllParams: func() *RouteEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil {
+										return existingRoutesItems[listIdx].RouteRedirect.RetainAllParams
+									}
 									if _, ok := RouteRedirectData["retain_all_params"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
@@ -8477,6 +9021,9 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						if ServicePolicyData, ok := itemMap["service_policy"].(map[string]interface{}); ok {
 							return &RouteRoutesServicePolicyModel{
 								DisableSpec: func() types.Bool {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].ServicePolicy != nil && !existingRoutesItems[listIdx].ServicePolicy.DisableSpec.IsUnknown() {
+										return existingRoutesItems[listIdx].ServicePolicy.DisableSpec
+									}
 									if v, ok := ServicePolicyData["disable"].(bool); ok {
 										return types.BoolValue(v)
 									}
@@ -8518,9 +9065,17 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									if AppFirewallData, ok := WAFTypeData["app_firewall"].(map[string]interface{}); ok {
 										return &RouteRoutesWAFTypeAppFirewallModel{
 											AppFirewall: func() types.List {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil && existingRoutesItems[listIdx].WAFType.AppFirewall != nil && (existingRoutesItems[listIdx].WAFType.AppFirewall.AppFirewall.IsNull() || len(existingRoutesItems[listIdx].WAFType.AppFirewall.AppFirewall.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesWAFTypeAppFirewallAppFirewallModelAttrTypes})
+												}
+												var AppFirewallExisting []RouteRoutesWAFTypeAppFirewallAppFirewallModel
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil && existingRoutesItems[listIdx].WAFType.AppFirewall != nil && !existingRoutesItems[listIdx].WAFType.AppFirewall.AppFirewall.IsNull() && !existingRoutesItems[listIdx].WAFType.AppFirewall.AppFirewall.IsUnknown() {
+													existingRoutesItems[listIdx].WAFType.AppFirewall.AppFirewall.ElementsAs(ctx, &AppFirewallExisting, false)
+												}
 												if rawList, ok := AppFirewallData["app_firewall"].([]interface{}); ok && len(rawList) > 0 {
 													var AppFirewallResult []RouteRoutesWAFTypeAppFirewallAppFirewallModel
-													for _, AppFirewallItem := range rawList {
+													for AppFirewallIdx, AppFirewallItem := range rawList {
+														_ = AppFirewallIdx
 														if AppFirewallItemMap, ok := AppFirewallItem.(map[string]interface{}); ok {
 															AppFirewallResult = append(AppFirewallResult, RouteRoutesWAFTypeAppFirewallAppFirewallModel{
 																Kind: func() types.String {
@@ -8566,12 +9121,18 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return nil
 								}(),
 								DisableWAF: func() *RouteEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil {
+										return existingRoutesItems[listIdx].WAFType.DisableWAF
+									}
 									if _, ok := WAFTypeData["disable_waf"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}
 									return nil
 								}(),
 								InheritWAF: func() *RouteEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil {
+										return existingRoutesItems[listIdx].WAFType.InheritWAF
+									}
 									if _, ok := WAFTypeData["inherit_waf"].(map[string]interface{}); ok {
 										return &RouteEmptyModel{}
 									}

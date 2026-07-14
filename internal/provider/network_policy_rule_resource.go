@@ -541,9 +541,14 @@ func (r *NetworkPolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if !isImport && data.IPPrefixSet != nil && (data.IPPrefixSet.Ref.IsNull() || len(data.IPPrefixSet.Ref.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRuleIPPrefixSetRefModelAttrTypes})
 				}
+				var RefExisting []NetworkPolicyRuleIPPrefixSetRefModel
+				if !isImport && data.IPPrefixSet != nil && !data.IPPrefixSet.Ref.IsNull() && !data.IPPrefixSet.Ref.IsUnknown() {
+					data.IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+				}
 				if rawList, ok := blockData["ref"].([]interface{}); ok && len(rawList) > 0 {
 					var RefResult []NetworkPolicyRuleIPPrefixSetRefModel
-					for _, RefItem := range rawList {
+					for RefIdx, RefItem := range rawList {
+						_ = RefIdx
 						if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 							RefResult = append(RefResult, NetworkPolicyRuleIPPrefixSetRefModel{
 								Kind: func() types.String {
@@ -771,9 +776,14 @@ func (r *NetworkPolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if !isImport && data.IPPrefixSet != nil && (data.IPPrefixSet.Ref.IsNull() || len(data.IPPrefixSet.Ref.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRuleIPPrefixSetRefModelAttrTypes})
 				}
+				var RefExisting []NetworkPolicyRuleIPPrefixSetRefModel
+				if !isImport && data.IPPrefixSet != nil && !data.IPPrefixSet.Ref.IsNull() && !data.IPPrefixSet.Ref.IsUnknown() {
+					data.IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+				}
 				if rawList, ok := blockData["ref"].([]interface{}); ok && len(rawList) > 0 {
 					var RefResult []NetworkPolicyRuleIPPrefixSetRefModel
-					for _, RefItem := range rawList {
+					for RefIdx, RefItem := range rawList {
+						_ = RefIdx
 						if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 							RefResult = append(RefResult, NetworkPolicyRuleIPPrefixSetRefModel{
 								Kind: func() types.String {
@@ -1090,9 +1100,14 @@ func (r *NetworkPolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if !isImport && data.IPPrefixSet != nil && (data.IPPrefixSet.Ref.IsNull() || len(data.IPPrefixSet.Ref.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRuleIPPrefixSetRefModelAttrTypes})
 				}
+				var RefExisting []NetworkPolicyRuleIPPrefixSetRefModel
+				if !isImport && data.IPPrefixSet != nil && !data.IPPrefixSet.Ref.IsNull() && !data.IPPrefixSet.Ref.IsUnknown() {
+					data.IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+				}
 				if rawList, ok := blockData["ref"].([]interface{}); ok && len(rawList) > 0 {
 					var RefResult []NetworkPolicyRuleIPPrefixSetRefModel
-					for _, RefItem := range rawList {
+					for RefIdx, RefItem := range rawList {
+						_ = RefIdx
 						if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 							RefResult = append(RefResult, NetworkPolicyRuleIPPrefixSetRefModel{
 								Kind: func() types.String {

@@ -1372,9 +1372,17 @@ func (r *NetworkPolicyViewResource) Create(ctx context.Context, req resource.Cre
 						if IPPrefixSetData, ok := itemMap["ip_prefix_set"].(map[string]interface{}); ok {
 							return &NetworkPolicyViewEgressRulesIPPrefixSetModel{
 								Ref: func() types.List {
+									if !isImport && len(existingEgressRulesItems) > listIdx && existingEgressRulesItems[listIdx].IPPrefixSet != nil && (existingEgressRulesItems[listIdx].IPPrefixSet.Ref.IsNull() || len(existingEgressRulesItems[listIdx].IPPrefixSet.Ref.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyViewEgressRulesIPPrefixSetRefModelAttrTypes})
+									}
+									var RefExisting []NetworkPolicyViewEgressRulesIPPrefixSetRefModel
+									if !isImport && len(existingEgressRulesItems) > listIdx && existingEgressRulesItems[listIdx].IPPrefixSet != nil && !existingEgressRulesItems[listIdx].IPPrefixSet.Ref.IsNull() && !existingEgressRulesItems[listIdx].IPPrefixSet.Ref.IsUnknown() {
+										existingEgressRulesItems[listIdx].IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+									}
 									if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
 										var RefResult []NetworkPolicyViewEgressRulesIPPrefixSetRefModel
-										for _, RefItem := range rawList {
+										for RefIdx, RefItem := range rawList {
+											_ = RefIdx
 											if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 												RefResult = append(RefResult, NetworkPolicyViewEgressRulesIPPrefixSetRefModel{
 													Kind: func() types.String {
@@ -1721,9 +1729,17 @@ func (r *NetworkPolicyViewResource) Create(ctx context.Context, req resource.Cre
 						if IPPrefixSetData, ok := itemMap["ip_prefix_set"].(map[string]interface{}); ok {
 							return &NetworkPolicyViewIngressRulesIPPrefixSetModel{
 								Ref: func() types.List {
+									if !isImport && len(existingIngressRulesItems) > listIdx && existingIngressRulesItems[listIdx].IPPrefixSet != nil && (existingIngressRulesItems[listIdx].IPPrefixSet.Ref.IsNull() || len(existingIngressRulesItems[listIdx].IPPrefixSet.Ref.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyViewIngressRulesIPPrefixSetRefModelAttrTypes})
+									}
+									var RefExisting []NetworkPolicyViewIngressRulesIPPrefixSetRefModel
+									if !isImport && len(existingIngressRulesItems) > listIdx && existingIngressRulesItems[listIdx].IPPrefixSet != nil && !existingIngressRulesItems[listIdx].IPPrefixSet.Ref.IsNull() && !existingIngressRulesItems[listIdx].IPPrefixSet.Ref.IsUnknown() {
+										existingIngressRulesItems[listIdx].IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+									}
 									if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
 										var RefResult []NetworkPolicyViewIngressRulesIPPrefixSetRefModel
-										for _, RefItem := range rawList {
+										for RefIdx, RefItem := range rawList {
+											_ = RefIdx
 											if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 												RefResult = append(RefResult, NetworkPolicyViewIngressRulesIPPrefixSetRefModel{
 													Kind: func() types.String {
@@ -2086,9 +2102,17 @@ func (r *NetworkPolicyViewResource) Read(ctx context.Context, req resource.ReadR
 						if IPPrefixSetData, ok := itemMap["ip_prefix_set"].(map[string]interface{}); ok {
 							return &NetworkPolicyViewEgressRulesIPPrefixSetModel{
 								Ref: func() types.List {
+									if !isImport && len(existingEgressRulesItems) > listIdx && existingEgressRulesItems[listIdx].IPPrefixSet != nil && (existingEgressRulesItems[listIdx].IPPrefixSet.Ref.IsNull() || len(existingEgressRulesItems[listIdx].IPPrefixSet.Ref.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyViewEgressRulesIPPrefixSetRefModelAttrTypes})
+									}
+									var RefExisting []NetworkPolicyViewEgressRulesIPPrefixSetRefModel
+									if !isImport && len(existingEgressRulesItems) > listIdx && existingEgressRulesItems[listIdx].IPPrefixSet != nil && !existingEgressRulesItems[listIdx].IPPrefixSet.Ref.IsNull() && !existingEgressRulesItems[listIdx].IPPrefixSet.Ref.IsUnknown() {
+										existingEgressRulesItems[listIdx].IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+									}
 									if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
 										var RefResult []NetworkPolicyViewEgressRulesIPPrefixSetRefModel
-										for _, RefItem := range rawList {
+										for RefIdx, RefItem := range rawList {
+											_ = RefIdx
 											if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 												RefResult = append(RefResult, NetworkPolicyViewEgressRulesIPPrefixSetRefModel{
 													Kind: func() types.String {
@@ -2435,9 +2459,17 @@ func (r *NetworkPolicyViewResource) Read(ctx context.Context, req resource.ReadR
 						if IPPrefixSetData, ok := itemMap["ip_prefix_set"].(map[string]interface{}); ok {
 							return &NetworkPolicyViewIngressRulesIPPrefixSetModel{
 								Ref: func() types.List {
+									if !isImport && len(existingIngressRulesItems) > listIdx && existingIngressRulesItems[listIdx].IPPrefixSet != nil && (existingIngressRulesItems[listIdx].IPPrefixSet.Ref.IsNull() || len(existingIngressRulesItems[listIdx].IPPrefixSet.Ref.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyViewIngressRulesIPPrefixSetRefModelAttrTypes})
+									}
+									var RefExisting []NetworkPolicyViewIngressRulesIPPrefixSetRefModel
+									if !isImport && len(existingIngressRulesItems) > listIdx && existingIngressRulesItems[listIdx].IPPrefixSet != nil && !existingIngressRulesItems[listIdx].IPPrefixSet.Ref.IsNull() && !existingIngressRulesItems[listIdx].IPPrefixSet.Ref.IsUnknown() {
+										existingIngressRulesItems[listIdx].IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+									}
 									if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
 										var RefResult []NetworkPolicyViewIngressRulesIPPrefixSetRefModel
-										for _, RefItem := range rawList {
+										for RefIdx, RefItem := range rawList {
+											_ = RefIdx
 											if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 												RefResult = append(RefResult, NetworkPolicyViewIngressRulesIPPrefixSetRefModel{
 													Kind: func() types.String {
@@ -3107,9 +3139,17 @@ func (r *NetworkPolicyViewResource) Update(ctx context.Context, req resource.Upd
 						if IPPrefixSetData, ok := itemMap["ip_prefix_set"].(map[string]interface{}); ok {
 							return &NetworkPolicyViewEgressRulesIPPrefixSetModel{
 								Ref: func() types.List {
+									if !isImport && len(existingEgressRulesItems) > listIdx && existingEgressRulesItems[listIdx].IPPrefixSet != nil && (existingEgressRulesItems[listIdx].IPPrefixSet.Ref.IsNull() || len(existingEgressRulesItems[listIdx].IPPrefixSet.Ref.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyViewEgressRulesIPPrefixSetRefModelAttrTypes})
+									}
+									var RefExisting []NetworkPolicyViewEgressRulesIPPrefixSetRefModel
+									if !isImport && len(existingEgressRulesItems) > listIdx && existingEgressRulesItems[listIdx].IPPrefixSet != nil && !existingEgressRulesItems[listIdx].IPPrefixSet.Ref.IsNull() && !existingEgressRulesItems[listIdx].IPPrefixSet.Ref.IsUnknown() {
+										existingEgressRulesItems[listIdx].IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+									}
 									if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
 										var RefResult []NetworkPolicyViewEgressRulesIPPrefixSetRefModel
-										for _, RefItem := range rawList {
+										for RefIdx, RefItem := range rawList {
+											_ = RefIdx
 											if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 												RefResult = append(RefResult, NetworkPolicyViewEgressRulesIPPrefixSetRefModel{
 													Kind: func() types.String {
@@ -3456,9 +3496,17 @@ func (r *NetworkPolicyViewResource) Update(ctx context.Context, req resource.Upd
 						if IPPrefixSetData, ok := itemMap["ip_prefix_set"].(map[string]interface{}); ok {
 							return &NetworkPolicyViewIngressRulesIPPrefixSetModel{
 								Ref: func() types.List {
+									if !isImport && len(existingIngressRulesItems) > listIdx && existingIngressRulesItems[listIdx].IPPrefixSet != nil && (existingIngressRulesItems[listIdx].IPPrefixSet.Ref.IsNull() || len(existingIngressRulesItems[listIdx].IPPrefixSet.Ref.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyViewIngressRulesIPPrefixSetRefModelAttrTypes})
+									}
+									var RefExisting []NetworkPolicyViewIngressRulesIPPrefixSetRefModel
+									if !isImport && len(existingIngressRulesItems) > listIdx && existingIngressRulesItems[listIdx].IPPrefixSet != nil && !existingIngressRulesItems[listIdx].IPPrefixSet.Ref.IsNull() && !existingIngressRulesItems[listIdx].IPPrefixSet.Ref.IsUnknown() {
+										existingIngressRulesItems[listIdx].IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+									}
 									if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
 										var RefResult []NetworkPolicyViewIngressRulesIPPrefixSetRefModel
-										for _, RefItem := range rawList {
+										for RefIdx, RefItem := range rawList {
+											_ = RefIdx
 											if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 												RefResult = append(RefResult, NetworkPolicyViewIngressRulesIPPrefixSetRefModel{
 													Kind: func() types.String {

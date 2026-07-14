@@ -814,9 +814,17 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 				if IntfData, ok := blockData["intf"].(map[string]interface{}); ok {
 					return &TunnelLocalIPIntfModel{
 						LocalIntf: func() types.List {
+							if !isImport && data.LocalIP != nil && data.LocalIP.Intf != nil && (data.LocalIP.Intf.LocalIntf.IsNull() || len(data.LocalIP.Intf.LocalIntf.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: TunnelLocalIPIntfLocalIntfModelAttrTypes})
+							}
+							var LocalIntfExisting []TunnelLocalIPIntfLocalIntfModel
+							if !isImport && data.LocalIP != nil && data.LocalIP.Intf != nil && !data.LocalIP.Intf.LocalIntf.IsNull() && !data.LocalIP.Intf.LocalIntf.IsUnknown() {
+								data.LocalIP.Intf.LocalIntf.ElementsAs(ctx, &LocalIntfExisting, false)
+							}
 							if rawList, ok := IntfData["local_intf"].([]interface{}); ok && len(rawList) > 0 {
 								var LocalIntfResult []TunnelLocalIPIntfLocalIntfModel
-								for _, LocalIntfItem := range rawList {
+								for LocalIntfIdx, LocalIntfItem := range rawList {
+									_ = LocalIntfIdx
 									if LocalIntfItemMap, ok := LocalIntfItem.(map[string]interface{}); ok {
 										LocalIntfResult = append(LocalIntfResult, TunnelLocalIPIntfLocalIntfModel{
 											Kind: func() types.String {
@@ -868,15 +876,24 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 				if IPAddressData, ok := blockData["ip_address"].(map[string]interface{}); ok {
 					return &TunnelLocalIPIPAddressModel{
 						Auto: func() *TunnelEmptyModel {
+							if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil {
+								return data.LocalIP.IPAddress.Auto
+							}
 							if _, ok := IPAddressData["auto"].(map[string]interface{}); ok {
 								return &TunnelEmptyModel{}
 							}
 							return nil
 						}(),
 						IPAddress: func() *TunnelLocalIPIPAddressIPAddressModel {
+							if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil {
+								return data.LocalIP.IPAddress.IPAddress
+							}
 							if IPAddressData, ok := IPAddressData["ip_address"].(map[string]interface{}); ok {
 								return &TunnelLocalIPIPAddressIPAddressModel{
 									Ipv4: func() *TunnelLocalIPIPAddressIPAddressIpv4Model {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil && data.LocalIP.IPAddress.IPAddress.Ipv4 != nil {
+											return data.LocalIP.IPAddress.IPAddress.Ipv4
+										}
 										if Ipv4Data, ok := IPAddressData["ipv4"].(map[string]interface{}); ok {
 											return &TunnelLocalIPIPAddressIPAddressIpv4Model{
 												Addr: func() types.String {
@@ -890,6 +907,9 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 										return nil
 									}(),
 									Ipv6: func() *TunnelLocalIPIPAddressIPAddressIpv6Model {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil && data.LocalIP.IPAddress.IPAddress.Ipv6 != nil {
+											return data.LocalIP.IPAddress.IPAddress.Ipv6
+										}
 										if Ipv6Data, ok := IPAddressData["ipv6"].(map[string]interface{}); ok {
 											return &TunnelLocalIPIPAddressIPAddressIpv6Model{
 												Addr: func() types.String {
@@ -907,21 +927,33 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 							return nil
 						}(),
 						VirtualNetworkType: func() *TunnelLocalIPIPAddressVirtualNetworkTypeModel {
+							if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil {
+								return data.LocalIP.IPAddress.VirtualNetworkType
+							}
 							if VirtualNetworkTypeData, ok := IPAddressData["virtual_network_type"].(map[string]interface{}); ok {
 								return &TunnelLocalIPIPAddressVirtualNetworkTypeModel{
 									Public: func() *TunnelEmptyModel {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil {
+											return data.LocalIP.IPAddress.VirtualNetworkType.Public
+										}
 										if _, ok := VirtualNetworkTypeData["public"].(map[string]interface{}); ok {
 											return &TunnelEmptyModel{}
 										}
 										return nil
 									}(),
 									SiteLocal: func() *TunnelEmptyModel {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil {
+											return data.LocalIP.IPAddress.VirtualNetworkType.SiteLocal
+										}
 										if _, ok := VirtualNetworkTypeData["site_local"].(map[string]interface{}); ok {
 											return &TunnelEmptyModel{}
 										}
 										return nil
 									}(),
 									SiteLocalInside: func() *TunnelEmptyModel {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil {
+											return data.LocalIP.IPAddress.VirtualNetworkType.SiteLocalInside
+										}
 										if _, ok := VirtualNetworkTypeData["site_local_inside"].(map[string]interface{}); ok {
 											return &TunnelEmptyModel{}
 										}
@@ -946,9 +978,15 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 				if IpsecData, ok := blockData["ipsec"].(map[string]interface{}); ok {
 					return &TunnelParamsIpsecModel{
 						IpsecPsk: func() *TunnelParamsIpsecIpsecPskModel {
+							if !isImport && data.Params != nil && data.Params.Ipsec != nil && data.Params.Ipsec.IpsecPsk != nil {
+								return data.Params.Ipsec.IpsecPsk
+							}
 							if IpsecPskData, ok := IpsecData["ipsec_psk"].(map[string]interface{}); ok {
 								return &TunnelParamsIpsecIpsecPskModel{
 									BlindfoldSecretInfo: func() *TunnelParamsIpsecIpsecPskBlindfoldSecretInfoModel {
+										if !isImport && data.Params != nil && data.Params.Ipsec != nil && data.Params.Ipsec.IpsecPsk != nil && data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo != nil {
+											return data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := IpsecPskData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &TunnelParamsIpsecIpsecPskBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -974,6 +1012,9 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 										return nil
 									}(),
 									ClearSecretInfo: func() *TunnelParamsIpsecIpsecPskClearSecretInfoModel {
+										if !isImport && data.Params != nil && data.Params.Ipsec != nil && data.Params.Ipsec.IpsecPsk != nil && data.Params.Ipsec.IpsecPsk.ClearSecretInfo != nil {
+											return data.Params.Ipsec.IpsecPsk.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := IpsecPskData["clear_secret_info"].(map[string]interface{}); ok {
 											return &TunnelParamsIpsecIpsecPskClearSecretInfoModel{
 												Provider: func() types.String {
@@ -1011,6 +1052,9 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 				if EndpointsData, ok := blockData["endpoints"].(map[string]interface{}); ok {
 					return &TunnelRemoteIPEndpointsModel{
 						Endpoints: func() *TunnelEmptyModel {
+							if !isImport && data.RemoteIP != nil && data.RemoteIP.Endpoints != nil {
+								return data.RemoteIP.Endpoints.Endpoints
+							}
 							if _, ok := EndpointsData["endpoints"].(map[string]interface{}); ok {
 								return &TunnelEmptyModel{}
 							}
@@ -1027,6 +1071,9 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 				if IPData, ok := blockData["ip"].(map[string]interface{}); ok {
 					return &TunnelRemoteIPIPModel{
 						Ipv4: func() *TunnelRemoteIPIPIpv4Model {
+							if !isImport && data.RemoteIP != nil && data.RemoteIP.IP != nil && data.RemoteIP.IP.Ipv4 != nil {
+								return data.RemoteIP.IP.Ipv4
+							}
 							if Ipv4Data, ok := IPData["ipv4"].(map[string]interface{}); ok {
 								return &TunnelRemoteIPIPIpv4Model{
 									Addr: func() types.String {
@@ -1040,6 +1087,9 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 							return nil
 						}(),
 						Ipv6: func() *TunnelRemoteIPIPIpv6Model {
+							if !isImport && data.RemoteIP != nil && data.RemoteIP.IP != nil && data.RemoteIP.IP.Ipv6 != nil {
+								return data.RemoteIP.IP.Ipv6
+							}
 							if Ipv6Data, ok := IPData["ipv6"].(map[string]interface{}); ok {
 								return &TunnelRemoteIPIPIpv6Model{
 									Addr: func() types.String {
@@ -1162,9 +1212,17 @@ func (r *TunnelResource) Read(ctx context.Context, req resource.ReadRequest, res
 				if IntfData, ok := blockData["intf"].(map[string]interface{}); ok {
 					return &TunnelLocalIPIntfModel{
 						LocalIntf: func() types.List {
+							if !isImport && data.LocalIP != nil && data.LocalIP.Intf != nil && (data.LocalIP.Intf.LocalIntf.IsNull() || len(data.LocalIP.Intf.LocalIntf.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: TunnelLocalIPIntfLocalIntfModelAttrTypes})
+							}
+							var LocalIntfExisting []TunnelLocalIPIntfLocalIntfModel
+							if !isImport && data.LocalIP != nil && data.LocalIP.Intf != nil && !data.LocalIP.Intf.LocalIntf.IsNull() && !data.LocalIP.Intf.LocalIntf.IsUnknown() {
+								data.LocalIP.Intf.LocalIntf.ElementsAs(ctx, &LocalIntfExisting, false)
+							}
 							if rawList, ok := IntfData["local_intf"].([]interface{}); ok && len(rawList) > 0 {
 								var LocalIntfResult []TunnelLocalIPIntfLocalIntfModel
-								for _, LocalIntfItem := range rawList {
+								for LocalIntfIdx, LocalIntfItem := range rawList {
+									_ = LocalIntfIdx
 									if LocalIntfItemMap, ok := LocalIntfItem.(map[string]interface{}); ok {
 										LocalIntfResult = append(LocalIntfResult, TunnelLocalIPIntfLocalIntfModel{
 											Kind: func() types.String {
@@ -1216,15 +1274,24 @@ func (r *TunnelResource) Read(ctx context.Context, req resource.ReadRequest, res
 				if IPAddressData, ok := blockData["ip_address"].(map[string]interface{}); ok {
 					return &TunnelLocalIPIPAddressModel{
 						Auto: func() *TunnelEmptyModel {
+							if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil {
+								return data.LocalIP.IPAddress.Auto
+							}
 							if _, ok := IPAddressData["auto"].(map[string]interface{}); ok {
 								return &TunnelEmptyModel{}
 							}
 							return nil
 						}(),
 						IPAddress: func() *TunnelLocalIPIPAddressIPAddressModel {
+							if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil {
+								return data.LocalIP.IPAddress.IPAddress
+							}
 							if IPAddressData, ok := IPAddressData["ip_address"].(map[string]interface{}); ok {
 								return &TunnelLocalIPIPAddressIPAddressModel{
 									Ipv4: func() *TunnelLocalIPIPAddressIPAddressIpv4Model {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil && data.LocalIP.IPAddress.IPAddress.Ipv4 != nil {
+											return data.LocalIP.IPAddress.IPAddress.Ipv4
+										}
 										if Ipv4Data, ok := IPAddressData["ipv4"].(map[string]interface{}); ok {
 											return &TunnelLocalIPIPAddressIPAddressIpv4Model{
 												Addr: func() types.String {
@@ -1238,6 +1305,9 @@ func (r *TunnelResource) Read(ctx context.Context, req resource.ReadRequest, res
 										return nil
 									}(),
 									Ipv6: func() *TunnelLocalIPIPAddressIPAddressIpv6Model {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil && data.LocalIP.IPAddress.IPAddress.Ipv6 != nil {
+											return data.LocalIP.IPAddress.IPAddress.Ipv6
+										}
 										if Ipv6Data, ok := IPAddressData["ipv6"].(map[string]interface{}); ok {
 											return &TunnelLocalIPIPAddressIPAddressIpv6Model{
 												Addr: func() types.String {
@@ -1255,21 +1325,33 @@ func (r *TunnelResource) Read(ctx context.Context, req resource.ReadRequest, res
 							return nil
 						}(),
 						VirtualNetworkType: func() *TunnelLocalIPIPAddressVirtualNetworkTypeModel {
+							if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil {
+								return data.LocalIP.IPAddress.VirtualNetworkType
+							}
 							if VirtualNetworkTypeData, ok := IPAddressData["virtual_network_type"].(map[string]interface{}); ok {
 								return &TunnelLocalIPIPAddressVirtualNetworkTypeModel{
 									Public: func() *TunnelEmptyModel {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil {
+											return data.LocalIP.IPAddress.VirtualNetworkType.Public
+										}
 										if _, ok := VirtualNetworkTypeData["public"].(map[string]interface{}); ok {
 											return &TunnelEmptyModel{}
 										}
 										return nil
 									}(),
 									SiteLocal: func() *TunnelEmptyModel {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil {
+											return data.LocalIP.IPAddress.VirtualNetworkType.SiteLocal
+										}
 										if _, ok := VirtualNetworkTypeData["site_local"].(map[string]interface{}); ok {
 											return &TunnelEmptyModel{}
 										}
 										return nil
 									}(),
 									SiteLocalInside: func() *TunnelEmptyModel {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil {
+											return data.LocalIP.IPAddress.VirtualNetworkType.SiteLocalInside
+										}
 										if _, ok := VirtualNetworkTypeData["site_local_inside"].(map[string]interface{}); ok {
 											return &TunnelEmptyModel{}
 										}
@@ -1294,9 +1376,15 @@ func (r *TunnelResource) Read(ctx context.Context, req resource.ReadRequest, res
 				if IpsecData, ok := blockData["ipsec"].(map[string]interface{}); ok {
 					return &TunnelParamsIpsecModel{
 						IpsecPsk: func() *TunnelParamsIpsecIpsecPskModel {
+							if !isImport && data.Params != nil && data.Params.Ipsec != nil && data.Params.Ipsec.IpsecPsk != nil {
+								return data.Params.Ipsec.IpsecPsk
+							}
 							if IpsecPskData, ok := IpsecData["ipsec_psk"].(map[string]interface{}); ok {
 								return &TunnelParamsIpsecIpsecPskModel{
 									BlindfoldSecretInfo: func() *TunnelParamsIpsecIpsecPskBlindfoldSecretInfoModel {
+										if !isImport && data.Params != nil && data.Params.Ipsec != nil && data.Params.Ipsec.IpsecPsk != nil && data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo != nil {
+											return data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := IpsecPskData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &TunnelParamsIpsecIpsecPskBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -1322,6 +1410,9 @@ func (r *TunnelResource) Read(ctx context.Context, req resource.ReadRequest, res
 										return nil
 									}(),
 									ClearSecretInfo: func() *TunnelParamsIpsecIpsecPskClearSecretInfoModel {
+										if !isImport && data.Params != nil && data.Params.Ipsec != nil && data.Params.Ipsec.IpsecPsk != nil && data.Params.Ipsec.IpsecPsk.ClearSecretInfo != nil {
+											return data.Params.Ipsec.IpsecPsk.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := IpsecPskData["clear_secret_info"].(map[string]interface{}); ok {
 											return &TunnelParamsIpsecIpsecPskClearSecretInfoModel{
 												Provider: func() types.String {
@@ -1359,6 +1450,9 @@ func (r *TunnelResource) Read(ctx context.Context, req resource.ReadRequest, res
 				if EndpointsData, ok := blockData["endpoints"].(map[string]interface{}); ok {
 					return &TunnelRemoteIPEndpointsModel{
 						Endpoints: func() *TunnelEmptyModel {
+							if !isImport && data.RemoteIP != nil && data.RemoteIP.Endpoints != nil {
+								return data.RemoteIP.Endpoints.Endpoints
+							}
 							if _, ok := EndpointsData["endpoints"].(map[string]interface{}); ok {
 								return &TunnelEmptyModel{}
 							}
@@ -1375,6 +1469,9 @@ func (r *TunnelResource) Read(ctx context.Context, req resource.ReadRequest, res
 				if IPData, ok := blockData["ip"].(map[string]interface{}); ok {
 					return &TunnelRemoteIPIPModel{
 						Ipv4: func() *TunnelRemoteIPIPIpv4Model {
+							if !isImport && data.RemoteIP != nil && data.RemoteIP.IP != nil && data.RemoteIP.IP.Ipv4 != nil {
+								return data.RemoteIP.IP.Ipv4
+							}
 							if Ipv4Data, ok := IPData["ipv4"].(map[string]interface{}); ok {
 								return &TunnelRemoteIPIPIpv4Model{
 									Addr: func() types.String {
@@ -1388,6 +1485,9 @@ func (r *TunnelResource) Read(ctx context.Context, req resource.ReadRequest, res
 							return nil
 						}(),
 						Ipv6: func() *TunnelRemoteIPIPIpv6Model {
+							if !isImport && data.RemoteIP != nil && data.RemoteIP.IP != nil && data.RemoteIP.IP.Ipv6 != nil {
+								return data.RemoteIP.IP.Ipv6
+							}
 							if Ipv6Data, ok := IPData["ipv6"].(map[string]interface{}); ok {
 								return &TunnelRemoteIPIPIpv6Model{
 									Addr: func() types.String {
@@ -1641,9 +1741,17 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 				if IntfData, ok := blockData["intf"].(map[string]interface{}); ok {
 					return &TunnelLocalIPIntfModel{
 						LocalIntf: func() types.List {
+							if !isImport && data.LocalIP != nil && data.LocalIP.Intf != nil && (data.LocalIP.Intf.LocalIntf.IsNull() || len(data.LocalIP.Intf.LocalIntf.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: TunnelLocalIPIntfLocalIntfModelAttrTypes})
+							}
+							var LocalIntfExisting []TunnelLocalIPIntfLocalIntfModel
+							if !isImport && data.LocalIP != nil && data.LocalIP.Intf != nil && !data.LocalIP.Intf.LocalIntf.IsNull() && !data.LocalIP.Intf.LocalIntf.IsUnknown() {
+								data.LocalIP.Intf.LocalIntf.ElementsAs(ctx, &LocalIntfExisting, false)
+							}
 							if rawList, ok := IntfData["local_intf"].([]interface{}); ok && len(rawList) > 0 {
 								var LocalIntfResult []TunnelLocalIPIntfLocalIntfModel
-								for _, LocalIntfItem := range rawList {
+								for LocalIntfIdx, LocalIntfItem := range rawList {
+									_ = LocalIntfIdx
 									if LocalIntfItemMap, ok := LocalIntfItem.(map[string]interface{}); ok {
 										LocalIntfResult = append(LocalIntfResult, TunnelLocalIPIntfLocalIntfModel{
 											Kind: func() types.String {
@@ -1695,15 +1803,24 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 				if IPAddressData, ok := blockData["ip_address"].(map[string]interface{}); ok {
 					return &TunnelLocalIPIPAddressModel{
 						Auto: func() *TunnelEmptyModel {
+							if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil {
+								return data.LocalIP.IPAddress.Auto
+							}
 							if _, ok := IPAddressData["auto"].(map[string]interface{}); ok {
 								return &TunnelEmptyModel{}
 							}
 							return nil
 						}(),
 						IPAddress: func() *TunnelLocalIPIPAddressIPAddressModel {
+							if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil {
+								return data.LocalIP.IPAddress.IPAddress
+							}
 							if IPAddressData, ok := IPAddressData["ip_address"].(map[string]interface{}); ok {
 								return &TunnelLocalIPIPAddressIPAddressModel{
 									Ipv4: func() *TunnelLocalIPIPAddressIPAddressIpv4Model {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil && data.LocalIP.IPAddress.IPAddress.Ipv4 != nil {
+											return data.LocalIP.IPAddress.IPAddress.Ipv4
+										}
 										if Ipv4Data, ok := IPAddressData["ipv4"].(map[string]interface{}); ok {
 											return &TunnelLocalIPIPAddressIPAddressIpv4Model{
 												Addr: func() types.String {
@@ -1717,6 +1834,9 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 										return nil
 									}(),
 									Ipv6: func() *TunnelLocalIPIPAddressIPAddressIpv6Model {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil && data.LocalIP.IPAddress.IPAddress.Ipv6 != nil {
+											return data.LocalIP.IPAddress.IPAddress.Ipv6
+										}
 										if Ipv6Data, ok := IPAddressData["ipv6"].(map[string]interface{}); ok {
 											return &TunnelLocalIPIPAddressIPAddressIpv6Model{
 												Addr: func() types.String {
@@ -1734,21 +1854,33 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 							return nil
 						}(),
 						VirtualNetworkType: func() *TunnelLocalIPIPAddressVirtualNetworkTypeModel {
+							if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil {
+								return data.LocalIP.IPAddress.VirtualNetworkType
+							}
 							if VirtualNetworkTypeData, ok := IPAddressData["virtual_network_type"].(map[string]interface{}); ok {
 								return &TunnelLocalIPIPAddressVirtualNetworkTypeModel{
 									Public: func() *TunnelEmptyModel {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil {
+											return data.LocalIP.IPAddress.VirtualNetworkType.Public
+										}
 										if _, ok := VirtualNetworkTypeData["public"].(map[string]interface{}); ok {
 											return &TunnelEmptyModel{}
 										}
 										return nil
 									}(),
 									SiteLocal: func() *TunnelEmptyModel {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil {
+											return data.LocalIP.IPAddress.VirtualNetworkType.SiteLocal
+										}
 										if _, ok := VirtualNetworkTypeData["site_local"].(map[string]interface{}); ok {
 											return &TunnelEmptyModel{}
 										}
 										return nil
 									}(),
 									SiteLocalInside: func() *TunnelEmptyModel {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil {
+											return data.LocalIP.IPAddress.VirtualNetworkType.SiteLocalInside
+										}
 										if _, ok := VirtualNetworkTypeData["site_local_inside"].(map[string]interface{}); ok {
 											return &TunnelEmptyModel{}
 										}
@@ -1773,9 +1905,15 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 				if IpsecData, ok := blockData["ipsec"].(map[string]interface{}); ok {
 					return &TunnelParamsIpsecModel{
 						IpsecPsk: func() *TunnelParamsIpsecIpsecPskModel {
+							if !isImport && data.Params != nil && data.Params.Ipsec != nil && data.Params.Ipsec.IpsecPsk != nil {
+								return data.Params.Ipsec.IpsecPsk
+							}
 							if IpsecPskData, ok := IpsecData["ipsec_psk"].(map[string]interface{}); ok {
 								return &TunnelParamsIpsecIpsecPskModel{
 									BlindfoldSecretInfo: func() *TunnelParamsIpsecIpsecPskBlindfoldSecretInfoModel {
+										if !isImport && data.Params != nil && data.Params.Ipsec != nil && data.Params.Ipsec.IpsecPsk != nil && data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo != nil {
+											return data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := IpsecPskData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &TunnelParamsIpsecIpsecPskBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -1801,6 +1939,9 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 										return nil
 									}(),
 									ClearSecretInfo: func() *TunnelParamsIpsecIpsecPskClearSecretInfoModel {
+										if !isImport && data.Params != nil && data.Params.Ipsec != nil && data.Params.Ipsec.IpsecPsk != nil && data.Params.Ipsec.IpsecPsk.ClearSecretInfo != nil {
+											return data.Params.Ipsec.IpsecPsk.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := IpsecPskData["clear_secret_info"].(map[string]interface{}); ok {
 											return &TunnelParamsIpsecIpsecPskClearSecretInfoModel{
 												Provider: func() types.String {
@@ -1838,6 +1979,9 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 				if EndpointsData, ok := blockData["endpoints"].(map[string]interface{}); ok {
 					return &TunnelRemoteIPEndpointsModel{
 						Endpoints: func() *TunnelEmptyModel {
+							if !isImport && data.RemoteIP != nil && data.RemoteIP.Endpoints != nil {
+								return data.RemoteIP.Endpoints.Endpoints
+							}
 							if _, ok := EndpointsData["endpoints"].(map[string]interface{}); ok {
 								return &TunnelEmptyModel{}
 							}
@@ -1854,6 +1998,9 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 				if IPData, ok := blockData["ip"].(map[string]interface{}); ok {
 					return &TunnelRemoteIPIPModel{
 						Ipv4: func() *TunnelRemoteIPIPIpv4Model {
+							if !isImport && data.RemoteIP != nil && data.RemoteIP.IP != nil && data.RemoteIP.IP.Ipv4 != nil {
+								return data.RemoteIP.IP.Ipv4
+							}
 							if Ipv4Data, ok := IPData["ipv4"].(map[string]interface{}); ok {
 								return &TunnelRemoteIPIPIpv4Model{
 									Addr: func() types.String {
@@ -1867,6 +2014,9 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 							return nil
 						}(),
 						Ipv6: func() *TunnelRemoteIPIPIpv6Model {
+							if !isImport && data.RemoteIP != nil && data.RemoteIP.IP != nil && data.RemoteIP.IP.Ipv6 != nil {
+								return data.RemoteIP.IP.Ipv6
+							}
 							if Ipv6Data, ok := IPData["ipv6"].(map[string]interface{}); ok {
 								return &TunnelRemoteIPIPIpv6Model{
 									Addr: func() types.String {

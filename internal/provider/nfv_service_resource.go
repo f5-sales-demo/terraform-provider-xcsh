@@ -4083,9 +4083,14 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				if !isImport && data.EnabledSSHAccess != nil && (data.EnabledSSHAccess.NodeSSHPorts.IsNull() || len(data.EnabledSSHAccess.NodeSSHPorts.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NfvServiceEnabledSSHAccessNodeSSHPortsModelAttrTypes})
 				}
+				var NodeSSHPortsExisting []NfvServiceEnabledSSHAccessNodeSSHPortsModel
+				if !isImport && data.EnabledSSHAccess != nil && !data.EnabledSSHAccess.NodeSSHPorts.IsNull() && !data.EnabledSSHAccess.NodeSSHPorts.IsUnknown() {
+					data.EnabledSSHAccess.NodeSSHPorts.ElementsAs(ctx, &NodeSSHPortsExisting, false)
+				}
 				if rawList, ok := blockData["node_ssh_ports"].([]interface{}); ok && len(rawList) > 0 {
 					var NodeSSHPortsResult []NfvServiceEnabledSSHAccessNodeSSHPortsModel
-					for _, NodeSSHPortsItem := range rawList {
+					for NodeSSHPortsIdx, NodeSSHPortsItem := range rawList {
+						_ = NodeSSHPortsIdx
 						if NodeSSHPortsItemMap, ok := NodeSSHPortsItem.(map[string]interface{}); ok {
 							NodeSSHPortsResult = append(NodeSSHPortsResult, NfvServiceEnabledSSHAccessNodeSSHPortsModel{
 								NodeName: func() types.String {
@@ -4119,6 +4124,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				if AdminPasswordData, ok := blockData["admin_password"].(map[string]interface{}); ok {
 					return &NfvServiceF5BigIPAWSServiceAdminPasswordModel{
 						BlindfoldSecretInfo: func() *NfvServiceF5BigIPAWSServiceAdminPasswordBlindfoldSecretInfoModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.AdminPassword != nil && data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo != nil {
+								return data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := AdminPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &NfvServiceF5BigIPAWSServiceAdminPasswordBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -4144,6 +4152,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							return nil
 						}(),
 						ClearSecretInfo: func() *NfvServiceF5BigIPAWSServiceAdminPasswordClearSecretInfoModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.AdminPassword != nil && data.F5BigIPAWSService.AdminPassword.ClearSecretInfo != nil {
+								return data.F5BigIPAWSService.AdminPassword.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := AdminPasswordData["clear_secret_info"].(map[string]interface{}); ok {
 								return &NfvServiceF5BigIPAWSServiceAdminPasswordClearSecretInfoModel{
 									Provider: func() types.String {
@@ -4211,18 +4222,27 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				if EndpointServiceData, ok := blockData["endpoint_service"].(map[string]interface{}); ok {
 					return &NfvServiceF5BigIPAWSServiceEndpointServiceModel{
 						AdvertiseOnSloIP: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.AdvertiseOnSloIP
+							}
 							if _, ok := EndpointServiceData["advertise_on_slo_ip"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						AdvertiseOnSloIPExternal: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.AdvertiseOnSloIPExternal
+							}
 							if _, ok := EndpointServiceData["advertise_on_slo_ip_external"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						AutomaticVIP: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.AutomaticVIP
+							}
 							if _, ok := EndpointServiceData["automatic_vip"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
@@ -4235,6 +4255,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							return types.StringNull()
 						}(),
 						CustomTCPPorts: func() *NfvServiceF5BigIPAWSServiceEndpointServiceCustomTCPPortsModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil && data.F5BigIPAWSService.EndpointService.CustomTCPPorts != nil {
+								return data.F5BigIPAWSService.EndpointService.CustomTCPPorts
+							}
 							if CustomTCPPortsData, ok := EndpointServiceData["custom_tcp_ports"].(map[string]interface{}); ok {
 								return &NfvServiceF5BigIPAWSServiceEndpointServiceCustomTCPPortsModel{
 									Ports: func() types.List {
@@ -4255,6 +4278,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							return nil
 						}(),
 						CustomUDPPorts: func() *NfvServiceF5BigIPAWSServiceEndpointServiceCustomUDPPortsModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil && data.F5BigIPAWSService.EndpointService.CustomUDPPorts != nil {
+								return data.F5BigIPAWSService.EndpointService.CustomUDPPorts
+							}
 							if CustomUDPPortsData, ok := EndpointServiceData["custom_udp_ports"].(map[string]interface{}); ok {
 								return &NfvServiceF5BigIPAWSServiceEndpointServiceCustomUDPPortsModel{
 									Ports: func() types.List {
@@ -4275,36 +4301,54 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							return nil
 						}(),
 						DefaultTCPPorts: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.DefaultTCPPorts
+							}
 							if _, ok := EndpointServiceData["default_tcp_ports"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableAdvertiseOnSloIP: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.DisableAdvertiseOnSloIP
+							}
 							if _, ok := EndpointServiceData["disable_advertise_on_slo_ip"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						HTTPPort: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.HTTPPort
+							}
 							if _, ok := EndpointServiceData["http_port"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						HTTPSPort: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.HTTPSPort
+							}
 							if _, ok := EndpointServiceData["https_port"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						NoTCPPorts: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.NoTCPPorts
+							}
 							if _, ok := EndpointServiceData["no_tcp_ports"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						NoUDPPorts: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.NoUDPPorts
+							}
 							if _, ok := EndpointServiceData["no_udp_ports"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
@@ -4321,12 +4365,18 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				if MarketPlaceImageData, ok := blockData["market_place_image"].(map[string]interface{}); ok {
 					return &NfvServiceF5BigIPAWSServiceMarketPlaceImageModel{
 						Awafpayg200mbps: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.MarketPlaceImage != nil {
+								return data.F5BigIPAWSService.MarketPlaceImage.Awafpayg200mbps
+							}
 							if _, ok := MarketPlaceImageData["AWAFPayG200Mbps"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						Awafpayg3gbps: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.MarketPlaceImage != nil {
+								return data.F5BigIPAWSService.MarketPlaceImage.Awafpayg3gbps
+							}
 							if _, ok := MarketPlaceImageData["AWAFPayG3Gbps"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
@@ -4340,12 +4390,20 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				if !isImport && data.F5BigIPAWSService != nil && (data.F5BigIPAWSService.Nodes.IsNull() || len(data.F5BigIPAWSService.Nodes.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NfvServiceF5BigIPAWSServiceNodesModelAttrTypes})
 				}
+				var NodesExisting []NfvServiceF5BigIPAWSServiceNodesModel
+				if !isImport && data.F5BigIPAWSService != nil && !data.F5BigIPAWSService.Nodes.IsNull() && !data.F5BigIPAWSService.Nodes.IsUnknown() {
+					data.F5BigIPAWSService.Nodes.ElementsAs(ctx, &NodesExisting, false)
+				}
 				if rawList, ok := blockData["nodes"].([]interface{}); ok && len(rawList) > 0 {
 					var NodesResult []NfvServiceF5BigIPAWSServiceNodesModel
-					for _, NodesItem := range rawList {
+					for NodesIdx, NodesItem := range rawList {
+						_ = NodesIdx
 						if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
 							NodesResult = append(NodesResult, NfvServiceF5BigIPAWSServiceNodesModel{
 								AutomaticPrefix: func() *NfvServiceEmptyModel {
+									if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].AutomaticPrefix != nil {
+										return &NfvServiceEmptyModel{}
+									}
 									if _, ok := NodesItemMap["automatic_prefix"].(map[string]interface{}); ok {
 										return &NfvServiceEmptyModel{}
 									}
@@ -4367,6 +4425,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												return types.StringNull()
 											}(),
 											SubnetParam: func() *NfvServiceF5BigIPAWSServiceNodesMgmtSubnetSubnetParamModel {
+												if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].MgmtSubnet != nil && NodesExisting[NodesIdx].MgmtSubnet.SubnetParam != nil {
+													return NodesExisting[NodesIdx].MgmtSubnet.SubnetParam
+												}
 												if SubnetParamData, ok := MgmtSubnetData["subnet_param"].(map[string]interface{}); ok {
 													return &NfvServiceF5BigIPAWSServiceNodesMgmtSubnetSubnetParamModel{
 														Ipv4: func() types.String {
@@ -4390,6 +4451,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 									return types.StringNull()
 								}(),
 								ReservedMgmtSubnet: func() *NfvServiceEmptyModel {
+									if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].ReservedMgmtSubnet != nil {
+										return &NfvServiceEmptyModel{}
+									}
 									if _, ok := NodesItemMap["reserved_mgmt_subnet"].(map[string]interface{}); ok {
 										return &NfvServiceEmptyModel{}
 									}
@@ -4473,15 +4537,26 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				if AdvertiseOnSLIVIPData, ok := blockData["advertise_on_sli_vip"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPModel{
 						NoMtls: func() *NfvServiceEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil {
+								return data.HTTPSManagement.AdvertiseOnSLIVIP.NoMtls
+							}
 							if _, ok := AdvertiseOnSLIVIPData["no_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && (data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSLIVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -4517,6 +4592,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -4526,6 +4604,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -4551,6 +4632,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -4574,6 +4658,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -4588,9 +4675,15 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSLIVIPData["tls_config"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSConfigModel{
 									CustomSecurity: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -4623,18 +4716,27 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 										return nil
 									}(),
 									DefaultSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -4648,6 +4750,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							if UseMtlsData, ok := AdvertiseOnSLIVIPData["use_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -4679,6 +4784,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 										return nil
 									}(),
 									NoCRL: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -4716,12 +4824,18 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -4753,15 +4867,26 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				if AdvertiseOnSloInternetVIPData, ok := blockData["advertise_on_slo_internet_vip"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPModel{
 						NoMtls: func() *NfvServiceEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil {
+								return data.HTTPSManagement.AdvertiseOnSloInternetVIP.NoMtls
+							}
 							if _, ok := AdvertiseOnSloInternetVIPData["no_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && (data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSloInternetVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -4797,6 +4922,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -4806,6 +4934,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -4831,6 +4962,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -4854,6 +4988,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -4868,9 +5005,15 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSloInternetVIPData["tls_config"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigModel{
 									CustomSecurity: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -4903,18 +5046,27 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 										return nil
 									}(),
 									DefaultSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -4928,6 +5080,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							if UseMtlsData, ok := AdvertiseOnSloInternetVIPData["use_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -4959,6 +5114,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 										return nil
 									}(),
 									NoCRL: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -4996,12 +5154,18 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -5033,15 +5197,26 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				if AdvertiseOnSloSLIData, ok := blockData["advertise_on_slo_sli"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSloSLIModel{
 						NoMtls: func() *NfvServiceEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil {
+								return data.HTTPSManagement.AdvertiseOnSloSLI.NoMtls
+							}
 							if _, ok := AdvertiseOnSloSLIData["no_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && (data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSloSLIData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -5077,6 +5252,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -5086,6 +5264,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -5111,6 +5292,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -5134,6 +5318,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -5148,9 +5335,15 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLITLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSloSLIData["tls_config"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSConfigModel{
 									CustomSecurity: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -5183,18 +5376,27 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 										return nil
 									}(),
 									DefaultSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -5208,6 +5410,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							if UseMtlsData, ok := AdvertiseOnSloSLIData["use_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSloSLIUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -5239,6 +5444,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 										return nil
 									}(),
 									NoCRL: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -5276,12 +5484,18 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -5313,15 +5527,26 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				if AdvertiseOnSloVIPData, ok := blockData["advertise_on_slo_vip"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSloVIPModel{
 						NoMtls: func() *NfvServiceEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil {
+								return data.HTTPSManagement.AdvertiseOnSloVIP.NoMtls
+							}
 							if _, ok := AdvertiseOnSloVIPData["no_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && (data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSloVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -5357,6 +5582,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -5366,6 +5594,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -5391,6 +5622,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -5414,6 +5648,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -5428,9 +5665,15 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSloVIPData["tls_config"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSConfigModel{
 									CustomSecurity: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -5463,18 +5706,27 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 										return nil
 									}(),
 									DefaultSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -5488,6 +5740,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							if UseMtlsData, ok := AdvertiseOnSloVIPData["use_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSloVIPUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -5519,6 +5774,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 										return nil
 									}(),
 									NoCRL: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -5556,12 +5814,18 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -5624,9 +5888,15 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				if AutoSetupData, ok := blockData["auto_setup"].(map[string]interface{}); ok {
 					return &NfvServicePaloAltoFwServiceAutoSetupModel{
 						AdminPassword: func() *NfvServicePaloAltoFwServiceAutoSetupAdminPasswordModel {
+							if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.AdminPassword != nil {
+								return data.PaloAltoFwService.AutoSetup.AdminPassword
+							}
 							if AdminPasswordData, ok := AutoSetupData["admin_password"].(map[string]interface{}); ok {
 								return &NfvServicePaloAltoFwServiceAutoSetupAdminPasswordModel{
 									BlindfoldSecretInfo: func() *NfvServicePaloAltoFwServiceAutoSetupAdminPasswordBlindfoldSecretInfoModel {
+										if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.AdminPassword != nil && data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo != nil {
+											return data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AdminPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &NfvServicePaloAltoFwServiceAutoSetupAdminPasswordBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -5652,6 +5922,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 										return nil
 									}(),
 									ClearSecretInfo: func() *NfvServicePaloAltoFwServiceAutoSetupAdminPasswordClearSecretInfoModel {
+										if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.AdminPassword != nil && data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo != nil {
+											return data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AdminPasswordData["clear_secret_info"].(map[string]interface{}); ok {
 											return &NfvServicePaloAltoFwServiceAutoSetupAdminPasswordClearSecretInfoModel{
 												Provider: func() types.String {
@@ -5681,12 +5954,21 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							return types.StringNull()
 						}(),
 						ManualSSHKeys: func() *NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysModel {
+							if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys != nil {
+								return data.PaloAltoFwService.AutoSetup.ManualSSHKeys
+							}
 							if ManualSSHKeysData, ok := AutoSetupData["manual_ssh_keys"].(map[string]interface{}); ok {
 								return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysModel{
 									PrivateKey: func() *NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyModel {
+										if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey != nil {
+											return data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey
+										}
 										if PrivateKeyData, ok := ManualSSHKeysData["private_key"].(map[string]interface{}); ok {
 											return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyModel{
 												BlindfoldSecretInfo: func() *NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyBlindfoldSecretInfoModel {
+													if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo != nil {
+														return data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -5712,6 +5994,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 													return nil
 												}(),
 												ClearSecretInfo: func() *NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyClearSecretInfoModel {
+													if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo != nil {
+														return data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 														return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyClearSecretInfoModel{
 															Provider: func() types.String {
@@ -5813,9 +6098,15 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				if PanoramaServerData, ok := blockData["panorama_server"].(map[string]interface{}); ok {
 					return &NfvServicePaloAltoFwServicePanoramaServerModel{
 						AuthorizationKey: func() *NfvServicePaloAltoFwServicePanoramaServerAuthorizationKeyModel {
+							if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.PanoramaServer != nil && data.PaloAltoFwService.PanoramaServer.AuthorizationKey != nil {
+								return data.PaloAltoFwService.PanoramaServer.AuthorizationKey
+							}
 							if AuthorizationKeyData, ok := PanoramaServerData["authorization_key"].(map[string]interface{}); ok {
 								return &NfvServicePaloAltoFwServicePanoramaServerAuthorizationKeyModel{
 									BlindfoldSecretInfo: func() *NfvServicePaloAltoFwServicePanoramaServerAuthorizationKeyBlindfoldSecretInfoModel {
+										if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.PanoramaServer != nil && data.PaloAltoFwService.PanoramaServer.AuthorizationKey != nil && data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo != nil {
+											return data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AuthorizationKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &NfvServicePaloAltoFwServicePanoramaServerAuthorizationKeyBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -5841,6 +6132,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 										return nil
 									}(),
 									ClearSecretInfo: func() *NfvServicePaloAltoFwServicePanoramaServerAuthorizationKeyClearSecretInfoModel {
+										if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.PanoramaServer != nil && data.PaloAltoFwService.PanoramaServer.AuthorizationKey != nil && data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo != nil {
+											return data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AuthorizationKeyData["clear_secret_info"].(map[string]interface{}); ok {
 											return &NfvServicePaloAltoFwServicePanoramaServerAuthorizationKeyClearSecretInfoModel{
 												Provider: func() types.String {
@@ -5892,9 +6186,17 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				if ServiceNodesData, ok := blockData["service_nodes"].(map[string]interface{}); ok {
 					return &NfvServicePaloAltoFwServiceServiceNodesModel{
 						Nodes: func() types.List {
+							if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.ServiceNodes != nil && (data.PaloAltoFwService.ServiceNodes.Nodes.IsNull() || len(data.PaloAltoFwService.ServiceNodes.Nodes.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NfvServicePaloAltoFwServiceServiceNodesNodesModelAttrTypes})
+							}
+							var NodesExisting []NfvServicePaloAltoFwServiceServiceNodesNodesModel
+							if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.ServiceNodes != nil && !data.PaloAltoFwService.ServiceNodes.Nodes.IsNull() && !data.PaloAltoFwService.ServiceNodes.Nodes.IsUnknown() {
+								data.PaloAltoFwService.ServiceNodes.Nodes.ElementsAs(ctx, &NodesExisting, false)
+							}
 							if rawList, ok := ServiceNodesData["nodes"].([]interface{}); ok && len(rawList) > 0 {
 								var NodesResult []NfvServicePaloAltoFwServiceServiceNodesNodesModel
-								for _, NodesItem := range rawList {
+								for NodesIdx, NodesItem := range rawList {
+									_ = NodesIdx
 									if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
 										NodesResult = append(NodesResult, NfvServicePaloAltoFwServiceServiceNodesNodesModel{
 											AWSAzName: func() types.String {
@@ -5913,6 +6215,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 															return types.StringNull()
 														}(),
 														SubnetParam: func() *NfvServicePaloAltoFwServiceServiceNodesNodesMgmtSubnetSubnetParamModel {
+															if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].MgmtSubnet != nil && NodesExisting[NodesIdx].MgmtSubnet.SubnetParam != nil {
+																return NodesExisting[NodesIdx].MgmtSubnet.SubnetParam
+															}
 															if SubnetParamData, ok := MgmtSubnetData["subnet_param"].(map[string]interface{}); ok {
 																return &NfvServicePaloAltoFwServiceServiceNodesNodesMgmtSubnetSubnetParamModel{
 																	Ipv4: func() types.String {
@@ -5936,6 +6241,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												return types.StringNull()
 											}(),
 											ReservedMgmtSubnet: func() *NfvServiceEmptyModel {
+												if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].ReservedMgmtSubnet != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := NodesItemMap["reserved_mgmt_subnet"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -6114,9 +6422,14 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				if !isImport && data.EnabledSSHAccess != nil && (data.EnabledSSHAccess.NodeSSHPorts.IsNull() || len(data.EnabledSSHAccess.NodeSSHPorts.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NfvServiceEnabledSSHAccessNodeSSHPortsModelAttrTypes})
 				}
+				var NodeSSHPortsExisting []NfvServiceEnabledSSHAccessNodeSSHPortsModel
+				if !isImport && data.EnabledSSHAccess != nil && !data.EnabledSSHAccess.NodeSSHPorts.IsNull() && !data.EnabledSSHAccess.NodeSSHPorts.IsUnknown() {
+					data.EnabledSSHAccess.NodeSSHPorts.ElementsAs(ctx, &NodeSSHPortsExisting, false)
+				}
 				if rawList, ok := blockData["node_ssh_ports"].([]interface{}); ok && len(rawList) > 0 {
 					var NodeSSHPortsResult []NfvServiceEnabledSSHAccessNodeSSHPortsModel
-					for _, NodeSSHPortsItem := range rawList {
+					for NodeSSHPortsIdx, NodeSSHPortsItem := range rawList {
+						_ = NodeSSHPortsIdx
 						if NodeSSHPortsItemMap, ok := NodeSSHPortsItem.(map[string]interface{}); ok {
 							NodeSSHPortsResult = append(NodeSSHPortsResult, NfvServiceEnabledSSHAccessNodeSSHPortsModel{
 								NodeName: func() types.String {
@@ -6150,6 +6463,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				if AdminPasswordData, ok := blockData["admin_password"].(map[string]interface{}); ok {
 					return &NfvServiceF5BigIPAWSServiceAdminPasswordModel{
 						BlindfoldSecretInfo: func() *NfvServiceF5BigIPAWSServiceAdminPasswordBlindfoldSecretInfoModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.AdminPassword != nil && data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo != nil {
+								return data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := AdminPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &NfvServiceF5BigIPAWSServiceAdminPasswordBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -6175,6 +6491,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 							return nil
 						}(),
 						ClearSecretInfo: func() *NfvServiceF5BigIPAWSServiceAdminPasswordClearSecretInfoModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.AdminPassword != nil && data.F5BigIPAWSService.AdminPassword.ClearSecretInfo != nil {
+								return data.F5BigIPAWSService.AdminPassword.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := AdminPasswordData["clear_secret_info"].(map[string]interface{}); ok {
 								return &NfvServiceF5BigIPAWSServiceAdminPasswordClearSecretInfoModel{
 									Provider: func() types.String {
@@ -6242,18 +6561,27 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				if EndpointServiceData, ok := blockData["endpoint_service"].(map[string]interface{}); ok {
 					return &NfvServiceF5BigIPAWSServiceEndpointServiceModel{
 						AdvertiseOnSloIP: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.AdvertiseOnSloIP
+							}
 							if _, ok := EndpointServiceData["advertise_on_slo_ip"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						AdvertiseOnSloIPExternal: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.AdvertiseOnSloIPExternal
+							}
 							if _, ok := EndpointServiceData["advertise_on_slo_ip_external"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						AutomaticVIP: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.AutomaticVIP
+							}
 							if _, ok := EndpointServiceData["automatic_vip"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
@@ -6266,6 +6594,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 							return types.StringNull()
 						}(),
 						CustomTCPPorts: func() *NfvServiceF5BigIPAWSServiceEndpointServiceCustomTCPPortsModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil && data.F5BigIPAWSService.EndpointService.CustomTCPPorts != nil {
+								return data.F5BigIPAWSService.EndpointService.CustomTCPPorts
+							}
 							if CustomTCPPortsData, ok := EndpointServiceData["custom_tcp_ports"].(map[string]interface{}); ok {
 								return &NfvServiceF5BigIPAWSServiceEndpointServiceCustomTCPPortsModel{
 									Ports: func() types.List {
@@ -6286,6 +6617,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 							return nil
 						}(),
 						CustomUDPPorts: func() *NfvServiceF5BigIPAWSServiceEndpointServiceCustomUDPPortsModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil && data.F5BigIPAWSService.EndpointService.CustomUDPPorts != nil {
+								return data.F5BigIPAWSService.EndpointService.CustomUDPPorts
+							}
 							if CustomUDPPortsData, ok := EndpointServiceData["custom_udp_ports"].(map[string]interface{}); ok {
 								return &NfvServiceF5BigIPAWSServiceEndpointServiceCustomUDPPortsModel{
 									Ports: func() types.List {
@@ -6306,36 +6640,54 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 							return nil
 						}(),
 						DefaultTCPPorts: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.DefaultTCPPorts
+							}
 							if _, ok := EndpointServiceData["default_tcp_ports"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableAdvertiseOnSloIP: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.DisableAdvertiseOnSloIP
+							}
 							if _, ok := EndpointServiceData["disable_advertise_on_slo_ip"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						HTTPPort: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.HTTPPort
+							}
 							if _, ok := EndpointServiceData["http_port"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						HTTPSPort: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.HTTPSPort
+							}
 							if _, ok := EndpointServiceData["https_port"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						NoTCPPorts: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.NoTCPPorts
+							}
 							if _, ok := EndpointServiceData["no_tcp_ports"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						NoUDPPorts: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.NoUDPPorts
+							}
 							if _, ok := EndpointServiceData["no_udp_ports"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
@@ -6352,12 +6704,18 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				if MarketPlaceImageData, ok := blockData["market_place_image"].(map[string]interface{}); ok {
 					return &NfvServiceF5BigIPAWSServiceMarketPlaceImageModel{
 						Awafpayg200mbps: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.MarketPlaceImage != nil {
+								return data.F5BigIPAWSService.MarketPlaceImage.Awafpayg200mbps
+							}
 							if _, ok := MarketPlaceImageData["AWAFPayG200Mbps"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						Awafpayg3gbps: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.MarketPlaceImage != nil {
+								return data.F5BigIPAWSService.MarketPlaceImage.Awafpayg3gbps
+							}
 							if _, ok := MarketPlaceImageData["AWAFPayG3Gbps"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
@@ -6371,12 +6729,20 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				if !isImport && data.F5BigIPAWSService != nil && (data.F5BigIPAWSService.Nodes.IsNull() || len(data.F5BigIPAWSService.Nodes.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NfvServiceF5BigIPAWSServiceNodesModelAttrTypes})
 				}
+				var NodesExisting []NfvServiceF5BigIPAWSServiceNodesModel
+				if !isImport && data.F5BigIPAWSService != nil && !data.F5BigIPAWSService.Nodes.IsNull() && !data.F5BigIPAWSService.Nodes.IsUnknown() {
+					data.F5BigIPAWSService.Nodes.ElementsAs(ctx, &NodesExisting, false)
+				}
 				if rawList, ok := blockData["nodes"].([]interface{}); ok && len(rawList) > 0 {
 					var NodesResult []NfvServiceF5BigIPAWSServiceNodesModel
-					for _, NodesItem := range rawList {
+					for NodesIdx, NodesItem := range rawList {
+						_ = NodesIdx
 						if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
 							NodesResult = append(NodesResult, NfvServiceF5BigIPAWSServiceNodesModel{
 								AutomaticPrefix: func() *NfvServiceEmptyModel {
+									if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].AutomaticPrefix != nil {
+										return &NfvServiceEmptyModel{}
+									}
 									if _, ok := NodesItemMap["automatic_prefix"].(map[string]interface{}); ok {
 										return &NfvServiceEmptyModel{}
 									}
@@ -6398,6 +6764,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												return types.StringNull()
 											}(),
 											SubnetParam: func() *NfvServiceF5BigIPAWSServiceNodesMgmtSubnetSubnetParamModel {
+												if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].MgmtSubnet != nil && NodesExisting[NodesIdx].MgmtSubnet.SubnetParam != nil {
+													return NodesExisting[NodesIdx].MgmtSubnet.SubnetParam
+												}
 												if SubnetParamData, ok := MgmtSubnetData["subnet_param"].(map[string]interface{}); ok {
 													return &NfvServiceF5BigIPAWSServiceNodesMgmtSubnetSubnetParamModel{
 														Ipv4: func() types.String {
@@ -6421,6 +6790,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 									return types.StringNull()
 								}(),
 								ReservedMgmtSubnet: func() *NfvServiceEmptyModel {
+									if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].ReservedMgmtSubnet != nil {
+										return &NfvServiceEmptyModel{}
+									}
 									if _, ok := NodesItemMap["reserved_mgmt_subnet"].(map[string]interface{}); ok {
 										return &NfvServiceEmptyModel{}
 									}
@@ -6504,15 +6876,26 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				if AdvertiseOnSLIVIPData, ok := blockData["advertise_on_sli_vip"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPModel{
 						NoMtls: func() *NfvServiceEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil {
+								return data.HTTPSManagement.AdvertiseOnSLIVIP.NoMtls
+							}
 							if _, ok := AdvertiseOnSLIVIPData["no_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && (data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSLIVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -6548,6 +6931,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -6557,6 +6943,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -6582,6 +6971,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -6605,6 +6997,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -6619,9 +7014,15 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 							return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSLIVIPData["tls_config"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSConfigModel{
 									CustomSecurity: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -6654,18 +7055,27 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 										return nil
 									}(),
 									DefaultSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -6679,6 +7089,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 							if UseMtlsData, ok := AdvertiseOnSLIVIPData["use_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -6710,6 +7123,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 										return nil
 									}(),
 									NoCRL: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -6747,12 +7163,18 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -6784,15 +7206,26 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				if AdvertiseOnSloInternetVIPData, ok := blockData["advertise_on_slo_internet_vip"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPModel{
 						NoMtls: func() *NfvServiceEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil {
+								return data.HTTPSManagement.AdvertiseOnSloInternetVIP.NoMtls
+							}
 							if _, ok := AdvertiseOnSloInternetVIPData["no_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && (data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSloInternetVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -6828,6 +7261,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -6837,6 +7273,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -6862,6 +7301,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -6885,6 +7327,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -6899,9 +7344,15 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 							return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSloInternetVIPData["tls_config"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigModel{
 									CustomSecurity: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -6934,18 +7385,27 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 										return nil
 									}(),
 									DefaultSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -6959,6 +7419,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 							if UseMtlsData, ok := AdvertiseOnSloInternetVIPData["use_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -6990,6 +7453,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 										return nil
 									}(),
 									NoCRL: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -7027,12 +7493,18 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -7064,15 +7536,26 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				if AdvertiseOnSloSLIData, ok := blockData["advertise_on_slo_sli"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSloSLIModel{
 						NoMtls: func() *NfvServiceEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil {
+								return data.HTTPSManagement.AdvertiseOnSloSLI.NoMtls
+							}
 							if _, ok := AdvertiseOnSloSLIData["no_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && (data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSloSLIData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -7108,6 +7591,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -7117,6 +7603,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -7142,6 +7631,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -7165,6 +7657,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -7179,9 +7674,15 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 							return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLITLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSloSLIData["tls_config"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSConfigModel{
 									CustomSecurity: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -7214,18 +7715,27 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 										return nil
 									}(),
 									DefaultSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -7239,6 +7749,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 							if UseMtlsData, ok := AdvertiseOnSloSLIData["use_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSloSLIUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -7270,6 +7783,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 										return nil
 									}(),
 									NoCRL: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -7307,12 +7823,18 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -7344,15 +7866,26 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				if AdvertiseOnSloVIPData, ok := blockData["advertise_on_slo_vip"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSloVIPModel{
 						NoMtls: func() *NfvServiceEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil {
+								return data.HTTPSManagement.AdvertiseOnSloVIP.NoMtls
+							}
 							if _, ok := AdvertiseOnSloVIPData["no_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && (data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSloVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -7388,6 +7921,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -7397,6 +7933,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -7422,6 +7961,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -7445,6 +7987,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -7459,9 +8004,15 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 							return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSloVIPData["tls_config"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSConfigModel{
 									CustomSecurity: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -7494,18 +8045,27 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 										return nil
 									}(),
 									DefaultSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -7519,6 +8079,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 							if UseMtlsData, ok := AdvertiseOnSloVIPData["use_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSloVIPUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -7550,6 +8113,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 										return nil
 									}(),
 									NoCRL: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -7587,12 +8153,18 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -7655,9 +8227,15 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				if AutoSetupData, ok := blockData["auto_setup"].(map[string]interface{}); ok {
 					return &NfvServicePaloAltoFwServiceAutoSetupModel{
 						AdminPassword: func() *NfvServicePaloAltoFwServiceAutoSetupAdminPasswordModel {
+							if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.AdminPassword != nil {
+								return data.PaloAltoFwService.AutoSetup.AdminPassword
+							}
 							if AdminPasswordData, ok := AutoSetupData["admin_password"].(map[string]interface{}); ok {
 								return &NfvServicePaloAltoFwServiceAutoSetupAdminPasswordModel{
 									BlindfoldSecretInfo: func() *NfvServicePaloAltoFwServiceAutoSetupAdminPasswordBlindfoldSecretInfoModel {
+										if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.AdminPassword != nil && data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo != nil {
+											return data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AdminPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &NfvServicePaloAltoFwServiceAutoSetupAdminPasswordBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -7683,6 +8261,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 										return nil
 									}(),
 									ClearSecretInfo: func() *NfvServicePaloAltoFwServiceAutoSetupAdminPasswordClearSecretInfoModel {
+										if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.AdminPassword != nil && data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo != nil {
+											return data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AdminPasswordData["clear_secret_info"].(map[string]interface{}); ok {
 											return &NfvServicePaloAltoFwServiceAutoSetupAdminPasswordClearSecretInfoModel{
 												Provider: func() types.String {
@@ -7712,12 +8293,21 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 							return types.StringNull()
 						}(),
 						ManualSSHKeys: func() *NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysModel {
+							if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys != nil {
+								return data.PaloAltoFwService.AutoSetup.ManualSSHKeys
+							}
 							if ManualSSHKeysData, ok := AutoSetupData["manual_ssh_keys"].(map[string]interface{}); ok {
 								return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysModel{
 									PrivateKey: func() *NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyModel {
+										if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey != nil {
+											return data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey
+										}
 										if PrivateKeyData, ok := ManualSSHKeysData["private_key"].(map[string]interface{}); ok {
 											return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyModel{
 												BlindfoldSecretInfo: func() *NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyBlindfoldSecretInfoModel {
+													if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo != nil {
+														return data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -7743,6 +8333,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 													return nil
 												}(),
 												ClearSecretInfo: func() *NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyClearSecretInfoModel {
+													if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo != nil {
+														return data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 														return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyClearSecretInfoModel{
 															Provider: func() types.String {
@@ -7844,9 +8437,15 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				if PanoramaServerData, ok := blockData["panorama_server"].(map[string]interface{}); ok {
 					return &NfvServicePaloAltoFwServicePanoramaServerModel{
 						AuthorizationKey: func() *NfvServicePaloAltoFwServicePanoramaServerAuthorizationKeyModel {
+							if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.PanoramaServer != nil && data.PaloAltoFwService.PanoramaServer.AuthorizationKey != nil {
+								return data.PaloAltoFwService.PanoramaServer.AuthorizationKey
+							}
 							if AuthorizationKeyData, ok := PanoramaServerData["authorization_key"].(map[string]interface{}); ok {
 								return &NfvServicePaloAltoFwServicePanoramaServerAuthorizationKeyModel{
 									BlindfoldSecretInfo: func() *NfvServicePaloAltoFwServicePanoramaServerAuthorizationKeyBlindfoldSecretInfoModel {
+										if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.PanoramaServer != nil && data.PaloAltoFwService.PanoramaServer.AuthorizationKey != nil && data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo != nil {
+											return data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AuthorizationKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &NfvServicePaloAltoFwServicePanoramaServerAuthorizationKeyBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -7872,6 +8471,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 										return nil
 									}(),
 									ClearSecretInfo: func() *NfvServicePaloAltoFwServicePanoramaServerAuthorizationKeyClearSecretInfoModel {
+										if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.PanoramaServer != nil && data.PaloAltoFwService.PanoramaServer.AuthorizationKey != nil && data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo != nil {
+											return data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AuthorizationKeyData["clear_secret_info"].(map[string]interface{}); ok {
 											return &NfvServicePaloAltoFwServicePanoramaServerAuthorizationKeyClearSecretInfoModel{
 												Provider: func() types.String {
@@ -7923,9 +8525,17 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				if ServiceNodesData, ok := blockData["service_nodes"].(map[string]interface{}); ok {
 					return &NfvServicePaloAltoFwServiceServiceNodesModel{
 						Nodes: func() types.List {
+							if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.ServiceNodes != nil && (data.PaloAltoFwService.ServiceNodes.Nodes.IsNull() || len(data.PaloAltoFwService.ServiceNodes.Nodes.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NfvServicePaloAltoFwServiceServiceNodesNodesModelAttrTypes})
+							}
+							var NodesExisting []NfvServicePaloAltoFwServiceServiceNodesNodesModel
+							if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.ServiceNodes != nil && !data.PaloAltoFwService.ServiceNodes.Nodes.IsNull() && !data.PaloAltoFwService.ServiceNodes.Nodes.IsUnknown() {
+								data.PaloAltoFwService.ServiceNodes.Nodes.ElementsAs(ctx, &NodesExisting, false)
+							}
 							if rawList, ok := ServiceNodesData["nodes"].([]interface{}); ok && len(rawList) > 0 {
 								var NodesResult []NfvServicePaloAltoFwServiceServiceNodesNodesModel
-								for _, NodesItem := range rawList {
+								for NodesIdx, NodesItem := range rawList {
+									_ = NodesIdx
 									if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
 										NodesResult = append(NodesResult, NfvServicePaloAltoFwServiceServiceNodesNodesModel{
 											AWSAzName: func() types.String {
@@ -7944,6 +8554,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 															return types.StringNull()
 														}(),
 														SubnetParam: func() *NfvServicePaloAltoFwServiceServiceNodesNodesMgmtSubnetSubnetParamModel {
+															if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].MgmtSubnet != nil && NodesExisting[NodesIdx].MgmtSubnet.SubnetParam != nil {
+																return NodesExisting[NodesIdx].MgmtSubnet.SubnetParam
+															}
 															if SubnetParamData, ok := MgmtSubnetData["subnet_param"].(map[string]interface{}); ok {
 																return &NfvServicePaloAltoFwServiceServiceNodesNodesMgmtSubnetSubnetParamModel{
 																	Ipv4: func() types.String {
@@ -7967,6 +8580,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												return types.StringNull()
 											}(),
 											ReservedMgmtSubnet: func() *NfvServiceEmptyModel {
+												if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].ReservedMgmtSubnet != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := NodesItemMap["reserved_mgmt_subnet"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -9172,9 +9788,14 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				if !isImport && data.EnabledSSHAccess != nil && (data.EnabledSSHAccess.NodeSSHPorts.IsNull() || len(data.EnabledSSHAccess.NodeSSHPorts.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NfvServiceEnabledSSHAccessNodeSSHPortsModelAttrTypes})
 				}
+				var NodeSSHPortsExisting []NfvServiceEnabledSSHAccessNodeSSHPortsModel
+				if !isImport && data.EnabledSSHAccess != nil && !data.EnabledSSHAccess.NodeSSHPorts.IsNull() && !data.EnabledSSHAccess.NodeSSHPorts.IsUnknown() {
+					data.EnabledSSHAccess.NodeSSHPorts.ElementsAs(ctx, &NodeSSHPortsExisting, false)
+				}
 				if rawList, ok := blockData["node_ssh_ports"].([]interface{}); ok && len(rawList) > 0 {
 					var NodeSSHPortsResult []NfvServiceEnabledSSHAccessNodeSSHPortsModel
-					for _, NodeSSHPortsItem := range rawList {
+					for NodeSSHPortsIdx, NodeSSHPortsItem := range rawList {
+						_ = NodeSSHPortsIdx
 						if NodeSSHPortsItemMap, ok := NodeSSHPortsItem.(map[string]interface{}); ok {
 							NodeSSHPortsResult = append(NodeSSHPortsResult, NfvServiceEnabledSSHAccessNodeSSHPortsModel{
 								NodeName: func() types.String {
@@ -9208,6 +9829,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				if AdminPasswordData, ok := blockData["admin_password"].(map[string]interface{}); ok {
 					return &NfvServiceF5BigIPAWSServiceAdminPasswordModel{
 						BlindfoldSecretInfo: func() *NfvServiceF5BigIPAWSServiceAdminPasswordBlindfoldSecretInfoModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.AdminPassword != nil && data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo != nil {
+								return data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := AdminPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &NfvServiceF5BigIPAWSServiceAdminPasswordBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -9233,6 +9857,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							return nil
 						}(),
 						ClearSecretInfo: func() *NfvServiceF5BigIPAWSServiceAdminPasswordClearSecretInfoModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.AdminPassword != nil && data.F5BigIPAWSService.AdminPassword.ClearSecretInfo != nil {
+								return data.F5BigIPAWSService.AdminPassword.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := AdminPasswordData["clear_secret_info"].(map[string]interface{}); ok {
 								return &NfvServiceF5BigIPAWSServiceAdminPasswordClearSecretInfoModel{
 									Provider: func() types.String {
@@ -9300,18 +9927,27 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				if EndpointServiceData, ok := blockData["endpoint_service"].(map[string]interface{}); ok {
 					return &NfvServiceF5BigIPAWSServiceEndpointServiceModel{
 						AdvertiseOnSloIP: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.AdvertiseOnSloIP
+							}
 							if _, ok := EndpointServiceData["advertise_on_slo_ip"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						AdvertiseOnSloIPExternal: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.AdvertiseOnSloIPExternal
+							}
 							if _, ok := EndpointServiceData["advertise_on_slo_ip_external"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						AutomaticVIP: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.AutomaticVIP
+							}
 							if _, ok := EndpointServiceData["automatic_vip"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
@@ -9324,6 +9960,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							return types.StringNull()
 						}(),
 						CustomTCPPorts: func() *NfvServiceF5BigIPAWSServiceEndpointServiceCustomTCPPortsModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil && data.F5BigIPAWSService.EndpointService.CustomTCPPorts != nil {
+								return data.F5BigIPAWSService.EndpointService.CustomTCPPorts
+							}
 							if CustomTCPPortsData, ok := EndpointServiceData["custom_tcp_ports"].(map[string]interface{}); ok {
 								return &NfvServiceF5BigIPAWSServiceEndpointServiceCustomTCPPortsModel{
 									Ports: func() types.List {
@@ -9344,6 +9983,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							return nil
 						}(),
 						CustomUDPPorts: func() *NfvServiceF5BigIPAWSServiceEndpointServiceCustomUDPPortsModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil && data.F5BigIPAWSService.EndpointService.CustomUDPPorts != nil {
+								return data.F5BigIPAWSService.EndpointService.CustomUDPPorts
+							}
 							if CustomUDPPortsData, ok := EndpointServiceData["custom_udp_ports"].(map[string]interface{}); ok {
 								return &NfvServiceF5BigIPAWSServiceEndpointServiceCustomUDPPortsModel{
 									Ports: func() types.List {
@@ -9364,36 +10006,54 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							return nil
 						}(),
 						DefaultTCPPorts: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.DefaultTCPPorts
+							}
 							if _, ok := EndpointServiceData["default_tcp_ports"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableAdvertiseOnSloIP: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.DisableAdvertiseOnSloIP
+							}
 							if _, ok := EndpointServiceData["disable_advertise_on_slo_ip"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						HTTPPort: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.HTTPPort
+							}
 							if _, ok := EndpointServiceData["http_port"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						HTTPSPort: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.HTTPSPort
+							}
 							if _, ok := EndpointServiceData["https_port"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						NoTCPPorts: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.NoTCPPorts
+							}
 							if _, ok := EndpointServiceData["no_tcp_ports"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						NoUDPPorts: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.EndpointService != nil {
+								return data.F5BigIPAWSService.EndpointService.NoUDPPorts
+							}
 							if _, ok := EndpointServiceData["no_udp_ports"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
@@ -9410,12 +10070,18 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				if MarketPlaceImageData, ok := blockData["market_place_image"].(map[string]interface{}); ok {
 					return &NfvServiceF5BigIPAWSServiceMarketPlaceImageModel{
 						Awafpayg200mbps: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.MarketPlaceImage != nil {
+								return data.F5BigIPAWSService.MarketPlaceImage.Awafpayg200mbps
+							}
 							if _, ok := MarketPlaceImageData["AWAFPayG200Mbps"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						Awafpayg3gbps: func() *NfvServiceEmptyModel {
+							if !isImport && data.F5BigIPAWSService != nil && data.F5BigIPAWSService.MarketPlaceImage != nil {
+								return data.F5BigIPAWSService.MarketPlaceImage.Awafpayg3gbps
+							}
 							if _, ok := MarketPlaceImageData["AWAFPayG3Gbps"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
@@ -9429,12 +10095,20 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				if !isImport && data.F5BigIPAWSService != nil && (data.F5BigIPAWSService.Nodes.IsNull() || len(data.F5BigIPAWSService.Nodes.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NfvServiceF5BigIPAWSServiceNodesModelAttrTypes})
 				}
+				var NodesExisting []NfvServiceF5BigIPAWSServiceNodesModel
+				if !isImport && data.F5BigIPAWSService != nil && !data.F5BigIPAWSService.Nodes.IsNull() && !data.F5BigIPAWSService.Nodes.IsUnknown() {
+					data.F5BigIPAWSService.Nodes.ElementsAs(ctx, &NodesExisting, false)
+				}
 				if rawList, ok := blockData["nodes"].([]interface{}); ok && len(rawList) > 0 {
 					var NodesResult []NfvServiceF5BigIPAWSServiceNodesModel
-					for _, NodesItem := range rawList {
+					for NodesIdx, NodesItem := range rawList {
+						_ = NodesIdx
 						if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
 							NodesResult = append(NodesResult, NfvServiceF5BigIPAWSServiceNodesModel{
 								AutomaticPrefix: func() *NfvServiceEmptyModel {
+									if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].AutomaticPrefix != nil {
+										return &NfvServiceEmptyModel{}
+									}
 									if _, ok := NodesItemMap["automatic_prefix"].(map[string]interface{}); ok {
 										return &NfvServiceEmptyModel{}
 									}
@@ -9456,6 +10130,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												return types.StringNull()
 											}(),
 											SubnetParam: func() *NfvServiceF5BigIPAWSServiceNodesMgmtSubnetSubnetParamModel {
+												if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].MgmtSubnet != nil && NodesExisting[NodesIdx].MgmtSubnet.SubnetParam != nil {
+													return NodesExisting[NodesIdx].MgmtSubnet.SubnetParam
+												}
 												if SubnetParamData, ok := MgmtSubnetData["subnet_param"].(map[string]interface{}); ok {
 													return &NfvServiceF5BigIPAWSServiceNodesMgmtSubnetSubnetParamModel{
 														Ipv4: func() types.String {
@@ -9479,6 +10156,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 									return types.StringNull()
 								}(),
 								ReservedMgmtSubnet: func() *NfvServiceEmptyModel {
+									if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].ReservedMgmtSubnet != nil {
+										return &NfvServiceEmptyModel{}
+									}
 									if _, ok := NodesItemMap["reserved_mgmt_subnet"].(map[string]interface{}); ok {
 										return &NfvServiceEmptyModel{}
 									}
@@ -9562,15 +10242,26 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				if AdvertiseOnSLIVIPData, ok := blockData["advertise_on_sli_vip"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPModel{
 						NoMtls: func() *NfvServiceEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil {
+								return data.HTTPSManagement.AdvertiseOnSLIVIP.NoMtls
+							}
 							if _, ok := AdvertiseOnSLIVIPData["no_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && (data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSLIVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -9606,6 +10297,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -9615,6 +10309,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -9640,6 +10337,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -9663,6 +10363,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -9677,9 +10380,15 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSLIVIPData["tls_config"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSConfigModel{
 									CustomSecurity: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -9712,18 +10421,27 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 										return nil
 									}(),
 									DefaultSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -9737,6 +10455,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							if UseMtlsData, ok := AdvertiseOnSLIVIPData["use_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -9768,6 +10489,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 										return nil
 									}(),
 									NoCRL: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -9805,12 +10529,18 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSLIVIP != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -9842,15 +10572,26 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				if AdvertiseOnSloInternetVIPData, ok := blockData["advertise_on_slo_internet_vip"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPModel{
 						NoMtls: func() *NfvServiceEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil {
+								return data.HTTPSManagement.AdvertiseOnSloInternetVIP.NoMtls
+							}
 							if _, ok := AdvertiseOnSloInternetVIPData["no_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && (data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSloInternetVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -9886,6 +10627,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -9895,6 +10639,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -9920,6 +10667,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -9943,6 +10693,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -9957,9 +10710,15 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSloInternetVIPData["tls_config"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigModel{
 									CustomSecurity: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -9992,18 +10751,27 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 										return nil
 									}(),
 									DefaultSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -10017,6 +10785,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							if UseMtlsData, ok := AdvertiseOnSloInternetVIPData["use_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -10048,6 +10819,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 										return nil
 									}(),
 									NoCRL: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -10085,12 +10859,18 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -10122,15 +10902,26 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				if AdvertiseOnSloSLIData, ok := blockData["advertise_on_slo_sli"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSloSLIModel{
 						NoMtls: func() *NfvServiceEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil {
+								return data.HTTPSManagement.AdvertiseOnSloSLI.NoMtls
+							}
 							if _, ok := AdvertiseOnSloSLIData["no_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && (data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSloSLIData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -10166,6 +10957,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -10175,6 +10969,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -10200,6 +10997,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -10223,6 +11023,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -10237,9 +11040,15 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLITLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSloSLIData["tls_config"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSConfigModel{
 									CustomSecurity: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -10272,18 +11081,27 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 										return nil
 									}(),
 									DefaultSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -10297,6 +11115,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							if UseMtlsData, ok := AdvertiseOnSloSLIData["use_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSloSLIUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -10328,6 +11149,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 										return nil
 									}(),
 									NoCRL: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -10365,12 +11189,18 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloSLI != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -10402,15 +11232,26 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				if AdvertiseOnSloVIPData, ok := blockData["advertise_on_slo_vip"].(map[string]interface{}); ok {
 					return &NfvServiceHTTPSManagementAdvertiseOnSloVIPModel{
 						NoMtls: func() *NfvServiceEmptyModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil {
+								return data.HTTPSManagement.AdvertiseOnSloVIP.NoMtls
+							}
 							if _, ok := AdvertiseOnSloVIPData["no_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceEmptyModel{}
 							}
 							return nil
 						}(),
 						TLSCertificates: func() types.List {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && (data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.IsNull() || len(data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.IsUnknown() {
+								data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
 							if rawList, ok := AdvertiseOnSloVIPData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
 								var TLSCertificatesResult []NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel
-								for _, TLSCertificatesItem := range rawList {
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
 									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
 										TLSCertificatesResult = append(TLSCertificatesResult, NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel{
 											CertificateURL: func() types.String {
@@ -10446,6 +11287,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -10455,6 +11299,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -10480,6 +11327,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
+																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -10503,6 +11353,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}
@@ -10517,9 +11370,15 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							return types.ListNull(types.ObjectType{AttrTypes: NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModelAttrTypes})
 						}(),
 						TLSConfig: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSConfigModel {
+							if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+								return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig
+							}
 							if TLSConfigData, ok := AdvertiseOnSloVIPData["tls_config"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSConfigModel{
 									CustomSecurity: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity
+										}
 										if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityModel{
 												CipherSuites: func() types.List {
@@ -10552,18 +11411,27 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 										return nil
 									}(),
 									DefaultSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.DefaultSecurity
+										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									LowSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.LowSecurity
+										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									MediumSecurity: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.MediumSecurity
+										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -10577,6 +11445,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							if UseMtlsData, ok := AdvertiseOnSloVIPData["use_mtls"].(map[string]interface{}); ok {
 								return &NfvServiceHTTPSManagementAdvertiseOnSloVIPUseMtlsModel{
 									ClientCertificateOptional: func() types.Bool {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional
+										}
 										if v, ok := UseMtlsData["client_certificate_optional"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -10608,6 +11479,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 										return nil
 									}(),
 									NoCRL: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.NoCRL
+										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
@@ -10645,12 +11519,18 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 										return types.StringNull()
 									}(),
 									XfccDisabled: func() *NfvServiceEmptyModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccDisabled
+										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
 											return &NfvServiceEmptyModel{}
 										}
 										return nil
 									}(),
 									XfccOptions: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsModel {
+										if !isImport && data.HTTPSManagement != nil && data.HTTPSManagement.AdvertiseOnSloVIP != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil && data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions != nil {
+											return data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions
+										}
 										if XfccOptionsData, ok := UseMtlsData["xfcc_options"].(map[string]interface{}); ok {
 											return &NfvServiceHTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsModel{
 												XfccHeaderElements: func() types.List {
@@ -10713,9 +11593,15 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				if AutoSetupData, ok := blockData["auto_setup"].(map[string]interface{}); ok {
 					return &NfvServicePaloAltoFwServiceAutoSetupModel{
 						AdminPassword: func() *NfvServicePaloAltoFwServiceAutoSetupAdminPasswordModel {
+							if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.AdminPassword != nil {
+								return data.PaloAltoFwService.AutoSetup.AdminPassword
+							}
 							if AdminPasswordData, ok := AutoSetupData["admin_password"].(map[string]interface{}); ok {
 								return &NfvServicePaloAltoFwServiceAutoSetupAdminPasswordModel{
 									BlindfoldSecretInfo: func() *NfvServicePaloAltoFwServiceAutoSetupAdminPasswordBlindfoldSecretInfoModel {
+										if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.AdminPassword != nil && data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo != nil {
+											return data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AdminPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &NfvServicePaloAltoFwServiceAutoSetupAdminPasswordBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -10741,6 +11627,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 										return nil
 									}(),
 									ClearSecretInfo: func() *NfvServicePaloAltoFwServiceAutoSetupAdminPasswordClearSecretInfoModel {
+										if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.AdminPassword != nil && data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo != nil {
+											return data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AdminPasswordData["clear_secret_info"].(map[string]interface{}); ok {
 											return &NfvServicePaloAltoFwServiceAutoSetupAdminPasswordClearSecretInfoModel{
 												Provider: func() types.String {
@@ -10770,12 +11659,21 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							return types.StringNull()
 						}(),
 						ManualSSHKeys: func() *NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysModel {
+							if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys != nil {
+								return data.PaloAltoFwService.AutoSetup.ManualSSHKeys
+							}
 							if ManualSSHKeysData, ok := AutoSetupData["manual_ssh_keys"].(map[string]interface{}); ok {
 								return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysModel{
 									PrivateKey: func() *NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyModel {
+										if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey != nil {
+											return data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey
+										}
 										if PrivateKeyData, ok := ManualSSHKeysData["private_key"].(map[string]interface{}); ok {
 											return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyModel{
 												BlindfoldSecretInfo: func() *NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyBlindfoldSecretInfoModel {
+													if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo != nil {
+														return data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -10801,6 +11699,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 													return nil
 												}(),
 												ClearSecretInfo: func() *NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyClearSecretInfoModel {
+													if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo != nil {
+														return data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 														return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyClearSecretInfoModel{
 															Provider: func() types.String {
@@ -10902,9 +11803,15 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				if PanoramaServerData, ok := blockData["panorama_server"].(map[string]interface{}); ok {
 					return &NfvServicePaloAltoFwServicePanoramaServerModel{
 						AuthorizationKey: func() *NfvServicePaloAltoFwServicePanoramaServerAuthorizationKeyModel {
+							if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.PanoramaServer != nil && data.PaloAltoFwService.PanoramaServer.AuthorizationKey != nil {
+								return data.PaloAltoFwService.PanoramaServer.AuthorizationKey
+							}
 							if AuthorizationKeyData, ok := PanoramaServerData["authorization_key"].(map[string]interface{}); ok {
 								return &NfvServicePaloAltoFwServicePanoramaServerAuthorizationKeyModel{
 									BlindfoldSecretInfo: func() *NfvServicePaloAltoFwServicePanoramaServerAuthorizationKeyBlindfoldSecretInfoModel {
+										if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.PanoramaServer != nil && data.PaloAltoFwService.PanoramaServer.AuthorizationKey != nil && data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo != nil {
+											return data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := AuthorizationKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &NfvServicePaloAltoFwServicePanoramaServerAuthorizationKeyBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -10930,6 +11837,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 										return nil
 									}(),
 									ClearSecretInfo: func() *NfvServicePaloAltoFwServicePanoramaServerAuthorizationKeyClearSecretInfoModel {
+										if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.PanoramaServer != nil && data.PaloAltoFwService.PanoramaServer.AuthorizationKey != nil && data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo != nil {
+											return data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := AuthorizationKeyData["clear_secret_info"].(map[string]interface{}); ok {
 											return &NfvServicePaloAltoFwServicePanoramaServerAuthorizationKeyClearSecretInfoModel{
 												Provider: func() types.String {
@@ -10981,9 +11891,17 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				if ServiceNodesData, ok := blockData["service_nodes"].(map[string]interface{}); ok {
 					return &NfvServicePaloAltoFwServiceServiceNodesModel{
 						Nodes: func() types.List {
+							if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.ServiceNodes != nil && (data.PaloAltoFwService.ServiceNodes.Nodes.IsNull() || len(data.PaloAltoFwService.ServiceNodes.Nodes.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NfvServicePaloAltoFwServiceServiceNodesNodesModelAttrTypes})
+							}
+							var NodesExisting []NfvServicePaloAltoFwServiceServiceNodesNodesModel
+							if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.ServiceNodes != nil && !data.PaloAltoFwService.ServiceNodes.Nodes.IsNull() && !data.PaloAltoFwService.ServiceNodes.Nodes.IsUnknown() {
+								data.PaloAltoFwService.ServiceNodes.Nodes.ElementsAs(ctx, &NodesExisting, false)
+							}
 							if rawList, ok := ServiceNodesData["nodes"].([]interface{}); ok && len(rawList) > 0 {
 								var NodesResult []NfvServicePaloAltoFwServiceServiceNodesNodesModel
-								for _, NodesItem := range rawList {
+								for NodesIdx, NodesItem := range rawList {
+									_ = NodesIdx
 									if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
 										NodesResult = append(NodesResult, NfvServicePaloAltoFwServiceServiceNodesNodesModel{
 											AWSAzName: func() types.String {
@@ -11002,6 +11920,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 															return types.StringNull()
 														}(),
 														SubnetParam: func() *NfvServicePaloAltoFwServiceServiceNodesNodesMgmtSubnetSubnetParamModel {
+															if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].MgmtSubnet != nil && NodesExisting[NodesIdx].MgmtSubnet.SubnetParam != nil {
+																return NodesExisting[NodesIdx].MgmtSubnet.SubnetParam
+															}
 															if SubnetParamData, ok := MgmtSubnetData["subnet_param"].(map[string]interface{}); ok {
 																return &NfvServicePaloAltoFwServiceServiceNodesNodesMgmtSubnetSubnetParamModel{
 																	Ipv4: func() types.String {
@@ -11025,6 +11946,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												return types.StringNull()
 											}(),
 											ReservedMgmtSubnet: func() *NfvServiceEmptyModel {
+												if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].ReservedMgmtSubnet != nil {
+													return &NfvServiceEmptyModel{}
+												}
 												if _, ok := NodesItemMap["reserved_mgmt_subnet"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
 												}

@@ -1376,9 +1376,14 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 				if !isImport && data.Rules != nil && (data.Rules.EgressRules.IsNull() || len(data.Rules.EgressRules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesModelAttrTypes})
 				}
+				var EgressRulesExisting []NetworkPolicyRulesEgressRulesModel
+				if !isImport && data.Rules != nil && !data.Rules.EgressRules.IsNull() && !data.Rules.EgressRules.IsUnknown() {
+					data.Rules.EgressRules.ElementsAs(ctx, &EgressRulesExisting, false)
+				}
 				if rawList, ok := blockData["egress_rules"].([]interface{}); ok && len(rawList) > 0 {
 					var EgressRulesResult []NetworkPolicyRulesEgressRulesModel
-					for _, EgressRulesItem := range rawList {
+					for EgressRulesIdx, EgressRulesItem := range rawList {
+						_ = EgressRulesIdx
 						if EgressRulesItemMap, ok := EgressRulesItem.(map[string]interface{}); ok {
 							EgressRulesResult = append(EgressRulesResult, NetworkPolicyRulesEgressRulesModel{
 								Action: func() types.String {
@@ -1401,24 +1406,36 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].AllTCPTraffic != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := EgressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTraffic: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].AllTraffic != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := EgressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].AllUDPTraffic != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := EgressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Any: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].Any != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := EgressRulesItemMap["any"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
@@ -1445,6 +1462,9 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								InsideEndpoints: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].InsideEndpoints != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := EgressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
@@ -1454,9 +1474,17 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									if IPPrefixSetData, ok := EgressRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesEgressRulesIPPrefixSetModel{
 											Ref: func() types.List {
+												if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].IPPrefixSet != nil && (EgressRulesExisting[EgressRulesIdx].IPPrefixSet.Ref.IsNull() || len(EgressRulesExisting[EgressRulesIdx].IPPrefixSet.Ref.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesIPPrefixSetRefModelAttrTypes})
+												}
+												var RefExisting []NetworkPolicyRulesEgressRulesIPPrefixSetRefModel
+												if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].IPPrefixSet != nil && !EgressRulesExisting[EgressRulesIdx].IPPrefixSet.Ref.IsNull() && !EgressRulesExisting[EgressRulesIdx].IPPrefixSet.Ref.IsUnknown() {
+													EgressRulesExisting[EgressRulesIdx].IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+												}
 												if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
 													var RefResult []NetworkPolicyRulesEgressRulesIPPrefixSetRefModel
-													for _, RefItem := range rawList {
+													for RefIdx, RefItem := range rawList {
+														_ = RefIdx
 														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 															RefResult = append(RefResult, NetworkPolicyRulesEgressRulesIPPrefixSetRefModel{
 																Kind: func() types.String {
@@ -1561,6 +1589,9 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].OutsideEndpoints != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := EgressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
@@ -1624,9 +1655,14 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 				if !isImport && data.Rules != nil && (data.Rules.IngressRules.IsNull() || len(data.Rules.IngressRules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesModelAttrTypes})
 				}
+				var IngressRulesExisting []NetworkPolicyRulesIngressRulesModel
+				if !isImport && data.Rules != nil && !data.Rules.IngressRules.IsNull() && !data.Rules.IngressRules.IsUnknown() {
+					data.Rules.IngressRules.ElementsAs(ctx, &IngressRulesExisting, false)
+				}
 				if rawList, ok := blockData["ingress_rules"].([]interface{}); ok && len(rawList) > 0 {
 					var IngressRulesResult []NetworkPolicyRulesIngressRulesModel
-					for _, IngressRulesItem := range rawList {
+					for IngressRulesIdx, IngressRulesItem := range rawList {
+						_ = IngressRulesIdx
 						if IngressRulesItemMap, ok := IngressRulesItem.(map[string]interface{}); ok {
 							IngressRulesResult = append(IngressRulesResult, NetworkPolicyRulesIngressRulesModel{
 								Action: func() types.String {
@@ -1649,24 +1685,36 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].AllTCPTraffic != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := IngressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTraffic: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].AllTraffic != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := IngressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].AllUDPTraffic != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := IngressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Any: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].Any != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := IngressRulesItemMap["any"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
@@ -1693,6 +1741,9 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								InsideEndpoints: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].InsideEndpoints != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := IngressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
@@ -1702,9 +1753,17 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									if IPPrefixSetData, ok := IngressRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesIngressRulesIPPrefixSetModel{
 											Ref: func() types.List {
+												if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].IPPrefixSet != nil && (IngressRulesExisting[IngressRulesIdx].IPPrefixSet.Ref.IsNull() || len(IngressRulesExisting[IngressRulesIdx].IPPrefixSet.Ref.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesIPPrefixSetRefModelAttrTypes})
+												}
+												var RefExisting []NetworkPolicyRulesIngressRulesIPPrefixSetRefModel
+												if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].IPPrefixSet != nil && !IngressRulesExisting[IngressRulesIdx].IPPrefixSet.Ref.IsNull() && !IngressRulesExisting[IngressRulesIdx].IPPrefixSet.Ref.IsUnknown() {
+													IngressRulesExisting[IngressRulesIdx].IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+												}
 												if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
 													var RefResult []NetworkPolicyRulesIngressRulesIPPrefixSetRefModel
-													for _, RefItem := range rawList {
+													for RefIdx, RefItem := range rawList {
+														_ = RefIdx
 														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 															RefResult = append(RefResult, NetworkPolicyRulesIngressRulesIPPrefixSetRefModel{
 																Kind: func() types.String {
@@ -1809,6 +1868,9 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].OutsideEndpoints != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := IngressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
@@ -2046,9 +2108,14 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 				if !isImport && data.Rules != nil && (data.Rules.EgressRules.IsNull() || len(data.Rules.EgressRules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesModelAttrTypes})
 				}
+				var EgressRulesExisting []NetworkPolicyRulesEgressRulesModel
+				if !isImport && data.Rules != nil && !data.Rules.EgressRules.IsNull() && !data.Rules.EgressRules.IsUnknown() {
+					data.Rules.EgressRules.ElementsAs(ctx, &EgressRulesExisting, false)
+				}
 				if rawList, ok := blockData["egress_rules"].([]interface{}); ok && len(rawList) > 0 {
 					var EgressRulesResult []NetworkPolicyRulesEgressRulesModel
-					for _, EgressRulesItem := range rawList {
+					for EgressRulesIdx, EgressRulesItem := range rawList {
+						_ = EgressRulesIdx
 						if EgressRulesItemMap, ok := EgressRulesItem.(map[string]interface{}); ok {
 							EgressRulesResult = append(EgressRulesResult, NetworkPolicyRulesEgressRulesModel{
 								Action: func() types.String {
@@ -2071,24 +2138,36 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].AllTCPTraffic != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := EgressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTraffic: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].AllTraffic != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := EgressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].AllUDPTraffic != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := EgressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Any: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].Any != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := EgressRulesItemMap["any"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
@@ -2115,6 +2194,9 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								InsideEndpoints: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].InsideEndpoints != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := EgressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
@@ -2124,9 +2206,17 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									if IPPrefixSetData, ok := EgressRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesEgressRulesIPPrefixSetModel{
 											Ref: func() types.List {
+												if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].IPPrefixSet != nil && (EgressRulesExisting[EgressRulesIdx].IPPrefixSet.Ref.IsNull() || len(EgressRulesExisting[EgressRulesIdx].IPPrefixSet.Ref.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesIPPrefixSetRefModelAttrTypes})
+												}
+												var RefExisting []NetworkPolicyRulesEgressRulesIPPrefixSetRefModel
+												if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].IPPrefixSet != nil && !EgressRulesExisting[EgressRulesIdx].IPPrefixSet.Ref.IsNull() && !EgressRulesExisting[EgressRulesIdx].IPPrefixSet.Ref.IsUnknown() {
+													EgressRulesExisting[EgressRulesIdx].IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+												}
 												if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
 													var RefResult []NetworkPolicyRulesEgressRulesIPPrefixSetRefModel
-													for _, RefItem := range rawList {
+													for RefIdx, RefItem := range rawList {
+														_ = RefIdx
 														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 															RefResult = append(RefResult, NetworkPolicyRulesEgressRulesIPPrefixSetRefModel{
 																Kind: func() types.String {
@@ -2231,6 +2321,9 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].OutsideEndpoints != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := EgressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
@@ -2294,9 +2387,14 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 				if !isImport && data.Rules != nil && (data.Rules.IngressRules.IsNull() || len(data.Rules.IngressRules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesModelAttrTypes})
 				}
+				var IngressRulesExisting []NetworkPolicyRulesIngressRulesModel
+				if !isImport && data.Rules != nil && !data.Rules.IngressRules.IsNull() && !data.Rules.IngressRules.IsUnknown() {
+					data.Rules.IngressRules.ElementsAs(ctx, &IngressRulesExisting, false)
+				}
 				if rawList, ok := blockData["ingress_rules"].([]interface{}); ok && len(rawList) > 0 {
 					var IngressRulesResult []NetworkPolicyRulesIngressRulesModel
-					for _, IngressRulesItem := range rawList {
+					for IngressRulesIdx, IngressRulesItem := range rawList {
+						_ = IngressRulesIdx
 						if IngressRulesItemMap, ok := IngressRulesItem.(map[string]interface{}); ok {
 							IngressRulesResult = append(IngressRulesResult, NetworkPolicyRulesIngressRulesModel{
 								Action: func() types.String {
@@ -2319,24 +2417,36 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].AllTCPTraffic != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := IngressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTraffic: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].AllTraffic != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := IngressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].AllUDPTraffic != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := IngressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Any: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].Any != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := IngressRulesItemMap["any"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
@@ -2363,6 +2473,9 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								InsideEndpoints: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].InsideEndpoints != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := IngressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
@@ -2372,9 +2485,17 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									if IPPrefixSetData, ok := IngressRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesIngressRulesIPPrefixSetModel{
 											Ref: func() types.List {
+												if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].IPPrefixSet != nil && (IngressRulesExisting[IngressRulesIdx].IPPrefixSet.Ref.IsNull() || len(IngressRulesExisting[IngressRulesIdx].IPPrefixSet.Ref.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesIPPrefixSetRefModelAttrTypes})
+												}
+												var RefExisting []NetworkPolicyRulesIngressRulesIPPrefixSetRefModel
+												if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].IPPrefixSet != nil && !IngressRulesExisting[IngressRulesIdx].IPPrefixSet.Ref.IsNull() && !IngressRulesExisting[IngressRulesIdx].IPPrefixSet.Ref.IsUnknown() {
+													IngressRulesExisting[IngressRulesIdx].IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+												}
 												if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
 													var RefResult []NetworkPolicyRulesIngressRulesIPPrefixSetRefModel
-													for _, RefItem := range rawList {
+													for RefIdx, RefItem := range rawList {
+														_ = RefIdx
 														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 															RefResult = append(RefResult, NetworkPolicyRulesIngressRulesIPPrefixSetRefModel{
 																Kind: func() types.String {
@@ -2479,6 +2600,9 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].OutsideEndpoints != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := IngressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
@@ -3027,9 +3151,14 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 				if !isImport && data.Rules != nil && (data.Rules.EgressRules.IsNull() || len(data.Rules.EgressRules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesModelAttrTypes})
 				}
+				var EgressRulesExisting []NetworkPolicyRulesEgressRulesModel
+				if !isImport && data.Rules != nil && !data.Rules.EgressRules.IsNull() && !data.Rules.EgressRules.IsUnknown() {
+					data.Rules.EgressRules.ElementsAs(ctx, &EgressRulesExisting, false)
+				}
 				if rawList, ok := blockData["egress_rules"].([]interface{}); ok && len(rawList) > 0 {
 					var EgressRulesResult []NetworkPolicyRulesEgressRulesModel
-					for _, EgressRulesItem := range rawList {
+					for EgressRulesIdx, EgressRulesItem := range rawList {
+						_ = EgressRulesIdx
 						if EgressRulesItemMap, ok := EgressRulesItem.(map[string]interface{}); ok {
 							EgressRulesResult = append(EgressRulesResult, NetworkPolicyRulesEgressRulesModel{
 								Action: func() types.String {
@@ -3052,24 +3181,36 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].AllTCPTraffic != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := EgressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTraffic: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].AllTraffic != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := EgressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].AllUDPTraffic != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := EgressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Any: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].Any != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := EgressRulesItemMap["any"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
@@ -3096,6 +3237,9 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								InsideEndpoints: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].InsideEndpoints != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := EgressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
@@ -3105,9 +3249,17 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									if IPPrefixSetData, ok := EgressRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesEgressRulesIPPrefixSetModel{
 											Ref: func() types.List {
+												if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].IPPrefixSet != nil && (EgressRulesExisting[EgressRulesIdx].IPPrefixSet.Ref.IsNull() || len(EgressRulesExisting[EgressRulesIdx].IPPrefixSet.Ref.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesIPPrefixSetRefModelAttrTypes})
+												}
+												var RefExisting []NetworkPolicyRulesEgressRulesIPPrefixSetRefModel
+												if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].IPPrefixSet != nil && !EgressRulesExisting[EgressRulesIdx].IPPrefixSet.Ref.IsNull() && !EgressRulesExisting[EgressRulesIdx].IPPrefixSet.Ref.IsUnknown() {
+													EgressRulesExisting[EgressRulesIdx].IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+												}
 												if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
 													var RefResult []NetworkPolicyRulesEgressRulesIPPrefixSetRefModel
-													for _, RefItem := range rawList {
+													for RefIdx, RefItem := range rawList {
+														_ = RefIdx
 														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 															RefResult = append(RefResult, NetworkPolicyRulesEgressRulesIPPrefixSetRefModel{
 																Kind: func() types.String {
@@ -3212,6 +3364,9 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].OutsideEndpoints != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := EgressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
@@ -3275,9 +3430,14 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 				if !isImport && data.Rules != nil && (data.Rules.IngressRules.IsNull() || len(data.Rules.IngressRules.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesModelAttrTypes})
 				}
+				var IngressRulesExisting []NetworkPolicyRulesIngressRulesModel
+				if !isImport && data.Rules != nil && !data.Rules.IngressRules.IsNull() && !data.Rules.IngressRules.IsUnknown() {
+					data.Rules.IngressRules.ElementsAs(ctx, &IngressRulesExisting, false)
+				}
 				if rawList, ok := blockData["ingress_rules"].([]interface{}); ok && len(rawList) > 0 {
 					var IngressRulesResult []NetworkPolicyRulesIngressRulesModel
-					for _, IngressRulesItem := range rawList {
+					for IngressRulesIdx, IngressRulesItem := range rawList {
+						_ = IngressRulesIdx
 						if IngressRulesItemMap, ok := IngressRulesItem.(map[string]interface{}); ok {
 							IngressRulesResult = append(IngressRulesResult, NetworkPolicyRulesIngressRulesModel{
 								Action: func() types.String {
@@ -3300,24 +3460,36 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].AllTCPTraffic != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := IngressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllTraffic: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].AllTraffic != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := IngressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].AllUDPTraffic != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := IngressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Any: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].Any != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := IngressRulesItemMap["any"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
@@ -3344,6 +3516,9 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								InsideEndpoints: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].InsideEndpoints != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := IngressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}
@@ -3353,9 +3528,17 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									if IPPrefixSetData, ok := IngressRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
 										return &NetworkPolicyRulesIngressRulesIPPrefixSetModel{
 											Ref: func() types.List {
+												if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].IPPrefixSet != nil && (IngressRulesExisting[IngressRulesIdx].IPPrefixSet.Ref.IsNull() || len(IngressRulesExisting[IngressRulesIdx].IPPrefixSet.Ref.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesIPPrefixSetRefModelAttrTypes})
+												}
+												var RefExisting []NetworkPolicyRulesIngressRulesIPPrefixSetRefModel
+												if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].IPPrefixSet != nil && !IngressRulesExisting[IngressRulesIdx].IPPrefixSet.Ref.IsNull() && !IngressRulesExisting[IngressRulesIdx].IPPrefixSet.Ref.IsUnknown() {
+													IngressRulesExisting[IngressRulesIdx].IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+												}
 												if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
 													var RefResult []NetworkPolicyRulesIngressRulesIPPrefixSetRefModel
-													for _, RefItem := range rawList {
+													for RefIdx, RefItem := range rawList {
+														_ = RefIdx
 														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 															RefResult = append(RefResult, NetworkPolicyRulesIngressRulesIPPrefixSetRefModel{
 																Kind: func() types.String {
@@ -3460,6 +3643,9 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].OutsideEndpoints != nil {
+										return &NetworkPolicyEmptyModel{}
+									}
 									if _, ok := IngressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
 									}

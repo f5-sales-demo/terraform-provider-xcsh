@@ -5402,12 +5402,18 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 					return &FleetPerformanceEnhancementModePerfModeL3EnhancedModel{
 						Jumbo: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
+							}
 							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
 								return &FleetEmptyModel{}
 							}
 							return nil
 						}(),
 						NoJumbo: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
+							}
 							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
 								return &FleetEmptyModel{}
 							}
@@ -5493,12 +5499,20 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !isImport && data.BondDeviceList != nil && (data.BondDeviceList.BondDevices.IsNull() || len(data.BondDeviceList.BondDevices.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetBondDeviceListBondDevicesModelAttrTypes})
 				}
+				var BondDevicesExisting []FleetBondDeviceListBondDevicesModel
+				if !isImport && data.BondDeviceList != nil && !data.BondDeviceList.BondDevices.IsNull() && !data.BondDeviceList.BondDevices.IsUnknown() {
+					data.BondDeviceList.BondDevices.ElementsAs(ctx, &BondDevicesExisting, false)
+				}
 				if rawList, ok := blockData["bond_devices"].([]interface{}); ok && len(rawList) > 0 {
 					var BondDevicesResult []FleetBondDeviceListBondDevicesModel
-					for _, BondDevicesItem := range rawList {
+					for BondDevicesIdx, BondDevicesItem := range rawList {
+						_ = BondDevicesIdx
 						if BondDevicesItemMap, ok := BondDevicesItem.(map[string]interface{}); ok {
 							BondDevicesResult = append(BondDevicesResult, FleetBondDeviceListBondDevicesModel{
 								ActiveBackup: func() *FleetEmptyModel {
+									if !isImport && len(BondDevicesExisting) > BondDevicesIdx && BondDevicesExisting[BondDevicesIdx].ActiveBackup != nil {
+										return &FleetEmptyModel{}
+									}
 									if _, ok := BondDevicesItemMap["active_backup"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
@@ -5521,6 +5535,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									if LacpData, ok := BondDevicesItemMap["lacp"].(map[string]interface{}); ok {
 										return &FleetBondDeviceListBondDevicesLacpModel{
 											Rate: func() types.Int64 {
+												if !isImport && len(BondDevicesExisting) > BondDevicesIdx && BondDevicesExisting[BondDevicesIdx].Lacp != nil && !BondDevicesExisting[BondDevicesIdx].Lacp.Rate.IsUnknown() {
+													return BondDevicesExisting[BondDevicesIdx].Lacp.Rate
+												}
 												if v, ok := LacpData["rate"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -5620,9 +5637,14 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !isImport && data.DeviceList != nil && (data.DeviceList.Devices.IsNull() || len(data.DeviceList.Devices.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetDeviceListDevicesModelAttrTypes})
 				}
+				var DevicesExisting []FleetDeviceListDevicesModel
+				if !isImport && data.DeviceList != nil && !data.DeviceList.Devices.IsNull() && !data.DeviceList.Devices.IsUnknown() {
+					data.DeviceList.Devices.ElementsAs(ctx, &DevicesExisting, false)
+				}
 				if rawList, ok := blockData["devices"].([]interface{}); ok && len(rawList) > 0 {
 					var DevicesResult []FleetDeviceListDevicesModel
-					for _, DevicesItem := range rawList {
+					for DevicesIdx, DevicesItem := range rawList {
+						_ = DevicesIdx
 						if DevicesItemMap, ok := DevicesItem.(map[string]interface{}); ok {
 							DevicesResult = append(DevicesResult, FleetDeviceListDevicesModel{
 								Name: func() types.String {
@@ -5635,9 +5657,17 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									if NetworkDeviceData, ok := DevicesItemMap["network_device"].(map[string]interface{}); ok {
 										return &FleetDeviceListDevicesNetworkDeviceModel{
 											Interface: func() types.List {
+												if !isImport && len(DevicesExisting) > DevicesIdx && DevicesExisting[DevicesIdx].NetworkDevice != nil && (DevicesExisting[DevicesIdx].NetworkDevice.Interface.IsNull() || len(DevicesExisting[DevicesIdx].NetworkDevice.Interface.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: FleetDeviceListDevicesNetworkDeviceInterfaceModelAttrTypes})
+												}
+												var InterfaceExisting []FleetDeviceListDevicesNetworkDeviceInterfaceModel
+												if !isImport && len(DevicesExisting) > DevicesIdx && DevicesExisting[DevicesIdx].NetworkDevice != nil && !DevicesExisting[DevicesIdx].NetworkDevice.Interface.IsNull() && !DevicesExisting[DevicesIdx].NetworkDevice.Interface.IsUnknown() {
+													DevicesExisting[DevicesIdx].NetworkDevice.Interface.ElementsAs(ctx, &InterfaceExisting, false)
+												}
 												if rawList, ok := NetworkDeviceData["interface"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceResult []FleetDeviceListDevicesNetworkDeviceInterfaceModel
-													for _, InterfaceItem := range rawList {
+													for InterfaceIdx, InterfaceItem := range rawList {
+														_ = InterfaceIdx
 														if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 															InterfaceResult = append(InterfaceResult, FleetDeviceListDevicesNetworkDeviceInterfaceModel{
 																Kind: func() types.String {
@@ -5800,9 +5830,14 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !isImport && data.InterfaceList != nil && (data.InterfaceList.Interfaces.IsNull() || len(data.InterfaceList.Interfaces.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetInterfaceListInterfacesModelAttrTypes})
 				}
+				var InterfacesExisting []FleetInterfaceListInterfacesModel
+				if !isImport && data.InterfaceList != nil && !data.InterfaceList.Interfaces.IsNull() && !data.InterfaceList.Interfaces.IsUnknown() {
+					data.InterfaceList.Interfaces.ElementsAs(ctx, &InterfacesExisting, false)
+				}
 				if rawList, ok := blockData["interfaces"].([]interface{}); ok && len(rawList) > 0 {
 					var InterfacesResult []FleetInterfaceListInterfacesModel
-					for _, InterfacesItem := range rawList {
+					for InterfacesIdx, InterfacesItem := range rawList {
+						_ = InterfacesIdx
 						if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
 							InterfacesResult = append(InterfacesResult, FleetInterfaceListInterfacesModel{
 								Name: func() types.String {
@@ -5851,24 +5886,36 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &FleetKubernetesUpgradeDrainEnableUpgradeDrainModel{
 						DisableVegaUpgradeMode: func() *FleetEmptyModel {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
+							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
 								return &FleetEmptyModel{}
 							}
 							return nil
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
+							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						DrainNodeTimeout: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout
+							}
 							if v, ok := EnableUpgradeDrainData["drain_node_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						EnableVegaUpgradeMode: func() *FleetEmptyModel {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
+							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
 								return &FleetEmptyModel{}
 							}
@@ -6085,9 +6132,14 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !isImport && data.SriovInterfaces != nil && (data.SriovInterfaces.SriovInterface.IsNull() || len(data.SriovInterfaces.SriovInterface.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetSriovInterfacesSriovInterfaceModelAttrTypes})
 				}
+				var SriovInterfaceExisting []FleetSriovInterfacesSriovInterfaceModel
+				if !isImport && data.SriovInterfaces != nil && !data.SriovInterfaces.SriovInterface.IsNull() && !data.SriovInterfaces.SriovInterface.IsUnknown() {
+					data.SriovInterfaces.SriovInterface.ElementsAs(ctx, &SriovInterfaceExisting, false)
+				}
 				if rawList, ok := blockData["sriov_interface"].([]interface{}); ok && len(rawList) > 0 {
 					var SriovInterfaceResult []FleetSriovInterfacesSriovInterfaceModel
-					for _, SriovInterfaceItem := range rawList {
+					for SriovInterfaceIdx, SriovInterfaceItem := range rawList {
+						_ = SriovInterfaceIdx
 						if SriovInterfaceItemMap, ok := SriovInterfaceItem.(map[string]interface{}); ok {
 							SriovInterfaceResult = append(SriovInterfaceResult, FleetSriovInterfacesSriovInterfaceModel{
 								InterfaceName: func() types.String {
@@ -6124,12 +6176,20 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !isImport && data.StorageClassList != nil && (data.StorageClassList.StorageClasses.IsNull() || len(data.StorageClassList.StorageClasses.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageClassListStorageClassesModelAttrTypes})
 				}
+				var StorageClassesExisting []FleetStorageClassListStorageClassesModel
+				if !isImport && data.StorageClassList != nil && !data.StorageClassList.StorageClasses.IsNull() && !data.StorageClassList.StorageClasses.IsUnknown() {
+					data.StorageClassList.StorageClasses.ElementsAs(ctx, &StorageClassesExisting, false)
+				}
 				if rawList, ok := blockData["storage_classes"].([]interface{}); ok && len(rawList) > 0 {
 					var StorageClassesResult []FleetStorageClassListStorageClassesModel
-					for _, StorageClassesItem := range rawList {
+					for StorageClassesIdx, StorageClassesItem := range rawList {
+						_ = StorageClassesIdx
 						if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
 							StorageClassesResult = append(StorageClassesResult, FleetStorageClassListStorageClassesModel{
 								AdvancedStorageParameters: func() *FleetEmptyModel {
+									if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters != nil {
+										return &FleetEmptyModel{}
+									}
 									if _, ok := StorageClassesItemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
@@ -6182,6 +6242,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return types.StringNull()
 											}(),
 											DedupeEnabled: func() types.Bool {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.DedupeEnabled.IsUnknown() {
+													return StorageClassesExisting[StorageClassesIdx].HpeStorage.DedupeEnabled
+												}
 												if v, ok := HpeStorageData["dedupe_enabled"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -6194,12 +6257,18 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return types.StringNull()
 											}(),
 											DestroyOnDelete: func() types.Bool {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.DestroyOnDelete.IsUnknown() {
+													return StorageClassesExisting[StorageClassesIdx].HpeStorage.DestroyOnDelete
+												}
 												if v, ok := HpeStorageData["destroy_on_delete"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											Encrypted: func() types.Bool {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.Encrypted.IsUnknown() {
+													return StorageClassesExisting[StorageClassesIdx].HpeStorage.Encrypted
+												}
 												if v, ok := HpeStorageData["encrypted"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -6254,12 +6323,18 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return types.StringNull()
 											}(),
 											SyncOnDetach: func() types.Bool {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.SyncOnDetach.IsUnknown() {
+													return StorageClassesExisting[StorageClassesIdx].HpeStorage.SyncOnDetach
+												}
 												if v, ok := HpeStorageData["sync_on_detach"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											Thick: func() types.Bool {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.Thick.IsUnknown() {
+													return StorageClassesExisting[StorageClassesIdx].HpeStorage.Thick
+												}
 												if v, ok := HpeStorageData["thick"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -6273,6 +6348,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									if NetappTridentData, ok := StorageClassesItemMap["netapp_trident"].(map[string]interface{}); ok {
 										return &FleetStorageClassListStorageClassesNetappTridentModel{
 											Selector: func() *FleetEmptyModel {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].NetappTrident != nil {
+													return StorageClassesExisting[StorageClassesIdx].NetappTrident.Selector
+												}
 												if _, ok := NetappTridentData["selector"].(map[string]interface{}); ok {
 													return &FleetEmptyModel{}
 												}
@@ -6304,6 +6382,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return types.StringNull()
 											}(),
 											IopsLimit: func() types.Int64 {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].PureServiceOrchestrator != nil && !StorageClassesExisting[StorageClassesIdx].PureServiceOrchestrator.IopsLimit.IsUnknown() {
+													return StorageClassesExisting[StorageClassesIdx].PureServiceOrchestrator.IopsLimit
+												}
 												if v, ok := PureServiceOrchestratorData["iops_limit"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -6347,18 +6428,29 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !isImport && data.StorageDeviceList != nil && (data.StorageDeviceList.StorageDevices.IsNull() || len(data.StorageDeviceList.StorageDevices.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesModelAttrTypes})
 				}
+				var StorageDevicesExisting []FleetStorageDeviceListStorageDevicesModel
+				if !isImport && data.StorageDeviceList != nil && !data.StorageDeviceList.StorageDevices.IsNull() && !data.StorageDeviceList.StorageDevices.IsUnknown() {
+					data.StorageDeviceList.StorageDevices.ElementsAs(ctx, &StorageDevicesExisting, false)
+				}
 				if rawList, ok := blockData["storage_devices"].([]interface{}); ok && len(rawList) > 0 {
 					var StorageDevicesResult []FleetStorageDeviceListStorageDevicesModel
-					for _, StorageDevicesItem := range rawList {
+					for StorageDevicesIdx, StorageDevicesItem := range rawList {
+						_ = StorageDevicesIdx
 						if StorageDevicesItemMap, ok := StorageDevicesItem.(map[string]interface{}); ok {
 							StorageDevicesResult = append(StorageDevicesResult, FleetStorageDeviceListStorageDevicesModel{
 								AdvancedAdvancedParameters: func() *FleetEmptyModel {
+									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters != nil {
+										return &FleetEmptyModel{}
+									}
 									if _, ok := StorageDevicesItemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
 									return nil
 								}(),
 								CustomStorage: func() *FleetEmptyModel {
+									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].CustomStorage != nil {
+										return &FleetEmptyModel{}
+									}
 									if _, ok := StorageDevicesItemMap["custom_storage"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
@@ -6368,15 +6460,24 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									if HpeStorageData, ok := StorageDevicesItemMap["hpe_storage"].(map[string]interface{}); ok {
 										return &FleetStorageDeviceListStorageDevicesHpeStorageModel{
 											APIServerPort: func() types.Int64 {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && !StorageDevicesExisting[StorageDevicesIdx].HpeStorage.APIServerPort.IsUnknown() {
+													return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.APIServerPort
+												}
 												if v, ok := HpeStorageData["api_server_port"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
 											}(),
 											IscsiChapPassword: func() *FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordModel {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil {
+													return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword
+												}
 												if IscsiChapPasswordData, ok := HpeStorageData["iscsi_chap_password"].(map[string]interface{}); ok {
 													return &FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordModel{
 														BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfo != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := IscsiChapPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -6402,6 +6503,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.ClearSecretInfo != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := IscsiChapPasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -6431,9 +6535,15 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return types.StringNull()
 											}(),
 											Password: func() *FleetStorageDeviceListStorageDevicesHpeStoragePasswordModel {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil {
+													return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password
+												}
 												if PasswordData, ok := HpeStorageData["password"].(map[string]interface{}); ok {
 													return &FleetStorageDeviceListStorageDevicesHpeStoragePasswordModel{
 														BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfo != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -6459,6 +6569,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.ClearSecretInfo != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -6507,9 +6620,15 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									if NetappTridentData, ok := StorageDevicesItemMap["netapp_trident"].(map[string]interface{}); ok {
 										return &FleetStorageDeviceListStorageDevicesNetappTridentModel{
 											NetappBackendOntapNas: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasModel {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil {
+													return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas
+												}
 												if NetappBackendOntapNasData, ok := NetappTridentData["netapp_backend_ontap_nas"].(map[string]interface{}); ok {
 													return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasModel{
 														AutoExportCidrs: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasAutoExportCidrsModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportCidrs != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportCidrs
+															}
 															if AutoExportCidrsData, ok := NetappBackendOntapNasData["auto_export_cidrs"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasAutoExportCidrsModel{
 																	Prefixes: func() types.List {
@@ -6530,6 +6649,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														AutoExportPolicy: func() types.Bool {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportPolicy.IsUnknown() {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportPolicy
+															}
 															if v, ok := NetappBackendOntapNasData["auto_export_policy"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -6548,9 +6670,15 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														ClientPrivateKey: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey
+															}
 															if ClientPrivateKeyData, ok := NetappBackendOntapNasData["client_private_key"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -6576,6 +6704,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -6611,6 +6742,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														Labels: func() *FleetEmptyModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Labels
+															}
 															if _, ok := NetappBackendOntapNasData["labels"].(map[string]interface{}); ok {
 																return &FleetEmptyModel{}
 															}
@@ -6647,9 +6781,15 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														Password: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password
+															}
 															if PasswordData, ok := NetappBackendOntapNasData["password"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModel{
 																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -6675,6 +6815,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -6704,12 +6847,23 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														Storage: func() types.List {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && (StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModelAttrTypes})
+															}
+															var StorageExisting []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.IsUnknown() {
+																StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.ElementsAs(ctx, &StorageExisting, false)
+															}
 															if rawList, ok := NetappBackendOntapNasData["storage"].([]interface{}); ok && len(rawList) > 0 {
 																var StorageResult []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel
-																for _, StorageItem := range rawList {
+																for StorageIdx, StorageItem := range rawList {
+																	_ = StorageIdx
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel{
 																			Labels: func() *FleetEmptyModel {
+																				if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
+																					return &FleetEmptyModel{}
+																				}
 																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																					return &FleetEmptyModel{}
 																				}
@@ -6725,6 +6879,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																							return types.StringNull()
 																						}(),
 																						Encryption: func() types.Bool {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.Encryption.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.Encryption
+																							}
 																							if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																								return types.BoolValue(v)
 																							}
@@ -6737,6 +6894,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																							return types.StringNull()
 																						}(),
 																						NoQOS: func() *FleetEmptyModel {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil {
+																								return StorageExisting[StorageIdx].VolumeDefaults.NoQOS
+																							}
 																							if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																								return &FleetEmptyModel{}
 																							}
@@ -6755,6 +6915,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																							return types.StringNull()
 																						}(),
 																						SnapshotDir: func() types.Bool {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir
+																							}
 																							if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																								return types.BoolValue(v)
 																							}
@@ -6779,6 +6942,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																							return types.StringNull()
 																						}(),
 																						SplitOnClone: func() types.Bool {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone
+																							}
 																							if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																								return types.BoolValue(v)
 																							}
@@ -6791,6 +6957,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																							return types.StringNull()
 																						}(),
 																						UnixPermissions: func() types.Int64 {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions
+																							}
 																							if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -6845,6 +7014,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults
+															}
 															if VolumeDefaultsData, ok := NetappBackendOntapNasData["volume_defaults"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModel{
 																	AdaptiveQOSPolicy: func() types.String {
@@ -6854,6 +7026,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return types.StringNull()
 																	}(),
 																	Encryption: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption
+																		}
 																		if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -6866,6 +7041,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return types.StringNull()
 																	}(),
 																	NoQOS: func() *FleetEmptyModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS
+																		}
 																		if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																			return &FleetEmptyModel{}
 																		}
@@ -6884,6 +7062,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return types.StringNull()
 																	}(),
 																	SnapshotDir: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir
+																		}
 																		if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -6908,6 +7089,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return types.StringNull()
 																	}(),
 																	SplitOnClone: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone
+																		}
 																		if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -6920,6 +7104,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return types.StringNull()
 																	}(),
 																	UnixPermissions: func() types.Int64 {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions
+																		}
 																		if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																			return types.Int64Value(int64(v))
 																		}
@@ -6934,6 +7121,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return nil
 											}(),
 											NetappBackendOntapSan: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+													return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan
+												}
 												if NetappBackendOntapSanData, ok := NetappTridentData["netapp_backend_ontap_san"].(map[string]interface{}); ok {
 													return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel{
 														ClientCertificate: func() types.String {
@@ -6943,9 +7133,15 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														ClientPrivateKey: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey
+															}
 															if ClientPrivateKeyData, ok := NetappBackendOntapSanData["client_private_key"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -6971,6 +7167,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -7012,18 +7211,27 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														Labels: func() *FleetEmptyModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Labels
+															}
 															if _, ok := NetappBackendOntapSanData["labels"].(map[string]interface{}); ok {
 																return &FleetEmptyModel{}
 															}
 															return nil
 														}(),
 														LimitAggregateUsage: func() types.Int64 {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsUnknown() {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage
+															}
 															if v, ok := NetappBackendOntapSanData["limit_aggregate_usage"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														LimitVolumeSize: func() types.Int64 {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitVolumeSize.IsUnknown() {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitVolumeSize
+															}
 															if v, ok := NetappBackendOntapSanData["limit_volume_size"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -7042,15 +7250,24 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														NoChap: func() *FleetEmptyModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.NoChap
+															}
 															if _, ok := NetappBackendOntapSanData["no_chap"].(map[string]interface{}); ok {
 																return &FleetEmptyModel{}
 															}
 															return nil
 														}(),
 														Password: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password
+															}
 															if PasswordData, ok := NetappBackendOntapSanData["password"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel{
 																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -7076,6 +7293,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -7105,12 +7325,23 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														Storage: func() types.List {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && (StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModelAttrTypes})
+															}
+															var StorageExisting []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.IsUnknown() {
+																StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.ElementsAs(ctx, &StorageExisting, false)
+															}
 															if rawList, ok := NetappBackendOntapSanData["storage"].([]interface{}); ok && len(rawList) > 0 {
 																var StorageResult []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel
-																for _, StorageItem := range rawList {
+																for StorageIdx, StorageItem := range rawList {
+																	_ = StorageIdx
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel{
 																			Labels: func() *FleetEmptyModel {
+																				if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
+																					return &FleetEmptyModel{}
+																				}
 																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																					return &FleetEmptyModel{}
 																				}
@@ -7126,6 +7357,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																							return types.StringNull()
 																						}(),
 																						Encryption: func() types.Bool {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.Encryption.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.Encryption
+																							}
 																							if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																								return types.BoolValue(v)
 																							}
@@ -7138,6 +7372,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																							return types.StringNull()
 																						}(),
 																						NoQOS: func() *FleetEmptyModel {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil {
+																								return StorageExisting[StorageIdx].VolumeDefaults.NoQOS
+																							}
 																							if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																								return &FleetEmptyModel{}
 																							}
@@ -7156,6 +7393,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																							return types.StringNull()
 																						}(),
 																						SnapshotDir: func() types.Bool {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir
+																							}
 																							if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																								return types.BoolValue(v)
 																							}
@@ -7180,6 +7420,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																							return types.StringNull()
 																						}(),
 																						SplitOnClone: func() types.Bool {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone
+																							}
 																							if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																								return types.BoolValue(v)
 																							}
@@ -7192,6 +7435,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																							return types.StringNull()
 																						}(),
 																						UnixPermissions: func() types.Int64 {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions
+																							}
 																							if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -7240,12 +7486,21 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														UseChap: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap
+															}
 															if UseChapData, ok := NetappBackendOntapSanData["use_chap"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapModel{
 																	ChapInitiatorSecret: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret
+																		}
 																		if ChapInitiatorSecretData, ok := UseChapData["chap_initiator_secret"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretModel{
 																				BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo
+																					}
 																					if BlindfoldSecretInfoData, ok := ChapInitiatorSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
 																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModel{
 																							DecryptionProvider: func() types.String {
@@ -7271,6 +7526,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																					return nil
 																				}(),
 																				ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo
+																					}
 																					if ClearSecretInfoData, ok := ChapInitiatorSecretData["clear_secret_info"].(map[string]interface{}); ok {
 																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModel{
 																							Provider: func() types.String {
@@ -7294,9 +7552,15 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return nil
 																	}(),
 																	ChapTargetInitiatorSecret: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret
+																		}
 																		if ChapTargetInitiatorSecretData, ok := UseChapData["chap_target_initiator_secret"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretModel{
 																				BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo
+																					}
 																					if BlindfoldSecretInfoData, ok := ChapTargetInitiatorSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
 																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoModel{
 																							DecryptionProvider: func() types.String {
@@ -7322,6 +7586,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																					return nil
 																				}(),
 																				ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo
+																					}
 																					if ClearSecretInfoData, ok := ChapTargetInitiatorSecretData["clear_secret_info"].(map[string]interface{}); ok {
 																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel{
 																							Provider: func() types.String {
@@ -7367,6 +7634,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults
+															}
 															if VolumeDefaultsData, ok := NetappBackendOntapSanData["volume_defaults"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModel{
 																	AdaptiveQOSPolicy: func() types.String {
@@ -7376,6 +7646,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return types.StringNull()
 																	}(),
 																	Encryption: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption
+																		}
 																		if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -7388,6 +7661,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return types.StringNull()
 																	}(),
 																	NoQOS: func() *FleetEmptyModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS
+																		}
 																		if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																			return &FleetEmptyModel{}
 																		}
@@ -7406,6 +7682,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return types.StringNull()
 																	}(),
 																	SnapshotDir: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir
+																		}
 																		if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -7430,6 +7709,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return types.StringNull()
 																	}(),
 																	SplitOnClone: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone
+																		}
 																		if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -7442,6 +7724,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return types.StringNull()
 																	}(),
 																	UnixPermissions: func() types.Int64 {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions
+																		}
 																		if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																			return types.Int64Value(int64(v))
 																		}
@@ -7463,9 +7748,15 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									if PureServiceOrchestratorData, ok := StorageDevicesItemMap["pure_service_orchestrator"].(map[string]interface{}); ok {
 										return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorModel{
 											Arrays: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysModel {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil {
+													return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays
+												}
 												if ArraysData, ok := PureServiceOrchestratorData["arrays"].(map[string]interface{}); ok {
 													return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysModel{
 														FlashArray: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray
+															}
 															if FlashArrayData, ok := ArraysData["flash_array"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayModel{
 																	DefaultFsOpt: func() types.String {
@@ -7494,21 +7785,35 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return types.ListNull(types.StringType)
 																	}(),
 																	DisablePreemptAttachments: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments
+																		}
 																		if v, ok := FlashArrayData["disable_preempt_attachments"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
 																		return types.BoolNull()
 																	}(),
 																	FlashArrays: func() types.List {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && (StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModelAttrTypes})
+																		}
+																		var FlashArraysExisting []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.IsUnknown() {
+																			StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.ElementsAs(ctx, &FlashArraysExisting, false)
+																		}
 																		if rawList, ok := FlashArrayData["flash_arrays"].([]interface{}); ok && len(rawList) > 0 {
 																			var FlashArraysResult []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel
-																			for _, FlashArraysItem := range rawList {
+																			for FlashArraysIdx, FlashArraysItem := range rawList {
+																				_ = FlashArraysIdx
 																				if FlashArraysItemMap, ok := FlashArraysItem.(map[string]interface{}); ok {
 																					FlashArraysResult = append(FlashArraysResult, FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel{
 																						APIToken: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModel {
 																							if APITokenData, ok := FlashArraysItemMap["api_token"].(map[string]interface{}); ok {
 																								return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModel{
 																									BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoModel {
+																										if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfo != nil {
+																											return FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfo
+																										}
 																										if BlindfoldSecretInfoData, ok := APITokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoModel{
 																												DecryptionProvider: func() types.String {
@@ -7534,6 +7839,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																										return nil
 																									}(),
 																									ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel {
+																										if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.ClearSecretInfo != nil {
+																											return FlashArraysExisting[FlashArraysIdx].APIToken.ClearSecretInfo
+																										}
 																										if ClearSecretInfoData, ok := APITokenData["clear_secret_info"].(map[string]interface{}); ok {
 																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel{
 																												Provider: func() types.String {
@@ -7557,6 +7865,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																							return nil
 																						}(),
 																						Labels: func() *FleetEmptyModel {
+																							if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].Labels != nil {
+																								return &FleetEmptyModel{}
+																							}
 																							if _, ok := FlashArraysItemMap["labels"].(map[string]interface{}); ok {
 																								return &FleetEmptyModel{}
 																							}
@@ -7583,6 +7894,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModelAttrTypes})
 																	}(),
 																	IscsiLoginTimeout: func() types.Int64 {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout
+																		}
 																		if v, ok := FlashArrayData["iscsi_login_timeout"].(float64); ok && v != 0 {
 																			return types.Int64Value(int64(v))
 																		}
@@ -7599,9 +7913,15 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														FlashBlade: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade
+															}
 															if FlashBladeData, ok := ArraysData["flash_blade"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeModel{
 																	EnableSnapshotDirectory: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory
+																		}
 																		if v, ok := FlashBladeData["enable_snapshot_directory"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -7614,15 +7934,26 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return types.StringNull()
 																	}(),
 																	FlashBlades: func() types.List {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil && (StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModelAttrTypes})
+																		}
+																		var FlashBladesExisting []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.IsUnknown() {
+																			StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.ElementsAs(ctx, &FlashBladesExisting, false)
+																		}
 																		if rawList, ok := FlashBladeData["flash_blades"].([]interface{}); ok && len(rawList) > 0 {
 																			var FlashBladesResult []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel
-																			for _, FlashBladesItem := range rawList {
+																			for FlashBladesIdx, FlashBladesItem := range rawList {
+																				_ = FlashBladesIdx
 																				if FlashBladesItemMap, ok := FlashBladesItem.(map[string]interface{}); ok {
 																					FlashBladesResult = append(FlashBladesResult, FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel{
 																						APIToken: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModel {
 																							if APITokenData, ok := FlashBladesItemMap["api_token"].(map[string]interface{}); ok {
 																								return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModel{
 																									BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoModel {
+																										if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfo != nil {
+																											return FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfo
+																										}
 																										if BlindfoldSecretInfoData, ok := APITokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoModel{
 																												DecryptionProvider: func() types.String {
@@ -7648,6 +7979,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																										return nil
 																									}(),
 																									ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel {
+																										if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.ClearSecretInfo != nil {
+																											return FlashBladesExisting[FlashBladesIdx].APIToken.ClearSecretInfo
+																										}
 																										if ClearSecretInfoData, ok := APITokenData["clear_secret_info"].(map[string]interface{}); ok {
 																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel{
 																												Provider: func() types.String {
@@ -7671,6 +8005,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																							return nil
 																						}(),
 																						Labels: func() *FleetEmptyModel {
+																							if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].Labels != nil {
+																								return &FleetEmptyModel{}
+																							}
 																							if _, ok := FlashBladesItemMap["labels"].(map[string]interface{}); ok {
 																								return &FleetEmptyModel{}
 																							}
@@ -7723,12 +8060,18 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return types.StringNull()
 											}(),
 											EnableStorageTopology: func() types.Bool {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStorageTopology.IsUnknown() {
+													return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStorageTopology
+												}
 												if v, ok := PureServiceOrchestratorData["enable_storage_topology"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											EnableStrictTopology: func() types.Bool {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStrictTopology.IsUnknown() {
+													return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStrictTopology
+												}
 												if v, ok := PureServiceOrchestratorData["enable_strict_topology"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -7760,9 +8103,14 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !isImport && data.StorageInterfaceList != nil && (data.StorageInterfaceList.Interfaces.IsNull() || len(data.StorageInterfaceList.Interfaces.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageInterfaceListInterfacesModelAttrTypes})
 				}
+				var InterfacesExisting []FleetStorageInterfaceListInterfacesModel
+				if !isImport && data.StorageInterfaceList != nil && !data.StorageInterfaceList.Interfaces.IsNull() && !data.StorageInterfaceList.Interfaces.IsUnknown() {
+					data.StorageInterfaceList.Interfaces.ElementsAs(ctx, &InterfacesExisting, false)
+				}
 				if rawList, ok := blockData["interfaces"].([]interface{}); ok && len(rawList) > 0 {
 					var InterfacesResult []FleetStorageInterfaceListInterfacesModel
-					for _, InterfacesItem := range rawList {
+					for InterfacesIdx, InterfacesItem := range rawList {
+						_ = InterfacesIdx
 						if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
 							InterfacesResult = append(InterfacesResult, FleetStorageInterfaceListInterfacesModel{
 								Name: func() types.String {
@@ -7799,9 +8147,14 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !isImport && data.StorageStaticRoutes != nil && (data.StorageStaticRoutes.StorageRoutes.IsNull() || len(data.StorageStaticRoutes.StorageRoutes.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesModelAttrTypes})
 				}
+				var StorageRoutesExisting []FleetStorageStaticRoutesStorageRoutesModel
+				if !isImport && data.StorageStaticRoutes != nil && !data.StorageStaticRoutes.StorageRoutes.IsNull() && !data.StorageStaticRoutes.StorageRoutes.IsUnknown() {
+					data.StorageStaticRoutes.StorageRoutes.ElementsAs(ctx, &StorageRoutesExisting, false)
+				}
 				if rawList, ok := blockData["storage_routes"].([]interface{}); ok && len(rawList) > 0 {
 					var StorageRoutesResult []FleetStorageStaticRoutesStorageRoutesModel
-					for _, StorageRoutesItem := range rawList {
+					for StorageRoutesIdx, StorageRoutesItem := range rawList {
+						_ = StorageRoutesIdx
 						if StorageRoutesItemMap, ok := StorageRoutesItem.(map[string]interface{}); ok {
 							StorageRoutesResult = append(StorageRoutesResult, FleetStorageStaticRoutesStorageRoutesModel{
 								Attrs: func() types.List {
@@ -7818,6 +8171,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return types.ListNull(types.StringType)
 								}(),
 								Labels: func() *FleetEmptyModel {
+									if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Labels != nil {
+										return &FleetEmptyModel{}
+									}
 									if _, ok := StorageRoutesItemMap["labels"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
@@ -7827,9 +8183,17 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									if NexthopData, ok := StorageRoutesItemMap["nexthop"].(map[string]interface{}); ok {
 										return &FleetStorageStaticRoutesStorageRoutesNexthopModel{
 											Interface: func() types.List {
+												if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && (StorageRoutesExisting[StorageRoutesIdx].Nexthop.Interface.IsNull() || len(StorageRoutesExisting[StorageRoutesIdx].Nexthop.Interface.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModelAttrTypes})
+												}
+												var InterfaceExisting []FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModel
+												if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && !StorageRoutesExisting[StorageRoutesIdx].Nexthop.Interface.IsNull() && !StorageRoutesExisting[StorageRoutesIdx].Nexthop.Interface.IsUnknown() {
+													StorageRoutesExisting[StorageRoutesIdx].Nexthop.Interface.ElementsAs(ctx, &InterfaceExisting, false)
+												}
 												if rawList, ok := NexthopData["interface"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceResult []FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModel
-													for _, InterfaceItem := range rawList {
+													for InterfaceIdx, InterfaceItem := range rawList {
+														_ = InterfaceIdx
 														if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 															InterfaceResult = append(InterfaceResult, FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModel{
 																Kind: func() types.String {
@@ -7871,9 +8235,15 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModelAttrTypes})
 											}(),
 											NexthopAddress: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressModel {
+												if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress != nil {
+													return StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress
+												}
 												if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 													return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressModel{
 														Ipv4: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv4Model {
+															if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.Ipv4 != nil {
+																return StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.Ipv4
+															}
 															if Ipv4Data, ok := NexthopAddressData["ipv4"].(map[string]interface{}); ok {
 																return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv4Model{
 																	Addr: func() types.String {
@@ -7887,6 +8257,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														Ipv6: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv6Model {
+															if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.Ipv6 != nil {
+																return StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.Ipv6
+															}
 															if Ipv6Data, ok := NexthopAddressData["ipv6"].(map[string]interface{}); ok {
 																return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv6Model{
 																	Addr: func() types.String {
@@ -8119,12 +8492,18 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 					return &FleetPerformanceEnhancementModePerfModeL3EnhancedModel{
 						Jumbo: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
+							}
 							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
 								return &FleetEmptyModel{}
 							}
 							return nil
 						}(),
 						NoJumbo: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
+							}
 							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
 								return &FleetEmptyModel{}
 							}
@@ -8210,12 +8589,20 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				if !isImport && data.BondDeviceList != nil && (data.BondDeviceList.BondDevices.IsNull() || len(data.BondDeviceList.BondDevices.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetBondDeviceListBondDevicesModelAttrTypes})
 				}
+				var BondDevicesExisting []FleetBondDeviceListBondDevicesModel
+				if !isImport && data.BondDeviceList != nil && !data.BondDeviceList.BondDevices.IsNull() && !data.BondDeviceList.BondDevices.IsUnknown() {
+					data.BondDeviceList.BondDevices.ElementsAs(ctx, &BondDevicesExisting, false)
+				}
 				if rawList, ok := blockData["bond_devices"].([]interface{}); ok && len(rawList) > 0 {
 					var BondDevicesResult []FleetBondDeviceListBondDevicesModel
-					for _, BondDevicesItem := range rawList {
+					for BondDevicesIdx, BondDevicesItem := range rawList {
+						_ = BondDevicesIdx
 						if BondDevicesItemMap, ok := BondDevicesItem.(map[string]interface{}); ok {
 							BondDevicesResult = append(BondDevicesResult, FleetBondDeviceListBondDevicesModel{
 								ActiveBackup: func() *FleetEmptyModel {
+									if !isImport && len(BondDevicesExisting) > BondDevicesIdx && BondDevicesExisting[BondDevicesIdx].ActiveBackup != nil {
+										return &FleetEmptyModel{}
+									}
 									if _, ok := BondDevicesItemMap["active_backup"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
@@ -8238,6 +8625,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									if LacpData, ok := BondDevicesItemMap["lacp"].(map[string]interface{}); ok {
 										return &FleetBondDeviceListBondDevicesLacpModel{
 											Rate: func() types.Int64 {
+												if !isImport && len(BondDevicesExisting) > BondDevicesIdx && BondDevicesExisting[BondDevicesIdx].Lacp != nil && !BondDevicesExisting[BondDevicesIdx].Lacp.Rate.IsUnknown() {
+													return BondDevicesExisting[BondDevicesIdx].Lacp.Rate
+												}
 												if v, ok := LacpData["rate"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -8337,9 +8727,14 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				if !isImport && data.DeviceList != nil && (data.DeviceList.Devices.IsNull() || len(data.DeviceList.Devices.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetDeviceListDevicesModelAttrTypes})
 				}
+				var DevicesExisting []FleetDeviceListDevicesModel
+				if !isImport && data.DeviceList != nil && !data.DeviceList.Devices.IsNull() && !data.DeviceList.Devices.IsUnknown() {
+					data.DeviceList.Devices.ElementsAs(ctx, &DevicesExisting, false)
+				}
 				if rawList, ok := blockData["devices"].([]interface{}); ok && len(rawList) > 0 {
 					var DevicesResult []FleetDeviceListDevicesModel
-					for _, DevicesItem := range rawList {
+					for DevicesIdx, DevicesItem := range rawList {
+						_ = DevicesIdx
 						if DevicesItemMap, ok := DevicesItem.(map[string]interface{}); ok {
 							DevicesResult = append(DevicesResult, FleetDeviceListDevicesModel{
 								Name: func() types.String {
@@ -8352,9 +8747,17 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									if NetworkDeviceData, ok := DevicesItemMap["network_device"].(map[string]interface{}); ok {
 										return &FleetDeviceListDevicesNetworkDeviceModel{
 											Interface: func() types.List {
+												if !isImport && len(DevicesExisting) > DevicesIdx && DevicesExisting[DevicesIdx].NetworkDevice != nil && (DevicesExisting[DevicesIdx].NetworkDevice.Interface.IsNull() || len(DevicesExisting[DevicesIdx].NetworkDevice.Interface.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: FleetDeviceListDevicesNetworkDeviceInterfaceModelAttrTypes})
+												}
+												var InterfaceExisting []FleetDeviceListDevicesNetworkDeviceInterfaceModel
+												if !isImport && len(DevicesExisting) > DevicesIdx && DevicesExisting[DevicesIdx].NetworkDevice != nil && !DevicesExisting[DevicesIdx].NetworkDevice.Interface.IsNull() && !DevicesExisting[DevicesIdx].NetworkDevice.Interface.IsUnknown() {
+													DevicesExisting[DevicesIdx].NetworkDevice.Interface.ElementsAs(ctx, &InterfaceExisting, false)
+												}
 												if rawList, ok := NetworkDeviceData["interface"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceResult []FleetDeviceListDevicesNetworkDeviceInterfaceModel
-													for _, InterfaceItem := range rawList {
+													for InterfaceIdx, InterfaceItem := range rawList {
+														_ = InterfaceIdx
 														if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 															InterfaceResult = append(InterfaceResult, FleetDeviceListDevicesNetworkDeviceInterfaceModel{
 																Kind: func() types.String {
@@ -8517,9 +8920,14 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				if !isImport && data.InterfaceList != nil && (data.InterfaceList.Interfaces.IsNull() || len(data.InterfaceList.Interfaces.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetInterfaceListInterfacesModelAttrTypes})
 				}
+				var InterfacesExisting []FleetInterfaceListInterfacesModel
+				if !isImport && data.InterfaceList != nil && !data.InterfaceList.Interfaces.IsNull() && !data.InterfaceList.Interfaces.IsUnknown() {
+					data.InterfaceList.Interfaces.ElementsAs(ctx, &InterfacesExisting, false)
+				}
 				if rawList, ok := blockData["interfaces"].([]interface{}); ok && len(rawList) > 0 {
 					var InterfacesResult []FleetInterfaceListInterfacesModel
-					for _, InterfacesItem := range rawList {
+					for InterfacesIdx, InterfacesItem := range rawList {
+						_ = InterfacesIdx
 						if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
 							InterfacesResult = append(InterfacesResult, FleetInterfaceListInterfacesModel{
 								Name: func() types.String {
@@ -8568,24 +8976,36 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &FleetKubernetesUpgradeDrainEnableUpgradeDrainModel{
 						DisableVegaUpgradeMode: func() *FleetEmptyModel {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
+							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
 								return &FleetEmptyModel{}
 							}
 							return nil
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
+							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						DrainNodeTimeout: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout
+							}
 							if v, ok := EnableUpgradeDrainData["drain_node_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						EnableVegaUpgradeMode: func() *FleetEmptyModel {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
+							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
 								return &FleetEmptyModel{}
 							}
@@ -8802,9 +9222,14 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				if !isImport && data.SriovInterfaces != nil && (data.SriovInterfaces.SriovInterface.IsNull() || len(data.SriovInterfaces.SriovInterface.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetSriovInterfacesSriovInterfaceModelAttrTypes})
 				}
+				var SriovInterfaceExisting []FleetSriovInterfacesSriovInterfaceModel
+				if !isImport && data.SriovInterfaces != nil && !data.SriovInterfaces.SriovInterface.IsNull() && !data.SriovInterfaces.SriovInterface.IsUnknown() {
+					data.SriovInterfaces.SriovInterface.ElementsAs(ctx, &SriovInterfaceExisting, false)
+				}
 				if rawList, ok := blockData["sriov_interface"].([]interface{}); ok && len(rawList) > 0 {
 					var SriovInterfaceResult []FleetSriovInterfacesSriovInterfaceModel
-					for _, SriovInterfaceItem := range rawList {
+					for SriovInterfaceIdx, SriovInterfaceItem := range rawList {
+						_ = SriovInterfaceIdx
 						if SriovInterfaceItemMap, ok := SriovInterfaceItem.(map[string]interface{}); ok {
 							SriovInterfaceResult = append(SriovInterfaceResult, FleetSriovInterfacesSriovInterfaceModel{
 								InterfaceName: func() types.String {
@@ -8841,12 +9266,20 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				if !isImport && data.StorageClassList != nil && (data.StorageClassList.StorageClasses.IsNull() || len(data.StorageClassList.StorageClasses.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageClassListStorageClassesModelAttrTypes})
 				}
+				var StorageClassesExisting []FleetStorageClassListStorageClassesModel
+				if !isImport && data.StorageClassList != nil && !data.StorageClassList.StorageClasses.IsNull() && !data.StorageClassList.StorageClasses.IsUnknown() {
+					data.StorageClassList.StorageClasses.ElementsAs(ctx, &StorageClassesExisting, false)
+				}
 				if rawList, ok := blockData["storage_classes"].([]interface{}); ok && len(rawList) > 0 {
 					var StorageClassesResult []FleetStorageClassListStorageClassesModel
-					for _, StorageClassesItem := range rawList {
+					for StorageClassesIdx, StorageClassesItem := range rawList {
+						_ = StorageClassesIdx
 						if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
 							StorageClassesResult = append(StorageClassesResult, FleetStorageClassListStorageClassesModel{
 								AdvancedStorageParameters: func() *FleetEmptyModel {
+									if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters != nil {
+										return &FleetEmptyModel{}
+									}
 									if _, ok := StorageClassesItemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
@@ -8899,6 +9332,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return types.StringNull()
 											}(),
 											DedupeEnabled: func() types.Bool {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.DedupeEnabled.IsUnknown() {
+													return StorageClassesExisting[StorageClassesIdx].HpeStorage.DedupeEnabled
+												}
 												if v, ok := HpeStorageData["dedupe_enabled"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -8911,12 +9347,18 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return types.StringNull()
 											}(),
 											DestroyOnDelete: func() types.Bool {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.DestroyOnDelete.IsUnknown() {
+													return StorageClassesExisting[StorageClassesIdx].HpeStorage.DestroyOnDelete
+												}
 												if v, ok := HpeStorageData["destroy_on_delete"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											Encrypted: func() types.Bool {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.Encrypted.IsUnknown() {
+													return StorageClassesExisting[StorageClassesIdx].HpeStorage.Encrypted
+												}
 												if v, ok := HpeStorageData["encrypted"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -8971,12 +9413,18 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return types.StringNull()
 											}(),
 											SyncOnDetach: func() types.Bool {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.SyncOnDetach.IsUnknown() {
+													return StorageClassesExisting[StorageClassesIdx].HpeStorage.SyncOnDetach
+												}
 												if v, ok := HpeStorageData["sync_on_detach"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											Thick: func() types.Bool {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.Thick.IsUnknown() {
+													return StorageClassesExisting[StorageClassesIdx].HpeStorage.Thick
+												}
 												if v, ok := HpeStorageData["thick"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -8990,6 +9438,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									if NetappTridentData, ok := StorageClassesItemMap["netapp_trident"].(map[string]interface{}); ok {
 										return &FleetStorageClassListStorageClassesNetappTridentModel{
 											Selector: func() *FleetEmptyModel {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].NetappTrident != nil {
+													return StorageClassesExisting[StorageClassesIdx].NetappTrident.Selector
+												}
 												if _, ok := NetappTridentData["selector"].(map[string]interface{}); ok {
 													return &FleetEmptyModel{}
 												}
@@ -9021,6 +9472,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return types.StringNull()
 											}(),
 											IopsLimit: func() types.Int64 {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].PureServiceOrchestrator != nil && !StorageClassesExisting[StorageClassesIdx].PureServiceOrchestrator.IopsLimit.IsUnknown() {
+													return StorageClassesExisting[StorageClassesIdx].PureServiceOrchestrator.IopsLimit
+												}
 												if v, ok := PureServiceOrchestratorData["iops_limit"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -9064,18 +9518,29 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				if !isImport && data.StorageDeviceList != nil && (data.StorageDeviceList.StorageDevices.IsNull() || len(data.StorageDeviceList.StorageDevices.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesModelAttrTypes})
 				}
+				var StorageDevicesExisting []FleetStorageDeviceListStorageDevicesModel
+				if !isImport && data.StorageDeviceList != nil && !data.StorageDeviceList.StorageDevices.IsNull() && !data.StorageDeviceList.StorageDevices.IsUnknown() {
+					data.StorageDeviceList.StorageDevices.ElementsAs(ctx, &StorageDevicesExisting, false)
+				}
 				if rawList, ok := blockData["storage_devices"].([]interface{}); ok && len(rawList) > 0 {
 					var StorageDevicesResult []FleetStorageDeviceListStorageDevicesModel
-					for _, StorageDevicesItem := range rawList {
+					for StorageDevicesIdx, StorageDevicesItem := range rawList {
+						_ = StorageDevicesIdx
 						if StorageDevicesItemMap, ok := StorageDevicesItem.(map[string]interface{}); ok {
 							StorageDevicesResult = append(StorageDevicesResult, FleetStorageDeviceListStorageDevicesModel{
 								AdvancedAdvancedParameters: func() *FleetEmptyModel {
+									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters != nil {
+										return &FleetEmptyModel{}
+									}
 									if _, ok := StorageDevicesItemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
 									return nil
 								}(),
 								CustomStorage: func() *FleetEmptyModel {
+									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].CustomStorage != nil {
+										return &FleetEmptyModel{}
+									}
 									if _, ok := StorageDevicesItemMap["custom_storage"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
@@ -9085,15 +9550,24 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									if HpeStorageData, ok := StorageDevicesItemMap["hpe_storage"].(map[string]interface{}); ok {
 										return &FleetStorageDeviceListStorageDevicesHpeStorageModel{
 											APIServerPort: func() types.Int64 {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && !StorageDevicesExisting[StorageDevicesIdx].HpeStorage.APIServerPort.IsUnknown() {
+													return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.APIServerPort
+												}
 												if v, ok := HpeStorageData["api_server_port"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
 											}(),
 											IscsiChapPassword: func() *FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordModel {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil {
+													return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword
+												}
 												if IscsiChapPasswordData, ok := HpeStorageData["iscsi_chap_password"].(map[string]interface{}); ok {
 													return &FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordModel{
 														BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfo != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := IscsiChapPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -9119,6 +9593,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.ClearSecretInfo != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := IscsiChapPasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -9148,9 +9625,15 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return types.StringNull()
 											}(),
 											Password: func() *FleetStorageDeviceListStorageDevicesHpeStoragePasswordModel {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil {
+													return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password
+												}
 												if PasswordData, ok := HpeStorageData["password"].(map[string]interface{}); ok {
 													return &FleetStorageDeviceListStorageDevicesHpeStoragePasswordModel{
 														BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfo != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -9176,6 +9659,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.ClearSecretInfo != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -9224,9 +9710,15 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									if NetappTridentData, ok := StorageDevicesItemMap["netapp_trident"].(map[string]interface{}); ok {
 										return &FleetStorageDeviceListStorageDevicesNetappTridentModel{
 											NetappBackendOntapNas: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasModel {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil {
+													return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas
+												}
 												if NetappBackendOntapNasData, ok := NetappTridentData["netapp_backend_ontap_nas"].(map[string]interface{}); ok {
 													return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasModel{
 														AutoExportCidrs: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasAutoExportCidrsModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportCidrs != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportCidrs
+															}
 															if AutoExportCidrsData, ok := NetappBackendOntapNasData["auto_export_cidrs"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasAutoExportCidrsModel{
 																	Prefixes: func() types.List {
@@ -9247,6 +9739,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														AutoExportPolicy: func() types.Bool {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportPolicy.IsUnknown() {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportPolicy
+															}
 															if v, ok := NetappBackendOntapNasData["auto_export_policy"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -9265,9 +9760,15 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														ClientPrivateKey: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey
+															}
 															if ClientPrivateKeyData, ok := NetappBackendOntapNasData["client_private_key"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -9293,6 +9794,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -9328,6 +9832,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														Labels: func() *FleetEmptyModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Labels
+															}
 															if _, ok := NetappBackendOntapNasData["labels"].(map[string]interface{}); ok {
 																return &FleetEmptyModel{}
 															}
@@ -9364,9 +9871,15 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														Password: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password
+															}
 															if PasswordData, ok := NetappBackendOntapNasData["password"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModel{
 																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -9392,6 +9905,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -9421,12 +9937,23 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														Storage: func() types.List {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && (StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModelAttrTypes})
+															}
+															var StorageExisting []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.IsUnknown() {
+																StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.ElementsAs(ctx, &StorageExisting, false)
+															}
 															if rawList, ok := NetappBackendOntapNasData["storage"].([]interface{}); ok && len(rawList) > 0 {
 																var StorageResult []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel
-																for _, StorageItem := range rawList {
+																for StorageIdx, StorageItem := range rawList {
+																	_ = StorageIdx
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel{
 																			Labels: func() *FleetEmptyModel {
+																				if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
+																					return &FleetEmptyModel{}
+																				}
 																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																					return &FleetEmptyModel{}
 																				}
@@ -9442,6 +9969,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																							return types.StringNull()
 																						}(),
 																						Encryption: func() types.Bool {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.Encryption.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.Encryption
+																							}
 																							if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																								return types.BoolValue(v)
 																							}
@@ -9454,6 +9984,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																							return types.StringNull()
 																						}(),
 																						NoQOS: func() *FleetEmptyModel {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil {
+																								return StorageExisting[StorageIdx].VolumeDefaults.NoQOS
+																							}
 																							if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																								return &FleetEmptyModel{}
 																							}
@@ -9472,6 +10005,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																							return types.StringNull()
 																						}(),
 																						SnapshotDir: func() types.Bool {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir
+																							}
 																							if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																								return types.BoolValue(v)
 																							}
@@ -9496,6 +10032,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																							return types.StringNull()
 																						}(),
 																						SplitOnClone: func() types.Bool {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone
+																							}
 																							if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																								return types.BoolValue(v)
 																							}
@@ -9508,6 +10047,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																							return types.StringNull()
 																						}(),
 																						UnixPermissions: func() types.Int64 {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions
+																							}
 																							if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -9562,6 +10104,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults
+															}
 															if VolumeDefaultsData, ok := NetappBackendOntapNasData["volume_defaults"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModel{
 																	AdaptiveQOSPolicy: func() types.String {
@@ -9571,6 +10116,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return types.StringNull()
 																	}(),
 																	Encryption: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption
+																		}
 																		if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -9583,6 +10131,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return types.StringNull()
 																	}(),
 																	NoQOS: func() *FleetEmptyModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS
+																		}
 																		if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																			return &FleetEmptyModel{}
 																		}
@@ -9601,6 +10152,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return types.StringNull()
 																	}(),
 																	SnapshotDir: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir
+																		}
 																		if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -9625,6 +10179,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return types.StringNull()
 																	}(),
 																	SplitOnClone: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone
+																		}
 																		if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -9637,6 +10194,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return types.StringNull()
 																	}(),
 																	UnixPermissions: func() types.Int64 {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions
+																		}
 																		if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																			return types.Int64Value(int64(v))
 																		}
@@ -9651,6 +10211,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return nil
 											}(),
 											NetappBackendOntapSan: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+													return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan
+												}
 												if NetappBackendOntapSanData, ok := NetappTridentData["netapp_backend_ontap_san"].(map[string]interface{}); ok {
 													return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel{
 														ClientCertificate: func() types.String {
@@ -9660,9 +10223,15 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														ClientPrivateKey: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey
+															}
 															if ClientPrivateKeyData, ok := NetappBackendOntapSanData["client_private_key"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -9688,6 +10257,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -9729,18 +10301,27 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														Labels: func() *FleetEmptyModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Labels
+															}
 															if _, ok := NetappBackendOntapSanData["labels"].(map[string]interface{}); ok {
 																return &FleetEmptyModel{}
 															}
 															return nil
 														}(),
 														LimitAggregateUsage: func() types.Int64 {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsUnknown() {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage
+															}
 															if v, ok := NetappBackendOntapSanData["limit_aggregate_usage"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														LimitVolumeSize: func() types.Int64 {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitVolumeSize.IsUnknown() {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitVolumeSize
+															}
 															if v, ok := NetappBackendOntapSanData["limit_volume_size"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -9759,15 +10340,24 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														NoChap: func() *FleetEmptyModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.NoChap
+															}
 															if _, ok := NetappBackendOntapSanData["no_chap"].(map[string]interface{}); ok {
 																return &FleetEmptyModel{}
 															}
 															return nil
 														}(),
 														Password: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password
+															}
 															if PasswordData, ok := NetappBackendOntapSanData["password"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel{
 																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -9793,6 +10383,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -9822,12 +10415,23 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														Storage: func() types.List {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && (StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModelAttrTypes})
+															}
+															var StorageExisting []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.IsUnknown() {
+																StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.ElementsAs(ctx, &StorageExisting, false)
+															}
 															if rawList, ok := NetappBackendOntapSanData["storage"].([]interface{}); ok && len(rawList) > 0 {
 																var StorageResult []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel
-																for _, StorageItem := range rawList {
+																for StorageIdx, StorageItem := range rawList {
+																	_ = StorageIdx
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel{
 																			Labels: func() *FleetEmptyModel {
+																				if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
+																					return &FleetEmptyModel{}
+																				}
 																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																					return &FleetEmptyModel{}
 																				}
@@ -9843,6 +10447,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																							return types.StringNull()
 																						}(),
 																						Encryption: func() types.Bool {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.Encryption.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.Encryption
+																							}
 																							if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																								return types.BoolValue(v)
 																							}
@@ -9855,6 +10462,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																							return types.StringNull()
 																						}(),
 																						NoQOS: func() *FleetEmptyModel {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil {
+																								return StorageExisting[StorageIdx].VolumeDefaults.NoQOS
+																							}
 																							if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																								return &FleetEmptyModel{}
 																							}
@@ -9873,6 +10483,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																							return types.StringNull()
 																						}(),
 																						SnapshotDir: func() types.Bool {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir
+																							}
 																							if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																								return types.BoolValue(v)
 																							}
@@ -9897,6 +10510,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																							return types.StringNull()
 																						}(),
 																						SplitOnClone: func() types.Bool {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone
+																							}
 																							if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																								return types.BoolValue(v)
 																							}
@@ -9909,6 +10525,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																							return types.StringNull()
 																						}(),
 																						UnixPermissions: func() types.Int64 {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions
+																							}
 																							if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -9957,12 +10576,21 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														UseChap: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap
+															}
 															if UseChapData, ok := NetappBackendOntapSanData["use_chap"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapModel{
 																	ChapInitiatorSecret: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret
+																		}
 																		if ChapInitiatorSecretData, ok := UseChapData["chap_initiator_secret"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretModel{
 																				BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo
+																					}
 																					if BlindfoldSecretInfoData, ok := ChapInitiatorSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
 																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModel{
 																							DecryptionProvider: func() types.String {
@@ -9988,6 +10616,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																					return nil
 																				}(),
 																				ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo
+																					}
 																					if ClearSecretInfoData, ok := ChapInitiatorSecretData["clear_secret_info"].(map[string]interface{}); ok {
 																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModel{
 																							Provider: func() types.String {
@@ -10011,9 +10642,15 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return nil
 																	}(),
 																	ChapTargetInitiatorSecret: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret
+																		}
 																		if ChapTargetInitiatorSecretData, ok := UseChapData["chap_target_initiator_secret"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretModel{
 																				BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo
+																					}
 																					if BlindfoldSecretInfoData, ok := ChapTargetInitiatorSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
 																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoModel{
 																							DecryptionProvider: func() types.String {
@@ -10039,6 +10676,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																					return nil
 																				}(),
 																				ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo
+																					}
 																					if ClearSecretInfoData, ok := ChapTargetInitiatorSecretData["clear_secret_info"].(map[string]interface{}); ok {
 																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel{
 																							Provider: func() types.String {
@@ -10084,6 +10724,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults
+															}
 															if VolumeDefaultsData, ok := NetappBackendOntapSanData["volume_defaults"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModel{
 																	AdaptiveQOSPolicy: func() types.String {
@@ -10093,6 +10736,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return types.StringNull()
 																	}(),
 																	Encryption: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption
+																		}
 																		if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -10105,6 +10751,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return types.StringNull()
 																	}(),
 																	NoQOS: func() *FleetEmptyModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS
+																		}
 																		if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																			return &FleetEmptyModel{}
 																		}
@@ -10123,6 +10772,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return types.StringNull()
 																	}(),
 																	SnapshotDir: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir
+																		}
 																		if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -10147,6 +10799,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return types.StringNull()
 																	}(),
 																	SplitOnClone: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone
+																		}
 																		if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -10159,6 +10814,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return types.StringNull()
 																	}(),
 																	UnixPermissions: func() types.Int64 {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions
+																		}
 																		if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																			return types.Int64Value(int64(v))
 																		}
@@ -10180,9 +10838,15 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									if PureServiceOrchestratorData, ok := StorageDevicesItemMap["pure_service_orchestrator"].(map[string]interface{}); ok {
 										return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorModel{
 											Arrays: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysModel {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil {
+													return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays
+												}
 												if ArraysData, ok := PureServiceOrchestratorData["arrays"].(map[string]interface{}); ok {
 													return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysModel{
 														FlashArray: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray
+															}
 															if FlashArrayData, ok := ArraysData["flash_array"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayModel{
 																	DefaultFsOpt: func() types.String {
@@ -10211,21 +10875,35 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return types.ListNull(types.StringType)
 																	}(),
 																	DisablePreemptAttachments: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments
+																		}
 																		if v, ok := FlashArrayData["disable_preempt_attachments"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
 																		return types.BoolNull()
 																	}(),
 																	FlashArrays: func() types.List {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && (StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModelAttrTypes})
+																		}
+																		var FlashArraysExisting []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.IsUnknown() {
+																			StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.ElementsAs(ctx, &FlashArraysExisting, false)
+																		}
 																		if rawList, ok := FlashArrayData["flash_arrays"].([]interface{}); ok && len(rawList) > 0 {
 																			var FlashArraysResult []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel
-																			for _, FlashArraysItem := range rawList {
+																			for FlashArraysIdx, FlashArraysItem := range rawList {
+																				_ = FlashArraysIdx
 																				if FlashArraysItemMap, ok := FlashArraysItem.(map[string]interface{}); ok {
 																					FlashArraysResult = append(FlashArraysResult, FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel{
 																						APIToken: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModel {
 																							if APITokenData, ok := FlashArraysItemMap["api_token"].(map[string]interface{}); ok {
 																								return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModel{
 																									BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoModel {
+																										if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfo != nil {
+																											return FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfo
+																										}
 																										if BlindfoldSecretInfoData, ok := APITokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoModel{
 																												DecryptionProvider: func() types.String {
@@ -10251,6 +10929,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																										return nil
 																									}(),
 																									ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel {
+																										if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.ClearSecretInfo != nil {
+																											return FlashArraysExisting[FlashArraysIdx].APIToken.ClearSecretInfo
+																										}
 																										if ClearSecretInfoData, ok := APITokenData["clear_secret_info"].(map[string]interface{}); ok {
 																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel{
 																												Provider: func() types.String {
@@ -10274,6 +10955,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																							return nil
 																						}(),
 																						Labels: func() *FleetEmptyModel {
+																							if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].Labels != nil {
+																								return &FleetEmptyModel{}
+																							}
 																							if _, ok := FlashArraysItemMap["labels"].(map[string]interface{}); ok {
 																								return &FleetEmptyModel{}
 																							}
@@ -10300,6 +10984,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModelAttrTypes})
 																	}(),
 																	IscsiLoginTimeout: func() types.Int64 {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout
+																		}
 																		if v, ok := FlashArrayData["iscsi_login_timeout"].(float64); ok && v != 0 {
 																			return types.Int64Value(int64(v))
 																		}
@@ -10316,9 +11003,15 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														FlashBlade: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade
+															}
 															if FlashBladeData, ok := ArraysData["flash_blade"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeModel{
 																	EnableSnapshotDirectory: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory
+																		}
 																		if v, ok := FlashBladeData["enable_snapshot_directory"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -10331,15 +11024,26 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return types.StringNull()
 																	}(),
 																	FlashBlades: func() types.List {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil && (StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModelAttrTypes})
+																		}
+																		var FlashBladesExisting []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.IsUnknown() {
+																			StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.ElementsAs(ctx, &FlashBladesExisting, false)
+																		}
 																		if rawList, ok := FlashBladeData["flash_blades"].([]interface{}); ok && len(rawList) > 0 {
 																			var FlashBladesResult []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel
-																			for _, FlashBladesItem := range rawList {
+																			for FlashBladesIdx, FlashBladesItem := range rawList {
+																				_ = FlashBladesIdx
 																				if FlashBladesItemMap, ok := FlashBladesItem.(map[string]interface{}); ok {
 																					FlashBladesResult = append(FlashBladesResult, FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel{
 																						APIToken: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModel {
 																							if APITokenData, ok := FlashBladesItemMap["api_token"].(map[string]interface{}); ok {
 																								return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModel{
 																									BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoModel {
+																										if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfo != nil {
+																											return FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfo
+																										}
 																										if BlindfoldSecretInfoData, ok := APITokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoModel{
 																												DecryptionProvider: func() types.String {
@@ -10365,6 +11069,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																										return nil
 																									}(),
 																									ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel {
+																										if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.ClearSecretInfo != nil {
+																											return FlashBladesExisting[FlashBladesIdx].APIToken.ClearSecretInfo
+																										}
 																										if ClearSecretInfoData, ok := APITokenData["clear_secret_info"].(map[string]interface{}); ok {
 																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel{
 																												Provider: func() types.String {
@@ -10388,6 +11095,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																							return nil
 																						}(),
 																						Labels: func() *FleetEmptyModel {
+																							if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].Labels != nil {
+																								return &FleetEmptyModel{}
+																							}
 																							if _, ok := FlashBladesItemMap["labels"].(map[string]interface{}); ok {
 																								return &FleetEmptyModel{}
 																							}
@@ -10440,12 +11150,18 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return types.StringNull()
 											}(),
 											EnableStorageTopology: func() types.Bool {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStorageTopology.IsUnknown() {
+													return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStorageTopology
+												}
 												if v, ok := PureServiceOrchestratorData["enable_storage_topology"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											EnableStrictTopology: func() types.Bool {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStrictTopology.IsUnknown() {
+													return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStrictTopology
+												}
 												if v, ok := PureServiceOrchestratorData["enable_strict_topology"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -10477,9 +11193,14 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				if !isImport && data.StorageInterfaceList != nil && (data.StorageInterfaceList.Interfaces.IsNull() || len(data.StorageInterfaceList.Interfaces.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageInterfaceListInterfacesModelAttrTypes})
 				}
+				var InterfacesExisting []FleetStorageInterfaceListInterfacesModel
+				if !isImport && data.StorageInterfaceList != nil && !data.StorageInterfaceList.Interfaces.IsNull() && !data.StorageInterfaceList.Interfaces.IsUnknown() {
+					data.StorageInterfaceList.Interfaces.ElementsAs(ctx, &InterfacesExisting, false)
+				}
 				if rawList, ok := blockData["interfaces"].([]interface{}); ok && len(rawList) > 0 {
 					var InterfacesResult []FleetStorageInterfaceListInterfacesModel
-					for _, InterfacesItem := range rawList {
+					for InterfacesIdx, InterfacesItem := range rawList {
+						_ = InterfacesIdx
 						if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
 							InterfacesResult = append(InterfacesResult, FleetStorageInterfaceListInterfacesModel{
 								Name: func() types.String {
@@ -10516,9 +11237,14 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				if !isImport && data.StorageStaticRoutes != nil && (data.StorageStaticRoutes.StorageRoutes.IsNull() || len(data.StorageStaticRoutes.StorageRoutes.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesModelAttrTypes})
 				}
+				var StorageRoutesExisting []FleetStorageStaticRoutesStorageRoutesModel
+				if !isImport && data.StorageStaticRoutes != nil && !data.StorageStaticRoutes.StorageRoutes.IsNull() && !data.StorageStaticRoutes.StorageRoutes.IsUnknown() {
+					data.StorageStaticRoutes.StorageRoutes.ElementsAs(ctx, &StorageRoutesExisting, false)
+				}
 				if rawList, ok := blockData["storage_routes"].([]interface{}); ok && len(rawList) > 0 {
 					var StorageRoutesResult []FleetStorageStaticRoutesStorageRoutesModel
-					for _, StorageRoutesItem := range rawList {
+					for StorageRoutesIdx, StorageRoutesItem := range rawList {
+						_ = StorageRoutesIdx
 						if StorageRoutesItemMap, ok := StorageRoutesItem.(map[string]interface{}); ok {
 							StorageRoutesResult = append(StorageRoutesResult, FleetStorageStaticRoutesStorageRoutesModel{
 								Attrs: func() types.List {
@@ -10535,6 +11261,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return types.ListNull(types.StringType)
 								}(),
 								Labels: func() *FleetEmptyModel {
+									if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Labels != nil {
+										return &FleetEmptyModel{}
+									}
 									if _, ok := StorageRoutesItemMap["labels"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
@@ -10544,9 +11273,17 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									if NexthopData, ok := StorageRoutesItemMap["nexthop"].(map[string]interface{}); ok {
 										return &FleetStorageStaticRoutesStorageRoutesNexthopModel{
 											Interface: func() types.List {
+												if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && (StorageRoutesExisting[StorageRoutesIdx].Nexthop.Interface.IsNull() || len(StorageRoutesExisting[StorageRoutesIdx].Nexthop.Interface.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModelAttrTypes})
+												}
+												var InterfaceExisting []FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModel
+												if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && !StorageRoutesExisting[StorageRoutesIdx].Nexthop.Interface.IsNull() && !StorageRoutesExisting[StorageRoutesIdx].Nexthop.Interface.IsUnknown() {
+													StorageRoutesExisting[StorageRoutesIdx].Nexthop.Interface.ElementsAs(ctx, &InterfaceExisting, false)
+												}
 												if rawList, ok := NexthopData["interface"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceResult []FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModel
-													for _, InterfaceItem := range rawList {
+													for InterfaceIdx, InterfaceItem := range rawList {
+														_ = InterfaceIdx
 														if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 															InterfaceResult = append(InterfaceResult, FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModel{
 																Kind: func() types.String {
@@ -10588,9 +11325,15 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModelAttrTypes})
 											}(),
 											NexthopAddress: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressModel {
+												if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress != nil {
+													return StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress
+												}
 												if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 													return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressModel{
 														Ipv4: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv4Model {
+															if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.Ipv4 != nil {
+																return StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.Ipv4
+															}
 															if Ipv4Data, ok := NexthopAddressData["ipv4"].(map[string]interface{}); ok {
 																return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv4Model{
 																	Addr: func() types.String {
@@ -10604,6 +11347,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														Ipv6: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv6Model {
+															if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.Ipv6 != nil {
+																return StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.Ipv6
+															}
 															if Ipv6Data, ok := NexthopAddressData["ipv6"].(map[string]interface{}); ok {
 																return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv6Model{
 																	Addr: func() types.String {
@@ -12297,12 +13043,18 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 					return &FleetPerformanceEnhancementModePerfModeL3EnhancedModel{
 						Jumbo: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
+							}
 							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
 								return &FleetEmptyModel{}
 							}
 							return nil
 						}(),
 						NoJumbo: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
+							}
 							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
 								return &FleetEmptyModel{}
 							}
@@ -12388,12 +13140,20 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !isImport && data.BondDeviceList != nil && (data.BondDeviceList.BondDevices.IsNull() || len(data.BondDeviceList.BondDevices.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetBondDeviceListBondDevicesModelAttrTypes})
 				}
+				var BondDevicesExisting []FleetBondDeviceListBondDevicesModel
+				if !isImport && data.BondDeviceList != nil && !data.BondDeviceList.BondDevices.IsNull() && !data.BondDeviceList.BondDevices.IsUnknown() {
+					data.BondDeviceList.BondDevices.ElementsAs(ctx, &BondDevicesExisting, false)
+				}
 				if rawList, ok := blockData["bond_devices"].([]interface{}); ok && len(rawList) > 0 {
 					var BondDevicesResult []FleetBondDeviceListBondDevicesModel
-					for _, BondDevicesItem := range rawList {
+					for BondDevicesIdx, BondDevicesItem := range rawList {
+						_ = BondDevicesIdx
 						if BondDevicesItemMap, ok := BondDevicesItem.(map[string]interface{}); ok {
 							BondDevicesResult = append(BondDevicesResult, FleetBondDeviceListBondDevicesModel{
 								ActiveBackup: func() *FleetEmptyModel {
+									if !isImport && len(BondDevicesExisting) > BondDevicesIdx && BondDevicesExisting[BondDevicesIdx].ActiveBackup != nil {
+										return &FleetEmptyModel{}
+									}
 									if _, ok := BondDevicesItemMap["active_backup"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
@@ -12416,6 +13176,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									if LacpData, ok := BondDevicesItemMap["lacp"].(map[string]interface{}); ok {
 										return &FleetBondDeviceListBondDevicesLacpModel{
 											Rate: func() types.Int64 {
+												if !isImport && len(BondDevicesExisting) > BondDevicesIdx && BondDevicesExisting[BondDevicesIdx].Lacp != nil && !BondDevicesExisting[BondDevicesIdx].Lacp.Rate.IsUnknown() {
+													return BondDevicesExisting[BondDevicesIdx].Lacp.Rate
+												}
 												if v, ok := LacpData["rate"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -12515,9 +13278,14 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !isImport && data.DeviceList != nil && (data.DeviceList.Devices.IsNull() || len(data.DeviceList.Devices.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetDeviceListDevicesModelAttrTypes})
 				}
+				var DevicesExisting []FleetDeviceListDevicesModel
+				if !isImport && data.DeviceList != nil && !data.DeviceList.Devices.IsNull() && !data.DeviceList.Devices.IsUnknown() {
+					data.DeviceList.Devices.ElementsAs(ctx, &DevicesExisting, false)
+				}
 				if rawList, ok := blockData["devices"].([]interface{}); ok && len(rawList) > 0 {
 					var DevicesResult []FleetDeviceListDevicesModel
-					for _, DevicesItem := range rawList {
+					for DevicesIdx, DevicesItem := range rawList {
+						_ = DevicesIdx
 						if DevicesItemMap, ok := DevicesItem.(map[string]interface{}); ok {
 							DevicesResult = append(DevicesResult, FleetDeviceListDevicesModel{
 								Name: func() types.String {
@@ -12530,9 +13298,17 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									if NetworkDeviceData, ok := DevicesItemMap["network_device"].(map[string]interface{}); ok {
 										return &FleetDeviceListDevicesNetworkDeviceModel{
 											Interface: func() types.List {
+												if !isImport && len(DevicesExisting) > DevicesIdx && DevicesExisting[DevicesIdx].NetworkDevice != nil && (DevicesExisting[DevicesIdx].NetworkDevice.Interface.IsNull() || len(DevicesExisting[DevicesIdx].NetworkDevice.Interface.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: FleetDeviceListDevicesNetworkDeviceInterfaceModelAttrTypes})
+												}
+												var InterfaceExisting []FleetDeviceListDevicesNetworkDeviceInterfaceModel
+												if !isImport && len(DevicesExisting) > DevicesIdx && DevicesExisting[DevicesIdx].NetworkDevice != nil && !DevicesExisting[DevicesIdx].NetworkDevice.Interface.IsNull() && !DevicesExisting[DevicesIdx].NetworkDevice.Interface.IsUnknown() {
+													DevicesExisting[DevicesIdx].NetworkDevice.Interface.ElementsAs(ctx, &InterfaceExisting, false)
+												}
 												if rawList, ok := NetworkDeviceData["interface"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceResult []FleetDeviceListDevicesNetworkDeviceInterfaceModel
-													for _, InterfaceItem := range rawList {
+													for InterfaceIdx, InterfaceItem := range rawList {
+														_ = InterfaceIdx
 														if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 															InterfaceResult = append(InterfaceResult, FleetDeviceListDevicesNetworkDeviceInterfaceModel{
 																Kind: func() types.String {
@@ -12695,9 +13471,14 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !isImport && data.InterfaceList != nil && (data.InterfaceList.Interfaces.IsNull() || len(data.InterfaceList.Interfaces.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetInterfaceListInterfacesModelAttrTypes})
 				}
+				var InterfacesExisting []FleetInterfaceListInterfacesModel
+				if !isImport && data.InterfaceList != nil && !data.InterfaceList.Interfaces.IsNull() && !data.InterfaceList.Interfaces.IsUnknown() {
+					data.InterfaceList.Interfaces.ElementsAs(ctx, &InterfacesExisting, false)
+				}
 				if rawList, ok := blockData["interfaces"].([]interface{}); ok && len(rawList) > 0 {
 					var InterfacesResult []FleetInterfaceListInterfacesModel
-					for _, InterfacesItem := range rawList {
+					for InterfacesIdx, InterfacesItem := range rawList {
+						_ = InterfacesIdx
 						if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
 							InterfacesResult = append(InterfacesResult, FleetInterfaceListInterfacesModel{
 								Name: func() types.String {
@@ -12746,24 +13527,36 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &FleetKubernetesUpgradeDrainEnableUpgradeDrainModel{
 						DisableVegaUpgradeMode: func() *FleetEmptyModel {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
+							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
 								return &FleetEmptyModel{}
 							}
 							return nil
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
+							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						DrainNodeTimeout: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout
+							}
 							if v, ok := EnableUpgradeDrainData["drain_node_timeout"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						EnableVegaUpgradeMode: func() *FleetEmptyModel {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
+							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
 								return &FleetEmptyModel{}
 							}
@@ -12980,9 +13773,14 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !isImport && data.SriovInterfaces != nil && (data.SriovInterfaces.SriovInterface.IsNull() || len(data.SriovInterfaces.SriovInterface.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetSriovInterfacesSriovInterfaceModelAttrTypes})
 				}
+				var SriovInterfaceExisting []FleetSriovInterfacesSriovInterfaceModel
+				if !isImport && data.SriovInterfaces != nil && !data.SriovInterfaces.SriovInterface.IsNull() && !data.SriovInterfaces.SriovInterface.IsUnknown() {
+					data.SriovInterfaces.SriovInterface.ElementsAs(ctx, &SriovInterfaceExisting, false)
+				}
 				if rawList, ok := blockData["sriov_interface"].([]interface{}); ok && len(rawList) > 0 {
 					var SriovInterfaceResult []FleetSriovInterfacesSriovInterfaceModel
-					for _, SriovInterfaceItem := range rawList {
+					for SriovInterfaceIdx, SriovInterfaceItem := range rawList {
+						_ = SriovInterfaceIdx
 						if SriovInterfaceItemMap, ok := SriovInterfaceItem.(map[string]interface{}); ok {
 							SriovInterfaceResult = append(SriovInterfaceResult, FleetSriovInterfacesSriovInterfaceModel{
 								InterfaceName: func() types.String {
@@ -13019,12 +13817,20 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !isImport && data.StorageClassList != nil && (data.StorageClassList.StorageClasses.IsNull() || len(data.StorageClassList.StorageClasses.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageClassListStorageClassesModelAttrTypes})
 				}
+				var StorageClassesExisting []FleetStorageClassListStorageClassesModel
+				if !isImport && data.StorageClassList != nil && !data.StorageClassList.StorageClasses.IsNull() && !data.StorageClassList.StorageClasses.IsUnknown() {
+					data.StorageClassList.StorageClasses.ElementsAs(ctx, &StorageClassesExisting, false)
+				}
 				if rawList, ok := blockData["storage_classes"].([]interface{}); ok && len(rawList) > 0 {
 					var StorageClassesResult []FleetStorageClassListStorageClassesModel
-					for _, StorageClassesItem := range rawList {
+					for StorageClassesIdx, StorageClassesItem := range rawList {
+						_ = StorageClassesIdx
 						if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
 							StorageClassesResult = append(StorageClassesResult, FleetStorageClassListStorageClassesModel{
 								AdvancedStorageParameters: func() *FleetEmptyModel {
+									if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters != nil {
+										return &FleetEmptyModel{}
+									}
 									if _, ok := StorageClassesItemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
@@ -13077,6 +13883,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return types.StringNull()
 											}(),
 											DedupeEnabled: func() types.Bool {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.DedupeEnabled.IsUnknown() {
+													return StorageClassesExisting[StorageClassesIdx].HpeStorage.DedupeEnabled
+												}
 												if v, ok := HpeStorageData["dedupe_enabled"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -13089,12 +13898,18 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return types.StringNull()
 											}(),
 											DestroyOnDelete: func() types.Bool {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.DestroyOnDelete.IsUnknown() {
+													return StorageClassesExisting[StorageClassesIdx].HpeStorage.DestroyOnDelete
+												}
 												if v, ok := HpeStorageData["destroy_on_delete"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											Encrypted: func() types.Bool {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.Encrypted.IsUnknown() {
+													return StorageClassesExisting[StorageClassesIdx].HpeStorage.Encrypted
+												}
 												if v, ok := HpeStorageData["encrypted"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -13149,12 +13964,18 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return types.StringNull()
 											}(),
 											SyncOnDetach: func() types.Bool {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.SyncOnDetach.IsUnknown() {
+													return StorageClassesExisting[StorageClassesIdx].HpeStorage.SyncOnDetach
+												}
 												if v, ok := HpeStorageData["sync_on_detach"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											Thick: func() types.Bool {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].HpeStorage != nil && !StorageClassesExisting[StorageClassesIdx].HpeStorage.Thick.IsUnknown() {
+													return StorageClassesExisting[StorageClassesIdx].HpeStorage.Thick
+												}
 												if v, ok := HpeStorageData["thick"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -13168,6 +13989,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									if NetappTridentData, ok := StorageClassesItemMap["netapp_trident"].(map[string]interface{}); ok {
 										return &FleetStorageClassListStorageClassesNetappTridentModel{
 											Selector: func() *FleetEmptyModel {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].NetappTrident != nil {
+													return StorageClassesExisting[StorageClassesIdx].NetappTrident.Selector
+												}
 												if _, ok := NetappTridentData["selector"].(map[string]interface{}); ok {
 													return &FleetEmptyModel{}
 												}
@@ -13199,6 +14023,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return types.StringNull()
 											}(),
 											IopsLimit: func() types.Int64 {
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].PureServiceOrchestrator != nil && !StorageClassesExisting[StorageClassesIdx].PureServiceOrchestrator.IopsLimit.IsUnknown() {
+													return StorageClassesExisting[StorageClassesIdx].PureServiceOrchestrator.IopsLimit
+												}
 												if v, ok := PureServiceOrchestratorData["iops_limit"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
@@ -13242,18 +14069,29 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !isImport && data.StorageDeviceList != nil && (data.StorageDeviceList.StorageDevices.IsNull() || len(data.StorageDeviceList.StorageDevices.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesModelAttrTypes})
 				}
+				var StorageDevicesExisting []FleetStorageDeviceListStorageDevicesModel
+				if !isImport && data.StorageDeviceList != nil && !data.StorageDeviceList.StorageDevices.IsNull() && !data.StorageDeviceList.StorageDevices.IsUnknown() {
+					data.StorageDeviceList.StorageDevices.ElementsAs(ctx, &StorageDevicesExisting, false)
+				}
 				if rawList, ok := blockData["storage_devices"].([]interface{}); ok && len(rawList) > 0 {
 					var StorageDevicesResult []FleetStorageDeviceListStorageDevicesModel
-					for _, StorageDevicesItem := range rawList {
+					for StorageDevicesIdx, StorageDevicesItem := range rawList {
+						_ = StorageDevicesIdx
 						if StorageDevicesItemMap, ok := StorageDevicesItem.(map[string]interface{}); ok {
 							StorageDevicesResult = append(StorageDevicesResult, FleetStorageDeviceListStorageDevicesModel{
 								AdvancedAdvancedParameters: func() *FleetEmptyModel {
+									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters != nil {
+										return &FleetEmptyModel{}
+									}
 									if _, ok := StorageDevicesItemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
 									return nil
 								}(),
 								CustomStorage: func() *FleetEmptyModel {
+									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].CustomStorage != nil {
+										return &FleetEmptyModel{}
+									}
 									if _, ok := StorageDevicesItemMap["custom_storage"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
@@ -13263,15 +14101,24 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									if HpeStorageData, ok := StorageDevicesItemMap["hpe_storage"].(map[string]interface{}); ok {
 										return &FleetStorageDeviceListStorageDevicesHpeStorageModel{
 											APIServerPort: func() types.Int64 {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && !StorageDevicesExisting[StorageDevicesIdx].HpeStorage.APIServerPort.IsUnknown() {
+													return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.APIServerPort
+												}
 												if v, ok := HpeStorageData["api_server_port"].(float64); ok && v != 0 {
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
 											}(),
 											IscsiChapPassword: func() *FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordModel {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil {
+													return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword
+												}
 												if IscsiChapPasswordData, ok := HpeStorageData["iscsi_chap_password"].(map[string]interface{}); ok {
 													return &FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordModel{
 														BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfo != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := IscsiChapPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -13297,6 +14144,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.ClearSecretInfo != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := IscsiChapPasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -13326,9 +14176,15 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return types.StringNull()
 											}(),
 											Password: func() *FleetStorageDeviceListStorageDevicesHpeStoragePasswordModel {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil {
+													return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password
+												}
 												if PasswordData, ok := HpeStorageData["password"].(map[string]interface{}); ok {
 													return &FleetStorageDeviceListStorageDevicesHpeStoragePasswordModel{
 														BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfo != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfo
+															}
 															if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -13354,6 +14210,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.ClearSecretInfo != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.ClearSecretInfo
+															}
 															if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -13402,9 +14261,15 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									if NetappTridentData, ok := StorageDevicesItemMap["netapp_trident"].(map[string]interface{}); ok {
 										return &FleetStorageDeviceListStorageDevicesNetappTridentModel{
 											NetappBackendOntapNas: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasModel {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil {
+													return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas
+												}
 												if NetappBackendOntapNasData, ok := NetappTridentData["netapp_backend_ontap_nas"].(map[string]interface{}); ok {
 													return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasModel{
 														AutoExportCidrs: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasAutoExportCidrsModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportCidrs != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportCidrs
+															}
 															if AutoExportCidrsData, ok := NetappBackendOntapNasData["auto_export_cidrs"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasAutoExportCidrsModel{
 																	Prefixes: func() types.List {
@@ -13425,6 +14290,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														AutoExportPolicy: func() types.Bool {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportPolicy.IsUnknown() {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.AutoExportPolicy
+															}
 															if v, ok := NetappBackendOntapNasData["auto_export_policy"].(bool); ok {
 																return types.BoolValue(v)
 															}
@@ -13443,9 +14311,15 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														ClientPrivateKey: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey
+															}
 															if ClientPrivateKeyData, ok := NetappBackendOntapNasData["client_private_key"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -13471,6 +14345,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -13506,6 +14383,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														Labels: func() *FleetEmptyModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Labels
+															}
 															if _, ok := NetappBackendOntapNasData["labels"].(map[string]interface{}); ok {
 																return &FleetEmptyModel{}
 															}
@@ -13542,9 +14422,15 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														Password: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password
+															}
 															if PasswordData, ok := NetappBackendOntapNasData["password"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModel{
 																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -13570,6 +14456,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -13599,12 +14488,23 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														Storage: func() types.List {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && (StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModelAttrTypes})
+															}
+															var StorageExisting []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.IsUnknown() {
+																StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Storage.ElementsAs(ctx, &StorageExisting, false)
+															}
 															if rawList, ok := NetappBackendOntapNasData["storage"].([]interface{}); ok && len(rawList) > 0 {
 																var StorageResult []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel
-																for _, StorageItem := range rawList {
+																for StorageIdx, StorageItem := range rawList {
+																	_ = StorageIdx
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel{
 																			Labels: func() *FleetEmptyModel {
+																				if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
+																					return &FleetEmptyModel{}
+																				}
 																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																					return &FleetEmptyModel{}
 																				}
@@ -13620,6 +14520,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																							return types.StringNull()
 																						}(),
 																						Encryption: func() types.Bool {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.Encryption.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.Encryption
+																							}
 																							if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																								return types.BoolValue(v)
 																							}
@@ -13632,6 +14535,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																							return types.StringNull()
 																						}(),
 																						NoQOS: func() *FleetEmptyModel {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil {
+																								return StorageExisting[StorageIdx].VolumeDefaults.NoQOS
+																							}
 																							if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																								return &FleetEmptyModel{}
 																							}
@@ -13650,6 +14556,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																							return types.StringNull()
 																						}(),
 																						SnapshotDir: func() types.Bool {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir
+																							}
 																							if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																								return types.BoolValue(v)
 																							}
@@ -13674,6 +14583,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																							return types.StringNull()
 																						}(),
 																						SplitOnClone: func() types.Bool {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone
+																							}
 																							if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																								return types.BoolValue(v)
 																							}
@@ -13686,6 +14598,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																							return types.StringNull()
 																						}(),
 																						UnixPermissions: func() types.Int64 {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions
+																							}
 																							if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -13740,6 +14655,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults
+															}
 															if VolumeDefaultsData, ok := NetappBackendOntapNasData["volume_defaults"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModel{
 																	AdaptiveQOSPolicy: func() types.String {
@@ -13749,6 +14667,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return types.StringNull()
 																	}(),
 																	Encryption: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.Encryption
+																		}
 																		if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -13761,6 +14682,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return types.StringNull()
 																	}(),
 																	NoQOS: func() *FleetEmptyModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS
+																		}
 																		if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																			return &FleetEmptyModel{}
 																		}
@@ -13779,6 +14703,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return types.StringNull()
 																	}(),
 																	SnapshotDir: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SnapshotDir
+																		}
 																		if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -13803,6 +14730,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return types.StringNull()
 																	}(),
 																	SplitOnClone: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.SplitOnClone
+																		}
 																		if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -13815,6 +14745,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return types.StringNull()
 																	}(),
 																	UnixPermissions: func() types.Int64 {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.UnixPermissions
+																		}
 																		if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																			return types.Int64Value(int64(v))
 																		}
@@ -13829,6 +14762,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return nil
 											}(),
 											NetappBackendOntapSan: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+													return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan
+												}
 												if NetappBackendOntapSanData, ok := NetappTridentData["netapp_backend_ontap_san"].(map[string]interface{}); ok {
 													return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel{
 														ClientCertificate: func() types.String {
@@ -13838,9 +14774,15 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														ClientPrivateKey: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey
+															}
 															if ClientPrivateKeyData, ok := NetappBackendOntapSanData["client_private_key"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -13866,6 +14808,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -13907,18 +14852,27 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														Labels: func() *FleetEmptyModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Labels
+															}
 															if _, ok := NetappBackendOntapSanData["labels"].(map[string]interface{}); ok {
 																return &FleetEmptyModel{}
 															}
 															return nil
 														}(),
 														LimitAggregateUsage: func() types.Int64 {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsUnknown() {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage
+															}
 															if v, ok := NetappBackendOntapSanData["limit_aggregate_usage"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
 															return types.Int64Null()
 														}(),
 														LimitVolumeSize: func() types.Int64 {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitVolumeSize.IsUnknown() {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitVolumeSize
+															}
 															if v, ok := NetappBackendOntapSanData["limit_volume_size"].(float64); ok && v != 0 {
 																return types.Int64Value(int64(v))
 															}
@@ -13937,15 +14891,24 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														NoChap: func() *FleetEmptyModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.NoChap
+															}
 															if _, ok := NetappBackendOntapSanData["no_chap"].(map[string]interface{}); ok {
 																return &FleetEmptyModel{}
 															}
 															return nil
 														}(),
 														Password: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password
+															}
 															if PasswordData, ok := NetappBackendOntapSanData["password"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel{
 																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfo
+																		}
 																		if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -13971,6 +14934,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo
+																		}
 																		if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -14000,12 +14966,23 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														Storage: func() types.List {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && (StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModelAttrTypes})
+															}
+															var StorageExisting []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.IsUnknown() {
+																StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Storage.ElementsAs(ctx, &StorageExisting, false)
+															}
 															if rawList, ok := NetappBackendOntapSanData["storage"].([]interface{}); ok && len(rawList) > 0 {
 																var StorageResult []FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel
-																for _, StorageItem := range rawList {
+																for StorageIdx, StorageItem := range rawList {
+																	_ = StorageIdx
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel{
 																			Labels: func() *FleetEmptyModel {
+																				if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
+																					return &FleetEmptyModel{}
+																				}
 																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																					return &FleetEmptyModel{}
 																				}
@@ -14021,6 +14998,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																							return types.StringNull()
 																						}(),
 																						Encryption: func() types.Bool {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.Encryption.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.Encryption
+																							}
 																							if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																								return types.BoolValue(v)
 																							}
@@ -14033,6 +15013,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																							return types.StringNull()
 																						}(),
 																						NoQOS: func() *FleetEmptyModel {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil {
+																								return StorageExisting[StorageIdx].VolumeDefaults.NoQOS
+																							}
 																							if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																								return &FleetEmptyModel{}
 																							}
@@ -14051,6 +15034,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																							return types.StringNull()
 																						}(),
 																						SnapshotDir: func() types.Bool {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.SnapshotDir
+																							}
 																							if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																								return types.BoolValue(v)
 																							}
@@ -14075,6 +15061,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																							return types.StringNull()
 																						}(),
 																						SplitOnClone: func() types.Bool {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.SplitOnClone
+																							}
 																							if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																								return types.BoolValue(v)
 																							}
@@ -14087,6 +15076,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																							return types.StringNull()
 																						}(),
 																						UnixPermissions: func() types.Int64 {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions.IsUnknown() {
+																								return StorageExisting[StorageIdx].VolumeDefaults.UnixPermissions
+																							}
 																							if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																								return types.Int64Value(int64(v))
 																							}
@@ -14135,12 +15127,21 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														UseChap: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap
+															}
 															if UseChapData, ok := NetappBackendOntapSanData["use_chap"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapModel{
 																	ChapInitiatorSecret: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret
+																		}
 																		if ChapInitiatorSecretData, ok := UseChapData["chap_initiator_secret"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretModel{
 																				BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfo
+																					}
 																					if BlindfoldSecretInfoData, ok := ChapInitiatorSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
 																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModel{
 																							DecryptionProvider: func() types.String {
@@ -14166,6 +15167,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																					return nil
 																				}(),
 																				ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo
+																					}
 																					if ClearSecretInfoData, ok := ChapInitiatorSecretData["clear_secret_info"].(map[string]interface{}); ok {
 																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModel{
 																							Provider: func() types.String {
@@ -14189,9 +15193,15 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return nil
 																	}(),
 																	ChapTargetInitiatorSecret: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret
+																		}
 																		if ChapTargetInitiatorSecretData, ok := UseChapData["chap_target_initiator_secret"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretModel{
 																				BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfo
+																					}
 																					if BlindfoldSecretInfoData, ok := ChapTargetInitiatorSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
 																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoModel{
 																							DecryptionProvider: func() types.String {
@@ -14217,6 +15227,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																					return nil
 																				}(),
 																				ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel {
+																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo != nil {
+																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo
+																					}
 																					if ClearSecretInfoData, ok := ChapTargetInitiatorSecretData["clear_secret_info"].(map[string]interface{}); ok {
 																						return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel{
 																							Provider: func() types.String {
@@ -14262,6 +15275,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults
+															}
 															if VolumeDefaultsData, ok := NetappBackendOntapSanData["volume_defaults"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModel{
 																	AdaptiveQOSPolicy: func() types.String {
@@ -14271,6 +15287,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return types.StringNull()
 																	}(),
 																	Encryption: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.Encryption
+																		}
 																		if v, ok := VolumeDefaultsData["encryption"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -14283,6 +15302,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return types.StringNull()
 																	}(),
 																	NoQOS: func() *FleetEmptyModel {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS
+																		}
 																		if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
 																			return &FleetEmptyModel{}
 																		}
@@ -14301,6 +15323,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return types.StringNull()
 																	}(),
 																	SnapshotDir: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SnapshotDir
+																		}
 																		if v, ok := VolumeDefaultsData["snapshot_dir"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -14325,6 +15350,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return types.StringNull()
 																	}(),
 																	SplitOnClone: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.SplitOnClone
+																		}
 																		if v, ok := VolumeDefaultsData["split_on_clone"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -14337,6 +15365,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return types.StringNull()
 																	}(),
 																	UnixPermissions: func() types.Int64 {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.UnixPermissions
+																		}
 																		if v, ok := VolumeDefaultsData["unix_permissions"].(float64); ok && v != 0 {
 																			return types.Int64Value(int64(v))
 																		}
@@ -14358,9 +15389,15 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									if PureServiceOrchestratorData, ok := StorageDevicesItemMap["pure_service_orchestrator"].(map[string]interface{}); ok {
 										return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorModel{
 											Arrays: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysModel {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil {
+													return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays
+												}
 												if ArraysData, ok := PureServiceOrchestratorData["arrays"].(map[string]interface{}); ok {
 													return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysModel{
 														FlashArray: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray
+															}
 															if FlashArrayData, ok := ArraysData["flash_array"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayModel{
 																	DefaultFsOpt: func() types.String {
@@ -14389,21 +15426,35 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return types.ListNull(types.StringType)
 																	}(),
 																	DisablePreemptAttachments: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.DisablePreemptAttachments
+																		}
 																		if v, ok := FlashArrayData["disable_preempt_attachments"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
 																		return types.BoolNull()
 																	}(),
 																	FlashArrays: func() types.List {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && (StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModelAttrTypes})
+																		}
+																		var FlashArraysExisting []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.IsUnknown() {
+																			StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.FlashArrays.ElementsAs(ctx, &FlashArraysExisting, false)
+																		}
 																		if rawList, ok := FlashArrayData["flash_arrays"].([]interface{}); ok && len(rawList) > 0 {
 																			var FlashArraysResult []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel
-																			for _, FlashArraysItem := range rawList {
+																			for FlashArraysIdx, FlashArraysItem := range rawList {
+																				_ = FlashArraysIdx
 																				if FlashArraysItemMap, ok := FlashArraysItem.(map[string]interface{}); ok {
 																					FlashArraysResult = append(FlashArraysResult, FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel{
 																						APIToken: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModel {
 																							if APITokenData, ok := FlashArraysItemMap["api_token"].(map[string]interface{}); ok {
 																								return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModel{
 																									BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoModel {
+																										if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfo != nil {
+																											return FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfo
+																										}
 																										if BlindfoldSecretInfoData, ok := APITokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoModel{
 																												DecryptionProvider: func() types.String {
@@ -14429,6 +15480,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																										return nil
 																									}(),
 																									ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel {
+																										if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.ClearSecretInfo != nil {
+																											return FlashArraysExisting[FlashArraysIdx].APIToken.ClearSecretInfo
+																										}
 																										if ClearSecretInfoData, ok := APITokenData["clear_secret_info"].(map[string]interface{}); ok {
 																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel{
 																												Provider: func() types.String {
@@ -14452,6 +15506,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																							return nil
 																						}(),
 																						Labels: func() *FleetEmptyModel {
+																							if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].Labels != nil {
+																								return &FleetEmptyModel{}
+																							}
 																							if _, ok := FlashArraysItemMap["labels"].(map[string]interface{}); ok {
 																								return &FleetEmptyModel{}
 																							}
@@ -14478,6 +15535,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModelAttrTypes})
 																	}(),
 																	IscsiLoginTimeout: func() types.Int64 {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashArray.IscsiLoginTimeout
+																		}
 																		if v, ok := FlashArrayData["iscsi_login_timeout"].(float64); ok && v != 0 {
 																			return types.Int64Value(int64(v))
 																		}
@@ -14494,9 +15554,15 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														FlashBlade: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeModel {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil {
+																return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade
+															}
 															if FlashBladeData, ok := ArraysData["flash_blade"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeModel{
 																	EnableSnapshotDirectory: func() types.Bool {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory.IsUnknown() {
+																			return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.EnableSnapshotDirectory
+																		}
 																		if v, ok := FlashBladeData["enable_snapshot_directory"].(bool); ok {
 																			return types.BoolValue(v)
 																		}
@@ -14509,15 +15575,26 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return types.StringNull()
 																	}(),
 																	FlashBlades: func() types.List {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil && (StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.IsNull() || len(StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModelAttrTypes})
+																		}
+																		var FlashBladesExisting []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays != nil && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.IsUnknown() {
+																			StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.Arrays.FlashBlade.FlashBlades.ElementsAs(ctx, &FlashBladesExisting, false)
+																		}
 																		if rawList, ok := FlashBladeData["flash_blades"].([]interface{}); ok && len(rawList) > 0 {
 																			var FlashBladesResult []FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel
-																			for _, FlashBladesItem := range rawList {
+																			for FlashBladesIdx, FlashBladesItem := range rawList {
+																				_ = FlashBladesIdx
 																				if FlashBladesItemMap, ok := FlashBladesItem.(map[string]interface{}); ok {
 																					FlashBladesResult = append(FlashBladesResult, FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel{
 																						APIToken: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModel {
 																							if APITokenData, ok := FlashBladesItemMap["api_token"].(map[string]interface{}); ok {
 																								return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModel{
 																									BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoModel {
+																										if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfo != nil {
+																											return FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfo
+																										}
 																										if BlindfoldSecretInfoData, ok := APITokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoModel{
 																												DecryptionProvider: func() types.String {
@@ -14543,6 +15620,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																										return nil
 																									}(),
 																									ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel {
+																										if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.ClearSecretInfo != nil {
+																											return FlashBladesExisting[FlashBladesIdx].APIToken.ClearSecretInfo
+																										}
 																										if ClearSecretInfoData, ok := APITokenData["clear_secret_info"].(map[string]interface{}); ok {
 																											return &FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel{
 																												Provider: func() types.String {
@@ -14566,6 +15646,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																							return nil
 																						}(),
 																						Labels: func() *FleetEmptyModel {
+																							if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].Labels != nil {
+																								return &FleetEmptyModel{}
+																							}
 																							if _, ok := FlashBladesItemMap["labels"].(map[string]interface{}); ok {
 																								return &FleetEmptyModel{}
 																							}
@@ -14618,12 +15701,18 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return types.StringNull()
 											}(),
 											EnableStorageTopology: func() types.Bool {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStorageTopology.IsUnknown() {
+													return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStorageTopology
+												}
 												if v, ok := PureServiceOrchestratorData["enable_storage_topology"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											EnableStrictTopology: func() types.Bool {
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator != nil && !StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStrictTopology.IsUnknown() {
+													return StorageDevicesExisting[StorageDevicesIdx].PureServiceOrchestrator.EnableStrictTopology
+												}
 												if v, ok := PureServiceOrchestratorData["enable_strict_topology"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -14655,9 +15744,14 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !isImport && data.StorageInterfaceList != nil && (data.StorageInterfaceList.Interfaces.IsNull() || len(data.StorageInterfaceList.Interfaces.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageInterfaceListInterfacesModelAttrTypes})
 				}
+				var InterfacesExisting []FleetStorageInterfaceListInterfacesModel
+				if !isImport && data.StorageInterfaceList != nil && !data.StorageInterfaceList.Interfaces.IsNull() && !data.StorageInterfaceList.Interfaces.IsUnknown() {
+					data.StorageInterfaceList.Interfaces.ElementsAs(ctx, &InterfacesExisting, false)
+				}
 				if rawList, ok := blockData["interfaces"].([]interface{}); ok && len(rawList) > 0 {
 					var InterfacesResult []FleetStorageInterfaceListInterfacesModel
-					for _, InterfacesItem := range rawList {
+					for InterfacesIdx, InterfacesItem := range rawList {
+						_ = InterfacesIdx
 						if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
 							InterfacesResult = append(InterfacesResult, FleetStorageInterfaceListInterfacesModel{
 								Name: func() types.String {
@@ -14694,9 +15788,14 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !isImport && data.StorageStaticRoutes != nil && (data.StorageStaticRoutes.StorageRoutes.IsNull() || len(data.StorageStaticRoutes.StorageRoutes.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesModelAttrTypes})
 				}
+				var StorageRoutesExisting []FleetStorageStaticRoutesStorageRoutesModel
+				if !isImport && data.StorageStaticRoutes != nil && !data.StorageStaticRoutes.StorageRoutes.IsNull() && !data.StorageStaticRoutes.StorageRoutes.IsUnknown() {
+					data.StorageStaticRoutes.StorageRoutes.ElementsAs(ctx, &StorageRoutesExisting, false)
+				}
 				if rawList, ok := blockData["storage_routes"].([]interface{}); ok && len(rawList) > 0 {
 					var StorageRoutesResult []FleetStorageStaticRoutesStorageRoutesModel
-					for _, StorageRoutesItem := range rawList {
+					for StorageRoutesIdx, StorageRoutesItem := range rawList {
+						_ = StorageRoutesIdx
 						if StorageRoutesItemMap, ok := StorageRoutesItem.(map[string]interface{}); ok {
 							StorageRoutesResult = append(StorageRoutesResult, FleetStorageStaticRoutesStorageRoutesModel{
 								Attrs: func() types.List {
@@ -14713,6 +15812,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return types.ListNull(types.StringType)
 								}(),
 								Labels: func() *FleetEmptyModel {
+									if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Labels != nil {
+										return &FleetEmptyModel{}
+									}
 									if _, ok := StorageRoutesItemMap["labels"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
 									}
@@ -14722,9 +15824,17 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									if NexthopData, ok := StorageRoutesItemMap["nexthop"].(map[string]interface{}); ok {
 										return &FleetStorageStaticRoutesStorageRoutesNexthopModel{
 											Interface: func() types.List {
+												if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && (StorageRoutesExisting[StorageRoutesIdx].Nexthop.Interface.IsNull() || len(StorageRoutesExisting[StorageRoutesIdx].Nexthop.Interface.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModelAttrTypes})
+												}
+												var InterfaceExisting []FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModel
+												if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && !StorageRoutesExisting[StorageRoutesIdx].Nexthop.Interface.IsNull() && !StorageRoutesExisting[StorageRoutesIdx].Nexthop.Interface.IsUnknown() {
+													StorageRoutesExisting[StorageRoutesIdx].Nexthop.Interface.ElementsAs(ctx, &InterfaceExisting, false)
+												}
 												if rawList, ok := NexthopData["interface"].([]interface{}); ok && len(rawList) > 0 {
 													var InterfaceResult []FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModel
-													for _, InterfaceItem := range rawList {
+													for InterfaceIdx, InterfaceItem := range rawList {
+														_ = InterfaceIdx
 														if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 															InterfaceResult = append(InterfaceResult, FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModel{
 																Kind: func() types.String {
@@ -14766,9 +15876,15 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModelAttrTypes})
 											}(),
 											NexthopAddress: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressModel {
+												if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress != nil {
+													return StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress
+												}
 												if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 													return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressModel{
 														Ipv4: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv4Model {
+															if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.Ipv4 != nil {
+																return StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.Ipv4
+															}
 															if Ipv4Data, ok := NexthopAddressData["ipv4"].(map[string]interface{}); ok {
 																return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv4Model{
 																	Addr: func() types.String {
@@ -14782,6 +15898,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														Ipv6: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv6Model {
+															if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.Ipv6 != nil {
+																return StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.Ipv6
+															}
 															if Ipv6Data, ok := NexthopAddressData["ipv6"].(map[string]interface{}); ok {
 																return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv6Model{
 																	Addr: func() types.String {

@@ -1067,9 +1067,14 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 				if !isImport && data.PspSpec != nil && (data.PspSpec.AllowedHostPaths.IsNull() || len(data.PspSpec.AllowedHostPaths.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityPolicyPspSpecAllowedHostPathsModelAttrTypes})
 				}
+				var AllowedHostPathsExisting []K8SPodSecurityPolicyPspSpecAllowedHostPathsModel
+				if !isImport && data.PspSpec != nil && !data.PspSpec.AllowedHostPaths.IsNull() && !data.PspSpec.AllowedHostPaths.IsUnknown() {
+					data.PspSpec.AllowedHostPaths.ElementsAs(ctx, &AllowedHostPathsExisting, false)
+				}
 				if rawList, ok := blockData["allowed_host_paths"].([]interface{}); ok && len(rawList) > 0 {
 					var AllowedHostPathsResult []K8SPodSecurityPolicyPspSpecAllowedHostPathsModel
-					for _, AllowedHostPathsItem := range rawList {
+					for AllowedHostPathsIdx, AllowedHostPathsItem := range rawList {
+						_ = AllowedHostPathsIdx
 						if AllowedHostPathsItemMap, ok := AllowedHostPathsItem.(map[string]interface{}); ok {
 							AllowedHostPathsResult = append(AllowedHostPathsResult, K8SPodSecurityPolicyPspSpecAllowedHostPathsModel{
 								PathPrefix: func() types.String {
@@ -1193,9 +1198,17 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 				if FsGroupStrategyOptionsData, ok := blockData["fs_group_strategy_options"].(map[string]interface{}); ok {
 					return &K8SPodSecurityPolicyPspSpecFsGroupStrategyOptionsModel{
 						IDRanges: func() types.List {
+							if !isImport && data.PspSpec != nil && data.PspSpec.FsGroupStrategyOptions != nil && (data.PspSpec.FsGroupStrategyOptions.IDRanges.IsNull() || len(data.PspSpec.FsGroupStrategyOptions.IDRanges.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityPolicyPspSpecFsGroupStrategyOptionsIDRangesModelAttrTypes})
+							}
+							var IDRangesExisting []K8SPodSecurityPolicyPspSpecFsGroupStrategyOptionsIDRangesModel
+							if !isImport && data.PspSpec != nil && data.PspSpec.FsGroupStrategyOptions != nil && !data.PspSpec.FsGroupStrategyOptions.IDRanges.IsNull() && !data.PspSpec.FsGroupStrategyOptions.IDRanges.IsUnknown() {
+								data.PspSpec.FsGroupStrategyOptions.IDRanges.ElementsAs(ctx, &IDRangesExisting, false)
+							}
 							if rawList, ok := FsGroupStrategyOptionsData["id_ranges"].([]interface{}); ok && len(rawList) > 0 {
 								var IDRangesResult []K8SPodSecurityPolicyPspSpecFsGroupStrategyOptionsIDRangesModel
-								for _, IDRangesItem := range rawList {
+								for IDRangesIdx, IDRangesItem := range rawList {
+									_ = IDRangesIdx
 									if IDRangesItemMap, ok := IDRangesItem.(map[string]interface{}); ok {
 										IDRangesResult = append(IDRangesResult, K8SPodSecurityPolicyPspSpecFsGroupStrategyOptionsIDRangesModel{
 											MaxID: func() types.Int64 {
@@ -1367,9 +1380,17 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 				if RunAsGroupData, ok := blockData["run_as_group"].(map[string]interface{}); ok {
 					return &K8SPodSecurityPolicyPspSpecRunAsGroupModel{
 						IDRanges: func() types.List {
+							if !isImport && data.PspSpec != nil && data.PspSpec.RunAsGroup != nil && (data.PspSpec.RunAsGroup.IDRanges.IsNull() || len(data.PspSpec.RunAsGroup.IDRanges.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityPolicyPspSpecRunAsGroupIDRangesModelAttrTypes})
+							}
+							var IDRangesExisting []K8SPodSecurityPolicyPspSpecRunAsGroupIDRangesModel
+							if !isImport && data.PspSpec != nil && data.PspSpec.RunAsGroup != nil && !data.PspSpec.RunAsGroup.IDRanges.IsNull() && !data.PspSpec.RunAsGroup.IDRanges.IsUnknown() {
+								data.PspSpec.RunAsGroup.IDRanges.ElementsAs(ctx, &IDRangesExisting, false)
+							}
 							if rawList, ok := RunAsGroupData["id_ranges"].([]interface{}); ok && len(rawList) > 0 {
 								var IDRangesResult []K8SPodSecurityPolicyPspSpecRunAsGroupIDRangesModel
-								for _, IDRangesItem := range rawList {
+								for IDRangesIdx, IDRangesItem := range rawList {
+									_ = IDRangesIdx
 									if IDRangesItemMap, ok := IDRangesItem.(map[string]interface{}); ok {
 										IDRangesResult = append(IDRangesResult, K8SPodSecurityPolicyPspSpecRunAsGroupIDRangesModel{
 											MaxID: func() types.Int64 {
@@ -1409,9 +1430,17 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 				if RunAsUserData, ok := blockData["run_as_user"].(map[string]interface{}); ok {
 					return &K8SPodSecurityPolicyPspSpecRunAsUserModel{
 						IDRanges: func() types.List {
+							if !isImport && data.PspSpec != nil && data.PspSpec.RunAsUser != nil && (data.PspSpec.RunAsUser.IDRanges.IsNull() || len(data.PspSpec.RunAsUser.IDRanges.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityPolicyPspSpecRunAsUserIDRangesModelAttrTypes})
+							}
+							var IDRangesExisting []K8SPodSecurityPolicyPspSpecRunAsUserIDRangesModel
+							if !isImport && data.PspSpec != nil && data.PspSpec.RunAsUser != nil && !data.PspSpec.RunAsUser.IDRanges.IsNull() && !data.PspSpec.RunAsUser.IDRanges.IsUnknown() {
+								data.PspSpec.RunAsUser.IDRanges.ElementsAs(ctx, &IDRangesExisting, false)
+							}
 							if rawList, ok := RunAsUserData["id_ranges"].([]interface{}); ok && len(rawList) > 0 {
 								var IDRangesResult []K8SPodSecurityPolicyPspSpecRunAsUserIDRangesModel
-								for _, IDRangesItem := range rawList {
+								for IDRangesIdx, IDRangesItem := range rawList {
+									_ = IDRangesIdx
 									if IDRangesItemMap, ok := IDRangesItem.(map[string]interface{}); ok {
 										IDRangesResult = append(IDRangesResult, K8SPodSecurityPolicyPspSpecRunAsUserIDRangesModel{
 											MaxID: func() types.Int64 {
@@ -1451,9 +1480,17 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 				if SupplementalGroupsData, ok := blockData["supplemental_groups"].(map[string]interface{}); ok {
 					return &K8SPodSecurityPolicyPspSpecSupplementalGroupsModel{
 						IDRanges: func() types.List {
+							if !isImport && data.PspSpec != nil && data.PspSpec.SupplementalGroups != nil && (data.PspSpec.SupplementalGroups.IDRanges.IsNull() || len(data.PspSpec.SupplementalGroups.IDRanges.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityPolicyPspSpecSupplementalGroupsIDRangesModelAttrTypes})
+							}
+							var IDRangesExisting []K8SPodSecurityPolicyPspSpecSupplementalGroupsIDRangesModel
+							if !isImport && data.PspSpec != nil && data.PspSpec.SupplementalGroups != nil && !data.PspSpec.SupplementalGroups.IDRanges.IsNull() && !data.PspSpec.SupplementalGroups.IDRanges.IsUnknown() {
+								data.PspSpec.SupplementalGroups.IDRanges.ElementsAs(ctx, &IDRangesExisting, false)
+							}
 							if rawList, ok := SupplementalGroupsData["id_ranges"].([]interface{}); ok && len(rawList) > 0 {
 								var IDRangesResult []K8SPodSecurityPolicyPspSpecSupplementalGroupsIDRangesModel
-								for _, IDRangesItem := range rawList {
+								for IDRangesIdx, IDRangesItem := range rawList {
+									_ = IDRangesIdx
 									if IDRangesItemMap, ok := IDRangesItem.(map[string]interface{}); ok {
 										IDRangesResult = append(IDRangesResult, K8SPodSecurityPolicyPspSpecSupplementalGroupsIDRangesModel{
 											MaxID: func() types.Int64 {
@@ -1663,9 +1700,14 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 				if !isImport && data.PspSpec != nil && (data.PspSpec.AllowedHostPaths.IsNull() || len(data.PspSpec.AllowedHostPaths.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityPolicyPspSpecAllowedHostPathsModelAttrTypes})
 				}
+				var AllowedHostPathsExisting []K8SPodSecurityPolicyPspSpecAllowedHostPathsModel
+				if !isImport && data.PspSpec != nil && !data.PspSpec.AllowedHostPaths.IsNull() && !data.PspSpec.AllowedHostPaths.IsUnknown() {
+					data.PspSpec.AllowedHostPaths.ElementsAs(ctx, &AllowedHostPathsExisting, false)
+				}
 				if rawList, ok := blockData["allowed_host_paths"].([]interface{}); ok && len(rawList) > 0 {
 					var AllowedHostPathsResult []K8SPodSecurityPolicyPspSpecAllowedHostPathsModel
-					for _, AllowedHostPathsItem := range rawList {
+					for AllowedHostPathsIdx, AllowedHostPathsItem := range rawList {
+						_ = AllowedHostPathsIdx
 						if AllowedHostPathsItemMap, ok := AllowedHostPathsItem.(map[string]interface{}); ok {
 							AllowedHostPathsResult = append(AllowedHostPathsResult, K8SPodSecurityPolicyPspSpecAllowedHostPathsModel{
 								PathPrefix: func() types.String {
@@ -1789,9 +1831,17 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 				if FsGroupStrategyOptionsData, ok := blockData["fs_group_strategy_options"].(map[string]interface{}); ok {
 					return &K8SPodSecurityPolicyPspSpecFsGroupStrategyOptionsModel{
 						IDRanges: func() types.List {
+							if !isImport && data.PspSpec != nil && data.PspSpec.FsGroupStrategyOptions != nil && (data.PspSpec.FsGroupStrategyOptions.IDRanges.IsNull() || len(data.PspSpec.FsGroupStrategyOptions.IDRanges.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityPolicyPspSpecFsGroupStrategyOptionsIDRangesModelAttrTypes})
+							}
+							var IDRangesExisting []K8SPodSecurityPolicyPspSpecFsGroupStrategyOptionsIDRangesModel
+							if !isImport && data.PspSpec != nil && data.PspSpec.FsGroupStrategyOptions != nil && !data.PspSpec.FsGroupStrategyOptions.IDRanges.IsNull() && !data.PspSpec.FsGroupStrategyOptions.IDRanges.IsUnknown() {
+								data.PspSpec.FsGroupStrategyOptions.IDRanges.ElementsAs(ctx, &IDRangesExisting, false)
+							}
 							if rawList, ok := FsGroupStrategyOptionsData["id_ranges"].([]interface{}); ok && len(rawList) > 0 {
 								var IDRangesResult []K8SPodSecurityPolicyPspSpecFsGroupStrategyOptionsIDRangesModel
-								for _, IDRangesItem := range rawList {
+								for IDRangesIdx, IDRangesItem := range rawList {
+									_ = IDRangesIdx
 									if IDRangesItemMap, ok := IDRangesItem.(map[string]interface{}); ok {
 										IDRangesResult = append(IDRangesResult, K8SPodSecurityPolicyPspSpecFsGroupStrategyOptionsIDRangesModel{
 											MaxID: func() types.Int64 {
@@ -1963,9 +2013,17 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 				if RunAsGroupData, ok := blockData["run_as_group"].(map[string]interface{}); ok {
 					return &K8SPodSecurityPolicyPspSpecRunAsGroupModel{
 						IDRanges: func() types.List {
+							if !isImport && data.PspSpec != nil && data.PspSpec.RunAsGroup != nil && (data.PspSpec.RunAsGroup.IDRanges.IsNull() || len(data.PspSpec.RunAsGroup.IDRanges.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityPolicyPspSpecRunAsGroupIDRangesModelAttrTypes})
+							}
+							var IDRangesExisting []K8SPodSecurityPolicyPspSpecRunAsGroupIDRangesModel
+							if !isImport && data.PspSpec != nil && data.PspSpec.RunAsGroup != nil && !data.PspSpec.RunAsGroup.IDRanges.IsNull() && !data.PspSpec.RunAsGroup.IDRanges.IsUnknown() {
+								data.PspSpec.RunAsGroup.IDRanges.ElementsAs(ctx, &IDRangesExisting, false)
+							}
 							if rawList, ok := RunAsGroupData["id_ranges"].([]interface{}); ok && len(rawList) > 0 {
 								var IDRangesResult []K8SPodSecurityPolicyPspSpecRunAsGroupIDRangesModel
-								for _, IDRangesItem := range rawList {
+								for IDRangesIdx, IDRangesItem := range rawList {
+									_ = IDRangesIdx
 									if IDRangesItemMap, ok := IDRangesItem.(map[string]interface{}); ok {
 										IDRangesResult = append(IDRangesResult, K8SPodSecurityPolicyPspSpecRunAsGroupIDRangesModel{
 											MaxID: func() types.Int64 {
@@ -2005,9 +2063,17 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 				if RunAsUserData, ok := blockData["run_as_user"].(map[string]interface{}); ok {
 					return &K8SPodSecurityPolicyPspSpecRunAsUserModel{
 						IDRanges: func() types.List {
+							if !isImport && data.PspSpec != nil && data.PspSpec.RunAsUser != nil && (data.PspSpec.RunAsUser.IDRanges.IsNull() || len(data.PspSpec.RunAsUser.IDRanges.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityPolicyPspSpecRunAsUserIDRangesModelAttrTypes})
+							}
+							var IDRangesExisting []K8SPodSecurityPolicyPspSpecRunAsUserIDRangesModel
+							if !isImport && data.PspSpec != nil && data.PspSpec.RunAsUser != nil && !data.PspSpec.RunAsUser.IDRanges.IsNull() && !data.PspSpec.RunAsUser.IDRanges.IsUnknown() {
+								data.PspSpec.RunAsUser.IDRanges.ElementsAs(ctx, &IDRangesExisting, false)
+							}
 							if rawList, ok := RunAsUserData["id_ranges"].([]interface{}); ok && len(rawList) > 0 {
 								var IDRangesResult []K8SPodSecurityPolicyPspSpecRunAsUserIDRangesModel
-								for _, IDRangesItem := range rawList {
+								for IDRangesIdx, IDRangesItem := range rawList {
+									_ = IDRangesIdx
 									if IDRangesItemMap, ok := IDRangesItem.(map[string]interface{}); ok {
 										IDRangesResult = append(IDRangesResult, K8SPodSecurityPolicyPspSpecRunAsUserIDRangesModel{
 											MaxID: func() types.Int64 {
@@ -2047,9 +2113,17 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 				if SupplementalGroupsData, ok := blockData["supplemental_groups"].(map[string]interface{}); ok {
 					return &K8SPodSecurityPolicyPspSpecSupplementalGroupsModel{
 						IDRanges: func() types.List {
+							if !isImport && data.PspSpec != nil && data.PspSpec.SupplementalGroups != nil && (data.PspSpec.SupplementalGroups.IDRanges.IsNull() || len(data.PspSpec.SupplementalGroups.IDRanges.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityPolicyPspSpecSupplementalGroupsIDRangesModelAttrTypes})
+							}
+							var IDRangesExisting []K8SPodSecurityPolicyPspSpecSupplementalGroupsIDRangesModel
+							if !isImport && data.PspSpec != nil && data.PspSpec.SupplementalGroups != nil && !data.PspSpec.SupplementalGroups.IDRanges.IsNull() && !data.PspSpec.SupplementalGroups.IDRanges.IsUnknown() {
+								data.PspSpec.SupplementalGroups.IDRanges.ElementsAs(ctx, &IDRangesExisting, false)
+							}
 							if rawList, ok := SupplementalGroupsData["id_ranges"].([]interface{}); ok && len(rawList) > 0 {
 								var IDRangesResult []K8SPodSecurityPolicyPspSpecSupplementalGroupsIDRangesModel
-								for _, IDRangesItem := range rawList {
+								for IDRangesIdx, IDRangesItem := range rawList {
+									_ = IDRangesIdx
 									if IDRangesItemMap, ok := IDRangesItem.(map[string]interface{}); ok {
 										IDRangesResult = append(IDRangesResult, K8SPodSecurityPolicyPspSpecSupplementalGroupsIDRangesModel{
 											MaxID: func() types.Int64 {
@@ -2512,9 +2586,14 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 				if !isImport && data.PspSpec != nil && (data.PspSpec.AllowedHostPaths.IsNull() || len(data.PspSpec.AllowedHostPaths.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityPolicyPspSpecAllowedHostPathsModelAttrTypes})
 				}
+				var AllowedHostPathsExisting []K8SPodSecurityPolicyPspSpecAllowedHostPathsModel
+				if !isImport && data.PspSpec != nil && !data.PspSpec.AllowedHostPaths.IsNull() && !data.PspSpec.AllowedHostPaths.IsUnknown() {
+					data.PspSpec.AllowedHostPaths.ElementsAs(ctx, &AllowedHostPathsExisting, false)
+				}
 				if rawList, ok := blockData["allowed_host_paths"].([]interface{}); ok && len(rawList) > 0 {
 					var AllowedHostPathsResult []K8SPodSecurityPolicyPspSpecAllowedHostPathsModel
-					for _, AllowedHostPathsItem := range rawList {
+					for AllowedHostPathsIdx, AllowedHostPathsItem := range rawList {
+						_ = AllowedHostPathsIdx
 						if AllowedHostPathsItemMap, ok := AllowedHostPathsItem.(map[string]interface{}); ok {
 							AllowedHostPathsResult = append(AllowedHostPathsResult, K8SPodSecurityPolicyPspSpecAllowedHostPathsModel{
 								PathPrefix: func() types.String {
@@ -2638,9 +2717,17 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 				if FsGroupStrategyOptionsData, ok := blockData["fs_group_strategy_options"].(map[string]interface{}); ok {
 					return &K8SPodSecurityPolicyPspSpecFsGroupStrategyOptionsModel{
 						IDRanges: func() types.List {
+							if !isImport && data.PspSpec != nil && data.PspSpec.FsGroupStrategyOptions != nil && (data.PspSpec.FsGroupStrategyOptions.IDRanges.IsNull() || len(data.PspSpec.FsGroupStrategyOptions.IDRanges.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityPolicyPspSpecFsGroupStrategyOptionsIDRangesModelAttrTypes})
+							}
+							var IDRangesExisting []K8SPodSecurityPolicyPspSpecFsGroupStrategyOptionsIDRangesModel
+							if !isImport && data.PspSpec != nil && data.PspSpec.FsGroupStrategyOptions != nil && !data.PspSpec.FsGroupStrategyOptions.IDRanges.IsNull() && !data.PspSpec.FsGroupStrategyOptions.IDRanges.IsUnknown() {
+								data.PspSpec.FsGroupStrategyOptions.IDRanges.ElementsAs(ctx, &IDRangesExisting, false)
+							}
 							if rawList, ok := FsGroupStrategyOptionsData["id_ranges"].([]interface{}); ok && len(rawList) > 0 {
 								var IDRangesResult []K8SPodSecurityPolicyPspSpecFsGroupStrategyOptionsIDRangesModel
-								for _, IDRangesItem := range rawList {
+								for IDRangesIdx, IDRangesItem := range rawList {
+									_ = IDRangesIdx
 									if IDRangesItemMap, ok := IDRangesItem.(map[string]interface{}); ok {
 										IDRangesResult = append(IDRangesResult, K8SPodSecurityPolicyPspSpecFsGroupStrategyOptionsIDRangesModel{
 											MaxID: func() types.Int64 {
@@ -2812,9 +2899,17 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 				if RunAsGroupData, ok := blockData["run_as_group"].(map[string]interface{}); ok {
 					return &K8SPodSecurityPolicyPspSpecRunAsGroupModel{
 						IDRanges: func() types.List {
+							if !isImport && data.PspSpec != nil && data.PspSpec.RunAsGroup != nil && (data.PspSpec.RunAsGroup.IDRanges.IsNull() || len(data.PspSpec.RunAsGroup.IDRanges.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityPolicyPspSpecRunAsGroupIDRangesModelAttrTypes})
+							}
+							var IDRangesExisting []K8SPodSecurityPolicyPspSpecRunAsGroupIDRangesModel
+							if !isImport && data.PspSpec != nil && data.PspSpec.RunAsGroup != nil && !data.PspSpec.RunAsGroup.IDRanges.IsNull() && !data.PspSpec.RunAsGroup.IDRanges.IsUnknown() {
+								data.PspSpec.RunAsGroup.IDRanges.ElementsAs(ctx, &IDRangesExisting, false)
+							}
 							if rawList, ok := RunAsGroupData["id_ranges"].([]interface{}); ok && len(rawList) > 0 {
 								var IDRangesResult []K8SPodSecurityPolicyPspSpecRunAsGroupIDRangesModel
-								for _, IDRangesItem := range rawList {
+								for IDRangesIdx, IDRangesItem := range rawList {
+									_ = IDRangesIdx
 									if IDRangesItemMap, ok := IDRangesItem.(map[string]interface{}); ok {
 										IDRangesResult = append(IDRangesResult, K8SPodSecurityPolicyPspSpecRunAsGroupIDRangesModel{
 											MaxID: func() types.Int64 {
@@ -2854,9 +2949,17 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 				if RunAsUserData, ok := blockData["run_as_user"].(map[string]interface{}); ok {
 					return &K8SPodSecurityPolicyPspSpecRunAsUserModel{
 						IDRanges: func() types.List {
+							if !isImport && data.PspSpec != nil && data.PspSpec.RunAsUser != nil && (data.PspSpec.RunAsUser.IDRanges.IsNull() || len(data.PspSpec.RunAsUser.IDRanges.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityPolicyPspSpecRunAsUserIDRangesModelAttrTypes})
+							}
+							var IDRangesExisting []K8SPodSecurityPolicyPspSpecRunAsUserIDRangesModel
+							if !isImport && data.PspSpec != nil && data.PspSpec.RunAsUser != nil && !data.PspSpec.RunAsUser.IDRanges.IsNull() && !data.PspSpec.RunAsUser.IDRanges.IsUnknown() {
+								data.PspSpec.RunAsUser.IDRanges.ElementsAs(ctx, &IDRangesExisting, false)
+							}
 							if rawList, ok := RunAsUserData["id_ranges"].([]interface{}); ok && len(rawList) > 0 {
 								var IDRangesResult []K8SPodSecurityPolicyPspSpecRunAsUserIDRangesModel
-								for _, IDRangesItem := range rawList {
+								for IDRangesIdx, IDRangesItem := range rawList {
+									_ = IDRangesIdx
 									if IDRangesItemMap, ok := IDRangesItem.(map[string]interface{}); ok {
 										IDRangesResult = append(IDRangesResult, K8SPodSecurityPolicyPspSpecRunAsUserIDRangesModel{
 											MaxID: func() types.Int64 {
@@ -2896,9 +2999,17 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 				if SupplementalGroupsData, ok := blockData["supplemental_groups"].(map[string]interface{}); ok {
 					return &K8SPodSecurityPolicyPspSpecSupplementalGroupsModel{
 						IDRanges: func() types.List {
+							if !isImport && data.PspSpec != nil && data.PspSpec.SupplementalGroups != nil && (data.PspSpec.SupplementalGroups.IDRanges.IsNull() || len(data.PspSpec.SupplementalGroups.IDRanges.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityPolicyPspSpecSupplementalGroupsIDRangesModelAttrTypes})
+							}
+							var IDRangesExisting []K8SPodSecurityPolicyPspSpecSupplementalGroupsIDRangesModel
+							if !isImport && data.PspSpec != nil && data.PspSpec.SupplementalGroups != nil && !data.PspSpec.SupplementalGroups.IDRanges.IsNull() && !data.PspSpec.SupplementalGroups.IDRanges.IsUnknown() {
+								data.PspSpec.SupplementalGroups.IDRanges.ElementsAs(ctx, &IDRangesExisting, false)
+							}
 							if rawList, ok := SupplementalGroupsData["id_ranges"].([]interface{}); ok && len(rawList) > 0 {
 								var IDRangesResult []K8SPodSecurityPolicyPspSpecSupplementalGroupsIDRangesModel
-								for _, IDRangesItem := range rawList {
+								for IDRangesIdx, IDRangesItem := range rawList {
+									_ = IDRangesIdx
 									if IDRangesItemMap, ok := IDRangesItem.(map[string]interface{}); ok {
 										IDRangesResult = append(IDRangesResult, K8SPodSecurityPolicyPspSpecSupplementalGroupsIDRangesModel{
 											MaxID: func() types.Int64 {

@@ -1047,9 +1047,15 @@ func (r *CDNCacheRuleResource) Create(ctx context.Context, req resource.CreateRe
 				if EligibleForCacheData, ok := blockData["eligible_for_cache"].(map[string]interface{}); ok {
 					return &CDNCacheRuleCacheRulesEligibleForCacheModel{
 						SchemeProxyHostRequestURI: func() *CDNCacheRuleCacheRulesEligibleForCacheSchemeProxyHostRequestURIModel {
+							if !isImport && data.CacheRules != nil && data.CacheRules.EligibleForCache != nil && data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI != nil {
+								return data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI
+							}
 							if SchemeProxyHostRequestURIData, ok := EligibleForCacheData["scheme_proxy_host_request_uri"].(map[string]interface{}); ok {
 								return &CDNCacheRuleCacheRulesEligibleForCacheSchemeProxyHostRequestURIModel{
 									CacheOverride: func() types.Bool {
+										if !isImport && data.CacheRules != nil && data.CacheRules.EligibleForCache != nil && data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI != nil && !data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.CacheOverride.IsUnknown() {
+											return data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.CacheOverride
+										}
 										if v, ok := SchemeProxyHostRequestURIData["cache_override"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -1062,6 +1068,9 @@ func (r *CDNCacheRuleResource) Create(ctx context.Context, req resource.CreateRe
 										return types.StringNull()
 									}(),
 									IgnoreResponseCookie: func() types.Bool {
+										if !isImport && data.CacheRules != nil && data.CacheRules.EligibleForCache != nil && data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI != nil && !data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.IgnoreResponseCookie.IsUnknown() {
+											return data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.IgnoreResponseCookie
+										}
 										if v, ok := SchemeProxyHostRequestURIData["ignore_response_cookie"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -1072,9 +1081,15 @@ func (r *CDNCacheRuleResource) Create(ctx context.Context, req resource.CreateRe
 							return nil
 						}(),
 						SchemeProxyHostURI: func() *CDNCacheRuleCacheRulesEligibleForCacheSchemeProxyHostURIModel {
+							if !isImport && data.CacheRules != nil && data.CacheRules.EligibleForCache != nil && data.CacheRules.EligibleForCache.SchemeProxyHostURI != nil {
+								return data.CacheRules.EligibleForCache.SchemeProxyHostURI
+							}
 							if SchemeProxyHostURIData, ok := EligibleForCacheData["scheme_proxy_host_uri"].(map[string]interface{}); ok {
 								return &CDNCacheRuleCacheRulesEligibleForCacheSchemeProxyHostURIModel{
 									CacheOverride: func() types.Bool {
+										if !isImport && data.CacheRules != nil && data.CacheRules.EligibleForCache != nil && data.CacheRules.EligibleForCache.SchemeProxyHostURI != nil && !data.CacheRules.EligibleForCache.SchemeProxyHostURI.CacheOverride.IsUnknown() {
+											return data.CacheRules.EligibleForCache.SchemeProxyHostURI.CacheOverride
+										}
 										if v, ok := SchemeProxyHostURIData["cache_override"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -1087,6 +1102,9 @@ func (r *CDNCacheRuleResource) Create(ctx context.Context, req resource.CreateRe
 										return types.StringNull()
 									}(),
 									IgnoreResponseCookie: func() types.Bool {
+										if !isImport && data.CacheRules != nil && data.CacheRules.EligibleForCache != nil && data.CacheRules.EligibleForCache.SchemeProxyHostURI != nil && !data.CacheRules.EligibleForCache.SchemeProxyHostURI.IgnoreResponseCookie.IsUnknown() {
+											return data.CacheRules.EligibleForCache.SchemeProxyHostURI.IgnoreResponseCookie
+										}
 										if v, ok := SchemeProxyHostURIData["ignore_response_cookie"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -1104,9 +1122,14 @@ func (r *CDNCacheRuleResource) Create(ctx context.Context, req resource.CreateRe
 				if !isImport && data.CacheRules != nil && (data.CacheRules.RuleExpressionList.IsNull() || len(data.CacheRules.RuleExpressionList.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: CDNCacheRuleCacheRulesRuleExpressionListModelAttrTypes})
 				}
+				var RuleExpressionListExisting []CDNCacheRuleCacheRulesRuleExpressionListModel
+				if !isImport && data.CacheRules != nil && !data.CacheRules.RuleExpressionList.IsNull() && !data.CacheRules.RuleExpressionList.IsUnknown() {
+					data.CacheRules.RuleExpressionList.ElementsAs(ctx, &RuleExpressionListExisting, false)
+				}
 				if rawList, ok := blockData["rule_expression_list"].([]interface{}); ok && len(rawList) > 0 {
 					var RuleExpressionListResult []CDNCacheRuleCacheRulesRuleExpressionListModel
-					for _, RuleExpressionListItem := range rawList {
+					for RuleExpressionListIdx, RuleExpressionListItem := range rawList {
+						_ = RuleExpressionListIdx
 						if RuleExpressionListItemMap, ok := RuleExpressionListItem.(map[string]interface{}); ok {
 							RuleExpressionListResult = append(RuleExpressionListResult, CDNCacheRuleCacheRulesRuleExpressionListModel{
 								CacheRuleExpression: func() types.List {
@@ -1567,9 +1590,15 @@ func (r *CDNCacheRuleResource) Read(ctx context.Context, req resource.ReadReques
 				if EligibleForCacheData, ok := blockData["eligible_for_cache"].(map[string]interface{}); ok {
 					return &CDNCacheRuleCacheRulesEligibleForCacheModel{
 						SchemeProxyHostRequestURI: func() *CDNCacheRuleCacheRulesEligibleForCacheSchemeProxyHostRequestURIModel {
+							if !isImport && data.CacheRules != nil && data.CacheRules.EligibleForCache != nil && data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI != nil {
+								return data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI
+							}
 							if SchemeProxyHostRequestURIData, ok := EligibleForCacheData["scheme_proxy_host_request_uri"].(map[string]interface{}); ok {
 								return &CDNCacheRuleCacheRulesEligibleForCacheSchemeProxyHostRequestURIModel{
 									CacheOverride: func() types.Bool {
+										if !isImport && data.CacheRules != nil && data.CacheRules.EligibleForCache != nil && data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI != nil && !data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.CacheOverride.IsUnknown() {
+											return data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.CacheOverride
+										}
 										if v, ok := SchemeProxyHostRequestURIData["cache_override"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -1582,6 +1611,9 @@ func (r *CDNCacheRuleResource) Read(ctx context.Context, req resource.ReadReques
 										return types.StringNull()
 									}(),
 									IgnoreResponseCookie: func() types.Bool {
+										if !isImport && data.CacheRules != nil && data.CacheRules.EligibleForCache != nil && data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI != nil && !data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.IgnoreResponseCookie.IsUnknown() {
+											return data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.IgnoreResponseCookie
+										}
 										if v, ok := SchemeProxyHostRequestURIData["ignore_response_cookie"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -1592,9 +1624,15 @@ func (r *CDNCacheRuleResource) Read(ctx context.Context, req resource.ReadReques
 							return nil
 						}(),
 						SchemeProxyHostURI: func() *CDNCacheRuleCacheRulesEligibleForCacheSchemeProxyHostURIModel {
+							if !isImport && data.CacheRules != nil && data.CacheRules.EligibleForCache != nil && data.CacheRules.EligibleForCache.SchemeProxyHostURI != nil {
+								return data.CacheRules.EligibleForCache.SchemeProxyHostURI
+							}
 							if SchemeProxyHostURIData, ok := EligibleForCacheData["scheme_proxy_host_uri"].(map[string]interface{}); ok {
 								return &CDNCacheRuleCacheRulesEligibleForCacheSchemeProxyHostURIModel{
 									CacheOverride: func() types.Bool {
+										if !isImport && data.CacheRules != nil && data.CacheRules.EligibleForCache != nil && data.CacheRules.EligibleForCache.SchemeProxyHostURI != nil && !data.CacheRules.EligibleForCache.SchemeProxyHostURI.CacheOverride.IsUnknown() {
+											return data.CacheRules.EligibleForCache.SchemeProxyHostURI.CacheOverride
+										}
 										if v, ok := SchemeProxyHostURIData["cache_override"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -1607,6 +1645,9 @@ func (r *CDNCacheRuleResource) Read(ctx context.Context, req resource.ReadReques
 										return types.StringNull()
 									}(),
 									IgnoreResponseCookie: func() types.Bool {
+										if !isImport && data.CacheRules != nil && data.CacheRules.EligibleForCache != nil && data.CacheRules.EligibleForCache.SchemeProxyHostURI != nil && !data.CacheRules.EligibleForCache.SchemeProxyHostURI.IgnoreResponseCookie.IsUnknown() {
+											return data.CacheRules.EligibleForCache.SchemeProxyHostURI.IgnoreResponseCookie
+										}
 										if v, ok := SchemeProxyHostURIData["ignore_response_cookie"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -1624,9 +1665,14 @@ func (r *CDNCacheRuleResource) Read(ctx context.Context, req resource.ReadReques
 				if !isImport && data.CacheRules != nil && (data.CacheRules.RuleExpressionList.IsNull() || len(data.CacheRules.RuleExpressionList.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: CDNCacheRuleCacheRulesRuleExpressionListModelAttrTypes})
 				}
+				var RuleExpressionListExisting []CDNCacheRuleCacheRulesRuleExpressionListModel
+				if !isImport && data.CacheRules != nil && !data.CacheRules.RuleExpressionList.IsNull() && !data.CacheRules.RuleExpressionList.IsUnknown() {
+					data.CacheRules.RuleExpressionList.ElementsAs(ctx, &RuleExpressionListExisting, false)
+				}
 				if rawList, ok := blockData["rule_expression_list"].([]interface{}); ok && len(rawList) > 0 {
 					var RuleExpressionListResult []CDNCacheRuleCacheRulesRuleExpressionListModel
-					for _, RuleExpressionListItem := range rawList {
+					for RuleExpressionListIdx, RuleExpressionListItem := range rawList {
+						_ = RuleExpressionListIdx
 						if RuleExpressionListItemMap, ok := RuleExpressionListItem.(map[string]interface{}); ok {
 							RuleExpressionListResult = append(RuleExpressionListResult, CDNCacheRuleCacheRulesRuleExpressionListModel{
 								CacheRuleExpression: func() types.List {
@@ -2322,9 +2368,15 @@ func (r *CDNCacheRuleResource) Update(ctx context.Context, req resource.UpdateRe
 				if EligibleForCacheData, ok := blockData["eligible_for_cache"].(map[string]interface{}); ok {
 					return &CDNCacheRuleCacheRulesEligibleForCacheModel{
 						SchemeProxyHostRequestURI: func() *CDNCacheRuleCacheRulesEligibleForCacheSchemeProxyHostRequestURIModel {
+							if !isImport && data.CacheRules != nil && data.CacheRules.EligibleForCache != nil && data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI != nil {
+								return data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI
+							}
 							if SchemeProxyHostRequestURIData, ok := EligibleForCacheData["scheme_proxy_host_request_uri"].(map[string]interface{}); ok {
 								return &CDNCacheRuleCacheRulesEligibleForCacheSchemeProxyHostRequestURIModel{
 									CacheOverride: func() types.Bool {
+										if !isImport && data.CacheRules != nil && data.CacheRules.EligibleForCache != nil && data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI != nil && !data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.CacheOverride.IsUnknown() {
+											return data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.CacheOverride
+										}
 										if v, ok := SchemeProxyHostRequestURIData["cache_override"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -2337,6 +2389,9 @@ func (r *CDNCacheRuleResource) Update(ctx context.Context, req resource.UpdateRe
 										return types.StringNull()
 									}(),
 									IgnoreResponseCookie: func() types.Bool {
+										if !isImport && data.CacheRules != nil && data.CacheRules.EligibleForCache != nil && data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI != nil && !data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.IgnoreResponseCookie.IsUnknown() {
+											return data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.IgnoreResponseCookie
+										}
 										if v, ok := SchemeProxyHostRequestURIData["ignore_response_cookie"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -2347,9 +2402,15 @@ func (r *CDNCacheRuleResource) Update(ctx context.Context, req resource.UpdateRe
 							return nil
 						}(),
 						SchemeProxyHostURI: func() *CDNCacheRuleCacheRulesEligibleForCacheSchemeProxyHostURIModel {
+							if !isImport && data.CacheRules != nil && data.CacheRules.EligibleForCache != nil && data.CacheRules.EligibleForCache.SchemeProxyHostURI != nil {
+								return data.CacheRules.EligibleForCache.SchemeProxyHostURI
+							}
 							if SchemeProxyHostURIData, ok := EligibleForCacheData["scheme_proxy_host_uri"].(map[string]interface{}); ok {
 								return &CDNCacheRuleCacheRulesEligibleForCacheSchemeProxyHostURIModel{
 									CacheOverride: func() types.Bool {
+										if !isImport && data.CacheRules != nil && data.CacheRules.EligibleForCache != nil && data.CacheRules.EligibleForCache.SchemeProxyHostURI != nil && !data.CacheRules.EligibleForCache.SchemeProxyHostURI.CacheOverride.IsUnknown() {
+											return data.CacheRules.EligibleForCache.SchemeProxyHostURI.CacheOverride
+										}
 										if v, ok := SchemeProxyHostURIData["cache_override"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -2362,6 +2423,9 @@ func (r *CDNCacheRuleResource) Update(ctx context.Context, req resource.UpdateRe
 										return types.StringNull()
 									}(),
 									IgnoreResponseCookie: func() types.Bool {
+										if !isImport && data.CacheRules != nil && data.CacheRules.EligibleForCache != nil && data.CacheRules.EligibleForCache.SchemeProxyHostURI != nil && !data.CacheRules.EligibleForCache.SchemeProxyHostURI.IgnoreResponseCookie.IsUnknown() {
+											return data.CacheRules.EligibleForCache.SchemeProxyHostURI.IgnoreResponseCookie
+										}
 										if v, ok := SchemeProxyHostURIData["ignore_response_cookie"].(bool); ok {
 											return types.BoolValue(v)
 										}
@@ -2379,9 +2443,14 @@ func (r *CDNCacheRuleResource) Update(ctx context.Context, req resource.UpdateRe
 				if !isImport && data.CacheRules != nil && (data.CacheRules.RuleExpressionList.IsNull() || len(data.CacheRules.RuleExpressionList.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: CDNCacheRuleCacheRulesRuleExpressionListModelAttrTypes})
 				}
+				var RuleExpressionListExisting []CDNCacheRuleCacheRulesRuleExpressionListModel
+				if !isImport && data.CacheRules != nil && !data.CacheRules.RuleExpressionList.IsNull() && !data.CacheRules.RuleExpressionList.IsUnknown() {
+					data.CacheRules.RuleExpressionList.ElementsAs(ctx, &RuleExpressionListExisting, false)
+				}
 				if rawList, ok := blockData["rule_expression_list"].([]interface{}); ok && len(rawList) > 0 {
 					var RuleExpressionListResult []CDNCacheRuleCacheRulesRuleExpressionListModel
-					for _, RuleExpressionListItem := range rawList {
+					for RuleExpressionListIdx, RuleExpressionListItem := range rawList {
+						_ = RuleExpressionListIdx
 						if RuleExpressionListItemMap, ok := RuleExpressionListItem.(map[string]interface{}); ok {
 							RuleExpressionListResult = append(RuleExpressionListResult, CDNCacheRuleCacheRulesRuleExpressionListModel{
 								CacheRuleExpression: func() types.List {

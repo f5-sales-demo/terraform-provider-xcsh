@@ -4264,24 +4264,36 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverAWSCloudWatchReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Batch != nil && !data.AWSCloudWatchReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.AWSCloudWatchReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Batch != nil {
+								return data.AWSCloudWatchReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Batch != nil && !data.AWSCloudWatchReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.AWSCloudWatchReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Batch != nil {
+								return data.AWSCloudWatchReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -4294,6 +4306,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Batch != nil {
+								return data.AWSCloudWatchReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -4310,18 +4325,27 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverAWSCloudWatchReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Compression != nil {
+								return data.AWSCloudWatchReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Compression != nil {
+								return data.AWSCloudWatchReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Compression != nil {
+								return data.AWSCloudWatchReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -4354,6 +4378,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if ConnectionStringData, ok := blockData["connection_string"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverAzureEventHubsReceiverConnectionStringModel{
 						BlindfoldSecretInfo: func() *GlobalLogReceiverAzureEventHubsReceiverConnectionStringBlindfoldSecretInfoModel {
+							if !isImport && data.AzureEventHubsReceiver != nil && data.AzureEventHubsReceiver.ConnectionString != nil && data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo != nil {
+								return data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := ConnectionStringData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverAzureEventHubsReceiverConnectionStringBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -4379,6 +4406,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							return nil
 						}(),
 						ClearSecretInfo: func() *GlobalLogReceiverAzureEventHubsReceiverConnectionStringClearSecretInfoModel {
+							if !isImport && data.AzureEventHubsReceiver != nil && data.AzureEventHubsReceiver.ConnectionString != nil && data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo != nil {
+								return data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := ConnectionStringData["clear_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverAzureEventHubsReceiverConnectionStringClearSecretInfoModel{
 									Provider: func() types.String {
@@ -4424,24 +4454,36 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverAzureReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Batch != nil && !data.AzureReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.AzureReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Batch != nil {
+								return data.AzureReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Batch != nil && !data.AzureReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.AzureReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Batch != nil {
+								return data.AzureReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -4454,6 +4496,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Batch != nil {
+								return data.AzureReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -4470,18 +4515,27 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverAzureReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Compression != nil {
+								return data.AzureReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Compression != nil {
+								return data.AzureReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Compression != nil {
+								return data.AzureReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -4498,6 +4552,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if ConnectionStringData, ok := blockData["connection_string"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverAzureReceiverConnectionStringModel{
 						BlindfoldSecretInfo: func() *GlobalLogReceiverAzureReceiverConnectionStringBlindfoldSecretInfoModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.ConnectionString != nil && data.AzureReceiver.ConnectionString.BlindfoldSecretInfo != nil {
+								return data.AzureReceiver.ConnectionString.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := ConnectionStringData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverAzureReceiverConnectionStringBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -4523,6 +4580,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							return nil
 						}(),
 						ClearSecretInfo: func() *GlobalLogReceiverAzureReceiverConnectionStringClearSecretInfoModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.ConnectionString != nil && data.AzureReceiver.ConnectionString.ClearSecretInfo != nil {
+								return data.AzureReceiver.ConnectionString.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := ConnectionStringData["clear_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverAzureReceiverConnectionStringClearSecretInfoModel{
 									Provider: func() types.String {
@@ -4564,12 +4624,18 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							return types.StringNull()
 						}(),
 						LogTypeFolder: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.FilenameOptions != nil {
+								return data.AzureReceiver.FilenameOptions.LogTypeFolder
+							}
 							if _, ok := FilenameOptionsData["log_type_folder"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						NoFolder: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.FilenameOptions != nil {
+								return data.AzureReceiver.FilenameOptions.NoFolder
+							}
 							if _, ok := FilenameOptionsData["no_folder"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -4590,24 +4656,36 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverDatadogReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Batch != nil && !data.DatadogReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.DatadogReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Batch != nil {
+								return data.DatadogReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Batch != nil && !data.DatadogReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.DatadogReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Batch != nil {
+								return data.DatadogReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -4620,6 +4698,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Batch != nil {
+								return data.DatadogReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -4636,18 +4717,27 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverDatadogReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Compression != nil {
+								return data.DatadogReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Compression != nil {
+								return data.DatadogReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Compression != nil {
+								return data.DatadogReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -4664,6 +4754,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if DatadogAPIKeyData, ok := blockData["datadog_api_key"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverDatadogReceiverDatadogAPIKeyModel{
 						BlindfoldSecretInfo: func() *GlobalLogReceiverDatadogReceiverDatadogAPIKeyBlindfoldSecretInfoModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.DatadogAPIKey != nil && data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo != nil {
+								return data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := DatadogAPIKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverDatadogReceiverDatadogAPIKeyBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -4689,6 +4782,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							return nil
 						}(),
 						ClearSecretInfo: func() *GlobalLogReceiverDatadogReceiverDatadogAPIKeyClearSecretInfoModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.DatadogAPIKey != nil && data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo != nil {
+								return data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := DatadogAPIKeyData["clear_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverDatadogReceiverDatadogAPIKeyClearSecretInfoModel{
 									Provider: func() types.String {
@@ -4739,36 +4835,54 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverDatadogReceiverUseTLSModel{
 						DisableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil {
+								return data.DatadogReceiver.UseTLS.DisableVerifyCertificate
+							}
 							if _, ok := UseTLSData["disable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil {
+								return data.DatadogReceiver.UseTLS.DisableVerifyHostname
+							}
 							if _, ok := UseTLSData["disable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil {
+								return data.DatadogReceiver.UseTLS.EnableVerifyCertificate
+							}
 							if _, ok := UseTLSData["enable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil {
+								return data.DatadogReceiver.UseTLS.EnableVerifyHostname
+							}
 							if _, ok := UseTLSData["enable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil {
+								return data.DatadogReceiver.UseTLS.MtlsDisabled
+							}
 							if _, ok := UseTLSData["mtls_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsEnable: func() *GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil && data.DatadogReceiver.UseTLS.MtlsEnable != nil {
+								return data.DatadogReceiver.UseTLS.MtlsEnable
+							}
 							if MtlsEnableData, ok := UseTLSData["mtls_enable"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableModel{
 									Certificate: func() types.String {
@@ -4778,9 +4892,15 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 										return types.StringNull()
 									}(),
 									KeyURL: func() *GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLModel {
+										if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil && data.DatadogReceiver.UseTLS.MtlsEnable != nil && data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL != nil {
+											return data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL
+										}
 										if KeyURLData, ok := MtlsEnableData["key_url"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLModel{
 												BlindfoldSecretInfo: func() *GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel {
+													if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil && data.DatadogReceiver.UseTLS.MtlsEnable != nil && data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
+														return data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -4806,6 +4926,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 													return nil
 												}(),
 												ClearSecretInfo: func() *GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel {
+													if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil && data.DatadogReceiver.UseTLS.MtlsEnable != nil && data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
+														return data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel{
 															Provider: func() types.String {
@@ -4833,6 +4956,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							return nil
 						}(),
 						NoCA: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil {
+								return data.DatadogReceiver.UseTLS.NoCA
+							}
 							if _, ok := UseTLSData["no_ca"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -4862,24 +4988,36 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverGCPBucketReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Batch != nil && !data.GCPBucketReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.GCPBucketReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Batch != nil {
+								return data.GCPBucketReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Batch != nil && !data.GCPBucketReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.GCPBucketReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Batch != nil {
+								return data.GCPBucketReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -4892,6 +5030,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Batch != nil {
+								return data.GCPBucketReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -4914,18 +5055,27 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverGCPBucketReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Compression != nil {
+								return data.GCPBucketReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Compression != nil {
+								return data.GCPBucketReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Compression != nil {
+								return data.GCPBucketReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -4948,12 +5098,18 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							return types.StringNull()
 						}(),
 						LogTypeFolder: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.FilenameOptions != nil {
+								return data.GCPBucketReceiver.FilenameOptions.LogTypeFolder
+							}
 							if _, ok := FilenameOptionsData["log_type_folder"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						NoFolder: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.FilenameOptions != nil {
+								return data.GCPBucketReceiver.FilenameOptions.NoFolder
+							}
 							if _, ok := FilenameOptionsData["no_folder"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -4999,9 +5155,15 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if AuthBasicData, ok := blockData["auth_basic"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverHTTPReceiverAuthBasicModel{
 						Password: func() *GlobalLogReceiverHTTPReceiverAuthBasicPasswordModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.AuthBasic != nil && data.HTTPReceiver.AuthBasic.Password != nil {
+								return data.HTTPReceiver.AuthBasic.Password
+							}
 							if PasswordData, ok := AuthBasicData["password"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverHTTPReceiverAuthBasicPasswordModel{
 									BlindfoldSecretInfo: func() *GlobalLogReceiverHTTPReceiverAuthBasicPasswordBlindfoldSecretInfoModel {
+										if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.AuthBasic != nil && data.HTTPReceiver.AuthBasic.Password != nil && data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo != nil {
+											return data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverHTTPReceiverAuthBasicPasswordBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -5027,6 +5189,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 										return nil
 									}(),
 									ClearSecretInfo: func() *GlobalLogReceiverHTTPReceiverAuthBasicPasswordClearSecretInfoModel {
+										if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.AuthBasic != nil && data.HTTPReceiver.AuthBasic.Password != nil && data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo != nil {
+											return data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverHTTPReceiverAuthBasicPasswordClearSecretInfoModel{
 												Provider: func() types.String {
@@ -5075,9 +5240,15 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if AuthTokenData, ok := blockData["auth_token"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverHTTPReceiverAuthTokenModel{
 						Token: func() *GlobalLogReceiverHTTPReceiverAuthTokenTokenModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.AuthToken != nil && data.HTTPReceiver.AuthToken.Token != nil {
+								return data.HTTPReceiver.AuthToken.Token
+							}
 							if TokenData, ok := AuthTokenData["token"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverHTTPReceiverAuthTokenTokenModel{
 									BlindfoldSecretInfo: func() *GlobalLogReceiverHTTPReceiverAuthTokenTokenBlindfoldSecretInfoModel {
+										if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.AuthToken != nil && data.HTTPReceiver.AuthToken.Token != nil && data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo != nil {
+											return data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := TokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverHTTPReceiverAuthTokenTokenBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -5103,6 +5274,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 										return nil
 									}(),
 									ClearSecretInfo: func() *GlobalLogReceiverHTTPReceiverAuthTokenTokenClearSecretInfoModel {
+										if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.AuthToken != nil && data.HTTPReceiver.AuthToken.Token != nil && data.HTTPReceiver.AuthToken.Token.ClearSecretInfo != nil {
+											return data.HTTPReceiver.AuthToken.Token.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := TokenData["clear_secret_info"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverHTTPReceiverAuthTokenTokenClearSecretInfoModel{
 												Provider: func() types.String {
@@ -5136,24 +5310,36 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverHTTPReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Batch != nil && !data.HTTPReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.HTTPReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Batch != nil {
+								return data.HTTPReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Batch != nil && !data.HTTPReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.HTTPReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Batch != nil {
+								return data.HTTPReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -5166,6 +5352,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Batch != nil {
+								return data.HTTPReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -5182,18 +5371,27 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverHTTPReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Compression != nil {
+								return data.HTTPReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Compression != nil {
+								return data.HTTPReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Compression != nil {
+								return data.HTTPReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -5225,36 +5423,54 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverHTTPReceiverUseTLSModel{
 						DisableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil {
+								return data.HTTPReceiver.UseTLS.DisableVerifyCertificate
+							}
 							if _, ok := UseTLSData["disable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil {
+								return data.HTTPReceiver.UseTLS.DisableVerifyHostname
+							}
 							if _, ok := UseTLSData["disable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil {
+								return data.HTTPReceiver.UseTLS.EnableVerifyCertificate
+							}
 							if _, ok := UseTLSData["enable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil {
+								return data.HTTPReceiver.UseTLS.EnableVerifyHostname
+							}
 							if _, ok := UseTLSData["enable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil {
+								return data.HTTPReceiver.UseTLS.MtlsDisabled
+							}
 							if _, ok := UseTLSData["mtls_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsEnable: func() *GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil && data.HTTPReceiver.UseTLS.MtlsEnable != nil {
+								return data.HTTPReceiver.UseTLS.MtlsEnable
+							}
 							if MtlsEnableData, ok := UseTLSData["mtls_enable"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableModel{
 									Certificate: func() types.String {
@@ -5264,9 +5480,15 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 										return types.StringNull()
 									}(),
 									KeyURL: func() *GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLModel {
+										if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil && data.HTTPReceiver.UseTLS.MtlsEnable != nil && data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL != nil {
+											return data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL
+										}
 										if KeyURLData, ok := MtlsEnableData["key_url"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLModel{
 												BlindfoldSecretInfo: func() *GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel {
+													if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil && data.HTTPReceiver.UseTLS.MtlsEnable != nil && data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
+														return data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -5292,6 +5514,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 													return nil
 												}(),
 												ClearSecretInfo: func() *GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel {
+													if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil && data.HTTPReceiver.UseTLS.MtlsEnable != nil && data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
+														return data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel{
 															Provider: func() types.String {
@@ -5319,6 +5544,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							return nil
 						}(),
 						NoCA: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil {
+								return data.HTTPReceiver.UseTLS.NoCA
+							}
 							if _, ok := UseTLSData["no_ca"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -5345,24 +5573,36 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverKafkaReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Batch != nil && !data.KafkaReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.KafkaReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Batch != nil {
+								return data.KafkaReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Batch != nil && !data.KafkaReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.KafkaReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Batch != nil {
+								return data.KafkaReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -5375,6 +5615,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Batch != nil {
+								return data.KafkaReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -5404,18 +5647,27 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverKafkaReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Compression != nil {
+								return data.KafkaReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Compression != nil {
+								return data.KafkaReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Compression != nil {
+								return data.KafkaReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -5447,36 +5699,54 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverKafkaReceiverUseTLSModel{
 						DisableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil {
+								return data.KafkaReceiver.UseTLS.DisableVerifyCertificate
+							}
 							if _, ok := UseTLSData["disable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil {
+								return data.KafkaReceiver.UseTLS.DisableVerifyHostname
+							}
 							if _, ok := UseTLSData["disable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil {
+								return data.KafkaReceiver.UseTLS.EnableVerifyCertificate
+							}
 							if _, ok := UseTLSData["enable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil {
+								return data.KafkaReceiver.UseTLS.EnableVerifyHostname
+							}
 							if _, ok := UseTLSData["enable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil {
+								return data.KafkaReceiver.UseTLS.MtlsDisabled
+							}
 							if _, ok := UseTLSData["mtls_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsEnable: func() *GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil && data.KafkaReceiver.UseTLS.MtlsEnable != nil {
+								return data.KafkaReceiver.UseTLS.MtlsEnable
+							}
 							if MtlsEnableData, ok := UseTLSData["mtls_enable"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableModel{
 									Certificate: func() types.String {
@@ -5486,9 +5756,15 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 										return types.StringNull()
 									}(),
 									KeyURL: func() *GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLModel {
+										if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil && data.KafkaReceiver.UseTLS.MtlsEnable != nil && data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL != nil {
+											return data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL
+										}
 										if KeyURLData, ok := MtlsEnableData["key_url"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLModel{
 												BlindfoldSecretInfo: func() *GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel {
+													if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil && data.KafkaReceiver.UseTLS.MtlsEnable != nil && data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
+														return data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -5514,6 +5790,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 													return nil
 												}(),
 												ClearSecretInfo: func() *GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel {
+													if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil && data.KafkaReceiver.UseTLS.MtlsEnable != nil && data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
+														return data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel{
 															Provider: func() types.String {
@@ -5541,6 +5820,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							return nil
 						}(),
 						NoCA: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil {
+								return data.KafkaReceiver.UseTLS.NoCA
+							}
 							if _, ok := UseTLSData["no_ca"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -5567,6 +5849,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if APIKeyData, ok := blockData["api_key"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverNewRelicReceiverAPIKeyModel{
 						BlindfoldSecretInfo: func() *GlobalLogReceiverNewRelicReceiverAPIKeyBlindfoldSecretInfoModel {
+							if !isImport && data.NewRelicReceiver != nil && data.NewRelicReceiver.APIKey != nil && data.NewRelicReceiver.APIKey.BlindfoldSecretInfo != nil {
+								return data.NewRelicReceiver.APIKey.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := APIKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverNewRelicReceiverAPIKeyBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -5592,6 +5877,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							return nil
 						}(),
 						ClearSecretInfo: func() *GlobalLogReceiverNewRelicReceiverAPIKeyClearSecretInfoModel {
+							if !isImport && data.NewRelicReceiver != nil && data.NewRelicReceiver.APIKey != nil && data.NewRelicReceiver.APIKey.ClearSecretInfo != nil {
+								return data.NewRelicReceiver.APIKey.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := APIKeyData["clear_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverNewRelicReceiverAPIKeyClearSecretInfoModel{
 									Provider: func() types.String {
@@ -5663,24 +5951,36 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverQradarReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Batch != nil && !data.QradarReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.QradarReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Batch != nil {
+								return data.QradarReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Batch != nil && !data.QradarReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.QradarReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Batch != nil {
+								return data.QradarReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -5693,6 +5993,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Batch != nil {
+								return data.QradarReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -5709,18 +6012,27 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverQradarReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Compression != nil {
+								return data.QradarReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Compression != nil {
+								return data.QradarReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Compression != nil {
+								return data.QradarReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -5752,36 +6064,54 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverQradarReceiverUseTLSModel{
 						DisableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil {
+								return data.QradarReceiver.UseTLS.DisableVerifyCertificate
+							}
 							if _, ok := UseTLSData["disable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil {
+								return data.QradarReceiver.UseTLS.DisableVerifyHostname
+							}
 							if _, ok := UseTLSData["disable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil {
+								return data.QradarReceiver.UseTLS.EnableVerifyCertificate
+							}
 							if _, ok := UseTLSData["enable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil {
+								return data.QradarReceiver.UseTLS.EnableVerifyHostname
+							}
 							if _, ok := UseTLSData["enable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil {
+								return data.QradarReceiver.UseTLS.MtlsDisabled
+							}
 							if _, ok := UseTLSData["mtls_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsEnable: func() *GlobalLogReceiverQradarReceiverUseTLSMtlsEnableModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil && data.QradarReceiver.UseTLS.MtlsEnable != nil {
+								return data.QradarReceiver.UseTLS.MtlsEnable
+							}
 							if MtlsEnableData, ok := UseTLSData["mtls_enable"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverQradarReceiverUseTLSMtlsEnableModel{
 									Certificate: func() types.String {
@@ -5791,9 +6121,15 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 										return types.StringNull()
 									}(),
 									KeyURL: func() *GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLModel {
+										if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil && data.QradarReceiver.UseTLS.MtlsEnable != nil && data.QradarReceiver.UseTLS.MtlsEnable.KeyURL != nil {
+											return data.QradarReceiver.UseTLS.MtlsEnable.KeyURL
+										}
 										if KeyURLData, ok := MtlsEnableData["key_url"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLModel{
 												BlindfoldSecretInfo: func() *GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel {
+													if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil && data.QradarReceiver.UseTLS.MtlsEnable != nil && data.QradarReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
+														return data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -5819,6 +6155,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 													return nil
 												}(),
 												ClearSecretInfo: func() *GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel {
+													if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil && data.QradarReceiver.UseTLS.MtlsEnable != nil && data.QradarReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
+														return data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel{
 															Provider: func() types.String {
@@ -5846,6 +6185,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							return nil
 						}(),
 						NoCA: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil {
+								return data.QradarReceiver.UseTLS.NoCA
+							}
 							if _, ok := UseTLSData["no_ca"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -5906,24 +6248,36 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverS3ReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Batch != nil && !data.S3Receiver.Batch.MaxBytes.IsUnknown() {
+								return data.S3Receiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Batch != nil {
+								return data.S3Receiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Batch != nil && !data.S3Receiver.Batch.MaxEvents.IsUnknown() {
+								return data.S3Receiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Batch != nil {
+								return data.S3Receiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -5936,6 +6290,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Batch != nil {
+								return data.S3Receiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -5958,18 +6315,27 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverS3ReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Compression != nil {
+								return data.S3Receiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Compression != nil {
+								return data.S3Receiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Compression != nil {
+								return data.S3Receiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -5992,12 +6358,18 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							return types.StringNull()
 						}(),
 						LogTypeFolder: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.FilenameOptions != nil {
+								return data.S3Receiver.FilenameOptions.LogTypeFolder
+							}
 							if _, ok := FilenameOptionsData["log_type_folder"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						NoFolder: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.FilenameOptions != nil {
+								return data.S3Receiver.FilenameOptions.NoFolder
+							}
 							if _, ok := FilenameOptionsData["no_folder"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -6021,24 +6393,36 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverSplunkReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Batch != nil && !data.SplunkReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.SplunkReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Batch != nil {
+								return data.SplunkReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Batch != nil && !data.SplunkReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.SplunkReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Batch != nil {
+								return data.SplunkReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -6051,6 +6435,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Batch != nil {
+								return data.SplunkReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -6067,18 +6454,27 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverSplunkReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Compression != nil {
+								return data.SplunkReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Compression != nil {
+								return data.SplunkReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Compression != nil {
+								return data.SplunkReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -6110,6 +6506,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if SplunkHecTokenData, ok := blockData["splunk_hec_token"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverSplunkReceiverSplunkHecTokenModel{
 						BlindfoldSecretInfo: func() *GlobalLogReceiverSplunkReceiverSplunkHecTokenBlindfoldSecretInfoModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.SplunkHecToken != nil && data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo != nil {
+								return data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := SplunkHecTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverSplunkReceiverSplunkHecTokenBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -6135,6 +6534,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							return nil
 						}(),
 						ClearSecretInfo: func() *GlobalLogReceiverSplunkReceiverSplunkHecTokenClearSecretInfoModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.SplunkHecToken != nil && data.SplunkReceiver.SplunkHecToken.ClearSecretInfo != nil {
+								return data.SplunkReceiver.SplunkHecToken.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := SplunkHecTokenData["clear_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverSplunkReceiverSplunkHecTokenClearSecretInfoModel{
 									Provider: func() types.String {
@@ -6164,36 +6566,54 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverSplunkReceiverUseTLSModel{
 						DisableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil {
+								return data.SplunkReceiver.UseTLS.DisableVerifyCertificate
+							}
 							if _, ok := UseTLSData["disable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil {
+								return data.SplunkReceiver.UseTLS.DisableVerifyHostname
+							}
 							if _, ok := UseTLSData["disable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil {
+								return data.SplunkReceiver.UseTLS.EnableVerifyCertificate
+							}
 							if _, ok := UseTLSData["enable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil {
+								return data.SplunkReceiver.UseTLS.EnableVerifyHostname
+							}
 							if _, ok := UseTLSData["enable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil {
+								return data.SplunkReceiver.UseTLS.MtlsDisabled
+							}
 							if _, ok := UseTLSData["mtls_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsEnable: func() *GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil && data.SplunkReceiver.UseTLS.MtlsEnable != nil {
+								return data.SplunkReceiver.UseTLS.MtlsEnable
+							}
 							if MtlsEnableData, ok := UseTLSData["mtls_enable"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableModel{
 									Certificate: func() types.String {
@@ -6203,9 +6623,15 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 										return types.StringNull()
 									}(),
 									KeyURL: func() *GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLModel {
+										if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil && data.SplunkReceiver.UseTLS.MtlsEnable != nil && data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL != nil {
+											return data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL
+										}
 										if KeyURLData, ok := MtlsEnableData["key_url"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLModel{
 												BlindfoldSecretInfo: func() *GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel {
+													if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil && data.SplunkReceiver.UseTLS.MtlsEnable != nil && data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
+														return data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -6231,6 +6657,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 													return nil
 												}(),
 												ClearSecretInfo: func() *GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel {
+													if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil && data.SplunkReceiver.UseTLS.MtlsEnable != nil && data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
+														return data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel{
 															Provider: func() types.String {
@@ -6258,6 +6687,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							return nil
 						}(),
 						NoCA: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil {
+								return data.SplunkReceiver.UseTLS.NoCA
+							}
 							if _, ok := UseTLSData["no_ca"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -6284,6 +6716,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 				if URLData, ok := blockData["url"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverSumoLogicReceiverURLModel{
 						BlindfoldSecretInfo: func() *GlobalLogReceiverSumoLogicReceiverURLBlindfoldSecretInfoModel {
+							if !isImport && data.SumoLogicReceiver != nil && data.SumoLogicReceiver.URL != nil && data.SumoLogicReceiver.URL.BlindfoldSecretInfo != nil {
+								return data.SumoLogicReceiver.URL.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := URLData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverSumoLogicReceiverURLBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -6309,6 +6744,9 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							return nil
 						}(),
 						ClearSecretInfo: func() *GlobalLogReceiverSumoLogicReceiverURLClearSecretInfoModel {
+							if !isImport && data.SumoLogicReceiver != nil && data.SumoLogicReceiver.URL != nil && data.SumoLogicReceiver.URL.ClearSecretInfo != nil {
+								return data.SumoLogicReceiver.URL.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := URLData["clear_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverSumoLogicReceiverURLClearSecretInfoModel{
 									Provider: func() types.String {
@@ -6472,24 +6910,36 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverAWSCloudWatchReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Batch != nil && !data.AWSCloudWatchReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.AWSCloudWatchReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Batch != nil {
+								return data.AWSCloudWatchReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Batch != nil && !data.AWSCloudWatchReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.AWSCloudWatchReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Batch != nil {
+								return data.AWSCloudWatchReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -6502,6 +6952,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Batch != nil {
+								return data.AWSCloudWatchReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -6518,18 +6971,27 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverAWSCloudWatchReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Compression != nil {
+								return data.AWSCloudWatchReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Compression != nil {
+								return data.AWSCloudWatchReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Compression != nil {
+								return data.AWSCloudWatchReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -6562,6 +7024,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if ConnectionStringData, ok := blockData["connection_string"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverAzureEventHubsReceiverConnectionStringModel{
 						BlindfoldSecretInfo: func() *GlobalLogReceiverAzureEventHubsReceiverConnectionStringBlindfoldSecretInfoModel {
+							if !isImport && data.AzureEventHubsReceiver != nil && data.AzureEventHubsReceiver.ConnectionString != nil && data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo != nil {
+								return data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := ConnectionStringData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverAzureEventHubsReceiverConnectionStringBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -6587,6 +7052,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							return nil
 						}(),
 						ClearSecretInfo: func() *GlobalLogReceiverAzureEventHubsReceiverConnectionStringClearSecretInfoModel {
+							if !isImport && data.AzureEventHubsReceiver != nil && data.AzureEventHubsReceiver.ConnectionString != nil && data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo != nil {
+								return data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := ConnectionStringData["clear_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverAzureEventHubsReceiverConnectionStringClearSecretInfoModel{
 									Provider: func() types.String {
@@ -6632,24 +7100,36 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverAzureReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Batch != nil && !data.AzureReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.AzureReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Batch != nil {
+								return data.AzureReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Batch != nil && !data.AzureReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.AzureReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Batch != nil {
+								return data.AzureReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -6662,6 +7142,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Batch != nil {
+								return data.AzureReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -6678,18 +7161,27 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverAzureReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Compression != nil {
+								return data.AzureReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Compression != nil {
+								return data.AzureReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Compression != nil {
+								return data.AzureReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -6706,6 +7198,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if ConnectionStringData, ok := blockData["connection_string"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverAzureReceiverConnectionStringModel{
 						BlindfoldSecretInfo: func() *GlobalLogReceiverAzureReceiverConnectionStringBlindfoldSecretInfoModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.ConnectionString != nil && data.AzureReceiver.ConnectionString.BlindfoldSecretInfo != nil {
+								return data.AzureReceiver.ConnectionString.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := ConnectionStringData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverAzureReceiverConnectionStringBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -6731,6 +7226,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							return nil
 						}(),
 						ClearSecretInfo: func() *GlobalLogReceiverAzureReceiverConnectionStringClearSecretInfoModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.ConnectionString != nil && data.AzureReceiver.ConnectionString.ClearSecretInfo != nil {
+								return data.AzureReceiver.ConnectionString.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := ConnectionStringData["clear_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverAzureReceiverConnectionStringClearSecretInfoModel{
 									Provider: func() types.String {
@@ -6772,12 +7270,18 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							return types.StringNull()
 						}(),
 						LogTypeFolder: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.FilenameOptions != nil {
+								return data.AzureReceiver.FilenameOptions.LogTypeFolder
+							}
 							if _, ok := FilenameOptionsData["log_type_folder"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						NoFolder: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.FilenameOptions != nil {
+								return data.AzureReceiver.FilenameOptions.NoFolder
+							}
 							if _, ok := FilenameOptionsData["no_folder"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -6798,24 +7302,36 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverDatadogReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Batch != nil && !data.DatadogReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.DatadogReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Batch != nil {
+								return data.DatadogReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Batch != nil && !data.DatadogReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.DatadogReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Batch != nil {
+								return data.DatadogReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -6828,6 +7344,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Batch != nil {
+								return data.DatadogReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -6844,18 +7363,27 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverDatadogReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Compression != nil {
+								return data.DatadogReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Compression != nil {
+								return data.DatadogReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Compression != nil {
+								return data.DatadogReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -6872,6 +7400,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if DatadogAPIKeyData, ok := blockData["datadog_api_key"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverDatadogReceiverDatadogAPIKeyModel{
 						BlindfoldSecretInfo: func() *GlobalLogReceiverDatadogReceiverDatadogAPIKeyBlindfoldSecretInfoModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.DatadogAPIKey != nil && data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo != nil {
+								return data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := DatadogAPIKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverDatadogReceiverDatadogAPIKeyBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -6897,6 +7428,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							return nil
 						}(),
 						ClearSecretInfo: func() *GlobalLogReceiverDatadogReceiverDatadogAPIKeyClearSecretInfoModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.DatadogAPIKey != nil && data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo != nil {
+								return data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := DatadogAPIKeyData["clear_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverDatadogReceiverDatadogAPIKeyClearSecretInfoModel{
 									Provider: func() types.String {
@@ -6947,36 +7481,54 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverDatadogReceiverUseTLSModel{
 						DisableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil {
+								return data.DatadogReceiver.UseTLS.DisableVerifyCertificate
+							}
 							if _, ok := UseTLSData["disable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil {
+								return data.DatadogReceiver.UseTLS.DisableVerifyHostname
+							}
 							if _, ok := UseTLSData["disable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil {
+								return data.DatadogReceiver.UseTLS.EnableVerifyCertificate
+							}
 							if _, ok := UseTLSData["enable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil {
+								return data.DatadogReceiver.UseTLS.EnableVerifyHostname
+							}
 							if _, ok := UseTLSData["enable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil {
+								return data.DatadogReceiver.UseTLS.MtlsDisabled
+							}
 							if _, ok := UseTLSData["mtls_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsEnable: func() *GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil && data.DatadogReceiver.UseTLS.MtlsEnable != nil {
+								return data.DatadogReceiver.UseTLS.MtlsEnable
+							}
 							if MtlsEnableData, ok := UseTLSData["mtls_enable"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableModel{
 									Certificate: func() types.String {
@@ -6986,9 +7538,15 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 										return types.StringNull()
 									}(),
 									KeyURL: func() *GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLModel {
+										if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil && data.DatadogReceiver.UseTLS.MtlsEnable != nil && data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL != nil {
+											return data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL
+										}
 										if KeyURLData, ok := MtlsEnableData["key_url"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLModel{
 												BlindfoldSecretInfo: func() *GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel {
+													if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil && data.DatadogReceiver.UseTLS.MtlsEnable != nil && data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
+														return data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -7014,6 +7572,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 													return nil
 												}(),
 												ClearSecretInfo: func() *GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel {
+													if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil && data.DatadogReceiver.UseTLS.MtlsEnable != nil && data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
+														return data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel{
 															Provider: func() types.String {
@@ -7041,6 +7602,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							return nil
 						}(),
 						NoCA: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil {
+								return data.DatadogReceiver.UseTLS.NoCA
+							}
 							if _, ok := UseTLSData["no_ca"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -7070,24 +7634,36 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverGCPBucketReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Batch != nil && !data.GCPBucketReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.GCPBucketReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Batch != nil {
+								return data.GCPBucketReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Batch != nil && !data.GCPBucketReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.GCPBucketReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Batch != nil {
+								return data.GCPBucketReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -7100,6 +7676,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Batch != nil {
+								return data.GCPBucketReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -7122,18 +7701,27 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverGCPBucketReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Compression != nil {
+								return data.GCPBucketReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Compression != nil {
+								return data.GCPBucketReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Compression != nil {
+								return data.GCPBucketReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -7156,12 +7744,18 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							return types.StringNull()
 						}(),
 						LogTypeFolder: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.FilenameOptions != nil {
+								return data.GCPBucketReceiver.FilenameOptions.LogTypeFolder
+							}
 							if _, ok := FilenameOptionsData["log_type_folder"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						NoFolder: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.FilenameOptions != nil {
+								return data.GCPBucketReceiver.FilenameOptions.NoFolder
+							}
 							if _, ok := FilenameOptionsData["no_folder"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -7207,9 +7801,15 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if AuthBasicData, ok := blockData["auth_basic"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverHTTPReceiverAuthBasicModel{
 						Password: func() *GlobalLogReceiverHTTPReceiverAuthBasicPasswordModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.AuthBasic != nil && data.HTTPReceiver.AuthBasic.Password != nil {
+								return data.HTTPReceiver.AuthBasic.Password
+							}
 							if PasswordData, ok := AuthBasicData["password"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverHTTPReceiverAuthBasicPasswordModel{
 									BlindfoldSecretInfo: func() *GlobalLogReceiverHTTPReceiverAuthBasicPasswordBlindfoldSecretInfoModel {
+										if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.AuthBasic != nil && data.HTTPReceiver.AuthBasic.Password != nil && data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo != nil {
+											return data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverHTTPReceiverAuthBasicPasswordBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -7235,6 +7835,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 										return nil
 									}(),
 									ClearSecretInfo: func() *GlobalLogReceiverHTTPReceiverAuthBasicPasswordClearSecretInfoModel {
+										if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.AuthBasic != nil && data.HTTPReceiver.AuthBasic.Password != nil && data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo != nil {
+											return data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverHTTPReceiverAuthBasicPasswordClearSecretInfoModel{
 												Provider: func() types.String {
@@ -7283,9 +7886,15 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if AuthTokenData, ok := blockData["auth_token"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverHTTPReceiverAuthTokenModel{
 						Token: func() *GlobalLogReceiverHTTPReceiverAuthTokenTokenModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.AuthToken != nil && data.HTTPReceiver.AuthToken.Token != nil {
+								return data.HTTPReceiver.AuthToken.Token
+							}
 							if TokenData, ok := AuthTokenData["token"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverHTTPReceiverAuthTokenTokenModel{
 									BlindfoldSecretInfo: func() *GlobalLogReceiverHTTPReceiverAuthTokenTokenBlindfoldSecretInfoModel {
+										if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.AuthToken != nil && data.HTTPReceiver.AuthToken.Token != nil && data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo != nil {
+											return data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := TokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverHTTPReceiverAuthTokenTokenBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -7311,6 +7920,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 										return nil
 									}(),
 									ClearSecretInfo: func() *GlobalLogReceiverHTTPReceiverAuthTokenTokenClearSecretInfoModel {
+										if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.AuthToken != nil && data.HTTPReceiver.AuthToken.Token != nil && data.HTTPReceiver.AuthToken.Token.ClearSecretInfo != nil {
+											return data.HTTPReceiver.AuthToken.Token.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := TokenData["clear_secret_info"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverHTTPReceiverAuthTokenTokenClearSecretInfoModel{
 												Provider: func() types.String {
@@ -7344,24 +7956,36 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverHTTPReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Batch != nil && !data.HTTPReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.HTTPReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Batch != nil {
+								return data.HTTPReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Batch != nil && !data.HTTPReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.HTTPReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Batch != nil {
+								return data.HTTPReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -7374,6 +7998,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Batch != nil {
+								return data.HTTPReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -7390,18 +8017,27 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverHTTPReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Compression != nil {
+								return data.HTTPReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Compression != nil {
+								return data.HTTPReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Compression != nil {
+								return data.HTTPReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -7433,36 +8069,54 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverHTTPReceiverUseTLSModel{
 						DisableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil {
+								return data.HTTPReceiver.UseTLS.DisableVerifyCertificate
+							}
 							if _, ok := UseTLSData["disable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil {
+								return data.HTTPReceiver.UseTLS.DisableVerifyHostname
+							}
 							if _, ok := UseTLSData["disable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil {
+								return data.HTTPReceiver.UseTLS.EnableVerifyCertificate
+							}
 							if _, ok := UseTLSData["enable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil {
+								return data.HTTPReceiver.UseTLS.EnableVerifyHostname
+							}
 							if _, ok := UseTLSData["enable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil {
+								return data.HTTPReceiver.UseTLS.MtlsDisabled
+							}
 							if _, ok := UseTLSData["mtls_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsEnable: func() *GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil && data.HTTPReceiver.UseTLS.MtlsEnable != nil {
+								return data.HTTPReceiver.UseTLS.MtlsEnable
+							}
 							if MtlsEnableData, ok := UseTLSData["mtls_enable"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableModel{
 									Certificate: func() types.String {
@@ -7472,9 +8126,15 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 										return types.StringNull()
 									}(),
 									KeyURL: func() *GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLModel {
+										if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil && data.HTTPReceiver.UseTLS.MtlsEnable != nil && data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL != nil {
+											return data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL
+										}
 										if KeyURLData, ok := MtlsEnableData["key_url"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLModel{
 												BlindfoldSecretInfo: func() *GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel {
+													if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil && data.HTTPReceiver.UseTLS.MtlsEnable != nil && data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
+														return data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -7500,6 +8160,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 													return nil
 												}(),
 												ClearSecretInfo: func() *GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel {
+													if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil && data.HTTPReceiver.UseTLS.MtlsEnable != nil && data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
+														return data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel{
 															Provider: func() types.String {
@@ -7527,6 +8190,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							return nil
 						}(),
 						NoCA: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil {
+								return data.HTTPReceiver.UseTLS.NoCA
+							}
 							if _, ok := UseTLSData["no_ca"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -7553,24 +8219,36 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverKafkaReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Batch != nil && !data.KafkaReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.KafkaReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Batch != nil {
+								return data.KafkaReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Batch != nil && !data.KafkaReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.KafkaReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Batch != nil {
+								return data.KafkaReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -7583,6 +8261,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Batch != nil {
+								return data.KafkaReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -7612,18 +8293,27 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverKafkaReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Compression != nil {
+								return data.KafkaReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Compression != nil {
+								return data.KafkaReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Compression != nil {
+								return data.KafkaReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -7655,36 +8345,54 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverKafkaReceiverUseTLSModel{
 						DisableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil {
+								return data.KafkaReceiver.UseTLS.DisableVerifyCertificate
+							}
 							if _, ok := UseTLSData["disable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil {
+								return data.KafkaReceiver.UseTLS.DisableVerifyHostname
+							}
 							if _, ok := UseTLSData["disable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil {
+								return data.KafkaReceiver.UseTLS.EnableVerifyCertificate
+							}
 							if _, ok := UseTLSData["enable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil {
+								return data.KafkaReceiver.UseTLS.EnableVerifyHostname
+							}
 							if _, ok := UseTLSData["enable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil {
+								return data.KafkaReceiver.UseTLS.MtlsDisabled
+							}
 							if _, ok := UseTLSData["mtls_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsEnable: func() *GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil && data.KafkaReceiver.UseTLS.MtlsEnable != nil {
+								return data.KafkaReceiver.UseTLS.MtlsEnable
+							}
 							if MtlsEnableData, ok := UseTLSData["mtls_enable"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableModel{
 									Certificate: func() types.String {
@@ -7694,9 +8402,15 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 										return types.StringNull()
 									}(),
 									KeyURL: func() *GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLModel {
+										if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil && data.KafkaReceiver.UseTLS.MtlsEnable != nil && data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL != nil {
+											return data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL
+										}
 										if KeyURLData, ok := MtlsEnableData["key_url"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLModel{
 												BlindfoldSecretInfo: func() *GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel {
+													if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil && data.KafkaReceiver.UseTLS.MtlsEnable != nil && data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
+														return data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -7722,6 +8436,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 													return nil
 												}(),
 												ClearSecretInfo: func() *GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel {
+													if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil && data.KafkaReceiver.UseTLS.MtlsEnable != nil && data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
+														return data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel{
 															Provider: func() types.String {
@@ -7749,6 +8466,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							return nil
 						}(),
 						NoCA: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil {
+								return data.KafkaReceiver.UseTLS.NoCA
+							}
 							if _, ok := UseTLSData["no_ca"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -7775,6 +8495,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if APIKeyData, ok := blockData["api_key"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverNewRelicReceiverAPIKeyModel{
 						BlindfoldSecretInfo: func() *GlobalLogReceiverNewRelicReceiverAPIKeyBlindfoldSecretInfoModel {
+							if !isImport && data.NewRelicReceiver != nil && data.NewRelicReceiver.APIKey != nil && data.NewRelicReceiver.APIKey.BlindfoldSecretInfo != nil {
+								return data.NewRelicReceiver.APIKey.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := APIKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverNewRelicReceiverAPIKeyBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -7800,6 +8523,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							return nil
 						}(),
 						ClearSecretInfo: func() *GlobalLogReceiverNewRelicReceiverAPIKeyClearSecretInfoModel {
+							if !isImport && data.NewRelicReceiver != nil && data.NewRelicReceiver.APIKey != nil && data.NewRelicReceiver.APIKey.ClearSecretInfo != nil {
+								return data.NewRelicReceiver.APIKey.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := APIKeyData["clear_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverNewRelicReceiverAPIKeyClearSecretInfoModel{
 									Provider: func() types.String {
@@ -7871,24 +8597,36 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverQradarReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Batch != nil && !data.QradarReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.QradarReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Batch != nil {
+								return data.QradarReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Batch != nil && !data.QradarReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.QradarReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Batch != nil {
+								return data.QradarReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -7901,6 +8639,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Batch != nil {
+								return data.QradarReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -7917,18 +8658,27 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverQradarReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Compression != nil {
+								return data.QradarReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Compression != nil {
+								return data.QradarReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Compression != nil {
+								return data.QradarReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -7960,36 +8710,54 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverQradarReceiverUseTLSModel{
 						DisableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil {
+								return data.QradarReceiver.UseTLS.DisableVerifyCertificate
+							}
 							if _, ok := UseTLSData["disable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil {
+								return data.QradarReceiver.UseTLS.DisableVerifyHostname
+							}
 							if _, ok := UseTLSData["disable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil {
+								return data.QradarReceiver.UseTLS.EnableVerifyCertificate
+							}
 							if _, ok := UseTLSData["enable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil {
+								return data.QradarReceiver.UseTLS.EnableVerifyHostname
+							}
 							if _, ok := UseTLSData["enable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil {
+								return data.QradarReceiver.UseTLS.MtlsDisabled
+							}
 							if _, ok := UseTLSData["mtls_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsEnable: func() *GlobalLogReceiverQradarReceiverUseTLSMtlsEnableModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil && data.QradarReceiver.UseTLS.MtlsEnable != nil {
+								return data.QradarReceiver.UseTLS.MtlsEnable
+							}
 							if MtlsEnableData, ok := UseTLSData["mtls_enable"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverQradarReceiverUseTLSMtlsEnableModel{
 									Certificate: func() types.String {
@@ -7999,9 +8767,15 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 										return types.StringNull()
 									}(),
 									KeyURL: func() *GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLModel {
+										if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil && data.QradarReceiver.UseTLS.MtlsEnable != nil && data.QradarReceiver.UseTLS.MtlsEnable.KeyURL != nil {
+											return data.QradarReceiver.UseTLS.MtlsEnable.KeyURL
+										}
 										if KeyURLData, ok := MtlsEnableData["key_url"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLModel{
 												BlindfoldSecretInfo: func() *GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel {
+													if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil && data.QradarReceiver.UseTLS.MtlsEnable != nil && data.QradarReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
+														return data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -8027,6 +8801,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 													return nil
 												}(),
 												ClearSecretInfo: func() *GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel {
+													if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil && data.QradarReceiver.UseTLS.MtlsEnable != nil && data.QradarReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
+														return data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel{
 															Provider: func() types.String {
@@ -8054,6 +8831,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							return nil
 						}(),
 						NoCA: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil {
+								return data.QradarReceiver.UseTLS.NoCA
+							}
 							if _, ok := UseTLSData["no_ca"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -8114,24 +8894,36 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverS3ReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Batch != nil && !data.S3Receiver.Batch.MaxBytes.IsUnknown() {
+								return data.S3Receiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Batch != nil {
+								return data.S3Receiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Batch != nil && !data.S3Receiver.Batch.MaxEvents.IsUnknown() {
+								return data.S3Receiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Batch != nil {
+								return data.S3Receiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -8144,6 +8936,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Batch != nil {
+								return data.S3Receiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -8166,18 +8961,27 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverS3ReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Compression != nil {
+								return data.S3Receiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Compression != nil {
+								return data.S3Receiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Compression != nil {
+								return data.S3Receiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -8200,12 +9004,18 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							return types.StringNull()
 						}(),
 						LogTypeFolder: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.FilenameOptions != nil {
+								return data.S3Receiver.FilenameOptions.LogTypeFolder
+							}
 							if _, ok := FilenameOptionsData["log_type_folder"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						NoFolder: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.FilenameOptions != nil {
+								return data.S3Receiver.FilenameOptions.NoFolder
+							}
 							if _, ok := FilenameOptionsData["no_folder"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -8229,24 +9039,36 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverSplunkReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Batch != nil && !data.SplunkReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.SplunkReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Batch != nil {
+								return data.SplunkReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Batch != nil && !data.SplunkReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.SplunkReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Batch != nil {
+								return data.SplunkReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -8259,6 +9081,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Batch != nil {
+								return data.SplunkReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -8275,18 +9100,27 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverSplunkReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Compression != nil {
+								return data.SplunkReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Compression != nil {
+								return data.SplunkReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Compression != nil {
+								return data.SplunkReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -8318,6 +9152,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if SplunkHecTokenData, ok := blockData["splunk_hec_token"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverSplunkReceiverSplunkHecTokenModel{
 						BlindfoldSecretInfo: func() *GlobalLogReceiverSplunkReceiverSplunkHecTokenBlindfoldSecretInfoModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.SplunkHecToken != nil && data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo != nil {
+								return data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := SplunkHecTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverSplunkReceiverSplunkHecTokenBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -8343,6 +9180,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							return nil
 						}(),
 						ClearSecretInfo: func() *GlobalLogReceiverSplunkReceiverSplunkHecTokenClearSecretInfoModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.SplunkHecToken != nil && data.SplunkReceiver.SplunkHecToken.ClearSecretInfo != nil {
+								return data.SplunkReceiver.SplunkHecToken.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := SplunkHecTokenData["clear_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverSplunkReceiverSplunkHecTokenClearSecretInfoModel{
 									Provider: func() types.String {
@@ -8372,36 +9212,54 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverSplunkReceiverUseTLSModel{
 						DisableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil {
+								return data.SplunkReceiver.UseTLS.DisableVerifyCertificate
+							}
 							if _, ok := UseTLSData["disable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil {
+								return data.SplunkReceiver.UseTLS.DisableVerifyHostname
+							}
 							if _, ok := UseTLSData["disable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil {
+								return data.SplunkReceiver.UseTLS.EnableVerifyCertificate
+							}
 							if _, ok := UseTLSData["enable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil {
+								return data.SplunkReceiver.UseTLS.EnableVerifyHostname
+							}
 							if _, ok := UseTLSData["enable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil {
+								return data.SplunkReceiver.UseTLS.MtlsDisabled
+							}
 							if _, ok := UseTLSData["mtls_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsEnable: func() *GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil && data.SplunkReceiver.UseTLS.MtlsEnable != nil {
+								return data.SplunkReceiver.UseTLS.MtlsEnable
+							}
 							if MtlsEnableData, ok := UseTLSData["mtls_enable"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableModel{
 									Certificate: func() types.String {
@@ -8411,9 +9269,15 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 										return types.StringNull()
 									}(),
 									KeyURL: func() *GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLModel {
+										if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil && data.SplunkReceiver.UseTLS.MtlsEnable != nil && data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL != nil {
+											return data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL
+										}
 										if KeyURLData, ok := MtlsEnableData["key_url"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLModel{
 												BlindfoldSecretInfo: func() *GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel {
+													if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil && data.SplunkReceiver.UseTLS.MtlsEnable != nil && data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
+														return data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -8439,6 +9303,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 													return nil
 												}(),
 												ClearSecretInfo: func() *GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel {
+													if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil && data.SplunkReceiver.UseTLS.MtlsEnable != nil && data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
+														return data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel{
 															Provider: func() types.String {
@@ -8466,6 +9333,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							return nil
 						}(),
 						NoCA: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil {
+								return data.SplunkReceiver.UseTLS.NoCA
+							}
 							if _, ok := UseTLSData["no_ca"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -8492,6 +9362,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 				if URLData, ok := blockData["url"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverSumoLogicReceiverURLModel{
 						BlindfoldSecretInfo: func() *GlobalLogReceiverSumoLogicReceiverURLBlindfoldSecretInfoModel {
+							if !isImport && data.SumoLogicReceiver != nil && data.SumoLogicReceiver.URL != nil && data.SumoLogicReceiver.URL.BlindfoldSecretInfo != nil {
+								return data.SumoLogicReceiver.URL.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := URLData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverSumoLogicReceiverURLBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -8517,6 +9390,9 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							return nil
 						}(),
 						ClearSecretInfo: func() *GlobalLogReceiverSumoLogicReceiverURLClearSecretInfoModel {
+							if !isImport && data.SumoLogicReceiver != nil && data.SumoLogicReceiver.URL != nil && data.SumoLogicReceiver.URL.ClearSecretInfo != nil {
+								return data.SumoLogicReceiver.URL.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := URLData["clear_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverSumoLogicReceiverURLClearSecretInfoModel{
 									Provider: func() types.String {
@@ -9738,24 +10614,36 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverAWSCloudWatchReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Batch != nil && !data.AWSCloudWatchReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.AWSCloudWatchReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Batch != nil {
+								return data.AWSCloudWatchReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Batch != nil && !data.AWSCloudWatchReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.AWSCloudWatchReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Batch != nil {
+								return data.AWSCloudWatchReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -9768,6 +10656,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Batch != nil {
+								return data.AWSCloudWatchReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -9784,18 +10675,27 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverAWSCloudWatchReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Compression != nil {
+								return data.AWSCloudWatchReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Compression != nil {
+								return data.AWSCloudWatchReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Compression != nil {
+								return data.AWSCloudWatchReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -9828,6 +10728,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if ConnectionStringData, ok := blockData["connection_string"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverAzureEventHubsReceiverConnectionStringModel{
 						BlindfoldSecretInfo: func() *GlobalLogReceiverAzureEventHubsReceiverConnectionStringBlindfoldSecretInfoModel {
+							if !isImport && data.AzureEventHubsReceiver != nil && data.AzureEventHubsReceiver.ConnectionString != nil && data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo != nil {
+								return data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := ConnectionStringData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverAzureEventHubsReceiverConnectionStringBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -9853,6 +10756,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							return nil
 						}(),
 						ClearSecretInfo: func() *GlobalLogReceiverAzureEventHubsReceiverConnectionStringClearSecretInfoModel {
+							if !isImport && data.AzureEventHubsReceiver != nil && data.AzureEventHubsReceiver.ConnectionString != nil && data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo != nil {
+								return data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := ConnectionStringData["clear_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverAzureEventHubsReceiverConnectionStringClearSecretInfoModel{
 									Provider: func() types.String {
@@ -9898,24 +10804,36 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverAzureReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Batch != nil && !data.AzureReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.AzureReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Batch != nil {
+								return data.AzureReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Batch != nil && !data.AzureReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.AzureReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Batch != nil {
+								return data.AzureReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -9928,6 +10846,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Batch != nil {
+								return data.AzureReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -9944,18 +10865,27 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverAzureReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Compression != nil {
+								return data.AzureReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Compression != nil {
+								return data.AzureReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Compression != nil {
+								return data.AzureReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -9972,6 +10902,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if ConnectionStringData, ok := blockData["connection_string"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverAzureReceiverConnectionStringModel{
 						BlindfoldSecretInfo: func() *GlobalLogReceiverAzureReceiverConnectionStringBlindfoldSecretInfoModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.ConnectionString != nil && data.AzureReceiver.ConnectionString.BlindfoldSecretInfo != nil {
+								return data.AzureReceiver.ConnectionString.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := ConnectionStringData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverAzureReceiverConnectionStringBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -9997,6 +10930,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							return nil
 						}(),
 						ClearSecretInfo: func() *GlobalLogReceiverAzureReceiverConnectionStringClearSecretInfoModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.ConnectionString != nil && data.AzureReceiver.ConnectionString.ClearSecretInfo != nil {
+								return data.AzureReceiver.ConnectionString.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := ConnectionStringData["clear_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverAzureReceiverConnectionStringClearSecretInfoModel{
 									Provider: func() types.String {
@@ -10038,12 +10974,18 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							return types.StringNull()
 						}(),
 						LogTypeFolder: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.FilenameOptions != nil {
+								return data.AzureReceiver.FilenameOptions.LogTypeFolder
+							}
 							if _, ok := FilenameOptionsData["log_type_folder"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						NoFolder: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.FilenameOptions != nil {
+								return data.AzureReceiver.FilenameOptions.NoFolder
+							}
 							if _, ok := FilenameOptionsData["no_folder"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -10064,24 +11006,36 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverDatadogReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Batch != nil && !data.DatadogReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.DatadogReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Batch != nil {
+								return data.DatadogReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Batch != nil && !data.DatadogReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.DatadogReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Batch != nil {
+								return data.DatadogReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -10094,6 +11048,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Batch != nil {
+								return data.DatadogReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -10110,18 +11067,27 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverDatadogReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Compression != nil {
+								return data.DatadogReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Compression != nil {
+								return data.DatadogReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Compression != nil {
+								return data.DatadogReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -10138,6 +11104,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if DatadogAPIKeyData, ok := blockData["datadog_api_key"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverDatadogReceiverDatadogAPIKeyModel{
 						BlindfoldSecretInfo: func() *GlobalLogReceiverDatadogReceiverDatadogAPIKeyBlindfoldSecretInfoModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.DatadogAPIKey != nil && data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo != nil {
+								return data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := DatadogAPIKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverDatadogReceiverDatadogAPIKeyBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -10163,6 +11132,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							return nil
 						}(),
 						ClearSecretInfo: func() *GlobalLogReceiverDatadogReceiverDatadogAPIKeyClearSecretInfoModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.DatadogAPIKey != nil && data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo != nil {
+								return data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := DatadogAPIKeyData["clear_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverDatadogReceiverDatadogAPIKeyClearSecretInfoModel{
 									Provider: func() types.String {
@@ -10213,36 +11185,54 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverDatadogReceiverUseTLSModel{
 						DisableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil {
+								return data.DatadogReceiver.UseTLS.DisableVerifyCertificate
+							}
 							if _, ok := UseTLSData["disable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil {
+								return data.DatadogReceiver.UseTLS.DisableVerifyHostname
+							}
 							if _, ok := UseTLSData["disable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil {
+								return data.DatadogReceiver.UseTLS.EnableVerifyCertificate
+							}
 							if _, ok := UseTLSData["enable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil {
+								return data.DatadogReceiver.UseTLS.EnableVerifyHostname
+							}
 							if _, ok := UseTLSData["enable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil {
+								return data.DatadogReceiver.UseTLS.MtlsDisabled
+							}
 							if _, ok := UseTLSData["mtls_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsEnable: func() *GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil && data.DatadogReceiver.UseTLS.MtlsEnable != nil {
+								return data.DatadogReceiver.UseTLS.MtlsEnable
+							}
 							if MtlsEnableData, ok := UseTLSData["mtls_enable"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableModel{
 									Certificate: func() types.String {
@@ -10252,9 +11242,15 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 										return types.StringNull()
 									}(),
 									KeyURL: func() *GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLModel {
+										if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil && data.DatadogReceiver.UseTLS.MtlsEnable != nil && data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL != nil {
+											return data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL
+										}
 										if KeyURLData, ok := MtlsEnableData["key_url"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLModel{
 												BlindfoldSecretInfo: func() *GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel {
+													if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil && data.DatadogReceiver.UseTLS.MtlsEnable != nil && data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
+														return data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -10280,6 +11276,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 													return nil
 												}(),
 												ClearSecretInfo: func() *GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel {
+													if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil && data.DatadogReceiver.UseTLS.MtlsEnable != nil && data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
+														return data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel{
 															Provider: func() types.String {
@@ -10307,6 +11306,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							return nil
 						}(),
 						NoCA: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil {
+								return data.DatadogReceiver.UseTLS.NoCA
+							}
 							if _, ok := UseTLSData["no_ca"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -10336,24 +11338,36 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverGCPBucketReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Batch != nil && !data.GCPBucketReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.GCPBucketReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Batch != nil {
+								return data.GCPBucketReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Batch != nil && !data.GCPBucketReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.GCPBucketReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Batch != nil {
+								return data.GCPBucketReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -10366,6 +11380,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Batch != nil {
+								return data.GCPBucketReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -10388,18 +11405,27 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverGCPBucketReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Compression != nil {
+								return data.GCPBucketReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Compression != nil {
+								return data.GCPBucketReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Compression != nil {
+								return data.GCPBucketReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -10422,12 +11448,18 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							return types.StringNull()
 						}(),
 						LogTypeFolder: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.FilenameOptions != nil {
+								return data.GCPBucketReceiver.FilenameOptions.LogTypeFolder
+							}
 							if _, ok := FilenameOptionsData["log_type_folder"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						NoFolder: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.FilenameOptions != nil {
+								return data.GCPBucketReceiver.FilenameOptions.NoFolder
+							}
 							if _, ok := FilenameOptionsData["no_folder"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -10473,9 +11505,15 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if AuthBasicData, ok := blockData["auth_basic"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverHTTPReceiverAuthBasicModel{
 						Password: func() *GlobalLogReceiverHTTPReceiverAuthBasicPasswordModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.AuthBasic != nil && data.HTTPReceiver.AuthBasic.Password != nil {
+								return data.HTTPReceiver.AuthBasic.Password
+							}
 							if PasswordData, ok := AuthBasicData["password"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverHTTPReceiverAuthBasicPasswordModel{
 									BlindfoldSecretInfo: func() *GlobalLogReceiverHTTPReceiverAuthBasicPasswordBlindfoldSecretInfoModel {
+										if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.AuthBasic != nil && data.HTTPReceiver.AuthBasic.Password != nil && data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo != nil {
+											return data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverHTTPReceiverAuthBasicPasswordBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -10501,6 +11539,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 										return nil
 									}(),
 									ClearSecretInfo: func() *GlobalLogReceiverHTTPReceiverAuthBasicPasswordClearSecretInfoModel {
+										if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.AuthBasic != nil && data.HTTPReceiver.AuthBasic.Password != nil && data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo != nil {
+											return data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverHTTPReceiverAuthBasicPasswordClearSecretInfoModel{
 												Provider: func() types.String {
@@ -10549,9 +11590,15 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if AuthTokenData, ok := blockData["auth_token"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverHTTPReceiverAuthTokenModel{
 						Token: func() *GlobalLogReceiverHTTPReceiverAuthTokenTokenModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.AuthToken != nil && data.HTTPReceiver.AuthToken.Token != nil {
+								return data.HTTPReceiver.AuthToken.Token
+							}
 							if TokenData, ok := AuthTokenData["token"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverHTTPReceiverAuthTokenTokenModel{
 									BlindfoldSecretInfo: func() *GlobalLogReceiverHTTPReceiverAuthTokenTokenBlindfoldSecretInfoModel {
+										if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.AuthToken != nil && data.HTTPReceiver.AuthToken.Token != nil && data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo != nil {
+											return data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo
+										}
 										if BlindfoldSecretInfoData, ok := TokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverHTTPReceiverAuthTokenTokenBlindfoldSecretInfoModel{
 												DecryptionProvider: func() types.String {
@@ -10577,6 +11624,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 										return nil
 									}(),
 									ClearSecretInfo: func() *GlobalLogReceiverHTTPReceiverAuthTokenTokenClearSecretInfoModel {
+										if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.AuthToken != nil && data.HTTPReceiver.AuthToken.Token != nil && data.HTTPReceiver.AuthToken.Token.ClearSecretInfo != nil {
+											return data.HTTPReceiver.AuthToken.Token.ClearSecretInfo
+										}
 										if ClearSecretInfoData, ok := TokenData["clear_secret_info"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverHTTPReceiverAuthTokenTokenClearSecretInfoModel{
 												Provider: func() types.String {
@@ -10610,24 +11660,36 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverHTTPReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Batch != nil && !data.HTTPReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.HTTPReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Batch != nil {
+								return data.HTTPReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Batch != nil && !data.HTTPReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.HTTPReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Batch != nil {
+								return data.HTTPReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -10640,6 +11702,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Batch != nil {
+								return data.HTTPReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -10656,18 +11721,27 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverHTTPReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Compression != nil {
+								return data.HTTPReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Compression != nil {
+								return data.HTTPReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Compression != nil {
+								return data.HTTPReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -10699,36 +11773,54 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverHTTPReceiverUseTLSModel{
 						DisableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil {
+								return data.HTTPReceiver.UseTLS.DisableVerifyCertificate
+							}
 							if _, ok := UseTLSData["disable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil {
+								return data.HTTPReceiver.UseTLS.DisableVerifyHostname
+							}
 							if _, ok := UseTLSData["disable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil {
+								return data.HTTPReceiver.UseTLS.EnableVerifyCertificate
+							}
 							if _, ok := UseTLSData["enable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil {
+								return data.HTTPReceiver.UseTLS.EnableVerifyHostname
+							}
 							if _, ok := UseTLSData["enable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil {
+								return data.HTTPReceiver.UseTLS.MtlsDisabled
+							}
 							if _, ok := UseTLSData["mtls_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsEnable: func() *GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil && data.HTTPReceiver.UseTLS.MtlsEnable != nil {
+								return data.HTTPReceiver.UseTLS.MtlsEnable
+							}
 							if MtlsEnableData, ok := UseTLSData["mtls_enable"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableModel{
 									Certificate: func() types.String {
@@ -10738,9 +11830,15 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 										return types.StringNull()
 									}(),
 									KeyURL: func() *GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLModel {
+										if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil && data.HTTPReceiver.UseTLS.MtlsEnable != nil && data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL != nil {
+											return data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL
+										}
 										if KeyURLData, ok := MtlsEnableData["key_url"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLModel{
 												BlindfoldSecretInfo: func() *GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel {
+													if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil && data.HTTPReceiver.UseTLS.MtlsEnable != nil && data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
+														return data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -10766,6 +11864,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 													return nil
 												}(),
 												ClearSecretInfo: func() *GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel {
+													if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil && data.HTTPReceiver.UseTLS.MtlsEnable != nil && data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
+														return data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel{
 															Provider: func() types.String {
@@ -10793,6 +11894,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							return nil
 						}(),
 						NoCA: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil {
+								return data.HTTPReceiver.UseTLS.NoCA
+							}
 							if _, ok := UseTLSData["no_ca"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -10819,24 +11923,36 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverKafkaReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Batch != nil && !data.KafkaReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.KafkaReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Batch != nil {
+								return data.KafkaReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Batch != nil && !data.KafkaReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.KafkaReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Batch != nil {
+								return data.KafkaReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -10849,6 +11965,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Batch != nil {
+								return data.KafkaReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -10878,18 +11997,27 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverKafkaReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Compression != nil {
+								return data.KafkaReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Compression != nil {
+								return data.KafkaReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Compression != nil {
+								return data.KafkaReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -10921,36 +12049,54 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverKafkaReceiverUseTLSModel{
 						DisableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil {
+								return data.KafkaReceiver.UseTLS.DisableVerifyCertificate
+							}
 							if _, ok := UseTLSData["disable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil {
+								return data.KafkaReceiver.UseTLS.DisableVerifyHostname
+							}
 							if _, ok := UseTLSData["disable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil {
+								return data.KafkaReceiver.UseTLS.EnableVerifyCertificate
+							}
 							if _, ok := UseTLSData["enable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil {
+								return data.KafkaReceiver.UseTLS.EnableVerifyHostname
+							}
 							if _, ok := UseTLSData["enable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil {
+								return data.KafkaReceiver.UseTLS.MtlsDisabled
+							}
 							if _, ok := UseTLSData["mtls_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsEnable: func() *GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil && data.KafkaReceiver.UseTLS.MtlsEnable != nil {
+								return data.KafkaReceiver.UseTLS.MtlsEnable
+							}
 							if MtlsEnableData, ok := UseTLSData["mtls_enable"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableModel{
 									Certificate: func() types.String {
@@ -10960,9 +12106,15 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 										return types.StringNull()
 									}(),
 									KeyURL: func() *GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLModel {
+										if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil && data.KafkaReceiver.UseTLS.MtlsEnable != nil && data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL != nil {
+											return data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL
+										}
 										if KeyURLData, ok := MtlsEnableData["key_url"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLModel{
 												BlindfoldSecretInfo: func() *GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel {
+													if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil && data.KafkaReceiver.UseTLS.MtlsEnable != nil && data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
+														return data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -10988,6 +12140,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 													return nil
 												}(),
 												ClearSecretInfo: func() *GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel {
+													if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil && data.KafkaReceiver.UseTLS.MtlsEnable != nil && data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
+														return data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel{
 															Provider: func() types.String {
@@ -11015,6 +12170,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							return nil
 						}(),
 						NoCA: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil {
+								return data.KafkaReceiver.UseTLS.NoCA
+							}
 							if _, ok := UseTLSData["no_ca"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -11041,6 +12199,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if APIKeyData, ok := blockData["api_key"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverNewRelicReceiverAPIKeyModel{
 						BlindfoldSecretInfo: func() *GlobalLogReceiverNewRelicReceiverAPIKeyBlindfoldSecretInfoModel {
+							if !isImport && data.NewRelicReceiver != nil && data.NewRelicReceiver.APIKey != nil && data.NewRelicReceiver.APIKey.BlindfoldSecretInfo != nil {
+								return data.NewRelicReceiver.APIKey.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := APIKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverNewRelicReceiverAPIKeyBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -11066,6 +12227,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							return nil
 						}(),
 						ClearSecretInfo: func() *GlobalLogReceiverNewRelicReceiverAPIKeyClearSecretInfoModel {
+							if !isImport && data.NewRelicReceiver != nil && data.NewRelicReceiver.APIKey != nil && data.NewRelicReceiver.APIKey.ClearSecretInfo != nil {
+								return data.NewRelicReceiver.APIKey.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := APIKeyData["clear_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverNewRelicReceiverAPIKeyClearSecretInfoModel{
 									Provider: func() types.String {
@@ -11137,24 +12301,36 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverQradarReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Batch != nil && !data.QradarReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.QradarReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Batch != nil {
+								return data.QradarReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Batch != nil && !data.QradarReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.QradarReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Batch != nil {
+								return data.QradarReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -11167,6 +12343,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Batch != nil {
+								return data.QradarReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -11183,18 +12362,27 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverQradarReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Compression != nil {
+								return data.QradarReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Compression != nil {
+								return data.QradarReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Compression != nil {
+								return data.QradarReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -11226,36 +12414,54 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverQradarReceiverUseTLSModel{
 						DisableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil {
+								return data.QradarReceiver.UseTLS.DisableVerifyCertificate
+							}
 							if _, ok := UseTLSData["disable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil {
+								return data.QradarReceiver.UseTLS.DisableVerifyHostname
+							}
 							if _, ok := UseTLSData["disable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil {
+								return data.QradarReceiver.UseTLS.EnableVerifyCertificate
+							}
 							if _, ok := UseTLSData["enable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil {
+								return data.QradarReceiver.UseTLS.EnableVerifyHostname
+							}
 							if _, ok := UseTLSData["enable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil {
+								return data.QradarReceiver.UseTLS.MtlsDisabled
+							}
 							if _, ok := UseTLSData["mtls_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsEnable: func() *GlobalLogReceiverQradarReceiverUseTLSMtlsEnableModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil && data.QradarReceiver.UseTLS.MtlsEnable != nil {
+								return data.QradarReceiver.UseTLS.MtlsEnable
+							}
 							if MtlsEnableData, ok := UseTLSData["mtls_enable"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverQradarReceiverUseTLSMtlsEnableModel{
 									Certificate: func() types.String {
@@ -11265,9 +12471,15 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 										return types.StringNull()
 									}(),
 									KeyURL: func() *GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLModel {
+										if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil && data.QradarReceiver.UseTLS.MtlsEnable != nil && data.QradarReceiver.UseTLS.MtlsEnable.KeyURL != nil {
+											return data.QradarReceiver.UseTLS.MtlsEnable.KeyURL
+										}
 										if KeyURLData, ok := MtlsEnableData["key_url"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLModel{
 												BlindfoldSecretInfo: func() *GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel {
+													if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil && data.QradarReceiver.UseTLS.MtlsEnable != nil && data.QradarReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
+														return data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -11293,6 +12505,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 													return nil
 												}(),
 												ClearSecretInfo: func() *GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel {
+													if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil && data.QradarReceiver.UseTLS.MtlsEnable != nil && data.QradarReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
+														return data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel{
 															Provider: func() types.String {
@@ -11320,6 +12535,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							return nil
 						}(),
 						NoCA: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil {
+								return data.QradarReceiver.UseTLS.NoCA
+							}
 							if _, ok := UseTLSData["no_ca"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -11380,24 +12598,36 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverS3ReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Batch != nil && !data.S3Receiver.Batch.MaxBytes.IsUnknown() {
+								return data.S3Receiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Batch != nil {
+								return data.S3Receiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Batch != nil && !data.S3Receiver.Batch.MaxEvents.IsUnknown() {
+								return data.S3Receiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Batch != nil {
+								return data.S3Receiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -11410,6 +12640,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Batch != nil {
+								return data.S3Receiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -11432,18 +12665,27 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverS3ReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Compression != nil {
+								return data.S3Receiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Compression != nil {
+								return data.S3Receiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Compression != nil {
+								return data.S3Receiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -11466,12 +12708,18 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							return types.StringNull()
 						}(),
 						LogTypeFolder: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.FilenameOptions != nil {
+								return data.S3Receiver.FilenameOptions.LogTypeFolder
+							}
 							if _, ok := FilenameOptionsData["log_type_folder"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						NoFolder: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.FilenameOptions != nil {
+								return data.S3Receiver.FilenameOptions.NoFolder
+							}
 							if _, ok := FilenameOptionsData["no_folder"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -11495,24 +12743,36 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverSplunkReceiverBatchModel{
 						MaxBytes: func() types.Int64 {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Batch != nil && !data.SplunkReceiver.Batch.MaxBytes.IsUnknown() {
+								return data.SplunkReceiver.Batch.MaxBytes
+							}
 							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxBytesDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Batch != nil {
+								return data.SplunkReceiver.Batch.MaxBytesDisabled
+							}
 							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MaxEvents: func() types.Int64 {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Batch != nil && !data.SplunkReceiver.Batch.MaxEvents.IsUnknown() {
+								return data.SplunkReceiver.Batch.MaxEvents
+							}
 							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
 						}(),
 						MaxEventsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Batch != nil {
+								return data.SplunkReceiver.Batch.MaxEventsDisabled
+							}
 							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -11525,6 +12785,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							return types.StringNull()
 						}(),
 						TimeoutSecondsDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Batch != nil {
+								return data.SplunkReceiver.Batch.TimeoutSecondsDefault
+							}
 							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -11541,18 +12804,27 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverSplunkReceiverCompressionModel{
 						CompressionDefault: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Compression != nil {
+								return data.SplunkReceiver.Compression.CompressionDefault
+							}
 							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionGzip: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Compression != nil {
+								return data.SplunkReceiver.Compression.CompressionGzip
+							}
 							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						CompressionNone: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Compression != nil {
+								return data.SplunkReceiver.Compression.CompressionNone
+							}
 							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -11584,6 +12856,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if SplunkHecTokenData, ok := blockData["splunk_hec_token"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverSplunkReceiverSplunkHecTokenModel{
 						BlindfoldSecretInfo: func() *GlobalLogReceiverSplunkReceiverSplunkHecTokenBlindfoldSecretInfoModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.SplunkHecToken != nil && data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo != nil {
+								return data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := SplunkHecTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverSplunkReceiverSplunkHecTokenBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -11609,6 +12884,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							return nil
 						}(),
 						ClearSecretInfo: func() *GlobalLogReceiverSplunkReceiverSplunkHecTokenClearSecretInfoModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.SplunkHecToken != nil && data.SplunkReceiver.SplunkHecToken.ClearSecretInfo != nil {
+								return data.SplunkReceiver.SplunkHecToken.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := SplunkHecTokenData["clear_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverSplunkReceiverSplunkHecTokenClearSecretInfoModel{
 									Provider: func() types.String {
@@ -11638,36 +12916,54 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverSplunkReceiverUseTLSModel{
 						DisableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil {
+								return data.SplunkReceiver.UseTLS.DisableVerifyCertificate
+							}
 							if _, ok := UseTLSData["disable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						DisableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil {
+								return data.SplunkReceiver.UseTLS.DisableVerifyHostname
+							}
 							if _, ok := UseTLSData["disable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyCertificate: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil {
+								return data.SplunkReceiver.UseTLS.EnableVerifyCertificate
+							}
 							if _, ok := UseTLSData["enable_verify_certificate"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableVerifyHostname: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil {
+								return data.SplunkReceiver.UseTLS.EnableVerifyHostname
+							}
 							if _, ok := UseTLSData["enable_verify_hostname"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsDisabled: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil {
+								return data.SplunkReceiver.UseTLS.MtlsDisabled
+							}
 							if _, ok := UseTLSData["mtls_disabled"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsEnable: func() *GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil && data.SplunkReceiver.UseTLS.MtlsEnable != nil {
+								return data.SplunkReceiver.UseTLS.MtlsEnable
+							}
 							if MtlsEnableData, ok := UseTLSData["mtls_enable"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableModel{
 									Certificate: func() types.String {
@@ -11677,9 +12973,15 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 										return types.StringNull()
 									}(),
 									KeyURL: func() *GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLModel {
+										if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil && data.SplunkReceiver.UseTLS.MtlsEnable != nil && data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL != nil {
+											return data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL
+										}
 										if KeyURLData, ok := MtlsEnableData["key_url"].(map[string]interface{}); ok {
 											return &GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLModel{
 												BlindfoldSecretInfo: func() *GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel {
+													if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil && data.SplunkReceiver.UseTLS.MtlsEnable != nil && data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
+														return data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -11705,6 +13007,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 													return nil
 												}(),
 												ClearSecretInfo: func() *GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel {
+													if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil && data.SplunkReceiver.UseTLS.MtlsEnable != nil && data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL != nil && data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
+														return data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 														return &GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel{
 															Provider: func() types.String {
@@ -11732,6 +13037,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							return nil
 						}(),
 						NoCA: func() *GlobalLogReceiverEmptyModel {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil {
+								return data.SplunkReceiver.UseTLS.NoCA
+							}
 							if _, ok := UseTLSData["no_ca"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverEmptyModel{}
 							}
@@ -11758,6 +13066,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 				if URLData, ok := blockData["url"].(map[string]interface{}); ok {
 					return &GlobalLogReceiverSumoLogicReceiverURLModel{
 						BlindfoldSecretInfo: func() *GlobalLogReceiverSumoLogicReceiverURLBlindfoldSecretInfoModel {
+							if !isImport && data.SumoLogicReceiver != nil && data.SumoLogicReceiver.URL != nil && data.SumoLogicReceiver.URL.BlindfoldSecretInfo != nil {
+								return data.SumoLogicReceiver.URL.BlindfoldSecretInfo
+							}
 							if BlindfoldSecretInfoData, ok := URLData["blindfold_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverSumoLogicReceiverURLBlindfoldSecretInfoModel{
 									DecryptionProvider: func() types.String {
@@ -11783,6 +13094,9 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							return nil
 						}(),
 						ClearSecretInfo: func() *GlobalLogReceiverSumoLogicReceiverURLClearSecretInfoModel {
+							if !isImport && data.SumoLogicReceiver != nil && data.SumoLogicReceiver.URL != nil && data.SumoLogicReceiver.URL.ClearSecretInfo != nil {
+								return data.SumoLogicReceiver.URL.ClearSecretInfo
+							}
 							if ClearSecretInfoData, ok := URLData["clear_secret_info"].(map[string]interface{}); ok {
 								return &GlobalLogReceiverSumoLogicReceiverURLClearSecretInfoModel{
 									Provider: func() types.String {

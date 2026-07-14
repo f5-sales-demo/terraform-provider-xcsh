@@ -547,12 +547,18 @@ func (r *BGPRoutingPolicyResource) Create(ctx context.Context, req resource.Crea
 						if ActionData, ok := itemMap["action"].(map[string]interface{}); ok {
 							return &BGPRoutingPolicyRulesActionModel{
 								Aggregate: func() *BGPRoutingPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil {
+										return existingRulesItems[listIdx].Action.Aggregate
+									}
 									if _, ok := ActionData["aggregate"].(map[string]interface{}); ok {
 										return &BGPRoutingPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Allow: func() *BGPRoutingPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil {
+										return existingRulesItems[listIdx].Action.Allow
+									}
 									if _, ok := ActionData["allow"].(map[string]interface{}); ok {
 										return &BGPRoutingPolicyEmptyModel{}
 									}
@@ -565,6 +571,9 @@ func (r *BGPRoutingPolicyResource) Create(ctx context.Context, req resource.Crea
 									return types.StringNull()
 								}(),
 								Community: func() *BGPRoutingPolicyRulesActionCommunityModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil && existingRulesItems[listIdx].Action.Community != nil {
+										return existingRulesItems[listIdx].Action.Community
+									}
 									if CommunityData, ok := ActionData["community"].(map[string]interface{}); ok {
 										return &BGPRoutingPolicyRulesActionCommunityModel{
 											Community: func() types.List {
@@ -585,18 +594,27 @@ func (r *BGPRoutingPolicyResource) Create(ctx context.Context, req resource.Crea
 									return nil
 								}(),
 								Deny: func() *BGPRoutingPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil {
+										return existingRulesItems[listIdx].Action.Deny
+									}
 									if _, ok := ActionData["deny"].(map[string]interface{}); ok {
 										return &BGPRoutingPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								LocalPreference: func() types.Int64 {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil && !existingRulesItems[listIdx].Action.LocalPreference.IsUnknown() {
+										return existingRulesItems[listIdx].Action.LocalPreference
+									}
 									if v, ok := ActionData["local_preference"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								Metric: func() types.Int64 {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil && !existingRulesItems[listIdx].Action.Metric.IsUnknown() {
+										return existingRulesItems[listIdx].Action.Metric
+									}
 									if v, ok := ActionData["metric"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
@@ -616,6 +634,9 @@ func (r *BGPRoutingPolicyResource) Create(ctx context.Context, req resource.Crea
 									return types.StringNull()
 								}(),
 								Community: func() *BGPRoutingPolicyRulesMatchCommunityModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Match != nil && existingRulesItems[listIdx].Match.Community != nil {
+										return existingRulesItems[listIdx].Match.Community
+									}
 									if CommunityData, ok := MatchData["community"].(map[string]interface{}); ok {
 										return &BGPRoutingPolicyRulesMatchCommunityModel{
 											Community: func() types.List {
@@ -636,21 +657,38 @@ func (r *BGPRoutingPolicyResource) Create(ctx context.Context, req resource.Crea
 									return nil
 								}(),
 								IPPrefixes: func() *BGPRoutingPolicyRulesMatchIPPrefixesModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Match != nil && existingRulesItems[listIdx].Match.IPPrefixes != nil {
+										return existingRulesItems[listIdx].Match.IPPrefixes
+									}
 									if IPPrefixesData, ok := MatchData["ip_prefixes"].(map[string]interface{}); ok {
 										return &BGPRoutingPolicyRulesMatchIPPrefixesModel{
 											Prefixes: func() types.List {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Match != nil && existingRulesItems[listIdx].Match.IPPrefixes != nil && (existingRulesItems[listIdx].Match.IPPrefixes.Prefixes.IsNull() || len(existingRulesItems[listIdx].Match.IPPrefixes.Prefixes.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModelAttrTypes})
+												}
+												var PrefixesExisting []BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModel
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Match != nil && existingRulesItems[listIdx].Match.IPPrefixes != nil && !existingRulesItems[listIdx].Match.IPPrefixes.Prefixes.IsNull() && !existingRulesItems[listIdx].Match.IPPrefixes.Prefixes.IsUnknown() {
+													existingRulesItems[listIdx].Match.IPPrefixes.Prefixes.ElementsAs(ctx, &PrefixesExisting, false)
+												}
 												if rawList, ok := IPPrefixesData["prefixes"].([]interface{}); ok && len(rawList) > 0 {
 													var PrefixesResult []BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModel
-													for _, PrefixesItem := range rawList {
+													for PrefixesIdx, PrefixesItem := range rawList {
+														_ = PrefixesIdx
 														if PrefixesItemMap, ok := PrefixesItem.(map[string]interface{}); ok {
 															PrefixesResult = append(PrefixesResult, BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModel{
 																EqualOrLongerThan: func() *BGPRoutingPolicyEmptyModel {
+																	if !isImport && len(PrefixesExisting) > PrefixesIdx && PrefixesExisting[PrefixesIdx].EqualOrLongerThan != nil {
+																		return &BGPRoutingPolicyEmptyModel{}
+																	}
 																	if _, ok := PrefixesItemMap["equal_or_longer_than"].(map[string]interface{}); ok {
 																		return &BGPRoutingPolicyEmptyModel{}
 																	}
 																	return nil
 																}(),
 																ExactMatch: func() *BGPRoutingPolicyEmptyModel {
+																	if !isImport && len(PrefixesExisting) > PrefixesIdx && PrefixesExisting[PrefixesIdx].ExactMatch != nil {
+																		return &BGPRoutingPolicyEmptyModel{}
+																	}
 																	if _, ok := PrefixesItemMap["exact_match"].(map[string]interface{}); ok {
 																		return &BGPRoutingPolicyEmptyModel{}
 																	}
@@ -663,6 +701,9 @@ func (r *BGPRoutingPolicyResource) Create(ctx context.Context, req resource.Crea
 																	return types.StringNull()
 																}(),
 																LongerThan: func() *BGPRoutingPolicyEmptyModel {
+																	if !isImport && len(PrefixesExisting) > PrefixesIdx && PrefixesExisting[PrefixesIdx].LongerThan != nil {
+																		return &BGPRoutingPolicyEmptyModel{}
+																	}
 																	if _, ok := PrefixesItemMap["longer_than"].(map[string]interface{}); ok {
 																		return &BGPRoutingPolicyEmptyModel{}
 																	}
@@ -804,12 +845,18 @@ func (r *BGPRoutingPolicyResource) Read(ctx context.Context, req resource.ReadRe
 						if ActionData, ok := itemMap["action"].(map[string]interface{}); ok {
 							return &BGPRoutingPolicyRulesActionModel{
 								Aggregate: func() *BGPRoutingPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil {
+										return existingRulesItems[listIdx].Action.Aggregate
+									}
 									if _, ok := ActionData["aggregate"].(map[string]interface{}); ok {
 										return &BGPRoutingPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Allow: func() *BGPRoutingPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil {
+										return existingRulesItems[listIdx].Action.Allow
+									}
 									if _, ok := ActionData["allow"].(map[string]interface{}); ok {
 										return &BGPRoutingPolicyEmptyModel{}
 									}
@@ -822,6 +869,9 @@ func (r *BGPRoutingPolicyResource) Read(ctx context.Context, req resource.ReadRe
 									return types.StringNull()
 								}(),
 								Community: func() *BGPRoutingPolicyRulesActionCommunityModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil && existingRulesItems[listIdx].Action.Community != nil {
+										return existingRulesItems[listIdx].Action.Community
+									}
 									if CommunityData, ok := ActionData["community"].(map[string]interface{}); ok {
 										return &BGPRoutingPolicyRulesActionCommunityModel{
 											Community: func() types.List {
@@ -842,18 +892,27 @@ func (r *BGPRoutingPolicyResource) Read(ctx context.Context, req resource.ReadRe
 									return nil
 								}(),
 								Deny: func() *BGPRoutingPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil {
+										return existingRulesItems[listIdx].Action.Deny
+									}
 									if _, ok := ActionData["deny"].(map[string]interface{}); ok {
 										return &BGPRoutingPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								LocalPreference: func() types.Int64 {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil && !existingRulesItems[listIdx].Action.LocalPreference.IsUnknown() {
+										return existingRulesItems[listIdx].Action.LocalPreference
+									}
 									if v, ok := ActionData["local_preference"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								Metric: func() types.Int64 {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil && !existingRulesItems[listIdx].Action.Metric.IsUnknown() {
+										return existingRulesItems[listIdx].Action.Metric
+									}
 									if v, ok := ActionData["metric"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
@@ -873,6 +932,9 @@ func (r *BGPRoutingPolicyResource) Read(ctx context.Context, req resource.ReadRe
 									return types.StringNull()
 								}(),
 								Community: func() *BGPRoutingPolicyRulesMatchCommunityModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Match != nil && existingRulesItems[listIdx].Match.Community != nil {
+										return existingRulesItems[listIdx].Match.Community
+									}
 									if CommunityData, ok := MatchData["community"].(map[string]interface{}); ok {
 										return &BGPRoutingPolicyRulesMatchCommunityModel{
 											Community: func() types.List {
@@ -893,21 +955,38 @@ func (r *BGPRoutingPolicyResource) Read(ctx context.Context, req resource.ReadRe
 									return nil
 								}(),
 								IPPrefixes: func() *BGPRoutingPolicyRulesMatchIPPrefixesModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Match != nil && existingRulesItems[listIdx].Match.IPPrefixes != nil {
+										return existingRulesItems[listIdx].Match.IPPrefixes
+									}
 									if IPPrefixesData, ok := MatchData["ip_prefixes"].(map[string]interface{}); ok {
 										return &BGPRoutingPolicyRulesMatchIPPrefixesModel{
 											Prefixes: func() types.List {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Match != nil && existingRulesItems[listIdx].Match.IPPrefixes != nil && (existingRulesItems[listIdx].Match.IPPrefixes.Prefixes.IsNull() || len(existingRulesItems[listIdx].Match.IPPrefixes.Prefixes.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModelAttrTypes})
+												}
+												var PrefixesExisting []BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModel
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Match != nil && existingRulesItems[listIdx].Match.IPPrefixes != nil && !existingRulesItems[listIdx].Match.IPPrefixes.Prefixes.IsNull() && !existingRulesItems[listIdx].Match.IPPrefixes.Prefixes.IsUnknown() {
+													existingRulesItems[listIdx].Match.IPPrefixes.Prefixes.ElementsAs(ctx, &PrefixesExisting, false)
+												}
 												if rawList, ok := IPPrefixesData["prefixes"].([]interface{}); ok && len(rawList) > 0 {
 													var PrefixesResult []BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModel
-													for _, PrefixesItem := range rawList {
+													for PrefixesIdx, PrefixesItem := range rawList {
+														_ = PrefixesIdx
 														if PrefixesItemMap, ok := PrefixesItem.(map[string]interface{}); ok {
 															PrefixesResult = append(PrefixesResult, BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModel{
 																EqualOrLongerThan: func() *BGPRoutingPolicyEmptyModel {
+																	if !isImport && len(PrefixesExisting) > PrefixesIdx && PrefixesExisting[PrefixesIdx].EqualOrLongerThan != nil {
+																		return &BGPRoutingPolicyEmptyModel{}
+																	}
 																	if _, ok := PrefixesItemMap["equal_or_longer_than"].(map[string]interface{}); ok {
 																		return &BGPRoutingPolicyEmptyModel{}
 																	}
 																	return nil
 																}(),
 																ExactMatch: func() *BGPRoutingPolicyEmptyModel {
+																	if !isImport && len(PrefixesExisting) > PrefixesIdx && PrefixesExisting[PrefixesIdx].ExactMatch != nil {
+																		return &BGPRoutingPolicyEmptyModel{}
+																	}
 																	if _, ok := PrefixesItemMap["exact_match"].(map[string]interface{}); ok {
 																		return &BGPRoutingPolicyEmptyModel{}
 																	}
@@ -920,6 +999,9 @@ func (r *BGPRoutingPolicyResource) Read(ctx context.Context, req resource.ReadRe
 																	return types.StringNull()
 																}(),
 																LongerThan: func() *BGPRoutingPolicyEmptyModel {
+																	if !isImport && len(PrefixesExisting) > PrefixesIdx && PrefixesExisting[PrefixesIdx].LongerThan != nil {
+																		return &BGPRoutingPolicyEmptyModel{}
+																	}
 																	if _, ok := PrefixesItemMap["longer_than"].(map[string]interface{}); ok {
 																		return &BGPRoutingPolicyEmptyModel{}
 																	}
@@ -1144,12 +1226,18 @@ func (r *BGPRoutingPolicyResource) Update(ctx context.Context, req resource.Upda
 						if ActionData, ok := itemMap["action"].(map[string]interface{}); ok {
 							return &BGPRoutingPolicyRulesActionModel{
 								Aggregate: func() *BGPRoutingPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil {
+										return existingRulesItems[listIdx].Action.Aggregate
+									}
 									if _, ok := ActionData["aggregate"].(map[string]interface{}); ok {
 										return &BGPRoutingPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								Allow: func() *BGPRoutingPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil {
+										return existingRulesItems[listIdx].Action.Allow
+									}
 									if _, ok := ActionData["allow"].(map[string]interface{}); ok {
 										return &BGPRoutingPolicyEmptyModel{}
 									}
@@ -1162,6 +1250,9 @@ func (r *BGPRoutingPolicyResource) Update(ctx context.Context, req resource.Upda
 									return types.StringNull()
 								}(),
 								Community: func() *BGPRoutingPolicyRulesActionCommunityModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil && existingRulesItems[listIdx].Action.Community != nil {
+										return existingRulesItems[listIdx].Action.Community
+									}
 									if CommunityData, ok := ActionData["community"].(map[string]interface{}); ok {
 										return &BGPRoutingPolicyRulesActionCommunityModel{
 											Community: func() types.List {
@@ -1182,18 +1273,27 @@ func (r *BGPRoutingPolicyResource) Update(ctx context.Context, req resource.Upda
 									return nil
 								}(),
 								Deny: func() *BGPRoutingPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil {
+										return existingRulesItems[listIdx].Action.Deny
+									}
 									if _, ok := ActionData["deny"].(map[string]interface{}); ok {
 										return &BGPRoutingPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								LocalPreference: func() types.Int64 {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil && !existingRulesItems[listIdx].Action.LocalPreference.IsUnknown() {
+										return existingRulesItems[listIdx].Action.LocalPreference
+									}
 									if v, ok := ActionData["local_preference"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
 								}(),
 								Metric: func() types.Int64 {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil && !existingRulesItems[listIdx].Action.Metric.IsUnknown() {
+										return existingRulesItems[listIdx].Action.Metric
+									}
 									if v, ok := ActionData["metric"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
 									}
@@ -1213,6 +1313,9 @@ func (r *BGPRoutingPolicyResource) Update(ctx context.Context, req resource.Upda
 									return types.StringNull()
 								}(),
 								Community: func() *BGPRoutingPolicyRulesMatchCommunityModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Match != nil && existingRulesItems[listIdx].Match.Community != nil {
+										return existingRulesItems[listIdx].Match.Community
+									}
 									if CommunityData, ok := MatchData["community"].(map[string]interface{}); ok {
 										return &BGPRoutingPolicyRulesMatchCommunityModel{
 											Community: func() types.List {
@@ -1233,21 +1336,38 @@ func (r *BGPRoutingPolicyResource) Update(ctx context.Context, req resource.Upda
 									return nil
 								}(),
 								IPPrefixes: func() *BGPRoutingPolicyRulesMatchIPPrefixesModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Match != nil && existingRulesItems[listIdx].Match.IPPrefixes != nil {
+										return existingRulesItems[listIdx].Match.IPPrefixes
+									}
 									if IPPrefixesData, ok := MatchData["ip_prefixes"].(map[string]interface{}); ok {
 										return &BGPRoutingPolicyRulesMatchIPPrefixesModel{
 											Prefixes: func() types.List {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Match != nil && existingRulesItems[listIdx].Match.IPPrefixes != nil && (existingRulesItems[listIdx].Match.IPPrefixes.Prefixes.IsNull() || len(existingRulesItems[listIdx].Match.IPPrefixes.Prefixes.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModelAttrTypes})
+												}
+												var PrefixesExisting []BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModel
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Match != nil && existingRulesItems[listIdx].Match.IPPrefixes != nil && !existingRulesItems[listIdx].Match.IPPrefixes.Prefixes.IsNull() && !existingRulesItems[listIdx].Match.IPPrefixes.Prefixes.IsUnknown() {
+													existingRulesItems[listIdx].Match.IPPrefixes.Prefixes.ElementsAs(ctx, &PrefixesExisting, false)
+												}
 												if rawList, ok := IPPrefixesData["prefixes"].([]interface{}); ok && len(rawList) > 0 {
 													var PrefixesResult []BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModel
-													for _, PrefixesItem := range rawList {
+													for PrefixesIdx, PrefixesItem := range rawList {
+														_ = PrefixesIdx
 														if PrefixesItemMap, ok := PrefixesItem.(map[string]interface{}); ok {
 															PrefixesResult = append(PrefixesResult, BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModel{
 																EqualOrLongerThan: func() *BGPRoutingPolicyEmptyModel {
+																	if !isImport && len(PrefixesExisting) > PrefixesIdx && PrefixesExisting[PrefixesIdx].EqualOrLongerThan != nil {
+																		return &BGPRoutingPolicyEmptyModel{}
+																	}
 																	if _, ok := PrefixesItemMap["equal_or_longer_than"].(map[string]interface{}); ok {
 																		return &BGPRoutingPolicyEmptyModel{}
 																	}
 																	return nil
 																}(),
 																ExactMatch: func() *BGPRoutingPolicyEmptyModel {
+																	if !isImport && len(PrefixesExisting) > PrefixesIdx && PrefixesExisting[PrefixesIdx].ExactMatch != nil {
+																		return &BGPRoutingPolicyEmptyModel{}
+																	}
 																	if _, ok := PrefixesItemMap["exact_match"].(map[string]interface{}); ok {
 																		return &BGPRoutingPolicyEmptyModel{}
 																	}
@@ -1260,6 +1380,9 @@ func (r *BGPRoutingPolicyResource) Update(ctx context.Context, req resource.Upda
 																	return types.StringNull()
 																}(),
 																LongerThan: func() *BGPRoutingPolicyEmptyModel {
+																	if !isImport && len(PrefixesExisting) > PrefixesIdx && PrefixesExisting[PrefixesIdx].LongerThan != nil {
+																		return &BGPRoutingPolicyEmptyModel{}
+																	}
 																	if _, ok := PrefixesItemMap["longer_than"].(map[string]interface{}); ok {
 																		return &BGPRoutingPolicyEmptyModel{}
 																	}

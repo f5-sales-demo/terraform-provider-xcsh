@@ -987,12 +987,18 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &EndpointWhereSiteModel{
 						DisableInternetVIP: func() *EndpointEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.DisableInternetVIP
+							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &EndpointEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *EndpointEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.EnableInternetVIP
+							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &EndpointEmptyModel{}
 							}
@@ -1005,9 +1011,17 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.Site != nil && (data.Where.Site.Ref.IsNull() || len(data.Where.Site.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereSiteRefModelAttrTypes})
+							}
+							var RefExisting []EndpointWhereSiteRefModel
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
+								data.Where.Site.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []EndpointWhereSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, EndpointWhereSiteRefModel{
 											Kind: func() types.String {
@@ -1056,9 +1070,17 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
 					return &EndpointWhereVirtualNetworkModel{
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil && (data.Where.VirtualNetwork.Ref.IsNull() || len(data.Where.VirtualNetwork.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereVirtualNetworkRefModelAttrTypes})
+							}
+							var RefExisting []EndpointWhereVirtualNetworkRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil && !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
+								data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := VirtualNetworkData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []EndpointWhereVirtualNetworkRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, EndpointWhereVirtualNetworkRefModel{
 											Kind: func() types.String {
@@ -1107,12 +1129,18 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &EndpointWhereVirtualSiteModel{
 						DisableInternetVIP: func() *EndpointEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.DisableInternetVIP
+							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &EndpointEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *EndpointEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.EnableInternetVIP
+							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &EndpointEmptyModel{}
 							}
@@ -1125,9 +1153,17 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && (data.Where.VirtualSite.Ref.IsNull() || len(data.Where.VirtualSite.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereVirtualSiteRefModelAttrTypes})
+							}
+							var RefExisting []EndpointWhereVirtualSiteRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
+								data.Where.VirtualSite.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []EndpointWhereVirtualSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, EndpointWhereVirtualSiteRefModel{
 											Kind: func() types.String {
@@ -1392,12 +1428,18 @@ func (r *EndpointResource) Read(ctx context.Context, req resource.ReadRequest, r
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &EndpointWhereSiteModel{
 						DisableInternetVIP: func() *EndpointEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.DisableInternetVIP
+							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &EndpointEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *EndpointEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.EnableInternetVIP
+							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &EndpointEmptyModel{}
 							}
@@ -1410,9 +1452,17 @@ func (r *EndpointResource) Read(ctx context.Context, req resource.ReadRequest, r
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.Site != nil && (data.Where.Site.Ref.IsNull() || len(data.Where.Site.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereSiteRefModelAttrTypes})
+							}
+							var RefExisting []EndpointWhereSiteRefModel
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
+								data.Where.Site.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []EndpointWhereSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, EndpointWhereSiteRefModel{
 											Kind: func() types.String {
@@ -1461,9 +1511,17 @@ func (r *EndpointResource) Read(ctx context.Context, req resource.ReadRequest, r
 				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
 					return &EndpointWhereVirtualNetworkModel{
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil && (data.Where.VirtualNetwork.Ref.IsNull() || len(data.Where.VirtualNetwork.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereVirtualNetworkRefModelAttrTypes})
+							}
+							var RefExisting []EndpointWhereVirtualNetworkRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil && !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
+								data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := VirtualNetworkData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []EndpointWhereVirtualNetworkRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, EndpointWhereVirtualNetworkRefModel{
 											Kind: func() types.String {
@@ -1512,12 +1570,18 @@ func (r *EndpointResource) Read(ctx context.Context, req resource.ReadRequest, r
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &EndpointWhereVirtualSiteModel{
 						DisableInternetVIP: func() *EndpointEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.DisableInternetVIP
+							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &EndpointEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *EndpointEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.EnableInternetVIP
+							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &EndpointEmptyModel{}
 							}
@@ -1530,9 +1594,17 @@ func (r *EndpointResource) Read(ctx context.Context, req resource.ReadRequest, r
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && (data.Where.VirtualSite.Ref.IsNull() || len(data.Where.VirtualSite.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereVirtualSiteRefModelAttrTypes})
+							}
+							var RefExisting []EndpointWhereVirtualSiteRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
+								data.Where.VirtualSite.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []EndpointWhereVirtualSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, EndpointWhereVirtualSiteRefModel{
 											Kind: func() types.String {
@@ -1983,12 +2055,18 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &EndpointWhereSiteModel{
 						DisableInternetVIP: func() *EndpointEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.DisableInternetVIP
+							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &EndpointEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *EndpointEmptyModel {
+							if !isImport && data.Where != nil && data.Where.Site != nil {
+								return data.Where.Site.EnableInternetVIP
+							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &EndpointEmptyModel{}
 							}
@@ -2001,9 +2079,17 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.Site != nil && (data.Where.Site.Ref.IsNull() || len(data.Where.Site.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereSiteRefModelAttrTypes})
+							}
+							var RefExisting []EndpointWhereSiteRefModel
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
+								data.Where.Site.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []EndpointWhereSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, EndpointWhereSiteRefModel{
 											Kind: func() types.String {
@@ -2052,9 +2138,17 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
 					return &EndpointWhereVirtualNetworkModel{
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil && (data.Where.VirtualNetwork.Ref.IsNull() || len(data.Where.VirtualNetwork.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereVirtualNetworkRefModelAttrTypes})
+							}
+							var RefExisting []EndpointWhereVirtualNetworkRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil && !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
+								data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := VirtualNetworkData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []EndpointWhereVirtualNetworkRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, EndpointWhereVirtualNetworkRefModel{
 											Kind: func() types.String {
@@ -2103,12 +2197,18 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &EndpointWhereVirtualSiteModel{
 						DisableInternetVIP: func() *EndpointEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.DisableInternetVIP
+							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
 								return &EndpointEmptyModel{}
 							}
 							return nil
 						}(),
 						EnableInternetVIP: func() *EndpointEmptyModel {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+								return data.Where.VirtualSite.EnableInternetVIP
+							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
 								return &EndpointEmptyModel{}
 							}
@@ -2121,9 +2221,17 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 							return types.StringNull()
 						}(),
 						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && (data.Where.VirtualSite.Ref.IsNull() || len(data.Where.VirtualSite.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereVirtualSiteRefModelAttrTypes})
+							}
+							var RefExisting []EndpointWhereVirtualSiteRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
+								data.Where.VirtualSite.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
 							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
 								var RefResult []EndpointWhereVirtualSiteRefModel
-								for _, RefItem := range rawList {
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
 									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
 										RefResult = append(RefResult, EndpointWhereVirtualSiteRefModel{
 											Kind: func() types.String {

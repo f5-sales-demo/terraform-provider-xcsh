@@ -603,6 +603,9 @@ func (r *LogReceiverResource) Create(ctx context.Context, req resource.CreateReq
 				if TCPServerData, ok := blockData["tcp_server"].(map[string]interface{}); ok {
 					return &LogReceiverSyslogTCPServerModel{
 						Port: func() types.Int64 {
+							if !isImport && data.Syslog != nil && data.Syslog.TCPServer != nil && !data.Syslog.TCPServer.Port.IsUnknown() {
+								return data.Syslog.TCPServer.Port
+							}
 							if v, ok := TCPServerData["port"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -625,24 +628,36 @@ func (r *LogReceiverResource) Create(ctx context.Context, req resource.CreateReq
 				if TLSServerData, ok := blockData["tls_server"].(map[string]interface{}); ok {
 					return &LogReceiverSyslogTLSServerModel{
 						DefaultHTTPSPort: func() *LogReceiverEmptyModel {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+								return data.Syslog.TLSServer.DefaultHTTPSPort
+							}
 							if _, ok := TLSServerData["default_https_port"].(map[string]interface{}); ok {
 								return &LogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						DefaultSyslogTLSPort: func() *LogReceiverEmptyModel {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+								return data.Syslog.TLSServer.DefaultSyslogTLSPort
+							}
 							if _, ok := TLSServerData["default_syslog_tls_port"].(map[string]interface{}); ok {
 								return &LogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsDisabled: func() *LogReceiverEmptyModel {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+								return data.Syslog.TLSServer.MtlsDisabled
+							}
 							if _, ok := TLSServerData["mtls_disabled"].(map[string]interface{}); ok {
 								return &LogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsEnable: func() *LogReceiverSyslogTLSServerMtlsEnableModel {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && data.Syslog.TLSServer.MtlsEnable != nil {
+								return data.Syslog.TLSServer.MtlsEnable
+							}
 							if MtlsEnableData, ok := TLSServerData["mtls_enable"].(map[string]interface{}); ok {
 								return &LogReceiverSyslogTLSServerMtlsEnableModel{
 									Certificate: func() types.String {
@@ -652,9 +667,15 @@ func (r *LogReceiverResource) Create(ctx context.Context, req resource.CreateReq
 										return types.StringNull()
 									}(),
 									KeyURL: func() *LogReceiverSyslogTLSServerMtlsEnableKeyURLModel {
+										if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && data.Syslog.TLSServer.MtlsEnable != nil && data.Syslog.TLSServer.MtlsEnable.KeyURL != nil {
+											return data.Syslog.TLSServer.MtlsEnable.KeyURL
+										}
 										if KeyURLData, ok := MtlsEnableData["key_url"].(map[string]interface{}); ok {
 											return &LogReceiverSyslogTLSServerMtlsEnableKeyURLModel{
 												BlindfoldSecretInfo: func() *LogReceiverSyslogTLSServerMtlsEnableKeyURLBlindfoldSecretInfoModel {
+													if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && data.Syslog.TLSServer.MtlsEnable != nil && data.Syslog.TLSServer.MtlsEnable.KeyURL != nil && data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
+														return data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &LogReceiverSyslogTLSServerMtlsEnableKeyURLBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -680,6 +701,9 @@ func (r *LogReceiverResource) Create(ctx context.Context, req resource.CreateReq
 													return nil
 												}(),
 												ClearSecretInfo: func() *LogReceiverSyslogTLSServerMtlsEnableKeyURLClearSecretInfoModel {
+													if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && data.Syslog.TLSServer.MtlsEnable != nil && data.Syslog.TLSServer.MtlsEnable.KeyURL != nil && data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo != nil {
+														return data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 														return &LogReceiverSyslogTLSServerMtlsEnableKeyURLClearSecretInfoModel{
 															Provider: func() types.String {
@@ -707,6 +731,9 @@ func (r *LogReceiverResource) Create(ctx context.Context, req resource.CreateReq
 							return nil
 						}(),
 						Port: func() types.Int64 {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && !data.Syslog.TLSServer.Port.IsUnknown() {
+								return data.Syslog.TLSServer.Port
+							}
 							if v, ok := TLSServerData["port"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -725,6 +752,9 @@ func (r *LogReceiverResource) Create(ctx context.Context, req resource.CreateReq
 							return types.StringNull()
 						}(),
 						VolterraCA: func() *LogReceiverEmptyModel {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+								return data.Syslog.TLSServer.VolterraCA
+							}
 							if _, ok := TLSServerData["volterra_ca"].(map[string]interface{}); ok {
 								return &LogReceiverEmptyModel{}
 							}
@@ -741,6 +771,9 @@ func (r *LogReceiverResource) Create(ctx context.Context, req resource.CreateReq
 				if UDPServerData, ok := blockData["udp_server"].(map[string]interface{}); ok {
 					return &LogReceiverSyslogUDPServerModel{
 						Port: func() types.Int64 {
+							if !isImport && data.Syslog != nil && data.Syslog.UDPServer != nil && !data.Syslog.UDPServer.Port.IsUnknown() {
+								return data.Syslog.UDPServer.Port
+							}
 							if v, ok := UDPServerData["port"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -872,6 +905,9 @@ func (r *LogReceiverResource) Read(ctx context.Context, req resource.ReadRequest
 				if TCPServerData, ok := blockData["tcp_server"].(map[string]interface{}); ok {
 					return &LogReceiverSyslogTCPServerModel{
 						Port: func() types.Int64 {
+							if !isImport && data.Syslog != nil && data.Syslog.TCPServer != nil && !data.Syslog.TCPServer.Port.IsUnknown() {
+								return data.Syslog.TCPServer.Port
+							}
 							if v, ok := TCPServerData["port"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -894,24 +930,36 @@ func (r *LogReceiverResource) Read(ctx context.Context, req resource.ReadRequest
 				if TLSServerData, ok := blockData["tls_server"].(map[string]interface{}); ok {
 					return &LogReceiverSyslogTLSServerModel{
 						DefaultHTTPSPort: func() *LogReceiverEmptyModel {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+								return data.Syslog.TLSServer.DefaultHTTPSPort
+							}
 							if _, ok := TLSServerData["default_https_port"].(map[string]interface{}); ok {
 								return &LogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						DefaultSyslogTLSPort: func() *LogReceiverEmptyModel {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+								return data.Syslog.TLSServer.DefaultSyslogTLSPort
+							}
 							if _, ok := TLSServerData["default_syslog_tls_port"].(map[string]interface{}); ok {
 								return &LogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsDisabled: func() *LogReceiverEmptyModel {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+								return data.Syslog.TLSServer.MtlsDisabled
+							}
 							if _, ok := TLSServerData["mtls_disabled"].(map[string]interface{}); ok {
 								return &LogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsEnable: func() *LogReceiverSyslogTLSServerMtlsEnableModel {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && data.Syslog.TLSServer.MtlsEnable != nil {
+								return data.Syslog.TLSServer.MtlsEnable
+							}
 							if MtlsEnableData, ok := TLSServerData["mtls_enable"].(map[string]interface{}); ok {
 								return &LogReceiverSyslogTLSServerMtlsEnableModel{
 									Certificate: func() types.String {
@@ -921,9 +969,15 @@ func (r *LogReceiverResource) Read(ctx context.Context, req resource.ReadRequest
 										return types.StringNull()
 									}(),
 									KeyURL: func() *LogReceiverSyslogTLSServerMtlsEnableKeyURLModel {
+										if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && data.Syslog.TLSServer.MtlsEnable != nil && data.Syslog.TLSServer.MtlsEnable.KeyURL != nil {
+											return data.Syslog.TLSServer.MtlsEnable.KeyURL
+										}
 										if KeyURLData, ok := MtlsEnableData["key_url"].(map[string]interface{}); ok {
 											return &LogReceiverSyslogTLSServerMtlsEnableKeyURLModel{
 												BlindfoldSecretInfo: func() *LogReceiverSyslogTLSServerMtlsEnableKeyURLBlindfoldSecretInfoModel {
+													if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && data.Syslog.TLSServer.MtlsEnable != nil && data.Syslog.TLSServer.MtlsEnable.KeyURL != nil && data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
+														return data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &LogReceiverSyslogTLSServerMtlsEnableKeyURLBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -949,6 +1003,9 @@ func (r *LogReceiverResource) Read(ctx context.Context, req resource.ReadRequest
 													return nil
 												}(),
 												ClearSecretInfo: func() *LogReceiverSyslogTLSServerMtlsEnableKeyURLClearSecretInfoModel {
+													if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && data.Syslog.TLSServer.MtlsEnable != nil && data.Syslog.TLSServer.MtlsEnable.KeyURL != nil && data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo != nil {
+														return data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 														return &LogReceiverSyslogTLSServerMtlsEnableKeyURLClearSecretInfoModel{
 															Provider: func() types.String {
@@ -976,6 +1033,9 @@ func (r *LogReceiverResource) Read(ctx context.Context, req resource.ReadRequest
 							return nil
 						}(),
 						Port: func() types.Int64 {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && !data.Syslog.TLSServer.Port.IsUnknown() {
+								return data.Syslog.TLSServer.Port
+							}
 							if v, ok := TLSServerData["port"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -994,6 +1054,9 @@ func (r *LogReceiverResource) Read(ctx context.Context, req resource.ReadRequest
 							return types.StringNull()
 						}(),
 						VolterraCA: func() *LogReceiverEmptyModel {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+								return data.Syslog.TLSServer.VolterraCA
+							}
 							if _, ok := TLSServerData["volterra_ca"].(map[string]interface{}); ok {
 								return &LogReceiverEmptyModel{}
 							}
@@ -1010,6 +1073,9 @@ func (r *LogReceiverResource) Read(ctx context.Context, req resource.ReadRequest
 				if UDPServerData, ok := blockData["udp_server"].(map[string]interface{}); ok {
 					return &LogReceiverSyslogUDPServerModel{
 						Port: func() types.Int64 {
+							if !isImport && data.Syslog != nil && data.Syslog.UDPServer != nil && !data.Syslog.UDPServer.Port.IsUnknown() {
+								return data.Syslog.UDPServer.Port
+							}
 							if v, ok := UDPServerData["port"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -1220,6 +1286,9 @@ func (r *LogReceiverResource) Update(ctx context.Context, req resource.UpdateReq
 				if TCPServerData, ok := blockData["tcp_server"].(map[string]interface{}); ok {
 					return &LogReceiverSyslogTCPServerModel{
 						Port: func() types.Int64 {
+							if !isImport && data.Syslog != nil && data.Syslog.TCPServer != nil && !data.Syslog.TCPServer.Port.IsUnknown() {
+								return data.Syslog.TCPServer.Port
+							}
 							if v, ok := TCPServerData["port"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -1242,24 +1311,36 @@ func (r *LogReceiverResource) Update(ctx context.Context, req resource.UpdateReq
 				if TLSServerData, ok := blockData["tls_server"].(map[string]interface{}); ok {
 					return &LogReceiverSyslogTLSServerModel{
 						DefaultHTTPSPort: func() *LogReceiverEmptyModel {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+								return data.Syslog.TLSServer.DefaultHTTPSPort
+							}
 							if _, ok := TLSServerData["default_https_port"].(map[string]interface{}); ok {
 								return &LogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						DefaultSyslogTLSPort: func() *LogReceiverEmptyModel {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+								return data.Syslog.TLSServer.DefaultSyslogTLSPort
+							}
 							if _, ok := TLSServerData["default_syslog_tls_port"].(map[string]interface{}); ok {
 								return &LogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsDisabled: func() *LogReceiverEmptyModel {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+								return data.Syslog.TLSServer.MtlsDisabled
+							}
 							if _, ok := TLSServerData["mtls_disabled"].(map[string]interface{}); ok {
 								return &LogReceiverEmptyModel{}
 							}
 							return nil
 						}(),
 						MtlsEnable: func() *LogReceiverSyslogTLSServerMtlsEnableModel {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && data.Syslog.TLSServer.MtlsEnable != nil {
+								return data.Syslog.TLSServer.MtlsEnable
+							}
 							if MtlsEnableData, ok := TLSServerData["mtls_enable"].(map[string]interface{}); ok {
 								return &LogReceiverSyslogTLSServerMtlsEnableModel{
 									Certificate: func() types.String {
@@ -1269,9 +1350,15 @@ func (r *LogReceiverResource) Update(ctx context.Context, req resource.UpdateReq
 										return types.StringNull()
 									}(),
 									KeyURL: func() *LogReceiverSyslogTLSServerMtlsEnableKeyURLModel {
+										if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && data.Syslog.TLSServer.MtlsEnable != nil && data.Syslog.TLSServer.MtlsEnable.KeyURL != nil {
+											return data.Syslog.TLSServer.MtlsEnable.KeyURL
+										}
 										if KeyURLData, ok := MtlsEnableData["key_url"].(map[string]interface{}); ok {
 											return &LogReceiverSyslogTLSServerMtlsEnableKeyURLModel{
 												BlindfoldSecretInfo: func() *LogReceiverSyslogTLSServerMtlsEnableKeyURLBlindfoldSecretInfoModel {
+													if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && data.Syslog.TLSServer.MtlsEnable != nil && data.Syslog.TLSServer.MtlsEnable.KeyURL != nil && data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
+														return data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo
+													}
 													if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &LogReceiverSyslogTLSServerMtlsEnableKeyURLBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -1297,6 +1384,9 @@ func (r *LogReceiverResource) Update(ctx context.Context, req resource.UpdateReq
 													return nil
 												}(),
 												ClearSecretInfo: func() *LogReceiverSyslogTLSServerMtlsEnableKeyURLClearSecretInfoModel {
+													if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && data.Syslog.TLSServer.MtlsEnable != nil && data.Syslog.TLSServer.MtlsEnable.KeyURL != nil && data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo != nil {
+														return data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo
+													}
 													if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
 														return &LogReceiverSyslogTLSServerMtlsEnableKeyURLClearSecretInfoModel{
 															Provider: func() types.String {
@@ -1324,6 +1414,9 @@ func (r *LogReceiverResource) Update(ctx context.Context, req resource.UpdateReq
 							return nil
 						}(),
 						Port: func() types.Int64 {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && !data.Syslog.TLSServer.Port.IsUnknown() {
+								return data.Syslog.TLSServer.Port
+							}
 							if v, ok := TLSServerData["port"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
@@ -1342,6 +1435,9 @@ func (r *LogReceiverResource) Update(ctx context.Context, req resource.UpdateReq
 							return types.StringNull()
 						}(),
 						VolterraCA: func() *LogReceiverEmptyModel {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+								return data.Syslog.TLSServer.VolterraCA
+							}
 							if _, ok := TLSServerData["volterra_ca"].(map[string]interface{}); ok {
 								return &LogReceiverEmptyModel{}
 							}
@@ -1358,6 +1454,9 @@ func (r *LogReceiverResource) Update(ctx context.Context, req resource.UpdateReq
 				if UDPServerData, ok := blockData["udp_server"].(map[string]interface{}); ok {
 					return &LogReceiverSyslogUDPServerModel{
 						Port: func() types.Int64 {
+							if !isImport && data.Syslog != nil && data.Syslog.UDPServer != nil && !data.Syslog.UDPServer.Port.IsUnknown() {
+								return data.Syslog.UDPServer.Port
+							}
 							if v, ok := UDPServerData["port"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}

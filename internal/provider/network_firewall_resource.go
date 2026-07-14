@@ -625,9 +625,14 @@ func (r *NetworkFirewallResource) Create(ctx context.Context, req resource.Creat
 				if !isImport && data.ActiveEnhancedFirewallPolicies != nil && (data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() || len(data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModelAttrTypes})
 				}
+				var EnhancedFirewallPoliciesExisting []NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
+				if !isImport && data.ActiveEnhancedFirewallPolicies != nil && !data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
+					data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesExisting, false)
+				}
 				if rawList, ok := blockData["enhanced_firewall_policies"].([]interface{}); ok && len(rawList) > 0 {
 					var EnhancedFirewallPoliciesResult []NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
-					for _, EnhancedFirewallPoliciesItem := range rawList {
+					for EnhancedFirewallPoliciesIdx, EnhancedFirewallPoliciesItem := range rawList {
+						_ = EnhancedFirewallPoliciesIdx
 						if EnhancedFirewallPoliciesItemMap, ok := EnhancedFirewallPoliciesItem.(map[string]interface{}); ok {
 							EnhancedFirewallPoliciesResult = append(EnhancedFirewallPoliciesResult, NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel{
 								Name: func() types.String {
@@ -664,9 +669,14 @@ func (r *NetworkFirewallResource) Create(ctx context.Context, req resource.Creat
 				if !isImport && data.ActiveFastAcls != nil && (data.ActiveFastAcls.FastAcls.IsNull() || len(data.ActiveFastAcls.FastAcls.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveFastAclsFastAclsModelAttrTypes})
 				}
+				var FastAclsExisting []NetworkFirewallActiveFastAclsFastAclsModel
+				if !isImport && data.ActiveFastAcls != nil && !data.ActiveFastAcls.FastAcls.IsNull() && !data.ActiveFastAcls.FastAcls.IsUnknown() {
+					data.ActiveFastAcls.FastAcls.ElementsAs(ctx, &FastAclsExisting, false)
+				}
 				if rawList, ok := blockData["fast_acls"].([]interface{}); ok && len(rawList) > 0 {
 					var FastAclsResult []NetworkFirewallActiveFastAclsFastAclsModel
-					for _, FastAclsItem := range rawList {
+					for FastAclsIdx, FastAclsItem := range rawList {
+						_ = FastAclsIdx
 						if FastAclsItemMap, ok := FastAclsItem.(map[string]interface{}); ok {
 							FastAclsResult = append(FastAclsResult, NetworkFirewallActiveFastAclsFastAclsModel{
 								Name: func() types.String {
@@ -703,9 +713,14 @@ func (r *NetworkFirewallResource) Create(ctx context.Context, req resource.Creat
 				if !isImport && data.ActiveForwardProxyPolicies != nil && (data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() || len(data.ActiveForwardProxyPolicies.ForwardProxyPolicies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
 				}
+				var ForwardProxyPoliciesExisting []NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel
+				if !isImport && data.ActiveForwardProxyPolicies != nil && !data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
+					data.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesExisting, false)
+				}
 				if rawList, ok := blockData["forward_proxy_policies"].([]interface{}); ok && len(rawList) > 0 {
 					var ForwardProxyPoliciesResult []NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel
-					for _, ForwardProxyPoliciesItem := range rawList {
+					for ForwardProxyPoliciesIdx, ForwardProxyPoliciesItem := range rawList {
+						_ = ForwardProxyPoliciesIdx
 						if ForwardProxyPoliciesItemMap, ok := ForwardProxyPoliciesItem.(map[string]interface{}); ok {
 							ForwardProxyPoliciesResult = append(ForwardProxyPoliciesResult, NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel{
 								Name: func() types.String {
@@ -742,9 +757,14 @@ func (r *NetworkFirewallResource) Create(ctx context.Context, req resource.Creat
 				if !isImport && data.ActiveNetworkPolicies != nil && (data.ActiveNetworkPolicies.NetworkPolicies.IsNull() || len(data.ActiveNetworkPolicies.NetworkPolicies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModelAttrTypes})
 				}
+				var NetworkPoliciesExisting []NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel
+				if !isImport && data.ActiveNetworkPolicies != nil && !data.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
+					data.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesExisting, false)
+				}
 				if rawList, ok := blockData["network_policies"].([]interface{}); ok && len(rawList) > 0 {
 					var NetworkPoliciesResult []NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel
-					for _, NetworkPoliciesItem := range rawList {
+					for NetworkPoliciesIdx, NetworkPoliciesItem := range rawList {
+						_ = NetworkPoliciesIdx
 						if NetworkPoliciesItemMap, ok := NetworkPoliciesItem.(map[string]interface{}); ok {
 							NetworkPoliciesResult = append(NetworkPoliciesResult, NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel{
 								Name: func() types.String {
@@ -883,9 +903,14 @@ func (r *NetworkFirewallResource) Read(ctx context.Context, req resource.ReadReq
 				if !isImport && data.ActiveEnhancedFirewallPolicies != nil && (data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() || len(data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModelAttrTypes})
 				}
+				var EnhancedFirewallPoliciesExisting []NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
+				if !isImport && data.ActiveEnhancedFirewallPolicies != nil && !data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
+					data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesExisting, false)
+				}
 				if rawList, ok := blockData["enhanced_firewall_policies"].([]interface{}); ok && len(rawList) > 0 {
 					var EnhancedFirewallPoliciesResult []NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
-					for _, EnhancedFirewallPoliciesItem := range rawList {
+					for EnhancedFirewallPoliciesIdx, EnhancedFirewallPoliciesItem := range rawList {
+						_ = EnhancedFirewallPoliciesIdx
 						if EnhancedFirewallPoliciesItemMap, ok := EnhancedFirewallPoliciesItem.(map[string]interface{}); ok {
 							EnhancedFirewallPoliciesResult = append(EnhancedFirewallPoliciesResult, NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel{
 								Name: func() types.String {
@@ -922,9 +947,14 @@ func (r *NetworkFirewallResource) Read(ctx context.Context, req resource.ReadReq
 				if !isImport && data.ActiveFastAcls != nil && (data.ActiveFastAcls.FastAcls.IsNull() || len(data.ActiveFastAcls.FastAcls.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveFastAclsFastAclsModelAttrTypes})
 				}
+				var FastAclsExisting []NetworkFirewallActiveFastAclsFastAclsModel
+				if !isImport && data.ActiveFastAcls != nil && !data.ActiveFastAcls.FastAcls.IsNull() && !data.ActiveFastAcls.FastAcls.IsUnknown() {
+					data.ActiveFastAcls.FastAcls.ElementsAs(ctx, &FastAclsExisting, false)
+				}
 				if rawList, ok := blockData["fast_acls"].([]interface{}); ok && len(rawList) > 0 {
 					var FastAclsResult []NetworkFirewallActiveFastAclsFastAclsModel
-					for _, FastAclsItem := range rawList {
+					for FastAclsIdx, FastAclsItem := range rawList {
+						_ = FastAclsIdx
 						if FastAclsItemMap, ok := FastAclsItem.(map[string]interface{}); ok {
 							FastAclsResult = append(FastAclsResult, NetworkFirewallActiveFastAclsFastAclsModel{
 								Name: func() types.String {
@@ -961,9 +991,14 @@ func (r *NetworkFirewallResource) Read(ctx context.Context, req resource.ReadReq
 				if !isImport && data.ActiveForwardProxyPolicies != nil && (data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() || len(data.ActiveForwardProxyPolicies.ForwardProxyPolicies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
 				}
+				var ForwardProxyPoliciesExisting []NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel
+				if !isImport && data.ActiveForwardProxyPolicies != nil && !data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
+					data.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesExisting, false)
+				}
 				if rawList, ok := blockData["forward_proxy_policies"].([]interface{}); ok && len(rawList) > 0 {
 					var ForwardProxyPoliciesResult []NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel
-					for _, ForwardProxyPoliciesItem := range rawList {
+					for ForwardProxyPoliciesIdx, ForwardProxyPoliciesItem := range rawList {
+						_ = ForwardProxyPoliciesIdx
 						if ForwardProxyPoliciesItemMap, ok := ForwardProxyPoliciesItem.(map[string]interface{}); ok {
 							ForwardProxyPoliciesResult = append(ForwardProxyPoliciesResult, NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel{
 								Name: func() types.String {
@@ -1000,9 +1035,14 @@ func (r *NetworkFirewallResource) Read(ctx context.Context, req resource.ReadReq
 				if !isImport && data.ActiveNetworkPolicies != nil && (data.ActiveNetworkPolicies.NetworkPolicies.IsNull() || len(data.ActiveNetworkPolicies.NetworkPolicies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModelAttrTypes})
 				}
+				var NetworkPoliciesExisting []NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel
+				if !isImport && data.ActiveNetworkPolicies != nil && !data.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
+					data.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesExisting, false)
+				}
 				if rawList, ok := blockData["network_policies"].([]interface{}); ok && len(rawList) > 0 {
 					var NetworkPoliciesResult []NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel
-					for _, NetworkPoliciesItem := range rawList {
+					for NetworkPoliciesIdx, NetworkPoliciesItem := range rawList {
+						_ = NetworkPoliciesIdx
 						if NetworkPoliciesItemMap, ok := NetworkPoliciesItem.(map[string]interface{}); ok {
 							NetworkPoliciesResult = append(NetworkPoliciesResult, NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel{
 								Name: func() types.String {
@@ -1244,9 +1284,14 @@ func (r *NetworkFirewallResource) Update(ctx context.Context, req resource.Updat
 				if !isImport && data.ActiveEnhancedFirewallPolicies != nil && (data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() || len(data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModelAttrTypes})
 				}
+				var EnhancedFirewallPoliciesExisting []NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
+				if !isImport && data.ActiveEnhancedFirewallPolicies != nil && !data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
+					data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesExisting, false)
+				}
 				if rawList, ok := blockData["enhanced_firewall_policies"].([]interface{}); ok && len(rawList) > 0 {
 					var EnhancedFirewallPoliciesResult []NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
-					for _, EnhancedFirewallPoliciesItem := range rawList {
+					for EnhancedFirewallPoliciesIdx, EnhancedFirewallPoliciesItem := range rawList {
+						_ = EnhancedFirewallPoliciesIdx
 						if EnhancedFirewallPoliciesItemMap, ok := EnhancedFirewallPoliciesItem.(map[string]interface{}); ok {
 							EnhancedFirewallPoliciesResult = append(EnhancedFirewallPoliciesResult, NetworkFirewallActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel{
 								Name: func() types.String {
@@ -1283,9 +1328,14 @@ func (r *NetworkFirewallResource) Update(ctx context.Context, req resource.Updat
 				if !isImport && data.ActiveFastAcls != nil && (data.ActiveFastAcls.FastAcls.IsNull() || len(data.ActiveFastAcls.FastAcls.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveFastAclsFastAclsModelAttrTypes})
 				}
+				var FastAclsExisting []NetworkFirewallActiveFastAclsFastAclsModel
+				if !isImport && data.ActiveFastAcls != nil && !data.ActiveFastAcls.FastAcls.IsNull() && !data.ActiveFastAcls.FastAcls.IsUnknown() {
+					data.ActiveFastAcls.FastAcls.ElementsAs(ctx, &FastAclsExisting, false)
+				}
 				if rawList, ok := blockData["fast_acls"].([]interface{}); ok && len(rawList) > 0 {
 					var FastAclsResult []NetworkFirewallActiveFastAclsFastAclsModel
-					for _, FastAclsItem := range rawList {
+					for FastAclsIdx, FastAclsItem := range rawList {
+						_ = FastAclsIdx
 						if FastAclsItemMap, ok := FastAclsItem.(map[string]interface{}); ok {
 							FastAclsResult = append(FastAclsResult, NetworkFirewallActiveFastAclsFastAclsModel{
 								Name: func() types.String {
@@ -1322,9 +1372,14 @@ func (r *NetworkFirewallResource) Update(ctx context.Context, req resource.Updat
 				if !isImport && data.ActiveForwardProxyPolicies != nil && (data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() || len(data.ActiveForwardProxyPolicies.ForwardProxyPolicies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes})
 				}
+				var ForwardProxyPoliciesExisting []NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel
+				if !isImport && data.ActiveForwardProxyPolicies != nil && !data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
+					data.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesExisting, false)
+				}
 				if rawList, ok := blockData["forward_proxy_policies"].([]interface{}); ok && len(rawList) > 0 {
 					var ForwardProxyPoliciesResult []NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel
-					for _, ForwardProxyPoliciesItem := range rawList {
+					for ForwardProxyPoliciesIdx, ForwardProxyPoliciesItem := range rawList {
+						_ = ForwardProxyPoliciesIdx
 						if ForwardProxyPoliciesItemMap, ok := ForwardProxyPoliciesItem.(map[string]interface{}); ok {
 							ForwardProxyPoliciesResult = append(ForwardProxyPoliciesResult, NetworkFirewallActiveForwardProxyPoliciesForwardProxyPoliciesModel{
 								Name: func() types.String {
@@ -1361,9 +1416,14 @@ func (r *NetworkFirewallResource) Update(ctx context.Context, req resource.Updat
 				if !isImport && data.ActiveNetworkPolicies != nil && (data.ActiveNetworkPolicies.NetworkPolicies.IsNull() || len(data.ActiveNetworkPolicies.NetworkPolicies.Elements()) == 0) {
 					return types.ListNull(types.ObjectType{AttrTypes: NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModelAttrTypes})
 				}
+				var NetworkPoliciesExisting []NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel
+				if !isImport && data.ActiveNetworkPolicies != nil && !data.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
+					data.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesExisting, false)
+				}
 				if rawList, ok := blockData["network_policies"].([]interface{}); ok && len(rawList) > 0 {
 					var NetworkPoliciesResult []NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel
-					for _, NetworkPoliciesItem := range rawList {
+					for NetworkPoliciesIdx, NetworkPoliciesItem := range rawList {
+						_ = NetworkPoliciesIdx
 						if NetworkPoliciesItemMap, ok := NetworkPoliciesItem.(map[string]interface{}); ok {
 							NetworkPoliciesResult = append(NetworkPoliciesResult, NetworkFirewallActiveNetworkPoliciesNetworkPoliciesModel{
 								Name: func() types.String {

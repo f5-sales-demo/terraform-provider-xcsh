@@ -1327,30 +1327,45 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 						if SpecData, ok := itemMap["spec"].(map[string]interface{}); ok {
 							return &RateLimiterPolicyRulesSpecModel{
 								AnyAsn: func() *RateLimiterPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+										return existingRulesItems[listIdx].Spec.AnyAsn
+									}
 									if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AnyCountry: func() *RateLimiterPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+										return existingRulesItems[listIdx].Spec.AnyCountry
+									}
 									if _, ok := SpecData["any_country"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AnyIP: func() *RateLimiterPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+										return existingRulesItems[listIdx].Spec.AnyIP
+									}
 									if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								ApplyRateLimiter: func() *RateLimiterPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+										return existingRulesItems[listIdx].Spec.ApplyRateLimiter
+									}
 									if _, ok := SpecData["apply_rate_limiter"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AsnList: func() *RateLimiterPolicyRulesSpecAsnListModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.AsnList != nil {
+										return existingRulesItems[listIdx].Spec.AsnList
+									}
 									if AsnListData, ok := SpecData["asn_list"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecAsnListModel{
 											AsNumbers: func() types.List {
@@ -1374,9 +1389,17 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 									if AsnMatcherData, ok := SpecData["asn_matcher"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecAsnMatcherModel{
 											AsnSets: func() types.List {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.AsnMatcher != nil && (existingRulesItems[listIdx].Spec.AsnMatcher.AsnSets.IsNull() || len(existingRulesItems[listIdx].Spec.AsnMatcher.AsnSets.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModelAttrTypes})
+												}
+												var AsnSetsExisting []RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModel
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.AsnMatcher != nil && !existingRulesItems[listIdx].Spec.AsnMatcher.AsnSets.IsNull() && !existingRulesItems[listIdx].Spec.AsnMatcher.AsnSets.IsUnknown() {
+													existingRulesItems[listIdx].Spec.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+												}
 												if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 													var AsnSetsResult []RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModel
-													for _, AsnSetsItem := range rawList {
+													for AsnSetsIdx, AsnSetsItem := range rawList {
+														_ = AsnSetsIdx
 														if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 															AsnSetsResult = append(AsnSetsResult, RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModel{
 																Kind: func() types.String {
@@ -1422,12 +1445,18 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 									return nil
 								}(),
 								BypassRateLimiter: func() *RateLimiterPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+										return existingRulesItems[listIdx].Spec.BypassRateLimiter
+									}
 									if _, ok := SpecData["bypass_rate_limiter"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								CountryList: func() *RateLimiterPolicyRulesSpecCountryListModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.CountryList != nil {
+										return existingRulesItems[listIdx].Spec.CountryList
+									}
 									if CountryListData, ok := SpecData["country_list"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecCountryListModel{
 											CountryCodes: func() types.List {
@@ -1444,6 +1473,9 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 												return types.ListNull(types.StringType)
 											}(),
 											InvertMatch: func() types.Bool {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.CountryList != nil && !existingRulesItems[listIdx].Spec.CountryList.InvertMatch.IsUnknown() {
+													return existingRulesItems[listIdx].Spec.CountryList.InvertMatch
+												}
 												if v, ok := CountryListData["invert_match"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -1479,6 +1511,9 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 									return nil
 								}(),
 								DomainMatcher: func() *RateLimiterPolicyRulesSpecDomainMatcherModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.DomainMatcher != nil {
+										return existingRulesItems[listIdx].Spec.DomainMatcher
+									}
 									if DomainMatcherData, ok := SpecData["domain_matcher"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecDomainMatcherModel{
 											ExactValues: func() types.List {
@@ -1512,18 +1547,32 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 									return nil
 								}(),
 								Headers: func() types.List {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && (existingRulesItems[listIdx].Spec.Headers.IsNull() || len(existingRulesItems[listIdx].Spec.Headers.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecHeadersModelAttrTypes})
+									}
+									var HeadersExisting []RateLimiterPolicyRulesSpecHeadersModel
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && !existingRulesItems[listIdx].Spec.Headers.IsNull() && !existingRulesItems[listIdx].Spec.Headers.IsUnknown() {
+										existingRulesItems[listIdx].Spec.Headers.ElementsAs(ctx, &HeadersExisting, false)
+									}
 									if rawList, ok := SpecData["headers"].([]interface{}); ok && len(rawList) > 0 {
 										var HeadersResult []RateLimiterPolicyRulesSpecHeadersModel
-										for _, HeadersItem := range rawList {
+										for HeadersIdx, HeadersItem := range rawList {
+											_ = HeadersIdx
 											if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 												HeadersResult = append(HeadersResult, RateLimiterPolicyRulesSpecHeadersModel{
 													CheckNotPresent: func() *RateLimiterPolicyEmptyModel {
+														if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
+															return &RateLimiterPolicyEmptyModel{}
+														}
 														if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 															return &RateLimiterPolicyEmptyModel{}
 														}
 														return nil
 													}(),
 													CheckPresent: func() *RateLimiterPolicyEmptyModel {
+														if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
+															return &RateLimiterPolicyEmptyModel{}
+														}
 														if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 															return &RateLimiterPolicyEmptyModel{}
 														}
@@ -1596,9 +1645,15 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 									return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecHeadersModelAttrTypes})
 								}(),
 								HTTPMethod: func() *RateLimiterPolicyRulesSpecHTTPMethodModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.HTTPMethod != nil {
+										return existingRulesItems[listIdx].Spec.HTTPMethod
+									}
 									if HTTPMethodData, ok := SpecData["http_method"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecHTTPMethodModel{
 											InvertMatcher: func() types.Bool {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.HTTPMethod != nil && !existingRulesItems[listIdx].Spec.HTTPMethod.InvertMatcher.IsUnknown() {
+													return existingRulesItems[listIdx].Spec.HTTPMethod.InvertMatcher
+												}
 												if v, ok := HTTPMethodData["invert_matcher"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -1625,15 +1680,26 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 									if IPMatcherData, ok := SpecData["ip_matcher"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecIPMatcherModel{
 											InvertMatcher: func() types.Bool {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.IPMatcher != nil && !existingRulesItems[listIdx].Spec.IPMatcher.InvertMatcher.IsUnknown() {
+													return existingRulesItems[listIdx].Spec.IPMatcher.InvertMatcher
+												}
 												if v, ok := IPMatcherData["invert_matcher"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											PrefixSets: func() types.List {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.IPMatcher != nil && (existingRulesItems[listIdx].Spec.IPMatcher.PrefixSets.IsNull() || len(existingRulesItems[listIdx].Spec.IPMatcher.PrefixSets.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModelAttrTypes})
+												}
+												var PrefixSetsExisting []RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModel
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.IPMatcher != nil && !existingRulesItems[listIdx].Spec.IPMatcher.PrefixSets.IsNull() && !existingRulesItems[listIdx].Spec.IPMatcher.PrefixSets.IsUnknown() {
+													existingRulesItems[listIdx].Spec.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+												}
 												if rawList, ok := IPMatcherData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 													var PrefixSetsResult []RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModel
-													for _, PrefixSetsItem := range rawList {
+													for PrefixSetsIdx, PrefixSetsItem := range rawList {
+														_ = PrefixSetsIdx
 														if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 															PrefixSetsResult = append(PrefixSetsResult, RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModel{
 																Kind: func() types.String {
@@ -1679,9 +1745,15 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 									return nil
 								}(),
 								IPPrefixList: func() *RateLimiterPolicyRulesSpecIPPrefixListModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.IPPrefixList != nil {
+										return existingRulesItems[listIdx].Spec.IPPrefixList
+									}
 									if IPPrefixListData, ok := SpecData["ip_prefix_list"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecIPPrefixListModel{
 											InvertMatch: func() types.Bool {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.IPPrefixList != nil && !existingRulesItems[listIdx].Spec.IPPrefixList.InvertMatch.IsUnknown() {
+													return existingRulesItems[listIdx].Spec.IPPrefixList.InvertMatch
+												}
 												if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -1705,6 +1777,9 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 									return nil
 								}(),
 								Path: func() *RateLimiterPolicyRulesSpecPathModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.Path != nil {
+										return existingRulesItems[listIdx].Spec.Path
+									}
 									if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecPathModel{
 											ExactValues: func() types.List {
@@ -1721,6 +1796,9 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 												return types.ListNull(types.StringType)
 											}(),
 											InvertMatcher: func() types.Bool {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.Path != nil && !existingRulesItems[listIdx].Spec.Path.InvertMatcher.IsUnknown() {
+													return existingRulesItems[listIdx].Spec.Path.InvertMatcher
+												}
 												if v, ok := PathData["invert_matcher"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -1980,30 +2058,45 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 						if SpecData, ok := itemMap["spec"].(map[string]interface{}); ok {
 							return &RateLimiterPolicyRulesSpecModel{
 								AnyAsn: func() *RateLimiterPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+										return existingRulesItems[listIdx].Spec.AnyAsn
+									}
 									if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AnyCountry: func() *RateLimiterPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+										return existingRulesItems[listIdx].Spec.AnyCountry
+									}
 									if _, ok := SpecData["any_country"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AnyIP: func() *RateLimiterPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+										return existingRulesItems[listIdx].Spec.AnyIP
+									}
 									if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								ApplyRateLimiter: func() *RateLimiterPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+										return existingRulesItems[listIdx].Spec.ApplyRateLimiter
+									}
 									if _, ok := SpecData["apply_rate_limiter"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AsnList: func() *RateLimiterPolicyRulesSpecAsnListModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.AsnList != nil {
+										return existingRulesItems[listIdx].Spec.AsnList
+									}
 									if AsnListData, ok := SpecData["asn_list"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecAsnListModel{
 											AsNumbers: func() types.List {
@@ -2027,9 +2120,17 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 									if AsnMatcherData, ok := SpecData["asn_matcher"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecAsnMatcherModel{
 											AsnSets: func() types.List {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.AsnMatcher != nil && (existingRulesItems[listIdx].Spec.AsnMatcher.AsnSets.IsNull() || len(existingRulesItems[listIdx].Spec.AsnMatcher.AsnSets.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModelAttrTypes})
+												}
+												var AsnSetsExisting []RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModel
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.AsnMatcher != nil && !existingRulesItems[listIdx].Spec.AsnMatcher.AsnSets.IsNull() && !existingRulesItems[listIdx].Spec.AsnMatcher.AsnSets.IsUnknown() {
+													existingRulesItems[listIdx].Spec.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+												}
 												if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 													var AsnSetsResult []RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModel
-													for _, AsnSetsItem := range rawList {
+													for AsnSetsIdx, AsnSetsItem := range rawList {
+														_ = AsnSetsIdx
 														if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 															AsnSetsResult = append(AsnSetsResult, RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModel{
 																Kind: func() types.String {
@@ -2075,12 +2176,18 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 									return nil
 								}(),
 								BypassRateLimiter: func() *RateLimiterPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+										return existingRulesItems[listIdx].Spec.BypassRateLimiter
+									}
 									if _, ok := SpecData["bypass_rate_limiter"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								CountryList: func() *RateLimiterPolicyRulesSpecCountryListModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.CountryList != nil {
+										return existingRulesItems[listIdx].Spec.CountryList
+									}
 									if CountryListData, ok := SpecData["country_list"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecCountryListModel{
 											CountryCodes: func() types.List {
@@ -2097,6 +2204,9 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 												return types.ListNull(types.StringType)
 											}(),
 											InvertMatch: func() types.Bool {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.CountryList != nil && !existingRulesItems[listIdx].Spec.CountryList.InvertMatch.IsUnknown() {
+													return existingRulesItems[listIdx].Spec.CountryList.InvertMatch
+												}
 												if v, ok := CountryListData["invert_match"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -2132,6 +2242,9 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 									return nil
 								}(),
 								DomainMatcher: func() *RateLimiterPolicyRulesSpecDomainMatcherModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.DomainMatcher != nil {
+										return existingRulesItems[listIdx].Spec.DomainMatcher
+									}
 									if DomainMatcherData, ok := SpecData["domain_matcher"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecDomainMatcherModel{
 											ExactValues: func() types.List {
@@ -2165,18 +2278,32 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 									return nil
 								}(),
 								Headers: func() types.List {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && (existingRulesItems[listIdx].Spec.Headers.IsNull() || len(existingRulesItems[listIdx].Spec.Headers.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecHeadersModelAttrTypes})
+									}
+									var HeadersExisting []RateLimiterPolicyRulesSpecHeadersModel
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && !existingRulesItems[listIdx].Spec.Headers.IsNull() && !existingRulesItems[listIdx].Spec.Headers.IsUnknown() {
+										existingRulesItems[listIdx].Spec.Headers.ElementsAs(ctx, &HeadersExisting, false)
+									}
 									if rawList, ok := SpecData["headers"].([]interface{}); ok && len(rawList) > 0 {
 										var HeadersResult []RateLimiterPolicyRulesSpecHeadersModel
-										for _, HeadersItem := range rawList {
+										for HeadersIdx, HeadersItem := range rawList {
+											_ = HeadersIdx
 											if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 												HeadersResult = append(HeadersResult, RateLimiterPolicyRulesSpecHeadersModel{
 													CheckNotPresent: func() *RateLimiterPolicyEmptyModel {
+														if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
+															return &RateLimiterPolicyEmptyModel{}
+														}
 														if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 															return &RateLimiterPolicyEmptyModel{}
 														}
 														return nil
 													}(),
 													CheckPresent: func() *RateLimiterPolicyEmptyModel {
+														if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
+															return &RateLimiterPolicyEmptyModel{}
+														}
 														if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 															return &RateLimiterPolicyEmptyModel{}
 														}
@@ -2249,9 +2376,15 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 									return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecHeadersModelAttrTypes})
 								}(),
 								HTTPMethod: func() *RateLimiterPolicyRulesSpecHTTPMethodModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.HTTPMethod != nil {
+										return existingRulesItems[listIdx].Spec.HTTPMethod
+									}
 									if HTTPMethodData, ok := SpecData["http_method"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecHTTPMethodModel{
 											InvertMatcher: func() types.Bool {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.HTTPMethod != nil && !existingRulesItems[listIdx].Spec.HTTPMethod.InvertMatcher.IsUnknown() {
+													return existingRulesItems[listIdx].Spec.HTTPMethod.InvertMatcher
+												}
 												if v, ok := HTTPMethodData["invert_matcher"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -2278,15 +2411,26 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 									if IPMatcherData, ok := SpecData["ip_matcher"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecIPMatcherModel{
 											InvertMatcher: func() types.Bool {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.IPMatcher != nil && !existingRulesItems[listIdx].Spec.IPMatcher.InvertMatcher.IsUnknown() {
+													return existingRulesItems[listIdx].Spec.IPMatcher.InvertMatcher
+												}
 												if v, ok := IPMatcherData["invert_matcher"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											PrefixSets: func() types.List {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.IPMatcher != nil && (existingRulesItems[listIdx].Spec.IPMatcher.PrefixSets.IsNull() || len(existingRulesItems[listIdx].Spec.IPMatcher.PrefixSets.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModelAttrTypes})
+												}
+												var PrefixSetsExisting []RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModel
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.IPMatcher != nil && !existingRulesItems[listIdx].Spec.IPMatcher.PrefixSets.IsNull() && !existingRulesItems[listIdx].Spec.IPMatcher.PrefixSets.IsUnknown() {
+													existingRulesItems[listIdx].Spec.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+												}
 												if rawList, ok := IPMatcherData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 													var PrefixSetsResult []RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModel
-													for _, PrefixSetsItem := range rawList {
+													for PrefixSetsIdx, PrefixSetsItem := range rawList {
+														_ = PrefixSetsIdx
 														if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 															PrefixSetsResult = append(PrefixSetsResult, RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModel{
 																Kind: func() types.String {
@@ -2332,9 +2476,15 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 									return nil
 								}(),
 								IPPrefixList: func() *RateLimiterPolicyRulesSpecIPPrefixListModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.IPPrefixList != nil {
+										return existingRulesItems[listIdx].Spec.IPPrefixList
+									}
 									if IPPrefixListData, ok := SpecData["ip_prefix_list"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecIPPrefixListModel{
 											InvertMatch: func() types.Bool {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.IPPrefixList != nil && !existingRulesItems[listIdx].Spec.IPPrefixList.InvertMatch.IsUnknown() {
+													return existingRulesItems[listIdx].Spec.IPPrefixList.InvertMatch
+												}
 												if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -2358,6 +2508,9 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 									return nil
 								}(),
 								Path: func() *RateLimiterPolicyRulesSpecPathModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.Path != nil {
+										return existingRulesItems[listIdx].Spec.Path
+									}
 									if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecPathModel{
 											ExactValues: func() types.List {
@@ -2374,6 +2527,9 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 												return types.ListNull(types.StringType)
 											}(),
 											InvertMatcher: func() types.Bool {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.Path != nil && !existingRulesItems[listIdx].Spec.Path.InvertMatcher.IsUnknown() {
+													return existingRulesItems[listIdx].Spec.Path.InvertMatcher
+												}
 												if v, ok := PathData["invert_matcher"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -2950,30 +3106,45 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 						if SpecData, ok := itemMap["spec"].(map[string]interface{}); ok {
 							return &RateLimiterPolicyRulesSpecModel{
 								AnyAsn: func() *RateLimiterPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+										return existingRulesItems[listIdx].Spec.AnyAsn
+									}
 									if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AnyCountry: func() *RateLimiterPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+										return existingRulesItems[listIdx].Spec.AnyCountry
+									}
 									if _, ok := SpecData["any_country"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AnyIP: func() *RateLimiterPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+										return existingRulesItems[listIdx].Spec.AnyIP
+									}
 									if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								ApplyRateLimiter: func() *RateLimiterPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+										return existingRulesItems[listIdx].Spec.ApplyRateLimiter
+									}
 									if _, ok := SpecData["apply_rate_limiter"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								AsnList: func() *RateLimiterPolicyRulesSpecAsnListModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.AsnList != nil {
+										return existingRulesItems[listIdx].Spec.AsnList
+									}
 									if AsnListData, ok := SpecData["asn_list"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecAsnListModel{
 											AsNumbers: func() types.List {
@@ -2997,9 +3168,17 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 									if AsnMatcherData, ok := SpecData["asn_matcher"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecAsnMatcherModel{
 											AsnSets: func() types.List {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.AsnMatcher != nil && (existingRulesItems[listIdx].Spec.AsnMatcher.AsnSets.IsNull() || len(existingRulesItems[listIdx].Spec.AsnMatcher.AsnSets.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModelAttrTypes})
+												}
+												var AsnSetsExisting []RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModel
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.AsnMatcher != nil && !existingRulesItems[listIdx].Spec.AsnMatcher.AsnSets.IsNull() && !existingRulesItems[listIdx].Spec.AsnMatcher.AsnSets.IsUnknown() {
+													existingRulesItems[listIdx].Spec.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+												}
 												if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
 													var AsnSetsResult []RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModel
-													for _, AsnSetsItem := range rawList {
+													for AsnSetsIdx, AsnSetsItem := range rawList {
+														_ = AsnSetsIdx
 														if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
 															AsnSetsResult = append(AsnSetsResult, RateLimiterPolicyRulesSpecAsnMatcherAsnSetsModel{
 																Kind: func() types.String {
@@ -3045,12 +3224,18 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 									return nil
 								}(),
 								BypassRateLimiter: func() *RateLimiterPolicyEmptyModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+										return existingRulesItems[listIdx].Spec.BypassRateLimiter
+									}
 									if _, ok := SpecData["bypass_rate_limiter"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyEmptyModel{}
 									}
 									return nil
 								}(),
 								CountryList: func() *RateLimiterPolicyRulesSpecCountryListModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.CountryList != nil {
+										return existingRulesItems[listIdx].Spec.CountryList
+									}
 									if CountryListData, ok := SpecData["country_list"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecCountryListModel{
 											CountryCodes: func() types.List {
@@ -3067,6 +3252,9 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 												return types.ListNull(types.StringType)
 											}(),
 											InvertMatch: func() types.Bool {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.CountryList != nil && !existingRulesItems[listIdx].Spec.CountryList.InvertMatch.IsUnknown() {
+													return existingRulesItems[listIdx].Spec.CountryList.InvertMatch
+												}
 												if v, ok := CountryListData["invert_match"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -3102,6 +3290,9 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 									return nil
 								}(),
 								DomainMatcher: func() *RateLimiterPolicyRulesSpecDomainMatcherModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.DomainMatcher != nil {
+										return existingRulesItems[listIdx].Spec.DomainMatcher
+									}
 									if DomainMatcherData, ok := SpecData["domain_matcher"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecDomainMatcherModel{
 											ExactValues: func() types.List {
@@ -3135,18 +3326,32 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 									return nil
 								}(),
 								Headers: func() types.List {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && (existingRulesItems[listIdx].Spec.Headers.IsNull() || len(existingRulesItems[listIdx].Spec.Headers.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecHeadersModelAttrTypes})
+									}
+									var HeadersExisting []RateLimiterPolicyRulesSpecHeadersModel
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && !existingRulesItems[listIdx].Spec.Headers.IsNull() && !existingRulesItems[listIdx].Spec.Headers.IsUnknown() {
+										existingRulesItems[listIdx].Spec.Headers.ElementsAs(ctx, &HeadersExisting, false)
+									}
 									if rawList, ok := SpecData["headers"].([]interface{}); ok && len(rawList) > 0 {
 										var HeadersResult []RateLimiterPolicyRulesSpecHeadersModel
-										for _, HeadersItem := range rawList {
+										for HeadersIdx, HeadersItem := range rawList {
+											_ = HeadersIdx
 											if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 												HeadersResult = append(HeadersResult, RateLimiterPolicyRulesSpecHeadersModel{
 													CheckNotPresent: func() *RateLimiterPolicyEmptyModel {
+														if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
+															return &RateLimiterPolicyEmptyModel{}
+														}
 														if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 															return &RateLimiterPolicyEmptyModel{}
 														}
 														return nil
 													}(),
 													CheckPresent: func() *RateLimiterPolicyEmptyModel {
+														if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
+															return &RateLimiterPolicyEmptyModel{}
+														}
 														if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 															return &RateLimiterPolicyEmptyModel{}
 														}
@@ -3219,9 +3424,15 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 									return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecHeadersModelAttrTypes})
 								}(),
 								HTTPMethod: func() *RateLimiterPolicyRulesSpecHTTPMethodModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.HTTPMethod != nil {
+										return existingRulesItems[listIdx].Spec.HTTPMethod
+									}
 									if HTTPMethodData, ok := SpecData["http_method"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecHTTPMethodModel{
 											InvertMatcher: func() types.Bool {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.HTTPMethod != nil && !existingRulesItems[listIdx].Spec.HTTPMethod.InvertMatcher.IsUnknown() {
+													return existingRulesItems[listIdx].Spec.HTTPMethod.InvertMatcher
+												}
 												if v, ok := HTTPMethodData["invert_matcher"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -3248,15 +3459,26 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 									if IPMatcherData, ok := SpecData["ip_matcher"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecIPMatcherModel{
 											InvertMatcher: func() types.Bool {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.IPMatcher != nil && !existingRulesItems[listIdx].Spec.IPMatcher.InvertMatcher.IsUnknown() {
+													return existingRulesItems[listIdx].Spec.IPMatcher.InvertMatcher
+												}
 												if v, ok := IPMatcherData["invert_matcher"].(bool); ok {
 													return types.BoolValue(v)
 												}
 												return types.BoolNull()
 											}(),
 											PrefixSets: func() types.List {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.IPMatcher != nil && (existingRulesItems[listIdx].Spec.IPMatcher.PrefixSets.IsNull() || len(existingRulesItems[listIdx].Spec.IPMatcher.PrefixSets.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModelAttrTypes})
+												}
+												var PrefixSetsExisting []RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModel
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.IPMatcher != nil && !existingRulesItems[listIdx].Spec.IPMatcher.PrefixSets.IsNull() && !existingRulesItems[listIdx].Spec.IPMatcher.PrefixSets.IsUnknown() {
+													existingRulesItems[listIdx].Spec.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+												}
 												if rawList, ok := IPMatcherData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
 													var PrefixSetsResult []RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModel
-													for _, PrefixSetsItem := range rawList {
+													for PrefixSetsIdx, PrefixSetsItem := range rawList {
+														_ = PrefixSetsIdx
 														if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
 															PrefixSetsResult = append(PrefixSetsResult, RateLimiterPolicyRulesSpecIPMatcherPrefixSetsModel{
 																Kind: func() types.String {
@@ -3302,9 +3524,15 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 									return nil
 								}(),
 								IPPrefixList: func() *RateLimiterPolicyRulesSpecIPPrefixListModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.IPPrefixList != nil {
+										return existingRulesItems[listIdx].Spec.IPPrefixList
+									}
 									if IPPrefixListData, ok := SpecData["ip_prefix_list"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecIPPrefixListModel{
 											InvertMatch: func() types.Bool {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.IPPrefixList != nil && !existingRulesItems[listIdx].Spec.IPPrefixList.InvertMatch.IsUnknown() {
+													return existingRulesItems[listIdx].Spec.IPPrefixList.InvertMatch
+												}
 												if v, ok := IPPrefixListData["invert_match"].(bool); ok {
 													return types.BoolValue(v)
 												}
@@ -3328,6 +3556,9 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 									return nil
 								}(),
 								Path: func() *RateLimiterPolicyRulesSpecPathModel {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.Path != nil {
+										return existingRulesItems[listIdx].Spec.Path
+									}
 									if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecPathModel{
 											ExactValues: func() types.List {
@@ -3344,6 +3575,9 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 												return types.ListNull(types.StringType)
 											}(),
 											InvertMatcher: func() types.Bool {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.Path != nil && !existingRulesItems[listIdx].Spec.Path.InvertMatcher.IsUnknown() {
+													return existingRulesItems[listIdx].Spec.Path.InvertMatcher
+												}
 												if v, ok := PathData["invert_matcher"].(bool); ok {
 													return types.BoolValue(v)
 												}
