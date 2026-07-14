@@ -706,6 +706,25 @@ func isObjectReferenceBlock(attr openapi.TerraformAttribute) bool {
 	return false
 }
 
+// hasObjectReferenceDescendant reports whether a nested block is, or transitively
+// contains at any depth, an F5 XC object reference (a block with a server-derived
+// "tenant" child). A block that merely nests a reference deeper down (e.g.
+// custom_api_auth_discovery -> api_discovery_ref) must also reconstruct from the API
+// response: preserving its planned value carries the nested ref's unknown Computed-only
+// tenant and yields "invalid result object after apply". #1080 only handled blocks that
+// ARE references; this generalizes it to any nesting depth. See #1091.
+func hasObjectReferenceDescendant(attr openapi.TerraformAttribute) bool {
+	if isObjectReferenceBlock(attr) {
+		return true
+	}
+	for _, child := range attr.NestedAttributes {
+		if hasObjectReferenceDescendant(child) {
+			return true
+		}
+	}
+	return false
+}
+
 // renderUnmarshalSingleChild emits the closure entry for a single nested block child.
 func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string) {
 	fieldName := attr.GoName
@@ -752,10 +771,12 @@ func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr 
 
 	model := rc + childPath + "Model"
 	dataVar := fieldName + "Data"
-	// Object-reference blocks must reconstruct from the API response (their
-	// tenant/uid/kind are Computed-only and server-derived); preserving the planned
-	// value would carry an unknown/null tenant. See isObjectReferenceBlock / #1079.
-	preserveWhole := container == "single" && stateBase != "" && !isObjectReferenceBlock(attr)
+	// Object-reference blocks — and any block nesting one at any depth — must
+	// reconstruct from the API response (their tenant/uid/kind are Computed-only and
+	// server-derived); preserving the planned value would carry an unknown/null tenant
+	// (yielding "invalid result object after apply"). See hasObjectReferenceDescendant /
+	// #1079 (direct refs) and #1091 (nested refs, e.g. custom_api_auth_discovery).
+	preserveWhole := container == "single" && stateBase != "" && !hasObjectReferenceDescendant(attr)
 
 	sb.WriteString(fmt.Sprintf("%s%s: func() *%s {\n", indent, fieldName, model))
 	if preserveWhole {

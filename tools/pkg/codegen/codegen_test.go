@@ -775,3 +775,37 @@ func TestRenderUnmarshalSingleChild_NonRefPreserves(t *testing.T) {
 		t.Errorf("non-reference single block must keep the drift-preserving early return:\n%s", sb.String())
 	}
 }
+
+// #1091: a single nested block that CONTAINS an object-reference descendant at any
+// depth (e.g. custom_api_auth_discovery -> api_discovery_ref) must NOT preserve the
+// planned value either — the planned api_discovery_ref.tenant is unknown (Computed-only),
+// so preserving the whole parent carries that unknown and yields "invalid result object
+// after apply". The parent must reconstruct from the API response so the nested ref's
+// tenant becomes known. #1080 only covered blocks that ARE references, not ones nesting one.
+func TestRenderUnmarshalSingleChild_NestedObjectRefReconstructs(t *testing.T) {
+	parent := openapi.TerraformAttribute{
+		GoName: "CustomAPIAuthDiscovery", JsonName: "custom_api_auth_discovery", TfsdkTag: "custom_api_auth_discovery",
+		IsBlock: true, NestedBlockType: "single",
+		NestedAttributes: []openapi.TerraformAttribute{
+			{
+				GoName: "APIDiscoveryRef", JsonName: "api_discovery_ref", TfsdkTag: "api_discovery_ref",
+				IsBlock: true, NestedBlockType: "single",
+				NestedAttributes: []openapi.TerraformAttribute{
+					{GoName: "Name", TfsdkTag: "name", JsonName: "name", Type: "string"},
+					{GoName: "Namespace", TfsdkTag: "namespace", JsonName: "namespace", Type: "string"},
+					{GoName: "Tenant", TfsdkTag: "tenant", JsonName: "tenant", Type: "string"},
+				},
+			},
+		},
+	}
+	var sb strings.Builder
+	renderUnmarshalSingleChild(&sb, "R", "EnableAPIDiscoveryCustomAPIAuthDiscovery", parent,
+		"blockData", "data.EnableAPIDiscovery", "data.EnableAPIDiscovery != nil", "single", "\t")
+	out := sb.String()
+	if strings.Contains(out, "return data.EnableAPIDiscovery.CustomAPIAuthDiscovery") {
+		t.Errorf("a block nesting an object reference must NOT preserve the planned value (carries unknown nested tenant):\n%s", out)
+	}
+	if !strings.Contains(out, `APIDiscoveryRefData["tenant"]`) {
+		t.Errorf("the nested object-reference read-back must read tenant from the API response:\n%s", out)
+	}
+}
