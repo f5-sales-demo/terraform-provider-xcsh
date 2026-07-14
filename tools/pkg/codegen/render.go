@@ -771,12 +771,25 @@ func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr 
 
 	model := rc + childPath + "Model"
 	dataVar := fieldName + "Data"
-	// Object-reference blocks — and any block nesting one at any depth — must
-	// reconstruct from the API response (their tenant/uid/kind are Computed-only and
-	// server-derived); preserving the planned value would carry an unknown/null tenant
-	// (yielding "invalid result object after apply"). See hasObjectReferenceDescendant /
-	// #1079 (direct refs) and #1091 (nested refs, e.g. custom_api_auth_discovery).
+	isRef := isObjectReferenceBlock(attr)
+	// Preserve the whole planned block only when it is configured and contains NO object
+	// reference anywhere: an object-ref's tenant/uid/kind are Computed-only and unknown in
+	// state on create, so any block ON THE PATH to a reference must read those leaves from
+	// the API. See #1079 (direct refs) and #1091 (nested refs, e.g. custom_api_auth_discovery).
 	preserveWhole := container == "single" && stateBase != "" && !hasObjectReferenceDescendant(attr)
+
+	// When a block cannot be preserved whole because it merely CONTAINS a reference on one
+	// arm (a "spine" block), reconstruct from the API but thread the prior-state accessor
+	// into its children so off-spine Optional markers/scalars still preserve the planned
+	// value (avoiding server-echoed defaults materializing as "was absent/null, now
+	// present/false"), while the reference arm reconstructs its Computed tenant from the
+	// API. A block that IS itself a reference threads no state — all its leaves are
+	// server-derived. See #41 (SP3 API Protection: client_matcher any_client/invert_matcher).
+	childStateBase, childStateGuard := "", ""
+	if stateBase != "" && !isRef {
+		childStateBase = stateBase + "." + fieldName
+		childStateGuard = fmt.Sprintf("%s && %s != nil", stateGuard, childStateBase)
+	}
 
 	sb.WriteString(fmt.Sprintf("%s%s: func() *%s {\n", indent, fieldName, model))
 	if preserveWhole {
@@ -787,7 +800,7 @@ func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr 
 	sb.WriteString(fmt.Sprintf("%s\tif %s, ok := %s[\"%s\"].(map[string]interface{}); ok {\n", indent, dataVar, srcMap, jsonName))
 	sb.WriteString(fmt.Sprintf("%s\t\treturn &%s{\n", indent, model))
 	for _, child := range attr.NestedAttributes {
-		renderUnmarshalChild(sb, rc, childPath, child, dataVar, "", "", "single", indent+"\t\t\t")
+		renderUnmarshalChild(sb, rc, childPath, child, dataVar, childStateBase, childStateGuard, "single", indent+"\t\t\t")
 	}
 	sb.WriteString(fmt.Sprintf("%s\t\t}\n", indent))
 	sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
@@ -843,6 +856,21 @@ func renderUnmarshalListChild(sb *strings.Builder, rc, childPath string, attr op
 			sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
 		}
 	}
+	// Thread prior-state elements positionally into element children so element Optional
+	// markers/scalars preserve the planned value on Read/Create (mirrors the top-level
+	// list renderer, render.go renderUnmarshalTopLevelList) instead of materializing
+	// server-echoed defaults. Only for a list configured inside a single block (nested
+	// lists are always modeled as types.List, so ElementsAs applies). Import reads the API.
+	// See #41 (SP3 API Protection: api_endpoint_rules[] api_endpoint_method/client_matcher).
+	threadElem := container == "single" && stateBase != "" && len(attr.NestedAttributes) > 0
+	existingVar := fieldName + "Existing"
+	idxVar := fieldName + "Idx"
+	if threadElem {
+		sb.WriteString(fmt.Sprintf("%s\tvar %s []%s\n", indent, existingVar, elemModel))
+		sb.WriteString(fmt.Sprintf("%s\tif !isImport && %s && !%s.%s.IsNull() && !%s.%s.IsUnknown() {\n", indent, stateGuard, stateBase, fieldName, stateBase, fieldName))
+		sb.WriteString(fmt.Sprintf("%s\t\t%s.%s.ElementsAs(ctx, &%s, false)\n", indent, stateBase, fieldName, existingVar))
+		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
+	}
 	sb.WriteString(fmt.Sprintf("%s\tif rawList, ok := %s[\"%s\"].([]interface{}); ok && len(rawList) > 0 {\n", indent, srcMap, jsonName))
 	sb.WriteString(fmt.Sprintf("%s\t\tvar %s []%s\n", indent, resultVar, elemModel))
 	if len(attr.NestedAttributes) == 0 {
@@ -850,11 +878,19 @@ func renderUnmarshalListChild(sb *strings.Builder, rc, childPath string, attr op
 		sb.WriteString(fmt.Sprintf("%s\t\t\t%s = append(%s, %s{})\n", indent, resultVar, resultVar, elemModel))
 		sb.WriteString(fmt.Sprintf("%s\t\t}\n", indent))
 	} else {
-		sb.WriteString(fmt.Sprintf("%s\t\tfor _, %s := range rawList {\n", indent, loopVar))
+		childStateBase, childStateGuard := "", ""
+		if threadElem {
+			sb.WriteString(fmt.Sprintf("%s\t\tfor %s, %s := range rawList {\n", indent, idxVar, loopVar))
+			sb.WriteString(fmt.Sprintf("%s\t\t\t_ = %s\n", indent, idxVar))
+			childStateBase = fmt.Sprintf("%s[%s]", existingVar, idxVar)
+			childStateGuard = fmt.Sprintf("len(%s) > %s", existingVar, idxVar)
+		} else {
+			sb.WriteString(fmt.Sprintf("%s\t\tfor _, %s := range rawList {\n", indent, loopVar))
+		}
 		sb.WriteString(fmt.Sprintf("%s\t\t\tif %s, ok := %s.(map[string]interface{}); ok {\n", indent, mapVar, loopVar))
 		sb.WriteString(fmt.Sprintf("%s\t\t\t\t%s = append(%s, %s{\n", indent, resultVar, resultVar, elemModel))
 		for _, child := range attr.NestedAttributes {
-			renderUnmarshalChild(sb, rc, childPath, child, mapVar, "", "", "list", indent+"\t\t\t\t\t")
+			renderUnmarshalChild(sb, rc, childPath, child, mapVar, childStateBase, childStateGuard, "list", indent+"\t\t\t\t\t")
 		}
 		sb.WriteString(fmt.Sprintf("%s\t\t\t\t})\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t\t\t}\n", indent))

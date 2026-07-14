@@ -56,6 +56,27 @@ func TestImportSuppressions_DisableClientSideDefense(t *testing.T) {
 	}
 }
 
+// #41 (SP3 API Protection): any_client is the server-default base member of the
+// client_matcher oneof. Whenever a client_matcher is configured with a concrete arm
+// (ip_prefix_list / ip_threat_category_list), the API normalizes the response to ALSO
+// include any_client {} alongside it. A config that selects a concrete arm (and never
+// declares any_client — the module omits client_matcher entirely for "match any") then
+// drifts on round-trip import. skip_response_validation is the same class: the default
+// member of the response-validation sub-oneof inside validation_mode, materialized by
+// the API on every open_api_validation_rules entry. Both must be suppressed on import.
+// Matched by leaf name at any depth. Verified live (f5-sales-demo webapp-api-protection
+// SP3 matrix: variants 004 ip_prefix and 006 custom_list).
+func TestImportSuppressions_APIProtectionServerDefaults(t *testing.T) {
+	// any_ip is the default member of the source-IP sub-oneof inside a client_matcher
+	// ip_threat_category_list arm: the API echoes any_ip {} alongside the configured
+	// ip_threat_categories, and the module never declares it (same class as any_client).
+	for _, m := range []string{"any_client", "any_ip", "skip_response_validation"} {
+		if !isImportDefaultSuppressed("HTTPLoadBalancer", m) {
+			t.Errorf("HTTPLoadBalancer.%s must be a suppressed server-default (SP3 API Protection oneof base marker)", m)
+		}
+	}
+}
+
 // violations_view is the server-materialized catalog of WAF violation checks:
 // whenever detection_settings is configured, the API populates the full
 // violations_view list (name/title/description_spec/enabled/enabled_by_default)
