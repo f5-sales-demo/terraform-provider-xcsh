@@ -64,6 +64,15 @@ var importDefaultSuppressionsSeed = map[string][]string{
 		"any_client",
 		"any_ip",
 		"skip_response_validation",
+		// SP4 API Testing (#45): "standard" is the server-default base member of the
+		// api_testing credentials credentials_choice oneof, echoed on every credential.
+		// It appears on the LB inline api_testing block here and on the standalone
+		// xcsh_api_testing (APITesting, below). Suppress so a concrete-arm credential
+		// (api_key/basic_auth/bearer_token) is round-trip-import clean. Verified live.
+		"standard",
+	},
+	"APITesting": {
+		"standard",
 	},
 }
 
