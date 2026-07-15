@@ -15,5 +15,5 @@ terraform {
 # Basic GeoLocationSet configuration
 resource "xcsh_geo_location_set" "example" {
   name      = "example-geo-location-set"
-  namespace = "staging"
+  namespace = "system"
 }
