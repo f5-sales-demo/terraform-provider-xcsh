@@ -74,6 +74,17 @@ var importDefaultSuppressionsSeed = map[string][]string{
 	"APITesting": {
 		"standard",
 	},
+	// Coverage Batch B (#51): the server materializes the base member of each
+	// client-matcher oneof on a rate_limiter_policy rule that omits that matcher
+	// (any_country observed live on a rule with asn_list but no country; any_asn /
+	// any_ip are the same class for the ASN / IP oneofs). The module omits a matcher
+	// for "match any", so suppress these on import to keep the standalone
+	// xcsh_rate_limiter_policy round-trip clean.
+	"RateLimiterPolicy": {
+		"any_asn",
+		"any_country",
+		"any_ip",
+	},
 }
 
 var (

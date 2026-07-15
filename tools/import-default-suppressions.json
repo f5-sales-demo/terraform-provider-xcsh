@@ -44,6 +44,11 @@
     "headers",
     "use_http2"
   ],
+  "RateLimiterPolicy": [
+    "any_asn",
+    "any_country",
+    "any_ip"
+  ],
   "TCPLoadBalancer": [
     "dns_volterra_managed",
     "hash_policy_choice_round_robin",
