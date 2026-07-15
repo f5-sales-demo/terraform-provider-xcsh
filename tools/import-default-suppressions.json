@@ -3,7 +3,8 @@
     "strict_schema_origin"
   ],
   "APITesting": [
-    "every_week"
+    "every_week",
+    "standard"
   ],
   "AppFirewall": [
     "allow_all_response_codes",
@@ -36,6 +37,7 @@
     "round_robin",
     "service_policies_from_namespace",
     "skip_response_validation",
+    "standard",
     "user_id_client_ip"
   ],
   "Healthcheck": [

@@ -66,6 +66,20 @@ func TestImportSuppressions_DisableClientSideDefense(t *testing.T) {
 // the API on every open_api_validation_rules entry. Both must be suppressed on import.
 // Matched by leaf name at any depth. Verified live (f5-sales-demo webapp-api-protection
 // SP3 matrix: variants 004 ip_prefix and 006 custom_list).
+// #45 (SP4 API Testing): "standard" is the server-default base member of the
+// api_testing credentials credentials_choice oneof — the API echoes standard {} on
+// every credential. It appears on both the standalone xcsh_api_testing (APITesting)
+// and the LB inline api_testing block (HTTPLoadBalancer), so both must suppress it on
+// import (matched by leaf name at any depth), or a config that selects a concrete
+// credential arm drifts on round-trip import. Verified live (f5-sales-demo).
+func TestImportSuppressions_APITestingStandardMarker(t *testing.T) {
+	for _, rc := range []string{"APITesting", "HTTPLoadBalancer"} {
+		if !isImportDefaultSuppressed(rc, "standard") {
+			t.Errorf("%s.standard must be a suppressed server-default (credentials_choice base marker)", rc)
+		}
+	}
+}
+
 func TestImportSuppressions_APIProtectionServerDefaults(t *testing.T) {
 	// any_ip is the default member of the source-IP sub-oneof inside a client_matcher
 	// ip_threat_category_list arm: the API echoes any_ip {} alongside the configured

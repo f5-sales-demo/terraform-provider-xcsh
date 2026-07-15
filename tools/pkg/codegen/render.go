@@ -737,15 +737,19 @@ func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr 
 		// Empty marker block.
 		sb.WriteString(fmt.Sprintf("%s%s: func() *%sEmptyModel {\n", indent, fieldName, rc))
 		if stateBase != "" {
-			if container == "single" {
-				sb.WriteString(fmt.Sprintf("%s\tif !isImport && %s {\n", indent, stateGuard))
-				sb.WriteString(fmt.Sprintf("%s\t\treturn %s.%s\n", indent, stateBase, fieldName))
-				sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
-			} else {
-				sb.WriteString(fmt.Sprintf("%s\tif !isImport && %s && %s.%s != nil {\n", indent, stateGuard, stateBase, fieldName))
-				sb.WriteString(fmt.Sprintf("%s\t\treturn &%sEmptyModel{}\n", indent, rc))
-				sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
-			}
+			// Preserve the PLANNED marker exactly (presence AND absence) on the apply
+			// path; import still reads the API below. stateBase is the state accessor
+			// at this level — for a single block a pointer (data.Foo.Field), for a list
+			// element a positional value (existingItems[idx].Field) — and stateGuard
+			// already includes the list len() bound, so returning stateBase.Field is
+			// nil-safe. Returning it (rather than the old list-only "&Empty{} when
+			// present" heuristic) preserves marker ABSENCE too, so a server-echoed
+			// default oneof member the plan omitted does not drift ("was absent, now
+			// present"). See #41 (single-container any_client) and #45 (list-element
+			// credentials_choice base marker "standard").
+			sb.WriteString(fmt.Sprintf("%s\tif !isImport && %s {\n", indent, stateGuard))
+			sb.WriteString(fmt.Sprintf("%s\t\treturn %s.%s\n", indent, stateBase, fieldName))
+			sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
 		}
 		// Server-default oneof members must NOT be populated from the API
 		// response on import: there is no prior config to preserve, so importing
@@ -845,7 +849,9 @@ func renderUnmarshalListChild(sb *strings.Builder, rc, childPath string, attr op
 	// Preserve an unconfigured (null/empty) list block on normal Read/Create so a
 	// server-managed list the user did not configure does not drift the plan
 	// ("Provider produced inconsistent result after apply"). Import still reads the API.
-	if container == "single" && stateBase != "" {
+	// Applies whenever prior state is threaded at this level — including a list nested
+	// inside a LIST element (container=="list"), e.g. api_testing domains[].credentials[].
+	if stateBase != "" {
 		if isTypesList {
 			sb.WriteString(fmt.Sprintf("%s\tif !isImport && %s && (%s.%s.IsNull() || len(%s.%s.Elements()) == 0) {\n", indent, stateGuard, stateBase, fieldName, stateBase, fieldName))
 			sb.WriteString(fmt.Sprintf("%s\t\treturn types.ListNull(%s)\n", indent, objType))
@@ -859,10 +865,12 @@ func renderUnmarshalListChild(sb *strings.Builder, rc, childPath string, attr op
 	// Thread prior-state elements positionally into element children so element Optional
 	// markers/scalars preserve the planned value on Read/Create (mirrors the top-level
 	// list renderer, render.go renderUnmarshalTopLevelList) instead of materializing
-	// server-echoed defaults. Only for a list configured inside a single block (nested
-	// lists are always modeled as types.List, so ElementsAs applies). Import reads the API.
-	// See #41 (SP3 API Protection: api_endpoint_rules[] api_endpoint_method/client_matcher).
-	threadElem := container == "single" && stateBase != "" && len(attr.NestedAttributes) > 0
+	// server-echoed defaults. Applies whenever prior state is threaded at this level,
+	// including a list nested inside a LIST element (container=="list") — e.g. the
+	// api_testing domains[].credentials[] where the server echoes the credentials_choice
+	// base marker "standard". Nested lists are always types.List, so ElementsAs applies.
+	// Import reads the API. See #41 (SP3 client_matcher) and #45 (SP4 credentials).
+	threadElem := stateBase != "" && len(attr.NestedAttributes) > 0
 	existingVar := fieldName + "Existing"
 	idxVar := fieldName + "Idx"
 	if threadElem {

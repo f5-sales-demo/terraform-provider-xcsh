@@ -859,6 +859,55 @@ func TestRenderUnmarshalSingleChild_SpinePreservesOffSpineLeaves(t *testing.T) {
 	}
 }
 
+// #45 (SP4 API Testing): a list nested inside a LIST element (e.g. api_testing
+// domains[].credentials[]) must ALSO thread prior-state positionally, not only lists
+// inside single blocks. Without it, credential elements get stateBase="" and their
+// markers/secrets (standard, api_key.value) reconstruct from the API on apply/import.
+func TestRenderUnmarshalListChild_ThreadsInsideListElement(t *testing.T) {
+	list := openapi.TerraformAttribute{
+		GoName: "Credentials", JsonName: "credentials", TfsdkTag: "credentials",
+		IsBlock: true, NestedBlockType: "list",
+		NestedAttributes: []openapi.TerraformAttribute{
+			{GoName: "Standard", JsonName: "standard", TfsdkTag: "standard", IsBlock: true, NestedBlockType: "single"},
+		},
+	}
+	var sb strings.Builder
+	renderUnmarshalListChild(&sb, "R", "DomainsCredentials", list,
+		"domMap", "existingDomains[i]", "len(existingDomains) > i", "list", "\t")
+	out := sb.String()
+	if !strings.Contains(out, "existingDomains[i].Credentials.ElementsAs(ctx, &CredentialsExisting") {
+		t.Errorf("list nested in a list element must load prior-state elements for threading:\n%s", out)
+	}
+	if !strings.Contains(out, "CredentialsExisting[CredentialsIdx].Standard") {
+		t.Errorf("list-in-list-element child marker must preserve the planned value positionally:\n%s", out)
+	}
+}
+
+// #45 (SP4 API Testing): an empty-marker oneof member that is a direct child of a
+// LIST element (e.g. api_testing.domains[].credentials[].standard — the server-default
+// credentials_choice base marker) must preserve the PLANNED value (presence AND
+// absence) on the apply path when prior-state is threaded, exactly like a single-block
+// child. The old list-container branch only preserved presence (returned &Empty{} when
+// state had it) and otherwise fell through to the API populate, so a plan that omits
+// the marker while the server echoes it drifts ("was absent, now present"). Import
+// still reads the API.
+func TestRenderUnmarshalSingleChild_ListEmptyMarkerPreservesAbsence(t *testing.T) {
+	marker := openapi.TerraformAttribute{
+		GoName: "Standard", JsonName: "standard", TfsdkTag: "standard",
+		IsBlock: true, NestedBlockType: "single",
+	}
+	var sb strings.Builder
+	renderUnmarshalSingleChild(&sb, "R", "CredentialsStandard", marker,
+		"credMap", "existingCreds[i]", "len(existingCreds) > i", "list", "\t")
+	out := sb.String()
+	if !strings.Contains(out, "return existingCreds[i].Standard") {
+		t.Errorf("list-element empty marker must preserve the planned value (return stateBase.Field), not materialize the server echo:\n%s", out)
+	}
+	if strings.Contains(out, "existingCreds[i].Standard != nil") {
+		t.Errorf("list-element empty marker must not use the presence-only guard (that drops absence):\n%s", out)
+	}
+}
+
 // #41 (SP3 API Protection): a list block nested inside a configured single block (e.g.
 // api_protection_rules.api_endpoint_rules[]) must thread the prior-state elements
 // positionally into element children, mirroring the top-level list renderer, so element
