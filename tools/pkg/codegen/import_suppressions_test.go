@@ -104,3 +104,18 @@ func TestImportSuppressions_AppFirewallViolationsView(t *testing.T) {
 		t.Error("AppFirewall.violations_view must be a suppressed server-computed field (detection_settings round-trip import drift)")
 	}
 }
+
+// Coverage Batch B (#51): a rate_limiter_policy rule that omits its country client
+// matcher gets any_country {} materialized by the server (verified live on
+// f5-sales-demo webapp-api-protection: a rule with asn_list but no country came
+// back with any_country). any_asn/any_ip are the same server-default base members
+// of the ASN/IP client-matcher oneofs. The module never declares them (it omits a
+// matcher for "match any"), so they must be suppressed on import to keep the
+// standalone xcsh_rate_limiter_policy round-trip clean.
+func TestImportSuppressions_RateLimiterPolicyClientMatcherDefaults(t *testing.T) {
+	for _, m := range []string{"any_asn", "any_country", "any_ip"} {
+		if !isImportDefaultSuppressed("RateLimiterPolicy", m) {
+			t.Errorf("RateLimiterPolicy.%s must be a suppressed server-default (rule client_matcher oneof)", m)
+		}
+	}
+}
