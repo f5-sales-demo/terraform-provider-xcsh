@@ -5450,8 +5450,8 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				BlockedServicesList = append(BlockedServicesList, FleetBlockedServicesModel{
 					DNS: func() *FleetEmptyModel {
-						if !isImport && len(existingBlockedServicesItems) > listIdx && existingBlockedServicesItems[listIdx].DNS != nil {
-							return &FleetEmptyModel{}
+						if !isImport && len(existingBlockedServicesItems) > listIdx {
+							return existingBlockedServicesItems[listIdx].DNS
 						}
 						if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 							return &FleetEmptyModel{}
@@ -5465,8 +5465,8 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 						return types.StringNull()
 					}(),
 					SSH: func() *FleetEmptyModel {
-						if !isImport && len(existingBlockedServicesItems) > listIdx && existingBlockedServicesItems[listIdx].SSH != nil {
-							return &FleetEmptyModel{}
+						if !isImport && len(existingBlockedServicesItems) > listIdx {
+							return existingBlockedServicesItems[listIdx].SSH
 						}
 						if _, ok := itemMap["ssh"].(map[string]interface{}); ok {
 							return &FleetEmptyModel{}
@@ -5474,8 +5474,8 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 						return nil
 					}(),
 					WebUserInterface: func() *FleetEmptyModel {
-						if !isImport && len(existingBlockedServicesItems) > listIdx && existingBlockedServicesItems[listIdx].WebUserInterface != nil {
-							return &FleetEmptyModel{}
+						if !isImport && len(existingBlockedServicesItems) > listIdx {
+							return existingBlockedServicesItems[listIdx].WebUserInterface
 						}
 						if _, ok := itemMap["web_user_interface"].(map[string]interface{}); ok {
 							return &FleetEmptyModel{}
@@ -5510,8 +5510,8 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 						if BondDevicesItemMap, ok := BondDevicesItem.(map[string]interface{}); ok {
 							BondDevicesResult = append(BondDevicesResult, FleetBondDeviceListBondDevicesModel{
 								ActiveBackup: func() *FleetEmptyModel {
-									if !isImport && len(BondDevicesExisting) > BondDevicesIdx && BondDevicesExisting[BondDevicesIdx].ActiveBackup != nil {
-										return &FleetEmptyModel{}
+									if !isImport && len(BondDevicesExisting) > BondDevicesIdx {
+										return BondDevicesExisting[BondDevicesIdx].ActiveBackup
 									}
 									if _, ok := BondDevicesItemMap["active_backup"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
@@ -6187,8 +6187,8 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 						if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
 							StorageClassesResult = append(StorageClassesResult, FleetStorageClassListStorageClassesModel{
 								AdvancedStorageParameters: func() *FleetEmptyModel {
-									if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters != nil {
-										return &FleetEmptyModel{}
+									if !isImport && len(StorageClassesExisting) > StorageClassesIdx {
+										return StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters
 									}
 									if _, ok := StorageClassesItemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
@@ -6439,8 +6439,8 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 						if StorageDevicesItemMap, ok := StorageDevicesItem.(map[string]interface{}); ok {
 							StorageDevicesResult = append(StorageDevicesResult, FleetStorageDeviceListStorageDevicesModel{
 								AdvancedAdvancedParameters: func() *FleetEmptyModel {
-									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters != nil {
-										return &FleetEmptyModel{}
+									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
+										return StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters
 									}
 									if _, ok := StorageDevicesItemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
@@ -6448,8 +6448,8 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return nil
 								}(),
 								CustomStorage: func() *FleetEmptyModel {
-									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].CustomStorage != nil {
-										return &FleetEmptyModel{}
+									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
+										return StorageDevicesExisting[StorageDevicesIdx].CustomStorage
 									}
 									if _, ok := StorageDevicesItemMap["custom_storage"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
@@ -6861,8 +6861,8 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel{
 																			Labels: func() *FleetEmptyModel {
-																				if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
-																					return &FleetEmptyModel{}
+																				if !isImport && len(StorageExisting) > StorageIdx {
+																					return StorageExisting[StorageIdx].Labels
 																				}
 																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																					return &FleetEmptyModel{}
@@ -7339,8 +7339,8 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel{
 																			Labels: func() *FleetEmptyModel {
-																				if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
-																					return &FleetEmptyModel{}
+																				if !isImport && len(StorageExisting) > StorageIdx {
+																					return StorageExisting[StorageIdx].Labels
 																				}
 																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																					return &FleetEmptyModel{}
@@ -7865,8 +7865,8 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																							return nil
 																						}(),
 																						Labels: func() *FleetEmptyModel {
-																							if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].Labels != nil {
-																								return &FleetEmptyModel{}
+																							if !isImport && len(FlashArraysExisting) > FlashArraysIdx {
+																								return FlashArraysExisting[FlashArraysIdx].Labels
 																							}
 																							if _, ok := FlashArraysItemMap["labels"].(map[string]interface{}); ok {
 																								return &FleetEmptyModel{}
@@ -8005,8 +8005,8 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																							return nil
 																						}(),
 																						Labels: func() *FleetEmptyModel {
-																							if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].Labels != nil {
-																								return &FleetEmptyModel{}
+																							if !isImport && len(FlashBladesExisting) > FlashBladesIdx {
+																								return FlashBladesExisting[FlashBladesIdx].Labels
 																							}
 																							if _, ok := FlashBladesItemMap["labels"].(map[string]interface{}); ok {
 																								return &FleetEmptyModel{}
@@ -8171,8 +8171,8 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return types.ListNull(types.StringType)
 								}(),
 								Labels: func() *FleetEmptyModel {
-									if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Labels != nil {
-										return &FleetEmptyModel{}
+									if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx {
+										return StorageRoutesExisting[StorageRoutesIdx].Labels
 									}
 									if _, ok := StorageRoutesItemMap["labels"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
@@ -8287,15 +8287,26 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return nil
 								}(),
 								Subnets: func() types.List {
+									if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && (StorageRoutesExisting[StorageRoutesIdx].Subnets.IsNull() || len(StorageRoutesExisting[StorageRoutesIdx].Subnets.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesSubnetsModelAttrTypes})
+									}
+									var SubnetsExisting []FleetStorageStaticRoutesStorageRoutesSubnetsModel
+									if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && !StorageRoutesExisting[StorageRoutesIdx].Subnets.IsNull() && !StorageRoutesExisting[StorageRoutesIdx].Subnets.IsUnknown() {
+										StorageRoutesExisting[StorageRoutesIdx].Subnets.ElementsAs(ctx, &SubnetsExisting, false)
+									}
 									if rawList, ok := StorageRoutesItemMap["subnets"].([]interface{}); ok && len(rawList) > 0 {
 										var SubnetsResult []FleetStorageStaticRoutesStorageRoutesSubnetsModel
-										for _, SubnetsItem := range rawList {
+										for SubnetsIdx, SubnetsItem := range rawList {
+											_ = SubnetsIdx
 											if SubnetsItemMap, ok := SubnetsItem.(map[string]interface{}); ok {
 												SubnetsResult = append(SubnetsResult, FleetStorageStaticRoutesStorageRoutesSubnetsModel{
 													Ipv4: func() *FleetStorageStaticRoutesStorageRoutesSubnetsIpv4Model {
 														if Ipv4Data, ok := SubnetsItemMap["ipv4"].(map[string]interface{}); ok {
 															return &FleetStorageStaticRoutesStorageRoutesSubnetsIpv4Model{
 																Plen: func() types.Int64 {
+																	if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv4 != nil && !SubnetsExisting[SubnetsIdx].Ipv4.Plen.IsUnknown() {
+																		return SubnetsExisting[SubnetsIdx].Ipv4.Plen
+																	}
 																	if v, ok := Ipv4Data["plen"].(float64); ok && v != 0 {
 																		return types.Int64Value(int64(v))
 																	}
@@ -8315,6 +8326,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 														if Ipv6Data, ok := SubnetsItemMap["ipv6"].(map[string]interface{}); ok {
 															return &FleetStorageStaticRoutesStorageRoutesSubnetsIpv6Model{
 																Plen: func() types.Int64 {
+																	if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv6 != nil && !SubnetsExisting[SubnetsIdx].Ipv6.Plen.IsUnknown() {
+																		return SubnetsExisting[SubnetsIdx].Ipv6.Plen
+																	}
 																	if v, ok := Ipv6Data["plen"].(float64); ok && v != 0 {
 																		return types.Int64Value(int64(v))
 																	}
@@ -8540,8 +8554,8 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				BlockedServicesList = append(BlockedServicesList, FleetBlockedServicesModel{
 					DNS: func() *FleetEmptyModel {
-						if !isImport && len(existingBlockedServicesItems) > listIdx && existingBlockedServicesItems[listIdx].DNS != nil {
-							return &FleetEmptyModel{}
+						if !isImport && len(existingBlockedServicesItems) > listIdx {
+							return existingBlockedServicesItems[listIdx].DNS
 						}
 						if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 							return &FleetEmptyModel{}
@@ -8555,8 +8569,8 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						return types.StringNull()
 					}(),
 					SSH: func() *FleetEmptyModel {
-						if !isImport && len(existingBlockedServicesItems) > listIdx && existingBlockedServicesItems[listIdx].SSH != nil {
-							return &FleetEmptyModel{}
+						if !isImport && len(existingBlockedServicesItems) > listIdx {
+							return existingBlockedServicesItems[listIdx].SSH
 						}
 						if _, ok := itemMap["ssh"].(map[string]interface{}); ok {
 							return &FleetEmptyModel{}
@@ -8564,8 +8578,8 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						return nil
 					}(),
 					WebUserInterface: func() *FleetEmptyModel {
-						if !isImport && len(existingBlockedServicesItems) > listIdx && existingBlockedServicesItems[listIdx].WebUserInterface != nil {
-							return &FleetEmptyModel{}
+						if !isImport && len(existingBlockedServicesItems) > listIdx {
+							return existingBlockedServicesItems[listIdx].WebUserInterface
 						}
 						if _, ok := itemMap["web_user_interface"].(map[string]interface{}); ok {
 							return &FleetEmptyModel{}
@@ -8600,8 +8614,8 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						if BondDevicesItemMap, ok := BondDevicesItem.(map[string]interface{}); ok {
 							BondDevicesResult = append(BondDevicesResult, FleetBondDeviceListBondDevicesModel{
 								ActiveBackup: func() *FleetEmptyModel {
-									if !isImport && len(BondDevicesExisting) > BondDevicesIdx && BondDevicesExisting[BondDevicesIdx].ActiveBackup != nil {
-										return &FleetEmptyModel{}
+									if !isImport && len(BondDevicesExisting) > BondDevicesIdx {
+										return BondDevicesExisting[BondDevicesIdx].ActiveBackup
 									}
 									if _, ok := BondDevicesItemMap["active_backup"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
@@ -9277,8 +9291,8 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
 							StorageClassesResult = append(StorageClassesResult, FleetStorageClassListStorageClassesModel{
 								AdvancedStorageParameters: func() *FleetEmptyModel {
-									if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters != nil {
-										return &FleetEmptyModel{}
+									if !isImport && len(StorageClassesExisting) > StorageClassesIdx {
+										return StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters
 									}
 									if _, ok := StorageClassesItemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
@@ -9529,8 +9543,8 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						if StorageDevicesItemMap, ok := StorageDevicesItem.(map[string]interface{}); ok {
 							StorageDevicesResult = append(StorageDevicesResult, FleetStorageDeviceListStorageDevicesModel{
 								AdvancedAdvancedParameters: func() *FleetEmptyModel {
-									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters != nil {
-										return &FleetEmptyModel{}
+									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
+										return StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters
 									}
 									if _, ok := StorageDevicesItemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
@@ -9538,8 +9552,8 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return nil
 								}(),
 								CustomStorage: func() *FleetEmptyModel {
-									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].CustomStorage != nil {
-										return &FleetEmptyModel{}
+									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
+										return StorageDevicesExisting[StorageDevicesIdx].CustomStorage
 									}
 									if _, ok := StorageDevicesItemMap["custom_storage"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
@@ -9951,8 +9965,8 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel{
 																			Labels: func() *FleetEmptyModel {
-																				if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
-																					return &FleetEmptyModel{}
+																				if !isImport && len(StorageExisting) > StorageIdx {
+																					return StorageExisting[StorageIdx].Labels
 																				}
 																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																					return &FleetEmptyModel{}
@@ -10429,8 +10443,8 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel{
 																			Labels: func() *FleetEmptyModel {
-																				if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
-																					return &FleetEmptyModel{}
+																				if !isImport && len(StorageExisting) > StorageIdx {
+																					return StorageExisting[StorageIdx].Labels
 																				}
 																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																					return &FleetEmptyModel{}
@@ -10955,8 +10969,8 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																							return nil
 																						}(),
 																						Labels: func() *FleetEmptyModel {
-																							if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].Labels != nil {
-																								return &FleetEmptyModel{}
+																							if !isImport && len(FlashArraysExisting) > FlashArraysIdx {
+																								return FlashArraysExisting[FlashArraysIdx].Labels
 																							}
 																							if _, ok := FlashArraysItemMap["labels"].(map[string]interface{}); ok {
 																								return &FleetEmptyModel{}
@@ -11095,8 +11109,8 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																							return nil
 																						}(),
 																						Labels: func() *FleetEmptyModel {
-																							if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].Labels != nil {
-																								return &FleetEmptyModel{}
+																							if !isImport && len(FlashBladesExisting) > FlashBladesIdx {
+																								return FlashBladesExisting[FlashBladesIdx].Labels
 																							}
 																							if _, ok := FlashBladesItemMap["labels"].(map[string]interface{}); ok {
 																								return &FleetEmptyModel{}
@@ -11261,8 +11275,8 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return types.ListNull(types.StringType)
 								}(),
 								Labels: func() *FleetEmptyModel {
-									if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Labels != nil {
-										return &FleetEmptyModel{}
+									if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx {
+										return StorageRoutesExisting[StorageRoutesIdx].Labels
 									}
 									if _, ok := StorageRoutesItemMap["labels"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
@@ -11377,15 +11391,26 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return nil
 								}(),
 								Subnets: func() types.List {
+									if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && (StorageRoutesExisting[StorageRoutesIdx].Subnets.IsNull() || len(StorageRoutesExisting[StorageRoutesIdx].Subnets.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesSubnetsModelAttrTypes})
+									}
+									var SubnetsExisting []FleetStorageStaticRoutesStorageRoutesSubnetsModel
+									if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && !StorageRoutesExisting[StorageRoutesIdx].Subnets.IsNull() && !StorageRoutesExisting[StorageRoutesIdx].Subnets.IsUnknown() {
+										StorageRoutesExisting[StorageRoutesIdx].Subnets.ElementsAs(ctx, &SubnetsExisting, false)
+									}
 									if rawList, ok := StorageRoutesItemMap["subnets"].([]interface{}); ok && len(rawList) > 0 {
 										var SubnetsResult []FleetStorageStaticRoutesStorageRoutesSubnetsModel
-										for _, SubnetsItem := range rawList {
+										for SubnetsIdx, SubnetsItem := range rawList {
+											_ = SubnetsIdx
 											if SubnetsItemMap, ok := SubnetsItem.(map[string]interface{}); ok {
 												SubnetsResult = append(SubnetsResult, FleetStorageStaticRoutesStorageRoutesSubnetsModel{
 													Ipv4: func() *FleetStorageStaticRoutesStorageRoutesSubnetsIpv4Model {
 														if Ipv4Data, ok := SubnetsItemMap["ipv4"].(map[string]interface{}); ok {
 															return &FleetStorageStaticRoutesStorageRoutesSubnetsIpv4Model{
 																Plen: func() types.Int64 {
+																	if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv4 != nil && !SubnetsExisting[SubnetsIdx].Ipv4.Plen.IsUnknown() {
+																		return SubnetsExisting[SubnetsIdx].Ipv4.Plen
+																	}
 																	if v, ok := Ipv4Data["plen"].(float64); ok && v != 0 {
 																		return types.Int64Value(int64(v))
 																	}
@@ -11405,6 +11430,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 														if Ipv6Data, ok := SubnetsItemMap["ipv6"].(map[string]interface{}); ok {
 															return &FleetStorageStaticRoutesStorageRoutesSubnetsIpv6Model{
 																Plen: func() types.Int64 {
+																	if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv6 != nil && !SubnetsExisting[SubnetsIdx].Ipv6.Plen.IsUnknown() {
+																		return SubnetsExisting[SubnetsIdx].Ipv6.Plen
+																	}
 																	if v, ok := Ipv6Data["plen"].(float64); ok && v != 0 {
 																		return types.Int64Value(int64(v))
 																	}
@@ -13091,8 +13119,8 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				BlockedServicesList = append(BlockedServicesList, FleetBlockedServicesModel{
 					DNS: func() *FleetEmptyModel {
-						if !isImport && len(existingBlockedServicesItems) > listIdx && existingBlockedServicesItems[listIdx].DNS != nil {
-							return &FleetEmptyModel{}
+						if !isImport && len(existingBlockedServicesItems) > listIdx {
+							return existingBlockedServicesItems[listIdx].DNS
 						}
 						if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 							return &FleetEmptyModel{}
@@ -13106,8 +13134,8 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						return types.StringNull()
 					}(),
 					SSH: func() *FleetEmptyModel {
-						if !isImport && len(existingBlockedServicesItems) > listIdx && existingBlockedServicesItems[listIdx].SSH != nil {
-							return &FleetEmptyModel{}
+						if !isImport && len(existingBlockedServicesItems) > listIdx {
+							return existingBlockedServicesItems[listIdx].SSH
 						}
 						if _, ok := itemMap["ssh"].(map[string]interface{}); ok {
 							return &FleetEmptyModel{}
@@ -13115,8 +13143,8 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						return nil
 					}(),
 					WebUserInterface: func() *FleetEmptyModel {
-						if !isImport && len(existingBlockedServicesItems) > listIdx && existingBlockedServicesItems[listIdx].WebUserInterface != nil {
-							return &FleetEmptyModel{}
+						if !isImport && len(existingBlockedServicesItems) > listIdx {
+							return existingBlockedServicesItems[listIdx].WebUserInterface
 						}
 						if _, ok := itemMap["web_user_interface"].(map[string]interface{}); ok {
 							return &FleetEmptyModel{}
@@ -13151,8 +13179,8 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						if BondDevicesItemMap, ok := BondDevicesItem.(map[string]interface{}); ok {
 							BondDevicesResult = append(BondDevicesResult, FleetBondDeviceListBondDevicesModel{
 								ActiveBackup: func() *FleetEmptyModel {
-									if !isImport && len(BondDevicesExisting) > BondDevicesIdx && BondDevicesExisting[BondDevicesIdx].ActiveBackup != nil {
-										return &FleetEmptyModel{}
+									if !isImport && len(BondDevicesExisting) > BondDevicesIdx {
+										return BondDevicesExisting[BondDevicesIdx].ActiveBackup
 									}
 									if _, ok := BondDevicesItemMap["active_backup"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
@@ -13828,8 +13856,8 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
 							StorageClassesResult = append(StorageClassesResult, FleetStorageClassListStorageClassesModel{
 								AdvancedStorageParameters: func() *FleetEmptyModel {
-									if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters != nil {
-										return &FleetEmptyModel{}
+									if !isImport && len(StorageClassesExisting) > StorageClassesIdx {
+										return StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters
 									}
 									if _, ok := StorageClassesItemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
@@ -14080,8 +14108,8 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						if StorageDevicesItemMap, ok := StorageDevicesItem.(map[string]interface{}); ok {
 							StorageDevicesResult = append(StorageDevicesResult, FleetStorageDeviceListStorageDevicesModel{
 								AdvancedAdvancedParameters: func() *FleetEmptyModel {
-									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters != nil {
-										return &FleetEmptyModel{}
+									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
+										return StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters
 									}
 									if _, ok := StorageDevicesItemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
@@ -14089,8 +14117,8 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return nil
 								}(),
 								CustomStorage: func() *FleetEmptyModel {
-									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].CustomStorage != nil {
-										return &FleetEmptyModel{}
+									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
+										return StorageDevicesExisting[StorageDevicesIdx].CustomStorage
 									}
 									if _, ok := StorageDevicesItemMap["custom_storage"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
@@ -14502,8 +14530,8 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel{
 																			Labels: func() *FleetEmptyModel {
-																				if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
-																					return &FleetEmptyModel{}
+																				if !isImport && len(StorageExisting) > StorageIdx {
+																					return StorageExisting[StorageIdx].Labels
 																				}
 																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																					return &FleetEmptyModel{}
@@ -14980,8 +15008,8 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel{
 																			Labels: func() *FleetEmptyModel {
-																				if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
-																					return &FleetEmptyModel{}
+																				if !isImport && len(StorageExisting) > StorageIdx {
+																					return StorageExisting[StorageIdx].Labels
 																				}
 																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																					return &FleetEmptyModel{}
@@ -15506,8 +15534,8 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																							return nil
 																						}(),
 																						Labels: func() *FleetEmptyModel {
-																							if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].Labels != nil {
-																								return &FleetEmptyModel{}
+																							if !isImport && len(FlashArraysExisting) > FlashArraysIdx {
+																								return FlashArraysExisting[FlashArraysIdx].Labels
 																							}
 																							if _, ok := FlashArraysItemMap["labels"].(map[string]interface{}); ok {
 																								return &FleetEmptyModel{}
@@ -15646,8 +15674,8 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																							return nil
 																						}(),
 																						Labels: func() *FleetEmptyModel {
-																							if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].Labels != nil {
-																								return &FleetEmptyModel{}
+																							if !isImport && len(FlashBladesExisting) > FlashBladesIdx {
+																								return FlashBladesExisting[FlashBladesIdx].Labels
 																							}
 																							if _, ok := FlashBladesItemMap["labels"].(map[string]interface{}); ok {
 																								return &FleetEmptyModel{}
@@ -15812,8 +15840,8 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return types.ListNull(types.StringType)
 								}(),
 								Labels: func() *FleetEmptyModel {
-									if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Labels != nil {
-										return &FleetEmptyModel{}
+									if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx {
+										return StorageRoutesExisting[StorageRoutesIdx].Labels
 									}
 									if _, ok := StorageRoutesItemMap["labels"].(map[string]interface{}); ok {
 										return &FleetEmptyModel{}
@@ -15928,15 +15956,26 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return nil
 								}(),
 								Subnets: func() types.List {
+									if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && (StorageRoutesExisting[StorageRoutesIdx].Subnets.IsNull() || len(StorageRoutesExisting[StorageRoutesIdx].Subnets.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesSubnetsModelAttrTypes})
+									}
+									var SubnetsExisting []FleetStorageStaticRoutesStorageRoutesSubnetsModel
+									if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && !StorageRoutesExisting[StorageRoutesIdx].Subnets.IsNull() && !StorageRoutesExisting[StorageRoutesIdx].Subnets.IsUnknown() {
+										StorageRoutesExisting[StorageRoutesIdx].Subnets.ElementsAs(ctx, &SubnetsExisting, false)
+									}
 									if rawList, ok := StorageRoutesItemMap["subnets"].([]interface{}); ok && len(rawList) > 0 {
 										var SubnetsResult []FleetStorageStaticRoutesStorageRoutesSubnetsModel
-										for _, SubnetsItem := range rawList {
+										for SubnetsIdx, SubnetsItem := range rawList {
+											_ = SubnetsIdx
 											if SubnetsItemMap, ok := SubnetsItem.(map[string]interface{}); ok {
 												SubnetsResult = append(SubnetsResult, FleetStorageStaticRoutesStorageRoutesSubnetsModel{
 													Ipv4: func() *FleetStorageStaticRoutesStorageRoutesSubnetsIpv4Model {
 														if Ipv4Data, ok := SubnetsItemMap["ipv4"].(map[string]interface{}); ok {
 															return &FleetStorageStaticRoutesStorageRoutesSubnetsIpv4Model{
 																Plen: func() types.Int64 {
+																	if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv4 != nil && !SubnetsExisting[SubnetsIdx].Ipv4.Plen.IsUnknown() {
+																		return SubnetsExisting[SubnetsIdx].Ipv4.Plen
+																	}
 																	if v, ok := Ipv4Data["plen"].(float64); ok && v != 0 {
 																		return types.Int64Value(int64(v))
 																	}
@@ -15956,6 +15995,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 														if Ipv6Data, ok := SubnetsItemMap["ipv6"].(map[string]interface{}); ok {
 															return &FleetStorageStaticRoutesStorageRoutesSubnetsIpv6Model{
 																Plen: func() types.Int64 {
+																	if !isImport && len(SubnetsExisting) > SubnetsIdx && SubnetsExisting[SubnetsIdx].Ipv6 != nil && !SubnetsExisting[SubnetsIdx].Ipv6.Plen.IsUnknown() {
+																		return SubnetsExisting[SubnetsIdx].Ipv6.Plen
+																	}
 																	if v, ok := Ipv6Data["plen"].(float64); ok && v != 0 {
 																		return types.Int64Value(int64(v))
 																	}

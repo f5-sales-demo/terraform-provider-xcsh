@@ -2417,8 +2417,8 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 						return nil
 					}(),
 					DisableSpec: func() *NATPolicyEmptyModel {
-						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].DisableSpec != nil {
-							return &NATPolicyEmptyModel{}
+						if !isImport && len(existingRulesItems) > listIdx {
+							return existingRulesItems[listIdx].DisableSpec
 						}
 						if _, ok := itemMap["disable"].(map[string]interface{}); ok {
 							return &NATPolicyEmptyModel{}
@@ -2426,8 +2426,8 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 						return nil
 					}(),
 					Enable: func() *NATPolicyEmptyModel {
-						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Enable != nil {
-							return &NATPolicyEmptyModel{}
+						if !isImport && len(existingRulesItems) > listIdx {
+							return existingRulesItems[listIdx].Enable
 						}
 						if _, ok := itemMap["enable"].(map[string]interface{}); ok {
 							return &NATPolicyEmptyModel{}
@@ -2517,9 +2517,17 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 											if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 												ListResult = append(ListResult, NATPolicyRulesNodeInterfaceListModel{
 													Interface: func() types.List {
+														if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesNodeInterfaceListInterfaceModelAttrTypes})
+														}
+														var InterfaceExisting []NATPolicyRulesNodeInterfaceListInterfaceModel
+														if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+															ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+														}
 														if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 															var InterfaceResult []NATPolicyRulesNodeInterfaceListInterfaceModel
-															for _, InterfaceItem := range rawList {
+															for InterfaceIdx, InterfaceItem := range rawList {
+																_ = InterfaceIdx
 																if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																	InterfaceResult = append(InterfaceResult, NATPolicyRulesNodeInterfaceListInterfaceModel{
 																		Kind: func() types.String {
@@ -3447,8 +3455,8 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 						return nil
 					}(),
 					DisableSpec: func() *NATPolicyEmptyModel {
-						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].DisableSpec != nil {
-							return &NATPolicyEmptyModel{}
+						if !isImport && len(existingRulesItems) > listIdx {
+							return existingRulesItems[listIdx].DisableSpec
 						}
 						if _, ok := itemMap["disable"].(map[string]interface{}); ok {
 							return &NATPolicyEmptyModel{}
@@ -3456,8 +3464,8 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 						return nil
 					}(),
 					Enable: func() *NATPolicyEmptyModel {
-						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Enable != nil {
-							return &NATPolicyEmptyModel{}
+						if !isImport && len(existingRulesItems) > listIdx {
+							return existingRulesItems[listIdx].Enable
 						}
 						if _, ok := itemMap["enable"].(map[string]interface{}); ok {
 							return &NATPolicyEmptyModel{}
@@ -3547,9 +3555,17 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 											if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 												ListResult = append(ListResult, NATPolicyRulesNodeInterfaceListModel{
 													Interface: func() types.List {
+														if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesNodeInterfaceListInterfaceModelAttrTypes})
+														}
+														var InterfaceExisting []NATPolicyRulesNodeInterfaceListInterfaceModel
+														if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+															ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+														}
 														if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 															var InterfaceResult []NATPolicyRulesNodeInterfaceListInterfaceModel
-															for _, InterfaceItem := range rawList {
+															for InterfaceIdx, InterfaceItem := range rawList {
+																_ = InterfaceIdx
 																if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																	InterfaceResult = append(InterfaceResult, NATPolicyRulesNodeInterfaceListInterfaceModel{
 																		Kind: func() types.String {
@@ -4934,8 +4950,8 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 						return nil
 					}(),
 					DisableSpec: func() *NATPolicyEmptyModel {
-						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].DisableSpec != nil {
-							return &NATPolicyEmptyModel{}
+						if !isImport && len(existingRulesItems) > listIdx {
+							return existingRulesItems[listIdx].DisableSpec
 						}
 						if _, ok := itemMap["disable"].(map[string]interface{}); ok {
 							return &NATPolicyEmptyModel{}
@@ -4943,8 +4959,8 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 						return nil
 					}(),
 					Enable: func() *NATPolicyEmptyModel {
-						if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Enable != nil {
-							return &NATPolicyEmptyModel{}
+						if !isImport && len(existingRulesItems) > listIdx {
+							return existingRulesItems[listIdx].Enable
 						}
 						if _, ok := itemMap["enable"].(map[string]interface{}); ok {
 							return &NATPolicyEmptyModel{}
@@ -5034,9 +5050,17 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 											if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 												ListResult = append(ListResult, NATPolicyRulesNodeInterfaceListModel{
 													Interface: func() types.List {
+														if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesNodeInterfaceListInterfaceModelAttrTypes})
+														}
+														var InterfaceExisting []NATPolicyRulesNodeInterfaceListInterfaceModel
+														if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+															ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+														}
 														if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 															var InterfaceResult []NATPolicyRulesNodeInterfaceListInterfaceModel
-															for _, InterfaceItem := range rawList {
+															for InterfaceIdx, InterfaceItem := range rawList {
+																_ = InterfaceIdx
 																if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																	InterfaceResult = append(InterfaceResult, NATPolicyRulesNodeInterfaceListInterfaceModel{
 																		Kind: func() types.String {

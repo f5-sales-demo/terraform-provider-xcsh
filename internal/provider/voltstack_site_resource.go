@@ -11497,8 +11497,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, VoltstackSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *VoltstackSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
-										return &VoltstackSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
@@ -11512,8 +11512,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 									return types.StringNull()
 								}(),
 								SSH: func() *VoltstackSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
-										return &VoltstackSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
@@ -11521,8 +11521,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								WebUserInterface: func() *VoltstackSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
-										return &VoltstackSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
@@ -11556,8 +11556,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 						if BondDevicesItemMap, ok := BondDevicesItem.(map[string]interface{}); ok {
 							BondDevicesResult = append(BondDevicesResult, VoltstackSiteBondDeviceListBondDevicesModel{
 								ActiveBackup: func() *VoltstackSiteEmptyModel {
-									if !isImport && len(BondDevicesExisting) > BondDevicesIdx && BondDevicesExisting[BondDevicesIdx].ActiveBackup != nil {
-										return &VoltstackSiteEmptyModel{}
+									if !isImport && len(BondDevicesExisting) > BondDevicesIdx {
+										return BondDevicesExisting[BondDevicesIdx].ActiveBackup
 									}
 									if _, ok := BondDevicesItemMap["active_backup"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
@@ -11961,8 +11961,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 									if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
 										InterfacesResult = append(InterfacesResult, VoltstackSiteCustomNetworkConfigInterfaceListInterfacesModel{
 											DcClusterGroupConnectivityInterfaceDisabled: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceDisabled != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(InterfacesExisting) > InterfacesIdx {
+													return InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceDisabled
 												}
 												if _, ok := InterfacesItemMap["dc_cluster_group_connectivity_interface_disabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -11970,8 +11970,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											DcClusterGroupConnectivityInterfaceEnabled: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceEnabled != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(InterfacesExisting) > InterfacesIdx {
+													return InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceEnabled
 												}
 												if _, ok := InterfacesItemMap["dc_cluster_group_connectivity_interface_enabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -12178,8 +12178,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																							return types.StringNull()
 																						}(),
 																						FirstAddress: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
 																							}
 																							if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -12187,8 +12187,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																							return nil
 																						}(),
 																						LastAddress: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].LastAddress != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
 																							}
 																							if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -12233,9 +12233,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																							return types.StringNull()
 																						}(),
 																						Pools: func() types.List {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																							}
+																							var PoolsExisting []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																								DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																							}
 																							if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																								var PoolsResult []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
-																								for _, PoolsItem := range rawList {
+																								for PoolsIdx, PoolsItem := range rawList {
+																									_ = PoolsIdx
 																									if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 																										PoolsResult = append(PoolsResult, VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel{
 																											EndIP: func() types.String {
@@ -12265,8 +12273,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																							return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 																						}(),
 																						SameAsDgw: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
 																							}
 																							if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -12458,9 +12466,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																													return types.StringNull()
 																												}(),
 																												Pools: func() types.List {
+																													if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																														return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
+																													}
+																													var PoolsExisting []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																													if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																														DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																													}
 																													if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																														var PoolsResult []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
-																														for _, PoolsItem := range rawList {
+																														for PoolsIdx, PoolsItem := range rawList {
+																															_ = PoolsIdx
 																															if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 																																PoolsResult = append(PoolsResult, VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel{
 																																	EndIP: func() types.String {
@@ -12752,8 +12768,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											Labels: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].Labels != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(InterfacesExisting) > InterfacesIdx {
+													return InterfacesExisting[InterfacesIdx].Labels
 												}
 												if _, ok := InterfacesItemMap["labels"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -12994,8 +13010,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &VoltstackSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
@@ -13039,9 +13055,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {
@@ -13143,8 +13167,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &VoltstackSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
@@ -13188,9 +13212,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {
@@ -13360,8 +13392,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &VoltstackSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
@@ -13405,9 +13437,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {
@@ -13509,8 +13549,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &VoltstackSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
@@ -13554,9 +13594,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {
@@ -13735,8 +13783,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												return types.ListNull(types.StringType)
 											}(),
 											DefaultGateway: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+													return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 												}
 												if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -13780,9 +13828,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																	if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																		ListResult = append(ListResult, VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																			Interface: func() types.List {
+																				if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																				}
+																				var InterfaceExisting []VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
+																				if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																					ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																				}
 																				if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																					var InterfaceResult []VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
-																					for _, InterfaceItem := range rawList {
+																					for InterfaceIdx, InterfaceItem := range rawList {
+																						_ = InterfaceIdx
 																						if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																							InterfaceResult = append(InterfaceResult, VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																								Kind: func() types.String {
@@ -13874,8 +13930,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 									if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
 										StorageClassesResult = append(StorageClassesResult, VoltstackSiteCustomStorageConfigStorageClassListStorageClassesModel{
 											AdvancedStorageParameters: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx {
+													return StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters
 												}
 												if _, ok := StorageClassesItemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -14132,8 +14188,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 									if StorageDevicesItemMap, ok := StorageDevicesItem.(map[string]interface{}); ok {
 										StorageDevicesResult = append(StorageDevicesResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesModel{
 											AdvancedAdvancedParameters: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
+													return StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters
 												}
 												if _, ok := StorageDevicesItemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -14141,8 +14197,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											CustomStorage: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].CustomStorage != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
+													return StorageDevicesExisting[StorageDevicesIdx].CustomStorage
 												}
 												if _, ok := StorageDevicesItemMap["custom_storage"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -14926,8 +14982,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																				if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																					StorageResult = append(StorageResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel{
 																						Labels: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(StorageExisting) > StorageIdx {
+																								return StorageExisting[StorageIdx].Labels
 																							}
 																							if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -15590,8 +15646,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																				if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																					StorageResult = append(StorageResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel{
 																						Labels: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(StorageExisting) > StorageIdx {
+																								return StorageExisting[StorageIdx].Labels
 																							}
 																							if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -16395,8 +16451,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																										return nil
 																									}(),
 																									Labels: func() *VoltstackSiteEmptyModel {
-																										if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].Labels != nil {
-																											return &VoltstackSiteEmptyModel{}
+																										if !isImport && len(FlashArraysExisting) > FlashArraysIdx {
+																											return FlashArraysExisting[FlashArraysIdx].Labels
 																										}
 																										if _, ok := FlashArraysItemMap["labels"].(map[string]interface{}); ok {
 																											return &VoltstackSiteEmptyModel{}
@@ -16628,8 +16684,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																										return nil
 																									}(),
 																									Labels: func() *VoltstackSiteEmptyModel {
-																										if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].Labels != nil {
-																											return &VoltstackSiteEmptyModel{}
+																										if !isImport && len(FlashBladesExisting) > FlashBladesIdx {
+																											return FlashBladesExisting[FlashBladesIdx].Labels
 																										}
 																										if _, ok := FlashBladesItemMap["labels"].(map[string]interface{}); ok {
 																											return &VoltstackSiteEmptyModel{}
@@ -16746,8 +16802,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												return types.StringNull()
 											}(),
 											Labels: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].Labels != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx {
+													return StorageInterfacesExisting[StorageInterfacesIdx].Labels
 												}
 												if _, ok := StorageInterfacesItemMap["labels"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -16829,8 +16885,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																							return types.StringNull()
 																						}(),
 																						FirstAddress: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
 																							}
 																							if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -16838,8 +16894,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																							return nil
 																						}(),
 																						LastAddress: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].LastAddress != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
 																							}
 																							if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -16884,9 +16940,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																							return types.StringNull()
 																						}(),
 																						Pools: func() types.List {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																							}
+																							var PoolsExisting []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModel
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																								DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																							}
 																							if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																								var PoolsResult []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModel
-																								for _, PoolsItem := range rawList {
+																								for PoolsIdx, PoolsItem := range rawList {
+																									_ = PoolsIdx
 																									if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 																										PoolsResult = append(PoolsResult, VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModel{
 																											EndIP: func() types.String {
@@ -16916,8 +16980,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																							return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 																						}(),
 																						SameAsDgw: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
 																							}
 																							if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -17109,9 +17173,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																													return types.StringNull()
 																												}(),
 																												Pools: func() types.List {
+																													if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																														return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
+																													}
+																													var PoolsExisting []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																													if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																														DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																													}
 																													if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																														var PoolsResult []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
-																														for _, PoolsItem := range rawList {
+																														for PoolsIdx, PoolsItem := range rawList {
+																															_ = PoolsIdx
 																															if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 																																PoolsResult = append(PoolsResult, VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel{
 																																	EndIP: func() types.String {
@@ -17578,8 +17650,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 									if PeersItemMap, ok := PeersItem.(map[string]interface{}); ok {
 										PeersResult = append(PeersResult, VoltstackSiteLocalControlPlaneBGPConfigPeersModel{
 											BfdDisabled: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].BfdDisabled != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(PeersExisting) > PeersIdx {
+													return PeersExisting[PeersIdx].BfdDisabled
 												}
 												if _, ok := PeersItemMap["bfd_disabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -17621,8 +17693,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											DisableSpec: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].DisableSpec != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(PeersExisting) > PeersIdx {
+													return PeersExisting[PeersIdx].DisableSpec
 												}
 												if _, ok := PeersItemMap["disable"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -17906,8 +17978,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											PassiveModeDisabled: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].PassiveModeDisabled != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(PeersExisting) > PeersIdx {
+													return PeersExisting[PeersIdx].PassiveModeDisabled
 												}
 												if _, ok := PeersItemMap["passive_mode_disabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -17915,8 +17987,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											PassiveModeEnabled: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].PassiveModeEnabled != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(PeersExisting) > PeersIdx {
+													return PeersExisting[PeersIdx].PassiveModeEnabled
 												}
 												if _, ok := PeersItemMap["passive_mode_enabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -17941,8 +18013,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																	if RoutePolicyItemMap, ok := RoutePolicyItem.(map[string]interface{}); ok {
 																		RoutePolicyResult = append(RoutePolicyResult, VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyModel{
 																			AllNodes: func() *VoltstackSiteEmptyModel {
-																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].AllNodes != nil {
-																					return &VoltstackSiteEmptyModel{}
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx {
+																					return RoutePolicyExisting[RoutePolicyIdx].AllNodes
 																				}
 																				if _, ok := RoutePolicyItemMap["all_nodes"].(map[string]interface{}); ok {
 																					return &VoltstackSiteEmptyModel{}
@@ -17950,8 +18022,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																				return nil
 																			}(),
 																			Inbound: func() *VoltstackSiteEmptyModel {
-																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Inbound != nil {
-																					return &VoltstackSiteEmptyModel{}
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx {
+																					return RoutePolicyExisting[RoutePolicyIdx].Inbound
 																				}
 																				if _, ok := RoutePolicyItemMap["inbound"].(map[string]interface{}); ok {
 																					return &VoltstackSiteEmptyModel{}
@@ -17979,9 +18051,17 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																				return nil
 																			}(),
 																			ObjectRefs: func() types.List {
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && (RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.IsNull() || len(RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyObjectRefsModelAttrTypes})
+																				}
+																				var ObjectRefsExisting []VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyObjectRefsModel
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && !RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.IsNull() && !RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.IsUnknown() {
+																					RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.ElementsAs(ctx, &ObjectRefsExisting, false)
+																				}
 																				if rawList, ok := RoutePolicyItemMap["object_refs"].([]interface{}); ok && len(rawList) > 0 {
 																					var ObjectRefsResult []VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyObjectRefsModel
-																					for _, ObjectRefsItem := range rawList {
+																					for ObjectRefsIdx, ObjectRefsItem := range rawList {
+																						_ = ObjectRefsIdx
 																						if ObjectRefsItemMap, ok := ObjectRefsItem.(map[string]interface{}); ok {
 																							ObjectRefsResult = append(ObjectRefsResult, VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyObjectRefsModel{
 																								Kind: func() types.String {
@@ -18023,8 +18103,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																				return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyObjectRefsModelAttrTypes})
 																			}(),
 																			Outbound: func() *VoltstackSiteEmptyModel {
-																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Outbound != nil {
-																					return &VoltstackSiteEmptyModel{}
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx {
+																					return RoutePolicyExisting[RoutePolicyIdx].Outbound
 																				}
 																				if _, ok := RoutePolicyItemMap["outbound"].(map[string]interface{}); ok {
 																					return &VoltstackSiteEmptyModel{}
@@ -18408,8 +18488,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, VoltstackSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *VoltstackSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
-										return &VoltstackSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
@@ -18423,8 +18503,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 									return types.StringNull()
 								}(),
 								SSH: func() *VoltstackSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
-										return &VoltstackSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
@@ -18432,8 +18512,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								WebUserInterface: func() *VoltstackSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
-										return &VoltstackSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
@@ -18467,8 +18547,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 						if BondDevicesItemMap, ok := BondDevicesItem.(map[string]interface{}); ok {
 							BondDevicesResult = append(BondDevicesResult, VoltstackSiteBondDeviceListBondDevicesModel{
 								ActiveBackup: func() *VoltstackSiteEmptyModel {
-									if !isImport && len(BondDevicesExisting) > BondDevicesIdx && BondDevicesExisting[BondDevicesIdx].ActiveBackup != nil {
-										return &VoltstackSiteEmptyModel{}
+									if !isImport && len(BondDevicesExisting) > BondDevicesIdx {
+										return BondDevicesExisting[BondDevicesIdx].ActiveBackup
 									}
 									if _, ok := BondDevicesItemMap["active_backup"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
@@ -18872,8 +18952,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 									if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
 										InterfacesResult = append(InterfacesResult, VoltstackSiteCustomNetworkConfigInterfaceListInterfacesModel{
 											DcClusterGroupConnectivityInterfaceDisabled: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceDisabled != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(InterfacesExisting) > InterfacesIdx {
+													return InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceDisabled
 												}
 												if _, ok := InterfacesItemMap["dc_cluster_group_connectivity_interface_disabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -18881,8 +18961,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											DcClusterGroupConnectivityInterfaceEnabled: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceEnabled != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(InterfacesExisting) > InterfacesIdx {
+													return InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceEnabled
 												}
 												if _, ok := InterfacesItemMap["dc_cluster_group_connectivity_interface_enabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -19089,8 +19169,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																							return types.StringNull()
 																						}(),
 																						FirstAddress: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
 																							}
 																							if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -19098,8 +19178,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																							return nil
 																						}(),
 																						LastAddress: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].LastAddress != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
 																							}
 																							if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -19144,9 +19224,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																							return types.StringNull()
 																						}(),
 																						Pools: func() types.List {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																							}
+																							var PoolsExisting []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																								DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																							}
 																							if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																								var PoolsResult []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
-																								for _, PoolsItem := range rawList {
+																								for PoolsIdx, PoolsItem := range rawList {
+																									_ = PoolsIdx
 																									if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 																										PoolsResult = append(PoolsResult, VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel{
 																											EndIP: func() types.String {
@@ -19176,8 +19264,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																							return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 																						}(),
 																						SameAsDgw: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
 																							}
 																							if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -19369,9 +19457,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																													return types.StringNull()
 																												}(),
 																												Pools: func() types.List {
+																													if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																														return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
+																													}
+																													var PoolsExisting []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																													if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																														DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																													}
 																													if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																														var PoolsResult []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
-																														for _, PoolsItem := range rawList {
+																														for PoolsIdx, PoolsItem := range rawList {
+																															_ = PoolsIdx
 																															if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 																																PoolsResult = append(PoolsResult, VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel{
 																																	EndIP: func() types.String {
@@ -19663,8 +19759,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											Labels: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].Labels != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(InterfacesExisting) > InterfacesIdx {
+													return InterfacesExisting[InterfacesIdx].Labels
 												}
 												if _, ok := InterfacesItemMap["labels"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -19905,8 +20001,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &VoltstackSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
@@ -19950,9 +20046,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {
@@ -20054,8 +20158,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &VoltstackSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
@@ -20099,9 +20203,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {
@@ -20271,8 +20383,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &VoltstackSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
@@ -20316,9 +20428,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {
@@ -20420,8 +20540,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &VoltstackSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
@@ -20465,9 +20585,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {
@@ -20646,8 +20774,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												return types.ListNull(types.StringType)
 											}(),
 											DefaultGateway: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+													return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 												}
 												if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -20691,9 +20819,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																	if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																		ListResult = append(ListResult, VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																			Interface: func() types.List {
+																				if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																				}
+																				var InterfaceExisting []VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
+																				if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																					ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																				}
 																				if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																					var InterfaceResult []VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
-																					for _, InterfaceItem := range rawList {
+																					for InterfaceIdx, InterfaceItem := range rawList {
+																						_ = InterfaceIdx
 																						if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																							InterfaceResult = append(InterfaceResult, VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																								Kind: func() types.String {
@@ -20785,8 +20921,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 									if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
 										StorageClassesResult = append(StorageClassesResult, VoltstackSiteCustomStorageConfigStorageClassListStorageClassesModel{
 											AdvancedStorageParameters: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx {
+													return StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters
 												}
 												if _, ok := StorageClassesItemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -21043,8 +21179,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 									if StorageDevicesItemMap, ok := StorageDevicesItem.(map[string]interface{}); ok {
 										StorageDevicesResult = append(StorageDevicesResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesModel{
 											AdvancedAdvancedParameters: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
+													return StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters
 												}
 												if _, ok := StorageDevicesItemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -21052,8 +21188,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											CustomStorage: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].CustomStorage != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
+													return StorageDevicesExisting[StorageDevicesIdx].CustomStorage
 												}
 												if _, ok := StorageDevicesItemMap["custom_storage"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -21837,8 +21973,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																				if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																					StorageResult = append(StorageResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel{
 																						Labels: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(StorageExisting) > StorageIdx {
+																								return StorageExisting[StorageIdx].Labels
 																							}
 																							if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -22501,8 +22637,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																				if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																					StorageResult = append(StorageResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel{
 																						Labels: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(StorageExisting) > StorageIdx {
+																								return StorageExisting[StorageIdx].Labels
 																							}
 																							if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -23306,8 +23442,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																										return nil
 																									}(),
 																									Labels: func() *VoltstackSiteEmptyModel {
-																										if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].Labels != nil {
-																											return &VoltstackSiteEmptyModel{}
+																										if !isImport && len(FlashArraysExisting) > FlashArraysIdx {
+																											return FlashArraysExisting[FlashArraysIdx].Labels
 																										}
 																										if _, ok := FlashArraysItemMap["labels"].(map[string]interface{}); ok {
 																											return &VoltstackSiteEmptyModel{}
@@ -23539,8 +23675,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																										return nil
 																									}(),
 																									Labels: func() *VoltstackSiteEmptyModel {
-																										if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].Labels != nil {
-																											return &VoltstackSiteEmptyModel{}
+																										if !isImport && len(FlashBladesExisting) > FlashBladesIdx {
+																											return FlashBladesExisting[FlashBladesIdx].Labels
 																										}
 																										if _, ok := FlashBladesItemMap["labels"].(map[string]interface{}); ok {
 																											return &VoltstackSiteEmptyModel{}
@@ -23657,8 +23793,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												return types.StringNull()
 											}(),
 											Labels: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].Labels != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx {
+													return StorageInterfacesExisting[StorageInterfacesIdx].Labels
 												}
 												if _, ok := StorageInterfacesItemMap["labels"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -23740,8 +23876,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																							return types.StringNull()
 																						}(),
 																						FirstAddress: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
 																							}
 																							if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -23749,8 +23885,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																							return nil
 																						}(),
 																						LastAddress: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].LastAddress != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
 																							}
 																							if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -23795,9 +23931,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																							return types.StringNull()
 																						}(),
 																						Pools: func() types.List {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																							}
+																							var PoolsExisting []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModel
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																								DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																							}
 																							if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																								var PoolsResult []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModel
-																								for _, PoolsItem := range rawList {
+																								for PoolsIdx, PoolsItem := range rawList {
+																									_ = PoolsIdx
 																									if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 																										PoolsResult = append(PoolsResult, VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModel{
 																											EndIP: func() types.String {
@@ -23827,8 +23971,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																							return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 																						}(),
 																						SameAsDgw: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
 																							}
 																							if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -24020,9 +24164,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																													return types.StringNull()
 																												}(),
 																												Pools: func() types.List {
+																													if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																														return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
+																													}
+																													var PoolsExisting []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																													if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																														DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																													}
 																													if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																														var PoolsResult []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
-																														for _, PoolsItem := range rawList {
+																														for PoolsIdx, PoolsItem := range rawList {
+																															_ = PoolsIdx
 																															if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 																																PoolsResult = append(PoolsResult, VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel{
 																																	EndIP: func() types.String {
@@ -24489,8 +24641,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 									if PeersItemMap, ok := PeersItem.(map[string]interface{}); ok {
 										PeersResult = append(PeersResult, VoltstackSiteLocalControlPlaneBGPConfigPeersModel{
 											BfdDisabled: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].BfdDisabled != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(PeersExisting) > PeersIdx {
+													return PeersExisting[PeersIdx].BfdDisabled
 												}
 												if _, ok := PeersItemMap["bfd_disabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -24532,8 +24684,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											DisableSpec: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].DisableSpec != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(PeersExisting) > PeersIdx {
+													return PeersExisting[PeersIdx].DisableSpec
 												}
 												if _, ok := PeersItemMap["disable"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -24817,8 +24969,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											PassiveModeDisabled: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].PassiveModeDisabled != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(PeersExisting) > PeersIdx {
+													return PeersExisting[PeersIdx].PassiveModeDisabled
 												}
 												if _, ok := PeersItemMap["passive_mode_disabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -24826,8 +24978,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											PassiveModeEnabled: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].PassiveModeEnabled != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(PeersExisting) > PeersIdx {
+													return PeersExisting[PeersIdx].PassiveModeEnabled
 												}
 												if _, ok := PeersItemMap["passive_mode_enabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -24852,8 +25004,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																	if RoutePolicyItemMap, ok := RoutePolicyItem.(map[string]interface{}); ok {
 																		RoutePolicyResult = append(RoutePolicyResult, VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyModel{
 																			AllNodes: func() *VoltstackSiteEmptyModel {
-																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].AllNodes != nil {
-																					return &VoltstackSiteEmptyModel{}
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx {
+																					return RoutePolicyExisting[RoutePolicyIdx].AllNodes
 																				}
 																				if _, ok := RoutePolicyItemMap["all_nodes"].(map[string]interface{}); ok {
 																					return &VoltstackSiteEmptyModel{}
@@ -24861,8 +25013,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																				return nil
 																			}(),
 																			Inbound: func() *VoltstackSiteEmptyModel {
-																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Inbound != nil {
-																					return &VoltstackSiteEmptyModel{}
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx {
+																					return RoutePolicyExisting[RoutePolicyIdx].Inbound
 																				}
 																				if _, ok := RoutePolicyItemMap["inbound"].(map[string]interface{}); ok {
 																					return &VoltstackSiteEmptyModel{}
@@ -24890,9 +25042,17 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																				return nil
 																			}(),
 																			ObjectRefs: func() types.List {
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && (RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.IsNull() || len(RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyObjectRefsModelAttrTypes})
+																				}
+																				var ObjectRefsExisting []VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyObjectRefsModel
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && !RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.IsNull() && !RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.IsUnknown() {
+																					RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.ElementsAs(ctx, &ObjectRefsExisting, false)
+																				}
 																				if rawList, ok := RoutePolicyItemMap["object_refs"].([]interface{}); ok && len(rawList) > 0 {
 																					var ObjectRefsResult []VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyObjectRefsModel
-																					for _, ObjectRefsItem := range rawList {
+																					for ObjectRefsIdx, ObjectRefsItem := range rawList {
+																						_ = ObjectRefsIdx
 																						if ObjectRefsItemMap, ok := ObjectRefsItem.(map[string]interface{}); ok {
 																							ObjectRefsResult = append(ObjectRefsResult, VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyObjectRefsModel{
 																								Kind: func() types.String {
@@ -24934,8 +25094,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																				return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyObjectRefsModelAttrTypes})
 																			}(),
 																			Outbound: func() *VoltstackSiteEmptyModel {
-																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Outbound != nil {
-																					return &VoltstackSiteEmptyModel{}
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx {
+																					return RoutePolicyExisting[RoutePolicyIdx].Outbound
 																				}
 																				if _, ok := RoutePolicyItemMap["outbound"].(map[string]interface{}); ok {
 																					return &VoltstackSiteEmptyModel{}
@@ -28522,8 +28682,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, VoltstackSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *VoltstackSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
-										return &VoltstackSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
@@ -28537,8 +28697,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 									return types.StringNull()
 								}(),
 								SSH: func() *VoltstackSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
-										return &VoltstackSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
@@ -28546,8 +28706,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								WebUserInterface: func() *VoltstackSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
-										return &VoltstackSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
@@ -28581,8 +28741,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 						if BondDevicesItemMap, ok := BondDevicesItem.(map[string]interface{}); ok {
 							BondDevicesResult = append(BondDevicesResult, VoltstackSiteBondDeviceListBondDevicesModel{
 								ActiveBackup: func() *VoltstackSiteEmptyModel {
-									if !isImport && len(BondDevicesExisting) > BondDevicesIdx && BondDevicesExisting[BondDevicesIdx].ActiveBackup != nil {
-										return &VoltstackSiteEmptyModel{}
+									if !isImport && len(BondDevicesExisting) > BondDevicesIdx {
+										return BondDevicesExisting[BondDevicesIdx].ActiveBackup
 									}
 									if _, ok := BondDevicesItemMap["active_backup"].(map[string]interface{}); ok {
 										return &VoltstackSiteEmptyModel{}
@@ -28986,8 +29146,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 									if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
 										InterfacesResult = append(InterfacesResult, VoltstackSiteCustomNetworkConfigInterfaceListInterfacesModel{
 											DcClusterGroupConnectivityInterfaceDisabled: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceDisabled != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(InterfacesExisting) > InterfacesIdx {
+													return InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceDisabled
 												}
 												if _, ok := InterfacesItemMap["dc_cluster_group_connectivity_interface_disabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -28995,8 +29155,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											DcClusterGroupConnectivityInterfaceEnabled: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceEnabled != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(InterfacesExisting) > InterfacesIdx {
+													return InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceEnabled
 												}
 												if _, ok := InterfacesItemMap["dc_cluster_group_connectivity_interface_enabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -29203,8 +29363,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																							return types.StringNull()
 																						}(),
 																						FirstAddress: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
 																							}
 																							if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -29212,8 +29372,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																							return nil
 																						}(),
 																						LastAddress: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].LastAddress != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
 																							}
 																							if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -29258,9 +29418,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																							return types.StringNull()
 																						}(),
 																						Pools: func() types.List {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																							}
+																							var PoolsExisting []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																								DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																							}
 																							if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																								var PoolsResult []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
-																								for _, PoolsItem := range rawList {
+																								for PoolsIdx, PoolsItem := range rawList {
+																									_ = PoolsIdx
 																									if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 																										PoolsResult = append(PoolsResult, VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel{
 																											EndIP: func() types.String {
@@ -29290,8 +29458,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																							return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 																						}(),
 																						SameAsDgw: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
 																							}
 																							if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -29483,9 +29651,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																													return types.StringNull()
 																												}(),
 																												Pools: func() types.List {
+																													if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																														return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
+																													}
+																													var PoolsExisting []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																													if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																														DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																													}
 																													if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																														var PoolsResult []VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
-																														for _, PoolsItem := range rawList {
+																														for PoolsIdx, PoolsItem := range rawList {
+																															_ = PoolsIdx
 																															if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 																																PoolsResult = append(PoolsResult, VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel{
 																																	EndIP: func() types.String {
@@ -29777,8 +29953,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											Labels: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].Labels != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(InterfacesExisting) > InterfacesIdx {
+													return InterfacesExisting[InterfacesIdx].Labels
 												}
 												if _, ok := InterfacesItemMap["labels"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -30019,8 +30195,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &VoltstackSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
@@ -30064,9 +30240,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {
@@ -30168,8 +30352,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &VoltstackSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
@@ -30213,9 +30397,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {
@@ -30385,8 +30577,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &VoltstackSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
@@ -30430,9 +30622,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, VoltstackSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {
@@ -30534,8 +30734,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *VoltstackSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &VoltstackSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &VoltstackSiteEmptyModel{}
@@ -30579,9 +30779,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, VoltstackSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {
@@ -30760,8 +30968,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												return types.ListNull(types.StringType)
 											}(),
 											DefaultGateway: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+													return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 												}
 												if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -30805,9 +31013,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																	if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																		ListResult = append(ListResult, VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																			Interface: func() types.List {
+																				if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																				}
+																				var InterfaceExisting []VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
+																				if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																					ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																				}
 																				if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																					var InterfaceResult []VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
-																					for _, InterfaceItem := range rawList {
+																					for InterfaceIdx, InterfaceItem := range rawList {
+																						_ = InterfaceIdx
 																						if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																							InterfaceResult = append(InterfaceResult, VoltstackSiteCustomStorageConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																								Kind: func() types.String {
@@ -30899,8 +31115,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 									if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
 										StorageClassesResult = append(StorageClassesResult, VoltstackSiteCustomStorageConfigStorageClassListStorageClassesModel{
 											AdvancedStorageParameters: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(StorageClassesExisting) > StorageClassesIdx && StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(StorageClassesExisting) > StorageClassesIdx {
+													return StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters
 												}
 												if _, ok := StorageClassesItemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -31157,8 +31373,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 									if StorageDevicesItemMap, ok := StorageDevicesItem.(map[string]interface{}); ok {
 										StorageDevicesResult = append(StorageDevicesResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesModel{
 											AdvancedAdvancedParameters: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
+													return StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters
 												}
 												if _, ok := StorageDevicesItemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -31166,8 +31382,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											CustomStorage: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].CustomStorage != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
+													return StorageDevicesExisting[StorageDevicesIdx].CustomStorage
 												}
 												if _, ok := StorageDevicesItemMap["custom_storage"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -31951,8 +32167,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																				if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																					StorageResult = append(StorageResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel{
 																						Labels: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(StorageExisting) > StorageIdx {
+																								return StorageExisting[StorageIdx].Labels
 																							}
 																							if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -32615,8 +32831,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																				if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																					StorageResult = append(StorageResult, VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel{
 																						Labels: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].Labels != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(StorageExisting) > StorageIdx {
+																								return StorageExisting[StorageIdx].Labels
 																							}
 																							if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -33420,8 +33636,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																										return nil
 																									}(),
 																									Labels: func() *VoltstackSiteEmptyModel {
-																										if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].Labels != nil {
-																											return &VoltstackSiteEmptyModel{}
+																										if !isImport && len(FlashArraysExisting) > FlashArraysIdx {
+																											return FlashArraysExisting[FlashArraysIdx].Labels
 																										}
 																										if _, ok := FlashArraysItemMap["labels"].(map[string]interface{}); ok {
 																											return &VoltstackSiteEmptyModel{}
@@ -33653,8 +33869,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																										return nil
 																									}(),
 																									Labels: func() *VoltstackSiteEmptyModel {
-																										if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].Labels != nil {
-																											return &VoltstackSiteEmptyModel{}
+																										if !isImport && len(FlashBladesExisting) > FlashBladesIdx {
+																											return FlashBladesExisting[FlashBladesIdx].Labels
 																										}
 																										if _, ok := FlashBladesItemMap["labels"].(map[string]interface{}); ok {
 																											return &VoltstackSiteEmptyModel{}
@@ -33771,8 +33987,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												return types.StringNull()
 											}(),
 											Labels: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].Labels != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx {
+													return StorageInterfacesExisting[StorageInterfacesIdx].Labels
 												}
 												if _, ok := StorageInterfacesItemMap["labels"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -33854,8 +34070,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																							return types.StringNull()
 																						}(),
 																						FirstAddress: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
 																							}
 																							if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -33863,8 +34079,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																							return nil
 																						}(),
 																						LastAddress: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].LastAddress != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
 																							}
 																							if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -33909,9 +34125,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																							return types.StringNull()
 																						}(),
 																						Pools: func() types.List {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																							}
+																							var PoolsExisting []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModel
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																								DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																							}
 																							if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																								var PoolsResult []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModel
-																								for _, PoolsItem := range rawList {
+																								for PoolsIdx, PoolsItem := range rawList {
+																									_ = PoolsIdx
 																									if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 																										PoolsResult = append(PoolsResult, VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModel{
 																											EndIP: func() types.String {
@@ -33941,8 +34165,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																							return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 																						}(),
 																						SameAsDgw: func() *VoltstackSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw != nil {
-																								return &VoltstackSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
 																							}
 																							if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
 																								return &VoltstackSiteEmptyModel{}
@@ -34134,9 +34358,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																													return types.StringNull()
 																												}(),
 																												Pools: func() types.List {
+																													if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																														return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
+																													}
+																													var PoolsExisting []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																													if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																														DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																													}
 																													if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																														var PoolsResult []VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
-																														for _, PoolsItem := range rawList {
+																														for PoolsIdx, PoolsItem := range rawList {
+																															_ = PoolsIdx
 																															if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 																																PoolsResult = append(PoolsResult, VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel{
 																																	EndIP: func() types.String {
@@ -34603,8 +34835,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 									if PeersItemMap, ok := PeersItem.(map[string]interface{}); ok {
 										PeersResult = append(PeersResult, VoltstackSiteLocalControlPlaneBGPConfigPeersModel{
 											BfdDisabled: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].BfdDisabled != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(PeersExisting) > PeersIdx {
+													return PeersExisting[PeersIdx].BfdDisabled
 												}
 												if _, ok := PeersItemMap["bfd_disabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -34646,8 +34878,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											DisableSpec: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].DisableSpec != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(PeersExisting) > PeersIdx {
+													return PeersExisting[PeersIdx].DisableSpec
 												}
 												if _, ok := PeersItemMap["disable"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -34931,8 +35163,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											PassiveModeDisabled: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].PassiveModeDisabled != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(PeersExisting) > PeersIdx {
+													return PeersExisting[PeersIdx].PassiveModeDisabled
 												}
 												if _, ok := PeersItemMap["passive_mode_disabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -34940,8 +35172,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											PassiveModeEnabled: func() *VoltstackSiteEmptyModel {
-												if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].PassiveModeEnabled != nil {
-													return &VoltstackSiteEmptyModel{}
+												if !isImport && len(PeersExisting) > PeersIdx {
+													return PeersExisting[PeersIdx].PassiveModeEnabled
 												}
 												if _, ok := PeersItemMap["passive_mode_enabled"].(map[string]interface{}); ok {
 													return &VoltstackSiteEmptyModel{}
@@ -34966,8 +35198,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																	if RoutePolicyItemMap, ok := RoutePolicyItem.(map[string]interface{}); ok {
 																		RoutePolicyResult = append(RoutePolicyResult, VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyModel{
 																			AllNodes: func() *VoltstackSiteEmptyModel {
-																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].AllNodes != nil {
-																					return &VoltstackSiteEmptyModel{}
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx {
+																					return RoutePolicyExisting[RoutePolicyIdx].AllNodes
 																				}
 																				if _, ok := RoutePolicyItemMap["all_nodes"].(map[string]interface{}); ok {
 																					return &VoltstackSiteEmptyModel{}
@@ -34975,8 +35207,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																				return nil
 																			}(),
 																			Inbound: func() *VoltstackSiteEmptyModel {
-																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Inbound != nil {
-																					return &VoltstackSiteEmptyModel{}
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx {
+																					return RoutePolicyExisting[RoutePolicyIdx].Inbound
 																				}
 																				if _, ok := RoutePolicyItemMap["inbound"].(map[string]interface{}); ok {
 																					return &VoltstackSiteEmptyModel{}
@@ -35004,9 +35236,17 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																				return nil
 																			}(),
 																			ObjectRefs: func() types.List {
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && (RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.IsNull() || len(RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyObjectRefsModelAttrTypes})
+																				}
+																				var ObjectRefsExisting []VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyObjectRefsModel
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && !RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.IsNull() && !RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.IsUnknown() {
+																					RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.ElementsAs(ctx, &ObjectRefsExisting, false)
+																				}
 																				if rawList, ok := RoutePolicyItemMap["object_refs"].([]interface{}); ok && len(rawList) > 0 {
 																					var ObjectRefsResult []VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyObjectRefsModel
-																					for _, ObjectRefsItem := range rawList {
+																					for ObjectRefsIdx, ObjectRefsItem := range rawList {
+																						_ = ObjectRefsIdx
 																						if ObjectRefsItemMap, ok := ObjectRefsItem.(map[string]interface{}); ok {
 																							ObjectRefsResult = append(ObjectRefsResult, VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyObjectRefsModel{
 																								Kind: func() types.String {
@@ -35048,8 +35288,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																				return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesRoutePolicyObjectRefsModelAttrTypes})
 																			}(),
 																			Outbound: func() *VoltstackSiteEmptyModel {
-																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Outbound != nil {
-																					return &VoltstackSiteEmptyModel{}
+																				if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx {
+																					return RoutePolicyExisting[RoutePolicyIdx].Outbound
 																				}
 																				if _, ok := RoutePolicyItemMap["outbound"].(map[string]interface{}); ok {
 																					return &VoltstackSiteEmptyModel{}

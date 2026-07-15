@@ -1858,8 +1858,8 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 												return types.StringNull()
 											}(),
 											FirstAddress: func() *NetworkInterfaceEmptyModel {
-												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress != nil {
-													return &NetworkInterfaceEmptyModel{}
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+													return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
 												}
 												if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
 													return &NetworkInterfaceEmptyModel{}
@@ -1867,8 +1867,8 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 												return nil
 											}(),
 											LastAddress: func() *NetworkInterfaceEmptyModel {
-												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].LastAddress != nil {
-													return &NetworkInterfaceEmptyModel{}
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+													return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
 												}
 												if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
 													return &NetworkInterfaceEmptyModel{}
@@ -1888,9 +1888,17 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 												return types.StringNull()
 											}(),
 											Pools: func() types.List {
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
+												}
+												var PoolsExisting []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+													DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+												}
 												if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 													var PoolsResult []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
-													for _, PoolsItem := range rawList {
+													for PoolsIdx, PoolsItem := range rawList {
+														_ = PoolsIdx
 														if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 															PoolsResult = append(PoolsResult, NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModel{
 																EndIP: func() types.String {
@@ -1914,8 +1922,8 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 												return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 											}(),
 											SameAsDgw: func() *NetworkInterfaceEmptyModel {
-												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw != nil {
-													return &NetworkInterfaceEmptyModel{}
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+													return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
 												}
 												if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
 													return &NetworkInterfaceEmptyModel{}
@@ -2107,9 +2115,17 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 																		return types.StringNull()
 																	}(),
 																	Pools: func() types.List {
+																		if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
+																		}
+																		var PoolsExisting []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																		if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																			DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																		}
 																		if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																			var PoolsResult []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
-																			for _, PoolsItem := range rawList {
+																			for PoolsIdx, PoolsItem := range rawList {
+																				_ = PoolsIdx
 																				if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 																					PoolsResult = append(PoolsResult, NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel{
 																						EndIP: func() types.String {
@@ -2885,8 +2901,8 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 												return types.StringNull()
 											}(),
 											FirstAddress: func() *NetworkInterfaceEmptyModel {
-												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress != nil {
-													return &NetworkInterfaceEmptyModel{}
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+													return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
 												}
 												if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
 													return &NetworkInterfaceEmptyModel{}
@@ -2894,8 +2910,8 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 												return nil
 											}(),
 											LastAddress: func() *NetworkInterfaceEmptyModel {
-												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].LastAddress != nil {
-													return &NetworkInterfaceEmptyModel{}
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+													return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
 												}
 												if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
 													return &NetworkInterfaceEmptyModel{}
@@ -2915,9 +2931,17 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 												return types.StringNull()
 											}(),
 											Pools: func() types.List {
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
+												}
+												var PoolsExisting []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+													DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+												}
 												if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 													var PoolsResult []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
-													for _, PoolsItem := range rawList {
+													for PoolsIdx, PoolsItem := range rawList {
+														_ = PoolsIdx
 														if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 															PoolsResult = append(PoolsResult, NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModel{
 																EndIP: func() types.String {
@@ -2941,8 +2965,8 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 												return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 											}(),
 											SameAsDgw: func() *NetworkInterfaceEmptyModel {
-												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw != nil {
-													return &NetworkInterfaceEmptyModel{}
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+													return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
 												}
 												if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
 													return &NetworkInterfaceEmptyModel{}
@@ -3134,9 +3158,17 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 																		return types.StringNull()
 																	}(),
 																	Pools: func() types.List {
+																		if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
+																		}
+																		var PoolsExisting []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																		if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																			DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																		}
 																		if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																			var PoolsResult []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
-																			for _, PoolsItem := range rawList {
+																			for PoolsIdx, PoolsItem := range rawList {
+																				_ = PoolsIdx
 																				if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 																					PoolsResult = append(PoolsResult, NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel{
 																						EndIP: func() types.String {
@@ -4303,8 +4335,8 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 												return types.StringNull()
 											}(),
 											FirstAddress: func() *NetworkInterfaceEmptyModel {
-												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress != nil {
-													return &NetworkInterfaceEmptyModel{}
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+													return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
 												}
 												if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
 													return &NetworkInterfaceEmptyModel{}
@@ -4312,8 +4344,8 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 												return nil
 											}(),
 											LastAddress: func() *NetworkInterfaceEmptyModel {
-												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].LastAddress != nil {
-													return &NetworkInterfaceEmptyModel{}
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+													return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
 												}
 												if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
 													return &NetworkInterfaceEmptyModel{}
@@ -4333,9 +4365,17 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 												return types.StringNull()
 											}(),
 											Pools: func() types.List {
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
+												}
+												var PoolsExisting []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+													DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+												}
 												if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 													var PoolsResult []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
-													for _, PoolsItem := range rawList {
+													for PoolsIdx, PoolsItem := range rawList {
+														_ = PoolsIdx
 														if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 															PoolsResult = append(PoolsResult, NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModel{
 																EndIP: func() types.String {
@@ -4359,8 +4399,8 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 												return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 											}(),
 											SameAsDgw: func() *NetworkInterfaceEmptyModel {
-												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw != nil {
-													return &NetworkInterfaceEmptyModel{}
+												if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+													return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
 												}
 												if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
 													return &NetworkInterfaceEmptyModel{}
@@ -4552,9 +4592,17 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 																		return types.StringNull()
 																	}(),
 																	Pools: func() types.List {
+																		if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
+																		}
+																		var PoolsExisting []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																		if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																			DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																		}
 																		if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																			var PoolsResult []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
-																			for _, PoolsItem := range rawList {
+																			for PoolsIdx, PoolsItem := range rawList {
+																				_ = PoolsIdx
 																				if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 																					PoolsResult = append(PoolsResult, NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel{
 																						EndIP: func() types.String {

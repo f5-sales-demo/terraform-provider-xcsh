@@ -4209,8 +4209,8 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 																	if HealthCheckItemMap, ok := HealthCheckItem.(map[string]interface{}); ok {
 																		HealthCheckResult = append(HealthCheckResult, BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel{
 																			ICMPHealthCheck: func() *BigIPHTTPProxyEmptyModel {
-																				if !isImport && len(HealthCheckExisting) > HealthCheckIdx && HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck != nil {
-																					return &BigIPHTTPProxyEmptyModel{}
+																				if !isImport && len(HealthCheckExisting) > HealthCheckIdx {
+																					return HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck
 																				}
 																				if _, ok := HealthCheckItemMap["icmp_health_check"].(map[string]interface{}); ok {
 																					return &BigIPHTTPProxyEmptyModel{}
@@ -4793,8 +4793,8 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 												return nil
 											}(),
 											UseDefaultPort: func() *BigIPHTTPProxyEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
-													return &BigIPHTTPProxyEmptyModel{}
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+													return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 												}
 												if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 													return &BigIPHTTPProxyEmptyModel{}
@@ -5597,8 +5597,8 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 															return types.StringNull()
 														}(),
 														DisableOCSPStapling: func() *BigIPHTTPProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-																return &BigIPHTTPProxyEmptyModel{}
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+																return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 																return &BigIPHTTPProxyEmptyModel{}
@@ -5663,8 +5663,8 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 															return nil
 														}(),
 														UseSystemDefaults: func() *BigIPHTTPProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-																return &BigIPHTTPProxyEmptyModel{}
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+																return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 																return &BigIPHTTPProxyEmptyModel{}
@@ -6544,8 +6544,8 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 																	if HealthCheckItemMap, ok := HealthCheckItem.(map[string]interface{}); ok {
 																		HealthCheckResult = append(HealthCheckResult, BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel{
 																			ICMPHealthCheck: func() *BigIPHTTPProxyEmptyModel {
-																				if !isImport && len(HealthCheckExisting) > HealthCheckIdx && HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck != nil {
-																					return &BigIPHTTPProxyEmptyModel{}
+																				if !isImport && len(HealthCheckExisting) > HealthCheckIdx {
+																					return HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck
 																				}
 																				if _, ok := HealthCheckItemMap["icmp_health_check"].(map[string]interface{}); ok {
 																					return &BigIPHTTPProxyEmptyModel{}
@@ -7128,8 +7128,8 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 												return nil
 											}(),
 											UseDefaultPort: func() *BigIPHTTPProxyEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
-													return &BigIPHTTPProxyEmptyModel{}
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+													return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 												}
 												if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 													return &BigIPHTTPProxyEmptyModel{}
@@ -7932,8 +7932,8 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 															return types.StringNull()
 														}(),
 														DisableOCSPStapling: func() *BigIPHTTPProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-																return &BigIPHTTPProxyEmptyModel{}
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+																return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 																return &BigIPHTTPProxyEmptyModel{}
@@ -7998,8 +7998,8 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 															return nil
 														}(),
 														UseSystemDefaults: func() *BigIPHTTPProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-																return &BigIPHTTPProxyEmptyModel{}
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+																return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 																return &BigIPHTTPProxyEmptyModel{}
@@ -9890,8 +9890,8 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 																	if HealthCheckItemMap, ok := HealthCheckItem.(map[string]interface{}); ok {
 																		HealthCheckResult = append(HealthCheckResult, BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel{
 																			ICMPHealthCheck: func() *BigIPHTTPProxyEmptyModel {
-																				if !isImport && len(HealthCheckExisting) > HealthCheckIdx && HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck != nil {
-																					return &BigIPHTTPProxyEmptyModel{}
+																				if !isImport && len(HealthCheckExisting) > HealthCheckIdx {
+																					return HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck
 																				}
 																				if _, ok := HealthCheckItemMap["icmp_health_check"].(map[string]interface{}); ok {
 																					return &BigIPHTTPProxyEmptyModel{}
@@ -10474,8 +10474,8 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 												return nil
 											}(),
 											UseDefaultPort: func() *BigIPHTTPProxyEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
-													return &BigIPHTTPProxyEmptyModel{}
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+													return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 												}
 												if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 													return &BigIPHTTPProxyEmptyModel{}
@@ -11278,8 +11278,8 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 															return types.StringNull()
 														}(),
 														DisableOCSPStapling: func() *BigIPHTTPProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-																return &BigIPHTTPProxyEmptyModel{}
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+																return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 																return &BigIPHTTPProxyEmptyModel{}
@@ -11344,8 +11344,8 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 															return nil
 														}(),
 														UseSystemDefaults: func() *BigIPHTTPProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-																return &BigIPHTTPProxyEmptyModel{}
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+																return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 																return &BigIPHTTPProxyEmptyModel{}

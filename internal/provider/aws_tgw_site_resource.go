@@ -4187,8 +4187,8 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 									return nil
 								}(),
 								ReservedInsideSubnet: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].ReservedInsideSubnet != nil {
-										return &AWSTGWSiteEmptyModel{}
+									if !isImport && len(AzNodesExisting) > AzNodesIdx {
+										return AzNodesExisting[AzNodesIdx].ReservedInsideSubnet
 									}
 									if _, ok := AzNodesItemMap["reserved_inside_subnet"].(map[string]interface{}); ok {
 										return &AWSTGWSiteEmptyModel{}
@@ -4528,8 +4528,8 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, AWSTGWSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
-										return &AWSTGWSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &AWSTGWSiteEmptyModel{}
@@ -4543,8 +4543,8 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 									return types.StringNull()
 								}(),
 								SSH: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
-										return &AWSTGWSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &AWSTGWSiteEmptyModel{}
@@ -4552,8 +4552,8 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 									return nil
 								}(),
 								WebUserInterface: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
-										return &AWSTGWSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &AWSTGWSiteEmptyModel{}
@@ -4686,8 +4686,8 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 												return types.StringNull()
 											}(),
 											SameAsSiteRegion: func() *AWSTGWSiteEmptyModel {
-												if !isImport && len(VifListExisting) > VifListIdx && VifListExisting[VifListIdx].SameAsSiteRegion != nil {
-													return &AWSTGWSiteEmptyModel{}
+												if !isImport && len(VifListExisting) > VifListIdx {
+													return VifListExisting[VifListIdx].SameAsSiteRegion
 												}
 												if _, ok := VifListItemMap["same_as_site_region"].(map[string]interface{}); ok {
 													return &AWSTGWSiteEmptyModel{}
@@ -5970,8 +5970,8 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						if VPCListItemMap, ok := VPCListItem.(map[string]interface{}); ok {
 							VPCListResult = append(VPCListResult, AWSTGWSiteVPCAttachmentsVPCListModel{
 								Labels: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].Labels != nil {
-										return &AWSTGWSiteEmptyModel{}
+									if !isImport && len(VPCListExisting) > VPCListIdx {
+										return VPCListExisting[VPCListIdx].Labels
 									}
 									if _, ok := VPCListItemMap["labels"].(map[string]interface{}); ok {
 										return &AWSTGWSiteEmptyModel{}
@@ -6393,8 +6393,8 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 									return nil
 								}(),
 								ReservedInsideSubnet: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].ReservedInsideSubnet != nil {
-										return &AWSTGWSiteEmptyModel{}
+									if !isImport && len(AzNodesExisting) > AzNodesIdx {
+										return AzNodesExisting[AzNodesIdx].ReservedInsideSubnet
 									}
 									if _, ok := AzNodesItemMap["reserved_inside_subnet"].(map[string]interface{}); ok {
 										return &AWSTGWSiteEmptyModel{}
@@ -6734,8 +6734,8 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, AWSTGWSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
-										return &AWSTGWSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &AWSTGWSiteEmptyModel{}
@@ -6749,8 +6749,8 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 									return types.StringNull()
 								}(),
 								SSH: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
-										return &AWSTGWSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &AWSTGWSiteEmptyModel{}
@@ -6758,8 +6758,8 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 									return nil
 								}(),
 								WebUserInterface: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
-										return &AWSTGWSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &AWSTGWSiteEmptyModel{}
@@ -6892,8 +6892,8 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 												return types.StringNull()
 											}(),
 											SameAsSiteRegion: func() *AWSTGWSiteEmptyModel {
-												if !isImport && len(VifListExisting) > VifListIdx && VifListExisting[VifListIdx].SameAsSiteRegion != nil {
-													return &AWSTGWSiteEmptyModel{}
+												if !isImport && len(VifListExisting) > VifListIdx {
+													return VifListExisting[VifListIdx].SameAsSiteRegion
 												}
 												if _, ok := VifListItemMap["same_as_site_region"].(map[string]interface{}); ok {
 													return &AWSTGWSiteEmptyModel{}
@@ -8176,8 +8176,8 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 						if VPCListItemMap, ok := VPCListItem.(map[string]interface{}); ok {
 							VPCListResult = append(VPCListResult, AWSTGWSiteVPCAttachmentsVPCListModel{
 								Labels: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].Labels != nil {
-										return &AWSTGWSiteEmptyModel{}
+									if !isImport && len(VPCListExisting) > VPCListIdx {
+										return VPCListExisting[VPCListIdx].Labels
 									}
 									if _, ok := VPCListItemMap["labels"].(map[string]interface{}); ok {
 										return &AWSTGWSiteEmptyModel{}
@@ -9595,8 +9595,8 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 									return nil
 								}(),
 								ReservedInsideSubnet: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].ReservedInsideSubnet != nil {
-										return &AWSTGWSiteEmptyModel{}
+									if !isImport && len(AzNodesExisting) > AzNodesIdx {
+										return AzNodesExisting[AzNodesIdx].ReservedInsideSubnet
 									}
 									if _, ok := AzNodesItemMap["reserved_inside_subnet"].(map[string]interface{}); ok {
 										return &AWSTGWSiteEmptyModel{}
@@ -9936,8 +9936,8 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, AWSTGWSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
-										return &AWSTGWSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &AWSTGWSiteEmptyModel{}
@@ -9951,8 +9951,8 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 									return types.StringNull()
 								}(),
 								SSH: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
-										return &AWSTGWSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &AWSTGWSiteEmptyModel{}
@@ -9960,8 +9960,8 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 									return nil
 								}(),
 								WebUserInterface: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
-										return &AWSTGWSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &AWSTGWSiteEmptyModel{}
@@ -10094,8 +10094,8 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 												return types.StringNull()
 											}(),
 											SameAsSiteRegion: func() *AWSTGWSiteEmptyModel {
-												if !isImport && len(VifListExisting) > VifListIdx && VifListExisting[VifListIdx].SameAsSiteRegion != nil {
-													return &AWSTGWSiteEmptyModel{}
+												if !isImport && len(VifListExisting) > VifListIdx {
+													return VifListExisting[VifListIdx].SameAsSiteRegion
 												}
 												if _, ok := VifListItemMap["same_as_site_region"].(map[string]interface{}); ok {
 													return &AWSTGWSiteEmptyModel{}
@@ -11378,8 +11378,8 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						if VPCListItemMap, ok := VPCListItem.(map[string]interface{}); ok {
 							VPCListResult = append(VPCListResult, AWSTGWSiteVPCAttachmentsVPCListModel{
 								Labels: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].Labels != nil {
-										return &AWSTGWSiteEmptyModel{}
+									if !isImport && len(VPCListExisting) > VPCListIdx {
+										return VPCListExisting[VPCListIdx].Labels
 									}
 									if _, ok := VPCListItemMap["labels"].(map[string]interface{}); ok {
 										return &AWSTGWSiteEmptyModel{}

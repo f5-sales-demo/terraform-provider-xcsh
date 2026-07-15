@@ -3999,8 +3999,8 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 										ExcludeListResult = append(ExcludeListResult, ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
-													return &ProtectedApplicationEmptyModel{}
+												if !isImport && len(ExcludeListExisting) > ExcludeListIdx {
+													return ExcludeListExisting[ExcludeListIdx].AnyDomain
 												}
 												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
@@ -4111,8 +4111,8 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, ProtectedApplicationCloudflareJsInsertionRulesRulesModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyDomain != nil {
-													return &ProtectedApplicationEmptyModel{}
+												if !isImport && len(RulesExisting) > RulesIdx {
+													return RulesExisting[RulesIdx].AnyDomain
 												}
 												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
@@ -4290,8 +4290,8 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 						if ProtectedEndpointsItemMap, ok := ProtectedEndpointsItem.(map[string]interface{}); ok {
 							ProtectedEndpointsResult = append(ProtectedEndpointsResult, ProtectedApplicationCloudflareProtectedEndpointsModel{
 								AnyDomain: func() *ProtectedApplicationEmptyModel {
-									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain != nil {
-										return &ProtectedApplicationEmptyModel{}
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx {
+										return ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain
 									}
 									if _, ok := ProtectedEndpointsItemMap["any_domain"].(map[string]interface{}); ok {
 										return &ProtectedApplicationEmptyModel{}
@@ -4892,8 +4892,8 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 										ExcludeListResult = append(ExcludeListResult, ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
-													return &ProtectedApplicationEmptyModel{}
+												if !isImport && len(ExcludeListExisting) > ExcludeListIdx {
+													return ExcludeListExisting[ExcludeListIdx].AnyDomain
 												}
 												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
@@ -5010,8 +5010,8 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, ProtectedApplicationCloudfrontJsInsertionRulesRulesModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyDomain != nil {
-													return &ProtectedApplicationEmptyModel{}
+												if !isImport && len(RulesExisting) > RulesIdx {
+													return RulesExisting[RulesIdx].AnyDomain
 												}
 												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
@@ -5195,8 +5195,8 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 						if ProtectedEndpointsItemMap, ok := ProtectedEndpointsItem.(map[string]interface{}); ok {
 							ProtectedEndpointsResult = append(ProtectedEndpointsResult, ProtectedApplicationCloudfrontProtectedEndpointsModel{
 								AnyDomain: func() *ProtectedApplicationEmptyModel {
-									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain != nil {
-										return &ProtectedApplicationEmptyModel{}
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx {
+										return ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain
 									}
 									if _, ok := ProtectedEndpointsItemMap["any_domain"].(map[string]interface{}); ok {
 										return &ProtectedApplicationEmptyModel{}
@@ -5788,8 +5788,8 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 									return types.StringNull()
 								}(),
 								UndefinedFlowLabel: func() *ProtectedApplicationEmptyModel {
-									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].UndefinedFlowLabel != nil {
-										return &ProtectedApplicationEmptyModel{}
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx {
+										return ProtectedEndpointsExisting[ProtectedEndpointsIdx].UndefinedFlowLabel
 									}
 									if _, ok := ProtectedEndpointsItemMap["undefined_flow_label"].(map[string]interface{}); ok {
 										return &ProtectedApplicationEmptyModel{}
@@ -6295,8 +6295,8 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 										ExcludeListResult = append(ExcludeListResult, ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
-													return &ProtectedApplicationEmptyModel{}
+												if !isImport && len(ExcludeListExisting) > ExcludeListIdx {
+													return ExcludeListExisting[ExcludeListIdx].AnyDomain
 												}
 												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
@@ -6407,8 +6407,8 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, ProtectedApplicationCloudflareJsInsertionRulesRulesModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyDomain != nil {
-													return &ProtectedApplicationEmptyModel{}
+												if !isImport && len(RulesExisting) > RulesIdx {
+													return RulesExisting[RulesIdx].AnyDomain
 												}
 												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
@@ -6586,8 +6586,8 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 						if ProtectedEndpointsItemMap, ok := ProtectedEndpointsItem.(map[string]interface{}); ok {
 							ProtectedEndpointsResult = append(ProtectedEndpointsResult, ProtectedApplicationCloudflareProtectedEndpointsModel{
 								AnyDomain: func() *ProtectedApplicationEmptyModel {
-									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain != nil {
-										return &ProtectedApplicationEmptyModel{}
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx {
+										return ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain
 									}
 									if _, ok := ProtectedEndpointsItemMap["any_domain"].(map[string]interface{}); ok {
 										return &ProtectedApplicationEmptyModel{}
@@ -7188,8 +7188,8 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 										ExcludeListResult = append(ExcludeListResult, ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
-													return &ProtectedApplicationEmptyModel{}
+												if !isImport && len(ExcludeListExisting) > ExcludeListIdx {
+													return ExcludeListExisting[ExcludeListIdx].AnyDomain
 												}
 												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
@@ -7306,8 +7306,8 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, ProtectedApplicationCloudfrontJsInsertionRulesRulesModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyDomain != nil {
-													return &ProtectedApplicationEmptyModel{}
+												if !isImport && len(RulesExisting) > RulesIdx {
+													return RulesExisting[RulesIdx].AnyDomain
 												}
 												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
@@ -7491,8 +7491,8 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 						if ProtectedEndpointsItemMap, ok := ProtectedEndpointsItem.(map[string]interface{}); ok {
 							ProtectedEndpointsResult = append(ProtectedEndpointsResult, ProtectedApplicationCloudfrontProtectedEndpointsModel{
 								AnyDomain: func() *ProtectedApplicationEmptyModel {
-									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain != nil {
-										return &ProtectedApplicationEmptyModel{}
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx {
+										return ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain
 									}
 									if _, ok := ProtectedEndpointsItemMap["any_domain"].(map[string]interface{}); ok {
 										return &ProtectedApplicationEmptyModel{}
@@ -8084,8 +8084,8 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 									return types.StringNull()
 								}(),
 								UndefinedFlowLabel: func() *ProtectedApplicationEmptyModel {
-									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].UndefinedFlowLabel != nil {
-										return &ProtectedApplicationEmptyModel{}
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx {
+										return ProtectedEndpointsExisting[ProtectedEndpointsIdx].UndefinedFlowLabel
 									}
 									if _, ok := ProtectedEndpointsItemMap["undefined_flow_label"].(map[string]interface{}); ok {
 										return &ProtectedApplicationEmptyModel{}
@@ -9606,8 +9606,8 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 										ExcludeListResult = append(ExcludeListResult, ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
-													return &ProtectedApplicationEmptyModel{}
+												if !isImport && len(ExcludeListExisting) > ExcludeListIdx {
+													return ExcludeListExisting[ExcludeListIdx].AnyDomain
 												}
 												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
@@ -9718,8 +9718,8 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, ProtectedApplicationCloudflareJsInsertionRulesRulesModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyDomain != nil {
-													return &ProtectedApplicationEmptyModel{}
+												if !isImport && len(RulesExisting) > RulesIdx {
+													return RulesExisting[RulesIdx].AnyDomain
 												}
 												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
@@ -9897,8 +9897,8 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 						if ProtectedEndpointsItemMap, ok := ProtectedEndpointsItem.(map[string]interface{}); ok {
 							ProtectedEndpointsResult = append(ProtectedEndpointsResult, ProtectedApplicationCloudflareProtectedEndpointsModel{
 								AnyDomain: func() *ProtectedApplicationEmptyModel {
-									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain != nil {
-										return &ProtectedApplicationEmptyModel{}
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx {
+										return ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain
 									}
 									if _, ok := ProtectedEndpointsItemMap["any_domain"].(map[string]interface{}); ok {
 										return &ProtectedApplicationEmptyModel{}
@@ -10499,8 +10499,8 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 										ExcludeListResult = append(ExcludeListResult, ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && ExcludeListExisting[ExcludeListIdx].AnyDomain != nil {
-													return &ProtectedApplicationEmptyModel{}
+												if !isImport && len(ExcludeListExisting) > ExcludeListIdx {
+													return ExcludeListExisting[ExcludeListIdx].AnyDomain
 												}
 												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
@@ -10617,8 +10617,8 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, ProtectedApplicationCloudfrontJsInsertionRulesRulesModel{
 											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AnyDomain != nil {
-													return &ProtectedApplicationEmptyModel{}
+												if !isImport && len(RulesExisting) > RulesIdx {
+													return RulesExisting[RulesIdx].AnyDomain
 												}
 												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
 													return &ProtectedApplicationEmptyModel{}
@@ -10802,8 +10802,8 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 						if ProtectedEndpointsItemMap, ok := ProtectedEndpointsItem.(map[string]interface{}); ok {
 							ProtectedEndpointsResult = append(ProtectedEndpointsResult, ProtectedApplicationCloudfrontProtectedEndpointsModel{
 								AnyDomain: func() *ProtectedApplicationEmptyModel {
-									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain != nil {
-										return &ProtectedApplicationEmptyModel{}
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx {
+										return ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain
 									}
 									if _, ok := ProtectedEndpointsItemMap["any_domain"].(map[string]interface{}); ok {
 										return &ProtectedApplicationEmptyModel{}
@@ -11395,8 +11395,8 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 									return types.StringNull()
 								}(),
 								UndefinedFlowLabel: func() *ProtectedApplicationEmptyModel {
-									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].UndefinedFlowLabel != nil {
-										return &ProtectedApplicationEmptyModel{}
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx {
+										return ProtectedEndpointsExisting[ProtectedEndpointsIdx].UndefinedFlowLabel
 									}
 									if _, ok := ProtectedEndpointsItemMap["undefined_flow_label"].(map[string]interface{}); ok {
 										return &ProtectedApplicationEmptyModel{}

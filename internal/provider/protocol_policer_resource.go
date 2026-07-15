@@ -472,9 +472,17 @@ func (r *ProtocolPolicerResource) Create(ctx context.Context, req resource.Creat
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				ProtocolPolicerList = append(ProtocolPolicerList, ProtocolPolicerProtocolPolicerModel{
 					Policer: func() types.List {
+						if !isImport && len(existingProtocolPolicerItems) > listIdx && (existingProtocolPolicerItems[listIdx].Policer.IsNull() || len(existingProtocolPolicerItems[listIdx].Policer.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: ProtocolPolicerProtocolPolicerPolicerModelAttrTypes})
+						}
+						var PolicerExisting []ProtocolPolicerProtocolPolicerPolicerModel
+						if !isImport && len(existingProtocolPolicerItems) > listIdx && !existingProtocolPolicerItems[listIdx].Policer.IsNull() && !existingProtocolPolicerItems[listIdx].Policer.IsUnknown() {
+							existingProtocolPolicerItems[listIdx].Policer.ElementsAs(ctx, &PolicerExisting, false)
+						}
 						if rawList, ok := itemMap["policer"].([]interface{}); ok && len(rawList) > 0 {
 							var PolicerResult []ProtocolPolicerProtocolPolicerPolicerModel
-							for _, PolicerItem := range rawList {
+							for PolicerIdx, PolicerItem := range rawList {
+								_ = PolicerIdx
 								if PolicerItemMap, ok := PolicerItem.(map[string]interface{}); ok {
 									PolicerResult = append(PolicerResult, ProtocolPolicerProtocolPolicerPolicerModel{
 										Kind: func() types.String {
@@ -703,9 +711,17 @@ func (r *ProtocolPolicerResource) Read(ctx context.Context, req resource.ReadReq
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				ProtocolPolicerList = append(ProtocolPolicerList, ProtocolPolicerProtocolPolicerModel{
 					Policer: func() types.List {
+						if !isImport && len(existingProtocolPolicerItems) > listIdx && (existingProtocolPolicerItems[listIdx].Policer.IsNull() || len(existingProtocolPolicerItems[listIdx].Policer.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: ProtocolPolicerProtocolPolicerPolicerModelAttrTypes})
+						}
+						var PolicerExisting []ProtocolPolicerProtocolPolicerPolicerModel
+						if !isImport && len(existingProtocolPolicerItems) > listIdx && !existingProtocolPolicerItems[listIdx].Policer.IsNull() && !existingProtocolPolicerItems[listIdx].Policer.IsUnknown() {
+							existingProtocolPolicerItems[listIdx].Policer.ElementsAs(ctx, &PolicerExisting, false)
+						}
 						if rawList, ok := itemMap["policer"].([]interface{}); ok && len(rawList) > 0 {
 							var PolicerResult []ProtocolPolicerProtocolPolicerPolicerModel
-							for _, PolicerItem := range rawList {
+							for PolicerIdx, PolicerItem := range rawList {
+								_ = PolicerIdx
 								if PolicerItemMap, ok := PolicerItem.(map[string]interface{}); ok {
 									PolicerResult = append(PolicerResult, ProtocolPolicerProtocolPolicerPolicerModel{
 										Kind: func() types.String {
@@ -997,9 +1013,17 @@ func (r *ProtocolPolicerResource) Update(ctx context.Context, req resource.Updat
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				ProtocolPolicerList = append(ProtocolPolicerList, ProtocolPolicerProtocolPolicerModel{
 					Policer: func() types.List {
+						if !isImport && len(existingProtocolPolicerItems) > listIdx && (existingProtocolPolicerItems[listIdx].Policer.IsNull() || len(existingProtocolPolicerItems[listIdx].Policer.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: ProtocolPolicerProtocolPolicerPolicerModelAttrTypes})
+						}
+						var PolicerExisting []ProtocolPolicerProtocolPolicerPolicerModel
+						if !isImport && len(existingProtocolPolicerItems) > listIdx && !existingProtocolPolicerItems[listIdx].Policer.IsNull() && !existingProtocolPolicerItems[listIdx].Policer.IsUnknown() {
+							existingProtocolPolicerItems[listIdx].Policer.ElementsAs(ctx, &PolicerExisting, false)
+						}
 						if rawList, ok := itemMap["policer"].([]interface{}); ok && len(rawList) > 0 {
 							var PolicerResult []ProtocolPolicerProtocolPolicerPolicerModel
-							for _, PolicerItem := range rawList {
+							for PolicerIdx, PolicerItem := range rawList {
+								_ = PolicerIdx
 								if PolicerItemMap, ok := PolicerItem.(map[string]interface{}); ok {
 									PolicerResult = append(PolicerResult, ProtocolPolicerProtocolPolicerPolicerModel{
 										Kind: func() types.String {

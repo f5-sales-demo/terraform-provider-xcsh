@@ -977,12 +977,23 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 						return types.BoolNull()
 					}(),
 					Credentials: func() types.List {
+						if !isImport && len(existingDomainsItems) > listIdx && (existingDomainsItems[listIdx].Credentials.IsNull() || len(existingDomainsItems[listIdx].Credentials.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: APITestingDomainsCredentialsModelAttrTypes})
+						}
+						var CredentialsExisting []APITestingDomainsCredentialsModel
+						if !isImport && len(existingDomainsItems) > listIdx && !existingDomainsItems[listIdx].Credentials.IsNull() && !existingDomainsItems[listIdx].Credentials.IsUnknown() {
+							existingDomainsItems[listIdx].Credentials.ElementsAs(ctx, &CredentialsExisting, false)
+						}
 						if rawList, ok := itemMap["credentials"].([]interface{}); ok && len(rawList) > 0 {
 							var CredentialsResult []APITestingDomainsCredentialsModel
-							for _, CredentialsItem := range rawList {
+							for CredentialsIdx, CredentialsItem := range rawList {
+								_ = CredentialsIdx
 								if CredentialsItemMap, ok := CredentialsItem.(map[string]interface{}); ok {
 									CredentialsResult = append(CredentialsResult, APITestingDomainsCredentialsModel{
 										Admin: func() *APITestingEmptyModel {
+											if !isImport && len(CredentialsExisting) > CredentialsIdx {
+												return CredentialsExisting[CredentialsIdx].Admin
+											}
 											if _, ok := CredentialsItemMap["admin"].(map[string]interface{}); ok {
 												return &APITestingEmptyModel{}
 											}
@@ -998,9 +1009,15 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 														return types.StringNull()
 													}(),
 													Value: func() *APITestingDomainsCredentialsAPIKeyValueModel {
+														if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].APIKey != nil && CredentialsExisting[CredentialsIdx].APIKey.Value != nil {
+															return CredentialsExisting[CredentialsIdx].APIKey.Value
+														}
 														if ValueData, ok := APIKeyData["value"].(map[string]interface{}); ok {
 															return &APITestingDomainsCredentialsAPIKeyValueModel{
 																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsAPIKeyValueBlindfoldSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].APIKey != nil && CredentialsExisting[CredentialsIdx].APIKey.Value != nil && CredentialsExisting[CredentialsIdx].APIKey.Value.BlindfoldSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].APIKey.Value.BlindfoldSecretInfo
+																	}
 																	if BlindfoldSecretInfoData, ok := ValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsAPIKeyValueBlindfoldSecretInfoModel{
 																			DecryptionProvider: func() types.String {
@@ -1026,6 +1043,9 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 																	return nil
 																}(),
 																ClearSecretInfo: func() *APITestingDomainsCredentialsAPIKeyValueClearSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].APIKey != nil && CredentialsExisting[CredentialsIdx].APIKey.Value != nil && CredentialsExisting[CredentialsIdx].APIKey.Value.ClearSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].APIKey.Value.ClearSecretInfo
+																	}
 																	if ClearSecretInfoData, ok := ValueData["clear_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsAPIKeyValueClearSecretInfoModel{
 																			Provider: func() types.String {
@@ -1056,9 +1076,15 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 											if BasicAuthData, ok := CredentialsItemMap["basic_auth"].(map[string]interface{}); ok {
 												return &APITestingDomainsCredentialsBasicAuthModel{
 													Password: func() *APITestingDomainsCredentialsBasicAuthPasswordModel {
+														if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].BasicAuth != nil && CredentialsExisting[CredentialsIdx].BasicAuth.Password != nil {
+															return CredentialsExisting[CredentialsIdx].BasicAuth.Password
+														}
 														if PasswordData, ok := BasicAuthData["password"].(map[string]interface{}); ok {
 															return &APITestingDomainsCredentialsBasicAuthPasswordModel{
 																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsBasicAuthPasswordBlindfoldSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].BasicAuth != nil && CredentialsExisting[CredentialsIdx].BasicAuth.Password != nil && CredentialsExisting[CredentialsIdx].BasicAuth.Password.BlindfoldSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].BasicAuth.Password.BlindfoldSecretInfo
+																	}
 																	if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsBasicAuthPasswordBlindfoldSecretInfoModel{
 																			DecryptionProvider: func() types.String {
@@ -1084,6 +1110,9 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 																	return nil
 																}(),
 																ClearSecretInfo: func() *APITestingDomainsCredentialsBasicAuthPasswordClearSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].BasicAuth != nil && CredentialsExisting[CredentialsIdx].BasicAuth.Password != nil && CredentialsExisting[CredentialsIdx].BasicAuth.Password.ClearSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].BasicAuth.Password.ClearSecretInfo
+																	}
 																	if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsBasicAuthPasswordClearSecretInfoModel{
 																			Provider: func() types.String {
@@ -1120,9 +1149,15 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 											if BearerTokenData, ok := CredentialsItemMap["bearer_token"].(map[string]interface{}); ok {
 												return &APITestingDomainsCredentialsBearerTokenModel{
 													Token: func() *APITestingDomainsCredentialsBearerTokenTokenModel {
+														if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].BearerToken != nil && CredentialsExisting[CredentialsIdx].BearerToken.Token != nil {
+															return CredentialsExisting[CredentialsIdx].BearerToken.Token
+														}
 														if TokenData, ok := BearerTokenData["token"].(map[string]interface{}); ok {
 															return &APITestingDomainsCredentialsBearerTokenTokenModel{
 																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsBearerTokenTokenBlindfoldSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].BearerToken != nil && CredentialsExisting[CredentialsIdx].BearerToken.Token != nil && CredentialsExisting[CredentialsIdx].BearerToken.Token.BlindfoldSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].BearerToken.Token.BlindfoldSecretInfo
+																	}
 																	if BlindfoldSecretInfoData, ok := TokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsBearerTokenTokenBlindfoldSecretInfoModel{
 																			DecryptionProvider: func() types.String {
@@ -1148,6 +1183,9 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 																	return nil
 																}(),
 																ClearSecretInfo: func() *APITestingDomainsCredentialsBearerTokenTokenClearSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].BearerToken != nil && CredentialsExisting[CredentialsIdx].BearerToken.Token != nil && CredentialsExisting[CredentialsIdx].BearerToken.Token.ClearSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].BearerToken.Token.ClearSecretInfo
+																	}
 																	if ClearSecretInfoData, ok := TokenData["clear_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsBearerTokenTokenClearSecretInfoModel{
 																			Provider: func() types.String {
@@ -1184,9 +1222,15 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 											if LoginEndpointData, ok := CredentialsItemMap["login_endpoint"].(map[string]interface{}); ok {
 												return &APITestingDomainsCredentialsLoginEndpointModel{
 													JSONPayload: func() *APITestingDomainsCredentialsLoginEndpointJSONPayloadModel {
+														if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].LoginEndpoint != nil && CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload != nil {
+															return CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload
+														}
 														if JSONPayloadData, ok := LoginEndpointData["json_payload"].(map[string]interface{}); ok {
 															return &APITestingDomainsCredentialsLoginEndpointJSONPayloadModel{
 																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsLoginEndpointJSONPayloadBlindfoldSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].LoginEndpoint != nil && CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload != nil && CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload.BlindfoldSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload.BlindfoldSecretInfo
+																	}
 																	if BlindfoldSecretInfoData, ok := JSONPayloadData["blindfold_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsLoginEndpointJSONPayloadBlindfoldSecretInfoModel{
 																			DecryptionProvider: func() types.String {
@@ -1212,6 +1256,9 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 																	return nil
 																}(),
 																ClearSecretInfo: func() *APITestingDomainsCredentialsLoginEndpointJSONPayloadClearSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].LoginEndpoint != nil && CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload != nil && CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload.ClearSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload.ClearSecretInfo
+																	}
 																	if ClearSecretInfoData, ok := JSONPayloadData["clear_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsLoginEndpointJSONPayloadClearSecretInfoModel{
 																			Provider: func() types.String {
@@ -1257,8 +1304,13 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 											return nil
 										}(),
 										Standard: func() *APITestingEmptyModel {
-											if _, ok := CredentialsItemMap["standard"].(map[string]interface{}); ok {
-												return &APITestingEmptyModel{}
+											if !isImport && len(CredentialsExisting) > CredentialsIdx {
+												return CredentialsExisting[CredentialsIdx].Standard
+											}
+											if !isImport {
+												if _, ok := CredentialsItemMap["standard"].(map[string]interface{}); ok {
+													return &APITestingEmptyModel{}
+												}
 											}
 											return nil
 										}(),
@@ -1410,12 +1462,23 @@ func (r *APITestingResource) Read(ctx context.Context, req resource.ReadRequest,
 						return types.BoolNull()
 					}(),
 					Credentials: func() types.List {
+						if !isImport && len(existingDomainsItems) > listIdx && (existingDomainsItems[listIdx].Credentials.IsNull() || len(existingDomainsItems[listIdx].Credentials.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: APITestingDomainsCredentialsModelAttrTypes})
+						}
+						var CredentialsExisting []APITestingDomainsCredentialsModel
+						if !isImport && len(existingDomainsItems) > listIdx && !existingDomainsItems[listIdx].Credentials.IsNull() && !existingDomainsItems[listIdx].Credentials.IsUnknown() {
+							existingDomainsItems[listIdx].Credentials.ElementsAs(ctx, &CredentialsExisting, false)
+						}
 						if rawList, ok := itemMap["credentials"].([]interface{}); ok && len(rawList) > 0 {
 							var CredentialsResult []APITestingDomainsCredentialsModel
-							for _, CredentialsItem := range rawList {
+							for CredentialsIdx, CredentialsItem := range rawList {
+								_ = CredentialsIdx
 								if CredentialsItemMap, ok := CredentialsItem.(map[string]interface{}); ok {
 									CredentialsResult = append(CredentialsResult, APITestingDomainsCredentialsModel{
 										Admin: func() *APITestingEmptyModel {
+											if !isImport && len(CredentialsExisting) > CredentialsIdx {
+												return CredentialsExisting[CredentialsIdx].Admin
+											}
 											if _, ok := CredentialsItemMap["admin"].(map[string]interface{}); ok {
 												return &APITestingEmptyModel{}
 											}
@@ -1431,9 +1494,15 @@ func (r *APITestingResource) Read(ctx context.Context, req resource.ReadRequest,
 														return types.StringNull()
 													}(),
 													Value: func() *APITestingDomainsCredentialsAPIKeyValueModel {
+														if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].APIKey != nil && CredentialsExisting[CredentialsIdx].APIKey.Value != nil {
+															return CredentialsExisting[CredentialsIdx].APIKey.Value
+														}
 														if ValueData, ok := APIKeyData["value"].(map[string]interface{}); ok {
 															return &APITestingDomainsCredentialsAPIKeyValueModel{
 																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsAPIKeyValueBlindfoldSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].APIKey != nil && CredentialsExisting[CredentialsIdx].APIKey.Value != nil && CredentialsExisting[CredentialsIdx].APIKey.Value.BlindfoldSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].APIKey.Value.BlindfoldSecretInfo
+																	}
 																	if BlindfoldSecretInfoData, ok := ValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsAPIKeyValueBlindfoldSecretInfoModel{
 																			DecryptionProvider: func() types.String {
@@ -1459,6 +1528,9 @@ func (r *APITestingResource) Read(ctx context.Context, req resource.ReadRequest,
 																	return nil
 																}(),
 																ClearSecretInfo: func() *APITestingDomainsCredentialsAPIKeyValueClearSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].APIKey != nil && CredentialsExisting[CredentialsIdx].APIKey.Value != nil && CredentialsExisting[CredentialsIdx].APIKey.Value.ClearSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].APIKey.Value.ClearSecretInfo
+																	}
 																	if ClearSecretInfoData, ok := ValueData["clear_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsAPIKeyValueClearSecretInfoModel{
 																			Provider: func() types.String {
@@ -1489,9 +1561,15 @@ func (r *APITestingResource) Read(ctx context.Context, req resource.ReadRequest,
 											if BasicAuthData, ok := CredentialsItemMap["basic_auth"].(map[string]interface{}); ok {
 												return &APITestingDomainsCredentialsBasicAuthModel{
 													Password: func() *APITestingDomainsCredentialsBasicAuthPasswordModel {
+														if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].BasicAuth != nil && CredentialsExisting[CredentialsIdx].BasicAuth.Password != nil {
+															return CredentialsExisting[CredentialsIdx].BasicAuth.Password
+														}
 														if PasswordData, ok := BasicAuthData["password"].(map[string]interface{}); ok {
 															return &APITestingDomainsCredentialsBasicAuthPasswordModel{
 																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsBasicAuthPasswordBlindfoldSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].BasicAuth != nil && CredentialsExisting[CredentialsIdx].BasicAuth.Password != nil && CredentialsExisting[CredentialsIdx].BasicAuth.Password.BlindfoldSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].BasicAuth.Password.BlindfoldSecretInfo
+																	}
 																	if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsBasicAuthPasswordBlindfoldSecretInfoModel{
 																			DecryptionProvider: func() types.String {
@@ -1517,6 +1595,9 @@ func (r *APITestingResource) Read(ctx context.Context, req resource.ReadRequest,
 																	return nil
 																}(),
 																ClearSecretInfo: func() *APITestingDomainsCredentialsBasicAuthPasswordClearSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].BasicAuth != nil && CredentialsExisting[CredentialsIdx].BasicAuth.Password != nil && CredentialsExisting[CredentialsIdx].BasicAuth.Password.ClearSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].BasicAuth.Password.ClearSecretInfo
+																	}
 																	if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsBasicAuthPasswordClearSecretInfoModel{
 																			Provider: func() types.String {
@@ -1553,9 +1634,15 @@ func (r *APITestingResource) Read(ctx context.Context, req resource.ReadRequest,
 											if BearerTokenData, ok := CredentialsItemMap["bearer_token"].(map[string]interface{}); ok {
 												return &APITestingDomainsCredentialsBearerTokenModel{
 													Token: func() *APITestingDomainsCredentialsBearerTokenTokenModel {
+														if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].BearerToken != nil && CredentialsExisting[CredentialsIdx].BearerToken.Token != nil {
+															return CredentialsExisting[CredentialsIdx].BearerToken.Token
+														}
 														if TokenData, ok := BearerTokenData["token"].(map[string]interface{}); ok {
 															return &APITestingDomainsCredentialsBearerTokenTokenModel{
 																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsBearerTokenTokenBlindfoldSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].BearerToken != nil && CredentialsExisting[CredentialsIdx].BearerToken.Token != nil && CredentialsExisting[CredentialsIdx].BearerToken.Token.BlindfoldSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].BearerToken.Token.BlindfoldSecretInfo
+																	}
 																	if BlindfoldSecretInfoData, ok := TokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsBearerTokenTokenBlindfoldSecretInfoModel{
 																			DecryptionProvider: func() types.String {
@@ -1581,6 +1668,9 @@ func (r *APITestingResource) Read(ctx context.Context, req resource.ReadRequest,
 																	return nil
 																}(),
 																ClearSecretInfo: func() *APITestingDomainsCredentialsBearerTokenTokenClearSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].BearerToken != nil && CredentialsExisting[CredentialsIdx].BearerToken.Token != nil && CredentialsExisting[CredentialsIdx].BearerToken.Token.ClearSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].BearerToken.Token.ClearSecretInfo
+																	}
 																	if ClearSecretInfoData, ok := TokenData["clear_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsBearerTokenTokenClearSecretInfoModel{
 																			Provider: func() types.String {
@@ -1617,9 +1707,15 @@ func (r *APITestingResource) Read(ctx context.Context, req resource.ReadRequest,
 											if LoginEndpointData, ok := CredentialsItemMap["login_endpoint"].(map[string]interface{}); ok {
 												return &APITestingDomainsCredentialsLoginEndpointModel{
 													JSONPayload: func() *APITestingDomainsCredentialsLoginEndpointJSONPayloadModel {
+														if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].LoginEndpoint != nil && CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload != nil {
+															return CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload
+														}
 														if JSONPayloadData, ok := LoginEndpointData["json_payload"].(map[string]interface{}); ok {
 															return &APITestingDomainsCredentialsLoginEndpointJSONPayloadModel{
 																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsLoginEndpointJSONPayloadBlindfoldSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].LoginEndpoint != nil && CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload != nil && CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload.BlindfoldSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload.BlindfoldSecretInfo
+																	}
 																	if BlindfoldSecretInfoData, ok := JSONPayloadData["blindfold_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsLoginEndpointJSONPayloadBlindfoldSecretInfoModel{
 																			DecryptionProvider: func() types.String {
@@ -1645,6 +1741,9 @@ func (r *APITestingResource) Read(ctx context.Context, req resource.ReadRequest,
 																	return nil
 																}(),
 																ClearSecretInfo: func() *APITestingDomainsCredentialsLoginEndpointJSONPayloadClearSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].LoginEndpoint != nil && CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload != nil && CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload.ClearSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload.ClearSecretInfo
+																	}
 																	if ClearSecretInfoData, ok := JSONPayloadData["clear_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsLoginEndpointJSONPayloadClearSecretInfoModel{
 																			Provider: func() types.String {
@@ -1690,8 +1789,13 @@ func (r *APITestingResource) Read(ctx context.Context, req resource.ReadRequest,
 											return nil
 										}(),
 										Standard: func() *APITestingEmptyModel {
-											if _, ok := CredentialsItemMap["standard"].(map[string]interface{}); ok {
-												return &APITestingEmptyModel{}
+											if !isImport && len(CredentialsExisting) > CredentialsIdx {
+												return CredentialsExisting[CredentialsIdx].Standard
+											}
+											if !isImport {
+												if _, ok := CredentialsItemMap["standard"].(map[string]interface{}); ok {
+													return &APITestingEmptyModel{}
+												}
 											}
 											return nil
 										}(),
@@ -2025,12 +2129,23 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 						return types.BoolNull()
 					}(),
 					Credentials: func() types.List {
+						if !isImport && len(existingDomainsItems) > listIdx && (existingDomainsItems[listIdx].Credentials.IsNull() || len(existingDomainsItems[listIdx].Credentials.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: APITestingDomainsCredentialsModelAttrTypes})
+						}
+						var CredentialsExisting []APITestingDomainsCredentialsModel
+						if !isImport && len(existingDomainsItems) > listIdx && !existingDomainsItems[listIdx].Credentials.IsNull() && !existingDomainsItems[listIdx].Credentials.IsUnknown() {
+							existingDomainsItems[listIdx].Credentials.ElementsAs(ctx, &CredentialsExisting, false)
+						}
 						if rawList, ok := itemMap["credentials"].([]interface{}); ok && len(rawList) > 0 {
 							var CredentialsResult []APITestingDomainsCredentialsModel
-							for _, CredentialsItem := range rawList {
+							for CredentialsIdx, CredentialsItem := range rawList {
+								_ = CredentialsIdx
 								if CredentialsItemMap, ok := CredentialsItem.(map[string]interface{}); ok {
 									CredentialsResult = append(CredentialsResult, APITestingDomainsCredentialsModel{
 										Admin: func() *APITestingEmptyModel {
+											if !isImport && len(CredentialsExisting) > CredentialsIdx {
+												return CredentialsExisting[CredentialsIdx].Admin
+											}
 											if _, ok := CredentialsItemMap["admin"].(map[string]interface{}); ok {
 												return &APITestingEmptyModel{}
 											}
@@ -2046,9 +2161,15 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 														return types.StringNull()
 													}(),
 													Value: func() *APITestingDomainsCredentialsAPIKeyValueModel {
+														if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].APIKey != nil && CredentialsExisting[CredentialsIdx].APIKey.Value != nil {
+															return CredentialsExisting[CredentialsIdx].APIKey.Value
+														}
 														if ValueData, ok := APIKeyData["value"].(map[string]interface{}); ok {
 															return &APITestingDomainsCredentialsAPIKeyValueModel{
 																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsAPIKeyValueBlindfoldSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].APIKey != nil && CredentialsExisting[CredentialsIdx].APIKey.Value != nil && CredentialsExisting[CredentialsIdx].APIKey.Value.BlindfoldSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].APIKey.Value.BlindfoldSecretInfo
+																	}
 																	if BlindfoldSecretInfoData, ok := ValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsAPIKeyValueBlindfoldSecretInfoModel{
 																			DecryptionProvider: func() types.String {
@@ -2074,6 +2195,9 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 																	return nil
 																}(),
 																ClearSecretInfo: func() *APITestingDomainsCredentialsAPIKeyValueClearSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].APIKey != nil && CredentialsExisting[CredentialsIdx].APIKey.Value != nil && CredentialsExisting[CredentialsIdx].APIKey.Value.ClearSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].APIKey.Value.ClearSecretInfo
+																	}
 																	if ClearSecretInfoData, ok := ValueData["clear_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsAPIKeyValueClearSecretInfoModel{
 																			Provider: func() types.String {
@@ -2104,9 +2228,15 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 											if BasicAuthData, ok := CredentialsItemMap["basic_auth"].(map[string]interface{}); ok {
 												return &APITestingDomainsCredentialsBasicAuthModel{
 													Password: func() *APITestingDomainsCredentialsBasicAuthPasswordModel {
+														if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].BasicAuth != nil && CredentialsExisting[CredentialsIdx].BasicAuth.Password != nil {
+															return CredentialsExisting[CredentialsIdx].BasicAuth.Password
+														}
 														if PasswordData, ok := BasicAuthData["password"].(map[string]interface{}); ok {
 															return &APITestingDomainsCredentialsBasicAuthPasswordModel{
 																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsBasicAuthPasswordBlindfoldSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].BasicAuth != nil && CredentialsExisting[CredentialsIdx].BasicAuth.Password != nil && CredentialsExisting[CredentialsIdx].BasicAuth.Password.BlindfoldSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].BasicAuth.Password.BlindfoldSecretInfo
+																	}
 																	if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsBasicAuthPasswordBlindfoldSecretInfoModel{
 																			DecryptionProvider: func() types.String {
@@ -2132,6 +2262,9 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 																	return nil
 																}(),
 																ClearSecretInfo: func() *APITestingDomainsCredentialsBasicAuthPasswordClearSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].BasicAuth != nil && CredentialsExisting[CredentialsIdx].BasicAuth.Password != nil && CredentialsExisting[CredentialsIdx].BasicAuth.Password.ClearSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].BasicAuth.Password.ClearSecretInfo
+																	}
 																	if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsBasicAuthPasswordClearSecretInfoModel{
 																			Provider: func() types.String {
@@ -2168,9 +2301,15 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 											if BearerTokenData, ok := CredentialsItemMap["bearer_token"].(map[string]interface{}); ok {
 												return &APITestingDomainsCredentialsBearerTokenModel{
 													Token: func() *APITestingDomainsCredentialsBearerTokenTokenModel {
+														if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].BearerToken != nil && CredentialsExisting[CredentialsIdx].BearerToken.Token != nil {
+															return CredentialsExisting[CredentialsIdx].BearerToken.Token
+														}
 														if TokenData, ok := BearerTokenData["token"].(map[string]interface{}); ok {
 															return &APITestingDomainsCredentialsBearerTokenTokenModel{
 																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsBearerTokenTokenBlindfoldSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].BearerToken != nil && CredentialsExisting[CredentialsIdx].BearerToken.Token != nil && CredentialsExisting[CredentialsIdx].BearerToken.Token.BlindfoldSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].BearerToken.Token.BlindfoldSecretInfo
+																	}
 																	if BlindfoldSecretInfoData, ok := TokenData["blindfold_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsBearerTokenTokenBlindfoldSecretInfoModel{
 																			DecryptionProvider: func() types.String {
@@ -2196,6 +2335,9 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 																	return nil
 																}(),
 																ClearSecretInfo: func() *APITestingDomainsCredentialsBearerTokenTokenClearSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].BearerToken != nil && CredentialsExisting[CredentialsIdx].BearerToken.Token != nil && CredentialsExisting[CredentialsIdx].BearerToken.Token.ClearSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].BearerToken.Token.ClearSecretInfo
+																	}
 																	if ClearSecretInfoData, ok := TokenData["clear_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsBearerTokenTokenClearSecretInfoModel{
 																			Provider: func() types.String {
@@ -2232,9 +2374,15 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 											if LoginEndpointData, ok := CredentialsItemMap["login_endpoint"].(map[string]interface{}); ok {
 												return &APITestingDomainsCredentialsLoginEndpointModel{
 													JSONPayload: func() *APITestingDomainsCredentialsLoginEndpointJSONPayloadModel {
+														if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].LoginEndpoint != nil && CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload != nil {
+															return CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload
+														}
 														if JSONPayloadData, ok := LoginEndpointData["json_payload"].(map[string]interface{}); ok {
 															return &APITestingDomainsCredentialsLoginEndpointJSONPayloadModel{
 																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsLoginEndpointJSONPayloadBlindfoldSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].LoginEndpoint != nil && CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload != nil && CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload.BlindfoldSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload.BlindfoldSecretInfo
+																	}
 																	if BlindfoldSecretInfoData, ok := JSONPayloadData["blindfold_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsLoginEndpointJSONPayloadBlindfoldSecretInfoModel{
 																			DecryptionProvider: func() types.String {
@@ -2260,6 +2408,9 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 																	return nil
 																}(),
 																ClearSecretInfo: func() *APITestingDomainsCredentialsLoginEndpointJSONPayloadClearSecretInfoModel {
+																	if !isImport && len(CredentialsExisting) > CredentialsIdx && CredentialsExisting[CredentialsIdx].LoginEndpoint != nil && CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload != nil && CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload.ClearSecretInfo != nil {
+																		return CredentialsExisting[CredentialsIdx].LoginEndpoint.JSONPayload.ClearSecretInfo
+																	}
 																	if ClearSecretInfoData, ok := JSONPayloadData["clear_secret_info"].(map[string]interface{}); ok {
 																		return &APITestingDomainsCredentialsLoginEndpointJSONPayloadClearSecretInfoModel{
 																			Provider: func() types.String {
@@ -2305,8 +2456,13 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 											return nil
 										}(),
 										Standard: func() *APITestingEmptyModel {
-											if _, ok := CredentialsItemMap["standard"].(map[string]interface{}); ok {
-												return &APITestingEmptyModel{}
+											if !isImport && len(CredentialsExisting) > CredentialsIdx {
+												return CredentialsExisting[CredentialsIdx].Standard
+											}
+											if !isImport {
+												if _, ok := CredentialsItemMap["standard"].(map[string]interface{}); ok {
+													return &APITestingEmptyModel{}
+												}
 											}
 											return nil
 										}(),

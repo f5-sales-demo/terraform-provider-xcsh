@@ -545,8 +545,8 @@ func (r *VirtualNetworkResource) Create(ctx context.Context, req resource.Create
 						return types.ListNull(types.StringType)
 					}(),
 					DefaultGateway: func() *VirtualNetworkEmptyModel {
-						if !isImport && len(existingStaticRoutesItems) > listIdx && existingStaticRoutesItems[listIdx].DefaultGateway != nil {
-							return &VirtualNetworkEmptyModel{}
+						if !isImport && len(existingStaticRoutesItems) > listIdx {
+							return existingStaticRoutesItems[listIdx].DefaultGateway
 						}
 						if _, ok := itemMap["default_gateway"].(map[string]interface{}); ok {
 							return &VirtualNetworkEmptyModel{}
@@ -590,9 +590,17 @@ func (r *VirtualNetworkResource) Create(ctx context.Context, req resource.Create
 											if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 												ListResult = append(ListResult, VirtualNetworkStaticRoutesNodeInterfaceListModel{
 													Interface: func() types.List {
+														if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+														}
+														var InterfaceExisting []VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModel
+														if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+															ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+														}
 														if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 															var InterfaceResult []VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModel
-															for _, InterfaceItem := range rawList {
+															for InterfaceIdx, InterfaceItem := range rawList {
+																_ = InterfaceIdx
 																if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																	InterfaceResult = append(InterfaceResult, VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModel{
 																		Kind: func() types.String {
@@ -795,8 +803,8 @@ func (r *VirtualNetworkResource) Read(ctx context.Context, req resource.ReadRequ
 						return types.ListNull(types.StringType)
 					}(),
 					DefaultGateway: func() *VirtualNetworkEmptyModel {
-						if !isImport && len(existingStaticRoutesItems) > listIdx && existingStaticRoutesItems[listIdx].DefaultGateway != nil {
-							return &VirtualNetworkEmptyModel{}
+						if !isImport && len(existingStaticRoutesItems) > listIdx {
+							return existingStaticRoutesItems[listIdx].DefaultGateway
 						}
 						if _, ok := itemMap["default_gateway"].(map[string]interface{}); ok {
 							return &VirtualNetworkEmptyModel{}
@@ -840,9 +848,17 @@ func (r *VirtualNetworkResource) Read(ctx context.Context, req resource.ReadRequ
 											if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 												ListResult = append(ListResult, VirtualNetworkStaticRoutesNodeInterfaceListModel{
 													Interface: func() types.List {
+														if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+														}
+														var InterfaceExisting []VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModel
+														if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+															ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+														}
 														if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 															var InterfaceResult []VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModel
-															for _, InterfaceItem := range rawList {
+															for InterfaceIdx, InterfaceItem := range rawList {
+																_ = InterfaceIdx
 																if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																	InterfaceResult = append(InterfaceResult, VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModel{
 																		Kind: func() types.String {
@@ -1128,8 +1144,8 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 						return types.ListNull(types.StringType)
 					}(),
 					DefaultGateway: func() *VirtualNetworkEmptyModel {
-						if !isImport && len(existingStaticRoutesItems) > listIdx && existingStaticRoutesItems[listIdx].DefaultGateway != nil {
-							return &VirtualNetworkEmptyModel{}
+						if !isImport && len(existingStaticRoutesItems) > listIdx {
+							return existingStaticRoutesItems[listIdx].DefaultGateway
 						}
 						if _, ok := itemMap["default_gateway"].(map[string]interface{}); ok {
 							return &VirtualNetworkEmptyModel{}
@@ -1173,9 +1189,17 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 											if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 												ListResult = append(ListResult, VirtualNetworkStaticRoutesNodeInterfaceListModel{
 													Interface: func() types.List {
+														if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+														}
+														var InterfaceExisting []VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModel
+														if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+															ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+														}
 														if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 															var InterfaceResult []VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModel
-															for _, InterfaceItem := range rawList {
+															for InterfaceIdx, InterfaceItem := range rawList {
+																_ = InterfaceIdx
 																if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																	InterfaceResult = append(InterfaceResult, VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModel{
 																		Kind: func() types.String {

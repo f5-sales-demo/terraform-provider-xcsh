@@ -1133,15 +1133,31 @@ func (r *CDNCacheRuleResource) Create(ctx context.Context, req resource.CreateRe
 						if RuleExpressionListItemMap, ok := RuleExpressionListItem.(map[string]interface{}); ok {
 							RuleExpressionListResult = append(RuleExpressionListResult, CDNCacheRuleCacheRulesRuleExpressionListModel{
 								CacheRuleExpression: func() types.List {
+									if !isImport && len(RuleExpressionListExisting) > RuleExpressionListIdx && (RuleExpressionListExisting[RuleExpressionListIdx].CacheRuleExpression.IsNull() || len(RuleExpressionListExisting[RuleExpressionListIdx].CacheRuleExpression.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionModelAttrTypes})
+									}
+									var CacheRuleExpressionExisting []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionModel
+									if !isImport && len(RuleExpressionListExisting) > RuleExpressionListIdx && !RuleExpressionListExisting[RuleExpressionListIdx].CacheRuleExpression.IsNull() && !RuleExpressionListExisting[RuleExpressionListIdx].CacheRuleExpression.IsUnknown() {
+										RuleExpressionListExisting[RuleExpressionListIdx].CacheRuleExpression.ElementsAs(ctx, &CacheRuleExpressionExisting, false)
+									}
 									if rawList, ok := RuleExpressionListItemMap["cache_rule_expression"].([]interface{}); ok && len(rawList) > 0 {
 										var CacheRuleExpressionResult []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionModel
-										for _, CacheRuleExpressionItem := range rawList {
+										for CacheRuleExpressionIdx, CacheRuleExpressionItem := range rawList {
+											_ = CacheRuleExpressionIdx
 											if CacheRuleExpressionItemMap, ok := CacheRuleExpressionItem.(map[string]interface{}); ok {
 												CacheRuleExpressionResult = append(CacheRuleExpressionResult, CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionModel{
 													CacheHeaders: func() types.List {
+														if !isImport && len(CacheRuleExpressionExisting) > CacheRuleExpressionIdx && (CacheRuleExpressionExisting[CacheRuleExpressionIdx].CacheHeaders.IsNull() || len(CacheRuleExpressionExisting[CacheRuleExpressionIdx].CacheHeaders.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersModelAttrTypes})
+														}
+														var CacheHeadersExisting []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersModel
+														if !isImport && len(CacheRuleExpressionExisting) > CacheRuleExpressionIdx && !CacheRuleExpressionExisting[CacheRuleExpressionIdx].CacheHeaders.IsNull() && !CacheRuleExpressionExisting[CacheRuleExpressionIdx].CacheHeaders.IsUnknown() {
+															CacheRuleExpressionExisting[CacheRuleExpressionIdx].CacheHeaders.ElementsAs(ctx, &CacheHeadersExisting, false)
+														}
 														if rawList, ok := CacheRuleExpressionItemMap["cache_headers"].([]interface{}); ok && len(rawList) > 0 {
 															var CacheHeadersResult []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersModel
-															for _, CacheHeadersItem := range rawList {
+															for CacheHeadersIdx, CacheHeadersItem := range rawList {
+																_ = CacheHeadersIdx
 																if CacheHeadersItemMap, ok := CacheHeadersItem.(map[string]interface{}); ok {
 																	CacheHeadersResult = append(CacheHeadersResult, CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersModel{
 																		Name: func() types.String {
@@ -1220,9 +1236,17 @@ func (r *CDNCacheRuleResource) Create(ctx context.Context, req resource.CreateRe
 														return types.ListNull(types.ObjectType{AttrTypes: CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersModelAttrTypes})
 													}(),
 													CookieMatcher: func() types.List {
+														if !isImport && len(CacheRuleExpressionExisting) > CacheRuleExpressionIdx && (CacheRuleExpressionExisting[CacheRuleExpressionIdx].CookieMatcher.IsNull() || len(CacheRuleExpressionExisting[CacheRuleExpressionIdx].CookieMatcher.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherModelAttrTypes})
+														}
+														var CookieMatcherExisting []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherModel
+														if !isImport && len(CacheRuleExpressionExisting) > CacheRuleExpressionIdx && !CacheRuleExpressionExisting[CacheRuleExpressionIdx].CookieMatcher.IsNull() && !CacheRuleExpressionExisting[CacheRuleExpressionIdx].CookieMatcher.IsUnknown() {
+															CacheRuleExpressionExisting[CacheRuleExpressionIdx].CookieMatcher.ElementsAs(ctx, &CookieMatcherExisting, false)
+														}
 														if rawList, ok := CacheRuleExpressionItemMap["cookie_matcher"].([]interface{}); ok && len(rawList) > 0 {
 															var CookieMatcherResult []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherModel
-															for _, CookieMatcherItem := range rawList {
+															for CookieMatcherIdx, CookieMatcherItem := range rawList {
+																_ = CookieMatcherIdx
 																if CookieMatcherItemMap, ok := CookieMatcherItem.(map[string]interface{}); ok {
 																	CookieMatcherResult = append(CookieMatcherResult, CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherModel{
 																		Name: func() types.String {
@@ -1304,6 +1328,9 @@ func (r *CDNCacheRuleResource) Create(ctx context.Context, req resource.CreateRe
 														if PathMatchData, ok := CacheRuleExpressionItemMap["path_match"].(map[string]interface{}); ok {
 															return &CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionPathMatchModel{
 																Operator: func() *CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorModel {
+																	if !isImport && len(CacheRuleExpressionExisting) > CacheRuleExpressionIdx && CacheRuleExpressionExisting[CacheRuleExpressionIdx].PathMatch != nil && CacheRuleExpressionExisting[CacheRuleExpressionIdx].PathMatch.Operator != nil {
+																		return CacheRuleExpressionExisting[CacheRuleExpressionIdx].PathMatch.Operator
+																	}
 																	if OperatorData, ok := PathMatchData["operator"].(map[string]interface{}); ok {
 																		return &CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorModel{
 																			Contains: func() types.String {
@@ -1369,9 +1396,17 @@ func (r *CDNCacheRuleResource) Create(ctx context.Context, req resource.CreateRe
 														return nil
 													}(),
 													QueryParameters: func() types.List {
+														if !isImport && len(CacheRuleExpressionExisting) > CacheRuleExpressionIdx && (CacheRuleExpressionExisting[CacheRuleExpressionIdx].QueryParameters.IsNull() || len(CacheRuleExpressionExisting[CacheRuleExpressionIdx].QueryParameters.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionQueryParametersModelAttrTypes})
+														}
+														var QueryParametersExisting []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionQueryParametersModel
+														if !isImport && len(CacheRuleExpressionExisting) > CacheRuleExpressionIdx && !CacheRuleExpressionExisting[CacheRuleExpressionIdx].QueryParameters.IsNull() && !CacheRuleExpressionExisting[CacheRuleExpressionIdx].QueryParameters.IsUnknown() {
+															CacheRuleExpressionExisting[CacheRuleExpressionIdx].QueryParameters.ElementsAs(ctx, &QueryParametersExisting, false)
+														}
 														if rawList, ok := CacheRuleExpressionItemMap["query_parameters"].([]interface{}); ok && len(rawList) > 0 {
 															var QueryParametersResult []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionQueryParametersModel
-															for _, QueryParametersItem := range rawList {
+															for QueryParametersIdx, QueryParametersItem := range rawList {
+																_ = QueryParametersIdx
 																if QueryParametersItemMap, ok := QueryParametersItem.(map[string]interface{}); ok {
 																	QueryParametersResult = append(QueryParametersResult, CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionQueryParametersModel{
 																		Key: func() types.String {
@@ -1676,15 +1711,31 @@ func (r *CDNCacheRuleResource) Read(ctx context.Context, req resource.ReadReques
 						if RuleExpressionListItemMap, ok := RuleExpressionListItem.(map[string]interface{}); ok {
 							RuleExpressionListResult = append(RuleExpressionListResult, CDNCacheRuleCacheRulesRuleExpressionListModel{
 								CacheRuleExpression: func() types.List {
+									if !isImport && len(RuleExpressionListExisting) > RuleExpressionListIdx && (RuleExpressionListExisting[RuleExpressionListIdx].CacheRuleExpression.IsNull() || len(RuleExpressionListExisting[RuleExpressionListIdx].CacheRuleExpression.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionModelAttrTypes})
+									}
+									var CacheRuleExpressionExisting []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionModel
+									if !isImport && len(RuleExpressionListExisting) > RuleExpressionListIdx && !RuleExpressionListExisting[RuleExpressionListIdx].CacheRuleExpression.IsNull() && !RuleExpressionListExisting[RuleExpressionListIdx].CacheRuleExpression.IsUnknown() {
+										RuleExpressionListExisting[RuleExpressionListIdx].CacheRuleExpression.ElementsAs(ctx, &CacheRuleExpressionExisting, false)
+									}
 									if rawList, ok := RuleExpressionListItemMap["cache_rule_expression"].([]interface{}); ok && len(rawList) > 0 {
 										var CacheRuleExpressionResult []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionModel
-										for _, CacheRuleExpressionItem := range rawList {
+										for CacheRuleExpressionIdx, CacheRuleExpressionItem := range rawList {
+											_ = CacheRuleExpressionIdx
 											if CacheRuleExpressionItemMap, ok := CacheRuleExpressionItem.(map[string]interface{}); ok {
 												CacheRuleExpressionResult = append(CacheRuleExpressionResult, CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionModel{
 													CacheHeaders: func() types.List {
+														if !isImport && len(CacheRuleExpressionExisting) > CacheRuleExpressionIdx && (CacheRuleExpressionExisting[CacheRuleExpressionIdx].CacheHeaders.IsNull() || len(CacheRuleExpressionExisting[CacheRuleExpressionIdx].CacheHeaders.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersModelAttrTypes})
+														}
+														var CacheHeadersExisting []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersModel
+														if !isImport && len(CacheRuleExpressionExisting) > CacheRuleExpressionIdx && !CacheRuleExpressionExisting[CacheRuleExpressionIdx].CacheHeaders.IsNull() && !CacheRuleExpressionExisting[CacheRuleExpressionIdx].CacheHeaders.IsUnknown() {
+															CacheRuleExpressionExisting[CacheRuleExpressionIdx].CacheHeaders.ElementsAs(ctx, &CacheHeadersExisting, false)
+														}
 														if rawList, ok := CacheRuleExpressionItemMap["cache_headers"].([]interface{}); ok && len(rawList) > 0 {
 															var CacheHeadersResult []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersModel
-															for _, CacheHeadersItem := range rawList {
+															for CacheHeadersIdx, CacheHeadersItem := range rawList {
+																_ = CacheHeadersIdx
 																if CacheHeadersItemMap, ok := CacheHeadersItem.(map[string]interface{}); ok {
 																	CacheHeadersResult = append(CacheHeadersResult, CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersModel{
 																		Name: func() types.String {
@@ -1763,9 +1814,17 @@ func (r *CDNCacheRuleResource) Read(ctx context.Context, req resource.ReadReques
 														return types.ListNull(types.ObjectType{AttrTypes: CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersModelAttrTypes})
 													}(),
 													CookieMatcher: func() types.List {
+														if !isImport && len(CacheRuleExpressionExisting) > CacheRuleExpressionIdx && (CacheRuleExpressionExisting[CacheRuleExpressionIdx].CookieMatcher.IsNull() || len(CacheRuleExpressionExisting[CacheRuleExpressionIdx].CookieMatcher.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherModelAttrTypes})
+														}
+														var CookieMatcherExisting []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherModel
+														if !isImport && len(CacheRuleExpressionExisting) > CacheRuleExpressionIdx && !CacheRuleExpressionExisting[CacheRuleExpressionIdx].CookieMatcher.IsNull() && !CacheRuleExpressionExisting[CacheRuleExpressionIdx].CookieMatcher.IsUnknown() {
+															CacheRuleExpressionExisting[CacheRuleExpressionIdx].CookieMatcher.ElementsAs(ctx, &CookieMatcherExisting, false)
+														}
 														if rawList, ok := CacheRuleExpressionItemMap["cookie_matcher"].([]interface{}); ok && len(rawList) > 0 {
 															var CookieMatcherResult []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherModel
-															for _, CookieMatcherItem := range rawList {
+															for CookieMatcherIdx, CookieMatcherItem := range rawList {
+																_ = CookieMatcherIdx
 																if CookieMatcherItemMap, ok := CookieMatcherItem.(map[string]interface{}); ok {
 																	CookieMatcherResult = append(CookieMatcherResult, CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherModel{
 																		Name: func() types.String {
@@ -1847,6 +1906,9 @@ func (r *CDNCacheRuleResource) Read(ctx context.Context, req resource.ReadReques
 														if PathMatchData, ok := CacheRuleExpressionItemMap["path_match"].(map[string]interface{}); ok {
 															return &CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionPathMatchModel{
 																Operator: func() *CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorModel {
+																	if !isImport && len(CacheRuleExpressionExisting) > CacheRuleExpressionIdx && CacheRuleExpressionExisting[CacheRuleExpressionIdx].PathMatch != nil && CacheRuleExpressionExisting[CacheRuleExpressionIdx].PathMatch.Operator != nil {
+																		return CacheRuleExpressionExisting[CacheRuleExpressionIdx].PathMatch.Operator
+																	}
 																	if OperatorData, ok := PathMatchData["operator"].(map[string]interface{}); ok {
 																		return &CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorModel{
 																			Contains: func() types.String {
@@ -1912,9 +1974,17 @@ func (r *CDNCacheRuleResource) Read(ctx context.Context, req resource.ReadReques
 														return nil
 													}(),
 													QueryParameters: func() types.List {
+														if !isImport && len(CacheRuleExpressionExisting) > CacheRuleExpressionIdx && (CacheRuleExpressionExisting[CacheRuleExpressionIdx].QueryParameters.IsNull() || len(CacheRuleExpressionExisting[CacheRuleExpressionIdx].QueryParameters.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionQueryParametersModelAttrTypes})
+														}
+														var QueryParametersExisting []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionQueryParametersModel
+														if !isImport && len(CacheRuleExpressionExisting) > CacheRuleExpressionIdx && !CacheRuleExpressionExisting[CacheRuleExpressionIdx].QueryParameters.IsNull() && !CacheRuleExpressionExisting[CacheRuleExpressionIdx].QueryParameters.IsUnknown() {
+															CacheRuleExpressionExisting[CacheRuleExpressionIdx].QueryParameters.ElementsAs(ctx, &QueryParametersExisting, false)
+														}
 														if rawList, ok := CacheRuleExpressionItemMap["query_parameters"].([]interface{}); ok && len(rawList) > 0 {
 															var QueryParametersResult []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionQueryParametersModel
-															for _, QueryParametersItem := range rawList {
+															for QueryParametersIdx, QueryParametersItem := range rawList {
+																_ = QueryParametersIdx
 																if QueryParametersItemMap, ok := QueryParametersItem.(map[string]interface{}); ok {
 																	QueryParametersResult = append(QueryParametersResult, CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionQueryParametersModel{
 																		Key: func() types.String {
@@ -2454,15 +2524,31 @@ func (r *CDNCacheRuleResource) Update(ctx context.Context, req resource.UpdateRe
 						if RuleExpressionListItemMap, ok := RuleExpressionListItem.(map[string]interface{}); ok {
 							RuleExpressionListResult = append(RuleExpressionListResult, CDNCacheRuleCacheRulesRuleExpressionListModel{
 								CacheRuleExpression: func() types.List {
+									if !isImport && len(RuleExpressionListExisting) > RuleExpressionListIdx && (RuleExpressionListExisting[RuleExpressionListIdx].CacheRuleExpression.IsNull() || len(RuleExpressionListExisting[RuleExpressionListIdx].CacheRuleExpression.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionModelAttrTypes})
+									}
+									var CacheRuleExpressionExisting []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionModel
+									if !isImport && len(RuleExpressionListExisting) > RuleExpressionListIdx && !RuleExpressionListExisting[RuleExpressionListIdx].CacheRuleExpression.IsNull() && !RuleExpressionListExisting[RuleExpressionListIdx].CacheRuleExpression.IsUnknown() {
+										RuleExpressionListExisting[RuleExpressionListIdx].CacheRuleExpression.ElementsAs(ctx, &CacheRuleExpressionExisting, false)
+									}
 									if rawList, ok := RuleExpressionListItemMap["cache_rule_expression"].([]interface{}); ok && len(rawList) > 0 {
 										var CacheRuleExpressionResult []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionModel
-										for _, CacheRuleExpressionItem := range rawList {
+										for CacheRuleExpressionIdx, CacheRuleExpressionItem := range rawList {
+											_ = CacheRuleExpressionIdx
 											if CacheRuleExpressionItemMap, ok := CacheRuleExpressionItem.(map[string]interface{}); ok {
 												CacheRuleExpressionResult = append(CacheRuleExpressionResult, CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionModel{
 													CacheHeaders: func() types.List {
+														if !isImport && len(CacheRuleExpressionExisting) > CacheRuleExpressionIdx && (CacheRuleExpressionExisting[CacheRuleExpressionIdx].CacheHeaders.IsNull() || len(CacheRuleExpressionExisting[CacheRuleExpressionIdx].CacheHeaders.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersModelAttrTypes})
+														}
+														var CacheHeadersExisting []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersModel
+														if !isImport && len(CacheRuleExpressionExisting) > CacheRuleExpressionIdx && !CacheRuleExpressionExisting[CacheRuleExpressionIdx].CacheHeaders.IsNull() && !CacheRuleExpressionExisting[CacheRuleExpressionIdx].CacheHeaders.IsUnknown() {
+															CacheRuleExpressionExisting[CacheRuleExpressionIdx].CacheHeaders.ElementsAs(ctx, &CacheHeadersExisting, false)
+														}
 														if rawList, ok := CacheRuleExpressionItemMap["cache_headers"].([]interface{}); ok && len(rawList) > 0 {
 															var CacheHeadersResult []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersModel
-															for _, CacheHeadersItem := range rawList {
+															for CacheHeadersIdx, CacheHeadersItem := range rawList {
+																_ = CacheHeadersIdx
 																if CacheHeadersItemMap, ok := CacheHeadersItem.(map[string]interface{}); ok {
 																	CacheHeadersResult = append(CacheHeadersResult, CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersModel{
 																		Name: func() types.String {
@@ -2541,9 +2627,17 @@ func (r *CDNCacheRuleResource) Update(ctx context.Context, req resource.UpdateRe
 														return types.ListNull(types.ObjectType{AttrTypes: CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersModelAttrTypes})
 													}(),
 													CookieMatcher: func() types.List {
+														if !isImport && len(CacheRuleExpressionExisting) > CacheRuleExpressionIdx && (CacheRuleExpressionExisting[CacheRuleExpressionIdx].CookieMatcher.IsNull() || len(CacheRuleExpressionExisting[CacheRuleExpressionIdx].CookieMatcher.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherModelAttrTypes})
+														}
+														var CookieMatcherExisting []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherModel
+														if !isImport && len(CacheRuleExpressionExisting) > CacheRuleExpressionIdx && !CacheRuleExpressionExisting[CacheRuleExpressionIdx].CookieMatcher.IsNull() && !CacheRuleExpressionExisting[CacheRuleExpressionIdx].CookieMatcher.IsUnknown() {
+															CacheRuleExpressionExisting[CacheRuleExpressionIdx].CookieMatcher.ElementsAs(ctx, &CookieMatcherExisting, false)
+														}
 														if rawList, ok := CacheRuleExpressionItemMap["cookie_matcher"].([]interface{}); ok && len(rawList) > 0 {
 															var CookieMatcherResult []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherModel
-															for _, CookieMatcherItem := range rawList {
+															for CookieMatcherIdx, CookieMatcherItem := range rawList {
+																_ = CookieMatcherIdx
 																if CookieMatcherItemMap, ok := CookieMatcherItem.(map[string]interface{}); ok {
 																	CookieMatcherResult = append(CookieMatcherResult, CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherModel{
 																		Name: func() types.String {
@@ -2625,6 +2719,9 @@ func (r *CDNCacheRuleResource) Update(ctx context.Context, req resource.UpdateRe
 														if PathMatchData, ok := CacheRuleExpressionItemMap["path_match"].(map[string]interface{}); ok {
 															return &CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionPathMatchModel{
 																Operator: func() *CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorModel {
+																	if !isImport && len(CacheRuleExpressionExisting) > CacheRuleExpressionIdx && CacheRuleExpressionExisting[CacheRuleExpressionIdx].PathMatch != nil && CacheRuleExpressionExisting[CacheRuleExpressionIdx].PathMatch.Operator != nil {
+																		return CacheRuleExpressionExisting[CacheRuleExpressionIdx].PathMatch.Operator
+																	}
 																	if OperatorData, ok := PathMatchData["operator"].(map[string]interface{}); ok {
 																		return &CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorModel{
 																			Contains: func() types.String {
@@ -2690,9 +2787,17 @@ func (r *CDNCacheRuleResource) Update(ctx context.Context, req resource.UpdateRe
 														return nil
 													}(),
 													QueryParameters: func() types.List {
+														if !isImport && len(CacheRuleExpressionExisting) > CacheRuleExpressionIdx && (CacheRuleExpressionExisting[CacheRuleExpressionIdx].QueryParameters.IsNull() || len(CacheRuleExpressionExisting[CacheRuleExpressionIdx].QueryParameters.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionQueryParametersModelAttrTypes})
+														}
+														var QueryParametersExisting []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionQueryParametersModel
+														if !isImport && len(CacheRuleExpressionExisting) > CacheRuleExpressionIdx && !CacheRuleExpressionExisting[CacheRuleExpressionIdx].QueryParameters.IsNull() && !CacheRuleExpressionExisting[CacheRuleExpressionIdx].QueryParameters.IsUnknown() {
+															CacheRuleExpressionExisting[CacheRuleExpressionIdx].QueryParameters.ElementsAs(ctx, &QueryParametersExisting, false)
+														}
 														if rawList, ok := CacheRuleExpressionItemMap["query_parameters"].([]interface{}); ok && len(rawList) > 0 {
 															var QueryParametersResult []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionQueryParametersModel
-															for _, QueryParametersItem := range rawList {
+															for QueryParametersIdx, QueryParametersItem := range rawList {
+																_ = QueryParametersIdx
 																if QueryParametersItemMap, ok := QueryParametersItem.(map[string]interface{}); ok {
 																	QueryParametersResult = append(QueryParametersResult, CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionQueryParametersModel{
 																		Key: func() types.String {

@@ -1801,18 +1801,32 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 									return nil
 								}(),
 								Port: func() types.List {
+									if !isImport && len(FastACLRulesExisting) > FastACLRulesIdx && (FastACLRulesExisting[FastACLRulesIdx].Port.IsNull() || len(FastACLRulesExisting[FastACLRulesIdx].Port.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesPortModelAttrTypes})
+									}
+									var PortExisting []FastACLREACLFastACLRulesPortModel
+									if !isImport && len(FastACLRulesExisting) > FastACLRulesIdx && !FastACLRulesExisting[FastACLRulesIdx].Port.IsNull() && !FastACLRulesExisting[FastACLRulesIdx].Port.IsUnknown() {
+										FastACLRulesExisting[FastACLRulesIdx].Port.ElementsAs(ctx, &PortExisting, false)
+									}
 									if rawList, ok := FastACLRulesItemMap["port"].([]interface{}); ok && len(rawList) > 0 {
 										var PortResult []FastACLREACLFastACLRulesPortModel
-										for _, PortItem := range rawList {
+										for PortIdx, PortItem := range rawList {
+											_ = PortIdx
 											if PortItemMap, ok := PortItem.(map[string]interface{}); ok {
 												PortResult = append(PortResult, FastACLREACLFastACLRulesPortModel{
 													All: func() *FastACLEmptyModel {
+														if !isImport && len(PortExisting) > PortIdx {
+															return PortExisting[PortIdx].All
+														}
 														if _, ok := PortItemMap["all"].(map[string]interface{}); ok {
 															return &FastACLEmptyModel{}
 														}
 														return nil
 													}(),
 													DNS: func() *FastACLEmptyModel {
+														if !isImport && len(PortExisting) > PortIdx {
+															return PortExisting[PortIdx].DNS
+														}
 														if _, ok := PortItemMap["dns"].(map[string]interface{}); ok {
 															return &FastACLEmptyModel{}
 														}
@@ -2153,18 +2167,32 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 									return nil
 								}(),
 								Port: func() types.List {
+									if !isImport && len(FastACLRulesExisting) > FastACLRulesIdx && (FastACLRulesExisting[FastACLRulesIdx].Port.IsNull() || len(FastACLRulesExisting[FastACLRulesIdx].Port.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesPortModelAttrTypes})
+									}
+									var PortExisting []FastACLSiteACLFastACLRulesPortModel
+									if !isImport && len(FastACLRulesExisting) > FastACLRulesIdx && !FastACLRulesExisting[FastACLRulesIdx].Port.IsNull() && !FastACLRulesExisting[FastACLRulesIdx].Port.IsUnknown() {
+										FastACLRulesExisting[FastACLRulesIdx].Port.ElementsAs(ctx, &PortExisting, false)
+									}
 									if rawList, ok := FastACLRulesItemMap["port"].([]interface{}); ok && len(rawList) > 0 {
 										var PortResult []FastACLSiteACLFastACLRulesPortModel
-										for _, PortItem := range rawList {
+										for PortIdx, PortItem := range rawList {
+											_ = PortIdx
 											if PortItemMap, ok := PortItem.(map[string]interface{}); ok {
 												PortResult = append(PortResult, FastACLSiteACLFastACLRulesPortModel{
 													All: func() *FastACLEmptyModel {
+														if !isImport && len(PortExisting) > PortIdx {
+															return PortExisting[PortIdx].All
+														}
 														if _, ok := PortItemMap["all"].(map[string]interface{}); ok {
 															return &FastACLEmptyModel{}
 														}
 														return nil
 													}(),
 													DNS: func() *FastACLEmptyModel {
+														if !isImport && len(PortExisting) > PortIdx {
+															return PortExisting[PortIdx].DNS
+														}
 														if _, ok := PortItemMap["dns"].(map[string]interface{}); ok {
 															return &FastACLEmptyModel{}
 														}
@@ -2609,18 +2637,32 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 									return nil
 								}(),
 								Port: func() types.List {
+									if !isImport && len(FastACLRulesExisting) > FastACLRulesIdx && (FastACLRulesExisting[FastACLRulesIdx].Port.IsNull() || len(FastACLRulesExisting[FastACLRulesIdx].Port.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesPortModelAttrTypes})
+									}
+									var PortExisting []FastACLREACLFastACLRulesPortModel
+									if !isImport && len(FastACLRulesExisting) > FastACLRulesIdx && !FastACLRulesExisting[FastACLRulesIdx].Port.IsNull() && !FastACLRulesExisting[FastACLRulesIdx].Port.IsUnknown() {
+										FastACLRulesExisting[FastACLRulesIdx].Port.ElementsAs(ctx, &PortExisting, false)
+									}
 									if rawList, ok := FastACLRulesItemMap["port"].([]interface{}); ok && len(rawList) > 0 {
 										var PortResult []FastACLREACLFastACLRulesPortModel
-										for _, PortItem := range rawList {
+										for PortIdx, PortItem := range rawList {
+											_ = PortIdx
 											if PortItemMap, ok := PortItem.(map[string]interface{}); ok {
 												PortResult = append(PortResult, FastACLREACLFastACLRulesPortModel{
 													All: func() *FastACLEmptyModel {
+														if !isImport && len(PortExisting) > PortIdx {
+															return PortExisting[PortIdx].All
+														}
 														if _, ok := PortItemMap["all"].(map[string]interface{}); ok {
 															return &FastACLEmptyModel{}
 														}
 														return nil
 													}(),
 													DNS: func() *FastACLEmptyModel {
+														if !isImport && len(PortExisting) > PortIdx {
+															return PortExisting[PortIdx].DNS
+														}
 														if _, ok := PortItemMap["dns"].(map[string]interface{}); ok {
 															return &FastACLEmptyModel{}
 														}
@@ -2961,18 +3003,32 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 									return nil
 								}(),
 								Port: func() types.List {
+									if !isImport && len(FastACLRulesExisting) > FastACLRulesIdx && (FastACLRulesExisting[FastACLRulesIdx].Port.IsNull() || len(FastACLRulesExisting[FastACLRulesIdx].Port.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesPortModelAttrTypes})
+									}
+									var PortExisting []FastACLSiteACLFastACLRulesPortModel
+									if !isImport && len(FastACLRulesExisting) > FastACLRulesIdx && !FastACLRulesExisting[FastACLRulesIdx].Port.IsNull() && !FastACLRulesExisting[FastACLRulesIdx].Port.IsUnknown() {
+										FastACLRulesExisting[FastACLRulesIdx].Port.ElementsAs(ctx, &PortExisting, false)
+									}
 									if rawList, ok := FastACLRulesItemMap["port"].([]interface{}); ok && len(rawList) > 0 {
 										var PortResult []FastACLSiteACLFastACLRulesPortModel
-										for _, PortItem := range rawList {
+										for PortIdx, PortItem := range rawList {
+											_ = PortIdx
 											if PortItemMap, ok := PortItem.(map[string]interface{}); ok {
 												PortResult = append(PortResult, FastACLSiteACLFastACLRulesPortModel{
 													All: func() *FastACLEmptyModel {
+														if !isImport && len(PortExisting) > PortIdx {
+															return PortExisting[PortIdx].All
+														}
 														if _, ok := PortItemMap["all"].(map[string]interface{}); ok {
 															return &FastACLEmptyModel{}
 														}
 														return nil
 													}(),
 													DNS: func() *FastACLEmptyModel {
+														if !isImport && len(PortExisting) > PortIdx {
+															return PortExisting[PortIdx].DNS
+														}
 														if _, ok := PortItemMap["dns"].(map[string]interface{}); ok {
 															return &FastACLEmptyModel{}
 														}
@@ -3796,18 +3852,32 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 									return nil
 								}(),
 								Port: func() types.List {
+									if !isImport && len(FastACLRulesExisting) > FastACLRulesIdx && (FastACLRulesExisting[FastACLRulesIdx].Port.IsNull() || len(FastACLRulesExisting[FastACLRulesIdx].Port.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: FastACLREACLFastACLRulesPortModelAttrTypes})
+									}
+									var PortExisting []FastACLREACLFastACLRulesPortModel
+									if !isImport && len(FastACLRulesExisting) > FastACLRulesIdx && !FastACLRulesExisting[FastACLRulesIdx].Port.IsNull() && !FastACLRulesExisting[FastACLRulesIdx].Port.IsUnknown() {
+										FastACLRulesExisting[FastACLRulesIdx].Port.ElementsAs(ctx, &PortExisting, false)
+									}
 									if rawList, ok := FastACLRulesItemMap["port"].([]interface{}); ok && len(rawList) > 0 {
 										var PortResult []FastACLREACLFastACLRulesPortModel
-										for _, PortItem := range rawList {
+										for PortIdx, PortItem := range rawList {
+											_ = PortIdx
 											if PortItemMap, ok := PortItem.(map[string]interface{}); ok {
 												PortResult = append(PortResult, FastACLREACLFastACLRulesPortModel{
 													All: func() *FastACLEmptyModel {
+														if !isImport && len(PortExisting) > PortIdx {
+															return PortExisting[PortIdx].All
+														}
 														if _, ok := PortItemMap["all"].(map[string]interface{}); ok {
 															return &FastACLEmptyModel{}
 														}
 														return nil
 													}(),
 													DNS: func() *FastACLEmptyModel {
+														if !isImport && len(PortExisting) > PortIdx {
+															return PortExisting[PortIdx].DNS
+														}
 														if _, ok := PortItemMap["dns"].(map[string]interface{}); ok {
 															return &FastACLEmptyModel{}
 														}
@@ -4148,18 +4218,32 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 									return nil
 								}(),
 								Port: func() types.List {
+									if !isImport && len(FastACLRulesExisting) > FastACLRulesIdx && (FastACLRulesExisting[FastACLRulesIdx].Port.IsNull() || len(FastACLRulesExisting[FastACLRulesIdx].Port.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesPortModelAttrTypes})
+									}
+									var PortExisting []FastACLSiteACLFastACLRulesPortModel
+									if !isImport && len(FastACLRulesExisting) > FastACLRulesIdx && !FastACLRulesExisting[FastACLRulesIdx].Port.IsNull() && !FastACLRulesExisting[FastACLRulesIdx].Port.IsUnknown() {
+										FastACLRulesExisting[FastACLRulesIdx].Port.ElementsAs(ctx, &PortExisting, false)
+									}
 									if rawList, ok := FastACLRulesItemMap["port"].([]interface{}); ok && len(rawList) > 0 {
 										var PortResult []FastACLSiteACLFastACLRulesPortModel
-										for _, PortItem := range rawList {
+										for PortIdx, PortItem := range rawList {
+											_ = PortIdx
 											if PortItemMap, ok := PortItem.(map[string]interface{}); ok {
 												PortResult = append(PortResult, FastACLSiteACLFastACLRulesPortModel{
 													All: func() *FastACLEmptyModel {
+														if !isImport && len(PortExisting) > PortIdx {
+															return PortExisting[PortIdx].All
+														}
 														if _, ok := PortItemMap["all"].(map[string]interface{}); ok {
 															return &FastACLEmptyModel{}
 														}
 														return nil
 													}(),
 													DNS: func() *FastACLEmptyModel {
+														if !isImport && len(PortExisting) > PortIdx {
+															return PortExisting[PortIdx].DNS
+														}
 														if _, ok := PortItemMap["dns"].(map[string]interface{}); ok {
 															return &FastACLEmptyModel{}
 														}

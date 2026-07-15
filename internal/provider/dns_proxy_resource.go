@@ -2193,8 +2193,8 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 												return nil
 											}(),
 											ICMPHealthCheck: func() *DNSProxyEmptyModel {
-												if !isImport && len(HealthCheckExisting) > HealthCheckIdx && HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck != nil {
-													return &DNSProxyEmptyModel{}
+												if !isImport && len(HealthCheckExisting) > HealthCheckIdx {
+													return HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck
 												}
 												if _, ok := HealthCheckItemMap["icmp_health_check"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
@@ -2428,8 +2428,8 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 									return nil
 								}(),
 								NoPreference: func() *DNSProxyEmptyModel {
-									if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].NoPreference != nil {
-										return &DNSProxyEmptyModel{}
+									if !isImport && len(OriginServersExisting) > OriginServersIdx {
+										return OriginServersExisting[OriginServersIdx].NoPreference
 									}
 									if _, ok := OriginServersItemMap["no_preference"].(map[string]interface{}); ok {
 										return &DNSProxyEmptyModel{}
@@ -2658,8 +2658,8 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 												return nil
 											}(),
 											UseDefaultPort: func() *DNSProxyEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
-													return &DNSProxyEmptyModel{}
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+													return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 												}
 												if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
@@ -3196,8 +3196,8 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 												return nil
 											}(),
 											ICMPHealthCheck: func() *DNSProxyEmptyModel {
-												if !isImport && len(HealthCheckExisting) > HealthCheckIdx && HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck != nil {
-													return &DNSProxyEmptyModel{}
+												if !isImport && len(HealthCheckExisting) > HealthCheckIdx {
+													return HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck
 												}
 												if _, ok := HealthCheckItemMap["icmp_health_check"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
@@ -3431,8 +3431,8 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 									return nil
 								}(),
 								NoPreference: func() *DNSProxyEmptyModel {
-									if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].NoPreference != nil {
-										return &DNSProxyEmptyModel{}
+									if !isImport && len(OriginServersExisting) > OriginServersIdx {
+										return OriginServersExisting[OriginServersIdx].NoPreference
 									}
 									if _, ok := OriginServersItemMap["no_preference"].(map[string]interface{}); ok {
 										return &DNSProxyEmptyModel{}
@@ -3661,8 +3661,8 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 												return nil
 											}(),
 											UseDefaultPort: func() *DNSProxyEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
-													return &DNSProxyEmptyModel{}
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+													return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 												}
 												if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
@@ -4643,8 +4643,8 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 												return nil
 											}(),
 											ICMPHealthCheck: func() *DNSProxyEmptyModel {
-												if !isImport && len(HealthCheckExisting) > HealthCheckIdx && HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck != nil {
-													return &DNSProxyEmptyModel{}
+												if !isImport && len(HealthCheckExisting) > HealthCheckIdx {
+													return HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck
 												}
 												if _, ok := HealthCheckItemMap["icmp_health_check"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}
@@ -4878,8 +4878,8 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 									return nil
 								}(),
 								NoPreference: func() *DNSProxyEmptyModel {
-									if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].NoPreference != nil {
-										return &DNSProxyEmptyModel{}
+									if !isImport && len(OriginServersExisting) > OriginServersIdx {
+										return OriginServersExisting[OriginServersIdx].NoPreference
 									}
 									if _, ok := OriginServersItemMap["no_preference"].(map[string]interface{}); ok {
 										return &DNSProxyEmptyModel{}
@@ -5108,8 +5108,8 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 												return nil
 											}(),
 											UseDefaultPort: func() *DNSProxyEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
-													return &DNSProxyEmptyModel{}
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+													return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 												}
 												if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 													return &DNSProxyEmptyModel{}

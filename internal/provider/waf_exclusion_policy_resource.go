@@ -678,8 +678,8 @@ func (r *WAFExclusionPolicyResource) Create(ctx context.Context, req resource.Cr
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				WAFExclusionRulesList = append(WAFExclusionRulesList, WAFExclusionPolicyWAFExclusionRulesModel{
 					AnyDomain: func() *WAFExclusionPolicyEmptyModel {
-						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && existingWAFExclusionRulesItems[listIdx].AnyDomain != nil {
-							return &WAFExclusionPolicyEmptyModel{}
+						if !isImport && len(existingWAFExclusionRulesItems) > listIdx {
+							return existingWAFExclusionRulesItems[listIdx].AnyDomain
 						}
 						if _, ok := itemMap["any_domain"].(map[string]interface{}); ok {
 							return &WAFExclusionPolicyEmptyModel{}
@@ -687,8 +687,8 @@ func (r *WAFExclusionPolicyResource) Create(ctx context.Context, req resource.Cr
 						return nil
 					}(),
 					AnyPath: func() *WAFExclusionPolicyEmptyModel {
-						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && existingWAFExclusionRulesItems[listIdx].AnyPath != nil {
-							return &WAFExclusionPolicyEmptyModel{}
+						if !isImport && len(existingWAFExclusionRulesItems) > listIdx {
+							return existingWAFExclusionRulesItems[listIdx].AnyPath
 						}
 						if _, ok := itemMap["any_path"].(map[string]interface{}); ok {
 							return &WAFExclusionPolicyEmptyModel{}
@@ -913,8 +913,8 @@ func (r *WAFExclusionPolicyResource) Create(ctx context.Context, req resource.Cr
 						return types.StringNull()
 					}(),
 					WAFSkipProcessing: func() *WAFExclusionPolicyEmptyModel {
-						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && existingWAFExclusionRulesItems[listIdx].WAFSkipProcessing != nil {
-							return &WAFExclusionPolicyEmptyModel{}
+						if !isImport && len(existingWAFExclusionRulesItems) > listIdx {
+							return existingWAFExclusionRulesItems[listIdx].WAFSkipProcessing
 						}
 						if _, ok := itemMap["waf_skip_processing"].(map[string]interface{}); ok {
 							return &WAFExclusionPolicyEmptyModel{}
@@ -1038,8 +1038,8 @@ func (r *WAFExclusionPolicyResource) Read(ctx context.Context, req resource.Read
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				WAFExclusionRulesList = append(WAFExclusionRulesList, WAFExclusionPolicyWAFExclusionRulesModel{
 					AnyDomain: func() *WAFExclusionPolicyEmptyModel {
-						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && existingWAFExclusionRulesItems[listIdx].AnyDomain != nil {
-							return &WAFExclusionPolicyEmptyModel{}
+						if !isImport && len(existingWAFExclusionRulesItems) > listIdx {
+							return existingWAFExclusionRulesItems[listIdx].AnyDomain
 						}
 						if _, ok := itemMap["any_domain"].(map[string]interface{}); ok {
 							return &WAFExclusionPolicyEmptyModel{}
@@ -1047,8 +1047,8 @@ func (r *WAFExclusionPolicyResource) Read(ctx context.Context, req resource.Read
 						return nil
 					}(),
 					AnyPath: func() *WAFExclusionPolicyEmptyModel {
-						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && existingWAFExclusionRulesItems[listIdx].AnyPath != nil {
-							return &WAFExclusionPolicyEmptyModel{}
+						if !isImport && len(existingWAFExclusionRulesItems) > listIdx {
+							return existingWAFExclusionRulesItems[listIdx].AnyPath
 						}
 						if _, ok := itemMap["any_path"].(map[string]interface{}); ok {
 							return &WAFExclusionPolicyEmptyModel{}
@@ -1273,8 +1273,8 @@ func (r *WAFExclusionPolicyResource) Read(ctx context.Context, req resource.Read
 						return types.StringNull()
 					}(),
 					WAFSkipProcessing: func() *WAFExclusionPolicyEmptyModel {
-						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && existingWAFExclusionRulesItems[listIdx].WAFSkipProcessing != nil {
-							return &WAFExclusionPolicyEmptyModel{}
+						if !isImport && len(existingWAFExclusionRulesItems) > listIdx {
+							return existingWAFExclusionRulesItems[listIdx].WAFSkipProcessing
 						}
 						if _, ok := itemMap["waf_skip_processing"].(map[string]interface{}); ok {
 							return &WAFExclusionPolicyEmptyModel{}
@@ -1528,8 +1528,8 @@ func (r *WAFExclusionPolicyResource) Update(ctx context.Context, req resource.Up
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				WAFExclusionRulesList = append(WAFExclusionRulesList, WAFExclusionPolicyWAFExclusionRulesModel{
 					AnyDomain: func() *WAFExclusionPolicyEmptyModel {
-						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && existingWAFExclusionRulesItems[listIdx].AnyDomain != nil {
-							return &WAFExclusionPolicyEmptyModel{}
+						if !isImport && len(existingWAFExclusionRulesItems) > listIdx {
+							return existingWAFExclusionRulesItems[listIdx].AnyDomain
 						}
 						if _, ok := itemMap["any_domain"].(map[string]interface{}); ok {
 							return &WAFExclusionPolicyEmptyModel{}
@@ -1537,8 +1537,8 @@ func (r *WAFExclusionPolicyResource) Update(ctx context.Context, req resource.Up
 						return nil
 					}(),
 					AnyPath: func() *WAFExclusionPolicyEmptyModel {
-						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && existingWAFExclusionRulesItems[listIdx].AnyPath != nil {
-							return &WAFExclusionPolicyEmptyModel{}
+						if !isImport && len(existingWAFExclusionRulesItems) > listIdx {
+							return existingWAFExclusionRulesItems[listIdx].AnyPath
 						}
 						if _, ok := itemMap["any_path"].(map[string]interface{}); ok {
 							return &WAFExclusionPolicyEmptyModel{}
@@ -1763,8 +1763,8 @@ func (r *WAFExclusionPolicyResource) Update(ctx context.Context, req resource.Up
 						return types.StringNull()
 					}(),
 					WAFSkipProcessing: func() *WAFExclusionPolicyEmptyModel {
-						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && existingWAFExclusionRulesItems[listIdx].WAFSkipProcessing != nil {
-							return &WAFExclusionPolicyEmptyModel{}
+						if !isImport && len(existingWAFExclusionRulesItems) > listIdx {
+							return existingWAFExclusionRulesItems[listIdx].WAFSkipProcessing
 						}
 						if _, ok := itemMap["waf_skip_processing"].(map[string]interface{}); ok {
 							return &WAFExclusionPolicyEmptyModel{}

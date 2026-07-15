@@ -697,8 +697,8 @@ func (r *FastACLRuleResource) Create(ctx context.Context, req resource.CreateReq
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				PortList = append(PortList, FastACLRulePortModel{
 					All: func() *FastACLRuleEmptyModel {
-						if !isImport && len(existingPortItems) > listIdx && existingPortItems[listIdx].All != nil {
-							return &FastACLRuleEmptyModel{}
+						if !isImport && len(existingPortItems) > listIdx {
+							return existingPortItems[listIdx].All
 						}
 						if _, ok := itemMap["all"].(map[string]interface{}); ok {
 							return &FastACLRuleEmptyModel{}
@@ -706,8 +706,8 @@ func (r *FastACLRuleResource) Create(ctx context.Context, req resource.CreateReq
 						return nil
 					}(),
 					DNS: func() *FastACLRuleEmptyModel {
-						if !isImport && len(existingPortItems) > listIdx && existingPortItems[listIdx].DNS != nil {
-							return &FastACLRuleEmptyModel{}
+						if !isImport && len(existingPortItems) > listIdx {
+							return existingPortItems[listIdx].DNS
 						}
 						if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 							return &FastACLRuleEmptyModel{}
@@ -1038,8 +1038,8 @@ func (r *FastACLRuleResource) Read(ctx context.Context, req resource.ReadRequest
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				PortList = append(PortList, FastACLRulePortModel{
 					All: func() *FastACLRuleEmptyModel {
-						if !isImport && len(existingPortItems) > listIdx && existingPortItems[listIdx].All != nil {
-							return &FastACLRuleEmptyModel{}
+						if !isImport && len(existingPortItems) > listIdx {
+							return existingPortItems[listIdx].All
 						}
 						if _, ok := itemMap["all"].(map[string]interface{}); ok {
 							return &FastACLRuleEmptyModel{}
@@ -1047,8 +1047,8 @@ func (r *FastACLRuleResource) Read(ctx context.Context, req resource.ReadRequest
 						return nil
 					}(),
 					DNS: func() *FastACLRuleEmptyModel {
-						if !isImport && len(existingPortItems) > listIdx && existingPortItems[listIdx].DNS != nil {
-							return &FastACLRuleEmptyModel{}
+						if !isImport && len(existingPortItems) > listIdx {
+							return existingPortItems[listIdx].DNS
 						}
 						if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 							return &FastACLRuleEmptyModel{}
@@ -1505,8 +1505,8 @@ func (r *FastACLRuleResource) Update(ctx context.Context, req resource.UpdateReq
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				PortList = append(PortList, FastACLRulePortModel{
 					All: func() *FastACLRuleEmptyModel {
-						if !isImport && len(existingPortItems) > listIdx && existingPortItems[listIdx].All != nil {
-							return &FastACLRuleEmptyModel{}
+						if !isImport && len(existingPortItems) > listIdx {
+							return existingPortItems[listIdx].All
 						}
 						if _, ok := itemMap["all"].(map[string]interface{}); ok {
 							return &FastACLRuleEmptyModel{}
@@ -1514,8 +1514,8 @@ func (r *FastACLRuleResource) Update(ctx context.Context, req resource.UpdateReq
 						return nil
 					}(),
 					DNS: func() *FastACLRuleEmptyModel {
-						if !isImport && len(existingPortItems) > listIdx && existingPortItems[listIdx].DNS != nil {
-							return &FastACLRuleEmptyModel{}
+						if !isImport && len(existingPortItems) > listIdx {
+							return existingPortItems[listIdx].DNS
 						}
 						if _, ok := itemMap["dns"].(map[string]interface{}); ok {
 							return &FastACLRuleEmptyModel{}

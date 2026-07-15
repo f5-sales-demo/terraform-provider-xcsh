@@ -5097,8 +5097,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						return types.StringNull()
 					}(),
 					AddHttponly: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].AddHttponly != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].AddHttponly
 						}
 						if _, ok := itemMap["add_httponly"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -5106,8 +5106,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						return nil
 					}(),
 					AddPartitioned: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].AddPartitioned != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].AddPartitioned
 						}
 						if _, ok := itemMap["add_partitioned"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -5121,8 +5121,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						return types.StringNull()
 					}(),
 					AddSecure: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].AddSecure != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].AddSecure
 						}
 						if _, ok := itemMap["add_secure"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -5130,8 +5130,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						return nil
 					}(),
 					IgnoreDomain: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnoreDomain != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnoreDomain
 						}
 						if _, ok := itemMap["ignore_domain"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -5139,8 +5139,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						return nil
 					}(),
 					IgnoreExpiry: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnoreExpiry != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnoreExpiry
 						}
 						if _, ok := itemMap["ignore_expiry"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -5148,8 +5148,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						return nil
 					}(),
 					IgnoreHttponly: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnoreHttponly != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnoreHttponly
 						}
 						if _, ok := itemMap["ignore_httponly"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -5157,8 +5157,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						return nil
 					}(),
 					IgnoreMaxAge: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnoreMaxAge != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnoreMaxAge
 						}
 						if _, ok := itemMap["ignore_max_age"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -5166,8 +5166,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						return nil
 					}(),
 					IgnorePartitioned: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnorePartitioned != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnorePartitioned
 						}
 						if _, ok := itemMap["ignore_partitioned"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -5175,8 +5175,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						return nil
 					}(),
 					IgnorePath: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnorePath != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnorePath
 						}
 						if _, ok := itemMap["ignore_path"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -5184,8 +5184,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						return nil
 					}(),
 					IgnoreSamesite: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnoreSamesite != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnoreSamesite
 						}
 						if _, ok := itemMap["ignore_samesite"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -5193,8 +5193,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						return nil
 					}(),
 					IgnoreSecure: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnoreSecure != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnoreSecure
 						}
 						if _, ok := itemMap["ignore_secure"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -5202,8 +5202,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						return nil
 					}(),
 					IgnoreValue: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnoreValue != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnoreValue
 						}
 						if _, ok := itemMap["ignore_value"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -5229,8 +5229,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						return types.BoolNull()
 					}(),
 					SamesiteLax: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].SamesiteLax != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].SamesiteLax
 						}
 						if _, ok := itemMap["samesite_lax"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -5238,8 +5238,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						return nil
 					}(),
 					SamesiteNone: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].SamesiteNone != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].SamesiteNone
 						}
 						if _, ok := itemMap["samesite_none"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -5247,8 +5247,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						return nil
 					}(),
 					SamesiteStrict: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].SamesiteStrict != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].SamesiteStrict
 						}
 						if _, ok := itemMap["samesite_strict"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -5980,8 +5980,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *VirtualHostEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &VirtualHostEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &VirtualHostEmptyModel{}
@@ -6046,8 +6046,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 												return nil
 											}(),
 											UseSystemDefaults: func() *VirtualHostEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &VirtualHostEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &VirtualHostEmptyModel{}
@@ -7544,8 +7544,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 						return types.StringNull()
 					}(),
 					AddHttponly: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].AddHttponly != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].AddHttponly
 						}
 						if _, ok := itemMap["add_httponly"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -7553,8 +7553,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 						return nil
 					}(),
 					AddPartitioned: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].AddPartitioned != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].AddPartitioned
 						}
 						if _, ok := itemMap["add_partitioned"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -7568,8 +7568,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 						return types.StringNull()
 					}(),
 					AddSecure: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].AddSecure != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].AddSecure
 						}
 						if _, ok := itemMap["add_secure"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -7577,8 +7577,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 						return nil
 					}(),
 					IgnoreDomain: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnoreDomain != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnoreDomain
 						}
 						if _, ok := itemMap["ignore_domain"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -7586,8 +7586,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 						return nil
 					}(),
 					IgnoreExpiry: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnoreExpiry != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnoreExpiry
 						}
 						if _, ok := itemMap["ignore_expiry"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -7595,8 +7595,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 						return nil
 					}(),
 					IgnoreHttponly: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnoreHttponly != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnoreHttponly
 						}
 						if _, ok := itemMap["ignore_httponly"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -7604,8 +7604,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 						return nil
 					}(),
 					IgnoreMaxAge: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnoreMaxAge != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnoreMaxAge
 						}
 						if _, ok := itemMap["ignore_max_age"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -7613,8 +7613,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 						return nil
 					}(),
 					IgnorePartitioned: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnorePartitioned != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnorePartitioned
 						}
 						if _, ok := itemMap["ignore_partitioned"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -7622,8 +7622,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 						return nil
 					}(),
 					IgnorePath: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnorePath != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnorePath
 						}
 						if _, ok := itemMap["ignore_path"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -7631,8 +7631,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 						return nil
 					}(),
 					IgnoreSamesite: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnoreSamesite != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnoreSamesite
 						}
 						if _, ok := itemMap["ignore_samesite"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -7640,8 +7640,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 						return nil
 					}(),
 					IgnoreSecure: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnoreSecure != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnoreSecure
 						}
 						if _, ok := itemMap["ignore_secure"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -7649,8 +7649,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 						return nil
 					}(),
 					IgnoreValue: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnoreValue != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnoreValue
 						}
 						if _, ok := itemMap["ignore_value"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -7676,8 +7676,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 						return types.BoolNull()
 					}(),
 					SamesiteLax: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].SamesiteLax != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].SamesiteLax
 						}
 						if _, ok := itemMap["samesite_lax"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -7685,8 +7685,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 						return nil
 					}(),
 					SamesiteNone: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].SamesiteNone != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].SamesiteNone
 						}
 						if _, ok := itemMap["samesite_none"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -7694,8 +7694,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 						return nil
 					}(),
 					SamesiteStrict: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].SamesiteStrict != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].SamesiteStrict
 						}
 						if _, ok := itemMap["samesite_strict"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -8427,8 +8427,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *VirtualHostEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &VirtualHostEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &VirtualHostEmptyModel{}
@@ -8493,8 +8493,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 												return nil
 											}(),
 											UseSystemDefaults: func() *VirtualHostEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &VirtualHostEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &VirtualHostEmptyModel{}
@@ -11150,8 +11150,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						return types.StringNull()
 					}(),
 					AddHttponly: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].AddHttponly != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].AddHttponly
 						}
 						if _, ok := itemMap["add_httponly"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -11159,8 +11159,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						return nil
 					}(),
 					AddPartitioned: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].AddPartitioned != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].AddPartitioned
 						}
 						if _, ok := itemMap["add_partitioned"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -11174,8 +11174,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						return types.StringNull()
 					}(),
 					AddSecure: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].AddSecure != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].AddSecure
 						}
 						if _, ok := itemMap["add_secure"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -11183,8 +11183,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						return nil
 					}(),
 					IgnoreDomain: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnoreDomain != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnoreDomain
 						}
 						if _, ok := itemMap["ignore_domain"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -11192,8 +11192,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						return nil
 					}(),
 					IgnoreExpiry: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnoreExpiry != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnoreExpiry
 						}
 						if _, ok := itemMap["ignore_expiry"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -11201,8 +11201,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						return nil
 					}(),
 					IgnoreHttponly: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnoreHttponly != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnoreHttponly
 						}
 						if _, ok := itemMap["ignore_httponly"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -11210,8 +11210,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						return nil
 					}(),
 					IgnoreMaxAge: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnoreMaxAge != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnoreMaxAge
 						}
 						if _, ok := itemMap["ignore_max_age"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -11219,8 +11219,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						return nil
 					}(),
 					IgnorePartitioned: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnorePartitioned != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnorePartitioned
 						}
 						if _, ok := itemMap["ignore_partitioned"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -11228,8 +11228,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						return nil
 					}(),
 					IgnorePath: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnorePath != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnorePath
 						}
 						if _, ok := itemMap["ignore_path"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -11237,8 +11237,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						return nil
 					}(),
 					IgnoreSamesite: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnoreSamesite != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnoreSamesite
 						}
 						if _, ok := itemMap["ignore_samesite"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -11246,8 +11246,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						return nil
 					}(),
 					IgnoreSecure: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnoreSecure != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnoreSecure
 						}
 						if _, ok := itemMap["ignore_secure"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -11255,8 +11255,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						return nil
 					}(),
 					IgnoreValue: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].IgnoreValue != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].IgnoreValue
 						}
 						if _, ok := itemMap["ignore_value"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -11282,8 +11282,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						return types.BoolNull()
 					}(),
 					SamesiteLax: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].SamesiteLax != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].SamesiteLax
 						}
 						if _, ok := itemMap["samesite_lax"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -11291,8 +11291,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						return nil
 					}(),
 					SamesiteNone: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].SamesiteNone != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].SamesiteNone
 						}
 						if _, ok := itemMap["samesite_none"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -11300,8 +11300,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						return nil
 					}(),
 					SamesiteStrict: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && existingResponseCookiesToAddItems[listIdx].SamesiteStrict != nil {
-							return &VirtualHostEmptyModel{}
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+							return existingResponseCookiesToAddItems[listIdx].SamesiteStrict
 						}
 						if _, ok := itemMap["samesite_strict"].(map[string]interface{}); ok {
 							return &VirtualHostEmptyModel{}
@@ -12033,8 +12033,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *VirtualHostEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &VirtualHostEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &VirtualHostEmptyModel{}
@@ -12099,8 +12099,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 												return nil
 											}(),
 											UseSystemDefaults: func() *VirtualHostEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &VirtualHostEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &VirtualHostEmptyModel{}
